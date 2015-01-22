@@ -1,0 +1,155 @@
+﻿.map_legend {
+    width: 100%;
+    color: #888;
+}
+
+.map_legend_icon {
+    height: 30px;
+}
+
+.map_legend_header {
+    width: 100%;
+    border-bottom: 1px solid #f0efef;
+    margin-bottom: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .map_legend_header span {
+        position: relative;
+        top: 6px;
+        background-color: #fff;
+        padding: 0px 20px;
+        font-variant: small-caps;
+        font-weight: bold;
+        font-size: 10px;
+        color: #888;
+    }
+    .map-controls{
+        /*width: 300px;*/
+        padding: 20px;
+    }
+.map_side {
+    padding: 15px;
+    width: 240px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    opacity: 1;
+    overflow: hidden;
+    display: none;
+}
+.church-mode{
+    position: absolute;
+    padding: 0 5px;
+    z-index: 999;
+}
+.gm-style-iw{
+    overflow-y: auto;
+}
+.church-grid img{
+    height: 25px;
+}
+.map-legend {
+   /*height: 200px;*/
+    bottom: 0;
+}
+#measurement_graph{
+    width: 100%;
+}
+.jf_label {
+    background-color: yellow;
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+    border: 1px solid #8a890b;
+    white-space: nowrap;
+    padding: 0 3px;
+    box-shadow: 0 0 3px #888888;
+    position: absolute;
+}
+
+
+.map-ministries {
+    height: 400px;
+}
+
+.church-window {
+    min-width: 300px;
+    /*height: 150px;*/
+}
+.training-window {
+    min-width: 400px;
+    /*height: 150px;*/
+}
+.gm-style-iw div{
+    display: inline;
+}
+.map-cluster-count {
+    color: white !important;
+    font-size: large;
+    font-weight: bold;
+}
+
+.labelMarker {
+    color: #777;
+    pointer-events: none;
+    text-align: center;
+    width: 60px;
+    opacity: 0.75;
+}
+.labelMoveMarker {
+    color: #000;
+    pointer-events: none;
+    text-align: center;
+    width: 100px;
+    opacity: 0.75;
+    font-size: large;
+    font-weight: bold;
+    box-shadow: #eeee00 30px 30px inset;
+}
+
+.ministry-title  {
+    font-size: xx-large;
+    color: white !important;
+
+}
+
+.meas_table_lbl{
+    text-align: right;
+}
+.map-search{
+    width: 300px;
+}
+.map-mode{
+    padding:2px;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 100%; 
+  
+}
+
+.church-grid .ngViewport{
+    overflow: inherit;
+}
+.btn-map-add{
+    height: 52px;
+   
+}
+.map-trained-count{
+    background-color: #4aff00;
+    padding: 2px;
+    color: black;
+    border: 1px solid black !important;
+    margin: 4px;
+}
+.map-training-date{
+    width: 130px;
+    line-height: inherit !important;
+}
+.map-training-number{
+    width: 60px;
+    line-height: inherit !important;
+}

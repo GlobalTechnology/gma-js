@@ -1,0 +1,290 @@
+﻿
+<style type="text/css">
+    .numeric {
+        width: 85px;
+        float: left;
+    }
+
+    .sub_value {
+        width: 65px;
+        float: left;
+        border: none;
+    }
+
+    .total_value {
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .rotated-text {
+        transform: rotate(-45deg);
+        transform-origin: bottom 0;
+        padding: 5px;
+        white-space: nowrap;
+        /*overflow: hidden;*/
+    }
+
+    .vertical-text {
+        transform: rotate(-90deg);
+        transform-origin: bottom 0;
+        padding: 5px;
+        text-align: center;
+        /*overflow: hidden;*/
+    }
+
+    .green {
+        color: green;
+    }
+
+    .lmi-input-name {
+        min-width: 175px;
+        max-width: 175px;
+        white-space: normal;
+        height: 50px;
+        font-size: small;
+        line-height: 1.4;
+    }
+
+    .lmi-input-value {
+        width: 85px;
+        height: 50px;
+        font-size: large;
+        text-align: right;
+    }
+
+    .lmi-meas_mcc_col {
+        width: 75px;
+        text-align: center;
+    }
+
+    .lmi-meas-mcc-box {
+        height: 50px;
+    }
+
+    .lmi_table {
+        border-collapse: separate;
+        border-spacing: 20px;
+        margin-top: -40px;
+    }
+
+    .lmi-input-group {
+        border-spacing: 0;
+        margin: 5px;
+    }
+
+    .lmi_table .glyphicon-chevron-right {
+        font-size: xx-large;
+        color: grey;
+    }
+
+    .lmi_table th {
+        text-align: center;
+    }
+
+    .lmi-input-value:hover {
+        cursor: pointer;
+    }
+
+    .edit_meas_form input {
+        width: 120px;
+    }
+</style>
+
+<script type="text/ng-template" id="lmi_renderer.html">
+    <div class="input-group lmi-input-group">
+        <span class="input-group-addon lmi-input-name">{{ m.name }}</span>
+        <a href="" data-toggle="modal" data-target="#editMeasurement" ng-click="$parent.$parent.is_detail_loaded=false; edit_measurement.name = m.name; edit_measurement.id=m.id; getMeasurementDetail(m.measurement_id);">
+            <input class="lmi-input-value" type="number" class="numeric" ng-model="m.total" ng-disabled="true" />
+        </a>
+    </div>
+</script>
+
+<div class="panel panel-default" ng-show="$parent.is_loaded">
+    <div class="panel-body">
+        
+
+        <!-- Single button -->
+   
+
+        <fieldset>
+            <legend>
+                Local Movement Indicators
+
+            </legend>
+
+            <table class="lmi_table">
+                <thead>
+                    <tr>
+                        <!-- title-->
+                        <th></th>
+                        <th><h1><small>Faith</small></h1></th>
+                        <th></th>
+                        <th><h1><small>Fruit</small></h1></th>
+                        <th></th>
+                        <th><h1><small>Outcome</small></h1> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!-- win-->
+                        <td class="vertical-text"><h1><small>Win</small></h1></td>
+                        <td>
+                            <div ng-repeat="m in assignment.measurements | filter: {section: 'win'} | filter:{column:'faith'} " ng-include="'lmi_renderer.html'"></div>
+                        </td>
+                        <td>
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </td>
+                        <td>
+                            <div ng-repeat="m in assignment.measurements | filter: {section: 'win'} | filter:{column: 'fruit'}" ng-include="'lmi_renderer.html'">
+                        </td>
+                        <td rowspan="3">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </td>
+                        <td rowspan="3">
+                            <div ng-repeat="m in assignment.measurements | filter:{column: 'outcome'}" ng-include="'lmi_renderer.html'">
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- build-->
+                        <td class="vertical-text"><h1><small>Build</small></h1></td>
+                        <td>
+                            <div ng-repeat="m in assignment.measurements | filter: {section: 'build'} | filter:{column: 'faith'}" ng-include="'lmi_renderer.html'">
+
+                            </div>
+                        </td>
+                        <td>
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </td>
+                        <td>
+                            <div ng-repeat="m in assignment.measurements | filter: {section: 'build'} | filter:{column: 'fruit'}" ng-include="'lmi_renderer.html'">
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <!-- send-->
+                        <td class="vertical-text"><h1><small>Send</small></h1></td>
+                        <td>
+                            <div ng-repeat="m in assignment.measurements | filter: {section: 'send'} | filter:{column: 'faith'}" ng-include="'lmi_renderer.html'">
+
+                            </div>
+                        </td>
+                        <td>
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </td>
+                        <td>
+                            <div ng-repeat="m in assignment.measurements | filter: {section: 'send'} | filter:{column: 'fruit'}" ng-include="'lmi_renderer.html'">
+
+                            </div>
+
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Other Measurements</legend>
+
+            <div>
+                <div class="col-lg-3" ng-repeat="m in assignment.measurements | filter: {section: 'other'} | filter: {column: 'other'}" ng-include="'lmi_renderer.html'">
+
+                </div>
+            </div>
+        </fieldset>
+        </div></div>
+        <div class="modal fade" id="editMeasurement" tabindex="-1" role="dialog" aria-labelledby="editMeasurement" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h2 class="modal-title" id="newTrainingLabel">{{edit_measurement.name}} <small>{{current_period}}</small></h2>
+                    </div>
+                    <div class="modal-body form-horizontal edit_meas_form" ng-show="is_detail_loaded">
+                        <div id="measurement_graph"></div>
+
+                        <table class="table table-striped">
+                            <tr>
+                                <th colspan="2">
+                                    {{assignment.name}}(Local) :
+                                </th>
+                            </tr>
+                           
+                            <tr ng-repeat="(key, value) in filterSource(edit_measurement.details.local_breakdown) ">
+                                <td class="meas_table_lbl">{{key}}</td>
+                                <td>
+                                    {{value}}
+                                </td>
+                            </tr>
+                           
+                            <tr>
+                                <td class="meas_table_lbl">Local</td>
+                                <td>
+                                    <input id="tbLocal" type="number" class="form-control" placeholder="Local" ng-model="edit_measurement.details.local_breakdown.gcmapp" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">
+                                   Sub-Ministries/Teams:
+                                </th>
+                            </tr>
+                          
+                            <tr ng-repeat="min in edit_measurement.details.sub_ministries">
+                                <td class="meas_table_lbl">{{min.name}}</td>
+                                <td>
+                                    <label ng-hide="member.assignment_id === assignment.id">{{min.total}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">
+                                    Team Members:
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="meas_table_lbl">{{user.person.last_name}}, {{user.person.first_name}}</td>
+                                <td>
+                                    <input id="tbMyself" type="number" class="form-control" placeholder="Personal" ng-model="edit_measurement.details.my_measurements[current_period]" />
+                                </td>
+                            </tr>
+                            <tr ng-repeat="member in edit_measurement.details.team">
+                                <td class="meas_table_lbl">{{member.last_name}}, {{member.first_name}}</td>
+                                <td>
+                                    <input type="number" class="form-control" placeholder="Total" ng-model="member.total" ng-show="member.assignment_id === assignment.id" />
+                                    <label class="" ng-hide="member.assignment_id === assignment.id">{{member.total}}</label>
+                                </td>
+                            </tr>
+                            <tfoot>
+                                <tr>
+                                    <td style="font-weight: bold; text-align: right;">TOTAL</td>
+                                    <td><label id="tbTotal">{{edit_measurement.details.total[current_period]}}</</label> </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+
+
+                        <fieldset>
+                            <legend>Self Assigned Members (not yet approved)</legend>
+                            <div class="form-group" ng-repeat="member in edit_measurement.details.self_assigned">
+
+                                <label class="col-sm-6 control-label">{{member.last_name}}, {{member.first_name}}</label>
+                                <div class="col-sm-6">
+                                    <label class="">{{member.total}}</label>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                       
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveMeasurement()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+

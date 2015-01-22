@@ -1,0 +1,90 @@
+﻿<div id="church_window">
+    <div style="clear:both" />
+    <div class='church-window'>
+        <h4>{{edit_church.name}} <br /><small>{{edit_church.size}} members </small> </h4>
+
+        <table class="table table-condensed">
+            <tr>
+                <td><b>Contact Name: </b></td>
+                <td>
+                    <input type="text" ng-show="edit_church.editable" ng-model='edit_church.contact_name' />
+                    <label ng-hide="edit_church.editable">{{edit_church.contact_name}}</label>
+
+                </td>
+            </tr>
+            <tr>
+                <td><b>Contact Email:</b> </td>
+                <td>
+
+                    <input type="email" ng-show="edit_church.editable" ng-model='edit_church.contact_email' />
+                    <label ng-hide="edit_church.editable">{{edit_church.contact_email}}</label>
+
+                </td>
+            </tr>
+            <tr ng-show="edit_church.editable">
+                <td><b>Type:</b> </td>
+                <td>
+                    <select ng-model="edit_church.development" ng-disabled="!edit_church.editable">
+                        <option value="1">Target</option>
+                        <option value="2">Group</option>
+                        <option value="3">Church</option>
+                        <option value="5">Multiplying Church</option>
+
+                    </select>
+
+                </td>
+            </tr>
+            <tr ng-show="edit_church.editable">
+                <td><b>Size:</b> </td>
+                <td>
+                    <input type="number" ng-disabled="!edit_church.editable" ng-model="edit_church.size"></input>
+
+                </td>
+            </tr>
+            <tr ng-show="edit_church.editable">
+                <td><b>Security:</b> </td>
+                <td>
+                    <select ng-model="edit_church.security" ng-disabled="!edit_church.editable">
+                        <option value="0">This Ministry Only</option>
+                        <option value="1">This Ministry and above</option>
+                        <option value="3">All Registred Users</option>
+                        <option value="4">Everyone</option>
+
+                    </select>
+
+                </td>
+            </tr>
+            <!--<tr>
+                <td><b>Language:</b> </td>
+                <td>
+                    <input type="text" ng-show="edit_church.editable" ng-model='edit_church.language' />
+                    <label ng-hide="edit_church.editable">{{edit_church.language}}</label>
+
+                </td>
+            </tr>
+            <tr>
+                <td><b>People Group:</b> </td>
+                <td>
+                    <input type="text" ng-show="edit_church.editable" ng-model='edit_church.people_group' />
+                    <label ng-hide="edit_church.editable">{{people_group}}</label>
+                </td>
+            </tr>-->
+        </table>
+        <div class="center-block">
+            <button type="button" class="btn btn-default btn-sm col-sm-4" ng-click="SaveChurch()">
+                <span class="glyphicon glyphicon-save" aria-hidden="true">
+                </span> Save
+            </button>
+            <button type="button" class="btn btn-default btn-sm  col-sm-4" ng-click="MoveChurch()">
+                <span class="glyphicon glyphicon-move" aria-hidden="true">
+                </span> Move
+            </button>
+            <button type="button" class="btn btn-default btn-sm  col-sm-4" ng-click="SetParent()">
+                <span class="glyphicon glyphicon-map-marker" aria-hidden="true">
+                </span> Set Parent
+            </button>
+
+
+        </div>
+    </div>
+</div>

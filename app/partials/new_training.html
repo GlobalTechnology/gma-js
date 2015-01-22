@@ -1,0 +1,50 @@
+﻿<div id="new_church_window">
+    <div style="clear:both" />
+    <div class='church-window'>
+        <h4>New Church Training Activity </h4>
+
+        <table class="table table-condensed">
+            <tr>
+                <td><b>Name</b></td>
+                <td>
+                    <input id="tbName" type="text" class="form-control" placeholder="Name" ng-model="new_training.name" />
+
+
+                </td>
+            </tr>
+            <tr>
+                <td><b>Training Type: </b></td>
+                <td>
+                    <select id="ddlTrainingType" class="form-control" ng-model="new_training.type" ng-options="s.value as s.text for s in training_types"></select>
+                </td>
+            </tr>
+           
+            <tr>
+                <td><b>Date:</b> </td>
+                <td>
+                    <input id="tbDate" type="date" class="form-control" placeholder="Date" ng-model="new_training.date" />
+
+                </td>
+            </tr>
+            
+            <tr>
+                <td><b>Participants:</b> </td>
+                <td>
+                    <input id="tbParticipants" type="number" class="form-control" placeholder="(Optional)" ng-model="new_training.participants" />
+
+                </td>
+            </tr>
+            <tr>
+                <td><b>MCC:</b> </td>
+                <td>
+                  {{current_mcc}}
+
+                </td>
+            </tr>
+        </table>
+        <button class="btn btn-primary" type="button" ng-click="addTraining()">Add</button>
+        <button class="btn" type="button" ng-click="cancelAddChurch()">Cancel</button>
+        <div style="clear: both"></div>
+    </div>
+
+</div>
