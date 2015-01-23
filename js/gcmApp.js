@@ -1,4 +1,8 @@
 ﻿var app = angular.module("gcmApp", ["ngRoute", "ngGrid", "ui.bootstrap"]);
+app.run(function($rootScope) {
+    // Attach global constants to root scope
+    $rootScope.GCM_APP = window.GCM_APP;
+});
 app.config(function ($routeProvider, $httpProvider) {
 
     // enable CORS on IE <= 9
@@ -7,31 +11,32 @@ app.config(function ($routeProvider, $httpProvider) {
 
     $routeProvider
        .when("/map", {
-           templateUrl: "/gcm_app/partials/map.html",  //relative path to the .html partial
+           templateUrl: GCM_APP.app_url + "/template/map.html",  //relative path to the .html partial
            controller: "mapController" //name of controller variable not the file
        })
        .when("/training", {
-           templateUrl: "/gcm_app/partials/training.html",
+           templateUrl: GCM_APP.app_url + "/template/training.html",
            controller: "trainingController"
        })
        .when("/measurements", {
-           templateUrl: "/gcm_app/partials/measurements.html",
+           templateUrl: GCM_APP.app_url + "/template/measurements.html",
            controller: "measurementsController"
        })
        .when("/admin", {
-           templateUrl: "/gcm_app/partials/admin.html",
+           templateUrl: GCM_APP.app_url + "/template/admin.html",
            controller: "adminController"
        })
          .when("/stories", {
-             templateUrl: "/gcm_app/partials/stories.html",
+             templateUrl: GCM_APP.app_url + "/template/stories.html",
              controller: "storiesController"
          })
          .when("/church", {
-             templateUrl: "/gcm_app/partials/church.html",
+             templateUrl: GCM_APP.app_url + "/template/church.html",
              controller: "churchController"
          })
        .otherwise({ redirectTo: "/map" });
 });
 //var _api_url = 'http://localhost:52195/api/measurements';
-var _api_url = $('#hf_api_url').val();
+//var _api_url = jQuery('#hf_api_url').val();
+var _api_url = GCM_APP.api_url;
 console.log(_api_url);
