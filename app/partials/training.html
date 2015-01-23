@@ -10,7 +10,7 @@
 
             <accordion close-others="false">
 
-                <accordion-group ng-repeat="training in assignment.trainings track by training.Id">
+                <accordion-group ng-repeat="training in assignment.trainings track by training.id">
                     <accordion-heading>
                         <div>
                             <div class="col-lg-9">
@@ -48,7 +48,7 @@
 
                         <tbody>
 
-                            <tr ng-repeat="comp in training.gcm_training_completions track by comp.Id">
+                            <tr ng-repeat="comp in training.gcm_training_completions track by comp.id">
                                 <td>
                                     {{comp.phase}}
                                 </td>

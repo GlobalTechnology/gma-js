@@ -16,9 +16,9 @@
             console.log('loading churches');
             var extras = '&ministry_id=' + $scope.assignment.ministry_id
 
-            ministry_service.getMinistry($scope.user.session_ticket, $scope.assignment.ministry_id).then($scope.onGetMinistry, $scope.onError);
+           // ministry_service.getMinistry($scope.user.session_ticket, $scope.assignment.ministry_id).then($scope.onGetMinistry, $scope.onError);
 
-           // church_service.getChurches($scope.user.session_ticket, null, extras).then($scope.onGetChurches, $scope.onError);
+            church_service.getChurches($scope.user.session_ticket, null, extras).then($scope.onGetChurches, $scope.onError);
 
         };
 
@@ -86,7 +86,7 @@
 
 
         $scope.onGetChurches = function (response) {
-            $scope.churches = response;
+            $scope.assignment.churches = response;
             console.log('got churches');
 
 

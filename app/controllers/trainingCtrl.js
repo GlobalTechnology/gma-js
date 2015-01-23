@@ -23,7 +23,7 @@
         };
         $scope.onDeleteTrainingCompletion = function () {
             angular.forEach($scope.assignment.trainings, function (training) {
-                if (training.Id == $scope.deleteTrainingCompletion.training_id) {
+                if (training.id == $scope.deleteTrainingCompletion.training_id) {
                     training.gcm_training_completions.splice(training.gcm_training_completions.indexOf($scope.deleteTrainingCompletion), 1);
                     training.current_stage = $scope.deleteTrainingCompletion.phase;
                     console.log(training.current_stage);

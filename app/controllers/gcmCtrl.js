@@ -55,7 +55,7 @@
         if(response.ministry_id=== $scope.assignment.ministry_id)
         {
             $scope.assignment.team_members = response.team_members;
-            $scope.assignment.churches = response.churches;
+            //$scope.assignment.churches = response.churches;
         }
 
     };
@@ -190,7 +190,7 @@
             phase: training.current_stage,
             date: training.insert.date,
             number_completed: training.insert.number_completed,
-            training_id: training.Id
+            training_id: training.id
 
         };
         training_service.addTrainingCompletion($scope.user.session_ticket, newPhase).then($scope.onAddTrainingCompletion, $scope.onError);
@@ -203,7 +203,7 @@
         response.editMode = false;
 
         angular.forEach($scope.assignment.trainings, function (training) {
-            if (training.Id == response.training_id) {
+            if (training.id == response.training_id) {
                 training.gcm_training_completions.push(response);
                 training.current_stage = response.phase + 1;
             }

@@ -353,7 +353,7 @@
 
             angular.forEach($scope.map.markers, function (m) {
 
-                if (m.id === 't' + $scope.edit_training.Id) {
+                if (m.id === 't' + $scope.edit_training.id) {
                     m.setAnimation(google.maps.Animation.BOUNCE);
                     m.setDraggable(true);
 
@@ -390,7 +390,7 @@
             });
             if ($scope.show_training) {
                 angular.forEach($scope.assignment.trainings, function (training) {
-                    if ($scope.map.markers.filter(function (c) { return c.id === 't' + training.Id }).length == 0) {
+                    if ($scope.map.markers.filter(function (c) { return c.id === 't' + training.id }).length == 0) {
                         if (training.longitude) {
                             var marker = {};
                             
@@ -399,7 +399,7 @@
                             marker = new MarkerWithLabel({
                                 position: new google.maps.LatLng(training.latitude, training.longitude),
                                 map: $scope.map,
-                                id: 't' + training.Id,
+                                id: 't' + training.id,
                                 title: training.type,
                                 icon: $scope.map.icons.trainingIcon,
                                 labelContent: '', //training.type + '<span class="map-trained-count">' + training.leaders_trained + '</span>',

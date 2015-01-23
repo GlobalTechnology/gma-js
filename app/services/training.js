@@ -13,7 +13,7 @@
 
         };
         var updateTraining = function (session_ticket, training) {
-            this._apiResourceUrl = _api_url + "/training/" + training.Id + "?token=" + session_ticket;
+            this._apiResourceUrl = _api_url + "/training/" + training.id + "?token=" + session_ticket;
             return $http.put(this._apiResourceUrl, training, { withCredentials: true })
                 .then(function (response) {
                     return response.data;
@@ -27,7 +27,7 @@
                 });
         };
         var deleteTraining = function (session_ticket, training) {
-            this._apiResourceUrl = _api_url + "/training/" + training.Id + "?token=" + session_ticket;
+            this._apiResourceUrl = _api_url + "/training/" + training.id + "?token=" + session_ticket;
             return $http.delete(this._apiResourceUrl, { withCredentials: true })
                 .then(function (response) {
                     return ;
@@ -41,14 +41,14 @@
                 });
         };
         var updateTrainingCompletion = function (session_ticket, training_completion) {
-            this._apiResourceUrl = _api_url + "/training_completion/" + training_completion.Id + "?token=" + session_ticket;
+            this._apiResourceUrl = _api_url + "/training_completion/" + training_completion.id + "?token=" + session_ticket;
             return $http.put(this._apiResourceUrl, training_completion, { withCredentials: true })
                 .then(function (response) {
                     return response.data;
                 });
         };
         var deleteTrainingCompletion = function (session_ticket, training_completion) {
-            this._apiResourceUrl = _api_url + "/training_completion/" + training_completion.Id + "?token=" + session_ticket;
+            this._apiResourceUrl = _api_url + "/training_completion/" + training_completion.id + "?token=" + session_ticket;
             return $http.delete(this._apiResourceUrl, { withCredentials: true })
                 .then(function (response) {
                     return ;
