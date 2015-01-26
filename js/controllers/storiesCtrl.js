@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function ($) {
 
     //Find existing Module instance named 'gcmApp'
     var app = angular.module("gcmApp");
@@ -10,4 +10,4 @@
 
     app.controller("storiesController", ["$scope", stories_controller]);
 
-}());
+})(jQuery);

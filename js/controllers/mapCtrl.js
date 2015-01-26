@@ -1,5 +1,5 @@
 ﻿
-(function () {
+(function ($) {
     //Find existing Module instance named 'gcmApp'
     var app = angular.module("gcmApp");
 
@@ -44,24 +44,24 @@
             //$scope.churchWindowContent = $('#church_window')[0].innerHTML;// "<div class='church-window'><h3>{{name}}</h3></div>";
 
             $scope.churchWindow = new google.maps.InfoWindow();
-            $scope.churchWindowContent = $compile('<div id="church_window_content" ng-include src="GCM_APP.content_url + \'/template/edit_church_window.html\'"></div>')($scope)
+            $scope.churchWindowContent = $compile('<div id="church_window_content" ng-include src="GCM_APP.app_url + \'/template/edit_church_window.html\'"></div>')($scope)
             $scope.churchWindow.setOptions({ maxWidth: 300 });
             $scope.trainingWindow = new google.maps.InfoWindow();
-            $scope.trainingWindowContent = $compile('<div id="training_window_content" ng-include src="GCM_APP.content_url + \'/template/edit_training.html\'"></div>')($scope)
+            $scope.trainingWindowContent = $compile('<div id="training_window_content" ng-include src="GCM_APP.app_url + \'/template/edit_training.html\'"></div>')($scope)
             $scope.trainingWindow.setOptions({ maxWidth: 400 });
 
             $scope.newChurchWindow = new google.maps.InfoWindow();
             google.maps.event.addListener($scope.newChurchWindow, 'closeclick', function () {
                 $scope.cancelAddChurch();
             });
-            $scope.newChurchWindowContent = $compile('<div id="new_church_window_content" ng-include src="GCM_APP.content_url + \'/template/new_church_window.html\'"></div>')($scope);
+            $scope.newChurchWindowContent = $compile('<div id="new_church_window_content" ng-include src="GCM_APP.app_url + \'/template/new_church_window.html\'"></div>')($scope);
 
 
             $scope.newTrainingWindow = new google.maps.InfoWindow();
             google.maps.event.addListener($scope.newTrainingWindow, 'closeclick', function () {
                 $scope.cancelAddChurch();
             });
-            $scope.newTrainingContent = $compile('<div id="new_training_window_content" ng-include src="GCM_APP.content_url + \'/template/new_training.html\'"></div>')($scope);
+            $scope.newTrainingContent = $compile('<div id="new_training_window_content" ng-include src="GCM_APP.app_url + \'/template/new_training.html\'"></div>')($scope);
 
             $scope.map.church_lines = [];
             $scope.map.icons = {};
@@ -722,4 +722,4 @@
 
     app.controller("mapController", ["$scope", "$document", "$compile", "church_service", "training_service", map_controller]);
 
-}());
+})(jQuery);

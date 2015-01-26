@@ -7,7 +7,7 @@
     $scope.editMember = {};
     $scope.team_roles = ["leader", "member", "self_assigned", "blocked"];
     $scope.measurements = {};
-    $http.get("http://localhost:52195/api/measurements/token?st=" + $('#hf_proxyticket').val(),{withCredentials : true})
+    $http.get("http://localhost:52195/api/measurements/token?st=" + GCM_APP.ticket,{withCredentials : true})
      .success(function (response) {
          if (response.status = "success") {
              $scope.session_ticket = response.session_ticket;

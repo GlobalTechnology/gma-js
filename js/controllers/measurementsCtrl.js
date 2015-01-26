@@ -5,7 +5,7 @@
     return yyyy + (mm[1] ? mm : "0" + mm[0]) + (dd[1] ? dd : "0" + dd[0]); // padding
 };
 
-(function () {
+(function ($) {
 
     //Find existing Module instance named 'gcmApp'
     var app = angular.module("gcmApp");
@@ -156,4 +156,4 @@
 
     app.controller("measurementsController", ["$scope", '$document', '$filter', "measurement_service", measurements_controller]);
 
-}());
+})(jQuery);

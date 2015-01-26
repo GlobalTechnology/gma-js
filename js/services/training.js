@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function ($) {
 
     var training_service = function ($http) {
 
@@ -72,4 +72,4 @@
 
     app.factory("training_service", training_service);
 
-}());
+})(jQuery);

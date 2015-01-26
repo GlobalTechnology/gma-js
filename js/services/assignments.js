@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function ($) {
 
     var assignment_service = function ($http) {
 
@@ -62,4 +62,4 @@
     //Of the 20 ways you can register a service you create in Angular, this is by far the easiest
     app.factory("assignment_service", assignment_service);
 
-}());
+})(jQuery);

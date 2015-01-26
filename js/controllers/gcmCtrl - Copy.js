@@ -61,7 +61,7 @@
                 //  if (church.cluster_count == 1) {
 
                 church.options = {
-                    draggable: false, clickable: true, fit: false, icon: '/Content/map_icons/churchicon.png', labelAnchor: '30 0',
+                    draggable: false, clickable: true, fit: false, icon: GCM_APP.app_url + '/css/map_icons/churchicon.png', labelAnchor: '30 0',
                     labelContent: church.name,
                     labelClass: 'labelMarker'
                 };

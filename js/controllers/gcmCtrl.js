@@ -1,4 +1,5 @@
-﻿app.controller("gcmCtrl", function ($scope, $http, $timeout,$filter, token, ministry_service, assignment_service, church_service, training_service) {
+﻿(function($){
+app.controller("gcmCtrl", function ($scope, $http, $timeout,$filter, token, ministry_service, assignment_service, church_service, training_service) {
     $scope.is_loaded = false;
     $scope.has_assignment = true;
     $scope.show_all = "year";
@@ -215,6 +216,7 @@
         training_service.updateTrainingCompletion($scope.user.session_ticket, data).then($scope.onSaveTrainingCompletion, $scope.onError);
     };
 });
+})(jQuery);
 
 function getHighest(array) {
     var max = 0;

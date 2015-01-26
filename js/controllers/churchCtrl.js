@@ -1,5 +1,5 @@
 ﻿
-(function () {
+(function ($) {
     //Find existing Module instance named 'gcmApp'
     var app = angular.module("gcmApp");
 
@@ -41,13 +41,13 @@
         $scope.getIcon = function(development){
             switch(development){
                 case 1: 
-                    return "/Content/map_icons/targeticon.png";
+                    return GCM_APP.app_url + "/css/map_icons/targeticon.png";
                 case 2: 
-                    return "/Content/map_icons/groupicon.png";
+                    return GCM_APP.app_url + "/css/map_icons/groupicon.png";
                 case 3:
-                    return "/Content/map_icons/churchicon.png";
+                    return GCM_APP.app_url + "/css/map_icons/churchicon.png";
                 case 5:
-                    return "/Content/map_icons/multipliedchurchicon.png";
+                    return GCM_APP.app_url + "/css/map_icons/multipliedchurchicon.png";
                 default:
                     return "";
             }
@@ -101,7 +101,7 @@
 
     app.controller("churchController", ["$scope", "church_service","ministry_service", church_controller]);
 
-}());
+})(jQuery);
 
 
 function ngGridFlexibleHeightPlugin(opts) {
