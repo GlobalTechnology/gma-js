@@ -14,10 +14,10 @@ app.config( function ( $routeProvider, $httpProvider ) {
 			templateUrl: GCM_APP.app_url + "/template/map.html",  //relative path to the .html partial
 			controller:  "mapController" //name of controller variable not the file
 		} )
-		.when( "/training", {
-			templateUrl: GCM_APP.app_url + "/template/training.html",
-			controller:  "trainingController"
-		} )
+//		.when( "/training", {
+//			templateUrl: GCM_APP.app_url + "/template/training.html",
+//			controller:  "trainingController"
+//		} )
 		.when( "/measurements", {
 			templateUrl: GCM_APP.app_url + "/template/measurements.html",
 			controller:  "measurementsController"

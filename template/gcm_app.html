@@ -70,9 +70,11 @@
 		<div ng-show="has_assignment">
 			<ul class="nav nav-tabs" role="tablist" id="myTab" class="map-ministries">
 				<li class="active"><a href="#/map" data-target="#">Church</a></li>
-				<li>
-					<a href="#/training" data-target="#" ng-show="assignment.team_role === 'leader' || assignment.team_role === 'inherited_leader'">Training</a>
+<!--
+				<li ng-if="assignment.team_role === 'leader' || assignment.team_role === 'inherited_leader'">
+					<a href="#/training" data-target="#">Training</a>
 				</li>
+-->
 				<li><a href="#/measurements" data-target="#">Measurements</a></li>
 				<li><a href="#/stories" data-target="#">Stories</a></li>
 				<li>
