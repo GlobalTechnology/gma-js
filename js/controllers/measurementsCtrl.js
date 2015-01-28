@@ -105,7 +105,7 @@
 				},
 				{
 					period:              $scope.current_period,
-					mcc:                 $scope.assignment.mcc,
+					mcc:                 $scope.assignment.mcc + '_gcmapp',
 					measurement_type_id: $scope.edit_measurement.details.measurement_type_ids.person,
 					related_entity_id:   $scope.assignment.id,
 					value:               $scope.edit_measurement.details.my_measurements[$scope.current_period]
