@@ -15,7 +15,6 @@
     "angular-bootstrap": "*",
     "easy-markerwithlabel": "~0.0.1",
     "bootstrap": "~3.3.2",
-    "ng-grid": "~2.0.14"
   },
   "ignore": [
     "**/.*",
