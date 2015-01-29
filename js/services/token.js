@@ -1,24 +1,12 @@
-﻿(function ( $ ) {
-
-	var token = function ( $http ) {
-
-		var getSession = function () {
-			this._apiResourceUrl = _api_url + "/token?st=" + GCM_APP.ticket;
-			console.log( this._apiResourceUrl );
-			return $http.get( this._apiResourceUrl, {withCredentials: true} )
-				.then( function ( response ) {
-					return response.data;
-				} );
-		};
-
+﻿define( ['gcmApp'], function ( app ) {
+	app.factory( 'token', ['$http', function ( $http ) {
 		return {
-			getSession: getSession
-
-		};
-	};
-
-	var app = angular.module( "gcmApp" );
-	//Of the 20 ways you can register a service you create in Angular, this is by far the easiest
-	app.factory( "token", token );
-
-})( jQuery );
+			getSession: function () {
+				return $http.get( _api_url + "/token?st=" + GCM_APP.ticket, {withCredentials: true} )
+					.then( function ( response ) {
+						return response.data;
+					} );
+			}
+		}
+	}] );
+} );
