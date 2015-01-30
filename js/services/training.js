@@ -1,5 +1,5 @@
-﻿define( ['gcmApp'], function ( app ) {
-	app.factory( 'training_service', ['$http', function ( $http ) {
+﻿define( ['gcmApp'], function ( gcmApp ) {
+	gcmApp.factory( 'training_service', ['$http', function ( $http ) {
 		return {
 			getTrainings:             function ( session_ticket, ministry_id, mcc, show_all, show_tree ) {
 				return $http.get( _api_url + "/training?token=" + session_ticket + "&ministry_id=" + ministry_id + "&show_all=" + show_all + "&show_tree=" + show_tree + "&mcc=" + mcc, {withCredentials: true} )

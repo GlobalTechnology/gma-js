@@ -5,7 +5,7 @@
 	return yyyy + (mm[1] ? mm : "0" + mm[0]) + (dd[1] ? dd : "0" + dd[0]); // padding
 };
 
-define( ['gcmApp', 'measurement_service', 'goog!visualization,1,packages:[corechart]'], function ( app ) {
+define( ['gcmApp', 'measurement_service', 'goog!visualization,1,packages:[corechart]'], function ( gcmApp ) {
 	(function ( $ ) {
 		var measurements_controller = function ( $scope, $document, $filter, measurement_service ) {
 			$scope.$parent.is_loaded = false;
@@ -44,7 +44,7 @@ define( ['gcmApp', 'measurement_service', 'goog!visualization,1,packages:[corech
 					}
 				} );
 				return result;
-			}
+			};
 
 			$scope.onGetMeasurements = function ( response ) {
 				$scope.assignment.measurements = response;
@@ -121,7 +121,7 @@ define( ['gcmApp', 'measurement_service', 'goog!visualization,1,packages:[corech
 			};
 		};
 
-		app.controller( "measurementsController", ["$scope", '$document', '$filter', "measurement_service", measurements_controller] );
+		gcmApp.controller( "measurementsController", ["$scope", '$document', '$filter', "measurement_service", measurements_controller] );
 
 	})( jQuery );
 } );

@@ -1,4 +1,4 @@
-﻿define( ['gcmApp', 'assignment_service'], function ( app ) {
+﻿define( ['gcmApp', 'assignment_service'], function ( gcmApp ) {
 	(function ( $ ) {
 
 		var admin_controller = function ( $scope, assignment_service ) {
@@ -30,7 +30,7 @@
 
 		};
 
-		app.controller( "adminController", ["$scope", "assignment_service", admin_controller] );
+		gcmApp.controller( "adminController", ["$scope", "assignment_service", admin_controller] );
 
 	})( jQuery );
 } );

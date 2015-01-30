@@ -1,5 +1,5 @@
-﻿define( ['gcmApp', 'angular'], function ( app ) {
-	app.factory( 'church_service', ['$http', function ( $http ) {
+﻿define( ['gcmApp', 'angular'], function ( gcmApp ) {
+	gcmApp.factory( 'church_service', ['$http', function ( $http ) {
 		return {
 			getChurches: function ( session_ticket, bounds, extras ) {
 				var apiResourceUrl = _api_url + "/churches" + "?token=" + session_ticket + extras;

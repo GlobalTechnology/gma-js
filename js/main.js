@@ -20,7 +20,7 @@ require.config( {
 
 		// Controllers
 		'adminController':        'controllers/adminCtrl',
-		'gcmCtrl':                'controllers/gcmCtrl',
+		'gcmController':          'controllers/gcmCtrl',
 		'mapController':          'controllers/mapCtrl',
 		'measurementsController': 'controllers/measurementsCtrl',
 
@@ -43,5 +43,5 @@ require.config( {
 	},
 
 	// Kickstart application
-	deps:      ['gcmApp', 'gcmCtrl']
+	deps:      ['gcmApp', 'gcmController']
 } );

@@ -1,5 +1,5 @@
-﻿define( ['gcmApp'], function ( app ) {
-	app.factory( 'measurement_service', ['$http', function ( $http ) {
+﻿define( ['gcmApp'], function ( gcmApp ) {
+	gcmApp.factory( 'measurement_service', ['$http', function ( $http ) {
 		return {
 			getMeasurements:      function ( session_ticket, ministry_id, period, mcc ) {
 				return $http.get( _api_url + "/measurements" + "?token=" + session_ticket + "&ministry_id=" + ministry_id + "&period=" + period + "&mcc=" + mcc, {withCredentials: true} )

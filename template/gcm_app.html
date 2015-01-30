@@ -1,4 +1,4 @@
-<div ng-controller="gcmCtrl">
+<div ng-controller="gcmController">
 
 	<script type="text/ng-template" id="field_renderer.html">
 		<a href="" ng-click="loadAssignment(a)">{{a.name}}</a>
@@ -69,9 +69,9 @@
 	<div class="container">
 		<div ng-show="has_assignment">
 			<ul class="nav nav-tabs" role="tablist" id="myTab" class="map-ministries">
-				<li class="active"><a href="#/map" data-target="#">Church</a></li>
-				<li><a href="#/measurements" data-target="#">Measurements</a></li>
-				<li>
+				<li ng-class="{active: $location.path() === '/map'}"><a href="#/map" data-target="#">Church</a></li>
+				<li ng-class="{active: $location.path() === '/measurements'}"><a href="#/measurements" data-target="#">Measurements</a></li>
+				<li ng-class="{active: $location.path() === '/admin'}">
 					<a href="#/admin" data-target="#" ng-show="assignment.team_role === 'leader' || assignment.team_role === 'inherited_leader'">Admin</a>
 				</li>
 			</ul>

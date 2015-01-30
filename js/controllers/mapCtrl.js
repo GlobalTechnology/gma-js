@@ -1,6 +1,9 @@
-﻿define( ['gcmApp', 'church_service', 'training_service', 'markerwithlabel'], function ( app ) {
+﻿define( ['gcmApp', 'church_service', 'training_service', 'markerwithlabel'], function ( gcmApp ) {
 	(function ( $ ) {
 		var map_controller = function ( $scope, $document, $compile, church_service, training_service ) {
+
+			console.log( 'Map Controller loaded' );
+
 			$scope.$parent.is_loaded = false;
 			$scope.show_target_point = true;
 			$scope.show_group = true;
@@ -650,7 +653,8 @@
 			$scope.jesusFilmSign.prototype = new google.maps.OverlayView();
 		};
 
-		app.controller( "mapController", ["$scope", "$document", "$compile", "church_service", "training_service", map_controller] );
+		gcmApp.controller( "mapController", ["$scope", "$document", "$compile", "church_service", "training_service", map_controller] );
+		console.log( 'Map Controller Registered' );
 
 	})( jQuery );
 } );

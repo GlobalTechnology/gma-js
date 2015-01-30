@@ -1,5 +1,5 @@
-﻿define( ['gcmApp'], function ( app ) {
-	app.factory( 'assignment_service', ['$http', function ( $http ) {
+﻿define( ['gcmApp'], function ( gcmApp ) {
+	gcmApp.factory( 'assignment_service', ['$http', function ( $http ) {
 		return {
 			getAssignments: function ( session_ticket ) {
 				return $http.get( _api_url + "/assignments" + "?token=" + session_ticket, {withCredentials: true} )
