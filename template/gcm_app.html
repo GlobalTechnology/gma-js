@@ -15,12 +15,10 @@
 				<span class="ministry-title" ng-hide="has_assignment">GCM APP</span>
 				<ul class="nav navbar-nav" ng-show="has_assignment">
 
-					<li class="dropdown ">
+					<li class="dropdown">
 
-						<a href="" class="dropdown-toggle  ministry-title" data-toggle="dropdown">{{assignment.name}}
-							<span class="caret"></span></a>
+						<a href="" class="dropdown-toggle  ministry-title" data-toggle="dropdown">{{assignment.name}}<span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-
 							<li ng-repeat="a in assignments" ng-include="'field_renderer.html'"></li>
 							<li class="divider"></li>
 							<li>
@@ -70,7 +68,8 @@
 		<div ng-show="has_assignment">
 			<ul class="nav nav-tabs" role="tablist" id="myTab" class="map-ministries">
 				<li ng-class="{active: $location.path() === '/map'}"><a href="#/map" data-target="#">Church</a></li>
-				<li ng-class="{active: $location.path() === '/measurements'}"><a href="#/measurements" data-target="#">Measurements</a></li>
+				<li ng-class="{active: $location.path() === '/measurements'}">
+					<a href="#/measurements" data-target="#">Measurements</a></li>
 				<li ng-class="{active: $location.path() === '/admin'}">
 					<a href="#/admin" data-target="#" ng-show="assignment.team_role === 'leader' || assignment.team_role === 'inherited_leader'">Admin</a>
 				</li>
@@ -117,7 +116,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 					</button>
 					<h4 class="modal-title" id="newAssignmentLabel">Join Ministry/Team</h4>
 

@@ -14,6 +14,7 @@ require.config( {
 		'angular-bootstrap':      '../vendor/angular-bootstrap/ui-bootstrap-tpls',
 		'angular-resource':       '../vendor/angular-resource/angular-resource',
 		'markerwithlabel':        '../vendor/easy-markerwithlabel/src/markerwithlabel',
+		'bootstrap':              '../vendor/bootstrap/dist/js/bootstrap',
 
 		// Application
 		'gcmApp':                 'gcmApp',
@@ -37,7 +38,7 @@ require.config( {
 	shim:      {
 		'angularAMD':        ['angular'],
 		'angular-route':     ['angular'],
-		'angular-bootstrap': ['angular'],
+		'angular-bootstrap': ['angular', 'bootstrap'],
 		'angular-resource':  ['angular'],
 		'markerwithlabel':   ['async!https://maps.googleapis.com/maps/api/js?sensor=false']
 	},
