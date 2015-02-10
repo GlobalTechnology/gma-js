@@ -1,127 +1,172 @@
-﻿Date.prototype.yyyymm = function () {
-	var yyyy = this.getFullYear().toString();
-	var mm = (this.getMonth() + 1).toString(); // getMonth() is zero-based
-	var dd = this.getDate().toString();
-	return yyyy + (mm[1] ? mm : "0" + mm[0]) + (dd[1] ? dd : "0" + dd[0]); // padding
-};
+﻿define( ['gcmApp', 'underscore', 'measurementsService', 'goog!visualization,1,packages:[corechart]'], function ( gcmApp, _ ) {
+	gcmApp.controller( 'measurementsController', [
+		'$scope', '$document', '$filter', '$modal', 'measurementsService',
+		function ( $scope, $document, $filter, $modal, measurementsService ) {
+			$scope.current.isLoaded = false;
 
-define( ['gcmApp', 'measurement_service', 'goog!visualization,1,packages:[corechart]'], function ( gcmApp ) {
-	(function ( $ ) {
-		var measurements_controller = function ( $scope, $document, $filter, measurement_service ) {
-			$scope.$parent.is_loaded = false;
-			$scope.edit_measurement = {};
-
-			$scope.$watch( 'assignment.ministry_id', function ( a ) {
-				if ( $scope.assignment ) {
-					if ( typeof $scope.assignment.ministry_id !== 'undefined' ) {
-						$scope.current_mcc = $scope.assignment.mccs[Object.keys( $scope.assignment.mccs )[0]];
-						measurement_service.getMeasurements( $scope.user.session_ticket, $scope.assignment.ministry_id, $scope.current_period, Object.keys( $scope.assignment.mccs )[0] ).then( $scope.onGetMeasurements, $scope.onError );
-					}
+			// Debounced method to fetch Measurements at most once every 100 milliseconds
+			var getMeasurements = _.debounce( function () {
+				if ( typeof $scope.current.assignment !== 'undefined' && typeof $scope.current.period !== 'undefined' && typeof $scope.current.mcc !== 'undefined' ) {
+					$scope.current.isLoaded = false;
+					$scope.lmiForm.$setPristine();
+					$scope.measurements = measurementsService.query( {
+						ministry_id: $scope.current.assignment.ministry_id,
+						mcc:         $scope.current.mcc,
+						period:      $scope.current.period.format( 'YYYY-MM' ),
+						token:       $scope.current.sessionToken
+					}, function () {
+						$scope.current.isLoaded = true;
+					} );
 				}
+			}, 100 );
+
+			$scope.$watch( 'current.assignment.ministry_id', function () {
+				getMeasurements();
 			} );
 
-			$scope.$watch( 'assignment.mcc', function () {
-				if ( typeof $scope.assignment !== 'undefined' ) {
-					if ( typeof $scope.assignment.ministry_id !== 'undefined' ) {
-						measurement_service.getMeasurements( $scope.user.session_ticket, $scope.assignment.ministry_id, $scope.current_period, $scope.assignment.mcc ).then( $scope.onGetMeasurements, $scope.onError );
-					}
-				}
+			$scope.$watch( 'current.mcc', function () {
+				getMeasurements();
 			} );
 
-			$scope.$watch( 'current_period', function () {
-				if ( typeof $scope.assignment !== 'undefined' ) {
-					if ( typeof $scope.assignment.ministry_id !== 'undefined' ) {
-						measurement_service.getMeasurements( $scope.user.session_ticket, $scope.assignment.ministry_id, $scope.current_period, $scope.assignment.mcc ).then( $scope.onGetMeasurements, $scope.onError );
-					}
-				}
+			$scope.$watch( 'current.period', function () {
+				getMeasurements();
 			} );
 
-			$scope.filterSource = function ( items ) {
-				var result = {};
-				angular.forEach( items, function ( value, key ) {
-					if ( key != 'gcmapp' && key != 'total' ) {
-						result[key] = value;
+			$scope.hasOther = function () {
+				return _.where( $scope.measurements, {section: 'other', column: 'other'} ).length > 0;
+			};
+
+			// Method used to save measurements for self assigned role.
+			$scope.save = function () {
+				var measurements = [];
+				angular.forEach( $scope.measurements, function ( measurement ) {
+					if ( typeof measurement.my_values.gcmapp === 'number' ) {
+						measurements.push( {
+							period:              $scope.current.period.format( 'YYYY-MM' ),
+							mcc:                 $scope.current.mcc + '_gcmapp',
+							measurement_type_id: measurement.person_measurement_type_id,
+							related_entity_id:   $scope.current.assignment.id,
+							value:               measurement.my_values.gcmapp
+						} );
 					}
 				} );
-				return result;
+				if ( measurements.length > 0 ) {
+					measurementsService.save( {token: $scope.current.sessionToken}, measurements, function () {
+						getMeasurements();
+					} );
+				}
 			};
 
-			$scope.onGetMeasurements = function ( response ) {
-				$scope.assignment.measurements = response;
-				$scope.$parent.is_loaded = true;
+			$scope.editMeasurementDetails = function ( measurement ) {
+				var instance = $modal.open( {
+					templateUrl: 'measurement_details.html',
+					controller:  'measurementDetailsController',
+					keyboard:    true,
+					backdrop:    true,
+					resolve:     {
+						'measurement': function () {
+							return measurement;
+						},
+						'details':     function () {
+							// Return the promise so resolve waits
+							return measurementsService.get( {
+								measurement_id: measurement.measurement_id,
+								ministry_id:    $scope.current.assignment.ministry_id,
+								mcc:            $scope.current.mcc,
+								period:         $scope.current.period.format( 'YYYY-MM' ),
+								token:          $scope.current.sessionToken
+							} ).$promise;
+						}
+					}
+				} );
+				instance.result.then( function () {
+					getMeasurements();
+				} );
 			};
+		}] )
+		.directive( 'measurementsTrend', [function () {
+			return {
+				restrict: 'A',
+				require:  'ngModel',
+				link:     function ( $scope, $element, $attrs, ngModel ) {
+					if ( !ngModel ) return;
+					var chart = new google.visualization.LineChart( $element.get( 0 ) );
 
-			$scope.onGetMeasurementDetail = function ( response ) {
-				$scope.edit_measurement.details = response;
+					ngModel.$render = function () {
+						chart.draw( ngModel.$viewValue, {width: 550, height: 200} );
+					};
+
+					$scope.$on( '$destroy', function () {
+						chart = null;
+					} );
+				}
+			}
+		}] )
+		.controller( 'measurementDetailsController', [
+			'$scope', '$modalInstance', 'measurementsService', 'measurement', 'details',
+			function ( $scope, $modalInstance, measurementsService, measurement, details ) {
+				$scope.measurement = measurement;
+				$scope.details = details;
+
 				var da = [['Period', 'Local', 'Total', 'Personal']];
-				angular.forEach( response.total, function ( t, period ) {
-					angular.forEach( response.local, function ( l, p ) {
+				angular.forEach( details.total, function ( t, period ) {
+					angular.forEach( details.local, function ( l, p ) {
 						if ( p === period ) {
-							angular.forEach( response.my_measurements, function ( m, p ) {
+							angular.forEach( details.my_measurements, function ( m, p ) {
 								if ( p === period ) da.push( [p, l, t, m] )
 							} );
 						}
 					} );
 				} );
+				$scope.trend = google.visualization.arrayToDataTable( da );
 
-				var data = google.visualization.arrayToDataTable( da );
-				var options = {
-					width:  550,
-					height: 200
+				$scope.filterSource = function ( items ) {
+					var result = {};
+					angular.forEach( items, function ( value, key ) {
+						if ( key != 'gcmapp' && key != 'total' ) {
+							result[key] = value;
+						}
+					} );
+					return result;
 				};
 
-				var chart = new google.visualization.LineChart( $document[0].getElementById( 'measurement_graph' ) );
-				chart.draw( data, options );
-				$scope.is_detail_loaded = true;
-			};
+				$scope.save = function () {
+					var measurements = [];
 
-			$scope.getMeasurementDetail = function ( id ) {
-				measurement_service.getMeasurementDetail( $scope.user.session_ticket, id, $scope.assignment.ministry_id, $scope.current_period, $scope.assignment.mcc ).then( $scope.onGetMeasurementDetail, $scope.onError );
-			};
-
-			$scope.getMeasurementName = function ( id ) {
-				angular.forEach( $scope.assignment.sub_ministries, function ( m ) {
-					if ( m.ministry_id === id ) {
-						console.log( m.name );
-						return m.name;
+					if ( $scope.editForm.hasOwnProperty( 'local' ) && typeof $scope.editForm.local.$modelValue !== 'undefined' ) {
+						measurements.push( {
+							period:              $scope.current.period.format( 'YYYY-MM' ),
+							mcc:                 $scope.current.mcc + '_gcmapp',
+							measurement_type_id: $scope.details.measurement_type_ids.local,
+							related_entity_id:   $scope.current.assignment.ministry_id,
+							value:               $scope.editForm.local.$modelValue
+						} );
 					}
-				} );
-				return "";
-			};
 
-			$scope.saveMeasurement = function () {
-				console.log( 'sending _sage' );
-				var values = [
-					{
-						period:              $scope.current_period,
-						mcc:                 $scope.assignment.mcc + '_gcmapp',
-						measurement_type_id: $scope.edit_measurement.details.measurement_type_ids.local,
-						related_entity_id:   $scope.assignment.ministry_id,
-						value:               $scope.edit_measurement.details.local_breakdown.gcmapp
-					},
-					{
-						period:              $scope.current_period,
-						mcc:                 $scope.assignment.mcc + '_gcmapp',
-						measurement_type_id: $scope.edit_measurement.details.measurement_type_ids.person,
-						related_entity_id:   $scope.assignment.id,
-						value:               $scope.edit_measurement.details.my_measurements[$scope.current_period]
+					if ( $scope.editForm.hasOwnProperty( 'personal' ) && typeof $scope.editForm.personal.$modelValue !== 'undefined' ) {
+						measurements.push( {
+							period:              $scope.current.period.format( 'YYYY-MM' ),
+							mcc:                 $scope.current.mcc + '_gcmapp',
+							measurement_type_id: $scope.details.measurement_type_ids.person,
+							related_entity_id:   $scope.current.assignment.id,
+							value:               $scope.editForm.personal.$modelValue
+						} );
 					}
-				];
 
-				//measurement_service.saveMeasurement($scope.user.session_ticket, $scope.edit_measurement.details.measurement_type_ids.local,
-				//    $scope.assignment.ministry_id, $scope.current_period, $scope.assignment.mcc, $scope.edit_measurement.details.local[$scope.current_period]).then($scope.onSaveMeasurement, $scope.onSaveMeasurement);
-				measurement_service.saveMeasurement( $scope.user.session_ticket, values ).then( $scope.onSaveMeasurement, $scope.onSaveMeasurement );
-			};
+					if ( measurements.length > 0 ) {
+						measurementsService.save( {token: $scope.current.sessionToken}, measurements, function () {
+							$modalInstance.close();
+						} );
+					}
+					else {
+						$modalInstance.dismiss( 'cancel' );
+					}
+				};
 
-			$scope.onSaveMeasurement = function ( response ) {
-				console.log( 'gotback from save' );
-				measurement_service.getMeasurements( $scope.user.session_ticket, $scope.assignment.ministry_id, $scope.current_period, $scope.assignment.mcc ).then( $scope.onGetMeasurements, $scope.onError );
-				console.log( 'sent get all' )
-				$scope.edit_measurement.details = {};
-			};
-		};
+				$scope.close = function () {
+					$modalInstance.dismiss( 'cancel' );
+				};
 
-		gcmApp.controller( "measurementsController", ["$scope", '$document', '$filter', "measurement_service", measurements_controller] );
-
-	})( jQuery );
+			}
+		] );
 } );

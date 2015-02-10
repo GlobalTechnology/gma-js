@@ -17,7 +17,9 @@
     "bootstrap": "~3.3.2",
     "angular-resource": "1.2.28",
     "requirejs": "~2.1.15",
-    "requirejs-plugins": "~1.0.3"
+    "requirejs-plugins": "~1.0.3",
+    "moment": "~2.9.0",
+    "underscore": "~1.7.0"
   },
   "ignore": [
     "**/.*",

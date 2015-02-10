@@ -5,15 +5,28 @@ define( ['angularAMD', 'angular-route', 'angular-bootstrap', 'angular-resource']
 			// Attach global constants to root scope
 			$rootScope.GCM_APP = window.GCM_APP;
 
+			// Object to hold current values: assignments, assignment, user ...
+			$rootScope.current = {
+				isLoaded: false
+			};
+
 			// Reload the route since ng-view directive is inside a template.
 			$route.reload();
-		} ] )
+		}] )
 		.config( ['$routeProvider', '$httpProvider', function ( $routeProvider, $httpProvider ) {
 			// enable CORS on IE <= 9
 			//Default behavior since v1.1.1 (http://bit.ly/1t7Vcci)
 			delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-			console.log( 'Registering Routes' );
+			$httpProvider.interceptors.push( ['$rootScope', '$log', function ( $rootScope, $log ) {
+				return {
+					request: function ( config ) {
+//						$log.debug( config );
+						return config;
+					}
+				}
+			}] );
+
 			$routeProvider
 				.when( '/map', angularAMD.route( {
 					templateUrl: GCM_APP.app_url + "/template/map.html",

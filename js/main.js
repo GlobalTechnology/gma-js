@@ -15,6 +15,8 @@ require.config( {
 		'angular-resource':       '../vendor/angular-resource/angular-resource',
 		'markerwithlabel':        '../vendor/easy-markerwithlabel/src/markerwithlabel',
 		'bootstrap':              '../vendor/bootstrap/dist/js/bootstrap',
+		'moment':                 '../vendor/moment/moment',
+		'underscore':             '../vendor/underscore/underscore',
 
 		// Application
 		'gcmApp':                 'gcmApp',
@@ -26,12 +28,13 @@ require.config( {
 		'measurementsController': 'controllers/measurementsCtrl',
 
 		//Services
-		'assignment_service':     'services/assignments',
+		'assignmentService':      'services/assignments',
 		'church_service':         'services/church',
-		'measurement_service':    'services/measurement',
 		'ministry_service':       'services/ministries',
 		'token':                  'services/token',
-		'training_service':       'services/training'
+		'training_service':       'services/training',
+		'sessionService':         'services/session',
+		'measurementsService':    'services/measurements'
 	},
 
 	// Library Dependencies
@@ -40,7 +43,8 @@ require.config( {
 		'angular-route':     ['angular'],
 		'angular-bootstrap': ['angular', 'bootstrap'],
 		'angular-resource':  ['angular'],
-		'markerwithlabel':   ['async!https://maps.googleapis.com/maps/api/js?sensor=false']
+		'markerwithlabel':   ['async!https://maps.googleapis.com/maps/api/js?sensor=false'],
+		'underscore':        {exports: '_'}
 	},
 
 	// Kickstart application

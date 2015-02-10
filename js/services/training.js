@@ -1,9 +1,39 @@
 ﻿define( ['gcmApp'], function ( gcmApp ) {
 	gcmApp.factory( 'training_service', ['$http', function ( $http ) {
+		function getHighest( array ) {
+			var max = 0;
+			if ( !array ) return 0;
+			for ( var i = 0; i < array.length; i++ ) {
+				if ( array[i].phase > (max || 0) ) {
+					max = array[i].phase;
+				}
+			}
+
+			return max;
+		}
+
+		function getHighestCount( array ) {
+			var max = 0;
+			for ( var i = 0; i < array.length; i++ ) {
+				if ( array[i].number_completed > (max || 0) ) {
+					max = array[i].number_completed;
+				}
+			}
+
+			return max;
+		}
+
 		return {
 			getTrainings:             function ( session_ticket, ministry_id, mcc, show_all, show_tree ) {
 				return $http.get( _api_url + "/training?token=" + session_ticket + "&ministry_id=" + ministry_id + "&show_all=" + show_all + "&show_tree=" + show_tree + "&mcc=" + mcc, {withCredentials: true} )
 					.then( function ( response ) {
+
+						angular.forEach( response.data, function ( training ) {
+							training.current_stage = getHighest( training.gcm_training_completions ) + 1;
+							training.leaders_trained = getHighestCount( training.gcm_training_completions );
+							training.editMode = false;
+						} );
+
 						return response.data;
 					} );
 			},

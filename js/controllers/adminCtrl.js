@@ -1,36 +1,43 @@
-﻿define( ['gcmApp', 'assignment_service'], function ( gcmApp ) {
-	(function ( $ ) {
+﻿define( ['gcmApp', 'assignmentService', 'ministry_service'], function ( gcmApp ) {
+	gcmApp.controller( 'adminController', [
+		'$scope', 'assignmentService', 'ministry_service',
+		function ( $scope, assignmentService, ministry_service ) {
+			$scope.current.isLoaded = false;
 
-		var admin_controller = function ( $scope, assignment_service ) {
+			$scope.$watch( 'current.assignment', function ( assignment ) {
+				if ( typeof assignment === 'undefined' ) return;
+				ministry_service.getMinistry( $scope.current.sessionToken, assignment.ministry_id ).then( function ( data ) {
+					$scope.ministry = data;
+					$scope.current.isLoaded = true;
+				} );
+			} );
 
 			$scope.roles = [
 				{value: "leader", text: 'Leader'},
 				{value: "inherited_leader", text: "Leader (inherited)"},
 				{value: "member", text: 'Member'},
 				{value: "blocked", text: 'Blocked'},
-				{value: "", text: 'Self Assigned'}
+				{value: "self_assigned", text: 'Self Assigned'}
 			];
+
 			$scope.onSaveAssignment = function ( response ) {
 				console.log( 'saved' );
-
 			};
+
 			$scope.saveRole = function ( s ) {
 				console.log( 'saving role' );
-				assignment_service.saveAssignment( $scope.user.session_ticket, s.assignment_id, s.team_role ).then( $scope.onSaveAssignment, $scope.onError );
+				assignmentService.save( {
+					token: $scope.current.sessionToken,
+					assignment_id: s.assignment_id
+				}, {team_role: s.team_role} );
 				$scope.newMember = {};
 			};
 
 			$scope.addTeamMember = function () {
-				$scope.newMember.ministry_id = $scope.assignment.ministry_id;
-				assignment_service.addTeamMember( $scope.user.session_ticket, $scope.newMember ).then( $scope.onAddTeamMember, $scope.onError );
-
-				console.log( 'adding_team_member' );
-
+				$scope.newMember.ministry_id = $scope.current.assignment.ministry_id;
+				assignmentService.addTeamMember( {token: $scope.current.sessionToken}, $scope.newMember, function() {
+					console.log( 'adding_team_member' );
+				} );
 			};
-
-		};
-
-		gcmApp.controller( "adminController", ["$scope", "assignment_service", admin_controller] );
-
-	})( jQuery );
+		}] );
 } );

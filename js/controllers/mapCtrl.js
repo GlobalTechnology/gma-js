@@ -1,22 +1,35 @@
 ﻿define( ['gcmApp', 'church_service', 'training_service', 'markerwithlabel'], function ( gcmApp ) {
 	(function ( $ ) {
 		var map_controller = function ( $scope, $document, $compile, church_service, training_service ) {
-
-			console.log( 'Map Controller loaded' );
-
-			$scope.$parent.is_loaded = false;
+			$scope.current.isLoaded = false;
 			$scope.show_target_point = true;
 			$scope.show_group = true;
 			$scope.show_church = true;
 			$scope.show_mult_church = true;
 			$scope.show_training = true;
 			$scope.show_lines = true;
+			$scope.show_lines = true;
 			$scope.show_jf = true;
 			$scope.map_filter = 'min_only';
 			$scope.icon_add_mode = false;
+			$scope.show_all = "year";
+			$scope.show_tree = false;
 			$scope.new_church = {};
 			$scope.edit_church = {};
 			$scope.SetParentMode = false;
+			$scope.church_lines = [];
+			$scope.churches = [];
+			$scope.trainings = [];
+			$scope.training_types = [
+				{value: "MC2", text: 'MC2'},
+				{value: "T4T", text: 'T4T'},
+				{value: "CPMI", text: 'CPMI'},
+				{value: "", text: 'Other'}
+			];
+			$scope.mapOptions = {
+				zoom:   10,
+				center: new google.maps.LatLng( 15.117368581249664, -90.09897668253325 )
+			};
 			setTimeout( initialize, 0 );
 
 			function initialize() {
@@ -24,8 +37,8 @@
 				$scope.map.setOptions( {draggableCursor: ''} );
 
 				google.maps.event.addListener( $scope.map, "idle", function () {
-					$scope.$parent.is_loaded = true;
-					if ( typeof $scope.user.session_ticket !== 'undefined' ) {
+					$scope.current.isLoaded = true;
+					if ( typeof $scope.current.sessionToken !== 'undefined' ) {
 						$scope.loadChurches();
 					}
 				} );
@@ -86,24 +99,37 @@
 
 				$scope.map.controls[google.maps.ControlPosition.TOP_RIGHT].push( $scope.map.side );
 				$scope.map.controls[google.maps.ControlPosition.TOP_LEFT].push( $scope.map.search );
-				if ( $scope.assignment )$scope.load_training_markers();
-				$scope.$watch( 'assignment', function ( a ) {
+				if ( $scope.current.assignment )$scope.load_training_markers();
 
-					if ( a && a.hasOwnProperty( 'location' ) ) {
-						$scope.map.setCenter( new google.maps.LatLng( a.location.latitude, a.location.longitude ) );
+				$scope.$watch( 'current.assignment', function ( a, oldVal ) {
+					if ( typeof a !== 'undefined' ) {
 
+						if ( a && a.hasOwnProperty( 'location' ) ) {
+							$scope.map.setCenter( new google.maps.LatLng( a.location.latitude, a.location.longitude ) );
+						}
+						if ( a && a.hasOwnProperty( 'location_zoom' ) ) {
+							$scope.map.setZoom( parseInt( a.location_zoom ) );
+						}
+
+						if ( a.ministry_id != oldVal.ministry_id ) {
+							$scope.loadChurches();
+							if ( $scope.current.assignment.team_role === 'leader' || $scope.current.assignment.team_role === 'inherited_leader' ) {
+								training_service.getTrainings( $scope.current.sessionToken, a.ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree ).then( function ( trainings ) {
+									$scope.trainings = trainings;
+								}, $scope.onError );
+							}
+							else {
+								$scope.trainings = [];
+							}
+						}
 					}
-					if ( a && a.hasOwnProperty( 'location_zoom' ) ) {
-						$scope.map.setZoom( parseInt( a.location_zoom ) );
-					}
-
 				}, true );
-			};
+			}
 
 			$scope.loadChurches = function () {
 				console.log( 'loading churches' );
-				if ( typeof $scope.user.session_ticket !== 'undefined' ) {
-					var extras = '&ministry_id=' + $scope.assignment.ministry_id;
+				if ( typeof $scope.current.sessionToken !== 'undefined' ) {
+					var extras = '&ministry_id=' + $scope.current.assignment.ministry_id;
 					if ( !$scope.show_target_point ) extras += '&hide_target_point=true';
 					if ( !$scope.show_group ) extras += '&hide_group=true';
 					if ( !$scope.show_church ) extras += '&hide_church=true';
@@ -112,13 +138,8 @@
 						extras += '&show_all=true';
 					} else if ( $scope.map_filter === 'tree' ) extras += '&show_tree=true';
 
-					church_service.getChurches( $scope.user.session_ticket, $scope.map.getBounds(), extras ).then( $scope.onGetChurches, $scope.onError );
+					church_service.getChurches( $scope.current.sessionToken, $scope.map.getBounds(), extras ).then( $scope.onGetChurches, $scope.onError );
 				}
-			};
-
-			$scope.mapOptions = {
-				zoom:   10,
-				center: new google.maps.LatLng( 15.117368581249664, -90.09897668253325 )
 			};
 
 			$scope.removeLines = function () {
@@ -162,12 +183,12 @@
 				angular.forEach( $scope.map.markers, function ( m ) {
 
 					if ( m.id == -1 ) {
-						$scope.new_church.ministry_id = $scope.assignment.ministry_id;
+						$scope.new_church.ministry_id = $scope.current.assignment.ministry_id;
 
 						$scope.new_church.latitude = m.getPosition().lat();
 						$scope.new_church.longitude = m.getPosition().lng();
 						console.log( $scope.new_church )
-						church_service.addChurch( $scope.user.session_ticket, $scope.new_church ).then( $scope.onAddChurch, $scope.onError );
+						church_service.addChurch( $scope.current.sessionToken, $scope.new_church ).then( $scope.onAddChurch, $scope.onError );
 
 						m.setMap( null );
 						var removedObject = $scope.map.markers.splice( $scope.map.markers.indexOf( m ), 1 );
@@ -181,11 +202,11 @@
 				angular.forEach( $scope.map.markers, function ( m ) {
 
 					if ( m.id == -2 ) {
-						$scope.new_training.ministry_id = $scope.assignment.ministry_id;
+						$scope.new_training.ministry_id = $scope.current.assignment.ministry_id;
 						$scope.new_training.latitude = m.getPosition().lat();
 						$scope.new_training.longitude = m.getPosition().lng();
-						$scope.new_training.mcc = $scope.assignment.mcc;
-						training_service.addTraining( $scope.user.session_ticket, $scope.new_training ).then( $scope.onAddChurch, $scope.onError );
+						$scope.new_training.mcc = $scope.current.mcc;
+						training_service.addTraining( $scope.current.sessionToken, $scope.new_training ).then( $scope.onAddChurch, $scope.onError );
 
 						m.setMap( null );
 						var removedObject = $scope.map.markers.splice( $scope.map.markers.indexOf( m ), 1 );
@@ -325,14 +346,14 @@
 			};
 
 			$scope.SaveChurch = function () {
-				church_service.saveChurch( $scope.user.session_ticket, $scope.edit_church ).then( $scope.onSaveChurch, $scope.onError );
+				church_service.saveChurch( $scope.current.sessionToken, $scope.edit_church ).then( $scope.onSaveChurch, $scope.onError );
 			};
 
 			$scope.SaveTraining = function () {
-				training_service.updateTraining( $scope.user.session_ticket, $scope.edit_training ).then( $scope.onSaveChurch, $scope.onError );
+				training_service.updateTraining( $scope.current.sessionToken, $scope.edit_training ).then( $scope.onSaveChurch, $scope.onError );
 			};
 
-			$scope.$watch( 'assignment.trainings', function () {
+			$scope.$watch( 'trainings', function () {
 				if ( $scope.map ) {
 					$scope.load_training_markers();
 				}
@@ -351,7 +372,7 @@
 				} );
 
 				if ( $scope.show_training ) {
-					angular.forEach( $scope.assignment.trainings, function ( training ) {
+					angular.forEach( $scope.trainings, function ( training ) {
 						if ( $scope.map.markers.filter( function ( c ) {
 								return c.id === 't' + training.id
 							} ).length == 0 ) {
@@ -376,7 +397,7 @@
 									return function () {
 										//$scope.church = marker;
 										$scope.edit_training = training;
-										$scope.edit_training.editable = (($scope.assignment.team_role === 'leader' || $scope.assignment.team_role === 'inherited_leader') && training.ministry_id === $scope.assignment.ministry_id);
+										$scope.edit_training.editable = (($scope.current.assignment.team_role === 'leader' || $scope.current.assignment.team_role === 'inherited_leader') && training.ministry_id === $scope.current.assignment.ministry_id);
 
 										$scope.$apply();
 										$scope.trainingWindow.close();
@@ -390,7 +411,7 @@
 									console.log( marker );
 									training.latitude = marker.getPosition().lat();
 									training.longitude = marker.getPosition().lng();
-									training_service.updateTraining( $scope.user.session_ticket, training ).then( $scope.onSaveChurch, $scope.onError );
+									training_service.updateTraining( $scope.current.sessionToken, training ).then( $scope.onSaveChurch, $scope.onError );
 									marker.setAnimation( null );
 									marker.setDraggable( false );
 								}) );
@@ -509,7 +530,7 @@
 										new_church.parent_id = church.id;
 										$scope.edit_church.parent_id = church.id;
 										console.log( new_church );
-										church_service.saveChurch( $scope.user.session_ticket, new_church ).then( $scope.onSaveChurch, $scope.onError );
+										church_service.saveChurch( $scope.current.sessionToken, new_church ).then( $scope.onSaveChurch, $scope.onError );
 									}
 									return;
 								}
@@ -518,7 +539,7 @@
 									//$scope.church = marker;
 
 									$scope.edit_church = church;
-									$scope.edit_church.editable = (($scope.assignment.team_role === 'leader' || $scope.assignment.team_role === 'inherited_leader') && church.ministry_id === $scope.assignment.ministry_id);
+									$scope.edit_church.editable = (($scope.current.assignment.team_role === 'leader' || $scope.current.assignment.team_role === 'inherited_leader') && church.ministry_id === $scope.current.assignment.ministry_id);
 
 									$scope.$apply();
 									$scope.churchWindow.close();
@@ -545,7 +566,7 @@
 									new_church.longitude = marker.getPosition().lng();
 									church.latitude = new_church.latitude;
 									church.longitude = new_church.longitude;
-									church_service.saveChurch( $scope.user.session_ticket, new_church ).then( $scope.onSaveChurch, $scope.onError );
+									church_service.saveChurch( $scope.current.sessionToken, new_church ).then( $scope.onSaveChurch, $scope.onError );
 
 									marker.setAnimation( null );
 									marker.setDraggable( false );
@@ -654,7 +675,6 @@
 		};
 
 		gcmApp.controller( "mapController", ["$scope", "$document", "$compile", "church_service", "training_service", map_controller] );
-		console.log( 'Map Controller Registered' );
 
 	})( jQuery );
 } );

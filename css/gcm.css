@@ -153,3 +153,104 @@
     width: 60px;
     line-height: inherit !important;
 }
+
+/* Measurements */
+.numeric {
+    width: 85px;
+    float: left;
+}
+
+.sub_value {
+    width: 65px;
+    float: left;
+    border: none;
+}
+
+.total_value {
+    font-weight: bold;
+    font-size: large;
+}
+
+.rotated-text {
+    transform: rotate(-45deg);
+    transform-origin: bottom 0;
+    padding: 5px;
+    white-space: nowrap;
+    /*overflow: hidden;*/
+}
+
+.vertical-text {
+    transform: rotate(-90deg);
+    transform-origin: bottom 0;
+    padding: 5px;
+    text-align: center;
+    /*overflow: hidden;*/
+}
+
+.green {
+    color: green;
+}
+
+.lmi-input-name {
+    min-width: 175px;
+    max-width: 175px;
+    white-space: normal;
+    height: 50px;
+    font-size: small;
+    line-height: 1.4;
+}
+
+.lmi-input-value {
+    width: 85px;
+    height: 50px;
+    font-size: large;
+    text-align: right;
+}
+
+.lmi-meas_mcc_col {
+    width: 75px;
+    text-align: center;
+}
+
+.lmi-meas-mcc-box {
+    height: 50px;
+}
+
+.lmi_table {
+    border-collapse: separate;
+    border-spacing: 20px;
+    margin-top: -40px;
+}
+
+.lmi-input-group {
+    border-spacing: 0;
+    margin: 5px;
+}
+
+.lmi_table .glyphicon-chevron-right {
+    font-size: xx-large;
+    color: grey;
+}
+
+.lmi_table th {
+    text-align: center;
+}
+
+.lmi-input-value:hover {
+    cursor: pointer;
+}
+
+.edit_meas_form input {
+    width: 120px;
+}
+
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    background-color: #000;
+}
