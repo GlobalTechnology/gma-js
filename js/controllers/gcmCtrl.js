@@ -31,11 +31,6 @@
 				if ( typeof assignment === 'object' ) {
 
 					if ( assignment.mccs.length > 0 ) {
-						// Append ALL mcc if assignment has more than 1 mcc
-						if ( assignment.mccs.length > 1 && assignment.mccs.indexOf( 'all' ) == -1 ) {
-							assignment.mccs.push( 'all' );
-						}
-
 						// Set mcc if none is currently set or new assignment does not include current mcc
 						if ( typeof $scope.current.mcc === 'undefined' || assignment.mccs.indexOf( $scope.current.mcc ) < 0 ) {
 							$scope.current.mcc = $filter( 'orderBy' )( assignment.mccs, $scope.mccSort )[0];
@@ -58,7 +53,6 @@
 
 			// MCC labels, this should be done in localization in the future.
 			$scope.mccLabels = {
-				all: 'All',
 				ds:  'Digital Strategies',
 				gcm: 'Global Church Movements',
 				llm: 'Leader Led',
