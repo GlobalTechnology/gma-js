@@ -107,7 +107,7 @@
 	<div class="input-group lmi-input-group">
 		<span class="input-group-addon lmi-input-name">{{ m.name }}</span>
 		<span ng-switch="current.assignment.team_role">
-			<input ng-switch-when="self_assigned" class="lmi-input-value numeric" type="number" min="0" ng-model="m.my_values.gcmapp" />
+			<input ng-switch-when="self_assigned" class="lmi-input-value numeric" type="number" min="0" ng-model="m.my_values.gcm_app" />
 			<a ng-switch-default href ng-click="editMeasurementDetails(m);">
 				<input class="lmi-input-value numeric" type="number" min="0" ng-model="m.total" disabled />
 			</a>
@@ -137,7 +137,7 @@
 					<label class="col-xs-5 control-label">{{name}}</label>
 
 					<div class="col-xs-7">
-						<input class="form-control" type="number" disabled ng-model="{{value}}" />
+						<input class="form-control" type="number" disabled ng-model="value" />
 					</div>
 				</div>
 				<div class="form-group" ng-class="{'has-error': !editForm.local.$valid}">

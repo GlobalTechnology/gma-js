@@ -40,13 +40,13 @@
 			$scope.save = function () {
 				var measurements = [];
 				angular.forEach( $scope.measurements, function ( measurement ) {
-					if ( typeof measurement.my_values.gcmapp === 'number' ) {
+					if ( typeof measurement.my_values.gcm_app === 'number' ) {
 						measurements.push( {
 							period:              $scope.current.period.format( 'YYYY-MM' ),
-							mcc:                 $scope.current.mcc + '_gcmapp',
+							mcc:                 $scope.current.mcc + '_gcm_app',
 							measurement_type_id: measurement.person_measurement_type_id,
 							related_entity_id:   $scope.current.assignment.id,
-							value:               measurement.my_values.gcmapp
+							value:               measurement.my_values.gcm_app
 						} );
 					}
 				} );
@@ -123,7 +123,7 @@
 				$scope.filterSource = function ( items ) {
 					var result = {};
 					angular.forEach( items, function ( value, key ) {
-						if ( key != 'gcmapp' && key != 'total' ) {
+						if ( key != 'gcm_app' && key != 'total' ) {
 							result[key] = value;
 						}
 					} );
@@ -136,7 +136,7 @@
 					if ( $scope.editForm.hasOwnProperty( 'local' ) && typeof $scope.editForm.local.$modelValue !== 'undefined' ) {
 						measurements.push( {
 							period:              $scope.current.period.format( 'YYYY-MM' ),
-							mcc:                 $scope.current.mcc + '_gcmapp',
+							mcc:                 $scope.current.mcc + '_gcm_app',
 							measurement_type_id: $scope.details.measurement_type_ids.local,
 							related_entity_id:   $scope.current.assignment.ministry_id,
 							value:               $scope.editForm.local.$modelValue
@@ -146,7 +146,7 @@
 					if ( $scope.editForm.hasOwnProperty( 'personal' ) && typeof $scope.editForm.personal.$modelValue !== 'undefined' ) {
 						measurements.push( {
 							period:              $scope.current.period.format( 'YYYY-MM' ),
-							mcc:                 $scope.current.mcc + '_gcmapp',
+							mcc:                 $scope.current.mcc + '_gcm_app',
 							measurement_type_id: $scope.details.measurement_type_ids.person,
 							related_entity_id:   $scope.current.assignment.id,
 							value:               $scope.editForm.personal.$modelValue
