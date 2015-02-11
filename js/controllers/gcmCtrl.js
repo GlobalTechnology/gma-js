@@ -101,8 +101,9 @@
 			} );
 
 			$scope.logout = function () {
-				$log.debug( 'Logout' );
-				window.location = 'https://thekey.me/cas/logout';
+				sessionService.logout().then( function() {
+					window.location = 'https://thekey.me/cas/logout';
+				});
 			};
 
 			$scope.joinMinistry = function ( allowClose ) {

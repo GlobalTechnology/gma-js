@@ -14,6 +14,9 @@ define( ['gcmApp'], function ( gcmApp ) {
 						return response.data;
 					} );
 			},
+			logout: function() {
+				return $http.delete( $rootScope.GCM_APP.api_url + '/token' );
+			},
 			request: function() {}
 		}
 	}] );
