@@ -37,19 +37,19 @@
 							</h1>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'win', column:'faith'}" ng-include="'lmi_renderer.html'"></div>
+							<div ng-repeat="m in measurements | filter: {section: 'win', column:'faith'} | orderBy:'sort_order'" ng-include="'lmi_renderer.html'"></div>
 						</td>
 						<td>
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'win', column: 'fruit'}" ng-include="'lmi_renderer.html'"></div>
+							<div ng-repeat="m in measurements | filter: {section: 'win', column: 'fruit'} | orderBy:'sort_order'" ng-include="'lmi_renderer.html'"></div>
 						</td>
 						<td rowspan="3">
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</td>
 						<td rowspan="3">
-							<div ng-repeat="m in measurements | filter:{column: 'outcome'}" ng-include="'lmi_renderer.html'"></div>
+							<div ng-repeat="m in measurements | filter:{column: 'outcome'} | orderBy:'sort_order'" ng-include="'lmi_renderer.html'"></div>
 						</td>
 					</tr>
 					<tr>
@@ -60,13 +60,13 @@
 							</h1>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'build', column: 'faith'}" ng-include="'lmi_renderer.html'"></div>
+							<div ng-repeat="m in measurements | filter: {section: 'build', column: 'faith'} | orderBy:'sort_order'" ng-include="'lmi_renderer.html'"></div>
 						</td>
 						<td>
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'build', column: 'fruit'}" ng-include="'lmi_renderer.html'"></div>
+							<div ng-repeat="m in measurements | filter: {section: 'build', column: 'fruit'} | orderBy:'sort_order'" ng-include="'lmi_renderer.html'"></div>
 						</td>
 
 					</tr>
@@ -78,14 +78,13 @@
 							</h1>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'send', column: 'faith'}" ng-include="'lmi_renderer.html'"></div>
+							<div ng-repeat="m in measurements | filter: {section: 'send', column: 'faith'} | orderBy:'sort_order'" ng-include="'lmi_renderer.html'"></div>
 						</td>
 						<td>
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'send', column: 'fruit'}" ng-include="'lmi_renderer.html'"></div>
-
+							<div ng-repeat="m in measurements | filter: {section: 'send', column: 'fruit'} | orderBy:'sort_order'" ng-include="'lmi_renderer.html'"></div>
 						</td>
 					</tr>
 					</tbody>
@@ -94,7 +93,7 @@
 			<fieldset ng-if="hasOther()">
 				<legend>Other Measurements</legend>
 				<div>
-					<div class="col-lg-3" ng-repeat="m in measurements | filter: {section: 'other', column: 'other'}" ng-include="'lmi_renderer.html'"></div>
+					<div class="col-lg-3" ng-repeat="m in measurements | filter: {section: 'other', column: 'other'} | orderBy:'sort_order'" ng-include="'lmi_renderer.html'"></div>
 				</div>
 			</fieldset>
 		</form>
