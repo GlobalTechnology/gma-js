@@ -38,7 +38,15 @@
 
 				google.maps.event.addListener( $scope.map, "idle", function () {
 					$scope.current.isLoaded = true;
-					if ( typeof $scope.current.sessionToken !== 'undefined' ) {
+					var bounds = $scope.map.getBounds(),
+						ne = bounds.getNorthEast(),
+						sw = bounds.getSouthWest();
+
+					if( ne.lat() == sw.lat() && ne.lng() == sw.lng() ) {
+						// Trigger a resize if bounds have 0 area
+						google.maps.event.trigger( $scope.map, 'resize' );
+					}
+					else {
 						$scope.loadChurches();
 					}
 				} );
