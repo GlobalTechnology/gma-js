@@ -244,6 +244,9 @@
     width: 120px;
 }
 
+.measurement-desc {
+    margin: 5px;
+}
 
 .modal-backdrop {
     position: fixed;

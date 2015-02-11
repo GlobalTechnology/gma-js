@@ -124,6 +124,7 @@
 		<h2 class="modal-title">{{measurement.name}}
 			<small>{{current.period.format('YYYY-MM')}}</small>
 		</h2>
+		<div class="well well-sm measurement-desc">{{measurement.description}}</div>
 	</div>
 	<div class="modal-body edit_meas_form">
 		<div id="measurement_graph" measurements-trend ng-model="trend"></div>
@@ -160,7 +161,7 @@
 			</fieldset>
 
 			<!-- Sub Ministries -->
-			<fieldset>
+			<fieldset ng-if="details.sub_ministries.length > 0">
 				<legend>Sub-Ministries / Teams:</legend>
 				<div class="form-group" ng-repeat="ministry in details.sub_ministries">
 					<label class="col-xs-5 control-label">{{ministry.name}}</label>
@@ -197,7 +198,8 @@
 				</div>
 			</fieldset>
 
-			<fieldset ng-if="current.hasRole(['leader', 'inherited_leader'])">
+			<!-- Self Assigned -->
+			<fieldset ng-if="current.hasRole(['leader', 'inherited_leader']) && details.self_assigned.length > 0">
 				<legend>Self Assigned Members (not yet approved)</legend>
 				<div class="form-group" ng-repeat="member in details.self_assigned">
 					<label class="col-sm-5 control-label">{{member.last_name}}, {{member.first_name}}</label>
