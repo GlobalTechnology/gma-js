@@ -107,9 +107,9 @@
 	<div class="input-group lmi-input-group">
 		<span class="input-group-addon lmi-input-name">{{ m.name }}</span>
 		<span ng-switch="current.assignment.team_role">
-			<input ng-switch-when="self_assigned" class="lmi-input-value numeric" type="number" min="0" ng-model="m.my_values.gma_app" />
+			<input ng-switch-when="self_assigned" class="lmi-input-value numeric" type="number" ng-model="m.my_values.gma_app" />
 			<a ng-switch-default href ng-click="editMeasurementDetails(m);">
-				<input class="lmi-input-value numeric" type="number" min="0" ng-model="m.total" disabled />
+				<input class="lmi-input-value numeric" type="number" ng-model="m.total" disabled />
 			</a>
 		</span>
 	</div>
@@ -144,7 +144,7 @@
 					<label class="col-xs-5 control-label">Local</label>
 
 					<div class="col-xs-7">
-						<input class="form-control" type="number" min="0" placeholder="Local" name="local" ng-model="details.local_breakdown.gma_app" />
+						<input class="form-control" type="number" placeholder="Local" name="local" ng-model="details.local_breakdown.gma_app" />
 					</div>
 				</div>
 			</fieldset>
@@ -154,7 +154,7 @@
 					<label class="col-xs-5 control-label">Total</label>
 
 					<div class="col-xs-7">
-						<input class="form-control" type="number" min="0" ng-model="details.local_breakdown.total" disabled />
+						<input class="form-control" type="number" ng-model="details.local_breakdown.total" disabled />
 					</div>
 				</div>
 			</fieldset>
@@ -166,7 +166,7 @@
 					<label class="col-xs-5 control-label">{{ministry.name}}</label>
 
 					<div class="col-xs-7">
-						<input class="form-control" type="number" min="0" disabled ng-model="ministry.total" />
+						<input class="form-control" type="number" disabled ng-model="ministry.total" />
 					</div>
 				</div>
 			</fieldset>
@@ -178,21 +178,21 @@
 					<label class="col-xs-5 control-label">{{current.user.last_name}}, {{current.user.first_name}}</label>
 
 					<div class="col-xs-7">
-						<input class="form-control" type="number" min="0" placeholder="Personal" name="personal" ng-model="details.my_measurements[ current.period.format('YYYY-MM') ]" />
+						<input class="form-control" type="number" placeholder="Personal" name="personal" ng-model="details.my_measurements[ current.period.format('YYYY-MM') ]" />
 					</div>
 				</div>
 				<div class="form-group" ng-repeat="member in details.team" ng-if="current.hasRole(['leader', 'inherited_leader'])">
 					<label class="col-xs-5 control-label">{{member.last_name}}, {{member.first_name}}</label>
 
 					<div class="col-xs-7">
-						<input class="form-control" type="number" min="0" ng-model="member.total" disabled />
+						<input class="form-control" type="number" ng-model="member.total" disabled />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-xs-5 control-label">TOTAL</label>
 
 					<div class="col-xs-7">
-						<input class="form-control" type="number" min="0" ng-model="details.total[current.period.format('YYYY-MM')]" disabled />
+						<input class="form-control" type="number" ng-model="details.total[current.period.format('YYYY-MM')]" disabled />
 					</div>
 				</div>
 			</fieldset>
@@ -204,7 +204,7 @@
 					<label class="col-sm-5 control-label">{{member.last_name}}, {{member.first_name}}</label>
 
 					<div class="col-sm-7">
-						<input class="form-control" type="number" min="0" ng-model="member.total" disabled />
+						<input class="form-control" type="number" ng-model="member.total" disabled />
 					</div>
 				</div>
 			</fieldset>
