@@ -1,4 +1,10 @@
 ﻿define( ['gcmApp', 'angular'], function ( gcmApp ) {
+	gcmApp.factory( 'churchService', ['$resource', '$rootScope', function ( $resource, $rootScope ) {
+		return $resource( $rootScope.GCM_APP.api_url + '/churches/:church_id', {}, {
+			get:   {withCredentials: true},
+			query: {withCredentials: true, isArray: true}
+		} );
+	}] );
 	gcmApp.factory( 'church_service', ['$http', function ( $http ) {
 		return {
 			getChurches: function ( session_ticket, bounds, extras ) {

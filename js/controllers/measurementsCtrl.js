@@ -12,8 +12,7 @@
 					$scope.measurements = measurementsService.query( {
 						ministry_id: $scope.current.assignment.ministry_id,
 						mcc:         $scope.current.mcc,
-						period:      $scope.current.period.format( 'YYYY-MM' ),
-						token:       $scope.current.sessionToken
+						period:      $scope.current.period.format( 'YYYY-MM' )
 					}, function () {
 						$scope.current.isLoaded = true;
 					} );
@@ -51,7 +50,7 @@
 					}
 				} );
 				if ( measurements.length > 0 ) {
-					measurementsService.save( {token: $scope.current.sessionToken}, measurements, function () {
+					measurementsService.save( {}, measurements, function () {
 						getMeasurements();
 					} );
 				}
@@ -73,8 +72,7 @@
 								measurement_id: measurement.measurement_id,
 								ministry_id:    $scope.current.assignment.ministry_id,
 								mcc:            $scope.current.mcc,
-								period:         $scope.current.period.format( 'YYYY-MM' ),
-								token:          $scope.current.sessionToken
+								period:         $scope.current.period.format( 'YYYY-MM' )
 							} ).$promise;
 						}
 					}
@@ -154,7 +152,7 @@
 					}
 
 					if ( measurements.length > 0 ) {
-						measurementsService.save( {token: $scope.current.sessionToken}, measurements, function () {
+						measurementsService.save( {}, measurements, function () {
 							$modalInstance.close();
 						} );
 					}

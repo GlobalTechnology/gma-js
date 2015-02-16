@@ -1,4 +1,4 @@
-﻿define( ['gcmApp', 'moment', 'sessionService', 'ministry_service', 'assignmentService', 'church_service', 'training_service'], function ( gcmApp, moment ) {
+﻿define( ['gcmApp', 'moment', 'ministry_service', 'assignmentService', 'church_service', 'training_service'], function ( gcmApp, moment ) {
 	gcmApp.controller( 'gcmController', [
 		'$scope', '$filter', '$location', '$modal', 'sessionService', 'ministry_service', 'assignment_service', 'church_service', 'training_service', '$log',
 		function ( $scope, $filter, $location, $modal, sessionService, ministry_service, assignment_service, church_service, training_service, $log ) {
@@ -19,6 +19,11 @@
 					$scope.current.assignment = $filter( 'orderBy' )( assignments, 'name' )[0];
 				} else {
 					delete $scope.current.assignment;
+
+					//Open Modal if user has no assignment
+					if ( typeof data.assignments === 'undefined' ) {
+						$scope.joinMinistry( false );
+					}
 				}
 			} );
 
@@ -91,19 +96,23 @@
 			//---------------------------------------
 
 			// Establish Session
-			sessionService.startSession( $scope.GCM_APP.ticket ).then( function ( data ) {
-
-				//Open Modal if user has no assignment
-				if ( typeof data.assignments === 'undefined' ) {
-					$scope.joinMinistry( false );
-				}
-
-			} );
+			//sessionService.startSession( $scope.GCM_APP.ticket ).then( function ( data ) {
+			//
+			//	//Open Modal if user has no assignment
+			//	if ( typeof data.assignments === 'undefined' ) {
+			//		$scope.joinMinistry( false );
+			//	}
+			//
+			//} );
 
 			$scope.logout = function () {
 				sessionService.logout().then( function() {
 					window.location = 'https://thekey.me/cas/logout';
 				});
+			};
+
+			$scope.invalidateSession = function() {
+				sessionService.logout();
 			};
 
 			$scope.joinMinistry = function ( allowClose ) {

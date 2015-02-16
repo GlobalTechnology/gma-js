@@ -1,6 +1,6 @@
 ﻿define( ['gcmApp', 'church_service', 'training_service', 'markerwithlabel'], function ( gcmApp ) {
 	(function ( $ ) {
-		var map_controller = function ( $scope, $document, $compile, church_service, training_service ) {
+		var map_controller = function ( $scope, $document, $compile, church_service, training_service, churchService ) {
 			$scope.current.isLoaded = false;
 			$scope.show_target_point = true;
 			$scope.show_group = true;
@@ -20,6 +20,7 @@
 			$scope.church_lines = [];
 			$scope.churches = [];
 			$scope.trainings = [];
+			$scope.allChurches = [];
 			$scope.training_types = [
 				{value: "MC2", text: 'MC2'},
 				{value: "T4T", text: 'T4T'},
@@ -42,7 +43,7 @@
 						ne = bounds.getNorthEast(),
 						sw = bounds.getSouthWest();
 
-					if( ne.lat() == sw.lat() && ne.lng() == sw.lng() ) {
+					if ( ne.lat() == sw.lat() && ne.lng() == sw.lng() ) {
 						// Trigger a resize if bounds have 0 area
 						google.maps.event.trigger( $scope.map, 'resize' );
 					}
@@ -118,21 +119,46 @@
 						if ( a && a.hasOwnProperty( 'location_zoom' ) ) {
 							$scope.map.setZoom( parseInt( a.location_zoom ) );
 						}
-
-						if ( a.ministry_id != oldVal.ministry_id ) {
-							$scope.loadChurches();
-							if ( $scope.current.assignment.team_role === 'leader' || $scope.current.assignment.team_role === 'inherited_leader' ) {
-								training_service.getTrainings( $scope.current.sessionToken, a.ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree ).then( function ( trainings ) {
-									$scope.trainings = trainings;
-								}, $scope.onError );
-							}
-							else {
-								$scope.trainings = [];
-							}
-						}
 					}
 				}, true );
 			}
+
+			$scope.$watch( 'current.assignment.ministry_id', function ( ministry_id ) {
+				if ( typeof ministry_id === 'undefined' ) {
+					$scope.allChurches = [];
+					$scope.trainings = [];
+				} else {
+					$scope.allChurches = churchService.query( {
+						token:       $scope.current.sessionToken,
+						ministry_id: ministry_id
+					} );
+
+					if ( $scope.current.assignment.team_role === 'leader' || $scope.current.assignment.team_role === 'inherited_leader' ) {
+						training_service.getTrainings( $scope.current.sessionToken, ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree ).then( function ( trainings ) {
+							$scope.trainings = trainings;
+						}, $scope.onError );
+					}
+					else {
+						$scope.trainings = [];
+					}
+				}
+			} );
+
+			$scope.$watch( 'searchedChurch', function ( church ) {
+				if ( typeof church === 'undefined' || church == '' ) return;
+				var markers = $scope.map.markers.filter( function ( c ) {
+					return c.id == church.id
+				} );
+				if ( markers.length > 0 ) {
+					var marker = markers[0];
+					$scope.churchWindow.close();
+					$scope.churchWindow.setOptions( {maxWidth: 400} );
+					$scope.churchWindow.open( $scope.map, marker );
+				}
+
+				$scope.map.setCenter( new google.maps.LatLng( church.latitude, church.longitude ) );
+				$scope.map.setZoom( 5 );
+			} );
 
 			$scope.loadChurches = function () {
 				console.log( 'loading churches' );
@@ -682,7 +708,7 @@
 			$scope.jesusFilmSign.prototype = new google.maps.OverlayView();
 		};
 
-		gcmApp.controller( "mapController", ["$scope", "$document", "$compile", "church_service", "training_service", map_controller] );
+		gcmApp.controller( "mapController", ["$scope", "$document", "$compile", "church_service", "training_service", 'churchService', map_controller] );
 
 	})( jQuery );
 } );

@@ -67,7 +67,8 @@
 			</td>
 
 			<td style="text-align:center; padding:2px 12px">
-				<img class="map_legend_icon" ng-src="{{GCM_APP.app_url}}/css/map_icons/multipliedchurchicon.png"></td>
+				<img class="map_legend_icon" ng-src="{{GCM_APP.app_url}}/css/map_icons/multipliedchurchicon.png">
+			</td>
 
 			<td>multiplying church or community of disciples</td>
 
@@ -126,13 +127,13 @@
 		<div class="radio">
 			<label>
 				<input type="radio" id="filter_my_target_area_only" ng-model="map_filter" value="min_only" ng-change="loadChurches()">
-				{{assignment.name}} only
+				{{current.assignment.name}} only
 			</label>
 		</div>
 		<div class="radio">
 			<label>
 				<input type="radio" id="filterMyTree" ng-model="map_filter" value="tree" ng-change="loadChurches()">
-				{{assignment.name}} + tree
+				{{current.assignment.name}} + tree
 			</label>
 		</div>
 		<table style="opacity: 0.4">
@@ -159,133 +160,127 @@
 	</div>
 </div>
 <!--<div id="church_window" style="display: none;">
-    <div style="clear:both" />
-    <div class='church-window'>
-        <h4>{name} <br /><small>{size} members </small> </h4>
+	<div style="clear:both" />
+	<div class='church-window'>
+		<h4>{name} <br /><small>{size} members </small> </h4>
 
-        <table class="table table-condensed">
-            <tr>
-                <td><b>Contact Name: </b></td>
-                <td>
-                    <input type="text" class="{hide_input}" value='{contact_name}' />
-                    <label class="{hide_label}">{contact_name}</label>
+		<table class="table table-condensed">
+			<tr>
+				<td><b>Contact Name: </b></td>
+				<td>
+					<input type="text" class="{hide_input}" value='{contact_name}' />
+					<label class="{hide_label}">{contact_name}</label>
 
-                </td>
-            </tr>
-            <tr>
-                <td><b>Contact Email:</b> </td>
-                <td>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Contact Email:</b> </td>
+				<td>
 
-                    <input type="email" class="{hide_input}" value='{contact_email}' />
-                    <label class="{hide_label}">{contact_email}</label>
+					<input type="email" class="{hide_input}" value='{contact_email}' />
+					<label class="{hide_label}">{contact_email}</label>
 
-                </td>
-            </tr>
-            <tr class="{hide_input}">
-                <td><b>Type:</b> </td>
-                <td>
-                    <select {disabled}>
-                        <option value="1" {target}>Target</option>
-                        <option value="2" {group}>Group</option>
-                        <option value="3" {church}>Church</option>
-                        <option value="4" {mult}>Multiplying Church</option>
+				</td>
+			</tr>
+			<tr class="{hide_input}">
+				<td><b>Type:</b> </td>
+				<td>
+					<select {disabled}>
+						<option value="1" {target}>Target</option>
+						<option value="2" {group}>Group</option>
+						<option value="3" {church}>Church</option>
+						<option value="4" {mult}>Multiplying Church</option>
 
-                    </select>
+					</select>
 
-                </td>
-            </tr>
-            <tr class="{hide_input}">
-                <td><b>Size:</b> </td>
-                <td>
-                    <input type="number" {disabled} value="{size}"></input>
+				</td>
+			</tr>
+			<tr class="{hide_input}">
+				<td><b>Size:</b> </td>
+				<td>
+					<input type="number" {disabled} value="{size}"></input>
 
-                </td>
-            </tr>
-            <tr>
-                <td><b>Language:</b> </td>
-                <td>
-                    <input type="text" class="{hide_input}" value='{language}' />
-                    <label class="{hide_label}">{language}</label>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Language:</b> </td>
+				<td>
+					<input type="text" class="{hide_input}" value='{language}' />
+					<label class="{hide_label}">{language}</label>
 
-                </td>
-            </tr>
-            <tr>
-                <td><b>People Group:</b> </td>
-                <td>
-                    <input type="text" class="{hide_input}" value='{people_group}' />
-                    <label class="{hide_label}">{people_group}</label>
-                </td>
-            </tr>
-        </table>
-    </div>
+				</td>
+			</tr>
+			<tr>
+				<td><b>People Group:</b> </td>
+				<td>
+					<input type="text" class="{hide_input}" value='{people_group}' />
+					<label class="{hide_label}">{people_group}</label>
+				</td>
+			</tr>
+		</table>
+	</div>
 
 </div>-->
 <!--<div id="new_church_window" style="display: none;">
-    <div style="clear:both" />
-    <div class='church-window'>
-        <h4>Create New Church </h4>
+	<div style="clear:both" />
+	<div class='church-window'>
+		<h4>Create New Church </h4>
 
-        <table class="table table-condensed">
-            <tr>
-                <td><b>Name</b></td>
-                <td>
-                    <input type="text"  value='new_church.name' />
+		<table class="table table-condensed">
+			<tr>
+				<td><b>Name</b></td>
+				<td>
+					<input type="text"  value='new_church.name' />
 
-                </td>
-            </tr>
-            <tr>
-                <td><b>Contact Name: </b></td>
-                <td>
-                    <input type="text" value='new_church.contact_name' />
-                </td>
-            </tr>
-            <tr>
-                <td><b>Contact Email:</b> </td>
-                <td>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Contact Name: </b></td>
+				<td>
+					<input type="text" value='new_church.contact_name' />
+				</td>
+			</tr>
+			<tr>
+				<td><b>Contact Email:</b> </td>
+				<td>
 
-                    <input type="email" value='new_church.contact_email' />
+					<input type="email" value='new_church.contact_email' />
 
-                </td>
-            </tr>
-            <tr >
-                <td><b>Type:</b> </td>
-                <td>
-                    <select ng-model="new_church.development">
-                        <option value="1" {target}>Target</option>
-                        <option value="2" {group}>Group</option>
-                        <option value="3" {church}>Church</option>
-                        <option value="4" {mult}>Multiplying Church</option>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Type:</b> </td>
+				<td>
+					<select ng-model="new_church.development">
+						<option value="1" {target}>Target</option>
+						<option value="2" {group}>Group</option>
+						<option value="3" {church}>Church</option>
+						<option value="4" {mult}>Multiplying Church</option>
 
-                    </select>
+					</select>
 
-                </td>
-            </tr>
-            <tr>
-                <td><b>Size:</b> </td>
-                <td>
-                    <input type="number" {disabled} value="new_church.size"></input>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Size:</b> </td>
+				<td>
+					<input type="number" {disabled} value="new_church.size"></input>
 
-                </td>
-            </tr>
+				</td>
+			</tr>
 
-        </table>
-        <button class="btn btn-primary" type="button" ng-click="onAddChurch()">Add</button>
-        <button class="btn" type="button" ng-click="console.log('hello');  onCancelAddChurch()">Cancel</button>
-    </div>
+		</table>
+		<button class="btn btn-primary" type="button" ng-click="onAddChurch()">Add</button>
+		<button class="btn" type="button" ng-click="console.log('hello');  onCancelAddChurch()">Cancel</button>
+	</div>
 
 </div>-->
 
 <div id="map_controls" class="map-controls" ng-show="current.isLoaded">
-	<div class="pull-left map-search" style="display: none;">
+	<div class="pull-left map-search">
 		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search for churches">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true">
-
-                    </span>
-				</button>
-            </span>
+			<input id="searchBox" type="text" class="form-control" placeholder="Search for churches" typeahead="church as church.name for church in allChurches | filter:{name:$viewValue}" typeahead-editable="false" ng-model="searchedChurch">
+			<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 		</div>
 	</div>
 </div>

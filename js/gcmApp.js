@@ -1,7 +1,7 @@
 ﻿var _api_url = window._api_url = GCM_APP.api_url;
-define( ['angularAMD', 'angular-route', 'angular-bootstrap', 'angular-resource'], function ( angularAMD ) {
+define( ['angularAMD', 'angular-route', 'angular-bootstrap', 'angular-resource', 'sessionService'], function ( angularAMD ) {
 	var gcmApp = angular.module( 'gcmApp', ['ngRoute', 'ui.bootstrap', 'ngResource'] )
-		.run( ['$rootScope', '$route', function ( $rootScope, $route ) {
+		.run( ['$rootScope', '$route', 'sessionService', function ( $rootScope, $route, sessionService ) {
 			// Attach global constants to root scope
 			$rootScope.GCM_APP = window.GCM_APP;
 
@@ -12,20 +12,13 @@ define( ['angularAMD', 'angular-route', 'angular-bootstrap', 'angular-resource']
 
 			// Reload the route since ng-view directive is inside a template.
 			$route.reload();
+
+			// Start the session with the API
+			sessionService.startSession( $rootScope.GCM_APP.ticket );
 		}] )
 		.config( ['$routeProvider', '$httpProvider', function ( $routeProvider, $httpProvider ) {
-			// enable CORS on IE <= 9
-			//Default behavior since v1.1.1 (http://bit.ly/1t7Vcci)
-			delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
-			$httpProvider.interceptors.push( ['$rootScope', '$log', function ( $rootScope, $log ) {
-				return {
-					request: function ( config ) {
-//						$log.debug( config );
-						return config;
-					}
-				}
-			}] );
+			// Register sessionService as an http interceptor
+			$httpProvider.interceptors.push( 'sessionService' );
 
 			$routeProvider
 				.when( '/map', angularAMD.route( {
