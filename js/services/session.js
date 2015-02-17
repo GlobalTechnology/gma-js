@@ -35,7 +35,6 @@ define( ['angularAMD'], function ( angularAMD ) {
 						}
 
 						config.attempts = ( typeof config.attempts === 'number' ) ? config.attempts + 1 : 1;
-						$log.debug( config );
 					}
 					return config;
 				},
