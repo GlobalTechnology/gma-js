@@ -1,7 +1,7 @@
-﻿define( ['gcmApp', 'underscore', 'measurementsService', 'goog!visualization,1,packages:[corechart]'], function ( gcmApp, _ ) {
+﻿define( ['gcmApp', 'underscore', 'measurementService', 'goog!visualization,1,packages:[corechart]'], function ( gcmApp, _ ) {
 	gcmApp.controller( 'measurementsController', [
-		'$scope', '$document', '$filter', '$modal', 'measurementsService',
-		function ( $scope, $document, $filter, $modal, measurementsService ) {
+		'$scope', '$document', '$filter', '$modal', 'measurementService',
+		function ( $scope, $document, $filter, $modal, measurementService ) {
 			$scope.current.isLoaded = false;
 
 			// Debounced method to fetch Measurements at most once every 100 milliseconds
@@ -9,7 +9,7 @@
 				if ( typeof $scope.current.assignment !== 'undefined' && typeof $scope.current.period !== 'undefined' && typeof $scope.current.mcc !== 'undefined' ) {
 					$scope.current.isLoaded = false;
 					$scope.lmiForm.$setPristine();
-					$scope.measurements = measurementsService.query( {
+					$scope.measurements = measurementService.getMeasurements( {
 						ministry_id: $scope.current.assignment.ministry_id,
 						mcc:         $scope.current.mcc,
 						period:      $scope.current.period.format( 'YYYY-MM' )
@@ -50,7 +50,7 @@
 					}
 				} );
 				if ( measurements.length > 0 ) {
-					measurementsService.save( {}, measurements, function () {
+					measurementService.saveMeasurement( {}, measurements, function () {
 						getMeasurements();
 					} );
 				}
@@ -68,7 +68,7 @@
 						},
 						'details':     function () {
 							// Return the promise so resolve waits
-							return measurementsService.get( {
+							return measurementService.getMeasurement( {
 								measurement_id: measurement.measurement_id,
 								ministry_id:    $scope.current.assignment.ministry_id,
 								mcc:            $scope.current.mcc,
@@ -101,8 +101,8 @@
 			}
 		}] )
 		.controller( 'measurementDetailsController', [
-			'$scope', '$modalInstance', 'measurementsService', 'measurement', 'details',
-			function ( $scope, $modalInstance, measurementsService, measurement, details ) {
+			'$scope', '$modalInstance', 'measurementService', 'measurement', 'details',
+			function ( $scope, $modalInstance, measurementService, measurement, details ) {
 				$scope.measurement = measurement;
 				$scope.details = details;
 
@@ -152,7 +152,7 @@
 					}
 
 					if ( measurements.length > 0 ) {
-						measurementsService.save( {}, measurements, function () {
+						measurementService.saveMeasurement( {}, measurements, function () {
 							$modalInstance.close();
 						} );
 					}

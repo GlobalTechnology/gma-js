@@ -28,13 +28,12 @@ require.config( {
 		'measurementsController': 'controllers/measurementsCtrl',
 
 		//Services
-		'assignmentService':      'services/assignments',
-		'church_service':         'services/church',
-		'ministry_service':       'services/ministries',
-		'token':                  'services/token',
-		'training_service':       'services/training',
+		'assignmentService':      'services/assignment',
+		'churchService':          'services/church',
+		'ministryService':        'services/ministry',
+		'trainingService':        'services/training',
 		'sessionService':         'services/session',
-		'measurementsService':    'services/measurements'
+		'measurementService':     'services/measurement'
 	},
 
 	// Library Dependencies

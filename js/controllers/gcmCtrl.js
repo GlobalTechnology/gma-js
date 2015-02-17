@@ -1,7 +1,7 @@
-﻿define( ['gcmApp', 'moment', 'ministry_service', 'assignmentService', 'church_service', 'training_service'], function ( gcmApp, moment ) {
+﻿define( ['gcmApp', 'moment', 'ministryService', 'assignmentService'], function ( gcmApp, moment ) {
 	gcmApp.controller( 'gcmController', [
-		'$scope', '$filter', '$location', '$modal', 'sessionService', 'ministry_service', 'assignment_service', 'church_service', 'training_service', '$log',
-		function ( $scope, $filter, $location, $modal, sessionService, ministry_service, assignment_service, church_service, training_service, $log ) {
+		'$scope', '$filter', '$location', '$modal', 'sessionService', 'ministryService', 'assignmentService', '$log',
+		function ( $scope, $filter, $location, $modal, sessionService, ministryService, assignmentService, $log ) {
 			// Attach $location provider to scope, this is used to set active tabs
 			$scope.$location = $location;
 
@@ -124,7 +124,7 @@
 					backdrop:    allowClose ? true : 'static',
 					resolve:     {
 						'ministries': function () {
-							return ministry_service.getMinistries( $scope.current.sessionToken );
+							return ministryService.getMinistries().$promise;
 						},
 						'allowClose': function () {
 							return allowClose;
@@ -132,11 +132,11 @@
 					}
 				} );
 				instance.result.then( function ( ministry ) {
-					assignment_service.addTeamMember( $scope.current.sessionToken, {
+					assignmentService.addTeamMember( {
 						username:    $scope.current.user.cas_username,
 						ministry_id: ministry.ministry_id,
 						team_role:   'self_assigned'
-					} ).then( function ( assignment ) {
+					}, function ( assignment ) {
 						if ( typeof $scope.current.assignments === 'undefined' ) {
 							// If assignments is empty, setting the array will also set the current assignment
 							$scope.current.assignments = [assignment];

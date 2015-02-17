@@ -1,5 +1,5 @@
 ﻿define( ['gcmApp'], function ( gcmApp ) {
-	gcmApp.factory( 'training_service', ['$http', function ( $http ) {
+	gcmApp.factory( 'trainingService', ['$http', function ( $http ) {
 		function getHighest( array ) {
 			var max = 0;
 			if ( !array ) return 0;

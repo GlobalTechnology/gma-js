@@ -1,16 +1,8 @@
-﻿define( ['gcmApp', 'assignmentService', 'ministry_service'], function ( gcmApp ) {
+﻿define( ['gcmApp', 'assignmentService', 'ministryService'], function ( gcmApp ) {
 	gcmApp.controller( 'adminController', [
-		'$scope', 'assignmentService', 'ministry_service',
-		function ( $scope, assignmentService, ministry_service ) {
+		'$scope', 'assignmentService', 'ministryService',
+		function ( $scope, assignmentService, ministryService ) {
 			$scope.current.isLoaded = false;
-
-			$scope.$watch( 'current.assignment', function ( assignment ) {
-				if ( typeof assignment === 'undefined' ) return;
-				ministry_service.getMinistry( $scope.current.sessionToken, assignment.ministry_id ).then( function ( data ) {
-					$scope.ministry = data;
-					$scope.current.isLoaded = true;
-				} );
-			} );
 
 			$scope.roles = [
 				{value: "leader", text: 'Leader'},
@@ -20,14 +12,15 @@
 				{value: "self_assigned", text: 'Self Assigned'}
 			];
 
-			$scope.onSaveAssignment = function ( response ) {
-				console.log( 'saved' );
-			};
+			$scope.$watch( 'current.assignment.ministry_id', function ( ministry_id ) {
+				if ( typeof ministry_id === 'undefined' ) return;
+				$scope.ministry = ministryService.getMinistry( {ministry_id: ministry_id}, function () {
+					$scope.current.isLoaded = true;
+				} );
+			} );
 
-			$scope.saveRole = function ( s ) {
-				console.log( 'saving role' );
-				assignmentService.save( {
-					token: $scope.current.sessionToken,
+			$scope.saveRole = function ( assignment ) {
+				assignmentService.saveAssignment( {
 					assignment_id: s.assignment_id
 				}, {team_role: s.team_role} );
 				$scope.newMember = {};
@@ -35,7 +28,7 @@
 
 			$scope.addTeamMember = function () {
 				$scope.newMember.ministry_id = $scope.current.assignment.ministry_id;
-				assignmentService.addTeamMember( {token: $scope.current.sessionToken}, $scope.newMember, function() {
+				assignmentService.addTeamMember( {}, $scope.newMember, function () {
 					console.log( 'adding_team_member' );
 				} );
 			};
