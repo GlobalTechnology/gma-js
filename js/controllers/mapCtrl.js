@@ -192,6 +192,9 @@
 						params['show_all'] = 'true';
 					} else if ( $scope.map_filter === 'tree' ) params['show_tree'] = 'true';
 
+					// Disable clustering at Zoom 14 and higher
+					if ( $scope.map.getZoom() >= 14 ) params['should_cluster'] = 'false';
+
 					churchService.getChurches( params ).$promise.then( $scope.onGetChurches, $scope.onError );
 				}, 500 );
 
