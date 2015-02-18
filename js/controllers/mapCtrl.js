@@ -138,16 +138,14 @@
 					} );
 					if ( markers.length > 0 ) {
 						var marker = markers[0];
-						$scope.churchWindow.close();
-						$scope.churchWindow.setOptions( {maxWidth: 400} );
-						$scope.churchWindow.open( $scope.map, marker );
+						google.maps.event.trigger( marker, 'click' );
 					}
-
-					$scope.map.setCenter( new google.maps.LatLng( church.latitude, church.longitude ) );
-					$scope.map.setZoom( 5 );
+					else {
+						$scope.map.setCenter( new google.maps.LatLng( church.latitude, church.longitude ) );
+					}
 				} );
 
-				$scope.$watch( 'map_filter', function( filter ) {
+				$scope.$watch( 'map_filter', function ( filter ) {
 					$scope.loadAllChurches();
 					$scope.loadTrainings();
 				} );
