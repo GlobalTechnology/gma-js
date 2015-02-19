@@ -1,8 +1,8 @@
-﻿define( ['gcmApp', 'underscore', 'churchService', 'trainingService', 'markerwithlabel'], function ( gcmApp, _ ) {
+﻿define( ['gcmApp', 'underscore', 'churchService', 'trainingService', 'ministryService', 'markerwithlabel'], function ( gcmApp, _ ) {
 	(function ( $ ) {
 		gcmApp.controller( 'mapController', [
-			'$scope', '$document', '$compile', 'trainingService', 'churchService',
-			function ( $scope, $document, $compile, trainingService, churchService ) {
+			'$scope', '$document', '$compile', 'trainingService', 'churchService', 'ministryService',
+			function ( $scope, $document, $compile, trainingService, churchService, ministryService ) {
 				$scope.current.isLoaded = false;
 				$scope.show_target_point = true;
 				$scope.show_group = true;
@@ -720,8 +720,27 @@
 						this.div_ = null;
 					}
 				};
-
 				$scope.jesusFilmSign.prototype = new google.maps.OverlayView();
+
+				$scope.setDefaultView = function () {
+					var center = $scope.map.getCenter(),
+						zoom = $scope.map.getZoom();
+
+					// Update current assignment location/zoom
+					$scope.current.assignment.location = {
+						latitude:  center.lat(),
+						longitude: center.lng()
+					};
+					$scope.current.assignment.location_zoom = zoom;
+
+					// Save changes to API
+					ministryService.saveMinistry( {
+						ministry_id:   $scope.current.assignment.ministry_id,
+						min_code:      $scope.current.assignment.min_code.trim(),
+						location:      $scope.current.assignment.location,
+						location_zoom: $scope.current.assignment.location_zoom
+					} );
+				};
 			}] );
 	})( jQuery );
 } );
