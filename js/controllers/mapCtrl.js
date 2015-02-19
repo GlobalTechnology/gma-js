@@ -150,6 +150,14 @@
 					$scope.loadTrainings();
 				} );
 
+				$scope.$watch( 'current.mcc', function ( mcc ) {
+					if ( typeof mcc === 'undefined' ) {
+						$scope.trainings = [];
+					} else {
+						$scope.loadTrainings();
+					}
+				} );
+
 				$scope.loadAllChurches = _.debounce( function () {
 					var params = {
 						ministry_id: $scope.current.assignment.ministry_id
@@ -412,7 +420,12 @@
 				$scope.load_training_markers = function () {
 					var toDelete = [];
 					angular.forEach( $scope.map.markers, function ( training ) {
-						if ( training.id[0] == 't' && !$scope.show_training ) toDelete.push( training );
+						if ( training.id[0] == 't' && $scope.trainings.filter( function ( t ) {
+								return t.id == training.id
+							} ).length == 0 ) {
+							toDelete.push( training );
+						}
+						else if ( training.id[0] == 't' && !$scope.show_training ) toDelete.push( training );
 					} );
 
 					angular.forEach( toDelete, function ( training ) {
