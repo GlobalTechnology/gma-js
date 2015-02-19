@@ -1,4 +1,4 @@
-﻿define( ['gcmApp', 'moment', 'ministryService', 'assignmentService'], function ( gcmApp, moment ) {
+﻿define( ['gcmApp', 'moment', 'underscore', 'ministryService', 'assignmentService'], function ( gcmApp, moment, _ ) {
 	gcmApp.controller( 'gcmController', [
 		'$scope', '$filter', '$location', '$modal', 'sessionService', 'ministryService', 'assignmentService', '$log',
 		function ( $scope, $filter, $location, $modal, sessionService, ministryService, assignmentService, $log ) {
@@ -17,11 +17,13 @@
 
 				if ( typeof assignments === 'object' ) {
 					$scope.current.assignment = $filter( 'orderBy' )( assignments, 'name' )[0];
+					$scope.current.ministries = flattenMinistries( assignments );
 				} else {
 					delete $scope.current.assignment;
+					$scope.current.ministries = [];
 
 					//Open Modal if user has no assignment
-					if ( typeof data.assignments === 'undefined' ) {
+					if ( typeof assignments === 'undefined' ) {
 						$scope.joinMinistry( false );
 					}
 				}
@@ -49,8 +51,20 @@
 			} );
 
 			$scope.current.hasRole = function ( role ) {
+				if ( typeof $scope.current.assignment === 'undefined' || typeof $scope.current.assignment.team_role === 'undefined' ) return false;
 				return (typeof role === 'string') ? role == $scope.current.assignment.team_role : _.contains( role, $scope.current.assignment.team_role );
 			};
+
+			function flattenMinistries( arr ) {
+				var ministries = [];
+				angular.forEach( arr, function ( ministry ) {
+					ministries.push( ministry );
+					if ( ministry.hasOwnProperty( 'sub_ministries' ) && typeof ministry.sub_ministries === 'object' ) {
+						ministries = ministries.concat( flattenMinistries( ministry.sub_ministries ) );
+					}
+				} );
+				return ministries;
+			}
 
 			//---------------------------------------
 			// Mission Critical Components (MCC)
@@ -106,12 +120,12 @@
 			//} );
 
 			$scope.logout = function () {
-				sessionService.logout().then( function() {
+				sessionService.logout().then( function () {
 					window.location = 'https://thekey.me/cas/logout';
-				});
+				} );
 			};
 
-			$scope.invalidateSession = function() {
+			$scope.invalidateSession = function () {
 				sessionService.logout();
 			};
 
@@ -190,20 +204,32 @@
 			$scope.saveTrainingCompletion = function ( data ) {
 				training_service.updateTrainingCompletion( $scope.user.session_ticket, data ).then( $scope.onSaveTrainingCompletion, $scope.onError );
 			};
-		}] );
+		}] )
+		.controller( 'joinMinistryController', [
+			'$scope', '$modalInstance', 'ministries', 'allowClose',
+			function ( $scope, $modalInstance, ministries, allowClose ) {
+				$scope.ministries = ministries;
+				$scope.allowClose = allowClose;
 
-	gcmApp.controller( 'joinMinistryController', [
-		'$scope', '$modalInstance', 'ministries', 'allowClose',
-		function ( $scope, $modalInstance, ministries, allowClose ) {
-			$scope.ministries = ministries;
-			$scope.allowClose = allowClose;
+				$scope.join = function () {
+					$modalInstance.close( $scope.ministry );
+				};
 
-			$scope.join = function () {
-				$modalInstance.close( $scope.ministry );
-			};
-
-			$scope.cancel = function () {
-				$modalInstance.dismiss( 'cancel' );
+				$scope.cancel = function () {
+					$modalInstance.dismiss( 'cancel' );
+				};
+			}] )
+		.filter( 'roleFilter', [function () {
+			return function ( items, role ) {
+				var filtered = [];
+				angular.forEach( items, function ( item ) {
+					if ( typeof role === 'string' && role == item.team_role ) {
+						filtered.push( item );
+					} else if ( typeof role === 'object' && _.contains( role, item.team_role ) ) {
+						filtered.push( item );
+					}
+				} );
+				return filtered;
 			};
 		}] );
 } );
