@@ -1,15 +1,24 @@
-﻿<div class="panel panel-default">
-	<div class="panel-body">
-		<div class="col-lg-6">
+﻿<div class="row admin-columns" ng-show="ministry">
 
-			<fieldset>
-				<legend>Team Members</legend>
-				<table class="table table-striped" style="max-width: 500px;">
+	<div class="admin-item">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<button type="button" class="pull-right btn btn-primary btn-sm" data-toggle="modal" data-target="#newTeamMember">Add Team Member</button>
+				<h3 class="panel-title">Team Members</h3>
+
+				<div class="clearfix"></div>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
 					<thead>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Role</th>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Role</th>
+						<th></th>
+					</tr>
 					</thead>
+					<tbody>
 					<tr ng-repeat="staff in ministry.team_members">
 						<td>{{staff.first_name}}</td>
 						<td>{{staff.last_name}}</td>
@@ -22,28 +31,53 @@
 							<a href ng-click="staff.editMode=false; staff.team_role=staff.orig_role" ng-show="staff.editMode">Cancel</a>
 						</td>
 					</tr>
+					</tbody>
 				</table>
-			</fieldset>
+			</div>
 		</div>
-		<div class="col-lg-6">
-			<fieldset>
-				<legend>Child Ministries / Sub Teams</legend>
+	</div>
+
+	<div class="admin-item">
+		<form name="changeParentForm">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Parent Ministry</h3>
+
+					<div class="clearfix"></div>
+				</div>
+				<div class="panel-body">
+					<select
+						name="prent"
+						class="form-control"
+						ng-model="ministry.parent_id"
+						ng-options="m.ministry_id as m.name for m in current.ministries | roleFilter:['leader','inherited_leader'] | orderBy:'name'">
+						<option value="">No Parent Ministry</option>
+					</select>
+				</div>
+				<div class="panel-footer">
+					<button type="button" class="btn btn-primary pull-right" ng-disabled="!changeParentForm.$dirty" ng-click="changeParent()">Change Parent Ministry</button>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="admin-item">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<button type="button" class="pull-right btn btn-primary btn-sm">Add Sub Ministry</button>
+				<h3 class="panel-title">Child Ministries / Sub Teams</h3>
+
+				<div class="clearfix"></div>
+			</div>
+			<div class="panel-body">
 				<div ng-repeat="min in current.assignment.sub_ministries">
 					<a href ng-click="loadAssignment(min)">{{min.name}}</a>
 				</div>
-			</fieldset>
+			</div>
 		</div>
-		<div style="clear: both;" />
-		<div class="col-lg-6">
-			<button type="button" class="btn" data-toggle="modal" data-target="#newTeamMember">Add Team Member</button>
-		</div>
-
-		<div class="col-lg-6">
-			<button type="button" class="btn">Add Sub Ministry</button>
-		</div>
-		<div style="clear: both;" />
-
 	</div>
+
 </div>
 
 <div class="modal fade" id="newTeamMember" tabindex="-1" role="dialog" aria-labelledby="newTeamMember" aria-hidden="true">
@@ -52,7 +86,7 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="newTeamMember">Add a new Team Member</h4>
+				<h4 class="modal-title">Add a new Team Member</h4>
 			</div>
 			<div class="modal-body form-horizontal">
 				<div class="form-group">
