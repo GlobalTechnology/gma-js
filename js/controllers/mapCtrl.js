@@ -747,7 +747,7 @@
 					$scope.current.assignment.location_zoom = zoom;
 
 					// Save changes to API
-					ministryService.saveMinistry( {
+					ministryService.updateMinistry( {
 						ministry_id:   $scope.current.assignment.ministry_id,
 						min_code:      $scope.current.assignment.min_code.trim(),
 						location:      $scope.current.assignment.location,

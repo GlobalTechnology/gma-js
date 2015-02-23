@@ -34,7 +34,7 @@
 			};
 
 			$scope.changeParent = function() {
-				ministryService.saveMinistry( {
+				ministryService.updateMinistry( {
 					ministry_id: $scope.ministry.ministry_id,
 					parent_id: $scope.ministry.parent_id
 				} );

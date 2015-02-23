@@ -3,9 +3,10 @@
 		'$resource', '$rootScope',
 		function ( $resource, $rootScope ) {
 			return $resource( $rootScope.GCM_APP.api_url + '/ministries/:ministry_id', {}, {
-				getMinistry:   {method: 'GET'},
-				getMinistries: {method: 'GET', isArray: true},
-				saveMinistry:  {method: 'PUT', params: {ministry_id: '@ministry_id'}}
+				getMinistry:    {method: 'GET'},
+				getMinistries:  {method: 'GET', isArray: true},
+				updateMinistry: {method: 'PUT', params: {ministry_id: '@ministry_id'}},
+				createMinistry: {method: 'POST'}
 			} );
 		}] );
 } );
