@@ -17,6 +17,9 @@ define( ['angularAMD'], function ( angularAMD ) {
 							} else {
 								delete $rootScope.current.assignments;
 							}
+
+							$rootScope.$broadcast( 'sessionStart', response.data );
+
 							return response.data;
 						} );
 				},

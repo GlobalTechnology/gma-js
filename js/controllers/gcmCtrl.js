@@ -9,6 +9,13 @@
 			// Assignments
 			//---------------------------------------
 
+			$scope.$on( 'sessionStart', function( session ) {
+				if( typeof session.assignments === 'undefined' ) {
+					//Open Modal if user has no assignment
+					$scope.joinMinistry( false );
+				}
+			} );
+
 			// Update current assignment when assignments is set - this occurs after a session is established
 			$scope.$watch( 'current.assignments', function ( assignments, oldVal ) {
 				if ( assignments === oldVal ) return;
@@ -21,11 +28,6 @@
 				} else {
 					delete $scope.current.assignment;
 					$scope.current.ministries = [];
-
-					//Open Modal if user has no assignment
-					if ( typeof assignments === 'undefined' ) {
-						$scope.joinMinistry( false );
-					}
 				}
 			} );
 
