@@ -9,7 +9,7 @@
 			// Assignments
 			//---------------------------------------
 
-			$scope.$on( 'sessionStart', function( session ) {
+			$scope.$on( 'sessionStart', function( event, session ) {
 				if( typeof session.assignments === 'undefined' ) {
 					//Open Modal if user has no assignment
 					$scope.joinMinistry( false );
