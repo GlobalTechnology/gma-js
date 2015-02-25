@@ -135,8 +135,18 @@
 
 		</div>
 
+		<div class="row" ng-if="GCM_APP.mobileapps">
+			<div class="col-xs-12">
+				<div class="text-center">
+					Mobile Apps:
+					<a ng-if="GCM_APP.mobileapps.ios.enabled" ng-href="{{GCM_APP.mobileapps.ios.link}}">iOS</a> |
+					<a ng-if="GCM_APP.mobileapps.android.enabled" ng-href="{{GCM_APP.mobileapps.android.link}}">Android</a>
+				</div>
+			</div>
+		</div>
+
 		<footer>
-			<p>&copy; Campus Crusade for Christ 2014</p>
+			<span>&copy; Campus Crusade for Christ 2014</span>
 		</footer>
 	</div>
 
