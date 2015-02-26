@@ -1,13 +1,13 @@
 define( ['angularAMD'], function ( angularAMD ) {
 	angularAMD.factory( 'sessionService', [
-		'$rootScope', '$injector', '$q', '$location', '$log',
-		function ( $rootScope, $injector, $q, $location, $log ) {
+		'$rootScope', '$injector', '$q', '$location', 'settings', '$log',
+		function ( $rootScope, $injector, $q, $location, settings, $log ) {
 			var token,
 				queue = [];
 
 			return {
 				startSession:  function ( ticket ) {
-					return $injector.get( '$http' ).get( $rootScope.GCM_APP.api_url + "/token?st=" + ticket, {withCredentials: true} )
+					return $injector.get( '$http' ).get( settings.api.measurements( '/token' ), {params: {st: ticket}} )
 						.then( function ( response ) {
 							$rootScope.current.user = response.data.user;
 							$rootScope.current.sessionToken = response.data.session_ticket;
@@ -24,11 +24,11 @@ define( ['angularAMD'], function ( angularAMD ) {
 						} );
 				},
 				logout:        function () {
-					return $injector.get( '$http' ).delete( $rootScope.GCM_APP.api_url + '/token', {withCredentials: true} );
+					return $injector.get( '$http' ).delete( settings.api.measurements( '/token' ) );
 				},
 				// Request Interceptor
 				request:       function ( config ) {
-					if ( config.url.indexOf( $rootScope.GCM_APP.api_url ) !== -1 ) {
+					if ( config.url.indexOf( settings.api.measurements() ) !== -1 ) {
 						// All API requests must pass along HTTP credentials
 						config.withCredentials = true;
 
@@ -43,7 +43,7 @@ define( ['angularAMD'], function ( angularAMD ) {
 				},
 				// Error Response Interceptor
 				responseError: function ( response ) {
-					if ( response.status == 401 && response.config.url.indexOf( $rootScope.GCM_APP.api_url ) !== -1 ) {
+					if ( response.status == 401 && response.config.url.indexOf( settings.api.measurements() ) !== -1 ) {
 						$log.debug( response );
 					}
 					return response;

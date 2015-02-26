@@ -1,10 +1,12 @@
-﻿define( ['gcmApp'], function ( gcmApp ) {
-	gcmApp.factory( 'assignmentService', ['$resource', '$rootScope', function ( $resource, $rootScope ) {
-		return $resource( $rootScope.GCM_APP.api_url + '/assignments/:assignment_id', {assignment_id: '@assignment_id'}, {
-			getAssignment:  {method: 'GET'},
-			getAssignments: {method: 'GET', isArray: true},
-			saveAssignment: {method: 'PUT'},
-			addTeamMember:  {method: 'POST'}
-		} );
-	}] );
+﻿define( ['app'], function ( app ) {
+	app.factory( 'assignmentService', [
+		'$resource', 'settings',
+		function ( $resource, settings ) {
+			return $resource( settings.api.measurements( '/assignments/:assignment_id' ), {assignment_id: '@assignment_id'}, {
+				getAssignment:  {method: 'GET'},
+				getAssignments: {method: 'GET', isArray: true},
+				saveAssignment: {method: 'PUT'},
+				addTeamMember:  {method: 'POST'}
+			} );
+		}] );
 } );

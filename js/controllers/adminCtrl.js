@@ -1,5 +1,5 @@
-﻿define( ['gcmApp', 'assignmentService', 'ministryService'], function ( gcmApp ) {
-	gcmApp.controller( 'adminController', [
+﻿define( ['app', 'assignmentService', 'ministryService'], function ( app ) {
+	app.controller( 'adminController', [
 		'$scope', 'assignmentService', 'ministryService',
 		function ( $scope, assignmentService, ministryService ) {
 			$scope.current.isLoaded = false;

@@ -1,6 +1,6 @@
 require.config( {
 	// Base URL for requireJS
-	'baseUrl': GCM_APP.app_url + '/js',
+	'baseUrl': gma.config.appUrl + '/js',
 
 	// Library paths
 	paths:     {
@@ -19,7 +19,7 @@ require.config( {
 		'underscore':             '../vendor/underscore/underscore',
 
 		// Application
-		'gcmApp':                 'gcmApp',
+		'app':                    'app',
 
 		// Controllers
 		'adminController':        'controllers/adminCtrl',
@@ -33,7 +33,8 @@ require.config( {
 		'ministryService':        'services/ministry',
 		'trainingService':        'services/training',
 		'sessionService':         'services/session',
-		'measurementService':     'services/measurement'
+		'measurementService':     'services/measurement',
+		'settingsService':        'services/settings'
 	},
 
 	// Library Dependencies
@@ -43,9 +44,10 @@ require.config( {
 		'angular-bootstrap': ['angular', 'bootstrap'],
 		'angular-resource':  ['angular'],
 		'markerwithlabel':   ['async!https://maps.googleapis.com/maps/api/js?sensor=false'],
-		'underscore':        {exports: '_'}
+		'underscore':        {exports: '_'},
+		'angular':           {exports: 'angular'}
 	},
 
 	// Kickstart application
-	deps:      ['gcmApp', 'gcmController']
+	deps:      ['app', 'gcmController']
 } );

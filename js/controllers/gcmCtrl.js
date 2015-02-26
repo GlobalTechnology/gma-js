@@ -1,7 +1,7 @@
-﻿define( ['gcmApp', 'moment', 'underscore', 'ministryService', 'assignmentService'], function ( gcmApp, moment, _ ) {
-	gcmApp.controller( 'gcmController', [
-		'$scope', '$filter', '$location', '$modal', 'sessionService', 'ministryService', 'assignmentService', '$log',
-		function ( $scope, $filter, $location, $modal, sessionService, ministryService, assignmentService, $log ) {
+﻿define( ['app', 'moment', 'underscore', 'ministryService', 'assignmentService'], function ( app, moment, _ ) {
+	app.controller( 'gcmController', [
+		'$scope', '$filter', '$location', '$modal', 'sessionService', 'ministryService', 'assignmentService', 'settings', '$log',
+		function ( $scope, $filter, $location, $modal, sessionService, ministryService, assignmentService, settings, $log ) {
 			// Attach $location provider to scope, this is used to set active tabs
 			$scope.$location = $location;
 
@@ -113,7 +113,7 @@
 
 			$scope.logout = function () {
 				sessionService.logout().then( function () {
-					window.location = $rootScope.GCM_APP.cas_logout;
+					window.location = settings.api.logout;
 				} );
 			};
 
@@ -166,6 +166,8 @@
 				}
 				$scope.error = response.reason;
 			};
+
+			$scope.mobileApps = settings.mobileApps;
 
 			//$scope.addTrainingStage = function ( training ) {
 			//	var newPhase = {

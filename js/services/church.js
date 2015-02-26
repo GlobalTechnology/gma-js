@@ -1,10 +1,12 @@
-﻿define( ['gcmApp', 'angular'], function ( gcmApp ) {
-	gcmApp.factory( 'churchService', ['$resource', '$rootScope', function ( $resource, $rootScope ) {
-		return $resource( $rootScope.GCM_APP.api_url + '/churches/:church_id', {}, {
-			getChurch:   {method: 'GET'},
-			getChurches: {method: 'GET', isArray: true},
-			addChurch:   {method: 'POST'},
-			saveChurch:  {method: 'PUT', params: {church_id: '@id'}}
-		} );
-	}] );
+﻿define( ['app', 'angular'], function ( app ) {
+	app.factory( 'churchService', [
+		'$resource', 'settings',
+		function ( $resource, settings ) {
+			return $resource( settings.api.measurements( '/churches/:church_id' ), {}, {
+				getChurch:   {method: 'GET'},
+				getChurches: {method: 'GET', isArray: true},
+				addChurch:   {method: 'POST'},
+				saveChurch:  {method: 'PUT', params: {church_id: '@id'}}
+			} );
+		}] );
 } );

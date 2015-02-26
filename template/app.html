@@ -3,7 +3,7 @@
 	<nav class="navbar navbar-inverse navbar-static-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href>GCM App</a>
+				<a class="navbar-brand" href>GMA</a>
 			</div>
 
 			<div class="collapse navbar-collapse">
@@ -104,43 +104,14 @@
 					</div>
 				</div>
 			</div>
-
-<!--
-			<div class="row">
-				<div class="col-md-12">
-					<div ng-view></div>
-					<div class="spinner" ng-hide="current.isLoaded">
-						<div class="spinner-container container1">
-							<div class="circle1"></div>
-							<div class="circle2"></div>
-							<div class="circle3"></div>
-							<div class="circle4"></div>
-						</div>
-						<div class="spinner-container container2">
-							<div class="circle1"></div>
-							<div class="circle2"></div>
-							<div class="circle3"></div>
-							<div class="circle4"></div>
-						</div>
-						<div class="spinner-container container3">
-							<div class="circle1"></div>
-							<div class="circle2"></div>
-							<div class="circle3"></div>
-							<div class="circle4"></div>
-						</div>
-					</div>
-				</div>
-			</div>
--->
-
 		</div>
 
-		<div class="row" ng-if="GCM_APP.mobileapps">
+		<div class="row" ng-if="mobileApps">
 			<div class="col-xs-12">
 				<div class="text-center">
 					Mobile Apps:
-					<a ng-if="GCM_APP.mobileapps.ios.enabled" ng-href="{{GCM_APP.mobileapps.ios.link}}">iOS</a> |
-					<a ng-if="GCM_APP.mobileapps.android.enabled" ng-href="{{GCM_APP.mobileapps.android.link}}">Android</a>
+					<a ng-repeat-start="app in mobileApps" ng-href="{{app.link}}">{{app.label}}</a>
+					<span ng-repeat-end ng-if="!$last"> | </span>
 				</div>
 			</div>
 		</div>
