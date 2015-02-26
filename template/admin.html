@@ -19,7 +19,7 @@
 					</tr>
 					</thead>
 					<tbody>
-					<tr ng-repeat="staff in ministry.team_members">
+					<tr ng-repeat="staff in ministry.team_members | orderBy:['first_name', 'last_name']">
 						<td>{{staff.first_name}}</td>
 						<td>{{staff.last_name}}</td>
 						<td>
