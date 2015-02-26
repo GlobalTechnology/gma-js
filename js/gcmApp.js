@@ -16,7 +16,10 @@ define( ['angularAMD', 'angular-route', 'angular-bootstrap', 'angular-resource',
 			// Start the session with the API
 			sessionService.startSession( $rootScope.GCM_APP.ticket );
 		}] )
-		.config( ['$routeProvider', '$httpProvider', function ( $routeProvider, $httpProvider ) {
+		.config( ['$routeProvider', '$httpProvider', '$compileProvider', function ( $routeProvider, $httpProvider, $compileProvider ) {
+			// Add itms-services scheme to safe aHref protocols
+			$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|itms-services):/);
+
 			// Register sessionService as an http interceptor
 			$httpProvider.interceptors.push( 'sessionService' );
 
