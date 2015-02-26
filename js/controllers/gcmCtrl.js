@@ -111,19 +111,9 @@
 			// Session
 			//---------------------------------------
 
-			// Establish Session
-			//sessionService.startSession( $scope.GCM_APP.ticket ).then( function ( data ) {
-			//
-			//	//Open Modal if user has no assignment
-			//	if ( typeof data.assignments === 'undefined' ) {
-			//		$scope.joinMinistry( false );
-			//	}
-			//
-			//} );
-
 			$scope.logout = function () {
 				sessionService.logout().then( function () {
-					window.location = 'https://thekey.me/cas/logout';
+					window.location = $rootScope.GCM_APP.cas_logout;
 				} );
 			};
 
