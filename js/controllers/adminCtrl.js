@@ -28,8 +28,8 @@
 
 			$scope.addTeamMember = function () {
 				$scope.newMember.ministry_id = $scope.current.assignment.ministry_id;
-				assignmentService.addTeamMember( {}, $scope.newMember, function () {
-					console.log( 'adding_team_member' );
+				assignmentService.addTeamMember( $scope.newMember, function () {
+					$scope.ministry = ministryService.getMinistry( {ministry_id: $scope.current.assignment.ministry_id} );
 				} );
 			};
 
