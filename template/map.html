@@ -2,119 +2,89 @@
 
 <div id="side" class="map_side" ng-show="current.isLoaded">
 
-	<button type="button" class="btn btn-map-add" ng-click="onAddIcon()">
-		<img ng-src="{{GCM_APP.app_url}}/css/map_icons/targeticon.png" /> +
+	<button type="button" class="btn btn-default" ng-click="onAddIcon()" ng-if="current.hasRole(['leader', 'inherited_leader'])">
+		<span class="glyphicon glyphicon-plus"></span>&nbsp;<img ng-src="{{appUrl('/css/map_icons/targeticon.png')}}" style="max-height: 19px;" />
 	</button>
 
-	<button type="button" class="btn btn-map-add" ng-click="onAddTraining()">
-		<img ng-src="{{GCM_APP.app_url}}/css/map_icons/training.png" /> +
+	<button type="button" class="btn btn-default" ng-click="onAddTraining()" ng-if="current.hasRole(['leader', 'inherited_leader'])">
+		<span class="glyphicon glyphicon-plus"></span>&nbsp;<img ng-src="{{appUrl('/css/map_icons/training.png')}}" style="max-height: 25px;" />
 	</button>
 
 
 	<div class="map_legend_header" ng-click="show_legend = !show_legend">
-		<span>LEGEND<img class="showMoreArrow" ng-src="{{GCM_APP.app_url}}/css/map_icons/{{show_legend ? 'up' : 'down'}}.png" style="padding-left:10px"></span>
+		<span>LEGEND<img class="showMoreArrow" ng-src="{{appUrl()}}/css/map_icons/{{show_legend ? 'up' : 'down'}}.png" style="padding-left:10px"></span>
 	</div>
 	<table class="map_legend" ng-show="show_legend" ng-init="show_legend=true">
 
 		<tbody>
 		<tr>
-
 			<td>
 				<input type="checkbox" class="church_development_checkbox" ng-model="show_target_point" development="1" ng-change="loadChurches()">
 			</td>
-
 			<td style="text-align:center; padding:2px 12px">
-				<img class="map_legend_icon" ng-src="{{GCM_APP.app_url}}/css/map_icons/targeticon.png"></td>
-
+				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/targeticon.png')}}"></td>
 			<td>target point</td>
-
 		</tr>
 
 
 		<tr>
-
 			<td>
 				<input type="checkbox" class="church_development_checkbox" ng-model="show_group" development="2" ng-change="loadChurches()">
 			</td>
-
 			<td style="text-align:center; padding:2px 12px">
-				<img class="map_legend_icon" ng-src="{{GCM_APP.app_url}}/css/map_icons/groupicon.png"></td>
-
+				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/groupicon.png')}}"></td>
 			<td>group</td>
-
 		</tr>
 
-
 		<tr>
-
 			<td>
 				<input type="checkbox" class="church_development_checkbox" ng-model="show_church" development="3" ng-change="loadChurches()">
 			</td>
-
 			<td style="text-align:center; padding:2px 12px">
-				<img class="map_legend_icon" ng-src="{{GCM_APP.app_url}}/css/map_icons/churchicon.png"></td>
-
+				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/churchicon.png')}}"></td>
 			<td>church or community of disciples</td>
-
 		</tr>
 
-
 		<tr>
-
 			<td>
 				<input type="checkbox" class="church_development_checkbox" ng-model="show_mult_church" development="5" ng-change="loadChurches()">
 			</td>
-
 			<td style="text-align:center; padding:2px 12px">
-				<img class="map_legend_icon" ng-src="{{GCM_APP.app_url}}/css/map_icons/multipliedchurchicon.png">
+				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/multipliedchurchicon.png')}}">
 			</td>
-
 			<td>multiplying church or community of disciples</td>
-
 		</tr>
-		<tr>
 
+		<tr ng-if="current.hasRole(['leader', 'inherited_leader'])">
 			<td>
 				<input type="checkbox" class="church_development_checkbox" ng-model="show_training" ng-change="load_training_markers()">
 			</td>
-
 			<td style="text-align:center; padding:2px 12px">
-				<img class="map_legend_icon" ng-src="{{GCM_APP.app_url}}/css/map_icons/training.png"></td>
-
+				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/training.png')}}"></td>
 			<td>training activity</td>
-
 		</tr>
 
-
 		<tr>
-
 			<td><input type="checkbox" id="jesusFilmCheckBox" ng-model="show_jf"></td>
-
 			<td style="text-align:center; padding:2px 12px">
 				<div style="display:inline-block; font-size:10px; font-weight:bold; border:1px solid #2a6800; padding:0px 3px; background-color:yellow; color:black">1</div>
 			</td>
-
 			<td>Jesus Film contribution</td>
-
 		</tr>
 
 		<tr>
-
 			<td><input type="checkbox" id="parentLineCheckBox" ng-model="show_lines"></td>
-
 			<td style="text-align:center; padding:2px 12px">
 				<div style="display:inline-block; width:14px; height:2px;  background-color:grey"></div>
 			</td>
-
 			<td>parent lines</td>
-
 		</tr>
 
 		</tbody>
 	</table>
 
 	<div class="map_legend_header" ng-click="show_filters = !show_filters">
-		<span>FILTERS<img class="showMoreArrow" ng-src="{{GCM_APP.app_url}}/css/map_icons/{{show_filters ? 'up' : 'down'}}.png" style="padding-left:10px"></span>
+		<span>FILTERS<img class="showMoreArrow" ng-src="{{appUrl()}}/css/map_icons/{{show_filters ? 'up' : 'down'}}.png" style="padding-left:10px"></span>
 	</div>
 	<div class="map-legend" ng-show="show_filters" ng-init="show_filters=true">
 		<div class="radio">

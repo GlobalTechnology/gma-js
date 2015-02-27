@@ -1,8 +1,9 @@
-﻿define( ['gcmApp', 'underscore', 'measurementService', 'goog!visualization,1,packages:[corechart]'], function ( gcmApp, _ ) {
-	gcmApp.controller( 'measurementsController', [
-		'$scope', '$document', '$filter', '$modal', 'measurementService',
-		function ( $scope, $document, $filter, $modal, measurementService ) {
+﻿define( ['app', 'underscore', 'measurementService', 'goog!visualization,1,packages:[corechart]'], function ( app, _ ) {
+	app.controller( 'measurementsController', [
+		'$scope', '$document', '$filter', '$modal', 'measurementService', 'settings',
+		function ( $scope, $document, $filter, $modal, measurementService, settings ) {
 			$scope.current.isLoaded = false;
+			$scope.ns = settings.gmaNamespace;
 
 			// Debounced method to fetch Measurements at most once every 100 milliseconds
 			var getMeasurements = _.debounce( function () {
@@ -39,13 +40,13 @@
 			$scope.save = function () {
 				var measurements = [];
 				angular.forEach( $scope.measurements, function ( measurement ) {
-					if ( typeof measurement.my_values.gma_app === 'number' ) {
+					if ( typeof measurement.my_values[settings.gmaNamespace] === 'number' ) {
 						measurements.push( {
 							period:              $scope.current.period.format( 'YYYY-MM' ),
-							mcc:                 $scope.current.mcc + '_gma_app',
+							mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
 							measurement_type_id: measurement.person_measurement_type_id,
 							related_entity_id:   $scope.current.assignment.id,
-							value:               measurement.my_values.gma_app
+							value:               measurement.my_values[settings.gmaNamespace]
 						} );
 					}
 				} );
@@ -101,8 +102,8 @@
 			}
 		}] )
 		.controller( 'measurementDetailsController', [
-			'$scope', '$modalInstance', 'measurementService', 'measurement', 'details',
-			function ( $scope, $modalInstance, measurementService, measurement, details ) {
+			'$scope', '$modalInstance', 'measurementService', 'measurement', 'details', 'settings',
+			function ( $scope, $modalInstance, measurementService, measurement, details, settings ) {
 				$scope.measurement = measurement;
 				$scope.details = details;
 
@@ -121,7 +122,7 @@
 				$scope.filterSource = function ( items ) {
 					var result = {};
 					angular.forEach( items, function ( value, key ) {
-						if ( key != 'gma_app' && key != 'total' ) {
+						if ( key != settings.gmaNamespace && key != 'total' ) {
 							result[key] = value;
 						}
 					} );
@@ -134,7 +135,7 @@
 					if ( $scope.editForm.hasOwnProperty( 'local' ) && typeof $scope.editForm.local.$modelValue !== 'undefined' ) {
 						measurements.push( {
 							period:              $scope.current.period.format( 'YYYY-MM' ),
-							mcc:                 $scope.current.mcc + '_gma_app',
+							mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
 							measurement_type_id: $scope.details.measurement_type_ids.local,
 							related_entity_id:   $scope.current.assignment.ministry_id,
 							value:               $scope.editForm.local.$modelValue
@@ -144,7 +145,7 @@
 					if ( $scope.editForm.hasOwnProperty( 'personal' ) && typeof $scope.editForm.personal.$modelValue !== 'undefined' ) {
 						measurements.push( {
 							period:              $scope.current.period.format( 'YYYY-MM' ),
-							mcc:                 $scope.current.mcc + '_gma_app',
+							mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
 							measurement_type_id: $scope.details.measurement_type_ids.person,
 							related_entity_id:   $scope.current.assignment.id,
 							value:               $scope.editForm.personal.$modelValue

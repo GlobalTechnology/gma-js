@@ -1,5 +1,5 @@
-﻿define( ['gcmApp', 'assignmentService', 'ministryService'], function ( gcmApp ) {
-	gcmApp.controller( 'adminController', [
+﻿define( ['app', 'assignmentService', 'ministryService'], function ( app ) {
+	app.controller( 'adminController', [
 		'$scope', 'assignmentService', 'ministryService',
 		function ( $scope, assignmentService, ministryService ) {
 			$scope.current.isLoaded = false;
@@ -21,15 +21,15 @@
 
 			$scope.saveRole = function ( assignment ) {
 				assignmentService.saveAssignment( {
-					assignment_id: s.assignment_id
-				}, {team_role: s.team_role} );
+					assignment_id: assignment.assignment_id
+				}, {team_role: assignment.team_role} );
 				$scope.newMember = {};
 			};
 
 			$scope.addTeamMember = function () {
 				$scope.newMember.ministry_id = $scope.current.assignment.ministry_id;
-				assignmentService.addTeamMember( {}, $scope.newMember, function () {
-					console.log( 'adding_team_member' );
+				assignmentService.addTeamMember( $scope.newMember, function () {
+					$scope.ministry = ministryService.getMinistry( {ministry_id: $scope.current.assignment.ministry_id} );
 				} );
 			};
 

@@ -1,8 +1,8 @@
-﻿define( ['gcmApp'], function ( gcmApp ) {
-	gcmApp.factory( 'ministryService', [
-		'$resource', '$rootScope',
-		function ( $resource, $rootScope ) {
-			return $resource( $rootScope.GCM_APP.api_url + '/ministries/:ministry_id', {}, {
+﻿define( ['app'], function ( app ) {
+	app.factory( 'ministryService', [
+		'$resource', 'settings',
+		function ( $resource, settings ) {
+			return $resource( settings.api.measurements( '/ministries/:ministry_id' ), {}, {
 				getMinistry:    {method: 'GET'},
 				getMinistries:  {method: 'GET', isArray: true},
 				updateMinistry: {method: 'PUT', params: {ministry_id: '@ministry_id'}},
