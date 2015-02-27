@@ -189,6 +189,8 @@
 				}, 500 );
 
 				$scope.loadChurches = _.debounce( function () {
+					if ( typeof $scope.current.assignment === 'undefined' ) return;
+
 					console.log( 'loading churches' );
 					var bounds = $scope.map.getBounds(),
 						ne = bounds.getNorthEast(),
