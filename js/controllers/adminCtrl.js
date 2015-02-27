@@ -21,8 +21,8 @@
 
 			$scope.saveRole = function ( assignment ) {
 				assignmentService.saveAssignment( {
-					assignment_id: s.assignment_id
-				}, {team_role: s.team_role} );
+					assignment_id: assignment.assignment_id
+				}, {team_role: assignment.team_role} );
 				$scope.newMember = {};
 			};
 
