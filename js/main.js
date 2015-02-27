@@ -43,7 +43,7 @@ require.config( {
 		'angular-route':     ['angular'],
 		'angular-bootstrap': ['angular', 'bootstrap'],
 		'angular-resource':  ['angular'],
-		'markerwithlabel':   ['async!https://maps.googleapis.com/maps/api/js?sensor=false'],
+		'markerwithlabel':   ['async!' + gma.config.googlemaps],
 		'underscore':        {exports: '_'},
 		'angular':           {exports: 'angular'}
 	},
