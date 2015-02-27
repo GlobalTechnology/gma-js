@@ -31,8 +31,13 @@
 					{value: "", text: 'Other'}
 				];
 				$scope.mapOptions = {
-					zoom:   10,
-					center: new google.maps.LatLng( 15.117368581249664, -90.09897668253325 )
+					zoom:   3,
+					center: new google.maps.LatLng( 0, 0 ),
+					panControl: true,
+					zoomControl: true,
+					mapTypeControl: true,
+					streetViewControl: false,
+					overviewMapControl: false
 				};
 				setTimeout( initialize, 0 );
 
