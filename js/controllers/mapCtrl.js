@@ -31,12 +31,12 @@
 					{value: "", text: 'Other'}
 				];
 				$scope.mapOptions = {
-					zoom:   3,
-					center: new google.maps.LatLng( 0, 0 ),
-					panControl: true,
-					zoomControl: true,
-					mapTypeControl: true,
-					streetViewControl: false,
+					zoom:               3,
+					center:             new google.maps.LatLng( 0, 0 ),
+					panControl:         true,
+					zoomControl:        true,
+					mapTypeControl:     true,
+					streetViewControl:  false,
 					overviewMapControl: false
 				};
 				setTimeout( initialize, 0 );
@@ -165,6 +165,7 @@
 				} );
 
 				$scope.loadAllChurches = _.debounce( function () {
+					if ( typeof $scope.current.assignment === 'undefined' ) return;
 					var params = {
 						ministry_id: $scope.current.assignment.ministry_id
 					};
@@ -176,7 +177,8 @@
 				}, 500 );
 
 				$scope.loadTrainings = _.debounce( function () {
-					if ( $scope.current.hasRole( ['leader', 'inherited_leader'] ) ) {
+					// Member, Leader and Inherited can view trainings
+					if ( typeof $scope.current.assignment !== 'undefined' && $scope.current.hasRole( ['leader', 'inherited_leader'] ) ) {
 						trainingService.getTrainings( $scope.current.sessionToken, $scope.current.assignment.ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree ).then( function ( trainings ) {
 							$scope.trainings = trainings;
 						}, $scope.onError );
