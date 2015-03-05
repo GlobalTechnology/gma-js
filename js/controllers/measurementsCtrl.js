@@ -74,7 +74,7 @@
 								ministry_id:    $scope.current.assignment.ministry_id,
 								mcc:            $scope.current.mcc,
 								period:         $scope.current.period.format( 'YYYY-MM' )
-							} ).$promise;
+							} );
 						}
 					}
 				} );
@@ -104,20 +104,25 @@
 		.controller( 'measurementDetailsController', [
 			'$scope', '$modalInstance', 'measurementService', 'measurement', 'details', 'settings',
 			function ( $scope, $modalInstance, measurementService, measurement, details, settings ) {
+				$scope.spinner = true;
 				$scope.measurement = measurement;
 				$scope.details = details;
 
-				var da = [['Period', 'Local', 'Total', 'Personal']];
-				angular.forEach( details.total, function ( t, period ) {
-					angular.forEach( details.local, function ( l, p ) {
-						if ( p === period ) {
-							angular.forEach( details.my_measurements, function ( m, p ) {
-								if ( p === period ) da.push( [p, l, t, m] )
-							} );
-						}
+				$scope.details.$promise.then( function() {
+					$scope.spinner = false;
+
+					var da = [['Period', 'Local', 'Total', 'Personal']];
+					angular.forEach( details.total, function ( t, period ) {
+						angular.forEach( details.local, function ( l, p ) {
+							if ( p === period ) {
+								angular.forEach( details.my_measurements, function ( m, p ) {
+									if ( p === period ) da.push( [p, l, t, m] )
+								} );
+							}
+						} );
 					} );
+					$scope.trend = google.visualization.arrayToDataTable( da );
 				} );
-				$scope.trend = google.visualization.arrayToDataTable( da );
 
 				$scope.filterSource = function ( items ) {
 					var result = {};
