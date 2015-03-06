@@ -1,7 +1,7 @@
 ﻿define( ['app', 'assignmentService', 'ministryService'], function ( app ) {
 	app.controller( 'adminController', [
-		'$scope', '$timeout', 'assignmentService', 'ministryService',
-		function ( $scope, $timeout, assignmentService, ministryService ) {
+		'$scope', 'assignmentService', 'ministryService',
+		function ( $scope, assignmentService, ministryService ) {
 			$scope.current.isLoaded = false;
 
 			$scope.roles = [
@@ -34,11 +34,21 @@
 			};
 
 			$scope.changeParent = function() {
-				ministryService.updateMinistry( {
+        $scope.changeParentResource = ministryService.updateMinistry( {
 					ministry_id: $scope.ministry.ministry_id,
           min_code: $scope.ministry.min_code,
 					parent_id: $scope.ministry.parent_id
-				} );
+				}, function(){
+          $scope.changeParentAlert = {
+            type: 'success',
+            msg: 'Parent ministry has been saved.'
+          };
+        }, function(response){
+          $scope.changeParentAlert = {
+            type: 'danger',
+            msg: response.Message || 'An error occurred while saving.'
+          };
+        });
 			};
 
       $scope.saveDetails = function(){

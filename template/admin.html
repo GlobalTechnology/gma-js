@@ -46,6 +46,8 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="panel-body">
+                    <alert type="{{changeParentAlert.type}}" ng-show="changeParentAlert" close="changeParentAlert = null">{{changeParentAlert.msg}}</alert>
+
 					<select
 						name="prent"
 						class="form-control"
@@ -55,7 +57,7 @@
 					</select>
 				</div>
 				<div class="panel-footer">
-					<button type="button" class="btn btn-primary pull-right" ng-disabled="!changeParentForm.$dirty" ng-click="changeParent()">Change Parent Ministry</button>
+					<button type="button" class="btn btn-primary pull-right" ng-disabled="changeParentResource && !changeParentResource.$resolved" ng-click="changeParent()">Change Parent Ministry</button>
 					<div class="clearfix"></div>
 				</div>
 			</div>
