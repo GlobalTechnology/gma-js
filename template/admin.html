@@ -67,7 +67,7 @@
 	<div class="admin-item">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<button type="button" class="pull-right btn btn-primary btn-sm">Add Sub Ministry</button>
+				<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addSubMinistry()">Add Sub Ministry</button>
 				<h3 class="panel-title">Child Ministries / Sub Teams</h3>
 
 				<div class="clearfix"></div>
@@ -182,5 +182,32 @@
     </div>
 </script>
 
+<script type="text/ng-template" id="add_sub_ministry.html">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="close()">
+                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Add a new Sub Ministry</h4>
+        </div>
+        <div class="modal-body form-horizontal">
+            <div class="form-group">
+                <label for="sbName" class="col-sm-4 control-label">Ministry name:</label>
 
+                <div class="col-sm-8">
+                    <input id="sbName" type="text" class="form-control" ng-model="newMinistry.name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sbCode" class="col-sm-4 control-label">Ministry code:</label>
 
+                <div class="col-sm-8">
+                    <input id="sbCode" type="text" class="form-control" ng-model="newMinistry.min_code" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="close()">Close</button>
+            <button type="button" class="btn btn-primary" ng-click="add()">Create</button>
+        </div>
+    </div>
+</script>

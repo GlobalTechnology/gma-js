@@ -52,6 +52,26 @@
                     });
             };
 
+            $scope.addSubMinistry = function () {
+                $modal.open({
+                    templateUrl: 'add_sub_ministry.html',
+                    controller: function ($scope, $modalInstance) {
+                        $scope.close = function () {
+                            $modalInstance.dismiss();
+                        };
+
+                        $scope.add = function () {
+                            $modalInstance.close($scope.newMinistry);
+                        };
+                    }
+                }).result.then(function (newMinistry) {
+                        newMinistry.parent_id = $scope.current.assignment.ministry_id;
+                        ministryService.createMinistry(newMinistry, function () {
+                            $scope.current.assignment.sub_ministries.push(newMinistry);
+                        });
+                    });
+            };
+
             $scope.changeParent = function () {
                 $scope.changeParentResource = ministryService.updateMinistry({
                     ministry_id: $scope.ministry.ministry_id,
