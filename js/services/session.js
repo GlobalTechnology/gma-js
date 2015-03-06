@@ -46,7 +46,7 @@ define( ['angularAMD'], function ( angularAMD ) {
 					if ( response.status == 401 && response.config.url.indexOf( settings.api.measurements() ) !== -1 ) {
 						$log.debug( response );
 					}
-					return response;
+					return $q.reject(response);
 				}
 			}
 		}] );
