@@ -1,7 +1,7 @@
 ﻿define( ['app', 'assignmentService', 'ministryService'], function ( app ) {
 	app.controller( 'adminController', [
-		'$scope', 'assignmentService', 'ministryService',
-		function ( $scope, assignmentService, ministryService ) {
+		'$scope', '$modal', 'assignmentService', 'ministryService',
+		function ( $scope, $modal, assignmentService, ministryService ) {
 			$scope.current.isLoaded = false;
 
 			$scope.roles = [
@@ -23,15 +23,34 @@
 				assignmentService.saveAssignment( {
 					assignment_id: assignment.assignment_id
 				}, {team_role: assignment.team_role} );
-				$scope.newMember = {};
 			};
 
-			$scope.addTeamMember = function () {
-				$scope.newMember.ministry_id = $scope.current.assignment.ministry_id;
-				assignmentService.addTeamMember( $scope.newMember, function () {
-					$scope.ministry = ministryService.getMinistry( {ministry_id: $scope.current.assignment.ministry_id} );
-				} );
-			};
+            $scope.addTeamMember = function () {
+                $modal.open({
+                    templateUrl: 'add_team_member.html',
+                    controller: function ($scope, $modalInstance, roles) {
+                        $scope.roles = roles;
+
+                        $scope.close = function () {
+                            $modalInstance.dismiss();
+                        };
+
+                        $scope.add = function () {
+                            $modalInstance.close($scope.newMember);
+                        };
+                    },
+                    resolve: {
+                        'roles': function () {
+                            return $scope.roles;
+                        }
+                    }
+                }).result.then(function (newMember) {
+                        newMember.ministry_id = $scope.current.assignment.ministry_id;
+                        assignmentService.addTeamMember(newMember, function () {
+                            $scope.ministry = ministryService.getMinistry({ministry_id: $scope.current.assignment.ministry_id});
+                        });
+                    });
+            };
 
             $scope.changeParent = function () {
                 $scope.changeParentResource = ministryService.updateMinistry({
