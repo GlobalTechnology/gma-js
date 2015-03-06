@@ -33,45 +33,45 @@
 				} );
 			};
 
-			$scope.changeParent = function() {
-        $scope.changeParentResource = ministryService.updateMinistry( {
-					ministry_id: $scope.ministry.ministry_id,
-          min_code: $scope.ministry.min_code,
-					parent_id: $scope.ministry.parent_id
-				}, function(){
-          $scope.changeParentAlert = {
-            type: 'success',
-            msg: 'Parent ministry has been saved.'
-          };
-        }, function(response){
-          $scope.changeParentAlert = {
-            type: 'danger',
-            msg: response.Message || 'An error occurred while saving.'
-          };
-        });
-			};
+            $scope.changeParent = function () {
+                $scope.changeParentResource = ministryService.updateMinistry({
+                    ministry_id: $scope.ministry.ministry_id,
+                    min_code: $scope.ministry.min_code,
+                    parent_id: $scope.ministry.parent_id
+                }, function () {
+                    $scope.changeParentAlert = {
+                        type: 'success',
+                        msg: 'Parent ministry has been saved.'
+                    };
+                }, function (response) {
+                    $scope.changeParentAlert = {
+                        type: 'danger',
+                        msg: response.Message || 'An error occurred while saving.'
+                    };
+                });
+            };
 
-      $scope.saveDetails = function(){
-        $scope.saveDetailsResource = ministryService.updateMinistry( {
-          ministry_id: $scope.ministry.ministry_id,
-          min_code: $scope.ministry.min_code,
-          name: $scope.ministry.name,
-          has_ds: $scope.ministry.has_ds,
-          has_gcm: $scope.ministry.has_gcm,
-          has_llm: $scope.ministry.has_llm,
-          has_slm: $scope.ministry.has_slm,
-          private: $scope.ministry.private
-        }, function(){
-          $scope.saveDetailsAlert = {
-            type: 'success',
-            msg: 'Your changes have been saved.'
-          };
-        }, function(response){
-          $scope.saveDetailsAlert = {
-            type: 'danger',
-            msg: response.Message || 'An error occurred while saving.'
-          };
-        });
-      };
-		}] );
+            $scope.saveDetails = function () {
+                $scope.saveDetailsResource = ministryService.updateMinistry({
+                    ministry_id: $scope.ministry.ministry_id,
+                    min_code: $scope.ministry.min_code,
+                    name: $scope.ministry.name,
+                    has_ds: $scope.ministry.has_ds,
+                    has_gcm: $scope.ministry.has_gcm,
+                    has_llm: $scope.ministry.has_llm,
+                    has_slm: $scope.ministry.has_slm,
+                    private: $scope.ministry.private
+                }, function () {
+                    $scope.saveDetailsAlert = {
+                        type: 'success',
+                        msg: 'Your changes have been saved.'
+                    };
+                }, function (response) {
+                    $scope.saveDetailsAlert = {
+                        type: 'danger',
+                        msg: response.Message || 'An error occurred while saving.'
+                    };
+                });
+            };
+        }]);
 } );
