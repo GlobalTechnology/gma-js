@@ -7,6 +7,10 @@ define( ['angularAMD'], function ( angularAMD ) {
 
 			return {
 				startSession:  function ( ticket ) {
+					if( "false" === ticket ) {
+						window.location = settings.api.login;
+						return false;
+					}
 					return $injector.get( '$http' ).get( settings.api.measurements( '/token' ), {params: {st: ticket}} )
 						.then( function ( response ) {
 							$rootScope.current.user = response.data.user;

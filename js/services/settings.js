@@ -71,7 +71,8 @@ define( ['angular', 'underscore'], function ( angular, _ ) {
 					api:          {
 						measurements: measurementsApi,
 						refresh:      config.api.refresh,
-						logout:       config.api.logout
+						logout:       config.api.logout,
+						login:        config.api.login
 					},
 					mobileApps:   ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
 					gmaNamespace: config.namespace,
