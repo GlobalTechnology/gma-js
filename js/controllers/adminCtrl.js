@@ -72,24 +72,6 @@
                     });
             };
 
-            $scope.changeParent = function () {
-                $scope.changeParentResource = ministryService.updateMinistry({
-                    ministry_id: $scope.ministry.ministry_id,
-                    min_code: $scope.ministry.min_code,
-                    parent_id: $scope.ministry.parent_id
-                }, function () {
-                    $scope.changeParentAlert = {
-                        type: 'success',
-                        msg: 'Parent ministry has been saved.'
-                    };
-                }, function (response) {
-                    $scope.changeParentAlert = {
-                        type: 'danger',
-                        msg: response.Message || 'An error occurred while saving.'
-                    };
-                });
-            };
-
             $scope.saveDetails = function () {
                 $scope.saveDetailsResource = ministryService.updateMinistry({
                     ministry_id: $scope.ministry.ministry_id,
