@@ -23,16 +23,16 @@ define( ['angular', 'underscore'], function ( angular, _ ) {
 				return config.mobileapps.length > 0 ? config.mobileapps : false;
 			};
 
-            this.routes = function(){
+            this.routes = function () {
                 var returnTabs = [];
-                angular.forEach(config.enabled_tabs, function(tab){
-                    switch(tab) {
+                angular.forEach(config.enabled_tabs, function (tab) {
+                    switch (tab) {
                         case 'map':
                             returnTabs.push({
                                 name: 'Church',
                                 path: '/map',
-                                templateUrl: apiUrl( config.appUrl, '/template/map.html' ),
-                                controller:  'mapController',
+                                templateUrl: apiUrl(config.appUrl, '/template/map.html'),
+                                controller: 'mapController',
                                 requiredRoles: ['self_assigned', 'member', 'inherited_leader', 'leader']
                             });
                             break;
@@ -40,8 +40,8 @@ define( ['angular', 'underscore'], function ( angular, _ ) {
                             returnTabs.push({
                                 name: 'Measurements',
                                 path: '/measurements',
-                                templateUrl: apiUrl( config.appUrl, '/template/measurements.html' ),
-                                controller:  'measurementsController',
+                                templateUrl: apiUrl(config.appUrl, '/template/measurements.html'),
+                                controller: 'measurementsController',
                                 requiredRoles: ['self_assigned', 'member', 'inherited_leader', 'leader']
                             });
                             break;
@@ -49,8 +49,8 @@ define( ['angular', 'underscore'], function ( angular, _ ) {
                             returnTabs.push({
                                 name: 'Admin',
                                 path: '/admin',
-                                templateUrl: apiUrl( config.appUrl, '/template/admin.html' ),
-                                controller:  'adminController',
+                                templateUrl: apiUrl(config.appUrl, '/template/admin.html'),
+                                controller: 'adminController',
                                 requiredRoles: ['leader', 'inherited_leader']
                             });
                             break;
@@ -60,19 +60,19 @@ define( ['angular', 'underscore'], function ( angular, _ ) {
                 return returnTabs;
             };
 
-			this.$get = function () {
-				return {
-					appUrl:     this.appUrl,
-					ticket:     config.ticket,
-					api:        {
-						measurements: measurementsApi,
-						refresh:      config.api.refresh,
-						logout:       config.api.logout
-					},
-					mobileApps: ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
-					gmaNamespace: config.namespace,
+            this.$get = function () {
+                return {
+                    appUrl: this.appUrl,
+                    ticket: config.ticket,
+                    api: {
+                        measurements: measurementsApi,
+                        refresh: config.api.refresh,
+                        logout: config.api.logout
+                    },
+                    mobileApps: ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
+                    gmaNamespace: config.namespace,
                     enabledTabs: config.enabledTabs
-				}
-			};
+                }
+            };
 		} );
 } );
