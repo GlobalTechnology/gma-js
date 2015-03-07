@@ -38,33 +38,6 @@
 	</div>
 
 	<div class="admin-item">
-		<form name="changeParentForm">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Parent Ministry</h3>
-
-					<div class="clearfix"></div>
-				</div>
-				<div class="panel-body">
-                    <alert type="{{changeParentAlert.type}}" ng-show="changeParentAlert" close="changeParentAlert = null">{{changeParentAlert.msg}}</alert>
-
-					<select
-						name="prent"
-						class="form-control"
-						ng-model="ministry.parent_id"
-						ng-options="m.ministry_id as m.name for m in current.ministries | roleFilter:['leader','inherited_leader'] | orderBy:'name'">
-						<option value="">No Parent Ministry</option>
-					</select>
-				</div>
-				<div class="panel-footer">
-					<button type="button" class="btn btn-primary pull-right" ng-disabled="changeParentResource && !changeParentResource.$resolved" ng-click="changeParent()">Change Parent Ministry</button>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-		</form>
-	</div>
-
-	<div class="admin-item">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addSubMinistry()">Add Sub Ministry</button>
@@ -90,7 +63,7 @@
             <div class="panel-body">
                 <alert type="{{saveDetailsAlert.type}}" ng-show="saveDetailsAlert" close="saveDetailsAlert = null">{{saveDetailsAlert.msg}}</alert>
 
-                <div class="form-group">
+                <div class="form-group row">
                     <label for="ministryName" class="col-sm-4 control-label">Ministry Name:</label>
 
                     <div class="col-sm-8">
@@ -98,7 +71,21 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+				<div class="form-group row">
+					<label class="col-sm-4 control-label">Parent Ministry:</label>
+
+					<div class="col-sm-8">
+						<select
+							name="prent"
+							class="form-control"
+							ng-model="ministry.parent_id"
+							ng-options="m.ministry_id as m.name for m in current.ministries | roleFilter:['leader','inherited_leader'] | orderBy:'name'">
+							<option value="">No Parent Ministry</option>
+						</select>
+					</div>
+				</div>
+
+                <div class="form-group row">
                     <label class="col-sm-4 control-label">MCCs:</label>
 
                     <div class="col-sm-8">
@@ -129,7 +116,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group row">
                     <label class="col-sm-4 control-label">Privacy:</label>
 
                     <div class="col-sm-8">
