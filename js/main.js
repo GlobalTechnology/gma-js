@@ -40,6 +40,7 @@ require.config( {
 		'trainingService':        'services/training',
 		'sessionService':         'services/session',
 		'measurementService':     'services/measurement',
+		'measurementTypeService': 'services/measurement_type',
 		'settingsService':        'services/settings'
 	},
 
