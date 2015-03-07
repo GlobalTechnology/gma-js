@@ -73,16 +73,21 @@
             };
 
             $scope.saveDetails = function () {
-                $scope.saveDetailsResource = ministryService.updateMinistry({
-                    ministry_id: $scope.ministry.ministry_id,
-                    min_code: $scope.ministry.min_code,
-                    name: $scope.ministry.name,
-                    has_ds: $scope.ministry.has_ds,
-                    has_gcm: $scope.ministry.has_gcm,
-                    has_llm: $scope.ministry.has_llm,
-                    has_slm: $scope.ministry.has_slm,
-                    private: $scope.ministry.private
-                }, function () {
+				var ministry = {
+					ministry_id: $scope.ministry.ministry_id,
+					min_code: $scope.ministry.min_code,
+					name: $scope.ministry.name,
+					has_ds: $scope.ministry.has_ds,
+					has_gcm: $scope.ministry.has_gcm,
+					has_llm: $scope.ministry.has_llm,
+					has_slm: $scope.ministry.has_slm,
+					private: $scope.ministry.private
+				};
+				if( $scope.ministry.hasOwnProperty('parent_id') && typeof $scope.ministry.parent_id === "string" ) {
+					ministry.parent_id = $scope.ministry.parent_id;
+				}
+                $scope.saveDetailsResource = ministryService.updateMinistry( ministry,
+				function () {
                     $scope.saveDetailsAlert = {
                         type: 'success',
                         msg: 'Your changes have been saved.'
