@@ -107,7 +107,7 @@
 	<div class="input-group lmi-input-group">
 		<span class="input-group-addon lmi-input-name">{{ m.name }}</span>
 		<span ng-switch="current.assignment.team_role">
-			<input ng-switch-when="self_assigned" class="lmi-input-value numeric" type="number" ng-model="m.my_values[ns]" />
+			<input ng-switch-when="self_assigned" class="lmi-input-value numeric" type="number" name="{{m.perm_link}}" ng-model="m.person" min="0" />
 			<a ng-switch-default href ng-click="editMeasurementDetails(m);">
 				<div class="lmi-input-value numeric">{{m.total}}</div>
 			</a>

@@ -36,24 +36,29 @@
 				return _.where( $scope.measurements, {section: 'other', column: 'other'} ).length > 0;
 			};
 
-			// Method used to save measurements for self assigned role.
+			// Method used to save measurements for self_assigned role.
 			$scope.save = function () {
 				var measurements = [];
 				angular.forEach( $scope.measurements, function ( measurement ) {
-					if ( typeof measurement.my_values[settings.gmaNamespace] === 'number' ) {
-						measurements.push( {
+					var value = $scope.lmiForm[measurement.perm_link];
+					if ( value.$dirty && value.$valid ) {
+						this.push( {
 							period:              $scope.current.period.format( 'YYYY-MM' ),
 							mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
-							measurement_type_id: measurement.person_measurement_type_id,
+							measurement_type_id: measurement.measurement_type_ids.person,
 							related_entity_id:   $scope.current.assignment.id,
-							value:               measurement.my_values[settings.gmaNamespace]
+							value:               value.$modelValue
 						} );
 					}
-				} );
+				}, measurements );
+
 				if ( measurements.length > 0 ) {
-					measurementService.saveMeasurement( {}, measurements, function () {
+					measurementService.saveMeasurement( {}, [m], function () {
 						getMeasurements();
 					} );
+				}
+				else {
+					getMeasurements();
 				}
 			};
 
@@ -108,7 +113,7 @@
 				$scope.measurement = measurement;
 				$scope.details = details;
 
-				$scope.details.$promise.then( function() {
+				$scope.details.$promise.then( function () {
 					$scope.spinner = false;
 
 					var da = [['Period', 'Local', 'Total', 'Personal']];
