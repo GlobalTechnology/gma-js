@@ -71,13 +71,10 @@
 
 	<div class="container">
 		<div>
-			<ul class="nav nav-tabs" role="tablist" id="myTab" class="map-ministries">
-				<li ng-class="{active: $location.path() === '/map'}"><a href="#/map">Church</a></li>
-				<li ng-class="{active: $location.path() === '/measurements'}">
-					<a href="#/measurements">Measurements</a></li>
-				<li ng-class="{active: $location.path() === '/admin'}">
-					<a href="#/admin" ng-show="current.assignment.team_role === 'leader' || current.assignment.team_role === 'inherited_leader'">Admin</a>
-				</li>
+			<ul class="nav nav-tabs" role="tablist" class="map-ministries">
+				<li ng-repeat="tab in visibleTabs" ng-class="{active: $location.path() === tab.path}" ng-show="current.hasRole(tab.requiredRoles)">
+                    <a ng-href="#{{tab.path}}">{{tab.name}}</a>
+                </li>
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane active">

@@ -2,11 +2,12 @@
 	var app = angular.module( 'app', ['ngRoute', 'ui.bootstrap', 'ngResource', 'app.settings'] )
 		.run( [
 			'$rootScope', '$route', 'sessionService', 'settings',
-			function ( $rootScope, $route, sessionService, settings ) {
+			function ( $rootScope, $route, sessionService, settings) {
 				// Object to hold current values: assignments, assignment, user ...
 				$rootScope.current = {
 					isLoaded: false
 				};
+                $rootScope.visibleTabs = settings.enabledTabs;
 
 				// Reload the route since ng-view directive is inside a template.
 				$route.reload();
@@ -29,20 +30,16 @@
 
 				// Setup application routes
 				// angularAMD is used to provide on demand controller loading
-				$routeProvider
-					.when( '/map', angularAMD.route( {
-						templateUrl: settingsProvider.appUrl( '/template/map.html' ),
-						controller:  'mapController'
-					} ) )
-					.when( '/measurements', angularAMD.route( {
-						templateUrl: settingsProvider.appUrl( '/template/measurements.html' ),
-						controller:  'measurementsController'
-					} ) )
-					.when( '/admin', angularAMD.route( {
-						templateUrl: settingsProvider.appUrl( '/template/admin.html' ),
-						controller:  'adminController'
-					} ) )
-					.otherwise( {redirectTo: '/map'} );
+                angular.forEach(settingsProvider.routes(), function(route, i){
+                    if(i === 0){
+                        $routeProvider.otherwise( {redirectTo: route.path} );
+                    }
+                    $routeProvider
+                        .when(route.path, angularAMD.route( {
+                            templateUrl: route.templateUrl,
+                            controller:  route.controller
+                        } ) );
+                });
 			}] );
 	return angularAMD.bootstrap( app );
 } );
