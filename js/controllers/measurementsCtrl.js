@@ -112,6 +112,7 @@
 				$scope.spinner = true;
 				$scope.measurement = measurement;
 				$scope.details = details;
+				$scope.ns = settings.gmaNamespace;
 
 				$scope.details.$promise.then( function () {
 					$scope.spinner = false;
@@ -140,27 +141,21 @@
 				};
 
 				$scope.save = function () {
+					$scope.spinner = true;
 					var measurements = [];
-
-					if ( $scope.editForm.hasOwnProperty( 'local' ) && typeof $scope.editForm.local.$modelValue !== 'undefined' ) {
-						measurements.push( {
-							period:              $scope.current.period.format( 'YYYY-MM' ),
-							mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
-							measurement_type_id: $scope.details.measurement_type_ids.local,
-							related_entity_id:   $scope.current.assignment.ministry_id,
-							value:               $scope.editForm.local.$modelValue
-						} );
-					}
-
-					if ( $scope.editForm.hasOwnProperty( 'personal' ) && typeof $scope.editForm.personal.$modelValue !== 'undefined' ) {
-						measurements.push( {
-							period:              $scope.current.period.format( 'YYYY-MM' ),
-							mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
-							measurement_type_id: $scope.details.measurement_type_ids.person,
-							related_entity_id:   $scope.current.assignment.id,
-							value:               $scope.editForm.personal.$modelValue
-						} );
-					}
+					angular.forEach( ['local', 'person'], function ( type ) {
+						if ( $scope.editForm.hasOwnProperty( type ) && $scope.editForm[type].$dirty && typeof $scope.editForm[type] !== 'undefined' ) {
+							measurements.push( {
+								period:              $scope.current.period.format( 'YYYY-MM' ),
+								mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
+								measurement_type_id: $scope.details.measurement_type_ids[type],
+								related_entity_id:   type == 'local'
+									? $scope.current.assignment.ministry_id
+									: $scope.current.assignment.id,
+								value:               $scope.editForm[type].$modelValue
+							} );
+						}
+					} );
 
 					if ( measurements.length > 0 ) {
 						measurementService.saveMeasurement( {}, measurements, function () {

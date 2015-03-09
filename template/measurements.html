@@ -125,7 +125,7 @@
 		</h2>
 		<div class="well well-sm measurement-desc">{{measurement.description}}</div>
 	</div>
-	<div class="modal-body edit_meas_form" ng-if="spinner">
+	<div class="modal-body edit_meas_form" ng-show="spinner">
 		<div class="spinner">
 			<div class="spinner-container container1">
 				<div class="circle1"></div>
@@ -147,7 +147,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal-body edit_meas_form" ng-if="!spinner">
+	<div class="modal-body edit_meas_form" ng-hide="spinner">
 		<div id="measurement_graph" measurements-trend ng-model="trend"></div>
 
 		<form class="form-horizontal" name="editForm">
@@ -196,11 +196,11 @@
 			<!-- Team Members -->
 			<fieldset>
 				<legend>Team Members:</legend>
-				<div class="form-group" ng-class="{'has-error': !editForm.personal.$valid}" ng-if="current.hasRole(['member','leader'])">
+				<div class="form-group" ng-class="{'has-error': !editForm.person.$valid}" ng-if="current.hasRole(['member','leader'])">
 					<label class="col-xs-5 control-label">{{current.user.last_name}}, {{current.user.first_name}}</label>
 
 					<div class="col-xs-7">
-						<input class="form-control" type="number" placeholder="Personal" name="personal" ng-model="details.my_measurements[ current.period.format('YYYY-MM') ]" />
+						<input class="form-control" type="number" placeholder="Personal" name="person" ng-model="details.my_measurements[ current.period.format('YYYY-MM') ]" />
 					</div>
 				</div>
 				<div class="form-group" ng-repeat="member in details.team" ng-if="current.hasRole(['leader', 'inherited_leader'])">
