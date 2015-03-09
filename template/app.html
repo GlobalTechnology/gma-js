@@ -73,32 +73,13 @@
 		<div>
 			<ul class="nav nav-tabs" role="tablist" class="map-ministries">
 				<li ng-repeat="tab in visibleTabs" ng-class="{active: $location.path() === tab.path}" ng-show="current.hasRole(tab.requiredRoles)">
-                    <a ng-href="#{{tab.path}}">{{tab.name}}</a>
-                </li>
+					<a ng-href="#{{tab.path}}">{{tab.name}}</a>
+				</li>
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane active">
 					<div ng-view></div>
-					<div class="spinner" ng-hide="current.isLoaded">
-						<div class="spinner-container container1">
-							<div class="circle1"></div>
-							<div class="circle2"></div>
-							<div class="circle3"></div>
-							<div class="circle4"></div>
-						</div>
-						<div class="spinner-container container2">
-							<div class="circle1"></div>
-							<div class="circle2"></div>
-							<div class="circle3"></div>
-							<div class="circle4"></div>
-						</div>
-						<div class="spinner-container container3">
-							<div class="circle1"></div>
-							<div class="circle2"></div>
-							<div class="circle3"></div>
-							<div class="circle4"></div>
-						</div>
-					</div>
+					<div ng-include="'spinner.html'" ng-hide="current.isLoaded"></div>
 				</div>
 			</div>
 		</div>
@@ -153,6 +134,29 @@
 		<div class="modal-footer">
 			<button type="button" class="btn btn-primary" ng-disabled="!ministry" ng-click="join()">Join Ministry/Team</button>
 			<button ng-if="allowClose" type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="spinner.html">
+		<div class="spinner">
+			<div class="spinner-container container1">
+				<div class="circle1"></div>
+				<div class="circle2"></div>
+				<div class="circle3"></div>
+				<div class="circle4"></div>
+			</div>
+			<div class="spinner-container container2">
+				<div class="circle1"></div>
+				<div class="circle2"></div>
+				<div class="circle3"></div>
+				<div class="circle4"></div>
+			</div>
+			<div class="spinner-container container3">
+				<div class="circle1"></div>
+				<div class="circle2"></div>
+				<div class="circle3"></div>
+				<div class="circle4"></div>
+			</div>
 		</div>
 	</script>
 
