@@ -53,7 +53,7 @@
 				}, measurements );
 
 				if ( measurements.length > 0 ) {
-					measurementService.saveMeasurement( {}, [m], function () {
+					measurementService.saveMeasurement( {}, measurements, function () {
 						getMeasurements();
 					} );
 				}
@@ -107,8 +107,8 @@
 			}
 		}] )
 		.controller( 'measurementDetailsController', [
-			'$scope', '$modalInstance', 'measurementService', 'measurement', 'details', 'settings',
-			function ( $scope, $modalInstance, measurementService, measurement, details, settings ) {
+			'$scope', '$modalInstance', 'measurementService', 'assignmentService', 'measurement', 'details', 'settings',
+			function ( $scope, $modalInstance, measurementService, assignmentService, measurement, details, settings ) {
 				$scope.spinner = true;
 				$scope.measurement = measurement;
 				$scope.details = details;
@@ -169,6 +169,24 @@
 
 				$scope.close = function () {
 					$modalInstance.dismiss( 'cancel' );
+				};
+
+				$scope.approveSelfAssigned = function ( user, role ) {
+					var user = user;
+					user.state = 'pending';
+					assignmentService.saveAssignment( {
+						assignment_id: user.assignment_id
+					}, {team_role: role}, function () {
+						if ( role == 'blocked' ) {
+							user.state = 'blocked';
+							user.blocked = true;
+						} else {
+							user.success = true;
+							user.state = 'member';
+						}
+					}, function () {
+						delete user.state;
+					} );
 				};
 
 			}

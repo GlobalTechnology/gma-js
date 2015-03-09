@@ -316,3 +316,7 @@ div.lmi-input-value {
 	z-index: 0;
 	background-color: #000;
 }
+
+.pointer {
+	cursor: pointer;
+}
