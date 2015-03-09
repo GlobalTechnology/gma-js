@@ -72,7 +72,6 @@ define( ['angularAMD'], function ( angularAMD ) {
 						}, function (response) {
 							deferred.reject();
 							//redirect the CAS login
-							alert('Invalid Session');
 							return;
 						});
 						return deferred.promise;
