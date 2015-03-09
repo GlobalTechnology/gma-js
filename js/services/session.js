@@ -47,8 +47,31 @@ define( ['angularAMD'], function ( angularAMD ) {
 				},
 				// Error Response Interceptor
 				responseError: function ( response ) {
-					if ( response.status == 401 && response.config.url.indexOf( settings.api.measurements() ) !== -1 ) {
-						$log.debug( response );
+					if ( response.status == 401 && response.config.url.indexOf( settings.api.measurements() ) !== -1 && response.config.attempts < 2 ) {
+						$log.debug(response);
+
+						var deferred = $q.defer();
+						$injector.get('$http').get(settings.api.refresh, {withCredentials: true}).then(function (loginResponse) {
+							if (loginResponse.data) {
+								token = loginResponse.data.session_ticket;
+								$rootScope.current.sessionToken = token;
+
+								//retry request with new token
+								$injector.get('$http')(response.config).then(function (response) {
+									deferred.resolve(response);
+								}, function (response) {
+									deferred.reject();
+								});
+							} else {
+								deferred.reject();
+							}
+						}, function (response) {
+							deferred.reject();
+							alert('Invalid Session');
+							//redirect the CAS login
+							return;
+						});
+						return deferred.promise;
 					}
 					return $q.reject(response);
 				}
