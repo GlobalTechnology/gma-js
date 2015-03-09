@@ -5,8 +5,8 @@ define( ['app'], function ( app ) {
 			return $resource( settings.api.measurements( '/measurement_types/:measurement_type_id' ), {}, {
 				getMeasurementType:  {method: 'GET'},
 				getMeasurementTypes: {method: 'GET', isArray: true},
-				saveMeasurementType: {method: 'POST'},
-				addMeasurementType: {method: 'PUT'}
+				saveMeasurementType: {method: 'PUT'},
+				addMeasurementType: {method: 'POST'}
 			} );
 		}] );
 } );

@@ -1,7 +1,7 @@
 ﻿define( ['app', 'assignmentService', 'ministryService', 'measurementTypeService'], function ( app ) {
 	app.controller( 'adminController', [
-		'$scope', '$modal', 'assignmentService', 'ministryService', 'measurementTypeService',
-		function ( $scope, $modal, assignmentService, ministryService, measurementTypeService ) {
+		'$scope', '$modal', '$filter', 'assignmentService', 'ministryService', 'measurementTypeService',
+		function ( $scope, $modal, $filter, assignmentService, ministryService, measurementTypeService ) {
 			$scope.current.isLoaded = false;
 
 			$scope.roles = [
@@ -20,9 +20,9 @@
 					$scope.measurementTypes = [];
 					measurementTypeService.getMeasurementTypes().$promise.then(function(data){
 						angular.forEach(data, function(type){
-							if(type.is_custom && _.contains($scope.ministry.lmi_show, type.Id)){
+							if(type.is_custom && _.contains($scope.ministry.lmi_show, type.perm_link_stub)){
 								type.visible = true;
-							}else if(!type.is_custom && !_.contains($scope.ministry.lmi_hide, type.Id)){
+							}else if(!type.is_custom && !_.contains($scope.ministry.lmi_hide, type.perm_link_stub)){
 								type.visible = true;
 							}else{
 								type.visible = false;
@@ -37,6 +37,11 @@
 				assignmentService.saveAssignment( {
 					assignment_id: assignment.assignment_id
 				}, {team_role: assignment.team_role} );
+			};
+
+			$scope.ableToChangeParentMinistry = function(parentToFind){
+				var availableMinIds = _.pluck($filter('roleFilter')($scope.current.ministries, ['leader','inherited_leader']), 'ministry_id')
+				return _.contains(availableMinIds, parentToFind);
 			};
 
             $scope.addTeamMember = function () {
@@ -86,6 +91,25 @@
                     });
             };
 
+			$scope.addMeasurement = function () {
+				$modal.open({
+					templateUrl: 'add_measurement_type.html',
+					controller: function ($scope, $modalInstance) {
+						$scope.close = function () {
+							$modalInstance.dismiss();
+						};
+
+						$scope.add = function () {
+							$modalInstance.close($scope.newMeasurement);
+						};
+					}
+				}).result.then(function (newMeasurement) {
+						newMeasurement.perm_link_stub = 'custom_' + newMeasurement.perm_link_stub;
+						measurementTypeService.addMeasurementType(newMeasurement, function () {
+						});
+					});
+			};
+
             $scope.saveDetails = function () {
 				var ministry = {
 					ministry_id: $scope.ministry.ministry_id,
@@ -96,8 +120,8 @@
 					has_llm: $scope.ministry.has_llm,
 					has_slm: $scope.ministry.has_slm,
 					private: $scope.ministry.private,
-					lmi_hide: _.pluck(_.where($scope.measurementTypes, {is_custom: false, visible: false}), 'Id'),
-					lmi_show: _.pluck(_.where($scope.measurementTypes, {is_custom: true, visible: true}), 'Id')
+					lmi_hide: _.pluck(_.where($scope.measurementTypes, {is_custom: false, visible: false}), 'perm_link_stub'),
+					lmi_show: _.pluck(_.where($scope.measurementTypes, {is_custom: true, visible: true}), 'perm_link_stub')
 				};
 				if( $scope.ministry.hasOwnProperty('parent_id') && typeof $scope.ministry.parent_id === "string" ) {
 					ministry.parent_id = $scope.ministry.parent_id;
