@@ -25,8 +25,15 @@ define( ['app', 'underscore', 'measurementService', 'goog!visualization,1,packag
 				getMeasurements();
 			} );
 
-			$scope.$watch( 'current.period', function () {
+			$scope.$watch( 'current.period', function ( period ) {
 				getMeasurements();
+				var now = period.clone(),
+					dates = [];
+				for ( var i = 0; i < 12; i++ ) {
+					dates.push( now.clone().format( 'YYYY-MM' ) );
+					now.subtract( 1, 'M' );
+				}
+				$scope.dates = dates.reverse();
 			} );
 
 		}] );

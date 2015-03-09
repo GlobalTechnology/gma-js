@@ -1,25 +1,14 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>LMI</th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th>Measurement</th>
+			<th ng-repeat="date in dates">{{date}}</th>
 		</tr>
 	</thead>
 	<tbody>
 	<tr ng-repeat="lmi in measurements | orderBy:'sort_order'">
 		<td>{{lmi.name}}</td>
-		<td ng-repeat="total in lmi.total"></td>
+		<td ng-repeat="date in dates">{{lmi.total[date]}}</td>
 	</tr>
 	</tbody>
 </table>
