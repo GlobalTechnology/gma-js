@@ -1,7 +1,7 @@
-﻿define( ['app', 'assignmentService', 'ministryService'], function ( app ) {
+﻿define( ['app', 'assignmentService', 'ministryService', 'measurementTypeService'], function ( app ) {
 	app.controller( 'adminController', [
-		'$scope', '$modal', 'assignmentService', 'ministryService',
-		function ( $scope, $modal, assignmentService, ministryService ) {
+		'$scope', '$modal', 'assignmentService', 'ministryService', 'measurementTypeService',
+		function ( $scope, $modal, assignmentService, ministryService, measurementTypeService ) {
 			$scope.current.isLoaded = false;
 
 			$scope.roles = [
@@ -16,6 +16,20 @@
 				if ( typeof ministry_id === 'undefined' ) return;
 				$scope.ministry = ministryService.getMinistry( {ministry_id: ministry_id}, function () {
 					$scope.current.isLoaded = true;
+
+					$scope.measurementTypes = [];
+					measurementTypeService.getMeasurementTypes().$promise.then(function(data){
+						angular.forEach(data, function(type){
+							if(type.is_custom && _.contains($scope.ministry.lmi_show, type.Id)){
+								type.visible = true;
+							}else if(!type.is_custom && !_.contains($scope.ministry.lmi_hide, type.Id)){
+								type.visible = true;
+							}else{
+								type.visible = false;
+							}
+							$scope.measurementTypes.push(type);
+						});
+					});
 				} );
 			} );
 
@@ -81,7 +95,9 @@
 					has_gcm: $scope.ministry.has_gcm,
 					has_llm: $scope.ministry.has_llm,
 					has_slm: $scope.ministry.has_slm,
-					private: $scope.ministry.private
+					private: $scope.ministry.private,
+					lmi_hide: _.pluck(_.where($scope.measurementTypes, {is_custom: false, visible: false}), 'Id'),
+					lmi_show: _.pluck(_.where($scope.measurementTypes, {is_custom: true, visible: true}), 'Id')
 				};
 				if( $scope.ministry.hasOwnProperty('parent_id') && typeof $scope.ministry.parent_id === "string" ) {
 					ministry.parent_id = $scope.ministry.parent_id;
