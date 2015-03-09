@@ -10,6 +10,7 @@ define( ['app', 'underscore', 'measurementService', 'goog!visualization,1,packag
 					$scope.measurements = measurementService.getMeasurements( {
 						ministry_id: $scope.current.assignment.ministry_id,
 						mcc:         $scope.current.mcc,
+						period:      $scope.current.period.format( 'YYYY-MM' ),
 						historical:  true
 					}, function () {
 						$scope.current.isLoaded = true;
