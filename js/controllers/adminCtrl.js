@@ -86,7 +86,11 @@
                 }).result.then(function (newMinistry) {
                         newMinistry.parent_id = $scope.current.assignment.ministry_id;
                         ministryService.createMinistry(newMinistry, function () {
-                            $scope.current.assignment.sub_ministries.push(newMinistry);
+							if(angular.isDefined($scope.current.assignment.sub_ministries)){
+								$scope.current.assignment.sub_ministries.push(newMinistry);
+							}else{
+								$scope.current.assignment.sub_ministries = [newMinistry];
+							}
                         });
                     });
             };
