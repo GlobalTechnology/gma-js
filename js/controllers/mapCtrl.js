@@ -202,7 +202,7 @@
 							long_min:    sw.lng(),
 							long_max:    ne.lng()
 						};
-					if ( !$scope.show_target_point ) params['hide_target'] = 'true';
+					if ( !$scope.show_target_point ) params['hide_target_point'] = 'true';
 					if ( !$scope.show_group ) params['hide_group'] = 'true';
 					if ( !$scope.show_church ) params['hide_church'] = 'true';
 					if ( !$scope.show_mult_church ) params['hide_mult_church'] = 'true';
