@@ -128,18 +128,25 @@
 	display: inline;
 }
 
-.map-cluster-count {
+.clusterMarker {
 	color: white !important;
 	font-size: large;
 	font-weight: bold;
+	text-align: center;
+	width: 60px;
 }
 
 .labelMarker {
-	color: #777;
+	color: #333;
 	pointer-events: none;
 	text-align: center;
 	width: 60px;
-	opacity: 0.75;
+
+	text-shadow: 0px 0px 5px #fff,
+	-1px -1px 0 #fff,
+	1px -1px 0 #fff,
+	-1px 1px 0 #fff,
+	1px 1px 0 #fff;
 }
 
 .labelMoveMarker {

@@ -86,12 +86,42 @@
 
 					$scope.map.church_lines = [];
 					$scope.map.icons = {};
-					$scope.map.icons.church = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/church.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
-					$scope.map.icons.cluster = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/mapclusterfading.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 30, 30 ) );
-					$scope.map.icons.multiplying = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplying_church.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
-					$scope.map.icons.group = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/group.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
-					$scope.map.icons.targetpoint = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/targetpoint.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 34, 48 ) );
-					$scope.map.icons.training = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/training.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
+					$scope.map.icons.church = new google.maps.MarkerImage(
+						settings.appUrl( '/css/map_icons/church.png' ),
+						new google.maps.Size( 60, 60 ),
+						new google.maps.Point( 0, 0 ),
+						new google.maps.Point( 30, 58 )
+					);
+					$scope.map.icons.cluster = new google.maps.MarkerImage(
+						settings.appUrl( '/css/map_icons/cluster.png' ),
+						new google.maps.Size( 60, 60 ),
+						new google.maps.Point( 0, 0 ),
+						new google.maps.Point( 30, 31 )
+					);
+					$scope.map.icons.multiplying = new google.maps.MarkerImage(
+						settings.appUrl( '/css/map_icons/multiplying.png' ),
+						new google.maps.Size( 60, 60 ),
+						new google.maps.Point( 0, 0 ),
+						new google.maps.Point( 30, 53 )
+					);
+					$scope.map.icons.group = new google.maps.MarkerImage(
+						settings.appUrl( '/css/map_icons/group.png' ),
+						new google.maps.Size( 60, 60 ),
+						new google.maps.Point( 0, 0 ),
+						new google.maps.Point( 30, 55 )
+					);
+					$scope.map.icons.targetpoint = new google.maps.MarkerImage(
+						settings.appUrl( '/css/map_icons/target.png' ),
+						new google.maps.Size( 60, 60 ),
+						new google.maps.Point( 0, 0 ),
+						new google.maps.Point( 32, 56 )
+					);
+					$scope.map.icons.training = new google.maps.MarkerImage(
+						settings.appUrl( '/css/map_icons/training.png' ),
+						new google.maps.Size( 60, 60 ),
+						new google.maps.Point( 0, 0 ),
+						new google.maps.Point( 30, 43 )
+					);
 
 					$scope.map.side = document.getElementById( 'side' );
 					$scope.map.side.index = -1;
@@ -536,7 +566,7 @@
 									churchIconToUse = $scope.map.icons.multiplying;
 								}
 								else if ( church.development == 4 ) {
-									churchIconToUse = $scope.map.icons.multiplying;
+									churchIconToUse = $scope.map.icons.church;
 								}
 								else if ( church.development == 3 ) {
 									churchIconToUse = $scope.map.icons.church;
@@ -548,7 +578,7 @@
 									churchIconToUse = $scope.map.icons.targetpoint;
 								}
 								else {
-									churchIconToUse = $scope.map.icons.targetpoint;
+									churchIconToUse = $scope.map.icons.church;
 								}
 
 								marker = new MarkerWithLabel( {
@@ -575,7 +605,7 @@
 									icon:              $scope.map.icons.cluster,
 									labelContent:      church.cluster_count.toString(),
 									labelAnchor:       new google.maps.Point( 30, 15 ),
-									labelClass:        "labelMarker map-cluster-count", // the CSS class for the label
+									labelClass:        "clusterMarker", // the CSS class for the label
 									labelInBackground: false
 
 								} );
