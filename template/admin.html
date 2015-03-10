@@ -47,7 +47,7 @@
 			</div>
 			<div class="panel-body">
 				<div ng-repeat="min in current.assignment.sub_ministries">
-					<a href ng-click="loadAssignment(min)">{{min.name}}</a>
+					<a href ng-click="current.assignment = min">{{min.name}}</a>
 				</div>
 			</div>
 		</div>
