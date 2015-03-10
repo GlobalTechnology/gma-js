@@ -230,8 +230,7 @@
 					}
 				} );
 
-				$scope.onAddChurch = function ( response ) {
-
+				$scope.onAddChurch = function () {
 					$scope.loadChurches();
 				};
 
@@ -262,7 +261,10 @@
 							$scope.new_training.latitude = m.getPosition().lat();
 							$scope.new_training.longitude = m.getPosition().lng();
 							$scope.new_training.mcc = $scope.current.mcc;
-							trainingService.addTraining( $scope.current.sessionToken, $scope.new_training ).then( $scope.onAddChurch, $scope.onError );
+							trainingService.addTraining( $scope.current.sessionToken, $scope.new_training ).then(
+							  $scope.loadTrainings,
+							  $scope.onError
+							);
 
 							m.setMap( null );
 							var removedObject = $scope.map.markers.splice( $scope.map.markers.indexOf( m ), 1 );
@@ -441,7 +443,7 @@
 									var marker = new MarkerWithLabel( {
 										position:          new google.maps.LatLng( training.latitude, training.longitude ),
 										map:               $scope.map,
-										id:                't' + training.id,
+										id:                't' + training.Id,
 										title:             training.type,
 										icon:              $scope.map.icons.training,
 										labelContent:      '', //training.type + '<span class="map-trained-count">' + training.leaders_trained + '</span>',
