@@ -96,7 +96,7 @@
 						settings.appUrl( '/css/map_icons/cluster.png' ),
 						new google.maps.Size( 60, 60 ),
 						new google.maps.Point( 0, 0 ),
-						new google.maps.Point( 30, 28 )
+						new google.maps.Point( 30, 31 )
 					);
 					$scope.map.icons.multiplying = new google.maps.MarkerImage(
 						settings.appUrl( '/css/map_icons/multiplying.png' ),
@@ -605,7 +605,7 @@
 									icon:              $scope.map.icons.cluster,
 									labelContent:      church.cluster_count.toString(),
 									labelAnchor:       new google.maps.Point( 30, 15 ),
-									labelClass:        "labelMarker map-cluster-count", // the CSS class for the label
+									labelClass:        "clusterMarker", // the CSS class for the label
 									labelInBackground: false
 
 								} );

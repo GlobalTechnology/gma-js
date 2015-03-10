@@ -128,10 +128,12 @@
 	display: inline;
 }
 
-.map-cluster-count {
+.clusterMarker {
 	color: white !important;
 	font-size: large;
 	font-weight: bold;
+	text-align: center;
+	width: 60px;
 }
 
 .labelMarker {
