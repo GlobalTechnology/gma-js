@@ -264,8 +264,8 @@
 							$scope.new_training.longitude = m.getPosition().lng();
 							$scope.new_training.mcc = $scope.current.mcc;
 							trainingService.addTraining( $scope.current.sessionToken, $scope.new_training ).then(
-							  $scope.loadTrainings,
-							  $scope.onError
+								$scope.loadTrainings,
+								$scope.onError
 							);
 
 							m.setMap( null );
@@ -396,8 +396,9 @@
 				};
 
 				$scope.MoveTraining = function () {
+					var id = $scope.edit_training.hasOwnProperty( 'Id' ) ? $scope.edit_training.Id : $scope.edit_training.id;
 					angular.forEach( $scope.map.markers, function ( m ) {
-						if ( m.id === 't' + $scope.edit_training.id ) {
+						if ( m.id === 't' + id ) {
 							m.setAnimation( google.maps.Animation.BOUNCE );
 							m.setDraggable( true );
 							$scope.trainingWindow.close();
@@ -420,7 +421,7 @@
 				} );
 
 				$scope.load_training_markers = function () {
-					if( typeof $scope.map === 'undefined' ) return;
+					if ( typeof $scope.map === 'undefined' ) return;
 					var toDelete = [];
 					angular.forEach( $scope.map.markers, function ( training ) {
 						if ( training.id[0] == 't' && $scope.trainings.filter( function ( t ) {
@@ -446,7 +447,7 @@
 									var marker = new MarkerWithLabel( {
 										position:          new google.maps.LatLng( training.latitude, training.longitude ),
 										map:               $scope.map,
-										id:                't' + training.Id,
+										id:                't' + ( training.hasOwnProperty( 'Id' ) ? training.Id : training.id ),
 										title:             training.type,
 										icon:              $scope.map.icons.training,
 										labelContent:      '', //training.type + '<span class="map-trained-count">' + training.leaders_trained + '</span>',
@@ -759,6 +760,38 @@
 						location_zoom: $scope.current.assignment.location_zoom
 					} );
 				};
+
+				$scope.addTrainingStage = function ( training ) {
+					var newPhase = {
+						phase:            training.current_stage,
+						date:             training.insert.date,
+						number_completed: training.insert.number_completed,
+						training_id:      training.hasOwnProperty( 'Id' ) ? training.Id : training.id
+
+					};
+					trainingService.addTrainingCompletion( $scope.current.sessionToken, newPhase ).then( $scope.onAddTrainingCompletion, $scope.onError );
+
+					training.insert.date = "";
+					training.insert.number_completed = 0;
+
+				};
+
+				$scope.onAddTrainingCompletion = function ( response ) {
+					response.editMode = false;
+
+					angular.forEach( $scope.assignment.trainings, function ( training ) {
+						var id = training.hasOwnProperty( 'Id' ) ? training.Id : training.id;
+						if ( id == response.training_id ) {
+							training.gcm_training_completions.push( response );
+							training.current_stage = response.phase + 1;
+						}
+					} );
+				};
+
+				$scope.saveTrainingCompletion = function ( data ) {
+					trainingService.updateTrainingCompletion( $scope.current.sessionToken, data ).then( $scope.onSaveTrainingCompletion, $scope.onError );
+				};
+
 			}] );
 	})( jQuery );
 } );
