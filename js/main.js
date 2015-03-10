@@ -32,6 +32,7 @@ require.config( {
 		'gcmController':          'controllers/gcmCtrl',
 		'mapController':          'controllers/mapCtrl',
 		'measurementsController': 'controllers/measurementsCtrl',
+		'ReportsController':      'controllers/reports',
 
 		//Services
 		'assignmentService':      'services/assignment',

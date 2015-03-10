@@ -49,6 +49,15 @@ define( ['angular', 'underscore'], function ( angular, _ ) {
 								requiredRoles: ['self_assigned', 'member', 'inherited_leader', 'leader']
 							} );
 							break;
+						case 'reports':
+							returnTabs.push( {
+								name:          'Reports',
+								path:          '/reports',
+								templateUrl:   appUrl( '/template/reports.html' ),
+								controller:    'ReportsController',
+								requiredRoles: ['inherited_leader', 'leader']
+							} );
+							break;
 						case 'admin':
 							returnTabs.push( {
 								name:          'Admin',
