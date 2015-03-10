@@ -23,7 +23,9 @@
 				$log.debug( 'Assignments Changed' );
 
 				if ( typeof assignments === 'object' ) {
-					$scope.current.assignment = $filter( 'orderBy' )( assignments, 'name' )[0];
+					if(angular.isUndefined($scope.current.assignment) || !_.contains(_.pluck(assignments, 'id'), $scope.current.assignment.id)){
+						$scope.current.assignment = $filter( 'orderBy' )( assignments, 'name' )[0];
+					}
 					$scope.current.ministries = flattenMinistries( assignments );
 				} else {
 					delete $scope.current.assignment;
