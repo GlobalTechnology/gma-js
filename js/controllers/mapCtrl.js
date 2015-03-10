@@ -86,9 +86,9 @@
 					$scope.map.icons = {};
 					$scope.map.icons.churchIcon = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/church.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
 					$scope.map.icons.mapClusterIcon = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/mapclusterfading.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 30, 30 ) );
-					$scope.map.icons.icon5r = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplyingchurch.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
+					$scope.map.icons.icon5r = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplying_church.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
 					//$scope.map.icons.icon5rl = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multipliedchurchiconlock.png' ), new google.maps.Size( 52, 65 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 25, 61 ) );
-					$scope.map.icons.icon4r = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplyingchurch.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
+					$scope.map.icons.icon4r = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplying_church.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
 					//$scope.map.icons.icon4rl = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplyingchurchiconlock.png' ), new google.maps.Size( 52, 65 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 25, 61 ) );
 					//$scope.map.icons.icon4sh = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplyingchurchshadow.png' ), new google.maps.Size( 60, 48 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 10, 46 ) );
 					//$scope.map.icons.churchIconShadow = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/churchshadow.png' ), new google.maps.Size( 59, 49 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 10, 47 ) );
