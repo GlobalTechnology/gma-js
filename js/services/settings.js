@@ -7,8 +7,12 @@ define( ['angular', 'underscore'], function ( angular, _ ) {
 				config = c;
 			};
 
-			var appUrl = function ( path ) {
-				return apiUrl( config.appUrl, path );
+			var appUrl = function ( path, version ) {
+				var version = typeof version === 'undefined' ? true : false;
+				var url = apiUrl( config.appUrl, path );
+				if( version )
+					return url + '?ver=' + config.version;
+				return url;
 			};
 
 			var measurementsApi = function ( path ) {
