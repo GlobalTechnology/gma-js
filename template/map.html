@@ -3,7 +3,7 @@
 <div id="side" class="map_side" ng-show="current.isLoaded">
 
 	<button type="button" class="btn btn-default" ng-click="onAddIcon()" ng-if="current.hasRole(['leader', 'inherited_leader'])">
-		<span class="glyphicon glyphicon-plus"></span>&nbsp;<img ng-src="{{appUrl('/css/map_icons/targeticon.png')}}" style="max-height: 19px;" />
+		<span class="glyphicon glyphicon-plus"></span>&nbsp;<img ng-src="{{appUrl('/css/map_icons/targetpoint.png')}}" style="max-height: 19px;" />
 	</button>
 
 	<button type="button" class="btn btn-default" ng-click="onAddTraining()" ng-if="current.hasRole(['leader', 'inherited_leader'])">
@@ -22,7 +22,7 @@
 				<input type="checkbox" class="church_development_checkbox" ng-model="show_target_point" development="1" ng-change="loadChurches()">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
-				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/targeticon.png')}}"></td>
+				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/targetpoint.png')}}"></td>
 			<td>target point</td>
 		</tr>
 
@@ -32,7 +32,7 @@
 				<input type="checkbox" class="church_development_checkbox" ng-model="show_group" development="2" ng-change="loadChurches()">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
-				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/groupicon.png')}}"></td>
+				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/group.png')}}"></td>
 			<td>group</td>
 		</tr>
 
@@ -41,7 +41,7 @@
 				<input type="checkbox" class="church_development_checkbox" ng-model="show_church" development="3" ng-change="loadChurches()">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
-				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/churchicon.png')}}"></td>
+				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/church.png')}}"></td>
 			<td>church or community of disciples</td>
 		</tr>
 
@@ -50,7 +50,7 @@
 				<input type="checkbox" class="church_development_checkbox" ng-model="show_mult_church" development="5" ng-change="loadChurches()">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
-				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/multipliedchurchicon.png')}}">
+				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/multiplying_church.png')}}">
 			</td>
 			<td>multiplying church or community of disciples</td>
 		</tr>
