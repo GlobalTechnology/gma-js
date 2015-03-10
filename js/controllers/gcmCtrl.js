@@ -67,7 +67,15 @@
 						ministries = ministries.concat( flattenMinistries( ministry.sub_ministries ) );
 					}
 				} );
-				return ministries;
+
+				//sort by team role
+				ministries = _.sortBy(ministries, function(m){
+					return (m.team_role === 'leader' ? 0 : 1);
+				});
+				//remove duplicates
+				return _.uniq(ministries, false, function(m){
+					return m.ministry_id;
+				});
 			}
 
 			//---------------------------------------
