@@ -1,9 +1,15 @@
 require.config( {
 	// Base URL for requireJS
-	'baseUrl': gma.config.appUrl + '/js',
+	'baseUrl':     gma.config.appUrl + '/js',
+
+	// Append version to urls to bust cache
+	'urlArgs':     'ver=' + gma.config.version,
+
+	// Wait slightly longer for slower connections, default: 7
+	'waitSeconds': 15,
 
 	// Library paths
-	paths:     {
+	paths:         {
 		// Libraries
 		'async':                  '../vendor/requirejs-plugins/src/async',
 		'goog':                   '../vendor/requirejs-plugins/src/goog',
@@ -26,6 +32,7 @@ require.config( {
 		'gcmController':          'controllers/gcmCtrl',
 		'mapController':          'controllers/mapCtrl',
 		'measurementsController': 'controllers/measurementsCtrl',
+		'ReportsController':      'controllers/reports',
 
 		//Services
 		'assignmentService':      'services/assignment',
@@ -34,11 +41,12 @@ require.config( {
 		'trainingService':        'services/training',
 		'sessionService':         'services/session',
 		'measurementService':     'services/measurement',
+		'measurementTypeService': 'services/measurement_type',
 		'settingsService':        'services/settings'
 	},
 
 	// Library Dependencies
-	shim:      {
+	shim:          {
 		'angularAMD':        ['angular'],
 		'angular-route':     ['angular'],
 		'angular-bootstrap': ['angular', 'bootstrap'],
@@ -49,5 +57,5 @@ require.config( {
 	},
 
 	// Kickstart application
-	deps:      ['app', 'gcmController']
+	deps:          ['app', 'gcmController']
 } );

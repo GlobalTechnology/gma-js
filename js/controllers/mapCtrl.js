@@ -9,7 +9,6 @@
 				$scope.show_group = true;
 				$scope.show_church = true;
 				$scope.show_mult_church = true;
-				$scope.show_training = true;
 				$scope.show_lines = true;
 				$scope.show_lines = true;
 				$scope.show_jf = true;
@@ -30,6 +29,9 @@
 					{value: "CPMI", text: 'CPMI'},
 					{value: "", text: 'Other'}
 				];
+				$scope.show = {
+					training: true
+				};
 				$scope.mapOptions = {
 					zoom:               3,
 					center:             new google.maps.LatLng( 0, 0 ),
@@ -84,24 +86,12 @@
 
 					$scope.map.church_lines = [];
 					$scope.map.icons = {};
-					$scope.map.icons.churchIcon = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/churchicon.png' ), new google.maps.Size( 45, 62 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 22, 62 ) );
-					$scope.map.icons.mapClusterIcon = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/mapclusterfading.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 30, 30 ) );
-					$scope.map.icons.icon5r = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multipliedchurchicon_map.png' ), new google.maps.Size( 52, 62 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 25, 58 ) );
-					$scope.map.icons.icon5rl = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multipliedchurchiconlock.png' ), new google.maps.Size( 52, 65 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 25, 61 ) );
-					$scope.map.icons.icon4r = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplyingchurchicon.png' ), new google.maps.Size( 52, 62 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 25, 62 ) );
-					$scope.map.icons.icon4rl = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplyingchurchiconlock.png' ), new google.maps.Size( 52, 65 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 25, 61 ) );
-					$scope.map.icons.icon4sh = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplyingchurchshadow.png' ), new google.maps.Size( 60, 48 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 10, 46 ) );
-					$scope.map.icons.churchIconShadow = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/churchshadow.png' ), new google.maps.Size( 59, 49 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 10, 47 ) );
-					$scope.map.icons.churchIconLocked = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/churchiconlock.png' ), new google.maps.Size( 45, 65 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 22, 61 ) );
-					$scope.map.icons.groupRed = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/groupicon.png' ), new google.maps.Size( 40, 44 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 20, 44 ) );
-					$scope.map.icons.groupRedLocked = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/groupiconlock.png' ), new google.maps.Size( 48, 47 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 20, 43 ) );
-					$scope.map.icons.groupIconShadow = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/groupshadow.png' ), new google.maps.Size( 49, 40 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 10, 38 ) );
-					$scope.map.icons.targetRedIcon = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/targeticon.png' ), new google.maps.Size( 23, 42 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 12, 42 ) );
-					$scope.map.icons.targetRedLockedIcon = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/targeticonlock.png' ), new google.maps.Size( 31, 46 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 11, 42 ) );
-					$scope.map.icons.targetShadow = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/targetshadow.png' ), new google.maps.Size( 33, 36 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 4, 34 ) );
-					$scope.map.icons.visionRedIcon = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/vision.png' ), new google.maps.Size( 23, 42 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 11, 37 ) );
-					$scope.map.icons.visionRedLockedIcon = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/visionlocked.png' ), new google.maps.Size( 31, 46 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 15, 42 ) );
-					$scope.map.icons.trainingIcon = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/training.png' ), new google.maps.Size( 30, 20 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 15, 20 ) );
+					$scope.map.icons.church = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/church.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
+					$scope.map.icons.cluster = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/mapclusterfading.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 30, 30 ) );
+					$scope.map.icons.multiplying = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/multiplying_church.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
+					$scope.map.icons.group = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/group.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
+					$scope.map.icons.targetpoint = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/targetpoint.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 34, 48 ) );
+					$scope.map.icons.training = new google.maps.MarkerImage( settings.appUrl( '/css/map_icons/training.png' ), new google.maps.Size( 60, 60 ), new google.maps.Point( 0, 0 ), new google.maps.Point( 29, 48 ) );
 
 					$scope.map.side = document.getElementById( 'side' );
 					$scope.map.side.index = -1;
@@ -202,7 +192,7 @@
 							long_min:    sw.lng(),
 							long_max:    ne.lng()
 						};
-					if ( !$scope.show_target_point ) params['hide_target'] = 'true';
+					if ( !$scope.show_target_point ) params['hide_target_point'] = 'true';
 					if ( !$scope.show_group ) params['hide_group'] = 'true';
 					if ( !$scope.show_church ) params['hide_church'] = 'true';
 					if ( !$scope.show_mult_church ) params['hide_mult_church'] = 'true';
@@ -242,8 +232,7 @@
 					}
 				} );
 
-				$scope.onAddChurch = function ( response ) {
-
+				$scope.onAddChurch = function () {
 					$scope.loadChurches();
 				};
 
@@ -274,7 +263,10 @@
 							$scope.new_training.latitude = m.getPosition().lat();
 							$scope.new_training.longitude = m.getPosition().lng();
 							$scope.new_training.mcc = $scope.current.mcc;
-							trainingService.addTraining( $scope.current.sessionToken, $scope.new_training ).then( $scope.onAddChurch, $scope.onError );
+							trainingService.addTraining( $scope.current.sessionToken, $scope.new_training ).then(
+								$scope.loadTrainings,
+								$scope.onError
+							);
 
 							m.setMap( null );
 							var removedObject = $scope.map.markers.splice( $scope.map.markers.indexOf( m ), 1 );
@@ -311,7 +303,7 @@
 							id:                -2,
 							cluster_count:     1,
 							zIndex:            9999,
-							icon:              $scope.map.icons.trainingIcon,
+							icon:              $scope.map.icons.training,
 							labelContent:      'MOVE ME!',
 							labelAnchor:       new google.maps.Point( 50, -5 ),
 							labelClass:        "labelMoveMarker", // the CSS class for the label
@@ -347,7 +339,7 @@
 							id:                -1,
 							cluster_count:     1,
 							zIndex:            9999,
-							icon:              $scope.map.icons.targetRedIcon,
+							icon:              $scope.map.icons.targetpoint,
 							labelContent:      'Move me!',
 							labelAnchor:       new google.maps.Point( 50, -20 ),
 							labelClass:        "labelMoveMarker", // the CSS class for the label
@@ -404,8 +396,9 @@
 				};
 
 				$scope.MoveTraining = function () {
+					var id = $scope.edit_training.hasOwnProperty( 'Id' ) ? $scope.edit_training.Id : $scope.edit_training.id;
 					angular.forEach( $scope.map.markers, function ( m ) {
-						if ( m.id === 't' + $scope.edit_training.id ) {
+						if ( m.id === 't' + id ) {
 							m.setAnimation( google.maps.Animation.BOUNCE );
 							m.setDraggable( true );
 							$scope.trainingWindow.close();
@@ -428,6 +421,7 @@
 				} );
 
 				$scope.load_training_markers = function () {
+					if ( typeof $scope.map === 'undefined' ) return;
 					var toDelete = [];
 					angular.forEach( $scope.map.markers, function ( training ) {
 						if ( training.id[0] == 't' && $scope.trainings.filter( function ( t ) {
@@ -435,7 +429,7 @@
 							} ).length == 0 ) {
 							toDelete.push( training );
 						}
-						else if ( training.id[0] == 't' && !$scope.show_training ) toDelete.push( training );
+						else if ( training.id[0] == 't' && !$scope.show.training ) toDelete.push( training );
 					} );
 
 					angular.forEach( toDelete, function ( training ) {
@@ -444,7 +438,7 @@
 						removedObject = null;
 					} );
 
-					if ( $scope.show_training ) {
+					if ( $scope.show.training ) {
 						angular.forEach( $scope.trainings, function ( training ) {
 							if ( $scope.map.markers.filter( function ( c ) {
 									return c.id === 't' + training.id
@@ -453,9 +447,9 @@
 									var marker = new MarkerWithLabel( {
 										position:          new google.maps.LatLng( training.latitude, training.longitude ),
 										map:               $scope.map,
-										id:                't' + training.id,
+										id:                't' + ( training.hasOwnProperty( 'Id' ) ? training.Id : training.id ),
 										title:             training.type,
-										icon:              $scope.map.icons.trainingIcon,
+										icon:              $scope.map.icons.training,
 										labelContent:      '', //training.type + '<span class="map-trained-count">' + training.leaders_trained + '</span>',
 										labelAnchor:       new google.maps.Point( 30, 0 ),
 										labelClass:        "labelMarker", // the CSS class for the label
@@ -495,6 +489,8 @@
 						} );
 					}
 				};
+
+				$scope.$watch( 'show.training', $scope.load_training_markers, true );
 
 				$scope.onGetChurches = function ( response ) {
 					$scope.churches = response;
@@ -537,22 +533,22 @@
 							if ( church.cluster_count == 1 ) {
 								var churchIconToUse = {}
 								if ( church.development == 5 ) {
-									churchIconToUse = $scope.map.icons.icon5r;
+									churchIconToUse = $scope.map.icons.multiplying;
 								}
 								else if ( church.development == 4 ) {
-									churchIconToUse = $scope.map.icons.icon4r;
+									churchIconToUse = $scope.map.icons.multiplying;
 								}
 								else if ( church.development == 3 ) {
-									churchIconToUse = $scope.map.icons.churchIcon;
+									churchIconToUse = $scope.map.icons.church;
 								}
 								else if ( church.development == 2 ) {
-									churchIconToUse = $scope.map.icons.groupRed;
+									churchIconToUse = $scope.map.icons.group;
 								}
 								else if ( church.development == 1 ) {
-									churchIconToUse = $scope.map.icons.targetRedIcon;
+									churchIconToUse = $scope.map.icons.targetpoint;
 								}
 								else {
-									churchIconToUse = $scope.map.iconsvisionRedIcon;
+									churchIconToUse = $scope.map.icons.targetpoint;
 								}
 
 								marker = new MarkerWithLabel( {
@@ -576,7 +572,7 @@
 									map:               $scope.map,
 									id:                church.id,
 									cluster_count:     church.cluster_count,
-									icon:              $scope.map.icons.mapClusterIcon,
+									icon:              $scope.map.icons.cluster,
 									labelContent:      church.cluster_count.toString(),
 									labelAnchor:       new google.maps.Point( 30, 15 ),
 									labelClass:        "labelMarker map-cluster-count", // the CSS class for the label
@@ -764,6 +760,38 @@
 						location_zoom: $scope.current.assignment.location_zoom
 					} );
 				};
+
+				$scope.addTrainingStage = function ( training ) {
+					var newPhase = {
+						phase:            training.current_stage,
+						date:             training.insert.date,
+						number_completed: training.insert.number_completed,
+						training_id:      training.hasOwnProperty( 'Id' ) ? training.Id : training.id
+
+					};
+					trainingService.addTrainingCompletion( $scope.current.sessionToken, newPhase ).then( $scope.onAddTrainingCompletion, $scope.onError );
+
+					training.insert.date = "";
+					training.insert.number_completed = 0;
+
+				};
+
+				$scope.onAddTrainingCompletion = function ( response ) {
+					response.editMode = false;
+
+					angular.forEach( $scope.assignment.trainings, function ( training ) {
+						var id = training.hasOwnProperty( 'Id' ) ? training.Id : training.id;
+						if ( id == response.training_id ) {
+							training.gcm_training_completions.push( response );
+							training.current_stage = response.phase + 1;
+						}
+					} );
+				};
+
+				$scope.saveTrainingCompletion = function ( data ) {
+					trainingService.updateTrainingCompletion( $scope.current.sessionToken, data ).then( $scope.onSaveTrainingCompletion, $scope.onError );
+				};
+
 			}] );
 	})( jQuery );
 } );

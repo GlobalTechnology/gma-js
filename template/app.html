@@ -18,7 +18,7 @@
 							<li ng-repeat="a in current.assignments | orderBy:'name'" ng-include="'field_renderer.html'"></li>
 							<li class="divider"></li>
 							<li>
-								<a href ng-click="joinMinistry(true)">Add another location / ministry</a>
+								<a href ng-click="joinMinistry(true)">Join another location / ministry</a>
 							</li>
 						</ul>
 					</li>
@@ -60,7 +60,7 @@
 							{{current.user.cas_username}} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href ng-click="logout()">Logout</a></li>
-							<li><a href ng-click="invalidateSession()">DEBUG: Invalidate Session</a></li>
+							<!--<li><a href ng-click="invalidateSession()">DEBUG: Invalidate Session</a></li>-->
 						</ul>
 					</li>
 				</ul>
@@ -71,37 +71,15 @@
 
 	<div class="container">
 		<div>
-			<ul class="nav nav-tabs" role="tablist" id="myTab" class="map-ministries">
-				<li ng-class="{active: $location.path() === '/map'}"><a href="#/map">Church</a></li>
-				<li ng-class="{active: $location.path() === '/measurements'}">
-					<a href="#/measurements">Measurements</a></li>
-				<li ng-class="{active: $location.path() === '/admin'}">
-					<a href="#/admin" ng-show="current.assignment.team_role === 'leader' || current.assignment.team_role === 'inherited_leader'">Admin</a>
+			<ul class="nav nav-tabs" role="tablist" class="map-ministries">
+				<li ng-repeat="tab in visibleTabs" ng-class="{active: $location.path() === tab.path}" ng-show="current.hasRole(tab.requiredRoles)">
+					<a ng-href="#{{tab.path}}">{{tab.name}}</a>
 				</li>
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane active">
 					<div ng-view></div>
-					<div class="spinner" ng-hide="current.isLoaded">
-						<div class="spinner-container container1">
-							<div class="circle1"></div>
-							<div class="circle2"></div>
-							<div class="circle3"></div>
-							<div class="circle4"></div>
-						</div>
-						<div class="spinner-container container2">
-							<div class="circle1"></div>
-							<div class="circle2"></div>
-							<div class="circle3"></div>
-							<div class="circle4"></div>
-						</div>
-						<div class="spinner-container container3">
-							<div class="circle1"></div>
-							<div class="circle2"></div>
-							<div class="circle3"></div>
-							<div class="circle4"></div>
-						</div>
-					</div>
+					<div ng-include="'spinner.html'" ng-hide="current.isLoaded"></div>
 				</div>
 			</div>
 		</div>
@@ -134,7 +112,7 @@
 		<div class="modal-header">
 			<h3 class="modal-title">Join Ministry/Team</h3>
 
-			<p class="bg-info">
+			<p>
 				You can request create a provisional assignment to ministry/team here.
 				Until this request has been approved by a leader of this team/ministry, your access will be read only.
 				You can submit personal ministry measurements, but these values won't be included until your request has been approved.
@@ -156,6 +134,29 @@
 		<div class="modal-footer">
 			<button type="button" class="btn btn-primary" ng-disabled="!ministry" ng-click="join()">Join Ministry/Team</button>
 			<button ng-if="allowClose" type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="spinner.html">
+		<div class="spinner">
+			<div class="spinner-container container1">
+				<div class="circle1"></div>
+				<div class="circle2"></div>
+				<div class="circle3"></div>
+				<div class="circle4"></div>
+			</div>
+			<div class="spinner-container container2">
+				<div class="circle1"></div>
+				<div class="circle2"></div>
+				<div class="circle3"></div>
+				<div class="circle4"></div>
+			</div>
+			<div class="spinner-container container3">
+				<div class="circle1"></div>
+				<div class="circle2"></div>
+				<div class="circle3"></div>
+				<div class="circle4"></div>
+			</div>
 		</div>
 	</script>
 

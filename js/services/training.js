@@ -45,7 +45,8 @@
 					} );
 			},
 			updateTraining:           function ( session_ticket, training ) {
-				return $http.put( settings.api.measurements( '/training/' + training.id ), training )
+				var id = training.hasOwnProperty( 'Id' ) ? training.Id : training.id;
+				return $http.put( settings.api.measurements( '/training/' + id ), training )
 					.then( function ( response ) {
 						return response.data;
 					} );
@@ -57,7 +58,8 @@
 					} );
 			},
 			deleteTraining:           function ( session_ticket, training ) {
-				return $http.delete( settings.api.measurements( '/training/' + training.id ) )
+				var id = training.hasOwnProperty( 'Id' ) ? training.Id : training.id;
+				return $http.delete( settings.api.measurements( '/training/' + id ) )
 					.then( function ( response ) {
 						return;
 					} );
@@ -69,13 +71,15 @@
 					} );
 			},
 			updateTrainingCompletion: function ( session_ticket, training_completion ) {
-				return $http.put( settings.api.measurements( '/training_completion/' + training_completion.id ), training_completion )
+				var id = training_completion.hasOwnProperty('Id') ? training_completion.Id : training_completion.id;
+				return $http.put( settings.api.measurements( '/training_completion/' + id ), training_completion )
 					.then( function ( response ) {
 						return response.data;
 					} );
 			},
 			deleteTrainingCompletion: function ( session_ticket, training_completion ) {
-				return $http.delete( settings.api.measurements( '/training_completion/' + training_completion.id ) )
+				var id = training_completion.hasOwnProperty('Id') ? training_completion.Id : training_completion.id;
+				return $http.delete( settings.api.measurements( '/training_completion/' + id ) )
 					.then( function ( response ) {
 						return;
 					} );

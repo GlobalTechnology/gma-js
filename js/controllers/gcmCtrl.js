@@ -23,7 +23,9 @@
 				$log.debug( 'Assignments Changed' );
 
 				if ( typeof assignments === 'object' ) {
-					$scope.current.assignment = $filter( 'orderBy' )( assignments, 'name' )[0];
+					if(angular.isUndefined($scope.current.assignment) || !_.contains(_.pluck(assignments, 'id'), $scope.current.assignment.id)){
+						$scope.current.assignment = $filter( 'orderBy' )( assignments, 'name' )[0];
+					}
 					$scope.current.ministries = flattenMinistries( assignments );
 				} else {
 					delete $scope.current.assignment;
@@ -65,7 +67,15 @@
 						ministries = ministries.concat( flattenMinistries( ministry.sub_ministries ) );
 					}
 				} );
-				return ministries;
+
+				//sort by team role
+				ministries = _.sortBy(ministries, function(m){
+					return (m.team_role === 'leader' ? 0 : 1);
+				});
+				//remove duplicates
+				return _.uniq(ministries, false, function(m){
+					return m.ministry_id;
+				});
 			}
 
 			//---------------------------------------
@@ -168,36 +178,6 @@
 			};
 
 			$scope.mobileApps = settings.mobileApps;
-
-			//$scope.addTrainingStage = function ( training ) {
-			//	var newPhase = {
-			//		phase:            training.current_stage,
-			//		date:             training.insert.date,
-			//		number_completed: training.insert.number_completed,
-			//		training_id:      training.id
-			//
-			//	};
-			//	training_service.addTrainingCompletion( $scope.user.session_ticket, newPhase ).then( $scope.onAddTrainingCompletion, $scope.onError );
-			//
-			//	training.insert.date = "";
-			//	training.insert.number_completed = 0;
-			//
-			//};
-			//
-			//$scope.onAddTrainingCompletion = function ( response ) {
-			//	response.editMode = false;
-			//
-			//	angular.forEach( $scope.assignment.trainings, function ( training ) {
-			//		if ( training.id == response.training_id ) {
-			//			training.gcm_training_completions.push( response );
-			//			training.current_stage = response.phase + 1;
-			//		}
-			//	} );
-			//};
-			//
-			//$scope.saveTrainingCompletion = function ( data ) {
-			//	training_service.updateTrainingCompletion( $scope.user.session_ticket, data ).then( $scope.onSaveTrainingCompletion, $scope.onError );
-			//};
 		}] )
 		.controller( 'joinMinistryController', [
 			'$scope', '$modalInstance', 'ministries', 'allowClose',

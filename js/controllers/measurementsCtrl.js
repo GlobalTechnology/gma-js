@@ -36,24 +36,29 @@
 				return _.where( $scope.measurements, {section: 'other', column: 'other'} ).length > 0;
 			};
 
-			// Method used to save measurements for self assigned role.
+			// Method used to save measurements for self_assigned role.
 			$scope.save = function () {
 				var measurements = [];
 				angular.forEach( $scope.measurements, function ( measurement ) {
-					if ( typeof measurement.my_values[settings.gmaNamespace] === 'number' ) {
-						measurements.push( {
+					var value = $scope.lmiForm[measurement.perm_link];
+					if ( value.$dirty && value.$valid ) {
+						this.push( {
 							period:              $scope.current.period.format( 'YYYY-MM' ),
 							mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
-							measurement_type_id: measurement.person_measurement_type_id,
+							measurement_type_id: measurement.measurement_type_ids.person,
 							related_entity_id:   $scope.current.assignment.id,
-							value:               measurement.my_values[settings.gmaNamespace]
+							value:               value.$modelValue
 						} );
 					}
-				} );
+				}, measurements );
+
 				if ( measurements.length > 0 ) {
 					measurementService.saveMeasurement( {}, measurements, function () {
 						getMeasurements();
 					} );
+				}
+				else {
+					getMeasurements();
 				}
 			};
 
@@ -74,7 +79,7 @@
 								ministry_id:    $scope.current.assignment.ministry_id,
 								mcc:            $scope.current.mcc,
 								period:         $scope.current.period.format( 'YYYY-MM' )
-							} ).$promise;
+							} );
 						}
 					}
 				} );
@@ -102,22 +107,28 @@
 			}
 		}] )
 		.controller( 'measurementDetailsController', [
-			'$scope', '$modalInstance', 'measurementService', 'measurement', 'details', 'settings',
-			function ( $scope, $modalInstance, measurementService, measurement, details, settings ) {
+			'$scope', '$modalInstance', 'measurementService', 'assignmentService', 'measurement', 'details', 'settings',
+			function ( $scope, $modalInstance, measurementService, assignmentService, measurement, details, settings ) {
+				$scope.spinner = true;
 				$scope.measurement = measurement;
 				$scope.details = details;
+				$scope.ns = settings.gmaNamespace;
 
-				var da = [['Period', 'Local', 'Total', 'Personal']];
-				angular.forEach( details.total, function ( t, period ) {
-					angular.forEach( details.local, function ( l, p ) {
-						if ( p === period ) {
-							angular.forEach( details.my_measurements, function ( m, p ) {
-								if ( p === period ) da.push( [p, l, t, m] )
-							} );
-						}
+				$scope.details.$promise.then( function () {
+					$scope.spinner = false;
+
+					var da = [['Period', 'Local', 'Total', 'Personal']];
+					angular.forEach( details.total, function ( t, period ) {
+						angular.forEach( details.local, function ( l, p ) {
+							if ( p === period ) {
+								angular.forEach( details.my_measurements, function ( m, p ) {
+									if ( p === period ) da.push( [p, l, t, m] )
+								} );
+							}
+						} );
 					} );
+					$scope.trend = google.visualization.arrayToDataTable( da );
 				} );
-				$scope.trend = google.visualization.arrayToDataTable( da );
 
 				$scope.filterSource = function ( items ) {
 					var result = {};
@@ -130,27 +141,21 @@
 				};
 
 				$scope.save = function () {
+					$scope.spinner = true;
 					var measurements = [];
-
-					if ( $scope.editForm.hasOwnProperty( 'local' ) && typeof $scope.editForm.local.$modelValue !== 'undefined' ) {
-						measurements.push( {
-							period:              $scope.current.period.format( 'YYYY-MM' ),
-							mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
-							measurement_type_id: $scope.details.measurement_type_ids.local,
-							related_entity_id:   $scope.current.assignment.ministry_id,
-							value:               $scope.editForm.local.$modelValue
-						} );
-					}
-
-					if ( $scope.editForm.hasOwnProperty( 'personal' ) && typeof $scope.editForm.personal.$modelValue !== 'undefined' ) {
-						measurements.push( {
-							period:              $scope.current.period.format( 'YYYY-MM' ),
-							mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
-							measurement_type_id: $scope.details.measurement_type_ids.person,
-							related_entity_id:   $scope.current.assignment.id,
-							value:               $scope.editForm.personal.$modelValue
-						} );
-					}
+					angular.forEach( ['local', 'person'], function ( type ) {
+						if ( $scope.editForm.hasOwnProperty( type ) && $scope.editForm[type].$dirty && typeof $scope.editForm[type] !== 'undefined' ) {
+							measurements.push( {
+								period:              $scope.current.period.format( 'YYYY-MM' ),
+								mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
+								measurement_type_id: $scope.details.measurement_type_ids[type],
+								related_entity_id:   type == 'local'
+									? $scope.current.assignment.ministry_id
+									: $scope.current.assignment.id,
+								value:               $scope.editForm[type].$modelValue
+							} );
+						}
+					} );
 
 					if ( measurements.length > 0 ) {
 						measurementService.saveMeasurement( {}, measurements, function () {
@@ -164,6 +169,24 @@
 
 				$scope.close = function () {
 					$modalInstance.dismiss( 'cancel' );
+				};
+
+				$scope.approveSelfAssigned = function ( user, role ) {
+					var user = user;
+					user.state = 'pending';
+					assignmentService.saveAssignment( {
+						assignment_id: user.assignment_id
+					}, {team_role: role}, function () {
+						if ( role == 'blocked' ) {
+							user.state = 'blocked';
+							user.blocked = true;
+						} else {
+							user.success = true;
+							user.state = 'member';
+						}
+					}, function () {
+						delete user.state;
+					} );
 				};
 
 			}

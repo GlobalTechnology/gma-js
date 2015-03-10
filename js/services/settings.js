@@ -7,7 +7,7 @@ define( ['angular', 'underscore'], function ( angular, _ ) {
 				config = c;
 			};
 
-			this.appUrl = function ( path ) {
+			var appUrl = function ( path ) {
 				return apiUrl( config.appUrl, path );
 			};
 
@@ -27,17 +27,65 @@ define( ['angular', 'underscore'], function ( angular, _ ) {
 				return config.mobileapps.length > 0 ? config.mobileapps : false;
 			};
 
+			this.routes = function () {
+				var returnTabs = [];
+				angular.forEach( config.enabled_tabs, function ( tab ) {
+					switch ( tab ) {
+						case 'map':
+							returnTabs.push( {
+								name:          'Church',
+								path:          '/map',
+								templateUrl:   appUrl( '/template/map.html' ),
+								controller:    'mapController',
+								requiredRoles: ['self_assigned', 'member', 'inherited_leader', 'leader']
+							} );
+							break;
+						case 'measurements':
+							returnTabs.push( {
+								name:          'Measurements',
+								path:          '/measurements',
+								templateUrl:   appUrl( '/template/measurements.html' ),
+								controller:    'measurementsController',
+								requiredRoles: ['self_assigned', 'member', 'inherited_leader', 'leader']
+							} );
+							break;
+						case 'reports':
+							returnTabs.push( {
+								name:          'Reports',
+								path:          '/reports',
+								templateUrl:   appUrl( '/template/reports.html' ),
+								controller:    'ReportsController',
+								requiredRoles: ['inherited_leader', 'leader']
+							} );
+							break;
+						case 'admin':
+							returnTabs.push( {
+								name:          'Admin',
+								path:          '/admin',
+								templateUrl:   appUrl( '/template/admin.html' ),
+								controller:    'adminController',
+								requiredRoles: ['leader', 'inherited_leader']
+							} );
+							break;
+					}
+				} );
+				config.enabledTabs = returnTabs;
+				return returnTabs;
+			};
+
 			this.$get = function () {
 				return {
-					appUrl:     this.appUrl,
-					ticket:     config.ticket,
-					api:        {
+					appUrl:       appUrl,
+					ticket:       config.ticket,
+					api:          {
 						measurements: measurementsApi,
 						refresh:      config.api.refresh,
-						logout:       config.api.logout
+						logout:       config.api.logout,
+						login:        config.api.login
 					},
-					mobileApps: ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
-					gmaNamespace: config.namespace
+					mobileApps:   ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
+					gmaNamespace: config.namespace,
+					enabledTabs:  config.enabledTabs
 				}
 			};
 		} );
