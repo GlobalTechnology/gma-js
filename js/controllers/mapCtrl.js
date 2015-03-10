@@ -9,7 +9,6 @@
 				$scope.show_group = true;
 				$scope.show_church = true;
 				$scope.show_mult_church = true;
-				$scope.show_training = true;
 				$scope.show_lines = true;
 				$scope.show_lines = true;
 				$scope.show_jf = true;
@@ -30,6 +29,9 @@
 					{value: "CPMI", text: 'CPMI'},
 					{value: "", text: 'Other'}
 				];
+				$scope.show = {
+					training: true
+				};
 				$scope.mapOptions = {
 					zoom:               3,
 					center:             new google.maps.LatLng( 0, 0 ),
@@ -418,6 +420,7 @@
 				} );
 
 				$scope.load_training_markers = function () {
+					if( typeof $scope.map === 'undefined' ) return;
 					var toDelete = [];
 					angular.forEach( $scope.map.markers, function ( training ) {
 						if ( training.id[0] == 't' && $scope.trainings.filter( function ( t ) {
@@ -425,7 +428,7 @@
 							} ).length == 0 ) {
 							toDelete.push( training );
 						}
-						else if ( training.id[0] == 't' && !$scope.show_training ) toDelete.push( training );
+						else if ( training.id[0] == 't' && !$scope.show.training ) toDelete.push( training );
 					} );
 
 					angular.forEach( toDelete, function ( training ) {
@@ -434,7 +437,7 @@
 						removedObject = null;
 					} );
 
-					if ( $scope.show_training ) {
+					if ( $scope.show.training ) {
 						angular.forEach( $scope.trainings, function ( training ) {
 							if ( $scope.map.markers.filter( function ( c ) {
 									return c.id === 't' + training.id
@@ -485,6 +488,8 @@
 						} );
 					}
 				};
+
+				$scope.$watch( 'show.training', $scope.load_training_markers, true );
 
 				$scope.onGetChurches = function ( response ) {
 					$scope.churches = response;

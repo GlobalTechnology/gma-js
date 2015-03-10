@@ -57,7 +57,7 @@
 
 		<tr ng-if="current.hasRole(['leader', 'inherited_leader'])">
 			<td>
-				<input type="checkbox" class="church_development_checkbox" ng-model="show_training" ng-change="load_training_markers()">
+				<input type="checkbox" class="church_development_checkbox" ng-model="show.training">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{appUrl('/css/map_icons/training.png')}}"></td>
