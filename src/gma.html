@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<title>Next-Gen Measurements</title>
+	<link rel="icon" type="image/png" href="img/gma-logo.png">
+
+	<!-- Global Scripts / Styles -->
+	<script type="application/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+	<script type="application/javascript" src="../bower_components/angular/angular.js"></script>
+	<script type="application/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
+	<script type="application/javascript" src="../bower_components/angular-route/angular-route.js"></script>
+	<script type="application/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script type="application/javascript" src="../bower_components/moment/moment.js"></script>
+	<script type="application/javascript" src="../bower_components/underscore/underscore.js"></script>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+
+	<!-- Google Maps & Visualizations -->
+	<script type="application/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script type="application/javascript" src="//www.google.com/jsapi"></script>
+	<script type="application/javascript">
+		google.load( 'visualization', '1', {packages: ['corechart', 'table']} );
+	</script>
+
+	<!-- build:css -->
+	<link href="css/spinner.css" rel="stylesheet" />
+	<link href="css/gcm.css" rel="stylesheet" />
+	<!-- endbuild -->
+
+	<!-- build:lib -->
+	<script type="application/javascript" src="../bower_components/easy-markerwithlabel/src/markerwithlabel.js"></script>
+	<script type="application/javascript" src="../bower_components/iframe-resizer/src/iframeResizer.contentWindow.js"></script>
+	<!-- endbuild -->
+
+	<!-- Global Measurements Application config -->
+	<script type="application/javascript">
+		var gma = window.gma = window.parent.gma || {};
+	</script>
+</head>
+<body ng-app="app">
+<div ng-include="'../template/app.html'"></div>
+<!-- build:js -->
+<script type="application/javascript" src="js/services/settings.js"></script>
+<script type="application/javascript" src="js/app.js"></script>
+<script type="application/javascript" src="js/services/assignment.js"></script>
+<script type="application/javascript" src="js/services/church.js"></script>
+<script type="application/javascript" src="js/services/measurement.js"></script>
+<script type="application/javascript" src="js/services/measurement_type.js"></script>
+<script type="application/javascript" src="js/services/ministry.js"></script>
+<script type="application/javascript" src="js/services/session.js"></script>
+<script type="application/javascript" src="js/services/training.js"></script>
+<script type="application/javascript" src="js/controllers/adminCtrl.js"></script>
+<script type="application/javascript" src="js/controllers/gcmCtrl.js"></script>
+<script type="application/javascript" src="js/controllers/mapCtrl.js"></script>
+<script type="application/javascript" src="js/controllers/measurementsCtrl.js"></script>
+<script type="application/javascript" src="js/controllers/reports.js"></script>
+<!-- endbuild -->
+</body>
+</html>
