@@ -77,7 +77,7 @@ gulp.task( 'partials', ['clean'], function () {
 		.pipe( sourcemaps.init() )
 		.pipe( minifyHTML() )
 		.pipe( ngHtml2Js( {
-			moduleName:    'app',
+			moduleName:    'gma',
 			prefix:        'partials/',
 			declareModule: false
 		} ) )
