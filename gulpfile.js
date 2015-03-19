@@ -106,7 +106,7 @@ gulp.task( 'library', ['clean', 'bower'], function () {
 gulp.task( 'wrapper', ['clean', 'bower'], function () {
 	return gulp.src( ['bower_components/iframe-resizer/src/iframeResizer.js'] )
 		.pipe( sourcemaps.init() )
-		.pipe( concat( 'wrapper.min.js ' ) )
+		.pipe( concat( 'wrapper.min.js' ) )
 		.pipe( uglify() )
 		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( 'dist/js' ) );
