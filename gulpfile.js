@@ -63,7 +63,7 @@ gulp.task( 'html', ['clean', 'bower'], function () {
 } );
 
 gulp.task( 'scripts', ['clean'], function () {
-	return gulp.src( ['src/js/**/_*.js', 'src/js/**/*.js'] )
+	return gulp.src( ['src/js/**/_*.js', 'src/js/**/*.js', '!src/js/wrapper.js'] )
 		.pipe( sourcemaps.init() )
 		.pipe( concat( 'application.min.js' ) )
 		.pipe( ngAnnotate() )
@@ -105,8 +105,10 @@ gulp.task( 'library', ['clean', 'bower'], function () {
 
 gulp.task( 'wrapper', ['clean', 'bower'], function () {
 	return gulp.src( ['bower_components/iframe-resizer/src/iframeResizer.js'] )
+		.pipe( sourcemaps.init() )
 		.pipe( concat( 'wrapper.min.js ' ) )
 		.pipe( uglify() )
+		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
