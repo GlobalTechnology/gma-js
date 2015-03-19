@@ -1,0 +1,27 @@
+<!-- Join new Ministry/Team Modal -->
+<div class="modal-header">
+	<h3 class="modal-title">Join Ministry/Team</h3>
+
+	<p>
+		You can request create a provisional assignment to ministry/team here.
+		Until this request has been approved by a leader of this team/ministry, your access will be read only.
+		You can submit personal ministry measurements, but these values won't be included until your request has been approved.
+	</p>
+</div>
+<div class="modal-body form-horizontal">
+	<div class="form-group">
+		<label for="ministryName" class="col-xs-4 control-label">Ministry/Team:</label>
+
+		<div class="col-xs-8">
+			<input id="ministryName" class="form-control" ng-model="ministry"
+				   typeahead="m as m.name for m in ministries | filter:$viewValue | limitTo:8"
+				   typeahead-min-length="2" typeahead-editable="false" />
+
+			<p class="help-block">Start typing to search for ministry</p>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-primary" ng-disabled="!ministry" ng-click="join()">Join Ministry/Team</button>
+	<button ng-if="allowClose" type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>

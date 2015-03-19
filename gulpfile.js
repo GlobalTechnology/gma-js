@@ -1,6 +1,7 @@
 "use strict";
 
 var gulp        = require( 'gulp' ),
+	bower       = require( 'gulp-bower' ),
 	del         = require( 'del' ),
 	cdnizer     = require( 'gulp-cdnizer' ),
 	htmlreplace = require( 'gulp-html-replace' ),
@@ -8,14 +9,16 @@ var gulp        = require( 'gulp' ),
 	concat      = require( 'gulp-concat' ),
 	ngAnnotate  = require( 'gulp-ng-annotate' ),
 	uglify      = require( 'gulp-uglify' ),
-	minifyCSS   = require( 'gulp-minify-css' );
+	minifyCSS   = require( 'gulp-minify-css' ),
+	ngHtml2Js   = require( "gulp-ng-html2js" ),
+	imageMin    = require( 'gulp-imagemin' );
 
 gulp.task( 'clean', function ( callback ) {
 	del( ['dist'], callback );
 } );
 
-gulp.task( 'html', ['clean'], function () {
-	return gulp.src( 'src/gma.html' )
+gulp.task( 'html', ['clean', 'bower'], function () {
+	return gulp.src( 'src/index.html' )
 		.pipe( cdnizer( {
 			allowMin:     true,
 			relativeRoot: 'src/',
@@ -23,6 +26,7 @@ gulp.task( 'html', ['clean'], function () {
 				// JavaScript
 				'google:jquery',
 				'google:angular-resource',
+				'google:angular-loader',
 				'google:angular-route',
 				'google:angular',
 				{
@@ -50,41 +54,68 @@ gulp.task( 'html', ['clean'], function () {
 			]
 		} ) )
 		.pipe( htmlreplace( {
-			js:  'app.min.js',
-			css: 'styles.min.css',
-			lib: 'lib.min.js'
+			application: ['js/application.min.js', 'js/partials.min.js'],
+			styles:      'css/styles.min.css',
+			other:       'js/common.min.js'
 		} ) )
-//		.pipe( minifyHTML( {} ) )
-		.pipe( gulp.dest( 'dist/' ) );
+		.pipe( minifyHTML() )
+		.pipe( gulp.dest( 'dist' ) );
 } );
 
 gulp.task( 'scripts', ['clean'], function () {
-	return gulp.src( ['src/js/services/settings.js', 'src/js/app.js', 'src/js/**/*.js'] )
-		.pipe( concat( 'app.min.js' ) )
-		.pipe( ngAnnotate() )
+	return gulp.src( ['src/js/**/_*.js', 'src/js/**/*.js'] )
+		.pipe( concat( 'application.min.js' ) )
+//		.pipe( ngAnnotate() )
+//		.pipe( uglify() )
+		.pipe( gulp.dest( 'dist/js' ) );
+} );
+
+gulp.task( 'partials', ['clean'], function () {
+	return gulp.src( ['src/partials/**/*.html'] )
+		.pipe( minifyHTML() )
+		.pipe( ngHtml2Js( {
+			moduleName:    'app',
+			prefix:        'partials/',
+			declareModule: false
+		} ) )
+		.pipe( concat( 'partials.min.js' ) )
 		.pipe( uglify() )
-		.pipe( gulp.dest( 'dist/' ) );
+		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
 gulp.task( 'styles', ['clean'], function () {
-	return gulp.src( ['src/css/*.css'] )
+	return gulp.src( ['src/css/application.css', 'src/css/**/*.css'] )
 		.pipe( concat( 'styles.min.css' ) )
 		.pipe( minifyCSS() )
-		.pipe( gulp.dest( 'dist/' ) );
+		.pipe( gulp.dest( 'dist/css' ) );
 } );
 
-gulp.task( 'library', ['clean'], function () {
+gulp.task( 'library', ['clean', 'bower'], function () {
 	return gulp.src( ['bower_components/easy-markerwithlabel/src/markerwithlabel.js', 'bower_components/iframe-resizer/src/iframeResizer.contentWindow.js'] )
-		.pipe( concat( 'lib.min.js' ) )
+		.pipe( concat( 'common.min.js' ) )
 		.pipe( uglify() )
-		.pipe( gulp.dest( 'dist/' ) );
+		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
-gulp.task( 'iframe', ['clean'], function () {
-	return gulp.src( ['bower_components/iframe-resizer/js/iframeResizer.min.js'] )
-		.pipe( gulp.dest( 'dist/' ) );
+gulp.task( 'wrapper', ['clean', 'bower'], function () {
+	return gulp.src( ['bower_components/iframe-resizer/src/iframeResizer.js'] )
+		.pipe( concat( 'wrapper.min.js ' ) )
+		.pipe( uglify() )
+		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
-gulp.task( 'build', ['scripts', 'styles', 'library', 'iframe', 'html'] );
+gulp.task( 'images', ['clean'], function () {
+	return gulp.src( ['src/img/**/*.png'] )
+//		.pipe( imageMin( {
+//			progressive: true
+//		} ) )
+		.pipe( gulp.dest( 'dist/img' ) );
+} );
+
+gulp.task( 'bower', function () {
+	return bower();
+} );
+
+gulp.task( 'build', ['scripts', 'partials', 'styles', 'images', 'library', 'wrapper', 'html'] );
 
 gulp.task( 'default', ['build'] );

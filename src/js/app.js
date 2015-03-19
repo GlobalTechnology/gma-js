@@ -1,12 +1,24 @@
-﻿angular.module( 'app', ['ngRoute', 'ui.bootstrap', 'ngResource', 'app.settings'] )
-	.run( [
-		'$rootScope', '$route', 'sessionService', 'settings',
-		function ( $rootScope, $route, sessionService, settings ) {
+﻿(function () {
+	'use strict';
+	angular.module( 'gma' )
+		.run( function ( $rootScope, $route, $location, sessionService, settings ) {
 			// Object to hold current values: assignments, assignment, user ...
 			$rootScope.current = {
 				isLoaded: false
 			};
 			$rootScope.visibleTabs = settings.enabledTabs;
+
+			// Support application inside an iframe, sync parent hash.
+			if ( typeof window.parent !== 'undefined' ) {
+				var parentHash = window.parent.location.hash;
+				if ( parentHash ) {
+					$location.path( parentHash.slice( 1 ) );
+				}
+
+				$rootScope.$on( '$locationChangeSuccess', function () {
+					window.parent.location.hash = '#' + $location.path();
+				} );
+			}
 
 			// Reload the route since ng-view directive is inside a template.
 			$route.reload();
@@ -14,10 +26,8 @@
 			// Start the session with the API
 			//TODO fetch a ticket from refresh to start session
 			sessionService.startSession( settings.ticket );
-		}] )
-	.config( [
-		'$routeProvider', '$httpProvider', '$compileProvider', 'settingsProvider', '$provide',
-		function ( $routeProvider, $httpProvider, $compileProvider, settingsProvider, $provide ) {
+		} )
+		.config( function ( $routeProvider, $httpProvider, $compileProvider, settingsProvider, $provide ) {
 			// Initialize Settings from wrapper provided config
 			settingsProvider.setConfig( window.gma.config );
 
@@ -69,4 +79,5 @@
 				}];
 				return $delegate;
 			} );
-		}] );
+		} );
+})();
