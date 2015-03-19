@@ -10,8 +10,8 @@ var gulp        = require( 'gulp' ),
 	ngAnnotate  = require( 'gulp-ng-annotate' ),
 	uglify      = require( 'gulp-uglify' ),
 	minifyCSS   = require( 'gulp-minify-css' ),
-	ngHtml2Js   = require( "gulp-ng-html2js" ),
-	imageMin    = require( 'gulp-imagemin' );
+	ngHtml2Js   = require( 'gulp-ng-html2js' ),
+	sourcemaps  = require( 'gulp-sourcemaps' );
 
 gulp.task( 'clean', function ( callback ) {
 	del( ['dist'], callback );
@@ -64,14 +64,17 @@ gulp.task( 'html', ['clean', 'bower'], function () {
 
 gulp.task( 'scripts', ['clean'], function () {
 	return gulp.src( ['src/js/**/_*.js', 'src/js/**/*.js'] )
+		.pipe( sourcemaps.init() )
 		.pipe( concat( 'application.min.js' ) )
-//		.pipe( ngAnnotate() )
-//		.pipe( uglify() )
+		.pipe( ngAnnotate() )
+		.pipe( uglify() )
+		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
 gulp.task( 'partials', ['clean'], function () {
 	return gulp.src( ['src/partials/**/*.html'] )
+		.pipe( sourcemaps.init() )
 		.pipe( minifyHTML() )
 		.pipe( ngHtml2Js( {
 			moduleName:    'app',
@@ -80,6 +83,7 @@ gulp.task( 'partials', ['clean'], function () {
 		} ) )
 		.pipe( concat( 'partials.min.js' ) )
 		.pipe( uglify() )
+		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
@@ -92,8 +96,10 @@ gulp.task( 'styles', ['clean'], function () {
 
 gulp.task( 'library', ['clean', 'bower'], function () {
 	return gulp.src( ['bower_components/easy-markerwithlabel/src/markerwithlabel.js', 'bower_components/iframe-resizer/src/iframeResizer.contentWindow.js'] )
+		.pipe( sourcemaps.init() )
 		.pipe( concat( 'common.min.js' ) )
 		.pipe( uglify() )
+		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
@@ -106,9 +112,6 @@ gulp.task( 'wrapper', ['clean', 'bower'], function () {
 
 gulp.task( 'images', ['clean'], function () {
 	return gulp.src( ['src/img/**/*.png'] )
-//		.pipe( imageMin( {
-//			progressive: true
-//		} ) )
 		.pipe( gulp.dest( 'dist/img' ) );
 } );
 
