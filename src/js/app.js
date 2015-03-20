@@ -6,7 +6,6 @@
 			$rootScope.current = {
 				isLoaded: false
 			};
-			$rootScope.visibleTabs = settings.enabledTabs;
 
 			// Support application inside an iframe, sync parent hash.
 			if ( typeof window.parent !== 'undefined' ) {

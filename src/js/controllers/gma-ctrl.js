@@ -5,6 +5,8 @@
 		// Attach $location provider to scope, this is used to set active tabs
 		$scope.$location = $location;
 
+		$scope.tabs = settings.tabs;
+
 		//---------------------------------------
 		// Assignments
 		//---------------------------------------

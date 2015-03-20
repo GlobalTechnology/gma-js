@@ -2,7 +2,8 @@
 	'use strict';
 
 	function settingsService() {
-		var config = {};
+		var config = {},
+			tabs = [];
 
 		this.setConfig = function ( c ) {
 			config = c;
@@ -40,11 +41,10 @@
 		};
 
 		this.routes = function () {
-			var returnTabs = [];
-			angular.forEach( config.enabled_tabs, function ( tab ) {
+			angular.forEach( config.tabs, function ( tab ) {
 				switch ( tab ) {
 					case 'map':
-						returnTabs.push( {
+						this.push( {
 							name:          'Church',
 							path:          '/map',
 							templateUrl:   'partials/map/map.html',
@@ -53,7 +53,7 @@
 						} );
 						break;
 					case 'measurements':
-						returnTabs.push( {
+						this.push( {
 							name:          'Measurements',
 							path:          '/measurements',
 							templateUrl:   'partials/measurements/measurements.html',
@@ -62,7 +62,7 @@
 						} );
 						break;
 					case 'reports':
-						returnTabs.push( {
+						this.push( {
 							name:          'Reports',
 							path:          '/reports',
 							templateUrl:   'partials/reports/reports.html',
@@ -71,7 +71,7 @@
 						} );
 						break;
 					case 'admin':
-						returnTabs.push( {
+						this.push( {
 							name:          'Admin',
 							path:          '/admin',
 							templateUrl:   'partials/admin/admin.html',
@@ -80,9 +80,8 @@
 						} );
 						break;
 				}
-			} );
-			config.enabledTabs = returnTabs;
-			return returnTabs;
+			}, tabs );
+			return tabs;
 		};
 
 		this.$get = function () {
@@ -98,7 +97,7 @@
 				},
 				mobileApps:   ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
 				gmaNamespace: config.namespace,
-				enabledTabs:  config.enabledTabs
+				tabs:         tabs
 			}
 		};
 	}
