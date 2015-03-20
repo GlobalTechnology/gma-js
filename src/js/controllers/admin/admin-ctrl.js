@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 	
-	function AdminCtrl( $scope, $modal, $filter, assignmentService, ministryService, measurementTypeService ) {
+	function AdminCtrl( $scope, $modal, $filter, Assignments, Ministries, MeasurementTypes ) {
 		$scope.current.isLoaded = false;
 
 		$scope.roles = [
@@ -14,11 +14,11 @@
 
 		$scope.$watch( 'current.assignment.ministry_id', function ( ministry_id ) {
 			if ( typeof ministry_id === 'undefined' ) return;
-			$scope.ministry = ministryService.getMinistry( {ministry_id: ministry_id}, function () {
+			$scope.ministry = Ministries.getMinistry( {ministry_id: ministry_id}, function () {
 				$scope.current.isLoaded = true;
 
 				$scope.measurementTypes = [];
-				measurementTypeService.getMeasurementTypes().$promise.then( function ( data ) {
+				MeasurementTypes.getMeasurementTypes().$promise.then( function ( data ) {
 					angular.forEach( data, function ( type ) {
 						if ( type.is_custom && _.contains( $scope.ministry.lmi_show, type.perm_link_stub ) ) {
 							type.visible = true;
@@ -34,7 +34,7 @@
 		} );
 
 		$scope.saveRole = function ( assignment ) {
-			assignmentService.saveAssignment( {
+			Assignments.saveAssignment( {
 				assignment_id: assignment.assignment_id
 			}, {team_role: assignment.team_role} );
 		};
@@ -65,8 +65,8 @@
 				}
 			} ).result.then( function ( newMember ) {
 					newMember.ministry_id = $scope.current.assignment.ministry_id;
-					assignmentService.addTeamMember( newMember, function () {
-						$scope.ministry = ministryService.getMinistry( {ministry_id: $scope.current.assignment.ministry_id} );
+					Assignments.addTeamMember( newMember, function () {
+						$scope.ministry = Ministries.getMinistry( {ministry_id: $scope.current.assignment.ministry_id} );
 					} );
 				} );
 		};
@@ -85,7 +85,7 @@
 				}
 			} ).result.then( function ( newMinistry ) {
 					newMinistry.parent_id = $scope.current.assignment.ministry_id;
-					ministryService.createMinistry( newMinistry, function () {
+					Ministries.createMinistry( newMinistry, function () {
 						if ( angular.isDefined( $scope.current.assignment.sub_ministries ) ) {
 							$scope.current.assignment.sub_ministries.push( newMinistry );
 						} else {
@@ -109,7 +109,7 @@
 				}
 			} ).result.then( function ( newMeasurement ) {
 					newMeasurement.perm_link_stub = 'custom_' + newMeasurement.perm_link_stub;
-					measurementTypeService.addMeasurementType( newMeasurement, function () {
+					MeasurementTypes.addMeasurementType( newMeasurement, function () {
 					} );
 				} );
 		};
@@ -136,7 +136,7 @@
 			if ( $scope.ministry.hasOwnProperty( 'parent_id' ) && typeof $scope.ministry.parent_id === "string" ) {
 				ministry.parent_id = $scope.ministry.parent_id;
 			}
-			$scope.saveDetailsResource = ministryService.updateMinistry( ministry,
+			$scope.saveDetailsResource = Ministries.updateMinistry( ministry,
 				function () {
 					$scope.saveDetailsAlert = {
 						type: 'success',

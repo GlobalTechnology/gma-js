@@ -1,11 +1,11 @@
 ﻿(function () {
 	'use strict';
 
-	function GMACtrl( $scope, $filter, $location, $modal, sessionService, ministryService, assignmentService, settings, $log ) {
+	function GMACtrl( $scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log ) {
 		// Attach $location provider to scope, this is used to set active tabs
 		$scope.$location = $location;
 
-		$scope.tabs = settings.tabs;
+		$scope.tabs = Settings.tabs;
 
 		//---------------------------------------
 		// Assignments
@@ -124,13 +124,13 @@
 		//---------------------------------------
 
 		$scope.logout = function () {
-			sessionService.logout().then( function () {
-				window.location = settings.api.logout;
+			Session.logout().then( function () {
+				window.location = Settings.api.logout;
 			} );
 		};
 
 		$scope.invalidateSession = function () {
-			sessionService.logout();
+			Session.logout();
 		};
 
 		$scope.joinMinistry = function ( allowClose ) {
@@ -142,7 +142,7 @@
 				backdrop:    allowClose ? true : 'static',
 				resolve:     {
 					'ministries': function () {
-						return ministryService.getMinistries().$promise;
+						return Ministries.getMinistries().$promise;
 					},
 					'allowClose': function () {
 						return allowClose;
@@ -150,7 +150,7 @@
 				}
 			} );
 			instance.result.then( function ( ministry ) {
-				assignmentService.addTeamMember( {
+				Assignments.addTeamMember( {
 					username:    $scope.current.user.cas_username,
 					ministry_id: ministry.ministry_id,
 					team_role:   'self_assigned'
@@ -179,7 +179,7 @@
 			$scope.error = response.reason;
 		};
 
-		$scope.mobileApps = settings.mobileApps;
+		$scope.mobileApps = Settings.mobileApps;
 	}
 
 	angular.module( 'gma.controllers' ).controller( 'GMACtrl', GMACtrl );

@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 	angular.module( 'gma' )
-		.run( function ( $rootScope, $route, $location, sessionService, settings ) {
+		.run( function ( $rootScope, $route, $location, Session, Settings ) {
 			// Object to hold current values: assignments, assignment, user ...
 			$rootScope.current = {
 				isLoaded: false
@@ -24,21 +24,20 @@
 
 			// Start the session with the API
 			//TODO fetch a ticket from refresh to start session
-			sessionService.startSession( settings.ticket );
+			Session.startSession( Settings.ticket );
 		} )
-		.config( function ( $routeProvider, $httpProvider, $compileProvider, settingsProvider, $provide ) {
+		.config( function ( $routeProvider, $httpProvider, $compileProvider, SettingsProvider, $provide ) {
 			// Initialize Settings from wrapper provided config
-			settingsProvider.setConfig( window.gma.config );
+			SettingsProvider.setConfig( window.gma.config );
 
 			// Add itms-services scheme to safe aHref protocols
 			$compileProvider.aHrefSanitizationWhitelist( /^\s*(https?|ftp|mailto|tel|file|itms-services):/ );
 
-			// Register sessionService as an http interceptor
-			$httpProvider.interceptors.push( 'sessionService' );
+			// Register Session as an http interceptor
+			$httpProvider.interceptors.push( 'Session' );
 
 			// Setup application routes
-			// angularAMD is used to provide on demand controller loading
-			angular.forEach( settingsProvider.routes(), function ( route, i ) {
+			angular.forEach( SettingsProvider.routes(), function ( route, i ) {
 				if ( i === 0 ) {
 					$routeProvider.otherwise( {redirectTo: route.path} );
 				}

@@ -1,8 +1,8 @@
 ﻿(function () {
 	'use strict';
 
-	function ministryService( $resource, settings ) {
-		return $resource( settings.api.measurements( '/ministries/:ministry_id' ), {}, {
+	function Ministries( $resource, Settings ) {
+		return $resource( Settings.api.measurements( '/ministries/:ministry_id' ), {}, {
 			getMinistry:    {method: 'GET'},
 			getMinistries:  {method: 'GET', isArray: true},
 			updateMinistry: {method: 'PUT', params: {ministry_id: '@ministry_id'}},
@@ -10,6 +10,6 @@
 		} );
 	}
 
-	angular.module( 'gma.services.measurements' ).factory( 'ministryService', ministryService );
+	angular.module( 'gma.services.measurements' ).factory( 'Ministries', Ministries );
 
 })();

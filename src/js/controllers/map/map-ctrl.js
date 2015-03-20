@@ -1,9 +1,9 @@
 ﻿(function ( $ ) {
 	'use strict';
 
-	function MapCtrl( $scope, $document, $compile, trainingService, churchService, ministryService, settings ) {
+	function MapCtrl( $scope, $document, $compile, Trainings, Churches, Ministries, Settings ) {
 		$scope.current.isLoaded = false;
-		$scope.versionUrl = settings.versionUrl;
+		$scope.versionUrl = Settings.versionUrl;
 		$scope.show_target_point = true;
 		$scope.show_group = true;
 		$scope.show_church = true;
@@ -86,37 +86,37 @@
 			$scope.map.church_lines = [];
 			$scope.map.icons = {};
 			$scope.map.icons.church = new google.maps.MarkerImage(
-				settings.versionUrl( 'img/icon/church.png' ),
+				Settings.versionUrl( 'img/icon/church.png' ),
 				new google.maps.Size( 60, 60 ),
 				new google.maps.Point( 0, 0 ),
 				new google.maps.Point( 30, 58 )
 			);
 			$scope.map.icons.cluster = new google.maps.MarkerImage(
-				settings.versionUrl( 'img/icon/cluster.png' ),
+				Settings.versionUrl( 'img/icon/cluster.png' ),
 				new google.maps.Size( 60, 60 ),
 				new google.maps.Point( 0, 0 ),
 				new google.maps.Point( 30, 31 )
 			);
 			$scope.map.icons.multiplying = new google.maps.MarkerImage(
-				settings.versionUrl( 'img/icon/multiplying.png' ),
+				Settings.versionUrl( 'img/icon/multiplying.png' ),
 				new google.maps.Size( 60, 60 ),
 				new google.maps.Point( 0, 0 ),
 				new google.maps.Point( 30, 53 )
 			);
 			$scope.map.icons.group = new google.maps.MarkerImage(
-				settings.versionUrl( 'img/icon/group.png' ),
+				Settings.versionUrl( 'img/icon/group.png' ),
 				new google.maps.Size( 60, 60 ),
 				new google.maps.Point( 0, 0 ),
 				new google.maps.Point( 30, 55 )
 			);
 			$scope.map.icons.targetpoint = new google.maps.MarkerImage(
-				settings.versionUrl( 'img/icon/target.png' ),
+				Settings.versionUrl( 'img/icon/target.png' ),
 				new google.maps.Size( 60, 60 ),
 				new google.maps.Point( 0, 0 ),
 				new google.maps.Point( 32, 56 )
 			);
 			$scope.map.icons.training = new google.maps.MarkerImage(
-				settings.versionUrl( 'img/icon/training.png' ),
+				Settings.versionUrl( 'img/icon/training.png' ),
 				new google.maps.Size( 60, 60 ),
 				new google.maps.Point( 0, 0 ),
 				new google.maps.Point( 30, 43 )
@@ -192,13 +192,13 @@
 				params['show_all'] = 'true';
 			} else if ( $scope.map_filter === 'tree' ) params['show_tree'] = 'true';
 
-			$scope.allChurches = churchService.getChurches( params );
+			$scope.allChurches = Churches.getChurches( params );
 		}, 500 );
 
 		$scope.loadTrainings = _.debounce( function () {
 			// Member, Leader and Inherited can view trainings
 			if ( typeof $scope.current.assignment !== 'undefined' && $scope.current.hasRole( ['leader', 'inherited_leader'] ) ) {
-				trainingService.getTrainings( $scope.current.sessionToken, $scope.current.assignment.ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree ).then( function ( trainings ) {
+				Trainings.getTrainings( $scope.current.sessionToken, $scope.current.assignment.ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree ).then( function ( trainings ) {
 					$scope.trainings = trainings;
 				}, $scope.onError );
 			}
@@ -232,7 +232,7 @@
 			// Disable clustering at Zoom 14 and higher
 			if ( $scope.map.getZoom() >= 14 ) params['should_cluster'] = 'false';
 
-			churchService.getChurches( params ).$promise.then( $scope.onGetChurches, $scope.onError );
+			Churches.getChurches( params ).$promise.then( $scope.onGetChurches, $scope.onError );
 		}, 500 );
 
 		$scope.removeLines = function () {
@@ -274,7 +274,7 @@
 					$scope.new_church.latitude = m.getPosition().lat();
 					$scope.new_church.longitude = m.getPosition().lng();
 					console.log( $scope.new_church );
-					churchService.addChurch( $scope.new_church ).$promise.then( $scope.onAddChurch, $scope.onError );
+					Churches.addChurch( $scope.new_church ).$promise.then( $scope.onAddChurch, $scope.onError );
 
 					m.setMap( null );
 					var removedObject = $scope.map.markers.splice( $scope.map.markers.indexOf( m ), 1 );
@@ -292,7 +292,7 @@
 					$scope.new_training.latitude = m.getPosition().lat();
 					$scope.new_training.longitude = m.getPosition().lng();
 					$scope.new_training.mcc = $scope.current.mcc;
-					trainingService.addTraining( $scope.current.sessionToken, $scope.new_training ).then(
+					Trainings.addTraining( $scope.current.sessionToken, $scope.new_training ).then(
 						$scope.loadTrainings,
 						$scope.onError
 					);
@@ -436,11 +436,11 @@
 		};
 
 		$scope.SaveChurch = function () {
-			churchService.saveChurch( $scope.edit_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
+			Churches.saveChurch( $scope.edit_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
 		};
 
 		$scope.SaveTraining = function () {
-			trainingService.updateTraining( $scope.current.sessionToken, $scope.edit_training ).then( $scope.onSaveChurch, $scope.onError );
+			Trainings.updateTraining( $scope.current.sessionToken, $scope.edit_training ).then( $scope.onSaveChurch, $scope.onError );
 		};
 
 		$scope.$watch( 'trainings', function () {
@@ -507,7 +507,7 @@
 								console.log( marker );
 								training.latitude = marker.getPosition().lat();
 								training.longitude = marker.getPosition().lng();
-								trainingService.updateTraining( $scope.current.sessionToken, training ).then( $scope.onSaveChurch, $scope.onError );
+								Trainings.updateTraining( $scope.current.sessionToken, training ).then( $scope.onSaveChurch, $scope.onError );
 								marker.setAnimation( null );
 								marker.setDraggable( false );
 							}) );
@@ -628,7 +628,7 @@
 									new_church.parent_id = church.id;
 									$scope.edit_church.parent_id = church.id;
 									console.log( new_church );
-									churchService.saveChurch( new_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
+									Churches.saveChurch( new_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
 								}
 								return;
 							}
@@ -664,7 +664,7 @@
 								new_church.longitude = marker.getPosition().lng();
 								church.latitude = new_church.latitude;
 								church.longitude = new_church.longitude;
-								churchService.saveChurch( new_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
+								Churches.saveChurch( new_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
 
 								marker.setAnimation( null );
 								marker.setDraggable( false );
@@ -782,7 +782,7 @@
 			$scope.current.assignment.location_zoom = zoom;
 
 			// Save changes to API
-			ministryService.updateMinistry( {
+			Ministries.updateMinistry( {
 				ministry_id:   $scope.current.assignment.ministry_id,
 				min_code:      $scope.current.assignment.min_code.trim(),
 				location:      $scope.current.assignment.location,
@@ -798,7 +798,7 @@
 				training_id:      training.hasOwnProperty( 'Id' ) ? training.Id : training.id
 
 			};
-			trainingService.addTrainingCompletion( $scope.current.sessionToken, newPhase ).then( $scope.onAddTrainingCompletion, $scope.onError );
+			Trainings.addTrainingCompletion( $scope.current.sessionToken, newPhase ).then( $scope.onAddTrainingCompletion, $scope.onError );
 
 			training.insert.date = "";
 			training.insert.number_completed = 0;
@@ -818,7 +818,7 @@
 		};
 
 		$scope.saveTrainingCompletion = function ( data ) {
-			trainingService.updateTrainingCompletion( $scope.current.sessionToken, data ).then( $scope.onSaveTrainingCompletion, $scope.onError );
+			Trainings.updateTrainingCompletion( $scope.current.sessionToken, data ).then( $scope.onSaveTrainingCompletion, $scope.onError );
 		};
 	}
 

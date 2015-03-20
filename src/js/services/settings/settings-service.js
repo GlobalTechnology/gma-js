@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	function settingsService() {
+	function SettingsService() {
 		var config = {},
 			tabs = [];
 
@@ -102,5 +102,5 @@
 		};
 	}
 
-	angular.module( 'gma.services.settings' ).provider( 'settings', settingsService );
+	angular.module( 'gma.services.settings' ).provider( 'Settings', SettingsService );
 })();

@@ -1,11 +1,11 @@
 (function () {
 	'use strict';
 
-	function MeasurementDetailsCtrl( $scope, $modalInstance, measurementService, assignmentService, measurement, details, settings ) {
+	function MeasurementDetailsCtrl( $scope, $modalInstance, Measurements, Assignments, measurement, details, Settings ) {
 		$scope.spinner = true;
 		$scope.measurement = measurement;
 		$scope.details = details;
-		$scope.ns = settings.gmaNamespace;
+		$scope.ns = Settings.gmaNamespace;
 
 		$scope.details.$promise.then( function () {
 			$scope.spinner = false;
@@ -26,7 +26,7 @@
 		$scope.filterSource = function ( items ) {
 			var result = {};
 			angular.forEach( items, function ( value, key ) {
-				if ( key != settings.gmaNamespace && key != 'total' ) {
+				if ( key != Settings.gmaNamespace && key != 'total' ) {
 					result[key] = value;
 				}
 			} );
@@ -40,7 +40,7 @@
 				if ( $scope.editForm.hasOwnProperty( type ) && $scope.editForm[type].$dirty && typeof $scope.editForm[type] !== 'undefined' ) {
 					measurements.push( {
 						period:              $scope.current.period.format( 'YYYY-MM' ),
-						mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
+						mcc:                 $scope.current.mcc + '_' + Settings.gmaNamespace,
 						measurement_type_id: $scope.details.measurement_type_ids[type],
 						related_entity_id:   type == 'local'
 							? $scope.current.assignment.ministry_id
@@ -51,7 +51,7 @@
 			} );
 
 			if ( measurements.length > 0 ) {
-				measurementService.saveMeasurement( {}, measurements, function () {
+				Measurements.saveMeasurement( {}, measurements, function () {
 					$modalInstance.close();
 				} );
 			}
@@ -67,7 +67,7 @@
 		$scope.approveSelfAssigned = function ( user, role ) {
 			var user = user;
 			user.state = 'pending';
-			assignmentService.saveAssignment( {
+			Assignments.saveAssignment( {
 				assignment_id: user.assignment_id
 			}, {team_role: role}, function () {
 				if ( role == 'blocked' ) {

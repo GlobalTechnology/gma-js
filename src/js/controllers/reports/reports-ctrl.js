@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	function ReportsCtrl( $scope, $document, measurementService, settings ) {
+	function ReportsCtrl( $scope, $document, Measurements, Settings ) {
 		$scope.chart = new google.visualization.LineChart( document.getElementById( 'reports-chart' ) );
 		$scope.table = new google.visualization.Table( document.getElementById( 'reports-table' ) );
 
@@ -10,7 +10,7 @@
 			if ( typeof $scope.current.assignment !== 'undefined' && typeof $scope.current.period !== 'undefined' && typeof $scope.current.mcc !== 'undefined' ) {
 				delete $scope.dataTable;
 				$scope.current.isLoaded = false;
-				$scope.measurements = measurementService.getMeasurements( {
+				$scope.measurements = Measurements.getMeasurements( {
 					ministry_id: $scope.current.assignment.ministry_id,
 					mcc:         $scope.current.mcc,
 					period:      $scope.current.period.format( 'YYYY-MM' ),

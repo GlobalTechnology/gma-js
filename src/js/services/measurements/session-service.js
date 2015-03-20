@@ -1,16 +1,15 @@
 (function () {
 	'use strict';
 
-	function sessionService( $rootScope, $injector, $q, $location, $log, settings ) {
-		var token,
-			queue = [];
+	function Session( $rootScope, $injector, $q, $log, Settings ) {
+		var token;
 
 		var startSession = function ( ticket ) {
 			if ( "false" === ticket ) {
-				window.location = settings.api.login;
+				window.location = Settings.api.login;
 				return false;
 			}
-			return $injector.get( '$http' ).get( settings.api.measurements( '/token' ), {params: {st: ticket}} )
+			return $injector.get( '$http' ).get( Settings.api.measurements( '/token' ), {params: {st: ticket}} )
 				.then( function ( response ) {
 					$rootScope.current.user = response.data.user;
 					$rootScope.current.sessionToken = response.data.session_ticket;
@@ -32,11 +31,11 @@
 				startSession( ticket );
 			},
 			logout:        function () {
-				return $injector.get( '$http' ).delete( settings.api.measurements( '/token' ) );
+				return $injector.get( '$http' ).delete( Settings.api.measurements( '/token' ) );
 			},
 			// Request Interceptor
 			request:       function ( config ) {
-				if ( config.url.indexOf( settings.api.measurements() ) !== -1 ) {
+				if ( config.url.indexOf( Settings.api.measurements() ) !== -1 ) {
 					// All API requests must pass along HTTP credentials
 					config.withCredentials = true;
 
@@ -51,11 +50,11 @@
 			},
 			// Error Response Interceptor
 			responseError: function ( response ) {
-				if ( response.status == 401 && response.config.url.indexOf( settings.api.measurements() ) !== -1 && response.config.attempts < 2 ) {
+				if ( response.status == 401 && response.config.url.indexOf( Settings.api.measurements() ) !== -1 && response.config.attempts < 2 ) {
 					$log.debug( response );
 
 					var deferred = $q.defer();
-					$injector.get( '$http' ).get( settings.api.refresh, {withCredentials: true} ).then( function ( loginResponse ) {
+					$injector.get( '$http' ).get( Settings.api.refresh, {withCredentials: true} ).then( function ( loginResponse ) {
 						if ( loginResponse.data ) {
 							//get new token
 							startSession( loginResponse.data.service_ticket ).then( function () {
@@ -80,5 +79,5 @@
 		}
 	}
 
-	angular.module( 'gma.services.measurements' ).factory( 'sessionService', sessionService );
+	angular.module( 'gma.services.measurements' ).factory( 'Session', Session );
 })();

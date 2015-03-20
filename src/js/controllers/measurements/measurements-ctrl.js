@@ -1,16 +1,16 @@
 ﻿(function () {
 	'use strict';
 
-	function MeasurementsCtrl( $scope, $document, $filter, $modal, measurementService, settings ) {
+	function MeasurementsCtrl( $scope, $document, $filter, $modal, Measurements, Settings ) {
 		$scope.current.isLoaded = false;
-		$scope.ns = settings.gmaNamespace;
+		$scope.ns = Settings.gmaNamespace;
 
 		// Debounced method to fetch Measurements at most once every 100 milliseconds
 		var getMeasurements = _.debounce( function () {
 			if ( typeof $scope.current.assignment !== 'undefined' && typeof $scope.current.period !== 'undefined' && typeof $scope.current.mcc !== 'undefined' ) {
 				$scope.current.isLoaded = false;
 				$scope.lmiForm.$setPristine();
-				$scope.measurements = measurementService.getMeasurements( {
+				$scope.measurements = Measurements.getMeasurements( {
 					ministry_id: $scope.current.assignment.ministry_id,
 					mcc:         $scope.current.mcc,
 					period:      $scope.current.period.format( 'YYYY-MM' )
@@ -44,7 +44,7 @@
 				if ( value.$dirty && value.$valid ) {
 					this.push( {
 						period:              $scope.current.period.format( 'YYYY-MM' ),
-						mcc:                 $scope.current.mcc + '_' + settings.gmaNamespace,
+						mcc:                 $scope.current.mcc + '_' + Settings.gmaNamespace,
 						measurement_type_id: measurement.measurement_type_ids.person,
 						related_entity_id:   $scope.current.assignment.id,
 						value:               value.$modelValue
@@ -53,7 +53,7 @@
 			}, measurements );
 
 			if ( measurements.length > 0 ) {
-				measurementService.saveMeasurement( {}, measurements, function () {
+				Measurements.saveMeasurement( {}, measurements, function () {
 					getMeasurements();
 				} );
 			}
@@ -74,7 +74,7 @@
 					},
 					'details':     function () {
 						// Return the promise so resolve waits
-						return measurementService.getMeasurement( {
+						return Measurements.getMeasurement( {
 							measurement_id: measurement.measurement_id,
 							ministry_id:    $scope.current.assignment.ministry_id,
 							mcc:            $scope.current.mcc,
