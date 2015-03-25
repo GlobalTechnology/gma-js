@@ -39,7 +39,7 @@
 			<tr ng-show="edit_church.editable">
 				<td><b>Size:</b></td>
 				<td>
-					<input type="number" ng-disabled="!edit_church.editable" ng-model="edit_church.size" />
+					<input type="number" ng-disabled="!edit_church.editable" ng-model="edit_church.size" min="0" />
 				</td>
 			</tr>
 			<tr ng-show="edit_church.editable">
