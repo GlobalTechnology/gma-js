@@ -45,7 +45,7 @@
 				switch ( tab ) {
 					case 'map':
 						this.push( {
-							name:          'Church',
+							name:          'Map',
 							path:          '/map',
 							templateUrl:   'partials/map/map.html',
 							controller:    'MapCtrl',
