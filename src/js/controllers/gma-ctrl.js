@@ -7,6 +7,8 @@
 
 		$scope.tabs = Settings.tabs;
 
+		$scope.appEnvironment = Settings.appEnvironment;
+
 		//---------------------------------------
 		// Assignments
 		//---------------------------------------
