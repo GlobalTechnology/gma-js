@@ -10,12 +10,12 @@
 		$scope.details.$promise.then( function () {
 			$scope.spinner = false;
 
-			var da = [['Period', 'Local', 'Total', 'Personal']];
+			var da = [['Period', 'Personal', 'Local Team', 'Total']];
 			angular.forEach( details.total, function ( t, period ) {
 				angular.forEach( details.local, function ( l, p ) {
 					if ( p === period ) {
 						angular.forEach( details.my_measurements, function ( m, p ) {
-							if ( p === period ) da.push( [p, l, t, m] )
+							if ( p === period ) da.push( [p, m, l, t] )
 						} );
 					}
 				} );
