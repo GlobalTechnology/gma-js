@@ -808,7 +808,7 @@
 		$scope.onAddTrainingCompletion = function ( response ) {
 			response.editMode = false;
 
-			angular.forEach( $scope.assignment.trainings, function ( training ) {
+			angular.forEach( $scope.trainings, function ( training ) {
 				var id = training.hasOwnProperty( 'Id' ) ? training.Id : training.id;
 				if ( id == response.training_id ) {
 					training.gcm_training_completions.push( response );
