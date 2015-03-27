@@ -140,10 +140,16 @@ gulp.task( 'images', ['clean'], function () {
 		.pipe( gulp.dest( 'dist/img' ) );
 } );
 
+gulp.task( 'angular-i18n', ['clean', 'bower'], function () {
+	return gulp.src( ['bower_components/angular-i18n/*.js'] )
+		.pipe( uglify() )
+		.pipe( gulp.dest( 'dist/angular-i18n' ) );
+} );
+
 gulp.task( 'bower', function () {
 	return bower();
 } );
 
-gulp.task( 'build', ['scripts', 'partials', 'styles', 'images', 'library', 'wrapper', 'html'] );
+gulp.task( 'build', ['images', 'wrapper', 'html', 'angular-i18n'] );
 
 gulp.task( 'default', ['build'] );

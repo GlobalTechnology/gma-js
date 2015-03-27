@@ -13,6 +13,10 @@
 	<script type="application/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
 	<script type="application/javascript" src="../bower_components/angular-loader/angular-loader.js"></script>
 	<script type="application/javascript" src="../bower_components/angular/angular.js"></script>
+	<script type="application/javascript">
+		var locale = window.navigator.userLanguage || window.navigator.language;
+		document.write( '<scr' + 'ipt type="application/javascript" src="angular-i18n/angular-locale_' + locale.toLowerCase() + '.js"></scr' + 'ipt>' );
+	</script>
 	<script type="application/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
 	<script type="application/javascript" src="../bower_components/angular-route/angular-route.js"></script>
 	<script type="application/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>

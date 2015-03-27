@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module( 'gma' )
+	angular.module( 'gma.filters' )
 		.filter( 'roleFilter', [function () {
 			return function ( items, role ) {
 				var filtered = [];
