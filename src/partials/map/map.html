@@ -109,10 +109,11 @@
 		<button type="button" class="btn btn-default btn-block btn-sm" ng-click="setDefaultView()" ng-if="current.hasRole(['leader', 'inherited_leader'])">Set Ministry Default View</button>
 	</div>
 </div>
+
 <div id="map_controls" class="map-controls" ng-show="current.isLoaded">
 	<div class="pull-left map-search">
 		<div class="input-group">
-			<input id="searchBox" type="text" class="form-control" placeholder="Search for churches" typeahead="church as church.name for church in allChurches | filter:{name:$viewValue}" typeahead-editable="false" ng-model="searchedChurch">
+			<input id="searchBox" type="text" class="form-control" placeholder="Search">
 			<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 		</div>
 	</div>

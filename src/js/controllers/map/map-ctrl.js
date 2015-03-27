@@ -131,6 +131,24 @@
 
 			$scope.map.controls[google.maps.ControlPosition.TOP_RIGHT].push( $scope.map.side );
 			$scope.map.controls[google.maps.ControlPosition.TOP_LEFT].push( $scope.map.search );
+
+			$scope.autocomplete = new google.maps.places.Autocomplete( document.getElementById( 'searchBox' ) );
+			$scope.autocomplete.bindTo( 'bounds', $scope.map );
+
+			google.maps.event.addListener( $scope.autocomplete, 'place_changed', function () {
+				var place = $scope.autocomplete.getPlace();
+				if ( !place.geometry ) {
+					return;
+				}
+
+				if ( place.geometry.viewport ) {
+					$scope.map.fitBounds( place.geometry.viewport );
+				} else {
+					$scope.map.setCenter( place.geometry.location );
+					$scope.map.setZoom( 17 );
+				}
+			} );
+
 			if ( $scope.current.assignment )$scope.load_training_markers();
 
 			$scope.$watch( 'current.assignment', function ( a, oldVal ) {
@@ -153,20 +171,6 @@
 			} else {
 				$scope.loadAllChurches();
 				$scope.loadTrainings();
-			}
-		} );
-
-		$scope.$watch( 'searchedChurch', function ( church ) {
-			if ( typeof church === 'undefined' || church == '' ) return;
-			var markers = $scope.map.markers.filter( function ( c ) {
-				return c.id == church.id
-			} );
-			if ( markers.length > 0 ) {
-				var marker = markers[0];
-				google.maps.event.trigger( marker, 'click' );
-			}
-			else {
-				$scope.map.setCenter( new google.maps.LatLng( church.latitude, church.longitude ) );
 			}
 		} );
 
