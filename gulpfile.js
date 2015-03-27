@@ -12,13 +12,18 @@ var gulp        = require( 'gulp' ),
 	minifyCSS   = require( 'gulp-minify-css' ),
 	ngHtml2Js   = require( 'gulp-ng-html2js' ),
 	sourcemaps  = require( 'gulp-sourcemaps' ),
-	rev         = require( 'gulp-rev' ),
 	path        = require( 'path' ),
+	crypto      = require( 'crypto' ),
 	revisions   = {};
 
 function revisionMap() {
+
+	function md5( str ) {
+		return crypto.createHash( 'md5' ).update( str ).digest( 'hex' ).slice( 0, 8 );
+	}
+
 	function saveRevision( file, callback ) {
-		revisions[path.basename( file.revOrigPath )] = file.relative;
+		revisions[ file.relative ] = file.relative + '?rev=' + md5(file.contents);
 		callback( null, file );
 	}
 
@@ -83,7 +88,6 @@ gulp.task( 'scripts', ['clean'], function () {
 		.pipe( concat( 'application.min.js' ) )
 		.pipe( ngAnnotate() )
 		.pipe( uglify() )
-		.pipe( rev() )
 		.pipe( revisionMap() )
 		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( 'dist/js' ) );
@@ -100,7 +104,6 @@ gulp.task( 'partials', ['clean'], function () {
 		} ) )
 		.pipe( concat( 'partials.min.js' ) )
 		.pipe( uglify() )
-		.pipe( rev() )
 		.pipe( revisionMap() )
 		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( 'dist/js' ) );
@@ -110,7 +113,6 @@ gulp.task( 'styles', ['clean'], function () {
 	return gulp.src( ['src/css/application.css', 'src/css/**/*.css'] )
 		.pipe( concat( 'styles.min.css' ) )
 		.pipe( minifyCSS() )
-		.pipe( rev() )
 		.pipe( revisionMap() )
 		.pipe( gulp.dest( 'dist/css' ) );
 } );
@@ -120,7 +122,6 @@ gulp.task( 'library', ['clean', 'bower'], function () {
 		.pipe( sourcemaps.init() )
 		.pipe( concat( 'common.min.js' ) )
 		.pipe( uglify() )
-		.pipe( rev() )
 		.pipe( revisionMap() )
 		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( 'dist/js' ) );
