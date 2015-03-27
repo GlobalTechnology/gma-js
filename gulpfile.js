@@ -23,7 +23,7 @@ function revisionMap() {
 	}
 
 	function saveRevision( file, callback ) {
-		revisions[ file.relative ] = file.relative + '?rev=' + md5(file.contents);
+		revisions[file.relative] = file.relative + '?rev=' + md5( file.contents );
 		callback( null, file );
 	}
 
@@ -42,8 +42,8 @@ gulp.task( 'html', ['clean', 'bower', 'scripts', 'partials', 'styles', 'library'
 			files:        [
 				// JavaScript
 				'google:jquery',
-				'google:angular-resource',
 				'google:angular-loader',
+				'google:angular-resource',
 				'google:angular-route',
 				'google:angular',
 				{
