@@ -1,0 +1,1 @@
+../../bower_components/iframe-resizer/src/iframeResizer.js

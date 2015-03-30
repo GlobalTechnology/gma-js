@@ -1,0 +1,379 @@
+﻿
+.tab-content {
+	border: 1px solid #ddd;
+	border-top-width: 0;
+	border-radius: 0 0 4px 4px;
+	padding: 15px;
+}
+
+.admin-columns {
+	-webkit-column-count: 2;
+	-webkit-column-gap: 0;
+	-moz-column-count: 2;
+	-moz-column-gap: 0;
+	-moz-column-fill: auto;
+	column-count: 2;
+	column-gap: 0;
+	column-fill: auto;
+}
+
+.admin-item {
+	display: inline-block;
+	padding: 15px;
+	width: 100%;
+	-webkit-column-break-inside: avoid;
+	page-break-inside: avoid;
+	break-inside: avoid;
+}
+
+.admin-item .panel {
+	position: relative;
+	display: block;
+}
+
+.map_legend {
+	width: 100%;
+	color: #888;
+}
+
+.map_legend_icon {
+	height: 30px;
+}
+
+.map_legend_header {
+	width: 100%;
+	border-bottom: 1px solid #f0efef;
+	margin-bottom: 15px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.map_legend_header span {
+	position: relative;
+	top: 6px;
+	background-color: #fff;
+	padding: 0px 20px;
+	font-variant: small-caps;
+	font-weight: bold;
+	font-size: 10px;
+	color: #888;
+}
+
+.map-controls {
+	/*width: 300px;*/
+	padding: 20px;
+}
+
+.map_side {
+	padding: 15px;
+	width: 240px;
+	margin-bottom: 30px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	opacity: 1;
+	overflow: hidden;
+	display: none;
+}
+
+.church-mode {
+	position: absolute;
+	padding: 0 5px;
+	z-index: 999;
+}
+
+.gm-style-iw {
+	overflow-y: auto;
+}
+
+.church-grid img {
+	height: 25px;
+}
+
+.map-legend {
+	/*height: 200px;*/
+	bottom: 0;
+}
+
+#measurement_graph {
+	width: 100%;
+}
+
+.jf_label {
+	background-color: yellow;
+	color: black;
+	font-size: 10px;
+	font-weight: bold;
+	border: 1px solid #8a890b;
+	white-space: nowrap;
+	padding: 0 3px;
+	box-shadow: 0 0 3px #888888;
+	position: absolute;
+}
+
+.map-ministries {
+	height: 400px;
+}
+
+.church-window {
+	min-width: 300px;
+	/*height: 150px;*/
+}
+
+.training-window {
+	min-width: 400px;
+	/*height: 150px;*/
+}
+
+.gm-style-iw div {
+	display: inline;
+}
+
+.clusterMarker {
+	color: white !important;
+	font-size: large;
+	font-weight: bold;
+	text-align: center;
+	width: 60px;
+}
+
+.labelMarker {
+	color: #333;
+	pointer-events: none;
+	text-align: center;
+	width: 60px;
+
+	text-shadow: 0px 0px 5px #fff,
+	-1px -1px 0 #fff,
+	1px -1px 0 #fff,
+	-1px 1px 0 #fff,
+	1px 1px 0 #fff;
+}
+
+.labelMoveMarker {
+	color: #000;
+	pointer-events: none;
+	text-align: center;
+	width: 100px;
+	opacity: 0.75;
+	font-size: large;
+	font-weight: bold;
+	box-shadow: #eeee00 30px 30px inset;
+}
+
+.ministry-title {
+	font-size: xx-large;
+	color: white !important;
+
+}
+
+.meas_table_lbl {
+	text-align: right;
+}
+
+.map-search {
+	width: 300px;
+}
+
+.map-mode {
+	padding: 2px;
+}
+
+.gridStyle {
+	border: 1px solid rgb(212, 212, 212);
+	width: 100%;
+
+}
+
+.church-grid .ngViewport {
+	overflow: inherit;
+}
+
+.btn-map-add {
+	height: 52px;
+
+}
+
+.map-trained-count {
+	background-color: #4aff00;
+	padding: 2px;
+	color: black;
+	border: 1px solid black !important;
+	margin: 4px;
+}
+
+.map-training-date {
+	width: 130px;
+	line-height: inherit !important;
+}
+
+.map-training-number {
+	width: 60px;
+	line-height: inherit !important;
+}
+
+/* Measurements */
+.numeric {
+	width: 85px;
+	float: left;
+}
+
+.sub_value {
+	width: 65px;
+	float: left;
+	border: none;
+}
+
+.total_value {
+	font-weight: bold;
+	font-size: large;
+}
+
+.rotated-text {
+	transform: rotate(-45deg);
+	transform-origin: bottom 0;
+	padding: 5px;
+	white-space: nowrap;
+	/*overflow: hidden;*/
+}
+
+.vertical-text {
+	transform: rotate(-90deg);
+	transform-origin: bottom 0;
+	padding: 5px;
+	text-align: center;
+	/*overflow: hidden;*/
+}
+
+.green {
+	color: green;
+}
+
+.lmi-input-name {
+	min-width: 175px;
+	max-width: 175px;
+	white-space: normal;
+	height: 50px;
+	font-size: small;
+	line-height: 1.4;
+}
+
+.lmi-input-value {
+	width: 85px;
+	height: 50px;
+	font-size: large;
+	text-align: right;
+}
+
+div.lmi-input-value {
+	border: 1px solid #ccc;
+	border-left-width: 0;
+	border-radius: 0 4px 4px 0;
+	padding: 2px;
+	line-height: 43px;
+	text-align: center;
+}
+
+.lmi-meas_mcc_col {
+	width: 75px;
+	text-align: center;
+}
+
+.lmi-meas-mcc-box {
+	height: 50px;
+}
+
+.lmi_table {
+	border-collapse: separate;
+	border-spacing: 20px;
+	margin-top: -40px;
+}
+
+.lmi-input-group {
+	border-spacing: 0;
+	margin: 5px;
+}
+
+.lmi_table .glyphicon-chevron-right {
+	font-size: xx-large;
+	color: grey;
+}
+
+.lmi_table th {
+	text-align: center;
+}
+
+.lmi-input-value:hover {
+	cursor: pointer;
+}
+
+.edit_meas_form input {
+	width: 120px;
+}
+
+.measurement-desc {
+	margin: 5px;
+}
+
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 0;
+	background-color: #000;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.gmaApplication.development .navbar {
+	background-image: -webkit-linear-gradient(top, #5cb85c 0%, #419641 100%);
+	background-image: -o-linear-gradient(top, #5cb85c 0%, #419641 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#5cb85c), to(#419641));
+	background-image: linear-gradient(to bottom, #5cb85c 0%, #419641 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff419641', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	background-repeat: repeat-x;
+	border-color: #3e8f3e;
+}
+
+.gmaApplication.development .navbar .navbar-nav > .open > a {
+	background-image: none;
+	background-color: #419641;
+}
+
+.gmaApplication.stage .navbar {
+	background-image: -webkit-linear-gradient(top, #337ab7 0%, #265a88 100%);
+	background-image: -o-linear-gradient(top, #337ab7 0%, #265a88 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#337ab7), to(#265a88));
+	background-image: linear-gradient(to bottom, #337ab7 0%, #265a88 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff265a88', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	background-repeat: repeat-x;
+	border-color: #245580;
+}
+
+.gmaApplication.stage .navbar .navbar-nav > .open > a {
+	background-image: none;
+	background-color: #265a88;
+}
+
+.gmaApplication.development .navbar-brand,
+.gmaApplication.development .navbar-nav > li > a,
+.gmaApplication.stage .navbar-brand,
+.gmaApplication.stage .navbar-nav > li > a {
+	color: #ddd;
+}
+
+.gmaApplication.development .navbar-brand:hover,
+.gmaApplication.development .navbar-nav > li > a:hover,
+.gmaApplication.stage .navbar-brand:hover,
+.gmaApplication.stage .navbar-nav > li > a:hover{
+	color: white;
+}
+
+.btn-my-location span.glyphicon {
+	font-size: 20px;
+}

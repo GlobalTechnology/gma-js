@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<title>Next-Gen Measurements</title>
+	<link rel="icon" type="image/png" href="img/logo/favicon.png">
+
+	<!-- Global Measurements Application config -->
+	<script type="application/javascript">
+		var gma = window.gma = window.parent.gma || {};
+	</script>
+
+	<!-- Global Scripts / Styles -->
+	<script type="application/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+	<script type="application/javascript" src="../bower_components/angular-loader/angular-loader.js"></script>
+	<script type="application/javascript" src="../bower_components/angular/angular.js"></script>
+	<script type="application/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
+	<script type="application/javascript" src="../bower_components/angular-route/angular-route.js"></script>
+	<script type="application/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script type="application/javascript" src="../bower_components/moment/moment.js"></script>
+	<script type="application/javascript" src="../bower_components/underscore/underscore.js"></script>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+	<script type="application/javascript">
+		var locale = window.navigator.userLanguage || window.navigator.language;
+		document.write( '<scr' + 'ipt type="application/javascript" src="angular-i18n/angular-locale_' + locale.toLowerCase() + '.js"></scr' + 'ipt>' );
+	</script>
+
+	<!-- Google Maps & Visualizations -->
+	<script type="application/javascript">
+		document.write( '<scr' + 'ipt type="application/javascript" src="' + gma.config.googlemaps + '"></scr' + 'ipt>' );
+	</script>
+	<script type="application/javascript" src="//www.google.com/jsapi"></script>
+	<script type="application/javascript">
+		google.load( 'visualization', '1', {packages: ['corechart', 'table']} );
+	</script>
+
+	<!-- build:styles -->
+	<link rel="stylesheet" href="css/application.css" />
+	<link rel="stylesheet" href="css/spinner.css" />
+	<!-- endbuild -->
+
+	<!-- build:other -->
+	<script type="application/javascript" src="../bower_components/easy-markerwithlabel/src/markerwithlabel.js"></script>
+	<script type="application/javascript" src="../bower_components/iframe-resizer/src/iframeResizer.contentWindow.js"></script>
+	<!-- endbuild -->
+</head>
+<body ng-app="gma">
+<div ng-include="'partials/application.html'"></div>
+<!-- build:application -->
+<script type="application/javascript" src="js/controllers/admin/_admin.js"></script>
+<script type="application/javascript" src="js/controllers/map/_map.js"></script>
+<script type="application/javascript" src="js/controllers/measurements/_measurements.js"></script>
+<script type="application/javascript" src="js/controllers/reports/_reports.js"></script>
+<script type="application/javascript" src="js/controllers/_controllers.js"></script>
+<script type="application/javascript" src="js/directives/_directives.js"></script>
+<script type="application/javascript" src="js/filters/_filters.js"></script>
+<script type="application/javascript" src="js/services/measurements/_measurements.js"></script>
+<script type="application/javascript" src="js/services/settings/_settings.js"></script>
+<script type="application/javascript" src="js/services/_services.js"></script>
+<script type="application/javascript" src="js/_app.js"></script>
+
+<script type="application/javascript" src="js/services/measurements/assignments-service.js"></script>
+<script type="application/javascript" src="js/services/measurements/churches-service.js"></script>
+<script type="application/javascript" src="js/services/measurements/measurements-service.js"></script>
+<script type="application/javascript" src="js/services/measurements/measurement-types-service.js"></script>
+<script type="application/javascript" src="js/services/measurements/ministries-service.js"></script>
+<script type="application/javascript" src="js/services/measurements/session-service.js"></script>
+<script type="application/javascript" src="js/services/measurements/trainings-service.js"></script>
+<script type="application/javascript" src="js/services/settings/settings-service.js"></script>
+<script type="application/javascript" src="js/controllers/gma-ctrl.js"></script>
+<script type="application/javascript" src="js/controllers/join-ministry-ctrl.js"></script>
+<script type="application/javascript" src="js/controllers/admin/admin-ctrl.js"></script>
+<script type="application/javascript" src="js/controllers/map/map-ctrl.js"></script>
+<script type="application/javascript" src="js/controllers/measurements/measurements-ctrl.js"></script>
+<script type="application/javascript" src="js/controllers/measurements/measurement-details-ctrl.js"></script>
+<script type="application/javascript" src="js/controllers/reports/reports-ctrl.js"></script>
+<script type="application/javascript" src="js/directives/gma-trend-directive.js"></script>
+<script type="application/javascript" src="js/filters/role-filter.js"></script>
+<script type="application/javascript" src="js/app.js"></script>
+<!-- endbuild -->
+</body>
+</html>

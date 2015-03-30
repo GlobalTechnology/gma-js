@@ -1,0 +1,103 @@
+<div ng-controller="GMACtrl" class="gmaApplication" ng-class="appEnvironment">
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href>GMA</a>
+			</div>
+
+			<div class="collapse navbar-collapse">
+				<!-- Ministry, MCC, Period controls -->
+				<ul class="nav navbar-nav" ng-if="current.assignment">
+
+					<!-- Ministry Assignments -->
+					<li class="dropdown" dropdown>
+						<a href class="dropdown-toggle  ministry-title" dropdown-toggle>
+							{{current.assignment.name}} <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li ng-repeat="a in current.assignments | orderBy:'name'" ng-include="'partials/ministry-item.html'"></li>
+							<li class="divider"></li>
+							<li>
+								<a href ng-click="joinMinistry(true)">Join another location / ministry</a>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Mission Critical Components -->
+					<li class="dropdown" ng-if="current.assignment.mccs.length > 0" dropdown>
+						<a href class="dropdown-toggle" dropdown-toggle>
+							{{mccLabels[current.mcc]}} <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li ng-repeat="mcc in current.assignment.mccs | orderBy:mccSort">
+								<a href ng-click="current.mcc = mcc">{{mccLabels[mcc]}}</a>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Period -->
+					<li>
+						<a href ng-click="prevPeriod()"><span class="glyphicon glyphicon-chevron-left"></span></a>
+					</li>
+					<li class="dropdown" dropdown>
+						<a href class="dropdown-toggle" dropdown-toggle>
+							{{current.period.format('YYYY-MM')}} <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li ng-repeat="period in periods">
+								<a href ng-click="current.period = period">{{period.format('YYYY-MM')}}</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href ng-click="nextPeriod()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+					</li>
+				</ul>
+
+				<!-- Current User / Logout -->
+				<ul class="nav navbar-nav navbar-right" ng-if="current.user">
+					<li class="dropdown" dropdown>
+						<a href class="dropdown-toggle" dropdown-toggle role="button" aria-expanded="false">
+							{{current.user.cas_username}} <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href ng-click="logout()">Logout</a></li>
+							<!--<li><a href ng-click="invalidateSession()">DEBUG: Invalidate Session</a></li>-->
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+
+	<div class="container">
+		<div>
+			<ul class="nav nav-tabs" role="tablist" class="map-ministries">
+				<li ng-repeat="tab in tabs" ng-class="{active: $location.path() === tab.path}" ng-show="current.hasRole(tab.requiredRoles)">
+					<a ng-href="#{{tab.path}}">{{tab.name}}</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active">
+					<div ng-view></div>
+					<div ng-include="'partials/spinner.html'" ng-hide="current.isLoaded"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" ng-if="mobileApps">
+			<div class="col-xs-12">
+				<div class="text-center">
+					Mobile Apps:
+					<a ng-repeat-start="app in mobileApps" ng-href="{{app.link}}">{{app.label}}</a>
+					<span ng-repeat-end ng-if="!$last"> | </span>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<span>&copy; Campus Crusade for Christ 2014</span>
+		</footer>
+	</div>
+</div>

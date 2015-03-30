@@ -1,0 +1,5 @@
+<!-- Ministry/Team Dropdown elements -->
+<a href ng-click="current.assignment = a">{{a.name}}</a>
+<ul>
+	<li ng-repeat="a in a.sub_ministries" ng-include="'partials/ministry-item.html'"></li>
+</ul>

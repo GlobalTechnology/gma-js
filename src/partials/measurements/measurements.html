@@ -1,0 +1,104 @@
+﻿<div class="panel panel-default" ng-show="current.isLoaded">
+	<div class="panel-body">
+		<form name="lmiForm">
+			<fieldset>
+				<legend>Local Movement Indicators</legend>
+
+				<table class="lmi_table">
+					<thead>
+					<tr>
+						<!-- title-->
+						<th></th>
+						<th>
+							<h1>
+								<small>Faith Actions</small>
+							</h1>
+						</th>
+						<th></th>
+						<th>
+							<h1>
+								<small>Fruit</small>
+							</h1>
+						</th>
+						<th></th>
+						<th>
+							<h1>
+								<small>Outcome</small>
+							</h1>
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<!-- win-->
+						<td class="vertical-text">
+							<h1>
+								<small>Win</small>
+							</h1>
+						</td>
+						<td>
+							<div ng-repeat="m in measurements | filter: {section: 'win', column:'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+						</td>
+						<td>
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</td>
+						<td>
+							<div ng-repeat="m in measurements | filter: {section: 'win', column: 'fruit'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+						</td>
+						<td rowspan="3">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</td>
+						<td rowspan="3">
+							<div ng-repeat="m in measurements | filter:{column: 'outcome'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+						</td>
+					</tr>
+					<tr>
+						<!-- build-->
+						<td class="vertical-text">
+							<h1>
+								<small>Build</small>
+							</h1>
+						</td>
+						<td>
+							<div ng-repeat="m in measurements | filter: {section: 'build', column: 'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+						</td>
+						<td>
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</td>
+						<td>
+							<div ng-repeat="m in measurements | filter: {section: 'build', column: 'fruit'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+						</td>
+
+					</tr>
+					<tr>
+						<!-- send-->
+						<td class="vertical-text">
+							<h1>
+								<small>Send</small>
+							</h1>
+						</td>
+						<td>
+							<div ng-repeat="m in measurements | filter: {section: 'send', column: 'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+						</td>
+						<td>
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</td>
+						<td>
+							<div ng-repeat="m in measurements | filter: {section: 'send', column: 'fruit'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</fieldset>
+			<fieldset ng-if="hasOther()">
+				<legend>Other Measurements</legend>
+				<div>
+					<div class="col-lg-3" ng-repeat="m in measurements | filter: {section: 'other', column: 'other'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+				</div>
+			</fieldset>
+		</form>
+		<div class="pull-right" ng-if="current.assignment.team_role == 'self_assigned' && lmiForm.$dirty">
+			<button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!lmiForm.$valid">Save Changes</button>
+		</div>
+	</div>
+</div>

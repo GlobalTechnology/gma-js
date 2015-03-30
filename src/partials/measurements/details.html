@@ -1,0 +1,142 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close();">
+		<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+	</button>
+	<h2 class="modal-title">{{measurement.name}}
+		<small>{{current.period.format('YYYY-MM')}}</small>
+	</h2>
+	<div class="well well-sm measurement-desc">{{measurement.description}}</div>
+</div>
+<div class="modal-body" ng-show="spinner" ng-include="'partials/spinner.html'"></div>
+<div class="modal-body edit_meas_form" ng-hide="spinner">
+	<div id="measurement_graph" gma-trend ng-model="trend"></div>
+
+	<form class="form-horizontal" name="editForm">
+
+		<div class="form-group">
+			<label class="col-xs-5 control-label">TOTAL</label>
+
+			<div class="col-xs-7">
+				<input class="form-control" type="number" ng-model="details.total[current.period.format('YYYY-MM')]" disabled />
+			</div>
+		</div>
+
+		<!-- Local Breakdown -->
+		<fieldset ng-init="localToggle=false">
+			<legend class="pointer" ng-click="localToggle=!localToggle">{{current.assignment.name}} (Local Team)
+					<span class="glyphicon pull-right"
+						  ng-class="{'glyphicon-triangle-left': !localToggle, 'glyphicon-triangle-bottom': localToggle}">
+					</span>
+			</legend>
+			<div ng-if="current.hasRole(['leader', 'inherited_leader'])">
+				<div class="form-group" ng-class="{'has-error': !editForm.local.$valid}">
+					<label class="col-xs-5 control-label">Local</label>
+
+					<div class="col-xs-7">
+						<input class="form-control" type="number" placeholder="Local Team" name="local" ng-model="details.local_breakdown[ns]" />
+					</div>
+				</div>
+				<div ng-show="localToggle" class="form-group" ng-repeat="(name, value) in filterSource(details.local_breakdown)">
+					<label class="col-xs-5 control-label">{{name}}</label>
+
+					<div class="col-xs-7">
+						<input class="form-control" type="number" disabled ng-model="value" />
+					</div>
+				</div>
+			</div>
+			<div ng-if="current.hasRole('member')" ng-show="localToggle">
+				<div class="form-group">
+					<label class="col-xs-5 control-label">Total</label>
+
+					<div class="col-xs-7">
+						<input class="form-control" type="number" ng-model="details.local_breakdown.total" disabled />
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Team Members -->
+		<fieldset ng-init="teamToggle=false">
+			<legend class="pointer" ng-click="teamToggle=!teamToggle">Team Members
+					<span class="glyphicon pull-right"
+						  ng-class="{'glyphicon-triangle-left': !teamToggle, 'glyphicon-triangle-bottom': teamToggle}">
+					</span>
+			</legend>
+			<div class="form-group" ng-class="{'has-error': !editForm.person.$valid}" ng-if="current.hasRole(['member','leader'])">
+				<label class="col-xs-5 control-label">{{current.user.last_name}}, {{current.user.first_name}}</label>
+
+				<div class="col-xs-7">
+					<input class="form-control" type="number" placeholder="Personal" name="person" ng-model="details.my_measurements[ current.period.format('YYYY-MM') ]" />
+				</div>
+			</div>
+			<div ng-show="teamToggle">
+				<div class="form-group" ng-repeat="member in details.team" ng-if="current.hasRole(['leader', 'inherited_leader'])">
+					<label class="col-xs-5 control-label">{{member.last_name}}, {{member.first_name}}</label>
+
+					<div class="col-xs-7">
+						<input class="form-control" type="number" ng-model="member.total" disabled />
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Sub Ministries -->
+		<fieldset ng-if="details.sub_ministries.length > 0" ng-init="ministryToggle = false">
+			<legend class="pointer" ng-click="ministryToggle=!ministryToggle">Sub-Ministries / Teams
+					<span class="glyphicon pull-right"
+						  ng-class="{'glyphicon-triangle-left': !ministryToggle, 'glyphicon-triangle-bottom': ministryToggle}">
+					</span>
+			</legend>
+			<div ng-show="ministryToggle">
+				<div class="form-group" ng-repeat="ministry in details.sub_ministries">
+					<label class="col-xs-5 control-label">{{ministry.name}}</label>
+
+					<div class="col-xs-7">
+						<input class="form-control" type="number" disabled ng-model="ministry.total" />
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Self Assigned -->
+		<fieldset ng-init="selfToggle=false" ng-if="current.hasRole(['leader', 'inherited_leader']) && details.self_assigned.length > 0">
+			<legend class="pointer" ng-click="selfToggle=!selfToggle">Self Assigned Members (not yet approved)
+					<span class="glyphicon pull-right"
+						  ng-class="{'glyphicon-triangle-left': !selfToggle, 'glyphicon-triangle-bottom': selfToggle}">
+					</span>
+			</legend>
+			<div ng-show="selfToggle">
+				<div class="form-group" ng-repeat="member in details.self_assigned">
+					<label class="col-xs-5 control-label">{{member.last_name}}, {{member.first_name}}</label>
+
+					<div class="col-xs-7">
+						<div class="input-group col-xs-7" ng-class="{'has-success':member.success, 'has-error':member.blocked}">
+							<input class="form-control" type="number" ng-model="member.total" disabled />
+
+							<div class="input-group-btn" dropdown>
+								<button class="btn btn-default dropdown-toggle"
+										dropdown-toggle
+										aria-expanded="false"
+										ng-disabled="member.state"
+										ng-class="{'btn-success':member.success, 'btn-danger':member.blocked}">
+									{{member.state == 'success' ? 'Approved' : 'Approve'}}
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-right" role="menu">
+									<li><a href ng-click="approveSelfAssigned(member, 'member')">Member</a></li>
+									<li><a href ng-click="approveSelfAssigned(member, 'leader')">Leader</a></li>
+									<li role="presentation" class="divider"></li>
+									<li><a href ng-click="approveSelfAssigned(member, 'blocked')">Blocked</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!editForm.$valid">Save Measurements</button>
+	<button type="button" class="btn btn-default" ng-click="close()">Close</button>
+</div>

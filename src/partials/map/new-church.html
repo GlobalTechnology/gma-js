@@ -1,0 +1,73 @@
+﻿<div id="new_church_window">
+    <div style="clear:both" />
+    <div class='church-window'>
+        <h4>Create New Church </h4>
+
+        <table class="table table-condensed">
+            <tr>
+                <td><b>Name</b></td>
+                <td>
+                    <input type="text" ng-model='new_church.name' />
+
+                </td>
+            </tr>
+            <tr>
+                <td><b>Contact Name: </b></td>
+                <td>
+                    <input type="text" ng-model='new_church.contact_name' />
+                </td>
+            </tr>
+            <tr>
+                <td><b>Contact Email:</b> </td>
+                <td>
+
+                    <input type="email" ng-model='new_church.contact_email' />
+
+                </td>
+            </tr>
+            <tr>
+                <td><b>Type:</b> </td>
+                <td>
+                    <select ng-model="new_church.development">
+                        <option value="1">Target</option>
+                        <option value="2">Group</option>
+                        <option value="3">Church</option>
+                        <option value="5">Multiplying Church</option>
+
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td><b>Size:</b> </td>
+                <td>
+                    <input type="number" min="0" ng-model="new_church.size" />
+
+                </td>
+            </tr>
+            <tr>
+                <td><b>Security:</b> </td>
+                <td>
+                    <select ng-model="new_church.security">
+                        <option value="0">This Ministry Only</option>
+                        <option value="1">This Ministry and above</option>
+                        <option value="2" >All Registred Users</option>
+                        <option value="3">Everyone</option>
+
+                    </select>
+
+                </td>
+            </tr>
+        </table>
+		<div class="center-block" ng-if="edit_church.editable">
+			<div class="btn-group btn-group-sm" role="group">
+				<button type="button" class="btn btn-success" ng-click="addChurch()">
+					Add Church <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="btn btn-default" ng-click="cancelAddChurch()">Cancel</button>
+			</div>
+		</div>
+        <div style="clear: both"></div>
+    </div>
+
+</div>
