@@ -373,3 +373,7 @@ div.lmi-input-value {
 .gmaApplication.stage .navbar-nav > li > a:hover{
 	color: white;
 }
+
+.btn-my-location span.glyphicon {
+	font-size: 20px;
+}

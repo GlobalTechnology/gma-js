@@ -10,6 +10,9 @@
 		<span class="glyphicon glyphicon-plus"></span>&nbsp;<img ng-src="{{versionUrl('img/icon/training.png')}}" style="max-height: 25px;" />
 	</button>
 
+	<button type="button" class="btn btn-default btn-my-location" ng-click="myLocation()" ng-if="supportsGeoLocation">
+		<span class="glyphicon glyphicon-screenshot"></span>
+	</button>
 
 	<div class="map_legend_header" ng-click="show_legend = !show_legend">
 		<span>LEGEND<img class="showMoreArrow" ng-src="{{versionUrl('img/' + (show_legend ? 'up' : 'down') + '.png')}}" style="padding-left:10px"></span>

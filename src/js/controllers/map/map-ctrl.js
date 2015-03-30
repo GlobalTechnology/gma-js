@@ -40,6 +40,7 @@
 			streetViewControl:  false,
 			overviewMapControl: false
 		};
+		$scope.supportsGeoLocation = typeof navigator.geolocation !== 'undefined';
 		setTimeout( initialize, 0 );
 
 		function initialize() {
@@ -145,7 +146,7 @@
 					$scope.map.fitBounds( place.geometry.viewport );
 				} else {
 					$scope.map.setCenter( place.geometry.location );
-					$scope.map.setZoom( 17 );
+					$scope.map.setZoom( 15 );
 				}
 			} );
 
@@ -823,6 +824,21 @@
 
 		$scope.saveTrainingCompletion = function ( data ) {
 			Trainings.updateTrainingCompletion( $scope.current.sessionToken, data ).then( $scope.onSaveTrainingCompletion, $scope.onError );
+		};
+
+		$scope.myLocation = function () {
+			if ( navigator.geolocation ) {
+				navigator.geolocation.getCurrentPosition( function ( position ) {
+					var center = new google.maps.LatLng( position.coords.latitude, position.coords.longitude );
+					$scope.map.setCenter( center );
+					$scope.map.setZoom( 15 );
+				}, function () {
+					// Failed
+				} );
+			}
+			else {
+				// Failed
+			}
 		};
 	}
 
