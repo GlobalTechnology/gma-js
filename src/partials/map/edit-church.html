@@ -79,15 +79,20 @@
 			</tr>-->
 		</table>
 		<div class="center-block" ng-if="edit_church.editable">
-			<button type="button" class="btn btn-default btn-sm col-sm-4" ng-click="SaveChurch()">
-				<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Save
-			</button>
-			<button type="button" class="btn btn-default btn-sm  col-sm-4" ng-click="MoveChurch()">
-				<span class="glyphicon glyphicon-move" aria-hidden="true"></span> Move
-			</button>
-			<button type="button" class="btn btn-default btn-sm  col-sm-4" ng-click="SetParent()">
-				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Set Parent
-			</button>
+			<div class="btn-group btn-group-sm" role="group">
+				<button type="button" class="btn btn-success" ng-click="SaveChurch()">
+					Save <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="btn btn-default" ng-click="MoveChurch()">
+					Move <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="btn btn-default" ng-click="SetParent()">
+					Set Parent <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="btn btn-danger" ng-click="DeleteChurch()" ng-if="edit_church.child_count == 0">
+					Delete <span class="glyphicon glyphicon-remove"></span>
+				</button>
+			</div>
 		</div>
 	</div>
 </div>

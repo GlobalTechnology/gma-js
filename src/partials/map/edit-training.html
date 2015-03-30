@@ -84,16 +84,14 @@
 
 
 		<div class="center-block">
-			<button type="button" class="btn btn-default btn-sm col-sm-4" ng-click="SaveTraining()">
-                <span class="glyphicon glyphicon-save" aria-hidden="true">
-                </span> Save
-			</button>
-			<button type="button" class="btn btn-default btn-sm  col-sm-4" ng-click="MoveTraining()">
-                <span class="glyphicon glyphicon-move" aria-hidden="true">
-                </span> Move
-			</button>
-
-
+			<div class="btn-group btn-group-sm" role="group">
+				<button type="button" class="btn btn-success" ng-click="SaveTraining()">
+					Save <span class="glyphicon glyphicon-ok"></span>
+				</button>
+				<button type="button" class="btn btn-default" ng-click="MoveTraining()">
+					Move <span class="glyphicon glyphicon-move"></span>
+				</button>
+			</div>
 		</div>
 		<div style="clear: both"></div>
 	</div>

@@ -42,8 +42,14 @@
 				</td>
 			</tr>
 		</table>
-		<button class="btn btn-primary" type="button" ng-click="addTraining()">Add</button>
-		<button class="btn" type="button" ng-click="cancelAddChurch()">Cancel</button>
+		<div class="center-block" ng-if="edit_church.editable">
+			<div class="btn-group btn-group-sm" role="group">
+				<button type="button" class="btn btn-success" ng-click="addTraining()">
+					Add Training <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="btn btn-default" ng-click="cancelAddChurch()">Cancel</button>
+			</div>
+		</div>
 		<div style="clear: both"></div>
 	</div>
 

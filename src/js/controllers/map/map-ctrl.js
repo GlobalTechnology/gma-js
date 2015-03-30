@@ -224,7 +224,8 @@
 					lat_min:     sw.lat(),
 					lat_max:     ne.lat(),
 					long_min:    sw.lng(),
-					long_max:    ne.lng()
+					long_max:    ne.lng(),
+					period:      $scope.current.period.format( 'YYYY-MM' )
 				};
 			if ( !$scope.show_target_point ) params['hide_target_point'] = 'true';
 			if ( !$scope.show_group ) params['hide_group'] = 'true';
@@ -441,6 +442,12 @@
 		};
 
 		$scope.SaveChurch = function () {
+			Churches.saveChurch( $scope.edit_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
+		};
+
+		$scope.DeleteChurch = function () {
+			// Set end_date to the last day of the previous month
+			$scope.edit_church.end_date = moment().subtract( 1, 'months' ).endOf( 'month' ).format( 'YYYY-MM-DD' );
 			Churches.saveChurch( $scope.edit_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
 		};
 
