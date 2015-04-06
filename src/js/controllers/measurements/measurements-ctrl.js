@@ -45,10 +45,11 @@
 						var type_id = measurement.measurement_type_ids[type],
 							input = $scope.lmiForm[type_id];
 
-						if( input.$dirty && input.$valid ) {
+						if ( input.$dirty && input.$valid ) {
 							measurements.push( {
 								period:              $scope.current.period.format( 'YYYY-MM' ),
-								mcc:                 $scope.current.mcc + '_' + Settings.gmaNamespace,
+								mcc:                 $scope.current.mcc,
+								source:              Settings.gmaNamespace,
 								measurement_type_id: type_id,
 								related_entity_id:   type === 'person' ? $scope.current.assignment.id : $scope.current.assignment.ministry_id,
 								value:               input.$modelValue
