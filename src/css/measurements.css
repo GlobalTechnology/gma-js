@@ -1,0 +1,202 @@
+
+.rotated-text {
+	transform: rotate(-45deg);
+	padding: 5px;
+	white-space: nowrap;
+}
+
+.vertical-text {
+	transform: rotate(-90deg);
+	padding: 5px;
+	text-align: center;
+}
+
+.lmi-input-name {
+	min-width: 155px;
+	max-width: 155px;
+	white-space: normal;
+	height: 50px;
+	font-size: small;
+	line-height: 1.4;
+}
+
+.lmi-input-value {
+	width: 85px;
+	height: 50px;
+	font-size: large;
+	text-align: right;
+}
+
+div.lmi-input-value {
+	border: 1px solid #ccc;
+	border-left-width: 0;
+	border-radius: 0 4px 4px 0;
+	padding: 2px;
+	line-height: 43px;
+	text-align: center;
+}
+
+.lmi-meas_mcc_col {
+	width: 75px;
+	text-align: center;
+}
+
+.lmi-meas-mcc-box {
+	height: 50px;
+}
+
+.lmi_table {
+	/*border-collapse: separate;*/
+	/*border-spacing: 10px;*/
+	margin-top: -40px;
+}
+
+/*
+.lmi-input-group {
+	border-spacing: 0;
+	margin-bottom: 5px;
+}
+*/
+
+.lmi_table .glyphicon-chevron-right {
+	font-size: xx-large;
+	color: grey;
+}
+
+.lmi_table th {
+	text-align: center;
+}
+
+.lmi-input-value:hover {
+	cursor: pointer;
+}
+
+.edit_meas_form input {
+	width: 120px;
+}
+
+.measurement-desc {
+	margin: 5px;
+}
+
+/* New LMI */
+
+.measurements legend {
+	padding: 5px;
+}
+
+.lmi_table tr td {
+	padding: 15px 2px;
+}
+
+.lmi_table td span.glyphicon-chevron-right {
+	margin: 0 15px;
+}
+
+.lmi-item {
+	width: 100%;
+	margin-bottom: 8px;
+	color: #555;
+	border-spacing: 0;
+	display: table;
+}
+
+.lmi-item-name {
+	padding: 3px 10px;
+	background-color: #777;
+	color: #eee;
+	font-size: 1.1em;
+	text-shadow: 0px -1px 0px #303030;
+}
+
+.self_assigned .lmi-item-name {
+	border-radius: 4px 0 0 4px;
+	margin-right: 70px;
+	padding-left: 20px;
+
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.member .lmi-item-name,
+.leader .lmi-item-name,
+.inherited_leader .lmi-item-name {
+	background-color: #777;
+	border-radius: 4px 4px 0 4px;
+
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.lmi-input-group {
+	min-width: 70px;
+}
+
+.self_assigned .lmi-input-group {
+	display: table-cell;
+	width: 80px;
+}
+
+.lmi-input-group .form-control {
+	border-radius: 0;
+	text-align: center;
+}
+
+.self_assigned .lmi-input-group .form-control {
+	border-radius: 0 4px 0 0;
+	border-left-width: 0;
+	padding: 6px 2px 6px 12px;
+
+}
+
+.member .lmi-input-group .form-control,
+.leader .lmi-input-group .form-control,
+.inherited_leader .lmi-input-group .form-control {
+	border-top-width: 0;
+	height: 28px;
+	padding: 0 2px 0 12px;
+}
+
+.member .lmi-input-group div.form-control,
+.leader .lmi-input-group div.form-control,
+.inherited_leader .lmi-input-group div.form-control {
+	padding: 5px 12px 0 12px;
+}
+
+.lmi-input-group label {
+	margin-bottom: 0;
+}
+
+.lmi-input-group .lmi-input-addon {
+	display: block;
+	border: 1px solid #ccc;
+	border-top-width: 0;
+	background-color: #eee;
+
+	text-align: center;
+	text-transform: capitalize;
+	font-variant: small-caps;
+	font-size: 0.9em;
+	text-shadow: 0px 1px 0px #fff;
+	font-weight: normal;
+}
+
+.self_assigned .lmi-input-group .lmi-input-addon {
+	border-left-width: 0;
+	border-radius: 0 0 4px 0;
+}
+
+.member .lmi-input-group .lmi-input-addon,
+.leader .lmi-input-group .lmi-input-addon,
+.inherited_leader .lmi-input-group .lmi-input-addon {
+	border-radius: 0 0 4px 4px;
+}
+
+.lmi-item-section {
+	padding-right: 0;
+}
+
+.lmi-item-section:first-of-type {
+	padding-left: 20px;
+}

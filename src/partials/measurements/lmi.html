@@ -1,9 +1,101 @@
-<div class="input-group lmi-input-group">
-	<span class="input-group-addon lmi-input-name">{{ m.name }}</span>
-	<span ng-switch="current.assignment.team_role">
-		<input ng-switch-when="self_assigned" class="lmi-input-value numeric" type="number" name="{{m.perm_link}}" ng-model="m.person" min="0" />
-		<a ng-switch-default href ng-click="editMeasurementDetails(m);">
-			<div class="lmi-input-value numeric">{{m.total}}</div>
-		</a>
-	</span>
+<div ng-switch="current.assignment.team_role" ng-init="current.assignment.team_role='leader'">
+	<div class="lmi-item self_assigned" ng-switch-when="self_assigned">
+		<div class="lmi-item-name">{{m.name}}</div>
+		<div class="lmi-input-group">
+			<input type="number"
+				   min="0"
+				   class="form-control"
+				   id="{{m.measurement_type_ids.person}}"
+				   name="{{m.measurement_type_ids.person}}"
+				   ng-model="m.total"
+				   select-on-focus>
+			<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}">personal</label>
+		</div>
+	</div>
+
+	<div class="lmi-item member" ng-switch-when="member">
+		<div class="lmi-item-name">{{m.name}}</div>
+		<div>
+			<div class="lmi-item-section col-xs-6">
+				<div class="lmi-input-group">
+					<input type="number"
+						   min="0"
+						   class="form-control"
+						   id="{{m.measurement_type_ids.person}}"
+						   name="{{m.measurement_type_ids.person}}"
+						   ng-model="m.person"
+						   select-on-focus>
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}">personal</label>
+				</div>
+			</div>
+			<div class="lmi-item-section col-xs-6" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
+				<div class="lmi-input-group">
+					<div class="form-control">{{m.total}}</div>
+					<label class="lmi-input-addon">total</label>
+				</div>
+			</div>
+			<span class="clearfix"></span>
+		</div>
+	</div>
+
+	<div class="lmi-item leader" ng-switch-when="leader">
+		<div class="lmi-item-name">{{m.name}}</div>
+		<div>
+			<div class="lmi-item-section col-xs-4">
+				<div class="lmi-input-group">
+					<input type="number"
+						   min="0"
+						   class="form-control"
+						   id="{{m.measurement_type_ids.person}}"
+						   name="{{m.measurement_type_ids.person}}"
+						   ng-model="m.person"
+						   select-on-focus>
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}">personal</label>
+				</div>
+			</div>
+			<div class="lmi-item-section col-xs-4">
+				<div class="lmi-input-group">
+					<input type="number"
+						   class="form-control"
+						   id="{{m.measurement_type_ids.local}}"
+						   name="{{m.measurement_type_ids.local}}"
+						   ng-model="m.local"
+						   select-on-focus>
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.local}}">local</label>
+				</div>
+			</div>
+			<div class="lmi-item-section col-xs-4" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
+				<div class="lmi-input-group">
+					<div class="form-control">{{m.total}}</div>
+					<label class="lmi-input-addon">total</label>
+				</div>
+			</div>
+			<span class="clearfix"></span>
+		</div>
+	</div>
+
+	<div class="lmi-item inherited_leader" ng-switch-when="inherited_leader">
+		<div class="lmi-item-name">{{m.name}}</div>
+		<div>
+			<div class="lmi-item-section col-xs-6">
+				<div class="lmi-input-group">
+					<input type="number"
+						   class="form-control"
+						   id="{{m.measurement_type_ids.local}}"
+						   name="{{m.measurement_type_ids.local}}"
+						   ng-model="m.local"
+						   select-on-focus>
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.local}}">local</label>
+				</div>
+			</div>
+			<div class="lmi-item-section col-xs-6" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
+				<div class="lmi-input-group">
+					<div class="form-control">{{m.total}}</div>
+					<label class="lmi-input-addon">total</label>
+				</div>
+			</div>
+			<span class="clearfix"></span>
+		</div>
+	</div>
+
 </div>
