@@ -21,7 +21,6 @@
 		$scope.church_lines = [];
 		$scope.churches = [];
 		$scope.trainings = [];
-		$scope.allChurches = [];
 		$scope.training_types = [
 			{value: "MC2", text: 'MC2'},
 			{value: "T4T", text: 'T4T'},
@@ -167,16 +166,13 @@
 
 		$scope.$watch( 'current.assignment.ministry_id', function ( ministry_id ) {
 			if ( typeof ministry_id === 'undefined' ) {
-				$scope.allChurches = [];
 				$scope.trainings = [];
 			} else {
-				$scope.loadAllChurches();
 				$scope.loadTrainings();
 			}
 		} );
 
 		$scope.$watch( 'map_filter', function ( filter ) {
-			$scope.loadAllChurches();
 			$scope.loadTrainings();
 		} );
 
@@ -187,18 +183,6 @@
 				$scope.loadTrainings();
 			}
 		} );
-
-		$scope.loadAllChurches = _.debounce( function () {
-			if ( typeof $scope.current.assignment === 'undefined' ) return;
-			var params = {
-				ministry_id: $scope.current.assignment.ministry_id
-			};
-			if ( $scope.map_filter === 'everything' ) {
-				params['show_all'] = 'true';
-			} else if ( $scope.map_filter === 'tree' ) params['show_tree'] = 'true';
-
-			$scope.allChurches = Churches.getChurches( params );
-		}, 500 );
 
 		$scope.loadTrainings = _.debounce( function () {
 			// Member, Leader and Inherited can view trainings
