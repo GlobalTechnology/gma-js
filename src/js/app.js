@@ -47,6 +47,10 @@
 						controller:  route.controller
 					} );
 			} );
+			$routeProvider.when( '/error/:reason', {
+				templateUrl: 'partials/error/error.html',
+				controller: 'ErrorCtrl'
+			} );
 
 			// https://github.com/angular/angular.js/issues/1404
 			// Source: http://plnkr.co/edit/hSMzWC?p=preview
