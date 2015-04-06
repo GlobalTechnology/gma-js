@@ -180,6 +180,7 @@
 			if ( typeof mcc === 'undefined' ) {
 				$scope.trainings = [];
 			} else {
+				$scope.loadChurches();
 				$scope.loadTrainings();
 			}
 		} );
@@ -518,7 +519,13 @@
 		$scope.$watch( 'show.training', $scope.load_training_markers, true );
 
 		$scope.onGetChurches = function ( response ) {
-			$scope.churches = response;
+			if ( $scope.current.mcc === 'gcm' ) {
+				$scope.churches = response;
+			} else {
+				response = [];
+				$scope.churches = [];
+			}
+
 			console.log( 'got churches' );
 			$scope.removeLines();
 			$scope.removeJF();
