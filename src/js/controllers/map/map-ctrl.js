@@ -257,6 +257,7 @@
 		};
 
 		$scope.addChurch = function () {
+			$scope.newChurchWindow.close();
 			angular.forEach( $scope.map.markers, function ( m ) {
 
 				if ( m.id == -1 ) {
@@ -427,6 +428,7 @@
 		};
 
 		$scope.SaveChurch = function () {
+			$scope.churchWindow.close();
 			Churches.saveChurch( $scope.edit_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
 		};
 
