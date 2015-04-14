@@ -182,6 +182,10 @@ div.lmi-input-value {
 	font-weight: normal;
 }
 
+.lmi-input-group .form-control.total {
+	background-color: #eee;
+}
+
 .self_assigned .lmi-input-group .lmi-input-addon {
 	border-left-width: 0;
 	border-radius: 0 0 4px 0;
