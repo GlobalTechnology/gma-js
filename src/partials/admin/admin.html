@@ -117,33 +117,13 @@
 					<label class="col-sm-4 control-label">MCCs:</label>
 
 					<div class="col-sm-8">
-						<div class="checkbox">
+						<div class="checkbox" ng-repeat="mcc in mccs">
 							<label>
-								<input type="checkbox" ng-model="ministry.has_ds">
-								Digital Strategies
-							</label>
-						</div>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" ng-model="ministry.has_gcm">
-								Global Church Movements
-							</label>
-						</div>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" ng-model="ministry.has_llm">
-								Leader Led
-							</label>
-						</div>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" ng-model="ministry.has_slm">
-								Student Led
+								<input type="checkbox" checklist-model="ministry.mccs" checklist-value="mcc.value"> {{mcc.text}}
 							</label>
 						</div>
 					</div>
 				</div>
-
 				<!--
 				<div class="form-group row">
 					<label class="col-sm-4 control-label">Privacy:</label>

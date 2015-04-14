@@ -1,6 +1,6 @@
 ﻿(function () {
 	'use strict';
-	
+
 	function AdminCtrl( $scope, $modal, $filter, Assignments, Ministries, MeasurementTypes ) {
 		$scope.current.isLoaded = false;
 
@@ -10,6 +10,13 @@
 			{value: "member", text: 'Member'},
 			{value: "blocked", text: 'Blocked'},
 			{value: "self_assigned", text: 'Self Assigned'}
+		];
+
+		$scope.mccs = [
+			{value: 'ds', text: 'Digital Strategies'},
+			{value: 'gcm', text: 'Global Church Movements'},
+			{value: 'llm', text: 'Leader Led'},
+			{value: 'slm', text: 'Student Led'}
 		];
 
 		$scope.$watch( 'current.assignment.ministry_id', function ( ministry_id ) {
@@ -118,10 +125,7 @@
 				ministry_id: $scope.ministry.ministry_id,
 				min_code:    $scope.ministry.min_code,
 				name:        $scope.ministry.name,
-				has_ds:      $scope.ministry.has_ds,
-				has_gcm:     $scope.ministry.has_gcm,
-				has_llm:     $scope.ministry.has_llm,
-				has_slm:     $scope.ministry.has_slm,
+				mccs:        $scope.ministry.mccs,
 				private:     $scope.ministry.private,
 				lmi_hide:    _.pluck( _.where( $scope.measurementTypes, {
 					is_custom: false,
