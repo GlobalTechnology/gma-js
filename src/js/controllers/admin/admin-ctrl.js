@@ -108,7 +108,6 @@
 					};
 				}
 			} ).result.then( function ( newMeasurement ) {
-					newMeasurement.perm_link_stub = 'custom_' + newMeasurement.perm_link_stub;
 					MeasurementTypes.addMeasurementType( newMeasurement, function () {
 					} );
 				} );
