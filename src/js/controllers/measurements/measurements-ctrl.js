@@ -82,7 +82,7 @@
 					'details':     function () {
 						// Return the promise so resolve waits
 						return Measurements.getMeasurement( {
-							measurement_id: measurement.measurement_type_ids['total'],
+							perm_link_stub: measurement.perm_link_stub,
 							ministry_id:    $scope.current.assignment.ministry_id,
 							mcc:            $scope.current.mcc,
 							period:         $scope.current.period.format( 'YYYY-MM' )
