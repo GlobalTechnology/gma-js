@@ -8,7 +8,7 @@
 			{value: "leader", text: 'Leader'},
 			{value: "inherited_leader", text: "Leader (inherited)"},
 			{value: "member", text: 'Member'},
-			{value: "blocked", text: 'Blocked'},
+			{value: "blocked", text: 'Deleted'},
 			{value: "self_assigned", text: 'Self Assigned'}
 		];
 
@@ -18,6 +18,8 @@
 			{value: 'llm', text: 'Leader Led'},
 			{value: 'slm', text: 'Student Led'}
 		];
+
+		$scope.includeBlocked = false;
 
 		$scope.$watch( 'current.assignment.ministry_id', function ( ministry_id ) {
 			if ( typeof ministry_id === 'undefined' ) return;
@@ -49,6 +51,10 @@
 		$scope.ableToChangeParentMinistry = function ( parentToFind ) {
 			var availableMinIds = _.pluck( $filter( 'roleFilter' )( $scope.current.ministries, ['leader', 'inherited_leader'] ), 'ministry_id' )
 			return _.contains( availableMinIds, parentToFind );
+		};
+
+		$scope.memberFilter = function(value) {
+			return $scope.includeBlocked ? true : value.team_role != 'blocked';
 		};
 
 		$scope.addTeamMember = function () {
