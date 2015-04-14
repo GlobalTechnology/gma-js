@@ -417,7 +417,7 @@
 		};
 
 		$scope.MoveTraining = function () {
-			var id = $scope.edit_training.hasOwnProperty( 'Id' ) ? $scope.edit_training.Id : $scope.edit_training.id;
+			var id = $scope.edit_training.id;
 			angular.forEach( $scope.map.markers, function ( m ) {
 				if ( m.id === 't' + id ) {
 					m.setAnimation( google.maps.Animation.BOUNCE );
@@ -475,7 +475,7 @@
 							var marker = new MarkerWithLabel( {
 								position:          new google.maps.LatLng( training.latitude, training.longitude ),
 								map:               $scope.map,
-								id:                't' + ( training.hasOwnProperty( 'Id' ) ? training.Id : training.id ),
+								id:                't' + training.id,
 								title:             training.type,
 								icon:              $scope.map.icons.training,
 								labelContent:      '', //training.type + '<span class="map-trained-count">' + training.leaders_trained + '</span>',
@@ -800,7 +800,7 @@
 				phase:            training.current_stage,
 				date:             training.insert.date,
 				number_completed: training.insert.number_completed,
-				training_id:      training.hasOwnProperty( 'Id' ) ? training.Id : training.id
+				training_id:      training.id
 
 			};
 			Trainings.addTrainingCompletion( $scope.current.sessionToken, newPhase ).then( $scope.onAddTrainingCompletion, $scope.onError );
