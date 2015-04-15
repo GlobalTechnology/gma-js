@@ -75,6 +75,7 @@
 				$scope.cancelAddChurch();
 			} );
 			$scope.newChurchWindowContent = $compile( '<div id="new_church_window_content" ng-include="\'partials/map/new-church.html\'"></div>' )( $scope );
+			$scope.newChurchWindow.setOptions( {maxWidth: 300} );
 
 
 			$scope.newTrainingWindow = new google.maps.InfoWindow();
@@ -82,6 +83,7 @@
 				$scope.cancelAddChurch();
 			} );
 			$scope.newTrainingContent = $compile( '<div id="new_training_window_content" ng-include="\'partials/map/new-training.html\'"></div>' )( $scope );
+			$scope.newTrainingWindow.setOptions( {maxWidth: 300} );
 
 			$scope.map.church_lines = [];
 			$scope.map.icons = {};
@@ -645,7 +647,7 @@
 								else {
 									google.maps.event.removeListener( $scope.move_event );
 									$scope.SetParentMode = false;
-									$scope.new_parentLine.setMap(null);
+									$scope.new_parentLine.setMap( null );
 								}
 								return;
 							}

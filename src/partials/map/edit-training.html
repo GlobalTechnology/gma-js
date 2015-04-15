@@ -9,26 +9,26 @@
 			<tr>
 				<td><b>Name</b></td>
 				<td>
-					<input id="tbName" type="text" placeholder="Name" ng-model="edit_training.name" />
+					<input id="tbName" class="form-control input-sm" type="text" placeholder="Name" ng-model="edit_training.name" />
 				</td>
 			</tr>
 			<tr>
 				<td><b>Training Type: </b></td>
 				<td>
-					<select id="ddlTrainingType" ng-model="edit_training.type" ng-options="s.value as s.text for s in training_types"></select>
+					<select class="form-control input-sm" id="ddlTrainingType" ng-model="edit_training.type" ng-options="s.value as s.text for s in training_types"></select>
 				</td>
 			</tr>
 
 			<tr>
 				<td><b>Date:</b></td>
 				<td>
-					<input id="tbDate" type="date" class="map-training-date" placeholder="Date" ng-model="edit_training.date" />
+					<input class="form-control input-sm" id="tbDate" type="date" class="map-training-date" placeholder="Date" ng-model="edit_training.date" />
 				</td>
 			</tr>
 
 			<tr>
 				<td><b>MCC:</b></td>
-				<td>{{current_mcc}}</td>
+				<td>{{current.mcc}}</td>
 			</tr>
 		</table>
 		<table class="table table-striped">
@@ -53,7 +53,7 @@
 				</td>
 				<td>
 					<span ng-hide="comp.editMode">{{comp.number_completed}}</span>
-					<input ng-show="comp.editMode" class="map-training-number" type="number" ng-model="comp.number_completed" />
+					<input ng-show="comp.editMode" class="map-training-number" type="number" ng-model="comp.number_completed" min="0" />
 
 				</td>
 				<td>
@@ -71,7 +71,7 @@
 					<input type="date" class="map-training-date" ng-model="edit_training.insert.date" />
 				</td>
 				<td>
-					<input type="number" class="map-training-number" ng-model="edit_training.insert.number_completed" />
+					<input type="number" class="map-training-number" ng-model="edit_training.insert.number_completed" min="0" />
 				</td>
 				<td>
 					<a href="" ng-click="addTrainingStage(edit_training);">Add Stage</a>
@@ -82,17 +82,13 @@
 
 		</table>
 
-		<div class="center-block" ng-if="edit_training.editable">
-			<div class="btn-group btn-group-sm" role="group">
-				<button type="button" class="btn btn-success" ng-click="SaveTraining()">
-					Save <span class="glyphicon glyphicon-ok"></span>
-				</button>
-				<button type="button" class="btn btn-default" ng-click="MoveTraining()">
-					Move <span class="glyphicon glyphicon-move"></span>
-				</button>
+		<div ng-if="edit_training.editable">
+			<div class="btn-group btn-group-sm btn-group-justified" role="group">
+				<a href class="btn btn-default" ng-click="MoveTraining()"><span class="glyphicon glyphicon-move" aria-hidden="true"></span> Move Training</a>
+				<a href class="btn btn-primary" ng-click="SaveTraining()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save Changes</a>
 			</div>
 		</div>
-		<div style="clear: both"></div>
+		<div class="clearfix"></div>
 	</div>
 
 </div>
