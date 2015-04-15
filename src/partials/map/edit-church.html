@@ -42,7 +42,7 @@
 					<input type="number" ng-disabled="!edit_church.editable" ng-model="edit_church.size" min="0" />
 				</td>
 			</tr>
-			<tr ng-show="edit_church.editable">
+			<tr ng-show="edit_church.editable" ng-if="!current.hasRole('blocked')">
 				<td><b>Security:</b></td>
 				<td>
 					<select ng-model="edit_church.security" ng-disabled="!edit_church.editable">

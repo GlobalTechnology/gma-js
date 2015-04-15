@@ -45,7 +45,7 @@
 
                 </td>
             </tr>
-            <tr>
+            <tr ng-if="!current.hasRole('self_assigned')">
                 <td><b>Security:</b> </td>
                 <td>
                     <select ng-model="new_church.security">

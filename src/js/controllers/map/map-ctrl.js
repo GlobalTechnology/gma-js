@@ -186,8 +186,8 @@
 		} );
 
 		$scope.loadTrainings = _.debounce( function () {
-			// Member, Leader and Inherited can view trainings
-			if ( typeof $scope.current.assignment !== 'undefined' && $scope.current.hasRole( ['leader', 'inherited_leader'] ) ) {
+			// Everyone can view trainings
+			if ( typeof $scope.current.assignment !== 'undefined' ) {
 				Trainings.getTrainings( $scope.current.sessionToken, $scope.current.assignment.ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree ).then( function ( trainings ) {
 					$scope.trainings = trainings;
 				}, $scope.onError );
@@ -490,9 +490,8 @@
 
 							google.maps.event.addListener( marker, 'click', (function ( training, marker ) {
 								return function () {
-									//$scope.church = marker;
 									$scope.edit_training = training;
-									$scope.edit_training.editable = (($scope.current.assignment.team_role === 'leader' || $scope.current.assignment.team_role === 'inherited_leader') && training.ministry_id === $scope.current.assignment.ministry_id);
+									$scope.edit_training.editable = training.ministry_id === $scope.current.assignment.ministry_id;
 
 									$scope.$apply();
 									$scope.trainingWindow.close();
@@ -503,7 +502,6 @@
 							}( training, marker, $scope )) );
 
 							google.maps.event.addListener( marker, 'dragend', (function () {
-								console.log( marker );
 								training.latitude = marker.getPosition().lat();
 								training.longitude = marker.getPosition().lng();
 								Trainings.updateTraining( $scope.current.sessionToken, training ).then( $scope.onSaveChurch, $scope.onError );
@@ -637,19 +635,15 @@
 								}
 								return;
 							}
-							//google.maps.event.addListener(marker, 'click', function () {
-							if ( church.cluster_count == 1 ) {
-								//$scope.church = marker;
 
+							if ( church.cluster_count == 1 ) {
 								$scope.edit_church = church;
-								$scope.edit_church.editable = (($scope.current.assignment.team_role === 'leader' || $scope.current.assignment.team_role === 'inherited_leader') && church.ministry_id === $scope.current.assignment.ministry_id);
+								$scope.edit_church.editable = church.ministry_id === $scope.current.assignment.ministry_id;
 
 								$scope.$apply();
 								$scope.churchWindow.close();
 								$scope.churchWindow.setOptions( {maxWidth: 300} );
 								$scope.churchWindow.open( $scope.map, marker );
-
-								// $scope.churchWindow.open($scope.map, marker);
 							}
 							else {
 								$scope.map.setCenter( marker.position );

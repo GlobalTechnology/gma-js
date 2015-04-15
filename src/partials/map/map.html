@@ -2,11 +2,11 @@
 
 <div id="side" class="map_side" ng-show="current.isLoaded">
 
-	<button type="button" class="btn btn-default" ng-click="onAddIcon()" ng-if="current.hasRole(['leader', 'inherited_leader']) && current.mcc == 'gcm'">
+	<button type="button" class="btn btn-default" ng-click="onAddIcon()" ng-if="current.mcc == 'gcm'">
 		<span class="glyphicon glyphicon-plus"></span>&nbsp;<img ng-src="{{versionUrl('img/icon/target.png')}}" style="max-height: 25px;" />
 	</button>
 
-	<button type="button" class="btn btn-default" ng-click="onAddTraining()" ng-if="current.hasRole(['leader', 'inherited_leader'])">
+	<button type="button" class="btn btn-default" ng-click="onAddTraining()">
 		<span class="glyphicon glyphicon-plus"></span>&nbsp;<img ng-src="{{versionUrl('img/icon/training.png')}}" style="max-height: 25px;" />
 	</button>
 
@@ -57,7 +57,7 @@
 			<td>multiplying church or community of disciples</td>
 		</tr>
 
-		<tr ng-if="current.hasRole(['leader', 'inherited_leader'])">
+		<tr>
 			<td>
 				<input type="checkbox" class="church_development_checkbox" ng-model="show.training">
 			</td>
