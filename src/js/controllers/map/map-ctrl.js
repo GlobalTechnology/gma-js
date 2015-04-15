@@ -630,7 +630,7 @@
 					google.maps.event.addListener( marker, 'click', (function ( church, marker ) {
 						return function () {
 							if ( $scope.SetParentMode ) {
-								if ( church.cluster_count == 1 && church.id !== $scope.edit_church.id ) {
+								if ( church.cluster_count == 1 && church.id !== $scope.edit_church.id && !_.contains( church.parents, $scope.edit_church.id ) ) {
 									google.maps.event.removeListener( $scope.move_event );
 									$scope.SetParentMode = false;
 									$scope.new_parentLine.setPath( [new google.maps.LatLng( church.latitude, church.longitude ), new google.maps.LatLng( $scope.edit_church.latitude, $scope.edit_church.longitude )] );
@@ -639,8 +639,13 @@
 									new_church.id = $scope.edit_church.id;
 									new_church.parent_id = church.id;
 									$scope.edit_church.parent_id = church.id;
-									console.log( new_church );
+									$scope.edit_church.parents = [church.id];
 									Churches.saveChurch( new_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
+								}
+								else {
+									google.maps.event.removeListener( $scope.move_event );
+									$scope.SetParentMode = false;
+									$scope.new_parentLine.setMap(null);
 								}
 								return;
 							}
