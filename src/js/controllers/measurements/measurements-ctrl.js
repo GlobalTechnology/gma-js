@@ -36,21 +36,28 @@
 			return _.where( $scope.measurements, {section: 'other', column: 'other'} ).length > 0;
 		};
 
-		// Method used to save measurements for self_assigned role.
+		// Method used to save measurements
 		$scope.save = function () {
 			var measurements = [];
 			angular.forEach( $scope.measurements, function ( measurement ) {
-				var value = $scope.lmiForm[measurement.perm_link];
-				if ( value.$dirty && value.$valid ) {
-					this.push( {
-						period:              $scope.current.period.format( 'YYYY-MM' ),
-						mcc:                 $scope.current.mcc + '_' + Settings.gmaNamespace,
-						measurement_type_id: measurement.measurement_type_ids.person,
-						related_entity_id:   $scope.current.assignment.id,
-						value:               value.$modelValue
-					} );
-				}
-			}, measurements );
+				angular.forEach( ['person', 'local'], function ( type ) {
+					if ( $scope.lmiForm.hasOwnProperty( measurement.measurement_type_ids[type] ) ) {
+						var type_id = measurement.measurement_type_ids[type],
+							input = $scope.lmiForm[type_id];
+
+						if ( input.$dirty && input.$valid ) {
+							measurements.push( {
+								period:              $scope.current.period.format( 'YYYY-MM' ),
+								mcc:                 $scope.current.mcc,
+								source:              Settings.gmaNamespace,
+								measurement_type_id: type_id,
+								related_entity_id:   type === 'person' ? $scope.current.assignment.id : $scope.current.assignment.ministry_id,
+								value:               input.$modelValue
+							} );
+						}
+					}
+				} );
+			} );
 
 			if ( measurements.length > 0 ) {
 				Measurements.saveMeasurement( {}, measurements, function () {
@@ -75,7 +82,7 @@
 					'details':     function () {
 						// Return the promise so resolve waits
 						return Measurements.getMeasurement( {
-							measurement_id: measurement.measurement_id,
+							perm_link_stub: measurement.perm_link_stub,
 							ministry_id:    $scope.current.assignment.ministry_id,
 							mcc:            $scope.current.mcc,
 							period:         $scope.current.period.format( 'YYYY-MM' )

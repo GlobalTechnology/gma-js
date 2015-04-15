@@ -1,6 +1,6 @@
 ﻿(function () {
 	'use strict';
-	
+
 	function AdminCtrl( $scope, $modal, $filter, Assignments, Ministries, MeasurementTypes ) {
 		$scope.current.isLoaded = false;
 
@@ -8,9 +8,18 @@
 			{value: "leader", text: 'Leader'},
 			{value: "inherited_leader", text: "Leader (inherited)"},
 			{value: "member", text: 'Member'},
-			{value: "blocked", text: 'Blocked'},
+			{value: "blocked", text: 'Deleted'},
 			{value: "self_assigned", text: 'Self Assigned'}
 		];
+
+		$scope.mccs = [
+			{value: 'ds', text: 'Digital Strategies'},
+			{value: 'gcm', text: 'Global Church Movements'},
+			{value: 'llm', text: 'Leader Led'},
+			{value: 'slm', text: 'Student Led'}
+		];
+
+		$scope.includeBlocked = false;
 
 		$scope.$watch( 'current.assignment.ministry_id', function ( ministry_id ) {
 			if ( typeof ministry_id === 'undefined' ) return;
@@ -42,6 +51,10 @@
 		$scope.ableToChangeParentMinistry = function ( parentToFind ) {
 			var availableMinIds = _.pluck( $filter( 'roleFilter' )( $scope.current.ministries, ['leader', 'inherited_leader'] ), 'ministry_id' )
 			return _.contains( availableMinIds, parentToFind );
+		};
+
+		$scope.memberFilter = function(value) {
+			return $scope.includeBlocked ? true : value.team_role != 'blocked';
 		};
 
 		$scope.addTeamMember = function () {
@@ -108,7 +121,6 @@
 					};
 				}
 			} ).result.then( function ( newMeasurement ) {
-					newMeasurement.perm_link_stub = 'custom_' + newMeasurement.perm_link_stub;
 					MeasurementTypes.addMeasurementType( newMeasurement, function () {
 					} );
 				} );
@@ -119,10 +131,7 @@
 				ministry_id: $scope.ministry.ministry_id,
 				min_code:    $scope.ministry.min_code,
 				name:        $scope.ministry.name,
-				has_ds:      $scope.ministry.has_ds,
-				has_gcm:     $scope.ministry.has_gcm,
-				has_llm:     $scope.ministry.has_llm,
-				has_slm:     $scope.ministry.has_slm,
+				mccs:        $scope.ministry.mccs,
 				private:     $scope.ministry.private,
 				lmi_hide:    _.pluck( _.where( $scope.measurementTypes, {
 					is_custom: false,

@@ -1,8 +1,12 @@
 ﻿<div class="panel panel-default" ng-show="current.isLoaded">
 	<div class="panel-body">
-		<form name="lmiForm">
+		<form name="lmiForm" class="measurements">
 			<fieldset>
-				<legend>Local Movement Indicators</legend>
+				<legend>
+					Local Movement Indicators
+					<button type="button" class="btn btn-primary pull-right" ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)" ng-click="save()">Save Changes</button>
+					<div class="clearfix"></div>
+				</legend>
 
 				<table class="lmi_table">
 					<thead>
@@ -93,12 +97,12 @@
 			<fieldset ng-if="hasOther()">
 				<legend>Other Measurements</legend>
 				<div>
-					<div class="col-lg-3" ng-repeat="m in measurements | filter: {section: 'other', column: 'other'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+					<div class="col-xs-4" ng-repeat="m in measurements | filter: {section: 'other', column: 'other'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 				</div>
 			</fieldset>
 		</form>
-		<div class="pull-right" ng-if="current.assignment.team_role == 'self_assigned' && lmiForm.$dirty">
-			<button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!lmiForm.$valid">Save Changes</button>
+		<div class="pull-right">
+			<button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)">Save Changes</button>
 		</div>
 	</div>
 </div>

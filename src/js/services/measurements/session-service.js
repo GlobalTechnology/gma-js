@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	function Session( $rootScope, $injector, $q, $log, Settings ) {
+	function Session( $rootScope, $injector, $q, $log, Settings, $location ) {
 		var token;
 
 		var startSession = function ( ticket ) {
@@ -39,7 +39,7 @@
 					// All API requests must pass along HTTP credentials
 					config.withCredentials = true;
 
-					// If we have a toekn, add it to the request
+					// If we have a token, add it to the request
 					if ( typeof token !== 'undefined' ) {
 						config.headers['Authorization'] = 'Bearer ' + token;
 					}
@@ -50,9 +50,7 @@
 			},
 			// Error Response Interceptor
 			responseError: function ( response ) {
-				if ( response.status == 401 && response.config.url.indexOf( Settings.api.measurements() ) !== -1 && response.config.attempts < 2 ) {
-					$log.debug( response );
-
+				if ( response.status === 401 && response.config.url.indexOf( Settings.api.measurements() ) !== -1 && response.config.attempts < 2 ) {
 					var deferred = $q.defer();
 					$injector.get( '$http' ).get( Settings.api.refresh, {withCredentials: true} ).then( function ( loginResponse ) {
 						if ( loginResponse.data ) {
@@ -64,13 +62,15 @@
 								}, function ( response ) {
 									deferred.reject();
 								} );
+							}, function() {
+								$location.path('/error/invalid_session');
 							} );
 						} else {
 							deferred.reject();
 						}
 					}, function ( response ) {
 						deferred.reject();
-						//redirect the CAS login
+						$location.path('/error/invalid_session');
 					} );
 					return deferred.promise;
 				}

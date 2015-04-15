@@ -40,7 +40,8 @@
 				if ( $scope.editForm.hasOwnProperty( type ) && $scope.editForm[type].$dirty && typeof $scope.editForm[type] !== 'undefined' ) {
 					measurements.push( {
 						period:              $scope.current.period.format( 'YYYY-MM' ),
-						mcc:                 $scope.current.mcc + '_' + Settings.gmaNamespace,
+						mcc:                 $scope.current.mcc,
+						source:              Settings.gmaNamespace,
 						measurement_type_id: $scope.details.measurement_type_ids[type],
 						related_entity_id:   type == 'local'
 							? $scope.current.assignment.ministry_id

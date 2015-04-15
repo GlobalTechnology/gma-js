@@ -173,12 +173,7 @@
 		};
 
 		$scope.onError = function ( response, code ) {
-			if ( code == 401 && response.hasOwnProperty( 'reason' ) ) {
-				if ( response.reason == 'SESSION_INVALID' ) {
-					window.location = window.location.pathname;
-				}
-			}
-			$scope.error = response.reason;
+			$location.path( '/error' );
 		};
 
 		$scope.mobileApps = Settings.mobileApps;

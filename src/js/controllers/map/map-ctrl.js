@@ -21,7 +21,6 @@
 		$scope.church_lines = [];
 		$scope.churches = [];
 		$scope.trainings = [];
-		$scope.allChurches = [];
 		$scope.training_types = [
 			{value: "MC2", text: 'MC2'},
 			{value: "T4T", text: 'T4T'},
@@ -76,6 +75,7 @@
 				$scope.cancelAddChurch();
 			} );
 			$scope.newChurchWindowContent = $compile( '<div id="new_church_window_content" ng-include="\'partials/map/new-church.html\'"></div>' )( $scope );
+			$scope.newChurchWindow.setOptions( {maxWidth: 300} );
 
 
 			$scope.newTrainingWindow = new google.maps.InfoWindow();
@@ -83,6 +83,7 @@
 				$scope.cancelAddChurch();
 			} );
 			$scope.newTrainingContent = $compile( '<div id="new_training_window_content" ng-include="\'partials/map/new-training.html\'"></div>' )( $scope );
+			$scope.newTrainingWindow.setOptions( {maxWidth: 300} );
 
 			$scope.map.church_lines = [];
 			$scope.map.icons = {};
@@ -167,16 +168,13 @@
 
 		$scope.$watch( 'current.assignment.ministry_id', function ( ministry_id ) {
 			if ( typeof ministry_id === 'undefined' ) {
-				$scope.allChurches = [];
 				$scope.trainings = [];
 			} else {
-				$scope.loadAllChurches();
 				$scope.loadTrainings();
 			}
 		} );
 
 		$scope.$watch( 'map_filter', function ( filter ) {
-			$scope.loadAllChurches();
 			$scope.loadTrainings();
 		} );
 
@@ -184,25 +182,14 @@
 			if ( typeof mcc === 'undefined' ) {
 				$scope.trainings = [];
 			} else {
+				$scope.loadChurches();
 				$scope.loadTrainings();
 			}
 		} );
 
-		$scope.loadAllChurches = _.debounce( function () {
-			if ( typeof $scope.current.assignment === 'undefined' ) return;
-			var params = {
-				ministry_id: $scope.current.assignment.ministry_id
-			};
-			if ( $scope.map_filter === 'everything' ) {
-				params['show_all'] = 'true';
-			} else if ( $scope.map_filter === 'tree' ) params['show_tree'] = 'true';
-
-			$scope.allChurches = Churches.getChurches( params );
-		}, 500 );
-
 		$scope.loadTrainings = _.debounce( function () {
-			// Member, Leader and Inherited can view trainings
-			if ( typeof $scope.current.assignment !== 'undefined' && $scope.current.hasRole( ['leader', 'inherited_leader'] ) ) {
+			// Everyone can view trainings
+			if ( typeof $scope.current.assignment !== 'undefined' ) {
 				Trainings.getTrainings( $scope.current.sessionToken, $scope.current.assignment.ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree ).then( function ( trainings ) {
 					$scope.trainings = trainings;
 				}, $scope.onError );
@@ -215,7 +202,6 @@
 		$scope.loadChurches = _.debounce( function () {
 			if ( typeof $scope.current.assignment === 'undefined' ) return;
 
-			console.log( 'loading churches' );
 			var bounds = $scope.map.getBounds(),
 				ne = bounds.getNorthEast(),
 				sw = bounds.getSouthWest(),
@@ -272,6 +258,7 @@
 		};
 
 		$scope.addChurch = function () {
+			$scope.newChurchWindow.close();
 			angular.forEach( $scope.map.markers, function ( m ) {
 
 				if ( m.id == -1 ) {
@@ -417,7 +404,17 @@
 			} );
 
 			$scope.new_parentLine.setMap( $scope.map );
-			//   $scope.map.church_lines.push(parentLine);
+		};
+
+		$scope.RemoveParent = function () {
+			$scope.churchWindow.close();
+			$scope.edit_church.parent_id = null;
+			$scope.edit_church.parents = [];
+			Churches.saveChurch( {
+				id:        $scope.edit_church.id,
+				parent_id: -1
+			} ).$promise.then( $scope.onSaveChurch, $scope.onError );
+
 		};
 
 		$scope.MoveChurch = function () {
@@ -431,7 +428,7 @@
 		};
 
 		$scope.MoveTraining = function () {
-			var id = $scope.edit_training.hasOwnProperty( 'Id' ) ? $scope.edit_training.Id : $scope.edit_training.id;
+			var id = $scope.edit_training.id;
 			angular.forEach( $scope.map.markers, function ( m ) {
 				if ( m.id === 't' + id ) {
 					m.setAnimation( google.maps.Animation.BOUNCE );
@@ -442,6 +439,7 @@
 		};
 
 		$scope.SaveChurch = function () {
+			$scope.churchWindow.close();
 			Churches.saveChurch( $scope.edit_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
 		};
 
@@ -488,7 +486,7 @@
 							var marker = new MarkerWithLabel( {
 								position:          new google.maps.LatLng( training.latitude, training.longitude ),
 								map:               $scope.map,
-								id:                't' + ( training.hasOwnProperty( 'Id' ) ? training.Id : training.id ),
+								id:                't' + training.id,
 								title:             training.type,
 								icon:              $scope.map.icons.training,
 								labelContent:      '', //training.type + '<span class="map-trained-count">' + training.leaders_trained + '</span>',
@@ -503,9 +501,8 @@
 
 							google.maps.event.addListener( marker, 'click', (function ( training, marker ) {
 								return function () {
-									//$scope.church = marker;
 									$scope.edit_training = training;
-									$scope.edit_training.editable = (($scope.current.assignment.team_role === 'leader' || $scope.current.assignment.team_role === 'inherited_leader') && training.ministry_id === $scope.current.assignment.ministry_id);
+									$scope.edit_training.editable = training.ministry_id === $scope.current.assignment.ministry_id;
 
 									$scope.$apply();
 									$scope.trainingWindow.close();
@@ -516,7 +513,6 @@
 							}( training, marker, $scope )) );
 
 							google.maps.event.addListener( marker, 'dragend', (function () {
-								console.log( marker );
 								training.latitude = marker.getPosition().lat();
 								training.longitude = marker.getPosition().lng();
 								Trainings.updateTraining( $scope.current.sessionToken, training ).then( $scope.onSaveChurch, $scope.onError );
@@ -534,7 +530,13 @@
 		$scope.$watch( 'show.training', $scope.load_training_markers, true );
 
 		$scope.onGetChurches = function ( response ) {
-			$scope.churches = response;
+			if ( $scope.current.mcc === 'gcm' ) {
+				$scope.churches = response;
+			} else {
+				response = [];
+				$scope.churches = [];
+			}
+
 			console.log( 'got churches' );
 			$scope.removeLines();
 			$scope.removeJF();
@@ -630,7 +632,7 @@
 					google.maps.event.addListener( marker, 'click', (function ( church, marker ) {
 						return function () {
 							if ( $scope.SetParentMode ) {
-								if ( church.cluster_count == 1 && church.id !== $scope.edit_church.id ) {
+								if ( church.cluster_count == 1 && church.id !== $scope.edit_church.id && !_.contains( church.parents, $scope.edit_church.id ) ) {
 									google.maps.event.removeListener( $scope.move_event );
 									$scope.SetParentMode = false;
 									$scope.new_parentLine.setPath( [new google.maps.LatLng( church.latitude, church.longitude ), new google.maps.LatLng( $scope.edit_church.latitude, $scope.edit_church.longitude )] );
@@ -639,24 +641,25 @@
 									new_church.id = $scope.edit_church.id;
 									new_church.parent_id = church.id;
 									$scope.edit_church.parent_id = church.id;
-									console.log( new_church );
+									$scope.edit_church.parents = [church.id];
 									Churches.saveChurch( new_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
+								}
+								else {
+									google.maps.event.removeListener( $scope.move_event );
+									$scope.SetParentMode = false;
+									$scope.new_parentLine.setMap( null );
 								}
 								return;
 							}
-							//google.maps.event.addListener(marker, 'click', function () {
-							if ( church.cluster_count == 1 ) {
-								//$scope.church = marker;
 
+							if ( church.cluster_count == 1 ) {
 								$scope.edit_church = church;
-								$scope.edit_church.editable = (($scope.current.assignment.team_role === 'leader' || $scope.current.assignment.team_role === 'inherited_leader') && church.ministry_id === $scope.current.assignment.ministry_id);
+								$scope.edit_church.editable = church.ministry_id === $scope.current.assignment.ministry_id;
 
 								$scope.$apply();
 								$scope.churchWindow.close();
 								$scope.churchWindow.setOptions( {maxWidth: 300} );
 								$scope.churchWindow.open( $scope.map, marker );
-
-								// $scope.churchWindow.open($scope.map, marker);
 							}
 							else {
 								$scope.map.setCenter( marker.position );
@@ -807,7 +810,7 @@
 				phase:            training.current_stage,
 				date:             training.insert.date,
 				number_completed: training.insert.number_completed,
-				training_id:      training.hasOwnProperty( 'Id' ) ? training.Id : training.id
+				training_id:      training.id
 
 			};
 			Trainings.addTrainingCompletion( $scope.current.sessionToken, newPhase ).then( $scope.onAddTrainingCompletion, $scope.onError );

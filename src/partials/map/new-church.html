@@ -1,5 +1,5 @@
 ﻿<div id="new_church_window">
-    <div style="clear:both" />
+	<div class="clearfix"></div>
     <div class='church-window'>
         <h4>Create New Church </h4>
 
@@ -7,28 +7,28 @@
             <tr>
                 <td><b>Name</b></td>
                 <td>
-                    <input type="text" ng-model='new_church.name' />
+                    <input type="text" class="form-control input-sm" ng-model='new_church.name' />
 
                 </td>
             </tr>
             <tr>
                 <td><b>Contact Name: </b></td>
                 <td>
-                    <input type="text" ng-model='new_church.contact_name' />
+                    <input type="text" class="form-control input-sm" ng-model='new_church.contact_name' />
                 </td>
             </tr>
             <tr>
                 <td><b>Contact Email:</b> </td>
                 <td>
 
-                    <input type="email" ng-model='new_church.contact_email' />
+                    <input type="email" class="form-control input-sm" ng-model='new_church.contact_email' />
 
                 </td>
             </tr>
             <tr>
                 <td><b>Type:</b> </td>
                 <td>
-                    <select ng-model="new_church.development">
+                    <select class="form-control input-sm" ng-model="new_church.development">
                         <option value="1">Target</option>
                         <option value="2">Group</option>
                         <option value="3">Church</option>
@@ -41,33 +41,30 @@
             <tr>
                 <td><b>Size:</b> </td>
                 <td>
-                    <input type="number" min="0" ng-model="new_church.size" />
+                    <input class="form-control input-sm" type="number" min="0" ng-model="new_church.size" />
 
                 </td>
             </tr>
-            <tr>
+            <tr ng-if="!current.hasRole('self_assigned')">
                 <td><b>Security:</b> </td>
                 <td>
-                    <select ng-model="new_church.security">
+                    <select class="form-control input-sm" ng-model="new_church.security">
                         <option value="0">This Ministry Only</option>
                         <option value="1">This Ministry and above</option>
                         <option value="2" >All Registred Users</option>
                         <option value="3">Everyone</option>
-
                     </select>
 
                 </td>
             </tr>
         </table>
-		<div class="center-block" ng-if="edit_church.editable">
-			<div class="btn-group btn-group-sm" role="group">
-				<button type="button" class="btn btn-success" ng-click="addChurch()">
-					Add Church <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				</button>
-				<button type="button" class="btn btn-default" ng-click="cancelAddChurch()">Cancel</button>
+
+		<div>
+			<div class="btn-group btn-group-sm btn-group-justified" role="group">
+				<a href class="btn btn-default" ng-click="cancelAddChurch()">Cancel</a>
+				<a href class="btn btn-primary" ng-click="addChurch()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Add Church</a>
 			</div>
 		</div>
-        <div style="clear: both"></div>
+		<div class="clearfix"></div>
     </div>
-
 </div>
