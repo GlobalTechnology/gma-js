@@ -200,7 +200,6 @@
 		$scope.loadChurches = _.debounce( function () {
 			if ( typeof $scope.current.assignment === 'undefined' ) return;
 
-			console.log( 'loading churches' );
 			var bounds = $scope.map.getBounds(),
 				ne = bounds.getNorthEast(),
 				sw = bounds.getSouthWest(),
@@ -403,7 +402,17 @@
 			} );
 
 			$scope.new_parentLine.setMap( $scope.map );
-			//   $scope.map.church_lines.push(parentLine);
+		};
+
+		$scope.RemoveParent = function () {
+			$scope.churchWindow.close();
+			$scope.edit_church.parent_id = null;
+			$scope.edit_church.parents = [];
+			Churches.saveChurch( {
+				id:        $scope.edit_church.id,
+				parent_id: -1
+			} ).$promise.then( $scope.onSaveChurch, $scope.onError );
+
 		};
 
 		$scope.MoveChurch = function () {
