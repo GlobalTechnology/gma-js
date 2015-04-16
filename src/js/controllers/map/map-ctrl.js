@@ -189,7 +189,7 @@
 
 		$scope.loadTrainings = _.debounce( function () {
 			// Everyone can view trainings
-			if ( typeof $scope.current.assignment !== 'undefined' ) {
+			if ( typeof $scope.current.assignment !== 'undefined' && $scope.current.mcc !== 'undefined' ) {
 				Trainings.getTrainings( $scope.current.sessionToken, $scope.current.assignment.ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree ).then( function ( trainings ) {
 					$scope.trainings = trainings;
 				}, $scope.onError );
