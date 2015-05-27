@@ -66,7 +66,7 @@
 				<label class="col-xs-5 control-label">{{current.user.last_name}}, {{current.user.first_name}}</label>
 
 				<div class="col-xs-7">
-					<input class="form-control" type="number" placeholder="Personal" name="person" ng-model="details.my_measurements[ current.period.format('YYYY-MM') ]" />
+					<input class="form-control" type="number" placeholder="Personal" name="person" ng-model="details.self_breakdown[ns]" />
 				</div>
 			</div>
 			<div ng-show="teamToggle">

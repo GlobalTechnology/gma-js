@@ -1,7 +1,7 @@
 ﻿(function ( $ ) {
 	'use strict';
 
-	function MapCtrl( $scope, $document, $compile, Trainings, Churches, Ministries, Settings ) {
+	function MapCtrl( $scope, $document, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics ) {
 		$scope.current.isLoaded = false;
 		$scope.versionUrl = Settings.versionUrl;
 		$scope.show_target_point = true;
@@ -41,6 +41,24 @@
 		};
 		$scope.supportsGeoLocation = typeof navigator.geolocation !== 'undefined';
 		setTimeout( initialize, 0 );
+
+		var sendAnalytics = _.throttle( function () {
+			console.log( 'Send analytics' );
+			GoogleAnalytics.screen( 'Map', (function () {
+				var dimensions = {};
+				dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;
+				if ( angular.isDefined( $scope.current.assignment.ministry_id ) ) {
+					dimensions[GoogleAnalytics.DIM.ministry_id] = $scope.current.assignment.ministry_id;
+				}
+				if ( angular.isDefined( $scope.current.mcc ) ) {
+					dimensions[GoogleAnalytics.DIM.mcc] = $scope.current.mcc;
+				}
+				if ( angular.isDefined( $scope.current.period ) ) {
+					dimensions[GoogleAnalytics.DIM.period] = $scope.current.period.format( 'YYYY-MM' );
+				}
+				return dimensions;
+			})() );
+		}, 1000, {leading: false} );
 
 		function initialize() {
 			$scope.map = new google.maps.Map( document.getElementById( 'map_canvas' ), $scope.mapOptions );
@@ -170,6 +188,7 @@
 			if ( typeof ministry_id === 'undefined' ) {
 				$scope.trainings = [];
 			} else {
+				sendAnalytics();
 				$scope.loadTrainings();
 			}
 		} );
@@ -182,6 +201,7 @@
 			if ( typeof mcc === 'undefined' ) {
 				$scope.trainings = [];
 			} else {
+				sendAnalytics();
 				$scope.loadChurches();
 				$scope.loadTrainings();
 			}
@@ -253,7 +273,22 @@
 			}
 		} );
 
-		$scope.onAddChurch = function () {
+		$scope.onAddChurch = function ( church ) {
+			GoogleAnalytics.event( 'church', 'create', (function () {
+				var dimensions = {};
+				dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;
+				if ( angular.isDefined( $scope.current.assignment.ministry_id ) ) {
+					dimensions[GoogleAnalytics.DIM.ministry_id] = $scope.current.assignment.ministry_id;
+				}
+				if ( angular.isDefined( $scope.current.mcc ) ) {
+					dimensions[GoogleAnalytics.DIM.mcc] = $scope.current.mcc;
+				}
+				if ( angular.isDefined( $scope.current.period ) ) {
+					dimensions[GoogleAnalytics.DIM.period] = $scope.current.period.format( 'YYYY-MM' );
+				}
+				dimensions[GoogleAnalytics.DIM.church_id] = church.id;
+				return dimensions;
+			})() );
 			$scope.loadChurches();
 		};
 

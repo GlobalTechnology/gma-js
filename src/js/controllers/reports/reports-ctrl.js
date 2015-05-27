@@ -1,9 +1,26 @@
 (function () {
 	'use strict';
 
-	function ReportsCtrl( $scope, $document, Measurements, Settings ) {
+	function ReportsCtrl( $scope, Measurements, Settings, GoogleAnalytics ) {
 		$scope.chart = new google.visualization.LineChart( document.getElementById( 'reports-chart' ) );
 		$scope.table = new google.visualization.Table( document.getElementById( 'reports-table' ) );
+
+		var sendAnalytics = _.throttle( function () {
+			GoogleAnalytics.screen( 'Reports', (function () {
+				var dimensions = {};
+				dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;
+				if ( angular.isDefined( $scope.current.assignment.ministry_id ) ) {
+					dimensions[GoogleAnalytics.DIM.ministry_id] = $scope.current.assignment.ministry_id;
+				}
+				if ( angular.isDefined( $scope.current.mcc ) ) {
+					dimensions[GoogleAnalytics.DIM.mcc] = $scope.current.mcc;
+				}
+				if ( angular.isDefined( $scope.current.period ) ) {
+					dimensions[GoogleAnalytics.DIM.period] = $scope.current.period.format( 'YYYY-MM' );
+				}
+				return dimensions;
+			})() );
+		}, 1000, {leading: false} );
 
 		// Debounced method to fetch Measurements at most once every 100 milliseconds
 		var getMeasurements = _.debounce( function () {
@@ -17,6 +34,7 @@
 					historical:  true
 				}, function () {
 					$scope.current.isLoaded = true;
+					sendAnalytics();
 
 					var chartData = new google.visualization.DataTable(),
 						tableData = new google.visualization.DataTable(),

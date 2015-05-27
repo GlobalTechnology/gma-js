@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 
-	function AdminCtrl( $scope, $modal, $filter, Assignments, Ministries, MeasurementTypes ) {
+	function AdminCtrl( $scope, $modal, $filter, Assignments, Ministries, MeasurementTypes, GoogleAnalytics ) {
 		$scope.current.isLoaded = false;
 
 		$scope.roles = [
@@ -21,8 +21,18 @@
 
 		$scope.includeBlocked = false;
 
+		var sendAnalytics = _.throttle( function () {
+			GoogleAnalytics.screen( 'Admin', (function () {
+				var dimensions = {};
+				dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;
+				dimensions[GoogleAnalytics.DIM.ministry_id] = $scope.current.assignment.ministry_id;
+				return dimensions;
+			})() );
+		}, 1000, {leading: false} );
+
 		$scope.$watch( 'current.assignment.ministry_id', function ( ministry_id ) {
 			if ( typeof ministry_id === 'undefined' ) return;
+			sendAnalytics();
 			$scope.ministry = Ministries.getMinistry( {ministry_id: ministry_id}, function () {
 				$scope.current.isLoaded = true;
 
@@ -53,7 +63,7 @@
 			return _.contains( availableMinIds, parentToFind );
 		};
 
-		$scope.memberFilter = function(value) {
+		$scope.memberFilter = function ( value ) {
 			return $scope.includeBlocked ? true : value.team_role != 'blocked';
 		};
 

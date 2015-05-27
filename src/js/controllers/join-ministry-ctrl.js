@@ -1,9 +1,16 @@
 (function ( $ ) {
 	'use strict';
 
-	function JoinMinistryCtrl( $scope, $modalInstance, ministries, allowClose ) {
+	function JoinMinistryCtrl( $scope, $modalInstance, ministries, allowClose, GoogleAnalytics ) {
 		$scope.ministries = ministries;
 		$scope.allowClose = allowClose;
+
+		// Google Analytics
+		GoogleAnalytics.screen( 'Join Ministry', (function () {
+			var dimensions = {};
+			dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;
+			return dimensions;
+		})() );
 
 		window.setTimeout( function () {
 			window.parent.scrollTo( 0, 0 );

@@ -86,19 +86,21 @@
 
 		this.$get = function () {
 			return {
-				appUrl:         appUrl,
-				versionUrl:     versionUrl,
-				ticket:         config.ticket,
-				appEnvironment: config.environment,
-				api:            {
+				appUrl:          appUrl,
+				versionUrl:      versionUrl,
+				version:         config.version,
+				ticket:          config.ticket,
+				appEnvironment:  config.environment,
+				api:             {
 					measurements: measurementsApi,
 					refresh:      config.api.refresh,
 					logout:       config.api.logout,
 					login:        config.api.login
 				},
-				mobileApps:     ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
-				gmaNamespace:   config.namespace,
-				tabs:           tabs
+				mobileApps:      ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
+				gmaNamespace:    config.namespace,
+				tabs:            tabs,
+				googleAnalytics: config.googleanalytics
 			}
 		};
 	}

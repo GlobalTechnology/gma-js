@@ -1,9 +1,26 @@
 ﻿(function () {
 	'use strict';
 
-	function MeasurementsCtrl( $scope, $document, $filter, $modal, Measurements, Settings ) {
+	function MeasurementsCtrl( $scope, $document, $filter, $modal, Measurements, Settings, GoogleAnalytics ) {
 		$scope.current.isLoaded = false;
 		$scope.ns = Settings.gmaNamespace;
+
+		var sendAnalytics = _.throttle( function () {
+			GoogleAnalytics.screen( 'Measurements', (function () {
+				var dimensions = {};
+				dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;
+				if ( angular.isDefined( $scope.current.assignment.ministry_id ) ) {
+					dimensions[GoogleAnalytics.DIM.ministry_id] = $scope.current.assignment.ministry_id;
+				}
+				if ( angular.isDefined( $scope.current.mcc ) ) {
+					dimensions[GoogleAnalytics.DIM.mcc] = $scope.current.mcc;
+				}
+				if ( angular.isDefined( $scope.current.period ) ) {
+					dimensions[GoogleAnalytics.DIM.period] = $scope.current.period.format( 'YYYY-MM' );
+				}
+				return dimensions;
+			})() );
+		}, 1000, {leading: false} );
 
 		// Debounced method to fetch Measurements at most once every 100 milliseconds
 		var getMeasurements = _.debounce( function () {
@@ -22,14 +39,17 @@
 
 		$scope.$watch( 'current.assignment.ministry_id', function () {
 			getMeasurements();
+			sendAnalytics();
 		} );
 
 		$scope.$watch( 'current.mcc', function () {
 			getMeasurements();
+			sendAnalytics();
 		} );
 
 		$scope.$watch( 'current.period', function () {
 			getMeasurements();
+			sendAnalytics();
 		} );
 
 		$scope.hasOther = function () {

@@ -1,11 +1,14 @@
 ﻿(function () {
 	'use strict';
 	angular.module( 'gma' )
-		.run( function ( $rootScope, $route, $location, Session, Settings ) {
+		.run( function ( $rootScope, $route, $location, Session, Settings, GoogleAnalytics ) {
 			// Object to hold current values: assignments, assignment, user ...
 			$rootScope.current = {
 				isLoaded: false
 			};
+
+			// Init Google Analytics
+			GoogleAnalytics.init();
 
 			// Support application inside an iframe, sync parent hash.
 			if ( typeof window.parent !== 'undefined' ) {
@@ -49,7 +52,7 @@
 			} );
 			$routeProvider.when( '/error/:reason', {
 				templateUrl: 'partials/error/error.html',
-				controller: 'ErrorCtrl'
+				controller:  'ErrorCtrl'
 			} );
 
 			// https://github.com/angular/angular.js/issues/1404

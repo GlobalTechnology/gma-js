@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 
-	function GMACtrl( $scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log ) {
+	function GMACtrl( $scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics ) {
 		// Attach $location provider to scope, this is used to set active tabs
 		$scope.$location = $location;
 
@@ -168,6 +168,14 @@
 						// Set new assignment as current
 						$scope.current.assignment = assignment;
 					}
+
+					// Google Analytics
+					GoogleAnalytics.event( 'assignments', 'join ministry', (function () {
+						var dimensions = {};
+						dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;
+						dimensions[GoogleAnalytics.DIM.ministry_id] = assignment.ministry_id;
+						return dimensions;
+					})() );
 				} );
 			} );
 		};

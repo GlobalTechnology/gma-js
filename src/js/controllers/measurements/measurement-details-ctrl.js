@@ -1,14 +1,35 @@
 (function () {
 	'use strict';
 
-	function MeasurementDetailsCtrl( $scope, $modalInstance, Measurements, Assignments, measurement, details, Settings ) {
+	function MeasurementDetailsCtrl( $scope, $modalInstance, Measurements, Assignments, measurement, details, Settings, GoogleAnalytics ) {
 		$scope.spinner = true;
 		$scope.measurement = measurement;
 		$scope.details = details;
 		$scope.ns = Settings.gmaNamespace;
 
+		var sendAnalytics = _.throttle( function () {
+			GoogleAnalytics.screen( 'Measurement Details', (function () {
+				var dimensions = {};
+				dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;
+				if ( angular.isDefined( $scope.current.assignment.ministry_id ) ) {
+					dimensions[GoogleAnalytics.DIM.ministry_id] = $scope.current.assignment.ministry_id;
+				}
+				if ( angular.isDefined( $scope.current.mcc ) ) {
+					dimensions[GoogleAnalytics.DIM.mcc] = $scope.current.mcc;
+				}
+				if ( angular.isDefined( $scope.current.period ) ) {
+					dimensions[GoogleAnalytics.DIM.period] = $scope.current.period.format( 'YYYY-MM' );
+				}
+				if( angular.isDefined( $scope.details.perm_link_stub ) ) {
+					dimensions[GoogleAnalytics.DIM.perm_link] = $scope.details.perm_link_stub;
+				}
+				return dimensions;
+			})() );
+		}, 1000, {leading: false} );
+
 		$scope.details.$promise.then( function () {
 			$scope.spinner = false;
+			sendAnalytics();
 
 			var da = [['Period', 'Personal', 'Local Team', 'Total']];
 			angular.forEach( details.total, function ( t, period ) {
