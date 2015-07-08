@@ -185,6 +185,22 @@
 		};
 
 		$scope.mobileApps = Settings.mobileApps;
+
+		$scope.showUserPreference = function(){
+
+			var allowClose = true;
+			var instance = $modal.open( {
+				templateUrl: 'partials/preference/user-preference-model.html',
+				controller:  'UserPreferenceCtrl',
+				keyboard:    allowClose,
+				backdrop:    allowClose ? true : 'static',
+				size : 'model-lg',
+				resolve:     {
+
+				}
+			} );
+
+		}
 	}
 
 	angular.module( 'gma.controllers' ).controller( 'GMACtrl', GMACtrl );
