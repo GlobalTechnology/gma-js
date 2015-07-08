@@ -61,6 +61,7 @@
 					<!--<a href="" ng-click="$parent.$parent.$parent.$parent.deleteTraining=training; $parent.$parent.$parent.$parent.deleteTrainingCompletion=comp;" data-toggle="modal" data-target="#div_deleteTrainingComp" ng-show="(!comp.editMode) && comp.phase==(training.current_stage-1) ">Delete</a>-->
 					<a href="" ng-click="comp.editMode=false; saveTrainingCompletion(comp);" ng-show="comp.editMode">Save</a>
 					<a href="" ng-click="comp.editMode=false; comp.date=comp.orig_date; comp.number_completed = comp.orig_num; " ng-show="comp.editMode">Cancel</a>
+					<a href="" ng-click="deleteTrainingComplete(comp, $index)">Delete</a>
 				</td>
 			</tr>
 			<tr>
@@ -75,7 +76,6 @@
 				</td>
 				<td>
 					<a href="" ng-click="addTrainingStage(edit_training);">Add Stage</a>
-
 				</td>
 			</tr>
 			</tbody>
@@ -84,7 +84,24 @@
 
 		<div ng-if="edit_training.editable">
 			<div class="btn-group btn-group-sm btn-group-justified" role="group">
-				<a href class="btn btn-default" ng-click="MoveTraining()"><span class="glyphicon glyphicon-move" aria-hidden="true"></span> Move Training</a>
+				<div class="btn-group btn-group-sm dropup" dropdown>
+					<button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
+						Options <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<a href ng-click="MoveTraining()">
+								<span class="glyphicon glyphicon-move" aria-hidden="true"></span> Move Training
+							</a>
+						</li>
+						<li role="presentation" class="divider"></li>
+						<li>
+							<a href ng-click="DeleteTraining()">
+								<span class="glyphicon glyphicon-move" aria-hidden="true"></span> Delete Training
+							</a>
+						</li>
+					</ul>
+				</div>
 				<a href class="btn btn-primary" ng-click="SaveTraining()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save Changes</a>
 			</div>
 		</div>

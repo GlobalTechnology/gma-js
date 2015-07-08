@@ -885,6 +885,30 @@
 				// Failed
 			}
 		};
+
+		//function deletes the training
+		$scope.DeleteTraining = function (  ) {
+			Trainings.deleteTraining( $scope.current.sessionToken, $scope.edit_training )
+				.then(function ( data ) {
+					//When status code 204
+					$scope.loadTrainings();
+				}, $scope.onError)
+				.catch(function ( error ) {
+					// Failed
+								
+				});
+		};
+
+		//function deletes stages of training
+		$scope.deleteTrainingComplete = function ( training_complete , index) {
+			Trainings.deleteTrainingCompletion( $scope.current.sessionToken, training_complete)
+				.then(function ( data ) {
+					$scope.edit_training.gcm_training_completions.splice(index, 1);
+				}, $scope.onError)
+				.catch(function ( error ) {
+					// Failed
+				});
+		}
 	}
 
 	angular.module( 'gma.controllers.map' ).controller( 'MapCtrl', MapCtrl );
