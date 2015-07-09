@@ -20,6 +20,20 @@
 					<label ng-hide="edit_church.editable">{{edit_church.contact_email}}</label>
 				</td>
 			</tr>
+			<tr>
+				<td><b>Contact Mobile:</b></td>
+				<td>
+					<input type="email" class="form-control input-sm" ng-show="edit_church.editable" ng-model='edit_church.contact_mobile' />
+					<label ng-hide="edit_church.editable">{{edit_church.contact_mobile}}</label>
+				</td>
+			</tr>
+			<tr>
+				<td><b>JESUS Film activity used</b></td>
+				<td>
+					<input type="checkbox" class="checkbox" ng-show="edit_church.editable" ng-model='edit_church.jf_contrib'/>
+					<label ng-hide="edit_church.editable">{{(edit_church.jf_contrib) ? 'Yes' : 'No'}}</label>
+				</td>
+			</tr>
 			<tr ng-show="edit_church.editable">
 				<td><b>Type:</b></td>
 				<td>

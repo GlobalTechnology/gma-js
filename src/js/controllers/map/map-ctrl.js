@@ -642,7 +642,7 @@
 							labelInBackground: false,
 							draggable:         false
 						} );
-						if ( church.jf_contrib > 0 ) church.jf = new $scope.jesusFilmSign( new google.maps.LatLng( church.latitude, church.longitude ), church.jf_contrib, church.development );
+						if ( church.jf_contrib > 1 ) church.jf = new $scope.jesusFilmSign( new google.maps.LatLng( church.latitude, church.longitude ), church.jf_contrib, church.development );
 					}
 					else {
 						marker = new MarkerWithLabel( {
@@ -657,7 +657,7 @@
 							labelInBackground: false
 
 						} );
-						if ( church.jf_contrib > 0 ) church.jf = new $scope.jesusFilmSign( new google.maps.LatLng( church.latitude, church.longitude ), church.jf_contrib, 'cluster' );
+						if ( church.jf_contrib > 1 ) church.jf = new $scope.jesusFilmSign( new google.maps.LatLng( church.latitude, church.longitude ), church.jf_contrib, 'cluster' );
 
 					}
 					if ( !$scope.churchWindow.getContent() ) {
@@ -689,6 +689,7 @@
 
 							if ( church.cluster_count == 1 ) {
 								$scope.edit_church = church;
+								$scope.edit_church.jf_contrib = $scope.edit_church.jf_contrib === 1; //setting boolean value to check box
 								$scope.edit_church.editable = church.ministry_id === $scope.current.assignment.ministry_id;
 
 								$scope.$apply();

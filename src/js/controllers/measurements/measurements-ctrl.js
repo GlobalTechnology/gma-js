@@ -3,6 +3,7 @@
 
 	function MeasurementsCtrl( $scope, $document, $filter, $modal, Measurements, Settings, GoogleAnalytics ) {
 		$scope.current.isLoaded = false;
+		$scope.isConfirmationMessage = false;
 		$scope.ns = Settings.gmaNamespace;
 
 		var sendAnalytics = _.throttle( function () {
@@ -80,9 +81,12 @@
 			} );
 
 			if ( measurements.length > 0 ) {
-				Measurements.saveMeasurement( {}, measurements, function () {
-					getMeasurements();
-				} );
+				Measurements.saveMeasurement( {}, measurements ,function (response) {
+					//setting confirmation message
+					$scope.confirmationMessage = "Measurements saved successfully";
+					$scope.isConfirmationMessage = true;
+					getMeasurements();	
+				});
 			}
 			else {
 				getMeasurements();
@@ -111,8 +115,16 @@
 				}
 			} );
 			instance.result.then( function () {
+				//setting confirmation message
+				$scope.confirmationMessage = "Measurements saved successfully";
+				$scope.isConfirmationMessage = true;
 				getMeasurements();
 			} );
+		};
+
+		//function to close confirmation message
+		$scope.removeConfimationMessage = function () {
+			$scope.isConfirmationMessage = false;
 		};
 	}
 
