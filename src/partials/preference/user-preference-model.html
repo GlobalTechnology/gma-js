@@ -1,23 +1,39 @@
-
 <div class="modal-header">
     <button type="button" class="close" ng-click="close()">
         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
     <h4 class="modal-title">User Preferences</h4>
 </div>
 <div class="modal-body form-horizontal">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Preferred MCC:</label>
+        <div class="col-sm-8">
+            <select class="form-control" ng-model="options.preferred_mcc">
+              <option value="0">Default</option>
+              <option ng-repeat="mcc in current.assignment.mccs | orderBy:mccSort" value="{{mcc}}">
+                  {{mccLabels[mcc]}}
+              </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Preferred Ministry</label>
+        <div class="col-sm-8">
+        <select class="form-control" ng-model="options.preferred_ministry">
+            <option value="0">Default</option>
+            <option ng-repeat="ministry in ministries" value="{{ministry.ministry_id}}">
+                {{ministry.name}}
+            </option>
+        </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Hide analysis graphs</label>
+        <div class="col-sm-8">
+        <label><input type="checkbox" ng-model="options.hide"> Check to hide by default</label>
+        </div>
+    </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-primary" ng-click="savePreferences()">Save</button>
+    <button type="button" class="btn btn-primary" ng-click="savePreference(options)">Save</button>
     <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
 </div>

@@ -2,7 +2,7 @@
     'use strict';
     function AdminPreferenceCtrl (){
 
-        //will be used later
+        //
 
     }
 

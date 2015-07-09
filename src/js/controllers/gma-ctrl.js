@@ -8,7 +8,6 @@
 		$scope.tabs = Settings.tabs;
 
 		$scope.appEnvironment = Settings.appEnvironment;
-
 		//---------------------------------------
 		// Assignments
 		//---------------------------------------
@@ -188,19 +187,24 @@
 
 		$scope.showUserPreference = function(){
 
-			var allowClose = true;
 			var instance = $modal.open( {
 				templateUrl: 'partials/preference/user-preference-model.html',
 				controller:  'UserPreferenceCtrl',
-				keyboard:    allowClose,
-				backdrop:    allowClose ? true : 'static',
-				size : 'model-lg',
+				keyboard:     true,
+				backdrop:     true,
+				size : 		  'model-lg',
 				resolve:     {
-
+					modelData: function () {
+						return {
+							mccLabels: $scope.mccLabels,
+							current : $scope.current
+						}
+					}
 				}
 			} );
 
 		}
+
 	}
 
 	angular.module( 'gma.controllers' ).controller( 'GMACtrl', GMACtrl );
