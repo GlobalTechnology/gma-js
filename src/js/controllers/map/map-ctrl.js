@@ -1,7 +1,7 @@
 ﻿(function ( $ ) {
 	'use strict';
 
-	function MapCtrl( $scope, $document, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics ) {
+	function MapCtrl( $scope, $document, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics,UserPreference ) {
 		$scope.current.isLoaded = false;
 		$scope.versionUrl = Settings.versionUrl;
 		$scope.show_target_point = true;
@@ -831,6 +831,21 @@
 				longitude: center.lng()
 			};
 			$scope.current.assignment.location_zoom = zoom;
+			//save user preference
+			var post_data = {
+				"default_map_views": {
+					"ministry_id": $scope.current.assignment.ministry_id,
+					"location": {
+						"latitude": center.lat(),
+						"longitude": center.lng()
+					},
+					"location_zoom": $scope.map.getZoom()
+				}
+			};
+
+			UserPreference.savePreference(post_data).success(function(){
+				console.log('Default map view saved, update scope as well');
+			});
 
 			// Save changes to API
 			Ministries.updateMinistry( {

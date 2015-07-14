@@ -19,6 +19,12 @@
 					} else {
 						delete $rootScope.current.assignments;
 					}
+					//get user preferences
+					/*$rootScope.current.preference={};
+					$injector.get('UserPreference').getPreference()
+					.success(function(data){
+						$rootScope.current.preference=data;
+					});*/
 
 					$rootScope.$broadcast( 'sessionStart', response.data );
 
