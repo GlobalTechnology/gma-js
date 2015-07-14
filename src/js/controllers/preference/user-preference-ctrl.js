@@ -9,10 +9,9 @@
 
         function getFlatMinistryArray(items) {
             angular.forEach(items, function (item) {
-                if (item.hasOwnProperty('sub_ministries')) {
+                ministries.push(item);
+                if (item.hasOwnProperty('sub_ministries') && (_.size(item.sub_ministries) > 0)) {
                     ministries = ministries.concat(getFlatMinistryArray(item.sub_ministries));
-                } else {
-                    ministries.push(item);
                 }
             });
 
@@ -21,23 +20,23 @@
                 return item.ministry_id;
             });
         }
-        $scope.ministries = getFlatMinistryArray(modelData.current.assignment.sub_ministries);
+        $scope.ministries = getFlatMinistryArray(modelData.current.assignments);
 
-        $scope.getPreference = function(){
-            UserPreference.getPreference
+        var getPreference = function(){
+            UserPreference.getPreference()
                 .success(function(data){
-                        //
-                })
+                       $scope.options = data;
+                });
         };
+        getPreference();
 
         $scope.savePreference = function(options){
-            console.log('Save button clicked');
-
             UserPreference.savePreference(options)
                 .success(function(data){
-                    //
+                   console.log('Saved,but also needs to update root scope');
+                    $modalInstance.dismiss();
                 });
-            $modalInstance.dismiss();
+
         };
 
 
