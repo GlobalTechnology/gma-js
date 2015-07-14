@@ -833,7 +833,7 @@
 			$scope.current.assignment.location_zoom = zoom;
 			//save user preference
 			var post_data = {
-				"default_map_views": {
+				"default_map_views": [{
 					"ministry_id": $scope.current.assignment.ministry_id,
 					"location": {
 						"latitude": center.lat(),
@@ -841,6 +841,7 @@
 					},
 					"location_zoom": $scope.map.getZoom()
 				}
+				]
 			};
 
 			UserPreference.savePreference(post_data).success(function(){
