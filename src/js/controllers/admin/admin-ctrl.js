@@ -168,7 +168,67 @@
 					};
 				} );
 		};
-	}
 
+		//function initializes tab of admin section
+		$scope.initTabs = function (tab) {
+			//selecting default tab
+			$scope.pill = tab;
+			if(typeof tab === 'undefined'){
+				$scope.pill = 'ministry';
+			}
+
+			//all tab urls
+			$scope.adminTabTemplates = [
+				{
+					url : 'partials/admin/ministry.html',
+					name : 'ministry'
+				},
+				{
+					url : 'partials/admin/edit.html',
+					name : 'edit'
+				},
+				{
+					url : 'partials/admin/preference.html',
+					name : 'preference'
+				},
+				{
+					url : 'partials/admin/measurement.html',
+					name : 'measurement'
+				}
+			];
+
+			//selecting current view to include
+			$scope.selectTab($scope.pill);
+		}
+
+		//function selects tab for admin section 
+		$scope.selectTab = function (tab) {
+			$scope.pill = tab;
+			if(typeof tab === 'undefined'){
+				$scope.pill = 'ministry';
+			}
+
+			//selecting current tab view
+			$scope.adminTabTemplate = _.find($scope.adminTabTemplates, function (template){
+				if(template.name === tab){
+					return true;
+				}
+				return false;
+			});
+		}
+
+		function flattenMinistry (ministry) {
+			$scope.ministries.push(ministry);
+			if(ministry.hasOwnProperty('sub_ministries') && _.size(ministry.sub_ministries) > 0){
+				angular.forEach(ministry.sub_ministries, flattenMinistry);
+			}
+		}
+
+		//function creates flatten ministries array
+		$scope.setMinistries = function (){
+			$scope.ministries = [];
+			angular.forEach($scope.current.assignments, flattenMinistry);
+		}
+	}
 	angular.module( 'gma.controllers.admin' ).controller( 'AdminCtrl', AdminCtrl );
 }());

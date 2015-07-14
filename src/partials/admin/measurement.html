@@ -1,0 +1,27 @@
+<div class="admin-item">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addMeasurement()">Add Measurement</button>
+			<h3 class="panel-title">Measurements</h3>
+
+			<div class="clearfix"></div>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<tr ng-repeat="type in measurementTypes">
+					<td>{{type.english}}</td>
+					<td class="text-right">
+						<div class="btn-group">
+							<label class="btn btn-default" ng-model="type.visible" btn-radio="true">Show</label>
+							<label class="btn btn-default" ng-model="type.visible" btn-radio="false">Hide</label>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="panel-footer">
+			<button type="button" class="btn btn-primary pull-right" ng-click="saveDetails()" ng-disabled="saveDetailsResource && !saveDetailsResource.$resolved">Save</button>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
