@@ -115,11 +115,14 @@
 	</div>
 </div>
 
-<div id="map_controls" class="map-controls" ng-show="current.isLoaded">
+<div id="map_controls" class="map-controls" ng-show="current.isLoaded" ng-init="mapExpended=false" ng-class="(mapExpended==true)?'map-search-expand':'map-search-collapse'">
 	<div class="pull-left map-search">
 		<div class="input-group">
-			<input id="searchBox" type="text" class="form-control" placeholder="Search">
-			<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+			<input id="searchBox" type="text" class="form-control" placeholder="Search ..." ng-blur="mapExpended=!mapExpended">
+			<span title="Click to expand/collapse search" ng-click="mapExpended=!mapExpended" class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 		</div>
 	</div>
 </div>
+<style>
+
+</style>
