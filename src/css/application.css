@@ -313,3 +313,17 @@ div.map-search span.input-group-addon{
 div.map-search{
 	transition: width 0.3s ease;
 }
+/*fix too long names in table*/
+td.no-overflow{
+	overflow: hidden;
+	max-width: 250px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	vertical-align: top;
+}
+td.no-overflow:hover{
+	text-overflow: inherit;
+	white-space: normal;
+	word-wrap: break-word;
+
+}
