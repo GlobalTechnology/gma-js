@@ -188,10 +188,6 @@
 					name : 'edit'
 				},
 				{
-					url : 'partials/admin/_preference.html',
-					name : 'preference'
-				},
-				{
 					url : 'partials/admin/_measurement.html',
 					name : 'measurement'
 				}
