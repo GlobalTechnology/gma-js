@@ -296,6 +296,9 @@
 }
 
 /*map search box expand collapse behaviour*/
+.map-search-collapse div.map-search{
+	width: 0;
+}
 .map-search-collapse input[type='text']{
 	width: 0!important;
 	border: none;
@@ -303,20 +306,9 @@
 }
 .map-search-collapse span.input-group-addon{
 	border-radius: 50%;
-	opacity: 1;
-}
-.map-search-expand  span.input-group-addon{
-	opacity: 1;
-}
-.map-search-collapse div.map-search{
-	width: 0;
 }
 div.map-search span.input-group-addon{
 	cursor: pointer;
-	opacity: 0.8;
-}
-div.map-search span.input-group-addon:hover{
-	opacity: 1;
 }
 div.map-search{
 	transition: width 0.3s ease;

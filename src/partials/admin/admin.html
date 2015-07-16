@@ -1,10 +1,10 @@
 ﻿<div ng-show="current.isLoaded">
 	<div ng-if="current.isLoaded"><span ng-init="setMinistries()"></span></div>
 	<ul class="nav nav-pills" ng-init="initTabs('ministry')">
-  		<li role="presentation" ng-click="selectTab('ministry')" ng-class="{active: pill === 'ministry'}"><a>Manage Ministries</a></li>
-  		<li role="presentation" ng-click="selectTab('edit')" ng-class="{active: pill === 'edit'}"><a>Edit Ministry</a></li>
-  		<li role="presentation" ng-click="selectTab('measurement')" ng-class="{active: pill === 'measurement'}"><a>Manage Measurements</a></li>
-  		<li role="presentation" ng-click="selectTab('preference')" ng-class="{active: pill === 'preference'}"><a>Admin Preference</a></li>
+  		<li role="presentation" ng-click="selectTab('ministry')" ng-class="{active: pill === 'ministry'}"><a href="javascript:void(0)">Manage Ministries</a></li>
+  		<li role="presentation" ng-click="selectTab('edit')" ng-class="{active: pill === 'edit'}"><a href="javascript:void(0)">Edit Ministry</a></li>
+  		<li role="presentation" ng-click="selectTab('measurement')" ng-class="{active: pill === 'measurement'}"><a href="javascript:void(0)">Manage Measurements</a></li>
+  		<li role="presentation" ng-click="selectTab('preference')" ng-class="{active: pill === 'preference'}"><a href="javascript:void(0)">Admin Preference</a></li>
 	</ul>
 	<div ng-include="adminTabTemplate.url"></div>
 </div>
