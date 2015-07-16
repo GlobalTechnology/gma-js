@@ -1,54 +1,30 @@
 (function () {
     'use strict';
-    function UserPreferenceCtrl ($scope,$modalInstance,modelData,UserPreference){
-
-        $scope.mccLabels = modelData.mccLabels;
-
-        var ministries = [];
+    function UserPreferenceCtrl($scope, $rootScope, $modalInstance, modelData, UserPreference) {
         $scope.options = {};
+        $scope.ministries = UserPreference.getFlatMinistry($rootScope.current.assignments);
+        $scope.options = $rootScope.current.user_preferences;
+        $scope.mccs = UserPreference.getMappedMCCS($rootScope.current.assignment.mccs,modelData.mccLabels);
 
-        function getFlatMinistryArray(items) {
-            angular.forEach(items, function (item) {
-                ministries.push(item);
-                if (item.hasOwnProperty('sub_ministries') && (_.size(item.sub_ministries) > 0)) {
-                    ministries = ministries.concat(getFlatMinistryArray(item.sub_ministries));
-                }
-            });
-
-            //remove duplicates
-            return _.uniq(ministries, false, function (item, key) {
-                return item.ministry_id;
-            });
-        }
-        $scope.ministries = getFlatMinistryArray(modelData.current.assignments);
-
-        var getPreference = function(){
-            UserPreference.getPreference()
-                .success(function(data){
-                       $scope.options = data;
-                });
-        };
-        getPreference();
-
-        $scope.savePreference = function(options){
+        $scope.savePreference = function (options) {
             UserPreference.savePreference(options)
-                .success(function(data){
-                   console.log('Saved,but also needs to update root scope');
+                .success(function (data) {
+                    //update root scope
+                    $rootScope.current.user_preferences = data;
                     $modalInstance.dismiss();
                 });
 
         };
-
 
         $scope.close = function () {
             $modalInstance.dismiss();
         };
 
         $scope.cancel = function () {
-            $modalInstance.dismiss( 'cancel' );
+            $modalInstance.dismiss('cancel');
         };
 
     }
 
-    angular.module( 'gma.controllers.preference' ).controller( 'UserPreferenceCtrl', UserPreferenceCtrl );
+    angular.module('gma.controllers.preference').controller('UserPreferenceCtrl', UserPreferenceCtrl);
 })();

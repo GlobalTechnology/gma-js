@@ -185,10 +185,14 @@
 
 		$scope.mobileApps = Settings.mobileApps;
 
+		//---------------------------------------
+		// User Preferences
+		//---------------------------------------
+
 		$scope.showUserPreference = function(){
 
 			var instance = $modal.open( {
-				templateUrl: 'partials/preference/user-preference-model.html',
+				templateUrl: 'partials/preference/user-preference-modal.html',
 				controller:  'UserPreferenceCtrl',
 				keyboard:     true,
 				backdrop:     true,
@@ -196,8 +200,7 @@
 				resolve:     {
 					modelData: function () {
 						return {
-							mccLabels: $scope.mccLabels,
-							current : $scope.current
+							mccLabels: $scope.mccLabels
 						}
 					}
 				}

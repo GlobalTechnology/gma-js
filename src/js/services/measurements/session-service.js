@@ -13,19 +13,13 @@
 				.then( function ( response ) {
 					$rootScope.current.user = response.data.user;
 					$rootScope.current.sessionToken = response.data.session_ticket;
+					$rootScope.current.user_preferences = response.data.user_preferences;
 					token = response.data.session_ticket;
 					if ( typeof response.data.assignments === 'object' ) {
 						$rootScope.current.assignments = response.data.assignments;
 					} else {
 						delete $rootScope.current.assignments;
 					}
-					//get user preferences
-					/*$rootScope.current.preference={};
-					$injector.get('UserPreference').getPreference()
-					.success(function(data){
-						$rootScope.current.preference=data;
-					});*/
-
 					$rootScope.$broadcast( 'sessionStart', response.data );
 
 					return response.data;

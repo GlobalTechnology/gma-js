@@ -180,26 +180,26 @@
 			//all tab urls
 			$scope.adminTabTemplates = [
 				{
-					url : 'partials/admin/ministry.html',
+					url : 'partials/admin/_ministry.html',
 					name : 'ministry'
 				},
 				{
-					url : 'partials/admin/edit.html',
+					url : 'partials/admin/_edit.html',
 					name : 'edit'
 				},
 				{
-					url : 'partials/admin/preference.html',
+					url : 'partials/admin/_preference.html',
 					name : 'preference'
 				},
 				{
-					url : 'partials/admin/measurement.html',
+					url : 'partials/admin/_measurement.html',
 					name : 'measurement'
 				}
 			];
 
 			//selecting current view to include
 			$scope.selectTab($scope.pill);
-		}
+		};
 
 		//function selects tab for admin section 
 		$scope.selectTab = function (tab) {
@@ -215,20 +215,8 @@
 				}
 				return false;
 			});
-		}
+		};
 
-		function flattenMinistry (ministry) {
-			$scope.ministries.push(ministry);
-			if(ministry.hasOwnProperty('sub_ministries') && _.size(ministry.sub_ministries) > 0){
-				angular.forEach(ministry.sub_ministries, flattenMinistry);
-			}
-		}
-
-		//function creates flatten ministries array
-		$scope.setMinistries = function (){
-			$scope.ministries = [];
-			angular.forEach($scope.current.assignments, flattenMinistry);
-		}
 	}
 	angular.module( 'gma.controllers.admin' ).controller( 'AdminCtrl', AdminCtrl );
 }());
