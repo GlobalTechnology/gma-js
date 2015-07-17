@@ -143,6 +143,8 @@
 				name:        $scope.ministry.name,
 				mccs:        $scope.ministry.mccs,
 				private:     $scope.ministry.private,
+				hide_reports_tab: $scope.ministry.hide_reports_tab,
+				default_mcc : $scope.ministry.default_mcc,
 				lmi_hide:    _.pluck( _.where( $scope.measurementTypes, {
 					is_custom: false,
 					visible:   false
