@@ -22,7 +22,7 @@
             </select>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" ng-if="current.hasRole(['leader', 'inherited_leader'])">
         <label class="col-sm-4 control-label">Hide Reports Tab</label>
 
         <div class="col-sm-8">
