@@ -172,12 +172,32 @@
 
 			$scope.$watch( 'current.assignment', function ( a, oldVal ) {
 				if ( typeof a !== 'undefined' ) {
+					var latitude = a.location.latitude;
+					var longitude = a.location.longitude;
+					var zoom = a.location_zoom;
+
+					//checking if user preference is set
+					if(typeof $scope.current.user_preferences === 'object'){
+
+						//if user preference has default view
+						if(typeof $scope.current.user_preferences.default_map_views === 'object'){
+							var default_map_view = _.find($scope.current.user_preferences.default_map_views, function(view) {
+								return (view.ministry_id === $scope.current.assignment.ministry_id);
+							});
+							if(typeof default_map_view !== 'undefined'){
+								//overriding default view by user preference
+								latitude = default_map_view.location.latitude;
+								longitude = default_map_view.location.longitude;
+								zoom = default_map_view.location_zoom;
+							}
+						}
+					}
 
 					if ( a && a.hasOwnProperty( 'location' ) ) {
-						$scope.map.setCenter( new google.maps.LatLng( a.location.latitude, a.location.longitude ) );
+						$scope.map.setCenter( new google.maps.LatLng( latitude, longitude ) );
 					}
 					if ( a && a.hasOwnProperty( 'location_zoom' ) ) {
-						$scope.map.setZoom( parseInt( a.location_zoom ) );
+						$scope.map.setZoom( parseInt( zoom ) );
 					}
 				}
 			}, true );
