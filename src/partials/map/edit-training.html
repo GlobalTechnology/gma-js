@@ -9,20 +9,23 @@
 			<tr>
 				<td><b>Name</b></td>
 				<td>
-					<input id="tbName" class="form-control input-sm" type="text" placeholder="Name" ng-model="edit_training.name" />
+					<input id="tbName" class="form-control input-sm" type="text" placeholder="Name" ng-model="edit_training.name" ng-if="edit_training.editable"/>
+					<b ng-if="!edit_training.editable">{{edit_training.name}}</b>
 				</td>
 			</tr>
 			<tr>
 				<td><b>Training Type: </b></td>
 				<td>
-					<select class="form-control input-sm" id="ddlTrainingType" ng-model="edit_training.type" ng-options="s.value as s.text for s in training_types"></select>
+					<select class="form-control input-sm" id="ddlTrainingType" ng-model="edit_training.type" ng-options="s.value as s.text for s in training_types" ng-if="edit_training.editable"></select>
+					<b ng-if="!edit_training.editable">{{edit_training.type}}</b>
 				</td>
 			</tr>
 
 			<tr>
 				<td><b>Date:</b></td>
 				<td>
-					<input class="form-control input-sm" id="tbDate" type="date" class="map-training-date" placeholder="Date" ng-model="edit_training.date" />
+					<input class="form-control input-sm" id="tbDate" type="date" class="map-training-date" placeholder="Date" ng-model="edit_training.date"  ng-if="edit_training.editable"/>
+					<b ng-if="!edit_training.editable">{{edit_training.date}}</b>
 				</td>
 			</tr>
 
@@ -49,14 +52,14 @@
 				</td>
 				<td class="training-stages-control">
 					<span ng-hide="comp.editMode">{{comp.date | date:'mediumDate'}}</span>
-					<input ng-show="comp.editMode" class="map-training-date" type="date" ng-model="comp.date" />
+					<input ng-show="comp.editMode" class="map-training-date" type="date" ng-model="comp.date" ng-if="edit_training.editable"/>
 				</td>
 				<td>
 					<span ng-hide="comp.editMode">{{comp.number_completed}}</span>
-					<input ng-show="comp.editMode" class="map-training-number" type="number" ng-model="comp.number_completed" min="0" />
+					<input ng-show="comp.editMode" class="map-training-number" type="number" ng-model="comp.number_completed" min="0" ng-if="edit_training.editable"/>
 
 				</td>
-				<td>
+				<td ng-if="edit_training.editable">
 					<a href="" ng-click="comp.editMode=true; comp.orig_date=comp.date; comp.orig_num = comp.number_completed;" ng-show="!comp.editMode">Edit</a>
 					<!--<a href="" ng-click="$parent.$parent.$parent.$parent.deleteTraining=training; $parent.$parent.$parent.$parent.deleteTrainingCompletion=comp;" data-toggle="modal" data-target="#div_deleteTrainingComp" ng-show="(!comp.editMode) && comp.phase==(training.current_stage-1) ">Delete</a>-->
 					<a href="" ng-click="comp.editMode=false; saveTrainingCompletion(comp);" ng-show="comp.editMode">Save</a>
@@ -64,7 +67,7 @@
 					<a href="" ng-click="deleteTrainingComplete(comp, $index)">Delete</a>
 				</td>
 			</tr>
-			<tr>
+			<tr ng-if="edit_training.editable">
 				<td>
 					{{training.current_stage}}
 				</td>

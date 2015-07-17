@@ -239,6 +239,7 @@
 		}, 500 );
 
 		$scope.loadChurches = _.debounce( function () {
+			$scope.show_tree = false; //resetting show tree flag
 			if ( typeof $scope.current.assignment === 'undefined' ) return;
 
 			var bounds = $scope.map.getBounds(),
@@ -258,6 +259,7 @@
 			if ( !$scope.show_mult_church ) params['hide_mult_church'] = 'true';
 			if ( $scope.map_filter === 'everything' ) {
 				params['show_all'] = 'true';
+				$scope.show_tree = true;
 			} else if ( $scope.map_filter === 'tree' ) params['show_tree'] = 'true';
 
 			// Disable clustering at Zoom 14 and higher
@@ -559,6 +561,7 @@
 									
 									//checking if training is editable
 									$scope.edit_training.editable = false;
+
 									var parent_ids = $scope.getParentIds($scope.current.assignments, $scope.edit_training);
 
 									//if training ministry id is child or equal to parent id
@@ -572,7 +575,7 @@
 										//if training ministry id is same as parent id
 										if($scope.edit_training.ministry_id === parent_id){
 
-											if($scope.edit_training.create_by === $scope.current.user.person_id || isLeaderAdmin() === true){
+											if($scope.edit_training.created_by === $scope.current.user.person_id || isLeaderAdmin() === true){
 												$scope.edit_training.editable = true;
 											}
 
@@ -749,7 +752,7 @@
 									//if training ministry id is same as parent id
 									if($scope.edit_church.ministry_id === parent_id){
 
-										if($scope.edit_church.create_by === $scope.current.user.person_id || isLeaderAdmin() === true){
+										if($scope.edit_church.created_by === $scope.current.user.person_id || isLeaderAdmin() === true){
 											$scope.edit_church.editable = true;
 										}
 
