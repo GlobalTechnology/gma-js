@@ -5,13 +5,13 @@
 
 			<div class="clearfix"></div>
 		</div>
-		<div class="panel-body">
+		<div class="panel-body form-horizontal">
 			<alert type="{{saveDetailsAlert.type}}" ng-show="saveDetailsAlert" close="saveDetailsAlert = null">{{saveDetailsAlert.msg}}</alert>
 
 			<div class="form-group row">
 				<label for="ministryName" class="col-sm-4 control-label">Ministry Name:</label>
 
-				<div class="col-sm-8">
+				<div class="col-sm-6">
 					<input id="ministryName" type="text" class="form-control" ng-model="ministry.name" />
 				</div>
 			</div>
@@ -19,7 +19,7 @@
 			<div class="form-group row" ng-show="ableToChangeParentMinistry(ministry.parent_id)">
 				<label class="col-sm-4 control-label">Parent Ministry:</label>
 
-				<div class="col-sm-8">
+				<div class="col-sm-6">
 					<select
 						name="prent"
 						class="form-control"
@@ -29,11 +29,10 @@
 					</select>
 				</div>
 			</div>
-
 			<div class="form-group row">
 				<label class="col-sm-4 control-label">MCCs:</label>
 
-				<div class="col-sm-8">
+				<div class="col-sm-6">
 					<div class="checkbox" ng-repeat="mcc in mccs">
 						<label>
 							<input type="checkbox" checklist-model="ministry.mccs" checklist-value="mcc.value"> {{mcc.text}}
@@ -41,6 +40,25 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="form-group">
+				<label class="col-sm-4 control-label">Default MCC:</label>
+
+				<div class="col-sm-6">
+					<select class="form-control" ng-model="ministry.default_mcc" ng-options="mcc.value as mcc.text for mcc in mccs | mccFilter:ministry.mccs">
+						<option value="">Default</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label">Hide Reports Tab by default</label>
+
+				<div class="col-sm-6">
+					<label class="radio-inline"><input type="radio" value="1" ng-model="ministry.hide_reports_tab"> Hide</label>
+					<label class="radio-inline"><input type="radio" value="0" ng-model="ministry.hide_reports_tab"> Show</label>
+				</div>
+			</div>
+
 			<!-- 
 			<div class="form-group row">
 				<label class="col-sm-4 control-label">Privacy:</label>
