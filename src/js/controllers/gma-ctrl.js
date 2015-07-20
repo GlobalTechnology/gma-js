@@ -20,42 +20,99 @@
 		} );
 
 		// Update current assignment when assignments is set - this occurs after a session is established
-		$scope.$watch( 'current.assignments', function ( assignments, oldVal ) {
-			if ( assignments === oldVal ) return;
+		$scope.$watch('current.assignments', function (assignments, oldVal) {
+			if (assignments === oldVal) return;
 
-			$log.debug( 'Assignments Changed' );
+			$log.debug('Assignments Changed');
 
-			if ( typeof assignments === 'object' ) {
-				if ( angular.isUndefined( $scope.current.assignment ) || !_.contains( _.pluck( assignments, 'id' ), $scope.current.assignment.id ) ) {
-					$scope.current.assignment = $filter( 'orderBy' )( assignments, 'name' )[0];
+			//first time when page loads
+			if (typeof assignments === 'object' && typeof oldVal === 'undefined') {
+
+				if ($scope.current.hasOwnProperty('user_preferences') && typeof $scope.current.user_preferences !== 'undefined') {
+					//apply user preference
+					var found_assignment = _.find(assignments, function (ministry) {
+						return (ministry.ministry_id === $scope.current.user_preferences.preferred_ministry);
+					});
+
+					if (typeof found_assignment !== 'undefined' && typeof found_assignment !=='') {
+						$scope.current.assignment = found_assignment;
+					} else {
+						$scope.current.assignment = $filter('orderBy')(assignments, 'name')[0];
+
+					}
+				} else {
+					//load first ministry if user preferences not found
+					$scope.current.assignment = $filter('orderBy')(assignments, 'name')[0];
+
 				}
-				$scope.current.ministries = flattenMinistries( assignments );
+
+			} else if (typeof assignments === 'object') {
+				if (angular.isUndefined($scope.current.assignment) || !_.contains(_.pluck(assignments, 'id'), $scope.current.assignment.id)) {
+
+					$scope.current.assignment = $filter('orderBy')(assignments, 'name')[0];
+
+				}
+				$scope.current.ministries = flattenMinistries(assignments);
 			} else {
 				delete $scope.current.assignment;
 				$scope.current.ministries = [];
 			}
-		} );
+
+		});
 
 		// Update assignment and mcc when assignment changes
-		$scope.$watch( 'current.assignment', function ( assignment, oldVal ) {
-			if ( assignment === oldVal ) return;
+		$scope.$watch('current.assignment', function (assignment, oldVal) {
+			if (assignment === oldVal) return;
 
-			$log.debug( 'Assignment Changed: ' + assignment.name );
+			$log.debug('Assignment Changed: ' + assignment.name);
 
-			if ( typeof assignment === 'object' ) {
+			if (typeof assignment === 'object') {
 
-				if ( assignment.mccs.length > 0 ) {
-					// Set mcc if none is currently set or new assignment does not include current mcc
-					if ( typeof $scope.current.mcc === 'undefined' || assignment.mccs.indexOf( $scope.current.mcc ) < 0 ) {
-						$scope.current.mcc = $filter( 'orderBy' )( assignment.mccs, $scope.mccSort )[0];
+				if (assignment.mccs.length > 0) {
+					//check if first time
+					if (typeof oldVal === 'undefined') {
+						if ($scope.current.hasOwnProperty('user_preferences') && typeof $scope.current.user_preferences !== 'undefined') {
+							//apply user preference here
+							var user_mcc = _.find(assignment.mccs, function (mcc) {
+								return (mcc === $scope.current.user_preferences.preferred_mcc);
+							});
+
+							if (typeof user_mcc !== 'undefined' && typeof user_mcc !== '') {
+								$scope.current.mcc = user_mcc;
+
+							} else {
+								//check for admin preferences
+								var admin_mcc = _.find(assignment.mccs, function (mcc) {
+									return (mcc === $scope.current.assignment.preferred_mcc);
+								});
+								if (typeof admin_mcc !== 'undefined' || typeof admin_mcc !== '') {
+									$scope.current.mcc = admin_mcc;
+								} else {
+									//if admin preferences not found then use fist one
+									$scope.current.mcc = $filter('orderBy')(assignment.mccs, $scope.mccSort)[0];
+								}
+							}
+
+						} else {
+							// Set mcc if none is currently set or new assignment does not include current mcc
+							if (typeof $scope.current.mcc === 'undefined' || assignment.mccs.indexOf($scope.current.mcc) < 0) {
+								$scope.current.mcc = $filter('orderBy')(assignment.mccs, $scope.mccSort)[0];
+							}
+						}
+					} else {
+						// Set mcc if none is currently set or new assignment does not include current mcc
+						if (typeof $scope.current.mcc === 'undefined' || assignment.mccs.indexOf($scope.current.mcc) < 0) {
+							$scope.current.mcc = $filter('orderBy')(assignment.mccs, $scope.mccSort)[0];
+						}
 					}
+
 				}
 				else {
 					// Delete current mcc if assignment has no mccs
 					delete $scope.current.mcc;
 				}
 			}
-		} );
+		});
 
 		$scope.current.hasRole = function ( role ) {
 			if ( typeof $scope.current.assignment === 'undefined' || typeof $scope.current.assignment.team_role === 'undefined' ) return false;
@@ -206,7 +263,26 @@
 				}
 			} );
 
-		}
+		};
+		/**
+		 * Sends true to show, false to hide
+		 * @param tab
+		 * @returns {boolean}
+		 */
+		$scope.hideReportsTab = function (tab){
+			//if current tab is not report tab return early
+			if(tab.path!='/reports') return true;
+			//current may not be defined
+			if(typeof $scope.current === 'undefined') return true;
+			//user preferences not found
+			if(typeof $scope.current.user_preferences === 'undefined')
+			{	//send admin preferences
+				return ($scope.current.hide_reports_tab != '1');
+			}
+			//lastly send user preferences
+			return ($scope.current.user_preferences.hide_reports_tab !== '1');
+
+		};
 
 	}
 
