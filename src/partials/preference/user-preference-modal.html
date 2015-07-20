@@ -8,7 +8,7 @@
         <label class="col-sm-4 control-label">Preferred Ministry</label>
 
         <div class="col-sm-8">
-            <select class="form-control" ng-model="options.preferred_ministry" ng-options="ministry.ministry_id as ministry.name for ministry in ministries">
+            <select class="form-control" ng-change="changeMCCS(options.preferred_ministry)" ng-model="options.preferred_ministry" ng-options="ministry.ministry_id as ministry.name for ministry in ministries">
                 <option value="">Default</option>
             </select>
         </div>
