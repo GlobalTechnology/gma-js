@@ -14,6 +14,7 @@
         $scope.mccs = UserPreference.getMappedMCCS($rootScope.current.assignment.mccs, modelData.mccLabels);
 
         $scope.savePreference = function (options) {
+
             UserPreference.savePreference(options)
                 .success(function (data) {
                     //update root scope
@@ -26,6 +27,7 @@
         $scope.changeMCCS = function (ministry_id) {
             if (ministry_id === "" || ministry_id === null) {
                 $scope.mccs = [];
+                $scope.options.preferred_mcc="";
                 return false;
             }
             var ministry = _.find($scope.ministries, function (mini) {
@@ -33,7 +35,12 @@
             });
             if(typeof ministry !== 'undefined') {
                 $scope.mccs = UserPreference.getMappedMCCS(ministry.mccs, modelData.mccLabels);
+                //additional check if there is no mccs then default_mcc should be empty in every case
+                if(_.size($scope.mccs)==0){
+                    $scope.options.preferred_mcc="";
+                }
             }else{
+                $scope.options.preferred_mcc="";
                 $scope.mccs = [];
             }
 

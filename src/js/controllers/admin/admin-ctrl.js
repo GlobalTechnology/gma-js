@@ -137,6 +137,11 @@
 		};
 
 		$scope.saveDetails = function () {
+			//additional check if admin un-select all mccs then default_mcc should be empty
+			if(_.size($scope.mccs)==0){
+				$scope.ministry.default_mcc= '';
+			}
+
 			var ministry = {
 				ministry_id: $scope.ministry.ministry_id,
 				min_code:    $scope.ministry.min_code,
