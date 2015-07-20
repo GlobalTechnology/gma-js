@@ -892,15 +892,9 @@
 		$scope.jesusFilmSign.prototype = new google.maps.OverlayView();
 
 		$scope.setMyDefaultMapView = function () {
-			var center = $scope.map.getCenter(),
-				zoom = $scope.map.getZoom();
 
-			// Update current assignment location/zoom
-			$scope.current.assignment.location = {
-				latitude:  center.lat(),
-				longitude: center.lng()
-			};
-			$scope.current.assignment.location_zoom = zoom;
+			var center = $scope.map.getCenter();
+
 			//save user preference
 			var post_data = {
 				"default_map_views": [{
