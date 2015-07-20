@@ -9,7 +9,6 @@
 		$scope.show_church = true;
 		$scope.show_mult_church = true;
 		$scope.show_lines = true;
-		$scope.show_lines = true;
 		$scope.show_jf = true;
 		$scope.map_filter = 'min_only';
 		$scope.icon_add_mode = false;
@@ -173,12 +172,32 @@
 
 			$scope.$watch( 'current.assignment', function ( a, oldVal ) {
 				if ( typeof a !== 'undefined' ) {
+					var latitude = a.location.latitude;
+					var longitude = a.location.longitude;
+					var zoom = a.location_zoom;
+
+					//checking if user preference is set
+					if(typeof $scope.current.user_preferences === 'object'){
+
+						//if user preference has default view
+						if(typeof $scope.current.user_preferences.default_map_views === 'object'){
+							var default_map_view = _.find($scope.current.user_preferences.default_map_views, function(view) {
+								return (view.ministry_id === $scope.current.assignment.ministry_id);
+							});
+							if(typeof default_map_view !== 'undefined'){
+								//overriding default view by user preference
+								latitude = default_map_view.location.latitude;
+								longitude = default_map_view.location.longitude;
+								zoom = default_map_view.location_zoom;
+							}
+						}
+					}
 
 					if ( a && a.hasOwnProperty( 'location' ) ) {
-						$scope.map.setCenter( new google.maps.LatLng( a.location.latitude, a.location.longitude ) );
+						$scope.map.setCenter( new google.maps.LatLng( latitude, longitude ) );
 					}
 					if ( a && a.hasOwnProperty( 'location_zoom' ) ) {
-						$scope.map.setZoom( parseInt( a.location_zoom ) );
+						$scope.map.setZoom( parseInt( zoom ) );
 					}
 				}
 			}, true );
@@ -220,6 +239,7 @@
 		}, 500 );
 
 		$scope.loadChurches = _.debounce( function () {
+			$scope.show_tree = false; //resetting show tree flag
 			if ( typeof $scope.current.assignment === 'undefined' ) return;
 
 			var bounds = $scope.map.getBounds(),
@@ -239,6 +259,7 @@
 			if ( !$scope.show_mult_church ) params['hide_mult_church'] = 'true';
 			if ( $scope.map_filter === 'everything' ) {
 				params['show_all'] = 'true';
+				$scope.show_tree = true;
 			} else if ( $scope.map_filter === 'tree' ) params['show_tree'] = 'true';
 
 			// Disable clustering at Zoom 14 and higher
@@ -537,7 +558,32 @@
 							google.maps.event.addListener( marker, 'click', (function ( training, marker ) {
 								return function () {
 									$scope.edit_training = training;
-									$scope.edit_training.editable = training.ministry_id === $scope.current.assignment.ministry_id;
+									
+									//checking if training is editable
+									$scope.edit_training.editable = false;
+
+									var parent_ids = $scope.getParentIds($scope.current.assignments, $scope.edit_training);
+
+									//if training ministry id is child or equal to parent id
+									var parent_id = _.find(parent_ids, function(id){
+										return id === $scope.current.assignment.ministry_id;
+									});
+
+									//checking if parent id is not empty
+									if(typeof parent_id !== 'undefined'){ 
+
+										//if training ministry id is same as parent id
+										if($scope.edit_training.ministry_id === parent_id){
+
+											if($scope.edit_training.created_by === $scope.current.user.person_id || isLeaderAdmin() === true){
+												$scope.edit_training.editable = true;
+											}
+
+										//case for parent ministry trying to edit(checking user role before giving permission)
+										}else if(isLeaderAdmin() === true){
+											$scope.edit_training.editable = true;
+										}
+									}
 
 									$scope.$apply();
 									$scope.trainingWindow.close();
@@ -690,7 +736,31 @@
 							if ( church.cluster_count == 1 ) {
 								$scope.edit_church = church;
 								$scope.edit_church.jf_contrib = $scope.edit_church.jf_contrib === 1; //setting boolean value to check box
-								$scope.edit_church.editable = church.ministry_id === $scope.current.assignment.ministry_id;
+
+								//checking if church is editable
+								$scope.edit_church.editable = false;
+								var parent_ids = $scope.getParentIds($scope.current.assignments, $scope.edit_church);
+
+								//if training ministry id is child or equal to parent id
+								var parent_id = _.find(parent_ids, function(id){
+									return id === $scope.current.assignment.ministry_id;
+								});
+
+								//checking if parent id is not empty
+								if(typeof parent_id !== 'undefined'){ 
+
+									//if training ministry id is same as parent id
+									if($scope.edit_church.ministry_id === parent_id){
+
+										if($scope.edit_church.created_by === $scope.current.user.person_id || isLeaderAdmin() === true){
+											$scope.edit_church.editable = true;
+										}
+
+									//case for parent ministry trying to edit(checking user role before giving permission)
+									}else if(isLeaderAdmin() === true){
+										$scope.edit_church.editable = true;
+									}
+								}
 
 								$scope.$apply();
 								$scope.churchWindow.close();
@@ -930,7 +1000,7 @@
 		};
 
 		//function deletes stages of training
-		$scope.deleteTrainingComplete = function ( training_complete , index) {
+		$scope.deleteTrainingComplete = function ( training_complete , index ) {
 			Trainings.deleteTrainingCompletion( $scope.current.sessionToken, training_complete)
 				.then(function ( data ) {
 					$scope.edit_training.gcm_training_completions.splice(index, 1);
@@ -938,6 +1008,40 @@
 				.catch(function ( error ) {
 					// Failed
 				});
+		};
+
+		//function creates array of all parent ids of ministry id including id of item to check
+		$scope.getParentIds = function ( assignments, item ){
+			var ministries = UserPreference.getFlatMinistry(assignments);
+			var ids = [];
+			ids.push(item.ministry_id);
+			parentId(item.ministry_id, ministries);
+			ids =  _.uniq(ids);
+			return ids; 
+
+			//recursive parent id fetch loop function
+			function parentId( id , ministries ){
+				angular.forEach(ministries, function(ministry){
+					if(ministry.ministry_id === id){
+						ids.push(ministry.parent_id);
+						parentId(ministry.parent_id, ministries);
+					}
+				});
+			}
+		};
+
+		//function checks whether the current user is a leader/admin for current assignment
+		function isLeaderAdmin (){
+			switch($scope.current.assignment.team_role){
+				case 'leader':
+				case 'admin':
+				case 'inherited_leader':
+				case 'inherited_admin':
+					return true;
+					break;
+			};
+
+			return false;
 		}
 	}
 
