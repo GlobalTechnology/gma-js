@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 
-	function GMACtrl( $scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics ) {
+	function GMACtrl( $scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics, UserPreference ) {
 		// Attach $location provider to scope, this is used to set active tabs
 		$scope.$location = $location;
 
@@ -29,8 +29,9 @@
 			if (typeof assignments === 'object' && typeof oldVal === 'undefined') {
 
 				if ($scope.current.hasOwnProperty('user_preferences') && typeof $scope.current.user_preferences !== 'undefined') {
+					var flat_assignments = UserPreference.getFlatMinistry(assignments);
 					//apply user preference
-					var found_assignment = _.find(assignments, function (ministry) {
+					var found_assignment = _.find(flat_assignments, function (ministry) {
 						return (ministry.ministry_id === $scope.current.user_preferences.preferred_ministry);
 					});
 
