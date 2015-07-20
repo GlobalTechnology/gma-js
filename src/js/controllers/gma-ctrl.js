@@ -46,6 +46,7 @@
 					$scope.current.assignment = $filter('orderBy')(assignments, 'name')[0];
 
 				}
+				$scope.current.ministries = flattenMinistries(assignments);
 
 			} else if (typeof assignments === 'object') {
 				if (angular.isUndefined($scope.current.assignment) || !_.contains(_.pluck(assignments, 'id'), $scope.current.assignment.id)) {

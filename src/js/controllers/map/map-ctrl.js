@@ -915,22 +915,19 @@
 		};
 
 		$scope.setMinistryDefaultView = function(){
-			var center = $scope.map.getCenter(),
-				zoom = $scope.map.getZoom();
+			var center = $scope.map.getCenter();
 
-			// Update current assignment location/zoom
-			$scope.current.assignment.location = {
+			var location = {
 				latitude:  center.lat(),
 				longitude: center.lng()
 			};
-			$scope.current.assignment.location_zoom = zoom;
 
 			// Save changes to API
 			Ministries.updateMinistry( {
 				ministry_id:   $scope.current.assignment.ministry_id,
 				min_code:      $scope.current.assignment.min_code.trim(),
-				location:      $scope.current.assignment.location,
-				location_zoom: $scope.current.assignment.location_zoom
+				location:      location,
+				location_zoom: $scope.map.getZoom()
 			} );
 		};
 
