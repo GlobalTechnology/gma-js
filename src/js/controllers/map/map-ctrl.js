@@ -170,11 +170,18 @@
 
 			if ( $scope.current.assignment )$scope.load_training_markers();
 
-			$scope.$watch( 'current.assignment', function ( a, oldVal ) {
-				if ( typeof a !== 'undefined' ) {
-					var latitude = a.location.latitude;
-					var longitude = a.location.longitude;
-					var zoom = a.location_zoom;
+			$scope.$watch( 'current.assignment', function ( assignment, oldVal ) {
+				if ( typeof assignment !== 'undefined') {
+					//set default, be fail safe
+					var latitude, longitude, zoom;
+
+					if ( assignment && assignment.hasOwnProperty( 'location' ) ) {
+						latitude = assignment.location.latitude;
+						longitude = assignment.location.longitude;
+					}
+					if ( assignment && assignment.hasOwnProperty( 'location_zoom' ) ) {
+						zoom = assignment.location_zoom;
+					}
 
 					//checking if user preference is set
 					if(typeof $scope.current.user_preferences === 'object'){
@@ -193,12 +200,12 @@
 						}
 					}
 
-					if ( a && a.hasOwnProperty( 'location' ) ) {
+					//lastly set map view
+					if(typeof latitude !== 'undefined' && typeof longitude !== 'undefined' && typeof zoom !== 'undefined'){
 						$scope.map.setCenter( new google.maps.LatLng( latitude, longitude ) );
-					}
-					if ( a && a.hasOwnProperty( 'location_zoom' ) ) {
 						$scope.map.setZoom( parseInt( zoom ) );
 					}
+
 				}
 			}, true );
 		}
