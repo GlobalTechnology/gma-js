@@ -85,9 +85,9 @@
 							} else {
 								//check for admin preferences
 								var admin_mcc = _.find(assignment.mccs, function (mcc) {
-									return (mcc === $scope.current.assignment.preferred_mcc);
+									return (mcc === $scope.current.assignment.default_mcc);
 								});
-								if (typeof admin_mcc !== 'undefined' || typeof admin_mcc !== '') {
+								if (typeof admin_mcc !== 'undefined' || admin_mcc !== '') {
 									$scope.current.mcc = admin_mcc;
 								} else {
 									//if admin preferences not found then use fist one
