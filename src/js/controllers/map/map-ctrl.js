@@ -662,7 +662,7 @@
 					var marker = {};
 
 					if ( church.cluster_count == 1 ) {
-						var churchIconToUse = {}
+						var churchIconToUse = {};
 						if ( church.development == 5 ) {
 							churchIconToUse = $scope.map.icons.multiplying;
 						}
@@ -742,7 +742,7 @@
 
 							if ( church.cluster_count == 1 ) {
 								$scope.edit_church = church;
-								$scope.edit_church.jf_contrib = $scope.edit_church.jf_contrib === 1; //setting boolean value to check box
+								$scope.edit_church.jf_contrib = ($scope.edit_church.jf_contrib >= 1 ); //setting boolean value to check box
 
 								//checking if church is editable
 								$scope.edit_church.editable = false;
