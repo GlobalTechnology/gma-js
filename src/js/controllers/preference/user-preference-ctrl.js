@@ -9,9 +9,9 @@
             hide_reports_tab: "1"
         };
 
-        $scope.ministries = UserPreference.getFlatMinistry($rootScope.current.assignments);
+        $scope.ministries = _.sortBy(UserPreference.getFlatMinistry($rootScope.current.assignments),'name');
         $scope.options = $rootScope.current.user_preferences;
-        $scope.mccs = UserPreference.getMappedMCCS($rootScope.current.assignment.mccs, modelData.mccLabels);
+        $scope.mccs = _.sortBy(UserPreference.getMappedMCCS($rootScope.current.assignment.mccs, modelData.mccLabels),'mccLabel');
 
         $scope.savePreference = function (options) {
 
@@ -34,7 +34,7 @@
                 return (mini.ministry_id === ministry_id);
             });
             if(typeof ministry !== 'undefined') {
-                $scope.mccs = UserPreference.getMappedMCCS(ministry.mccs, modelData.mccLabels);
+                $scope.mccs = _.sortBy(UserPreference.getMappedMCCS(ministry.mccs, modelData.mccLabels),'mccLabel');
                 //additional check if there is no mccs then default_mcc should be empty in every case
                 if(_.size($scope.mccs)==0){
                     $scope.options.preferred_mcc="";
