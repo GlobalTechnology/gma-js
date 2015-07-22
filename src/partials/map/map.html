@@ -22,48 +22,48 @@
 		<tbody>
 		<tr ng-if="current.mcc == 'gcm'">
 			<td>
-				<input type="checkbox" class="church_development_checkbox" ng-model="$parent.show_target_point" development="1" ng-change="loadChurches()">
+				<input type="checkbox" id="targetPointCheckBox" class="church_development_checkbox" ng-model="$parent.show_target_point" development="1" ng-change="loadChurches()">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/target.png')}}"></td>
-			<td>Target point</td>
+			<td><label for="targetPointCheckBox">Target point</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
 			<td>
-				<input type="checkbox" class="church_development_checkbox" ng-model="$parent.show_group" development="2" ng-change="loadChurches()">
+				<input type="checkbox" id="groupPeopleCheckBox" class="church_development_checkbox" ng-model="$parent.show_group" development="2" ng-change="loadChurches()">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/group.png')}}"></td>
-			<td>Group</td>
+			<td><label for="groupPeopleCheckBox">Group</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
 			<td>
-				<input type="checkbox" class="church_development_checkbox" ng-model="$parent.show_church" development="3" ng-change="loadChurches()">
+				<input type="checkbox" id="churchOrCummunityCheckBox" class="church_development_checkbox" ng-model="$parent.show_church" development="3" ng-change="loadChurches()">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/church.png')}}"></td>
-			<td>Church or community of disciples</td>
+			<td><label for="churchOrCummunityCheckBox">Church or community of disciples</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
 			<td>
-				<input type="checkbox" class="church_development_checkbox" ng-model="$parent.show_mult_church" development="5" ng-change="loadChurches()">
+				<input type="checkbox" id="multiplyingChurchCheckBox" class="church_development_checkbox" ng-model="$parent.show_mult_church" development="5" ng-change="loadChurches()">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/multiplying.png')}}">
 			</td>
-			<td>Multiplying church or community of disciples</td>
+			<td><label for="multiplyingChurchCheckBox">Multiplying church or community of disciples</label></td>
 		</tr>
 
 		<tr>
 			<td>
-				<input type="checkbox" class="church_development_checkbox" ng-model="show.training">
+				<input type="checkbox" id="trainingActivityCheckBox" class="church_development_checkbox" ng-model="show.training">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/training.png')}}"></td>
-			<td>Training activity</td>
+			<td><label for="trainingActivityCheckBox">Training activity</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
@@ -71,7 +71,7 @@
 			<td style="text-align:center; padding:2px 12px">
 				<div style="display:inline-block; font-size:10px; font-weight:bold; border:1px solid #2a6800; padding:0px 3px; background-color:yellow; color:black">1</div>
 			</td>
-			<td>Jesus Film contribution</td>
+			<td><label for="jesusFilmCheckBox">Jesus Film contribution</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
@@ -79,7 +79,7 @@
 			<td style="text-align:center; padding:2px 12px">
 				<div style="display:inline-block; width:14px; height:2px;  background-color:grey"></div>
 			</td>
-			<td>Parent lines</td>
+			<td><label for="parentLineCheckBox">Parent lines</label></td>
 		</tr>
 
 		</tbody>
@@ -125,6 +125,3 @@
 		</div>
 	</div>
 </div>
-<style>
-
-</style>
