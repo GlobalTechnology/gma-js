@@ -5,6 +5,8 @@
 		$scope.current.isLoaded = false;
 
 		$scope.roles = [
+			{value: "admin", text: 'Admin'},
+			{value: "inherited_admin", text: 'Admin (inherited)'},
 			{value: "leader", text: 'Leader'},
 			{value: "inherited_leader", text: "Leader (inherited)"},
 			{value: "member", text: 'Member'},

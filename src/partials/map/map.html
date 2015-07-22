@@ -113,7 +113,7 @@
 	<hr style="margin:8px 0">
 	<div>
 		<button type="button" class="btn btn-default btn-block btn-sm" ng-click="setMyDefaultMapView()">Set as my Ministry Default View</button>
-		<button type="button" class="btn btn-default btn-block btn-sm" ng-click="setMinistryDefaultView()" ng-if="current.hasRole(['leader', 'inherited_leader'])">Set Ministry Default View for others</button>
+		<button type="button" class="btn btn-default btn-block btn-sm" ng-click="setMinistryDefaultView()" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">Set Ministry Default View for others</button>
 	</div>
 </div>
 

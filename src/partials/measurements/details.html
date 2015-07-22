@@ -28,7 +28,7 @@
 						  ng-class="{'glyphicon-triangle-left': !localToggle, 'glyphicon-triangle-bottom': localToggle}">
 					</span>
 			</legend>
-			<div ng-if="current.hasRole(['leader', 'inherited_leader'])">
+			<div ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">
 				<div class="form-group" ng-class="{'has-error': !editForm.local.$valid}">
 					<label class="col-xs-5 control-label">Local</label>
 
@@ -70,7 +70,7 @@
 				</div>
 			</div>
 			<div ng-show="teamToggle">
-				<div class="form-group" ng-repeat="member in details.team" ng-if="current.hasRole(['leader', 'inherited_leader'])">
+				<div class="form-group" ng-repeat="member in details.team" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">
 					<label class="col-xs-5 control-label">{{member.last_name}}, {{member.first_name}}</label>
 
 					<div class="col-xs-7">
@@ -99,7 +99,7 @@
 		</fieldset>
 
 		<!-- Self Assigned -->
-		<fieldset ng-init="selfToggle=false" ng-if="current.hasRole(['leader', 'inherited_leader']) && details.self_assigned.length > 0">
+		<fieldset ng-init="selfToggle=false" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader']) && details.self_assigned.length > 0">
 			<legend class="pointer" ng-click="selfToggle=!selfToggle">Self Assigned Members (not yet approved)
 					<span class="glyphicon pull-right"
 						  ng-class="{'glyphicon-triangle-left': !selfToggle, 'glyphicon-triangle-bottom': selfToggle}">

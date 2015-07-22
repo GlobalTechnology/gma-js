@@ -49,7 +49,7 @@
 							path:          '/map',
 							templateUrl:   'partials/map/map.html',
 							controller:    'MapCtrl',
-							requiredRoles: ['self_assigned', 'member', 'inherited_leader', 'leader']
+							requiredRoles: ['admin','inherited_admin','self_assigned', 'member', 'inherited_leader', 'leader']
 						} );
 						break;
 					case 'measurements':
@@ -58,7 +58,7 @@
 							path:          '/measurements',
 							templateUrl:   'partials/measurements/measurements.html',
 							controller:    'MeasurementsCtrl',
-							requiredRoles: ['self_assigned', 'member', 'inherited_leader', 'leader']
+							requiredRoles: ['admin','inherited_admin','self_assigned', 'member', 'inherited_leader', 'leader']
 						} );
 						break;
 					case 'reports':
@@ -67,7 +67,7 @@
 							path:          '/reports',
 							templateUrl:   'partials/reports/reports.html',
 							controller:    'ReportsCtrl',
-							requiredRoles: ['inherited_leader', 'leader']
+							requiredRoles: ['admin','inherited_admin','inherited_leader', 'leader']
 						} );
 						break;
 					case 'admin':
@@ -76,7 +76,7 @@
 							path:          '/admin',
 							templateUrl:   'partials/admin/admin.html',
 							controller:    'AdminCtrl',
-							requiredRoles: ['leader', 'inherited_leader']
+							requiredRoles: ['admin','inherited_admin','leader', 'inherited_leader']
 						} );
 						break;
 				}

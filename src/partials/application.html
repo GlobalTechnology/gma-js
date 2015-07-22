@@ -58,7 +58,11 @@
 				<ul class="nav navbar-nav navbar-right" ng-if="current.user">
 					<li class="dropdown" dropdown>
 						<a href class="dropdown-toggle" dropdown-toggle role="button" aria-expanded="false">
-							{{current.user.cas_username}} <span class="caret"></span>
+							<span class="top-user-info pull-left">
+								<span class="top-user-name">{{current.user.cas_username}}</span>
+								<span class="top-user-role small">{{getCurrentUserRole(current.assignment.team_role)}}</span>
+							</span>
+							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="javascript:void(0)" ng-click="showUserPreference()"><i class="glyphicon glyphicon-cog"></i> My Preferences</a></li>

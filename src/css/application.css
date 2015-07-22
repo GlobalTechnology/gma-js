@@ -327,3 +327,20 @@ td.no-overflow:hover{
 	word-wrap: break-word;
 
 }
+/* add user role to top */
+.top-user-info {
+    margin-right: 5px;
+	margin-top: -4px;
+}
+
+.top-user-name {
+    display: block;
+    text-align: right;
+    margin-top: -5px;
+}
+
+.top-user-role {
+    display: block;
+    text-align: right;
+    margin: 0;
+}

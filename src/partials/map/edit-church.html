@@ -62,7 +62,7 @@
 					</select>
 				</td>
 			</tr>
-			<tr ng-if="edit_church.editable && current.hasRole(['leader', 'inherited_leader'])">
+			<tr ng-if="edit_church.editable && current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">
 				<td><b>Ministry:</b></td>
 				<td>
 					<select

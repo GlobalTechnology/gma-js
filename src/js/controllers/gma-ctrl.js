@@ -285,6 +285,14 @@
 			return ($scope.current.user_preferences.hide_reports_tab !== '1');
 
 		};
+		/*this one is to show user role on top navigation*/
+		$scope.getCurrentUserRole = function(role){
+			if (typeof role === 'undefined') return;
+			//capitalize first latter
+			var final = role.charAt(0).toUpperCase() + role.slice(1);
+			//replace _ with space
+			return final.replace('_',' ');
+		}
 
 	}
 
