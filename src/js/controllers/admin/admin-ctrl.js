@@ -189,12 +189,16 @@
 			//all tab urls
 			$scope.adminTabTemplates = [
 				{
-					url : 'partials/admin/_ministry.html',
-					name : 'ministry'
+					url : 'partials/admin/_team-members.html',
+					name : 'team-members'
 				},
 				{
-					url : 'partials/admin/_edit.html',
-					name : 'edit'
+					url : 'partials/admin/_sub-ministry.html',
+					name : 'sub-ministry'
+				},
+				{
+					url : 'partials/admin/_edit-ministry.html',
+					name : 'edit-ministry'
 				},
 				{
 					url : 'partials/admin/_measurement.html',
@@ -210,15 +214,12 @@
 		$scope.selectTab = function (tab) {
 			$scope.pill = tab;
 			if(typeof tab === 'undefined'){
-				$scope.pill = 'ministry';
+				$scope.pill = 'team-members';
 			}
 
 			//selecting current tab view
 			$scope.adminTabTemplate = _.find($scope.adminTabTemplates, function (template){
-				if(template.name === tab){
-					return true;
-				}
-				return false;
+				return (template.name === tab);
 			});
 		};
 

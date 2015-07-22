@@ -37,19 +37,3 @@
 		</div>
 	</div>
 </div>
-
-<div class="admin-item">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addSubMinistry()">Add Sub Ministry</button>
-			<h3 class="panel-title">Child Ministries / Sub Teams</h3>
-
-			<div class="clearfix"></div>
-		</div>
-		<div class="panel-body">
-			<div ng-repeat="min in current.assignment.sub_ministries">
-				<a href ng-click="current.assignment = min">{{min.name}}</a>
-			</div>
-		</div>
-	</div>
-</div>
