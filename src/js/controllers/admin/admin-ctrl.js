@@ -178,50 +178,66 @@
 				} );
 		};
 
-		//function initializes tab of admin section
-		$scope.initTabs = function (tab) {
-			//selecting default tab
-			$scope.pill = tab;
-			if(typeof tab === 'undefined'){
-				$scope.pill = 'ministry';
+		//function initializes sub-tabs of admin section
+		$scope.initSubTabs = function () {
+
+			//load all tab urls to scope
+			$scope.adminTabTemplates = getAdminSubTabTemplates();
+
+			//this is the default pill
+			if (typeof $scope.activePill === 'undefined') {
+				$scope.activePill = 'team-members';
 			}
-
-			//all tab urls
-			$scope.adminTabTemplates = [
-				{
-					url : 'partials/admin/_team-members.html',
-					name : 'team-members'
-				},
-				{
-					url : 'partials/admin/_sub-ministry.html',
-					name : 'sub-ministry'
-				},
-				{
-					url : 'partials/admin/_edit-ministry.html',
-					name : 'edit-ministry'
-				},
-				{
-					url : 'partials/admin/_measurement.html',
-					name : 'measurement'
-				}
-			];
-
-			//selecting current view to include
-			$scope.selectTab($scope.pill);
+			//selecting current view for very first time
+			$scope.selectTab($scope.activePill);
 		};
 
-		//function selects tab for admin section 
+		//function selects current sub-tab for admin section
 		$scope.selectTab = function (tab) {
-			$scope.pill = tab;
-			if(typeof tab === 'undefined'){
-				$scope.pill = 'team-members';
+
+			$scope.activePill = tab;
+
+			if (typeof tab === 'undefined') {
+				$scope.activePill = 'team-members';
 			}
 
 			//selecting current tab view
-			$scope.adminTabTemplate = _.find($scope.adminTabTemplates, function (template){
+			$scope.currentAdminTab = _.find(getAdminSubTabTemplates(), function (template) {
 				return (template.name === tab);
 			});
 		};
+
+		var getAdminSubTabTemplates = function () {
+
+			return [
+				{
+					url: 'partials/admin/_team-members.html',
+					name: 'team-members',
+					label: 'Team Members',
+					requiredRoles: ['admin', 'inherited_admin', 'leader', 'inherited_leader']
+				},
+				{
+					url: 'partials/admin/_sub-ministry.html',
+					name: 'sub-ministry',
+					label: 'Sub Teams/Ministries',
+					requiredRoles: ['admin', 'inherited_admin']
+
+				},
+				{
+					url: 'partials/admin/_edit-ministry.html',
+					name: 'edit-ministry',
+					label: 'Edit Ministry',
+					requiredRoles: ['admin', 'inherited_admin']
+				},
+				{
+					url: 'partials/admin/_measurement.html',
+					name: 'measurement',
+					label: 'Manage Measurements',
+					requiredRoles: ['admin', 'inherited_admin']
+				}
+			];
+		}
+
 
 	}
 	angular.module( 'gma.controllers.admin' ).controller( 'AdminCtrl', AdminCtrl );

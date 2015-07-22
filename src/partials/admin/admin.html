@@ -1,10 +1,6 @@
-﻿<div ng-show="current.isLoaded">
-	<div ng-if="current.isLoaded"><span ng-init="setMinistries()"></span></div>
-	<ul class="nav nav-pills" ng-init="initTabs('team-members')">
-  		<li role="presentation" ng-click="selectTab('team-members')" ng-class="{active: pill === 'team-members'}"><a href="javascript:void(0)">Team Members</a></li>
-  		<li role="presentation" ng-click="selectTab('sub-ministry')" ng-class="{active: pill === 'sub-ministry'}"><a href="javascript:void(0)">Sub Teams/Ministries</a></li>
-  		<li role="presentation" ng-click="selectTab('edit-ministry')" ng-class="{active: pill === 'edit-ministry'}"><a href="javascript:void(0)">Edit Ministry</a></li>
-  		<li role="presentation" ng-click="selectTab('measurement')" ng-class="{active: pill === 'measurement'}"><a href="javascript:void(0)">Manage Measurements</a></li>
+﻿<div ng-if="current.isLoaded">
+	<ul class="nav nav-pills" ng-init="initSubTabs()">
+		<li ng-repeat="tab in adminTabTemplates" ng-if="current.hasRole(tab.requiredRoles)" ng-click="selectTab(tab.name)" role="presentation" ng-class="{active: activePill === tab.name}"><a href="javascript:void(0)">{{tab.label}}</a></li>
 	</ul>
-	<div ng-include="adminTabTemplate.url"></div>
+	<div ng-include="currentAdminTab.url"></div>
 </div>
