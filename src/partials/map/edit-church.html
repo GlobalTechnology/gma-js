@@ -68,7 +68,7 @@
 					<select
 						class="form-control input-sm"
 						ng-model="edit_church.ministry_id"
-						ng-options="m.ministry_id as m.name for m in current.ministries | roleFilter:['leader','inherited_leader'] | orderBy:'name'">
+						ng-options="m.ministry_id as m.name for m in current.ministries | roleFilter:['admin','inherited_admin','leader','inherited_leader'] | orderBy:'name'">
 					</select>
 				</td>
 			</tr>

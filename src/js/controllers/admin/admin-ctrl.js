@@ -61,7 +61,7 @@
 		};
 
 		$scope.ableToChangeParentMinistry = function ( parentToFind ) {
-			var availableMinIds = _.pluck( $filter( 'roleFilter' )( $scope.current.ministries, ['leader', 'inherited_leader'] ), 'ministry_id' )
+			var availableMinIds = _.pluck( $filter( 'roleFilter' )( $scope.current.ministries, ['admin','inherited_admin','leader', 'inherited_leader'] ), 'ministry_id' );
 			return _.contains( availableMinIds, parentToFind );
 		};
 

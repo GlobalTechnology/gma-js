@@ -24,7 +24,7 @@
 						name="prent"
 						class="form-control"
 						ng-model="ministry.parent_id"
-						ng-options="m.ministry_id as m.name for m in current.ministries | roleFilter:['leader','inherited_leader'] | orderBy:'name'">
+						ng-options="m.ministry_id as m.name for m in current.ministries | roleFilter:['admin','inherited_admin','leader','inherited_leader'] | orderBy:'name'">
 						<option value="">No Parent Ministry</option>
 					</select>
 				</div>
