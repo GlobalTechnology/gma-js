@@ -1,39 +1,50 @@
- <div class="admin-item">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addTeamMember()">Add Team Member</button>
-			<div class="row">
-				<div class="col-xs-4"><h3 class="panel-title">Team Members</h3></div>
-				<div class="col-xs-4"><label><input type="checkbox" ng-model="includeBlocked"> Include Deleted</label></div>
-			</div>
+<div class="admin-item" ng-init="initTeamAndMembers();">
+	 <section class="row breadcrumbs-nav">
+		 <div class="pull-left form-inline">
 
-			<div class="clearfix"></div>
-		</div>
-		<div class="panel-body">
-			<table class="table table-striped">
-				<thead>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Role</th>
-					<th></th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr ng-repeat="staff in ministry.team_members | filter:memberFilter | orderBy:['first_name', 'last_name']" ng-if="current.user.person_id !== staff.person_id">
-					<td>{{staff.first_name}}</td>
-					<td>{{staff.last_name}}</td>
-					<td>
-						<select class="form-control" style="width: 150px;" ng-model="staff.team_role" ng-options="r.value as r.text for r in roles" ng-disabled="!staff.editMode"></select>
-					</td>
-					<td>
-						<a href ng-click="staff.editMode=true; staff.orig_role=staff.team_role;" ng-show="!staff.editMode">Edit</a>
-						<a href ng-click="staff.editMode=false; saveRole(staff);" ng-show="staff.editMode">Save</a>
-						<a href ng-click="staff.editMode=false; staff.team_role=staff.orig_role" ng-show="staff.editMode">Cancel</a>
-					</td>
-				</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
+			 <input type="text" ng-model="filter.memberSearch" placeholder="Search Members.." class="form-control">&emsp;
+
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.deletedUser"> Deleted</label>
+
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedLeader"> Inherited Leaders</label>
+
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedAdmin"> Inherited Admins</label>
+
+		 </div>
+		 <button class="btn btn-primary btn-sm pull-right" type="button" ng-click="addNewTeamMember()">Add new member</button></section>
+	 <section class="row">
+		 <aside class="col-md-3 pull-left teams-list">
+			 <script type="text/ng-template" id="teamsTree.html">
+					 <li ng-repeat="team in teams">
+						 <span ng-init="teamCollapsed = false" ng-class="{'active' : (activeTeamMinistryId === team.ministry_id)}" ng-click="teamCollapsed = !teamCollapsed; setActiveTeam(team)">
+							 <i class="glyphicon" ng-class="{'glyphicon-asterisk' : (!team.sub_ministries.length || team.sub_ministries.length == 0), 'glyphicon-triangle-right' : (teamCollapsed == true && (team.sub_ministries.length || team.sub_ministries.length >= 0)), 'glyphicon-triangle-bottom' : (teamCollapsed == false && (team.sub_ministries.length || team.sub_ministries.length >= 0))}"></i>
+							 {{team.name}}</span>
+						<ul collapse="teamCollapsed" ng-include="'teamsTree.html'" onload="teams = team.sub_ministries"></ul>
+					 </li>
+			 </script>
+			<ul ng-include="'teamsTree.html'" onload="teams = allCurrentTeams"></ul>
+
+		 </aside><!-- .teams-list -->
+
+		 <aside class="col-md-9 pull-right members-list">
+
+			 <div ng-include="'partials/spinner.html'" ng-hide="membersLoaded"></div>
+
+			 <table class="table table-striped table-hover members-table" ng-hide="!membersLoaded">
+				 <thead>
+				 <tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Actions</th></tr>
+				 </thead>
+				 <tbody>
+				 <tr ng-repeat="staff in activeTeamMembers | orderBy:['first_name', 'last_name'] | filter:filter.checkAdmin | filter : filter.checkLeader | filter:filter.checkDeleted | filter : filter.memberSearch" ng-if="current.user.person_id !== staff.person_id"  ng-class="{'danger':(staff.team_role==='blocked')}">
+					 <td>{{staff.first_name}}</td>
+					 <td>{{staff.last_name}}</td>
+					 <td>{{staff.key_username}}</td>
+					 <td class="text-center">
+						 <select ng-change="updateUserRole('{{staff.team_role}}',staff)" class="form-control input-sm" style="width: 150px;" ng-model="staff.team_role" ng-options="r.value as r.text for r in roles"></select>
+					 </td>
+				 </tr>
+				 </tbody>
+			 </table>
+		 </aside>
+	 </section>
+ </div>

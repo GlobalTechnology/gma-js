@@ -54,46 +54,10 @@
 			} );
 		} );
 
-		$scope.saveRole = function ( assignment ) {
-			Assignments.saveAssignment( {
-				assignment_id: assignment.assignment_id
-			}, {team_role: assignment.team_role} );
-		};
 
 		$scope.ableToChangeParentMinistry = function ( parentToFind ) {
 			var availableMinIds = _.pluck( $filter( 'roleFilter' )( $scope.current.ministries, ['admin','inherited_admin','leader', 'inherited_leader'] ), 'ministry_id' );
 			return _.contains( availableMinIds, parentToFind );
-		};
-
-		$scope.memberFilter = function ( value ) {
-			return $scope.includeBlocked ? true : value.team_role != 'blocked';
-		};
-
-		$scope.addTeamMember = function () {
-			$modal.open( {
-				templateUrl: 'partials/admin/add-team-member.html',
-				controller:  function ( $scope, $modalInstance, roles ) {
-					$scope.roles = roles;
-
-					$scope.close = function () {
-						$modalInstance.dismiss();
-					};
-
-					$scope.add = function () {
-						$modalInstance.close( $scope.newMember );
-					};
-				},
-				resolve:     {
-					'roles': function () {
-						return $scope.roles;
-					}
-				}
-			} ).result.then( function ( newMember ) {
-					newMember.ministry_id = $scope.current.assignment.ministry_id;
-					Assignments.addTeamMember( newMember, function () {
-						$scope.ministry = Ministries.getMinistry( {ministry_id: $scope.current.assignment.ministry_id} );
-					} );
-				} );
 		};
 
 		$scope.addSubMinistry = function () {
@@ -236,8 +200,139 @@
 					requiredRoles: ['admin', 'inherited_admin']
 				}
 			];
-		}
+		};
 
+		$scope.initTeamAndMembers = function () {
+			$scope.allCurrentTeams = [];
+			$scope.allCurrentTeams.push($scope.current.assignment);
+			$scope.activeTeamMembers = $scope.ministry.team_members;
+			//first time init
+			$scope.activeTeamMinistryId= $scope.current.assignment.ministry_id;
+			$scope.membersLoaded = true;
+		};
+
+		$scope.setActiveTeam = function (team) {
+			//prevent ajax request if clicked team is already active
+			if ($scope.activeTeamMinistryId===team.ministry_id) {
+				return false;
+			}
+
+			$scope.activeTeamMinistryId = team.ministry_id;
+			$scope.membersLoaded = false;
+			//pull down the selected ministry team members, and update scope
+			Ministries.getMinistry({ministry_id: team.ministry_id}, function (response) {
+				$scope.activeTeamMembers = response.team_members;
+				$scope.membersLoaded = true;
+			});
+
+		};
+
+		$scope.filter = {
+			memberSearch: '',
+			inheritedLeader: true,
+			inheritedAdmin: true,
+			deletedUser: true,
+			checkDeleted: function (item) {
+				return $scope.filter.deletedUser ? true : item.team_role != 'blocked';
+			},
+			checkLeader: function (item) {
+				return $scope.filter.inheritedLeader ? true : item.team_role != 'inherited_leader';
+			},
+			checkAdmin: function (item) {
+				return $scope.filter.inheritedAdmin ? true : item.team_role != 'inherited_admin';
+			}
+
+		};
+
+		$scope.addNewTeamMember = function () {
+			$modal.open({
+				templateUrl: 'partials/admin/add-team-member.html',
+				controller: function ($scope, $modalInstance, roles) {
+					$scope.roles = roles;
+
+					$scope.close = function () {
+						$modalInstance.dismiss();
+					};
+
+					$scope.add = function () {
+						$modalInstance.close($scope.newMember);
+					};
+				},
+				resolve: {
+					'roles': function () {
+						return $scope.roles;
+					}
+				}
+			}).result.then(function (newMember) {
+					newMember.ministry_id = $scope.activeTeamMinistryId;
+					Assignments.addTeamMember(newMember, function () {
+						Ministries.getMinistry({ministry_id: $scope.activeTeamMinistryId}, function (response) {
+							$scope.activeTeamMembers = response.team_members;
+						});
+					});
+				});
+			window.setTimeout( function () {
+				window.parent.scrollTo( 0, 0 );
+			}, 10 );
+		};
+
+		$scope.updateUserRole = function (old_role, user) {
+			//prevent
+			console.log(old_role);
+			if (old_role === user.team_role) return false;
+
+			$modal.open({
+				animation: false,
+				backdrop: false,
+				templateUrl: 'partials/admin/confirm-update-role.html',
+				controller: function ($scope, $modalInstance, userInfo) {
+					$scope.userInfo = userInfo;
+					$scope.choice = 0;
+
+					$scope.no = function () {
+						$modalInstance.close($scope.choice);
+					};
+
+					$scope.yes = function () {
+						$modalInstance.close($scope.choice);
+					};
+					$scope.getRoleName = function (role) {
+						if (typeof role === 'undefined') return;
+						return role.charAt(0).toUpperCase() + role.slice(1).replace('_', ' ');
+					}
+				},
+				resolve: {
+					'userInfo': function () {
+						return {
+							old_role: old_role,
+							user: user
+						};
+					}
+				}
+			}).result.then(function (choice) {
+					if (choice === 1) {
+						//update user role
+						Assignments.saveAssignment({assignment_id: user.assignment_id}, {team_role: user.team_role}, function () {
+							//success so update old_role
+							console.log('updated');
+							old_role = user.team_role;
+
+						}, function () {
+							//failed so restore
+							user.team_role = old_role;
+						});
+					} else {
+						//restore user role
+						user.team_role = old_role;
+					}
+
+				});
+
+			window.setTimeout( function () {
+				window.parent.scrollTo( 0, 0 );
+			}, 10 );
+
+		};
 
 	}
 	angular.module( 'gma.controllers.admin' ).controller( 'AdminCtrl', AdminCtrl );

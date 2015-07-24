@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="choice =0; no()">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title">Update Team Member Role ?</h4>
+</div>
+<div class="modal-body form-horizontal">
+    <ul class="list-unstyled">
+        <li>Member: {{userInfo.user.first_name + ' ' + userInfo.user.last_name}}</li>
+        <li>Old Role: {{getRoleName(userInfo.old_role)}}</li>
+        <li>New Role: {{getRoleName(userInfo.user.team_role)}}</li>
+    </ul>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="choice =0; no()"> No</button>
+    <button type="button" class="btn btn-primary" ng-click="choice =1; yes()"> Yes</button>
+</div>
+
