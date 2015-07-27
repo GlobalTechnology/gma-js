@@ -289,9 +289,7 @@
 		$scope.getCurrentUserRole = function(role){
 			if (typeof role === 'undefined') return;
 			//capitalize first latter
-			var final = role.charAt(0).toUpperCase() + role.slice(1);
-			//replace _ with space
-			return final.replace('_',' ');
+			return role.charAt(0).toUpperCase() + role.slice(1).replace('_',' ');
 		}
 
 	}

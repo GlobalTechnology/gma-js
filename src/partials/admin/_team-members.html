@@ -1,4 +1,4 @@
-<div class="admin-item" ng-init="initTeamAndMembers();">
+<div class="admin-item" ng-controller="TeamMembersCtrl" ng-init="initTeamAndMembers();">
 	 <section class="row breadcrumbs-nav">
 		 <div class="pull-left form-inline">
 
@@ -11,12 +11,16 @@
 			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedAdmin"> Inherited Admins</label>
 
 		 </div>
-		 <button class="btn btn-primary btn-sm pull-right" type="button" ng-click="addNewTeamMember()">Add new member</button></section>
+		 <div class="pull-right">
+			 <button class="btn btn-primary btn-sm" type="button" ng-click="addNewTeamMember()"><i class="glyphicon glyphicon-user"></i> Add Member</button>
+			 <button class="btn btn-primary btn-sm" type="button" ng-click="addNewSubMinistry()"><i class="glyphicon glyphicon-plus"></i> Add Sub Ministry</button>
+		 </div>
+	 </section>
 	 <section class="row">
 		 <aside class="col-md-3 pull-left teams-list">
 			 <script type="text/ng-template" id="teamsTree.html">
 					 <li ng-repeat="team in teams">
-						 <span ng-init="teamCollapsed = false" ng-class="{'active' : (activeTeamMinistryId === team.ministry_id)}" ng-click="teamCollapsed = !teamCollapsed; setActiveTeam(team)">
+						 <span ng-init="teamCollapsed = false" ng-class="{'active' : (activeTeam.ministry_id === team.ministry_id)}" ng-click="teamCollapsed = !teamCollapsed; setActiveTeam(team)">
 							 <i class="glyphicon" ng-class="{'glyphicon-asterisk' : (!team.sub_ministries.length || team.sub_ministries.length == 0), 'glyphicon-triangle-right' : (teamCollapsed == true && (team.sub_ministries.length || team.sub_ministries.length >= 0)), 'glyphicon-triangle-bottom' : (teamCollapsed == false && (team.sub_ministries.length || team.sub_ministries.length >= 0))}"></i>
 							 {{team.name}}</span>
 						<ul collapse="teamCollapsed" ng-include="'teamsTree.html'" onload="teams = team.sub_ministries"></ul>
