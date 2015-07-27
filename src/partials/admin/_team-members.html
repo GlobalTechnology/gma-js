@@ -44,7 +44,7 @@
 					 <td>{{staff.last_name}}</td>
 					 <td>{{staff.key_username}}</td>
 					 <td class="text-center">
-						 <select ng-change="updateUserRole('{{staff.team_role}}',staff)" class="form-control input-sm" style="width: 150px;" ng-model="staff.team_role" ng-options="r.value as r.text for r in roles"></select>
+						 <select ng-change="updateUserRole('{{staff.team_role}}',staff)" class="form-control input-sm" style="width: 150px;" ng-model="staff.team_role" ng-options="r.value as r.text for r in roles" ng-disabled="'{{staff.team_role}}'==='inherited_admin' || '{{staff.team_role}}'==='inherited_leader'"></select>
 					 </td>
 				 </tr>
 				 </tbody>
