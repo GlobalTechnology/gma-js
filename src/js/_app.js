@@ -7,6 +7,7 @@
 		'gma.controllers',
 		'gma.directives',
 		'gma.filters',
-		'gma.services'
+		'gma.services',
+		'ngDragDrop'
 	] );
 })( angular );

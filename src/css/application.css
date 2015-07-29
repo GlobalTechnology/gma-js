@@ -379,7 +379,7 @@ td.no-overflow:hover{
 	vertical-align: top;
 }
 
-.teams-list ul li span {
+.teams-list ul li span.outer {
 	padding: 4px 8px;
 	display: block;
 	cursor: pointer;
@@ -388,17 +388,20 @@ td.no-overflow:hover{
 	margin: 2px 0;
 }
 
-.teams-list ul > li > span:hover {
+.teams-list ul > li > span.outer:hover {
 	background: rgb(209, 209, 209);
 	transition: background 0.3s ease;
 }
 
-.teams-list ul > li span.active {
+.teams-list ul > li span.outer.active {
 	background: #337ab7;
 	color: white;
 }
+.teams-list ul > li span.active:hover{
+	box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
 
-.teams-list ul > li > span > i {
+.teams-list ul > li > span.outer > i {
 	margin-right: 5px;
 	vertical-align: middle;
 }
@@ -408,4 +411,43 @@ td.no-overflow:hover{
 }
 .members-table tbody tr td{
 	vertical-align: middle;
+}
+/* drag and drop */
+.ui-draggable:not(.ui-draggable-disabled){
+	cursor: pointer;
+}
+
+.drag-member {
+	background: #f5f5f5;
+	border: 1px solid #ccc;
+	box-shadow: 0 4px 8px rgba(33, 33, 33, 0.5);
+	cursor: pointer;
+	opacity: 0.9;
+}
+.drag-member td{
+	padding: 5px;
+	border-right: 1px solid #ccc;
+}
+.drag-member td:last-child{
+	border-right: none!important;
+}
+.drag-team{
+	background: #f5f5f5;
+	border: 1px solid #ccc;
+	box-shadow: 0 4px 8px rgba(33, 33, 33, 0.5);
+	cursor: pointer;
+	padding: 4px 8px;
+	opacity: 0.9;
+}
+.drag-team i{
+	border-right: 1px solid #ccc;
+	padding: 0 2px;
+}
+.drag-on-over{
+	padding: 2px 6px!important;
+	background: #337ab7;
+	color:#fff;
+	border: 1px dashed #fff;
+	border-radius: 3px;
+	box-shadow: 0 0 0 2px #337ab7,0 4px 8px rgba(0,0,0,0.4);
 }

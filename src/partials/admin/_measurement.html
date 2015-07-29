@@ -1,8 +1,8 @@
-<div class="admin-item" ng-controller="CurrentMinistryCtrl">
+<div class="admin-item">
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title pull-left">Measurements</h3>
-			<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addMeasurement()">Add Measurement</button>
+			<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addMeasurement()"><i class="glyphicon glyphicon-plus"></i> Add Measurement</button>
 			<div class="clearfix"></div>
 		</div>
 		<div class="panel-body">
@@ -25,7 +25,7 @@
 			</table>
 		</div>
 		<div class="panel-footer">
-			<button type="button" class="btn btn-primary pull-right" ng-click="saveDetails()" ng-disabled="saveDetailsResource && !saveDetailsResource.$resolved">Save changes</button>
+			<button type="button" class="btn btn-primary pull-right" ng-click="saveDetails()" ng-disabled="saveDetailsResource && !saveDetailsResource.$resolved"><i class="glyphicon glyphicon-pencil"></i> Save changes</button>
 			<div class="clearfix"></div>
 		</div>
 	</div>

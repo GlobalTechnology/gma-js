@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="no()">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title">Move sub-team to this team ?</h4>
+</div>
+<div class="modal-body form-horizontal">
+    <ul class="list-unstyled">
+        <li>Source Name: {{source_team}}</li>
+        <li>Target Team: {{target_team}}</li>
+    </ul>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="no()"><i class="glyphicon glyphicon-remove"></i> No</button>
+    <button type="button" class="btn btn-primary" ng-click="yes()"><i class="glyphicon glyphicon-ok"></i> Yes</button>
+</div>
+
