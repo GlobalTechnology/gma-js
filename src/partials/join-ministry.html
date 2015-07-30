@@ -16,6 +16,13 @@
 			<p class="help-block">Start typing to search for ministry</p>
 		</div>
 	</div>
+	<div class="form-group" ng-if="!allowClose">
+        <label class="col-sm-4 control-label">Supported Staff</label>
+        <div class="col-sm-8" ng-init="$parent.user_preference.supported_staff = 0">
+            <label class="radio-inline"><input type="radio" value="1" ng-model="$parent.user_preference.supported_staff"> Yes</label>
+            <label class="radio-inline"><input type="radio" value="0" ng-model="$parent.user_preference.supported_staff"> No</label>
+        </div>
+	</div>
 </div>
 <div class="modal-footer">
 	<button type="button" class="btn btn-primary" ng-disabled="!ministry" ng-click="join()">Join Ministry/Team</button>

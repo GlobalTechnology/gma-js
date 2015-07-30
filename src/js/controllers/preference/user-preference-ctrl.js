@@ -6,7 +6,8 @@
         $scope.options = {
             preferred_ministry: $rootScope.current.user_preferences.preferred_ministry || $rootScope.current.assignment.ministry_id,
             preferred_mcc: "",
-            hide_reports_tab: "1"
+            hide_reports_tab: "1",
+            supported_staff : '0'
         };
 
         $scope.ministries = _.sortBy(UserPreference.getFlatMinistry($rootScope.current.assignments),'name');
