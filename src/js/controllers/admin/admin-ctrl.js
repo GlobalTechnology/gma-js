@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries) {
+    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries,growl) {
         $scope.current.isLoaded = false;
 
         var sendAnalytics = _.throttle(function () {
@@ -132,15 +132,9 @@
             }
             $scope.saveDetailsResource = Ministries.updateMinistry(ministry,
                 function () {
-                    $scope.saveDetailsAlert = {
-                        type: 'success',
-                        msg: 'Your changes have been saved.'
-                    };
+                    growl.success('Changes saved successfully');
                 }, function (response) {
-                    $scope.saveDetailsAlert = {
-                        type: 'danger',
-                        msg: response.Message || 'An error occurred while saving.'
-                    };
+                    growl.error('Unable to save changes');
                 });
         };
 
@@ -158,11 +152,7 @@
                 }
             }).result.then(function (newMeasurement) {
                     MeasurementTypes.addMeasurementType(newMeasurement, function (response) {
-                        //push new measurement type to current list of measurement
-                        var new_measurement = angular.fromJson(angular.toJson(response));
-                        new_measurement.perm_link_stub = newMeasurement.perm_link_stub;
-                        new_measurement.visible = false;
-                        $scope.measurementTypes.push(new_measurement);
+                        $scope.measurementTypes.push(response);
                     });
                 });
         };

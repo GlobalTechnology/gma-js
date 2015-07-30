@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 
-	function MeasurementsCtrl( $scope, $document, $filter, $modal, Measurements, Settings, GoogleAnalytics ) {
+	function MeasurementsCtrl( $scope, $document, $filter, $modal, Measurements, Settings, GoogleAnalytics,growl ) {
 		$scope.current.isLoaded = false;
 		$scope.isConfirmationMessage = false;
 		$scope.ns = Settings.gmaNamespace;
@@ -83,9 +83,8 @@
 			if ( measurements.length > 0 ) {
 				Measurements.saveMeasurement( {}, measurements ,function (response) {
 					//setting confirmation message
-					$scope.confirmationMessage = "Measurements saved successfully";
-					$scope.isConfirmationMessage = true;
-					getMeasurements();	
+					growl.success('Measurements saved successfully');
+					getMeasurements();
 				});
 			}
 			else {
@@ -116,16 +115,11 @@
 			} );
 			instance.result.then( function () {
 				//setting confirmation message
-				$scope.confirmationMessage = "Measurements saved successfully";
-				$scope.isConfirmationMessage = true;
+				growl.success('Measurements updated successfully');
 				getMeasurements();
 			} );
 		};
 
-		//function to close confirmation message
-		$scope.removeConfimationMessage = function () {
-			$scope.isConfirmationMessage = false;
-		};
 	}
 
 	angular.module( 'gma.controllers.measurements' ).controller( 'MeasurementsCtrl', MeasurementsCtrl );
