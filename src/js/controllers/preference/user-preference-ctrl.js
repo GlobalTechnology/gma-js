@@ -11,7 +11,7 @@
         };
 
         $scope.ministries = _.sortBy(UserPreference.getFlatMinistry($rootScope.current.assignments),'name');
-        $scope.options = $rootScope.current.user_preferences;
+        angular.copy($rootScope.current.user_preferences, $scope.options);
         $scope.mccs = _.sortBy(UserPreference.getMappedMCCS($rootScope.current.assignment.mccs, modelData.mccLabels),'mccLabel');
 
         $scope.savePreference = function (options) {
