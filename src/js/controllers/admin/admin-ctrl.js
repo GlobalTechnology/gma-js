@@ -152,7 +152,16 @@
                 }
             }).result.then(function (newMeasurement) {
                     MeasurementTypes.addMeasurementType(newMeasurement, function (response) {
-                        $scope.measurementTypes.push(response);
+                        growl.success('Measurement was created successfully');
+
+                        //push new measurement type to current list of measurement
+                        var new_measurement = angular.fromJson(angular.toJson(response));
+                        new_measurement.perm_link_stub = newMeasurement.perm_link_stub;
+                        new_measurement.visible = false;
+                        $scope.measurementTypes.push(new_measurement);
+
+                    },function(){
+                        growl.success('Unable to create measurement');
                     });
                 });
         };
@@ -200,6 +209,7 @@
                 $scope.activeTeamMembers = response.team_members;
                 $scope.membersLoaded = true;
             }, function () {
+                growl.error('Unable to load team members');
                 $scope.membersLoaded = true;
             });
         };
@@ -244,6 +254,7 @@
                     if (typeof newMember === 'undefined') return false;
                     newMember.ministry_id = $scope.activeTeam.ministry_id;
                     Assignments.addTeamMember(newMember, function (response) {
+                        growl.success('New member was added successfully');
                         //push new member to current member list
                         var new_member = {
                             first_name: response.first_name,
@@ -253,6 +264,8 @@
                             key_username: (typeof response.cas_username === 'undefined') ? '' : response.cas_username
                         };
                         $scope.activeTeamMembers.push(new_member);
+                    },function(){
+                        growl.error('Unable to add new member');
                     });
                 });
             scrollToTop();
@@ -296,10 +309,12 @@
                     if (choice === 1) {
                         //update user role
                         Assignments.saveAssignment({assignment_id: user.assignment_id}, {team_role: user.team_role}, function () {
+                            growl.success('User role was updated');
                             //success so update old_role
                             old_role = user.team_role;
 
                         }, function () {
+                            growl.error('Unable to update user role');
                             //if failed lets restore old role
                             user.team_role = old_role;
                         });
@@ -333,6 +348,8 @@
                     newMinistry.parent_id = $scope.activeTeam.ministry_id;
 
                     Ministries.createMinistry(newMinistry, function (response) {
+                        growl.success('Sub ministry was created successfully');
+
                         var got_ministry = {
                             ministry_id: response.id,
                             name: response.name,
@@ -346,7 +363,8 @@
                             $scope.activeTeam.sub_ministries = [got_ministry];
                         }
 
-
+                    },function(){
+                        growl.error('Unable to add sub ministry');
                     });
                 });
 

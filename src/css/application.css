@@ -451,3 +451,8 @@ td.no-overflow:hover{
 	border-radius: 3px;
 	box-shadow: 0 0 0 2px #337ab7,0 4px 8px rgba(0,0,0,0.4);
 }
+
+/*angular growl position*/
+.growl-container{
+	margin-top:50px;
+}

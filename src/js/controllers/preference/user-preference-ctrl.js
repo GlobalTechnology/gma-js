@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    function UserPreferenceCtrl($scope, $rootScope, $modalInstance, modelData, UserPreference) {
+    function UserPreferenceCtrl($scope, $rootScope, $modalInstance, modelData, UserPreference,growl) {
         $scope.options = {};
 
         $scope.options = {
@@ -18,9 +18,12 @@
 
             UserPreference.savePreference(options)
                 .success(function (data) {
+                    growl.success('Preferences were saved');
                     //update root scope
-                    if (typeof data === 'object')
-                        $rootScope.current.user_preferences = data;
+                    $rootScope.current.user_preferences = data;
+                })
+                .error(function(data, status, headers, config) {
+                    growl.error('Unable to save preferences');
                 });
             $modalInstance.dismiss();
         };
