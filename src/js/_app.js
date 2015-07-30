@@ -8,6 +8,7 @@
 		'gma.directives',
 		'gma.filters',
 		'gma.services',
-		'ngDragDrop'
+		'ngDragDrop',
+		'angular-growl'
 	] );
 })( angular );

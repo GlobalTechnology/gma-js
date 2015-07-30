@@ -29,7 +29,7 @@
 			//TODO fetch a ticket from refresh to start session
 			Session.startSession( Settings.ticket );
 		} )
-		.config( function ( $routeProvider, $httpProvider, $compileProvider, SettingsProvider, $provide ) {
+		.config( function ( $routeProvider, $httpProvider, $compileProvider, SettingsProvider, $provide, growlProvider ) {
 			// Initialize Settings from wrapper provided config
 			SettingsProvider.setConfig( window.gma.config );
 
@@ -38,6 +38,12 @@
 
 			// Register Session as an http interceptor
 			$httpProvider.interceptors.push( 'Session' );
+
+
+			//global configs for angular-growl
+			growlProvider.globalPosition('top-right');
+			growlProvider.globalTimeToLive(5000);
+			growlProvider.globalDisableCountDown(true);
 
 			// Setup application routes
 			angular.forEach( SettingsProvider.routes(), function ( route, i ) {
