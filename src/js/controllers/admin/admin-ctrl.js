@@ -395,20 +395,45 @@
         };
         $scope.teamOnDrop = function (event, ui, team) {
             $(event.target).removeClass('drag-on-over');
-            //todo detect type of object a fire API request
-            console.log('A ' + $scope.draggedType + ' was dropped');
+            //todo hit the actual API
+            if($scope.draggedType==='team'){
+                console.log('A team was dropped')
+            }else if($scope.draggedType==='member'){
+                console.log('A member was dropped ')
+            }else{
+                console.log('Invalid object type');
+                return false;
+            }
+
         };
         $scope.teamBeforeDrop = function (event, ui, team) {
             $(event.target).removeClass('drag-on-over');
-            scrollToTop();
             // detect what type of object is being dropped and show relate popup
             if ($scope.draggedType == 'team') {
-                //todo a sub-ministry can not be dropped on its parent ministry
-                //todo a sub-minitry can not be dropped on its own sub-ministries
-                return confirmTeamDrop(team);
+                //check if team can be dropped or not
+                //todo show growl notification if drop is not allowed
+                if(team.ministry_id===$scope.draggedTeam.parent_id){
+                    console.log('Drop canceled, can be dropped on parent team');
+                    return {
+                        then:function(){
+                            return false;
+                        }
+                    };
+                }else if(team.parent_id===$scope.draggedTeam.ministry_id){
+                    console.log('Drop canceled, can be dropped on child team');
+                    return {
+                        then:function(){
+                            return false;
+                        }
+                    };
+                }else{
+                    return confirmTeamDrop(team);
+                }
+
             } else if ($scope.draggedType == 'member') {
                 return confirmMemberDrop(team);
             } else {
+                console.log('Invalid object type');
                 return false;
             }
 
@@ -417,9 +442,9 @@
         var confirmMemberDrop = function (team) {
             var modalInstance = $modal.open({
                 templateUrl: 'partials/admin/confirm-member-drop.html',
-                controller: function ($scope, $modalInstance, modelData) {
-                    $scope.member = modelData.member;
-                    $scope.team = modelData.team;
+                controller: function ($scope, $modalInstance, modalData) {
+                    $scope.member = modalData.member;
+                    $scope.team = modalData.team;
 
                     $scope.yes = function () {
                         $modalInstance.close();
@@ -433,7 +458,7 @@
                     }
                 },
                 resolve: {
-                    modelData: function () {
+                    modalData: function () {
                         return {
                             member: $scope.draggedMember,
                             team: team
@@ -441,15 +466,16 @@
                     }
                 }
             });
+            scrollToTop();
             return modalInstance.result;
 
         };
         var confirmTeamDrop = function (team) {
             var modalInstance = $modal.open({
                 templateUrl: 'partials/admin/confirm-team-drop.html',
-                controller: function ($scope, $modalInstance, modelData) {
-                    $scope.source_team = modelData.source;
-                    $scope.target_team = modelData.target;
+                controller: function ($scope, $modalInstance, modalData) {
+                    $scope.source_team = modalData.source;
+                    $scope.target_team = modalData.target;
 
                     $scope.yes = function () {
                         $modalInstance.close();
@@ -460,7 +486,7 @@
 
                 },
                 resolve: {
-                    modelData: function () {
+                    modalData: function () {
                         return {
                             source: $scope.draggedTeam.name,
                             target: team.name
@@ -468,6 +494,7 @@
                     }
                 }
             });
+            scrollToTop();
             return modalInstance.result;
 
         };
