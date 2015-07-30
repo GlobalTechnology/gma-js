@@ -17,7 +17,10 @@
 		}, 10 );
 
 		$scope.join = function () {
-			$modalInstance.close( $scope.ministry );
+			var data = {};
+			data.ministry =  $scope.ministry;
+			data.user_preference = $scope.user_preference;
+			$modalInstance.close( data );
 		};
 
 		$scope.cancel = function () {
