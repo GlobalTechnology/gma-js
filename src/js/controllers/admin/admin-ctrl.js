@@ -408,38 +408,47 @@
         };
 
         /**
-         * Function is fired on drop
-         * @param  {object} team  [contains object where item is being dropped]
+         * Function will be fired when a team/member is dropped on a team
+         * @param event
+         * @param ui
+         * @param team The team on which a team/member is being dropped
+         * @returns {boolean}
          */
         $scope.teamOnDrop = function (event, ui, team) {
             $(event.target).removeClass('drag-on-over');
-            //todo hit the actual API
+
             //case when moving team
             if($scope.draggedType==='team'){
-                console.log('A team was dropped')
-                console.log(team);
+                console.log('A team was dropped');
+                //todo hit the actual API
 
             //case when moving member
-            }else if($scope.draggedType==='member'){
+            } else if ($scope.draggedType === 'member') {
                 console.log('A member was dropped ');
-                        $scope.draggedMember.team_role = 'self_assigned';
+                $scope.draggedMember.team_role = 'self_assigned';
                 Assignments.saveAssignment({assignment_id: team.ministry_id}, {team_role: $scope.draggedMember.team_role}, function () {
-                        growl.success('Member moved to ministry successfully'); 
-                    },function() {
-                        growl.error('Unable to move member');
-                    });
-            }else{
+                    growl.success('Member moved to ministry successfully');
+                }, function () {
+                    growl.error('Unable to move member');
+                });
+            } else {
                 return false;
             }
 
         };
 
+        /**
+         * Function will be fired just before drop event
+         * @param event
+         * @param ui
+         * @param team Then team on which the object is being dropped
+         * @returns {boolean}
+         */
         $scope.teamBeforeDrop = function (event, ui, team) {
             $(event.target).removeClass('drag-on-over');
             // detect what type of object is being dropped and show relate popup
             if ($scope.draggedType == 'team') {
                 //check if team can be dropped or not
-                //todo show growl notification if drop is not allowed
                 if(team.ministry_id===$scope.draggedTeam.parent_id){
                     growl.error('Drop canceled, can be dropped on parent team');
                     return {
@@ -466,7 +475,7 @@
 
         };
 
-        var confirmMemberDrop = function (team) {
+        function confirmMemberDrop (team) {
             var modalInstance = $modal.open({
                 templateUrl: 'partials/admin/confirm-member-drop.html',
                 controller: function ($scope, $modalInstance, modalData) {
@@ -497,7 +506,8 @@
             return modalInstance.result;
 
         };
-        var confirmTeamDrop = function (team) {
+
+        function confirmTeamDrop(team) {
             var modalInstance = $modal.open({
                 templateUrl: 'partials/admin/confirm-team-drop.html',
                 controller: function ($scope, $modalInstance, modalData) {
