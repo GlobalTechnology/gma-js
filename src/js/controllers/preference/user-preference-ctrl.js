@@ -3,13 +3,6 @@
     function UserPreferenceCtrl($scope, $rootScope, $modalInstance, modelData, UserPreference,growl) {
         $scope.options = {};
 
-        $scope.options = {
-            preferred_ministry: $rootScope.current.user_preferences.preferred_ministry || $rootScope.current.assignment.ministry_id,
-            preferred_mcc: "",
-            hide_reports_tab: "1",
-            supported_staff : '0'
-        };
-
         $scope.ministries = _.sortBy(UserPreference.getFlatMinistry($rootScope.current.assignments),'name');
         angular.copy($rootScope.current.user_preferences, $scope.options);
         $scope.mccs = _.sortBy(UserPreference.getMappedMCCS($rootScope.current.assignment.mccs, modelData.mccLabels),'mccLabel');
@@ -58,6 +51,10 @@
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
+
+        window.setTimeout( function () {
+            window.parent.scrollTo( 0, 0 );
+        }, 10 );
 
     }
 

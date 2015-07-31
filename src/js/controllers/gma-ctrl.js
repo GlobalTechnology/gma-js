@@ -258,12 +258,12 @@
 		$scope.mobileApps = Settings.mobileApps;
 
 		//---------------------------------------
-		// User Preferences
+		// User Preferences Dialog
 		//---------------------------------------
 
 		$scope.showUserPreference = function(){
 
-			var instance = $modal.open( {
+			$modal.open( {
 				templateUrl: 'partials/preference/user-preference-modal.html',
 				controller:  'UserPreferenceCtrl',
 				keyboard:     true,
