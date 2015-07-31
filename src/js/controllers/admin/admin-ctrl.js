@@ -406,18 +406,33 @@
             $scope.draggedMember = member;
             console.log('Start dragging the member: ' + member.first_name + ' ' + member.last_name);
         };
+
+        /**
+         * Function is fired on drop
+         * @param  {object} team  [contains object where item is being dropped]
+         */
         $scope.teamOnDrop = function (event, ui, team) {
             $(event.target).removeClass('drag-on-over');
             //todo hit the actual API
+            //case when moving team
             if($scope.draggedType==='team'){
                 console.log('A team was dropped')
+                console.log(team);
+
+            //case when moving member
             }else if($scope.draggedType==='member'){
-                console.log('A member was dropped ')
+                console.log('A member was dropped ');
+                Assignments.saveAssignment({assignment_id: team.assignment_id}, {team_role: $scope.draggedMember.team_role}, function () {
+                        growl.success('Member moved to ministry successfully');
+                    },function() {
+                        growl.error('Unable to move member');
+                    });
             }else{
                 return false;
             }
 
         };
+
         $scope.teamBeforeDrop = function (event, ui, team) {
             $(event.target).removeClass('drag-on-over');
             // detect what type of object is being dropped and show relate popup
