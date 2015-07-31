@@ -422,8 +422,9 @@
             //case when moving member
             }else if($scope.draggedType==='member'){
                 console.log('A member was dropped ');
-                Assignments.saveAssignment({assignment_id: team.assignment_id}, {team_role: $scope.draggedMember.team_role}, function () {
-                        growl.success('Member moved to ministry successfully');
+                        $scope.draggedMember.team_role = 'self_assigned';
+                Assignments.saveAssignment({assignment_id: team.ministry_id}, {team_role: $scope.draggedMember.team_role}, function () {
+                        growl.success('Member moved to ministry successfully'); 
                     },function() {
                         growl.error('Unable to move member');
                     });
