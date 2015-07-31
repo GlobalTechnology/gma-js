@@ -414,7 +414,6 @@
             }else if($scope.draggedType==='member'){
                 console.log('A member was dropped ')
             }else{
-                console.log('Invalid object type');
                 return false;
             }
 
@@ -426,14 +425,14 @@
                 //check if team can be dropped or not
                 //todo show growl notification if drop is not allowed
                 if(team.ministry_id===$scope.draggedTeam.parent_id){
-                    console.log('Drop canceled, can be dropped on parent team');
+                    growl.error('Drop canceled, can be dropped on parent team');
                     return {
                         then:function(){
                             return false;
                         }
                     };
                 }else if(team.parent_id===$scope.draggedTeam.ministry_id){
-                    console.log('Drop canceled, can be dropped on child team');
+                    growl.error('Drop canceled, can be dropped on child team');
                     return {
                         then:function(){
                             return false;
@@ -446,7 +445,6 @@
             } else if ($scope.draggedType == 'member') {
                 return confirmMemberDrop(team);
             } else {
-                console.log('Invalid object type');
                 return false;
             }
 
