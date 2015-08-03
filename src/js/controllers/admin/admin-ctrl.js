@@ -553,9 +553,12 @@
 
         };
 
-        $scope.teamOnOver = function (event) {
+        $scope.teamOnOver = function (event,ui,teamCollapsed) {
             $(event.target).addClass('drag-on-over');
-
+            //expand tree if collapsed
+            if(teamCollapsed===true){
+                angular.element(event.target).find('i').trigger('click');
+            }
         };
 
         $scope.teamOnOut = function (event) {
