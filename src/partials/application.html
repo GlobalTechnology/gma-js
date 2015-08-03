@@ -80,7 +80,7 @@
 	<div class="container">
 		<div>
 			<ul class="nav nav-tabs" role="tablist" class="map-ministries">
-				<li ng-repeat="tab in tabs" ng-class="{active: $location.path() === tab.path}" ng-show="current.hasRole(tab.requiredRoles)" ng-if="hideReportsTab(tab)">
+				<li ng-repeat="tab in tabs" ng-class="{active: $location.path() === tab.path}" ng-show="current.hasRole(tab.requiredRoles)" ng-if="hideTabsConditionally(tab)">
 					<a ng-href="#{{tab.path}}">{{tab.name}}</a>
 				</li>
 			</ul>

@@ -284,7 +284,7 @@
 		 * @param tab
 		 * @returns {boolean}
 		 */
-        $scope.hideReportsTab = function (tab) {
+        $scope.hideTabsConditionally = function (tab) {
             //current may not be defined
             if (typeof $scope.current === 'undefined') return true;
 
