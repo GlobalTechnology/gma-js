@@ -420,14 +420,21 @@
             //case when moving team
             if($scope.draggedType==='team'){
                 console.log('A team was dropped');
-                //todo hit the actual API
+                //update ministry parent id
+                //todo check if api works well
+                /*Ministries.updateMinistry({ministry_id:$scope.draggedTeam.ministry_id},{parent_id:team.ministry_id},function(){
+                    growl.success('Ministry was moved successfully');
+                    //append sub-ministry to new ministry
+                },function(){
+                    growl.error('Unable to move ministry');
+                });*/
 
             //case when moving member
             } else if ($scope.draggedType === 'member') {
                 console.log('A member was dropped ');
                 $scope.draggedMember.team_role = 'self_assigned';
                 Assignments.saveAssignment({assignment_id: team.ministry_id}, {team_role: $scope.draggedMember.team_role}, function () {
-                    growl.success('Member moved to ministry successfully');
+                    growl.success('Member was moved to ministry successfully');
                 }, function () {
                     growl.error('Unable to move member');
                 });
@@ -450,14 +457,14 @@
             if ($scope.draggedType == 'team') {
                 //check if team can be dropped or not
                 if(team.ministry_id===$scope.draggedTeam.parent_id){
-                    growl.error('Drop canceled, can be dropped on parent team');
+                    growl.error("Drop canceled, can't be dropped on parent team");
                     return {
                         then:function(){
                             return false;
                         }
                     };
                 }else if(team.parent_id===$scope.draggedTeam.ministry_id){
-                    growl.error('Drop canceled, can be dropped on child team');
+                    growl.error("Drop canceled, can't be dropped on child team");
                     return {
                         then:function(){
                             return false;
@@ -468,7 +475,17 @@
                 }
 
             } else if ($scope.draggedType == 'member') {
-                return confirmMemberDrop(team);
+                if($scope.activeTeam.ministry_id === team.ministry_id){
+                    growl.error("Drop canceled, can't be dropped on selected team");
+                    return {
+                        then:function(){
+                            return false;
+                        }
+                    };
+                }else{
+                    return confirmMemberDrop(team);
+                }
+
             } else {
                 return false;
             }

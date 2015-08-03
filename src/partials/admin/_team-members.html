@@ -25,7 +25,7 @@
 								 ng-init="teamCollapsed = false"
 								 ng-class="{'active' : (activeTeam.ministry_id === team.ministry_id)}"
 
-								 data-drop="activeTeam.ministry_id !== team.ministry_id"
+								 data-drop="true"
 								 jqyoui-droppable="{index: {{$index}},onOver:'teamOnOver',onOut:'teamOnOut',onDrop:'teamOnDrop(team)',beforeDrop:'teamBeforeDrop(team)'}"
 
 								 data-drag="true"
