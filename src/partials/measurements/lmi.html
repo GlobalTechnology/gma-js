@@ -111,7 +111,7 @@
 	</div>
 
 	<div class="lmi-item inherited_leader" ng-switch-when="inherited_leader">
-		<div class="lmi-item-name">{{m.name}}</div>
+		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">{{m.name}}</div>
 		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
 			<div class="lmi-item-section col-xs-6">
 				<div class="lmi-input-group" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">
