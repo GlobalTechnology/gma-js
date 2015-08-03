@@ -1,13 +1,8 @@
 ﻿(function () {
 	'use strict';
 
-<<<<<<< HEAD
-
 	function MeasurementsCtrl( $scope, $document, $filter, $modal,$location, Measurements,UserPreference, Settings, GoogleAnalytics,$interval ,growl) {
 
-=======
-	function MeasurementsCtrl( $scope, $document, $filter, $modal, Measurements, Settings, GoogleAnalytics,growl ) {
->>>>>>> f44bbaa0166db57c65011a8219b1ef4d53d9052a
 		$scope.current.isLoaded = false;
 		$scope.isConfirmationMessage = false;
 		$scope.ns = Settings.gmaNamespace;
@@ -130,7 +125,7 @@
 			} );
 		};
 
-<<<<<<< HEAD
+
 
 		var setMeasurementState = function(){			
 			
@@ -141,7 +136,7 @@
 			if(typeof $scope.current.user_preferences !=='undefined'){
 				if(typeof $scope.current.user_preferences.default_measurement_states !== 'undefinded'){
 					if(typeof $scope.current.user_preferences.default_measurement_states[$scope.current.mcc] !== 'undefined'){
-$scope.measurementState = Settings.default_measurement_states;
+						$scope.measurementState = Settings.default_measurement_states[$scope.current.mcc];
 						//$scope.measurementState = $scope.current.user_preferences.default_measurement_states[$scope.current.mcc];
 				 } //else{
 				// 	if(Settings.default_measurement_states !== undefined){
@@ -185,8 +180,7 @@ $scope.measurementState = Settings.default_measurement_states;
 			return (measurmentState === 1);
 		};
 
-=======
->>>>>>> f44bbaa0166db57c65011a8219b1ef4d53d9052a
+
 	}
 
 	angular.module( 'gma.controllers.measurements' ).controller( 'MeasurementsCtrl', MeasurementsCtrl );
