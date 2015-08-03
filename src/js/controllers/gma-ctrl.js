@@ -284,21 +284,31 @@
 		 * @param tab
 		 * @returns {boolean}
 		 */
-		$scope.hideReportsTab = function (tab){
-			//if current tab is not report tab return early
-			if(tab.path!='/reports') return true;
-			//current may not be defined
-			if(typeof $scope.current === 'undefined') return true;
-			//user preferences not found
-			if(typeof $scope.current.user_preferences === 'undefined')
-			{	//send admin preferences
-				return ($scope.current.hide_reports_tab != '1');
-			}
-			//lastly send user preferences
-			return ($scope.current.user_preferences.hide_reports_tab !== '1');
+        $scope.hideReportsTab = function (tab) {
+            //current may not be defined
+            if (typeof $scope.current === 'undefined') return true;
 
-		};
-		/*this one is to show user role on top navigation*/
+            if (tab.path == '/reports') {
+                //user preferences not found
+                if (typeof $scope.current.user_preferences === 'undefined') {
+                	//send admin preferences
+                    return ($scope.current.hide_reports_tab != '1');
+                }
+                //lastly send user preferences
+                return ($scope.current.user_preferences.hide_reports_tab !== '1');
+            } else if (tab.path == '/measurements') {
+                //if current ministry has no mcc then hide the tab
+                return (typeof $scope.current.mcc !== 'undefined');
+            } else {
+                return true;
+            }
+
+        };
+        /**
+         * Show logged in user role on top navigation
+         * @param role
+         * @returns {string}
+         */
 		$scope.getCurrentUserRole = function(role){
 			if (typeof role === 'undefined') return;
 			//capitalize first latter
