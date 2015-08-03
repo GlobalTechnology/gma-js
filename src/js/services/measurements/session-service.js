@@ -14,6 +14,7 @@
 					$rootScope.current.user = response.data.user;
 					$rootScope.current.sessionToken = response.data.session_ticket;
 					$rootScope.current.user_preferences = response.data.user_preferences;
+					$rootScope.current.user_preferences.default_measurement_states = response.data.user_preferences.default_measurement_states;
 					token = response.data.session_ticket;
 					if ( typeof response.data.assignments === 'object' ) {
 						$rootScope.current.assignments = response.data.assignments;

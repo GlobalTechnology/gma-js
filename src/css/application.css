@@ -451,3 +451,14 @@ td.no-overflow:hover{
 	border-radius: 3px;
 	box-shadow: 0 0 0 2px #337ab7,0 4px 8px rgba(0,0,0,0.4);
 }
+
+.measurement-expanded{
+background-color:#586EFF !important;
+}
+
+.measurement-collapsed{
+	background-color:#777777 !important;
+}
+.measurement-expanded-text{
+	color: #586EFF !important;
+}

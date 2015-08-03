@@ -100,7 +100,8 @@
 				mobileApps:      ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
 				gmaNamespace:    config.namespace,
 				tabs:            tabs,
-				googleAnalytics: config.googleanalytics
+				googleAnalytics: config.googleanalytics,
+				default_measurement_states: config.default_measurement_states,
 			}
 		};
 	}

@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 
-	function MeasurementsCtrl( $scope, $document, $filter, $modal, Measurements, Settings, GoogleAnalytics ) {
+	function MeasurementsCtrl( $scope, $document, $filter, $modal,$location, Measurements,UserPreference, Settings, GoogleAnalytics,$interval ) {
 		$scope.current.isLoaded = false;
 		$scope.isConfirmationMessage = false;
 		$scope.ns = Settings.gmaNamespace;
@@ -43,9 +43,13 @@
 			sendAnalytics();
 		} );
 
-		$scope.$watch( 'current.mcc', function () {
+		$scope.$watch( 'current.mcc', function (old) {
 			getMeasurements();
 			sendAnalytics();
+			if(old !== undefined){
+				console.log('inside watch');
+				setMeasurementState();				
+			}			
 		} );
 
 		$scope.$watch( 'current.period', function () {
@@ -125,6 +129,59 @@
 		//function to close confirmation message
 		$scope.removeConfimationMessage = function () {
 			$scope.isConfirmationMessage = false;
+		};
+
+		var setMeasurementState = function(){			
+			
+			
+				$scope.measurementState = {};
+			
+			//get user preference from user profile	, will override default (defined in config.php)
+			if(typeof $scope.current.user_preferences !=='undefined'){
+				if(typeof $scope.current.user_preferences.default_measurement_states !== 'undefinded'){
+					if(typeof $scope.current.user_preferences.default_measurement_states[$scope.current.mcc] !== 'undefined'){
+$scope.measurementState = Settings.default_measurement_states;
+						//$scope.measurementState = $scope.current.user_preferences.default_measurement_states[$scope.current.mcc];
+				 } //else{
+				// 	if(Settings.default_measurement_states !== undefined){
+				// 		$scope.measurementState = Settings.default_measurement_states;
+				// 	}
+				//}
+			}	
+		}
+			saveMeasurementState();
+
+		
+		};
+
+		function saveMeasurementState () {
+
+			$interval( function () {					
+				if($location.path()==='/measurements'){
+					//default_states.default_measurement_states=$scope.measurementState;					
+					var post_data ={
+						"default_measurement_states" : {					
+						}
+					};
+					post_data.default_measurement_states[$scope.current.mcc] = $scope.measurementState;
+
+					 UserPreference.savePreference(post_data)
+		               .success(function (data) {
+		               			console.log('saved'); 
+		               			//$scope.current.user_preferences.default_measurement_states[$scope.current.mcc] = 
+		                                        
+		                });
+		        }
+
+			},60000);		
+		};
+
+		$scope.toggleMeasurementState = function(measurmentState,perm_link_stub) {			
+			measurmentState[perm_link_stub] = (measurmentState[perm_link_stub]===1) ? 0 : 1;
+		};
+
+		$scope.getExpandCollapse = function(measurmentState) {
+			return (measurmentState === 1);
 		};
 	}
 

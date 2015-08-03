@@ -45,7 +45,7 @@
 							</h1>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'win', column:'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+							<div ng-init="measurementState[m.perm_link_stub] = ((measurementState[m.perm_link_stub] === undefined) ? 1 : measurementState[m.perm_link_stub])" ng-repeat="m in measurements | filter: {section: 'win', column:'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 						</td>
 						<td>
 							<span class="glyphicon glyphicon-chevron-right"></span>
