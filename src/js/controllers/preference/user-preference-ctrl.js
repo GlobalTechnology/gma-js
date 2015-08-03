@@ -1,25 +1,22 @@
 (function () {
     'use strict';
-    function UserPreferenceCtrl($scope, $rootScope, $modalInstance, modelData, UserPreference) {
+    function UserPreferenceCtrl($scope, $rootScope, $modalInstance, modelData, UserPreference,growl) {
         $scope.options = {};
 
-        $scope.options = {
-            preferred_ministry: $rootScope.current.user_preferences.preferred_ministry || $rootScope.current.assignment.ministry_id,
-            preferred_mcc: "",
-            hide_reports_tab: "1"
-        };
-
         $scope.ministries = _.sortBy(UserPreference.getFlatMinistry($rootScope.current.assignments),'name');
-        $scope.options = $rootScope.current.user_preferences;
+        angular.copy($rootScope.current.user_preferences, $scope.options);
         $scope.mccs = _.sortBy(UserPreference.getMappedMCCS($rootScope.current.assignment.mccs, modelData.mccLabels),'mccLabel');
 
         $scope.savePreference = function (options) {
 
             UserPreference.savePreference(options)
                 .success(function (data) {
+                    growl.success('Preferences were saved');
                     //update root scope
-                    if (typeof data === 'object')
-                        $rootScope.current.user_preferences = data;
+                    $rootScope.current.user_preferences = data;
+                })
+                .error(function(data, status, headers, config) {
+                    growl.error('Unable to save preferences');
                 });
             $modalInstance.dismiss();
         };
@@ -54,6 +51,10 @@
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
+
+        window.setTimeout( function () {
+            window.parent.scrollTo( 0, 0 );
+        }, 10 );
 
     }
 

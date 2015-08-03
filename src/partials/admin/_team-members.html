@@ -25,7 +25,7 @@
 								 ng-init="teamCollapsed = false"
 								 ng-class="{'active' : (activeTeam.ministry_id === team.ministry_id)}"
 
-								 data-drop="activeTeam.ministry_id !== team.ministry_id"
+								 data-drop="true"
 								 jqyoui-droppable="{index: {{$index}},onOver:'teamOnOver',onOut:'teamOnOut',onDrop:'teamOnDrop(team)',beforeDrop:'teamBeforeDrop(team)'}"
 
 								 data-drag="true"
@@ -38,7 +38,7 @@
 								ng-class="{'glyphicon-certificate' : (!team.sub_ministries.length || team.sub_ministries.length == 0), 'glyphicon-triangle-right' : (teamCollapsed == true && (team.sub_ministries.length || team.sub_ministries.length >= 0)), 'glyphicon-triangle-bottom' : (teamCollapsed == false && (team.sub_ministries.length || team.sub_ministries.length >= 0))}"
 								ng-click="teamCollapsed = !teamCollapsed;"
 								></i>
-							<span
+							<span class="inner"
 								ng-click="setActiveTeam(team)"
 								>{{team.name}}</span>
 						 </span>

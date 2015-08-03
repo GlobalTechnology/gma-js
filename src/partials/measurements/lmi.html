@@ -40,7 +40,7 @@
 
 	<div class="lmi-item leader" ng-switch-when="leader">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">{{m.name}}</div>
-		<div>
+		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
 			<div class="lmi-item-section col-xs-4">
 				<div class="lmi-input-group">
 					<input type="number"

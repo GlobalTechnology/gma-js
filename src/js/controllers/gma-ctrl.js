@@ -195,6 +195,7 @@
 
 		$scope.joinMinistry = function ( allowClose ) {
 			allowClose = typeof allowClose !== 'undefined' ? allowClose : true;
+
 			var instance = $modal.open( {
 				templateUrl: 'partials/join-ministry.html',
 				controller:  'JoinMinistryCtrl',
@@ -209,15 +210,27 @@
 					}
 				}
 			} );
-			instance.result.then( function ( ministry ) {
+
+			instance.result.then( function ( data ) {
+				
 				Assignments.addTeamMember( {
 					username:    $scope.current.user.cas_username,
-					ministry_id: ministry.ministry_id,
+					ministry_id: data.ministry.ministry_id,
 					team_role:   'self_assigned'
 				}, function ( assignment ) {
 					if ( typeof $scope.current.assignments === 'undefined' ) {
 						// If assignments is empty, setting the array will also set the current assignment
 						$scope.current.assignments = [assignment];
+
+						//Also updating supported staff setting in user preference
+						UserPreference.savePreference(data.user_preference)
+							.success(function (){
+								if(typeof $scope.current.user_preferences === 'undefined'){
+									$scope.current.user_preferences = {};
+								}
+
+								$scope.current.user_preferences.supported_staff = data.user_preference.supported_staff;
+							});
 					}
 					else {
 						// Add new assignment
@@ -245,12 +258,12 @@
 		$scope.mobileApps = Settings.mobileApps;
 
 		//---------------------------------------
-		// User Preferences
+		// User Preferences Dialog
 		//---------------------------------------
 
 		$scope.showUserPreference = function(){
 
-			var instance = $modal.open( {
+			$modal.open( {
 				templateUrl: 'partials/preference/user-preference-modal.html',
 				controller:  'UserPreferenceCtrl',
 				keyboard:     true,

@@ -1,7 +1,7 @@
 ﻿(function ( $ ) {
 	'use strict';
 
-	function MapCtrl( $scope, $document, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics,UserPreference ) {
+	function MapCtrl( $scope, $document, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics,UserPreference , $modal,growl) {
 		$scope.current.isLoaded = false;
 		$scope.versionUrl = Settings.versionUrl;
 		$scope.show_target_point = true;
@@ -503,13 +503,20 @@
 
 		$scope.SaveChurch = function () {
 			$scope.churchWindow.close();
-			Churches.saveChurch( $scope.edit_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
+		Churches.saveChurch( $scope.edit_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
 		};
 
 		$scope.DeleteChurch = function () {
-			// Set end_date to the last day of the previous month
-			$scope.edit_church.end_date = moment().subtract( 1, 'months' ).endOf( 'month' ).format( 'YYYY-MM-DD' );
-			Churches.saveChurch( $scope.edit_church ).$promise.then( $scope.onSaveChurch, $scope.onError );
+
+            //before delete opening a confirmation dialog
+            $modal.open({
+                templateUrl : 'partials/map/_confirmation-dialog.html',
+                controller : confirmModalCtrl
+            }).result.then(function ( result ){
+    			// Set end_date to the last day of the previous month
+    			$scope.edit_church.end_date = moment().subtract( 1, 'months' ).endOf( 'month' ).format( 'YYYY-MM-DD' );
+    			Churches.saveChurch( $scope.edit_church ).$promise.then( $scope.onSaveChurch, $scope.onError );                
+            });
 		};
 
 		$scope.SaveTraining = function () {
@@ -916,7 +923,10 @@
 			};
 			//save user preference
 			UserPreference.savePreference(post_data).success(function(data){
+				growl.success('Your default map view has been set');
 				$scope.current.user_preferences = data;
+			},function(){
+				growl.error('Unable to save default map view');
 			});
 
 		};
@@ -935,7 +945,11 @@
 				min_code:      $scope.current.assignment.min_code.trim(),
 				location:      location,
 				location_zoom: $scope.map.getZoom()
-			} );
+			},function(d){
+				growl.success('Default ministry map view has been set');
+			},function(){
+				growl.error('Unable to save default map view');
+			});
 		};
 
 		$scope.addTrainingStage = function ( training ) {
@@ -955,7 +969,7 @@
 
 		$scope.onAddTrainingCompletion = function ( response ) {
 			response.editMode = false;
-
+			growl.success('Training was saved successfully');
 			angular.forEach( $scope.trainings, function ( training ) {
 				var id = training.hasOwnProperty( 'Id' ) ? training.Id : training.id;
 				if ( id == response.training_id ) {
@@ -986,25 +1000,43 @@
 
 		//function deletes the training
 		$scope.DeleteTraining = function (  ) {
-			Trainings.deleteTraining( $scope.current.sessionToken, $scope.edit_training )
-				.then(function ( data ) {
-					//When status code 204
-					$scope.loadTrainings();
-				}, $scope.onError)
-				.catch(function ( error ) {
-					// Failed
-								
-				});
+
+            //opening a confirmation dialog before deleting
+            $modal.open({
+                templateUrl : 'partials/map/_confirmation-dialog.html',
+                controller : confirmModalCtrl
+            }).result.then(function ( result) {
+
+                Trainings.deleteTraining( $scope.current.sessionToken, $scope.edit_training )
+                .then(function ( data ) {
+						growl.success('Traning was deleted successfully');
+                    //When status code 204
+                    $scope.loadTrainings();
+                }, $scope.onError)
+                .catch(function ( error ) {
+                    // Failed
+                                
+                });
+            });
 		};
 
 		//function deletes stages of training
-		$scope.deleteTrainingComplete = function ( training_complete , index ) {
-			Trainings.deleteTrainingCompletion( $scope.current.sessionToken, training_complete)
-				.then(function ( data ) {
-					$scope.edit_training.gcm_training_completions.splice(index, 1);
-				}, $scope.onError)
-				.catch(function ( error ) {
-					// Failed
+		$scope.deleteTrainingComplete = function (training_complete, index) {
+
+			//opening a confirmation dialog before deleting
+			$modal.open({
+				templateUrl: 'partials/map/_confirmation-dialog.html',
+				controller: confirmModalCtrl
+			}).result.then(function (result) {
+
+					Trainings.deleteTrainingCompletion($scope.current.sessionToken, training_complete)
+						.then(function (data) {
+							growl.success('Training stage was deleted successfully');
+							$scope.edit_training.gcm_training_completions.splice(index, 1);
+						}, $scope.onError)
+						.catch(function (error) {
+							// Failed
+						});
 				});
 		};
 
@@ -1041,6 +1073,16 @@
 
 			return false;
 		}
+
+        function confirmModalCtrl ($scope, $modalInstance){
+            $scope.yes = function (){
+                $modalInstance.close(true);
+            };
+
+            $scope.no = function (){
+                $modalInstance.dismiss('cancel');
+            };
+        }
 	}
 
 	angular.module( 'gma.controllers.map' ).controller( 'MapCtrl', MapCtrl );

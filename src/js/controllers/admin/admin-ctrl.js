@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries) {
+    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries,growl) {
         $scope.current.isLoaded = false;
 
         var sendAnalytics = _.throttle(function () {
@@ -132,15 +132,9 @@
             }
             $scope.saveDetailsResource = Ministries.updateMinistry(ministry,
                 function () {
-                    $scope.saveDetailsAlert = {
-                        type: 'success',
-                        msg: 'Your changes have been saved.'
-                    };
+                    growl.success('Changes saved successfully');
                 }, function (response) {
-                    $scope.saveDetailsAlert = {
-                        type: 'danger',
-                        msg: response.Message || 'An error occurred while saving.'
-                    };
+                    growl.error('Unable to save changes');
                 });
         };
 
@@ -158,11 +152,16 @@
                 }
             }).result.then(function (newMeasurement) {
                     MeasurementTypes.addMeasurementType(newMeasurement, function (response) {
+                        growl.success('Measurement was created successfully');
+
                         //push new measurement type to current list of measurement
                         var new_measurement = angular.fromJson(angular.toJson(response));
                         new_measurement.perm_link_stub = newMeasurement.perm_link_stub;
                         new_measurement.visible = false;
                         $scope.measurementTypes.push(new_measurement);
+
+                    },function(){
+                        growl.success('Unable to create measurement');
                     });
                 });
         };
@@ -210,6 +209,7 @@
                 $scope.activeTeamMembers = response.team_members;
                 $scope.membersLoaded = true;
             }, function () {
+                growl.error('Unable to load team members');
                 $scope.membersLoaded = true;
             });
         };
@@ -254,6 +254,7 @@
                     if (typeof newMember === 'undefined') return false;
                     newMember.ministry_id = $scope.activeTeam.ministry_id;
                     Assignments.addTeamMember(newMember, function (response) {
+                        growl.success('New member was added successfully');
                         //push new member to current member list
                         var new_member = {
                             first_name: response.first_name,
@@ -263,6 +264,8 @@
                             key_username: (typeof response.cas_username === 'undefined') ? '' : response.cas_username
                         };
                         $scope.activeTeamMembers.push(new_member);
+                    },function(){
+                        growl.error('Unable to add new member');
                     });
                 });
             scrollToTop();
@@ -306,10 +309,12 @@
                     if (choice === 1) {
                         //update user role
                         Assignments.saveAssignment({assignment_id: user.assignment_id}, {team_role: user.team_role}, function () {
+                            growl.success('User role was updated');
                             //success so update old_role
                             old_role = user.team_role;
 
                         }, function () {
+                            growl.error('Unable to update user role');
                             //if failed lets restore old role
                             user.team_role = old_role;
                         });
@@ -343,6 +348,8 @@
                     newMinistry.parent_id = $scope.activeTeam.ministry_id;
 
                     Ministries.createMinistry(newMinistry, function (response) {
+                        growl.success('Sub ministry was created successfully');
+
                         var got_ministry = {
                             ministry_id: response.id,
                             name: response.name,
@@ -356,7 +363,8 @@
                             $scope.activeTeam.sub_ministries = [got_ministry];
                         }
 
-
+                    },function(){
+                        growl.error('Unable to add sub ministry');
                     });
                 });
 
@@ -398,34 +406,65 @@
             $scope.draggedMember = member;
             console.log('Start dragging the member: ' + member.first_name + ' ' + member.last_name);
         };
+
+        /**
+         * Function will be fired when a team/member is dropped on a team
+         * @param event
+         * @param ui
+         * @param team The team on which a team/member is being dropped
+         * @returns {boolean}
+         */
         $scope.teamOnDrop = function (event, ui, team) {
             $(event.target).removeClass('drag-on-over');
-            //todo hit the actual API
+
+            //case when moving team
             if($scope.draggedType==='team'){
-                console.log('A team was dropped')
-            }else if($scope.draggedType==='member'){
-                console.log('A member was dropped ')
-            }else{
-                console.log('Invalid object type');
+                console.log('A team was dropped');
+                //update ministry parent id
+                //todo check if api works well
+                /*Ministries.updateMinistry({ministry_id:$scope.draggedTeam.ministry_id},{parent_id:team.ministry_id},function(){
+                    growl.success('Ministry was moved successfully');
+                    //append sub-ministry to new ministry
+                },function(){
+                    growl.error('Unable to move ministry');
+                });*/
+
+            //case when moving member
+            } else if ($scope.draggedType === 'member') {
+                console.log('A member was dropped ');
+                $scope.draggedMember.team_role = 'self_assigned';
+                Assignments.saveAssignment({assignment_id: team.ministry_id}, {team_role: $scope.draggedMember.team_role}, function () {
+                    growl.success('Member was moved to ministry successfully');
+                }, function () {
+                    growl.error('Unable to move member');
+                });
+            } else {
                 return false;
             }
 
         };
+
+        /**
+         * Function will be fired just before drop event
+         * @param event
+         * @param ui
+         * @param team Then team on which the object is being dropped
+         * @returns {boolean}
+         */
         $scope.teamBeforeDrop = function (event, ui, team) {
             $(event.target).removeClass('drag-on-over');
             // detect what type of object is being dropped and show relate popup
             if ($scope.draggedType == 'team') {
                 //check if team can be dropped or not
-                //todo show growl notification if drop is not allowed
                 if(team.ministry_id===$scope.draggedTeam.parent_id){
-                    console.log('Drop canceled, can be dropped on parent team');
+                    growl.error("Drop canceled, can't be dropped on parent team");
                     return {
                         then:function(){
                             return false;
                         }
                     };
                 }else if(team.parent_id===$scope.draggedTeam.ministry_id){
-                    console.log('Drop canceled, can be dropped on child team');
+                    growl.error("Drop canceled, can't be dropped on child team");
                     return {
                         then:function(){
                             return false;
@@ -436,15 +475,24 @@
                 }
 
             } else if ($scope.draggedType == 'member') {
-                return confirmMemberDrop(team);
+                if($scope.activeTeam.ministry_id === team.ministry_id){
+                    growl.error("Drop canceled, can't be dropped on selected team");
+                    return {
+                        then:function(){
+                            return false;
+                        }
+                    };
+                }else{
+                    return confirmMemberDrop(team);
+                }
+
             } else {
-                console.log('Invalid object type');
                 return false;
             }
 
         };
 
-        var confirmMemberDrop = function (team) {
+        function confirmMemberDrop (team) {
             var modalInstance = $modal.open({
                 templateUrl: 'partials/admin/confirm-member-drop.html',
                 controller: function ($scope, $modalInstance, modalData) {
@@ -475,7 +523,8 @@
             return modalInstance.result;
 
         };
-        var confirmTeamDrop = function (team) {
+
+        function confirmTeamDrop(team) {
             var modalInstance = $modal.open({
                 templateUrl: 'partials/admin/confirm-team-drop.html',
                 controller: function ($scope, $modalInstance, modalData) {

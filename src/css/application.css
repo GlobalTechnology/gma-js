@@ -461,4 +461,8 @@ background-color:#586EFF !important;
 }
 .measurement-expanded-text{
 	color: #586EFF !important;
+
+/*angular growl position*/
+.growl-container{
+	margin-top:50px;
 }
