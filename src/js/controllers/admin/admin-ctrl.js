@@ -420,6 +420,7 @@
             //case when moving team
             if($scope.draggedType==='team'){
                 console.log('A team was dropped');
+                var draggedTeam = angular.copy($scope.draggedTeam);
                 //update ministry parent id
                 var ministry = {
                     ministry_id:$scope.draggedTeam.ministry_id,
@@ -428,7 +429,13 @@
                 };
                 Ministries.updateMinistry(ministry,function(response){
                     growl.success('Ministry was moved successfully');
-                    //todo append sub-ministry to new ministry
+                    //todo delete source team from list
+                    if(team.hasOwnProperty('sub_ministries')){
+                        team.sub_ministries.push(draggedTeam);
+                    }else{
+                        team.sub_ministries = [];
+                        team.sub_ministries.push(draggedTeam);
+                    }
                 },function(){
                     growl.error('Unable to move ministry');
                 });
@@ -436,8 +443,15 @@
             //case when moving member
             } else if ($scope.draggedType === 'member') {
                 console.log('A member was dropped ');
-                $scope.draggedMember.team_role = 'self_assigned';
-                Assignments.saveAssignment({assignment_id: team.ministry_id}, {team_role: $scope.draggedMember.team_role}, function () {
+                var member = {
+                    key_guid : $scope.draggedMember.key_guid,
+                    username : $scope.draggedMember.key_username,
+                    team_role : $scope.draggedMember.team_role,
+                    ministry_id : team.ministry_id
+                };
+
+                Assignments.addTeamMember(member, function () {
+                    $scope.draggedMember.team_role = 'self_assigned';
                     growl.success('Member was moved to ministry successfully');
                 }, function () {
                     growl.error('Unable to move member');
