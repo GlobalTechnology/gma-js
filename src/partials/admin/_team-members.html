@@ -26,7 +26,7 @@
 								 ng-class="{'active' : (activeTeam.ministry_id === team.ministry_id)}"
 
 								 data-drop="true"
-								 jqyoui-droppable="{index: {{$index}},onOver:'teamOnOver',onOut:'teamOnOut',onDrop:'teamOnDrop(team)',beforeDrop:'teamBeforeDrop(team)'}"
+								 jqyoui-droppable="{index: {{$index}},onOver:'teamOnOver(teamCollapsed)',onOut:'teamOnOut',onDrop:'teamOnDrop(team)',beforeDrop:'teamBeforeDrop(team)'}"
 
 								 data-drag="true"
 								 jqyoui-draggable="{index: {{$index}},placeholder:'keep',animate:true,onStart:'teamOnStart(team)'}"

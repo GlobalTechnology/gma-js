@@ -421,13 +421,17 @@
             if($scope.draggedType==='team'){
                 console.log('A team was dropped');
                 //update ministry parent id
-                //todo check if api works well
-                /*Ministries.updateMinistry({ministry_id:$scope.draggedTeam.ministry_id},{parent_id:team.ministry_id},function(){
+                var ministry = {
+                    ministry_id:$scope.draggedTeam.ministry_id,
+                    min_code: $scope.draggedTeam.min_code,
+                    parent_id:team.ministry_id
+                };
+                Ministries.updateMinistry(ministry,function(response){
                     growl.success('Ministry was moved successfully');
-                    //append sub-ministry to new ministry
+                    //todo append sub-ministry to new ministry
                 },function(){
                     growl.error('Unable to move ministry');
-                });*/
+                });
 
             //case when moving member
             } else if ($scope.draggedType === 'member') {
@@ -553,9 +557,12 @@
 
         };
 
-        $scope.teamOnOver = function (event) {
+        $scope.teamOnOver = function (event,ui,teamCollapsed) {
             $(event.target).addClass('drag-on-over');
-
+            //expand tree if collapsed
+            if(teamCollapsed===true){
+                angular.element(event.target).find('i').trigger('click');
+            }
         };
 
         $scope.teamOnOut = function (event) {
