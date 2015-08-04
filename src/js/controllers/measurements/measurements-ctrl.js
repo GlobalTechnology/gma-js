@@ -159,7 +159,7 @@
 					};
 					if($scope.current.mcc !== 'undefined')
 					{
-						if($scope.measurementState.length != 0)
+						if( _.size($scope.measurementState) > 0)
 						{
 						post_data.default_measurement_states[$scope.current.mcc] = $scope.measurementState;
 						UserPreference.savePreference(post_data).success(function (data) {
