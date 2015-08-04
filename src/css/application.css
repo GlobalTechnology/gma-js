@@ -459,9 +459,9 @@ background-color:#586EFF !important;
 .measurement-collapsed{
 	background-color:#777777 !important;
 }
-.measurement-expanded-text{
+.measurement-expanded-text {
 	color: #586EFF !important;
-
+}
 /*angular growl position*/
 .growl-container{
 	margin-top:50px;

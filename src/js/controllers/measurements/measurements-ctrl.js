@@ -48,7 +48,6 @@
 			getMeasurements();
 			sendAnalytics();
 			if(old !== undefined){
-				console.log('inside watch');
 				setMeasurementState();				
 			}			
 		} );
@@ -126,30 +125,25 @@
 		};
 
 
+		function setMeasurementState() {
 
-		var setMeasurementState = function(){			
-			
 			$scope.measurementState = {};
 			//get user preference from user profile	, will override default (defined in config.php)
-			if(typeof $scope.current.user_preferences !=='undefined'){
+			if (typeof $scope.current.user_preferences !== 'undefined') {
 				//check if default_measurement_states exists in user preferences
-				if(typeof $scope.current.user_preferences.default_measurement_states !== "undefined"){
+				if (typeof $scope.current.user_preferences.default_measurement_states !== "undefined") {
 					//check if current mcc exists in default_measurement_states
-					if(typeof $scope.current.user_preferences.default_measurement_states[$scope.current.mcc] !== 'undefined'){
+					if (typeof $scope.current.user_preferences.default_measurement_states[$scope.current.mcc] !== 'undefined') {
 						$scope.measurementState = $scope.current.user_preferences.default_measurement_states[$scope.current.mcc];
-				 	} 
-				 	else
-				 	{	//check if settings for current mcc exists in config.php
-						if(typeof Settings.default_measurement_states[$scope.current.mcc] !== 'undefined')
-						{
+					}
+					else {	//check if settings for current mcc exists in config.php
+						if (typeof Settings.default_measurement_states[$scope.current.mcc] !== 'undefined') {
 							$scope.measurementState = angular.copy(Settings.default_measurement_states[$scope.current.mcc]);
 						}
 					}
 				}
-				else
-				{	//check if settings for current mcc exists in config.php
-					if(typeof Settings.default_measurement_states[$scope.current.mcc] !== 'undefined')
-					{
+				else {	//check if settings for current mcc exists in config.php
+					if (typeof Settings.default_measurement_states[$scope.current.mcc] !== 'undefined') {
 						$scope.measurementState = angular.copy(Settings.default_measurement_states[$scope.current.mcc]);
 					}
 				}
@@ -157,34 +151,28 @@
 			saveMeasurementState();
 		};
 
-		function saveMeasurementState () {
+		function saveMeasurementState() {
 
-			$interval( function () {					
-				if($location.path()==='/measurements'){
-					//default_states.default_measurement_states=$scope.measurementState;					
-					var post_data ={
-						"default_measurement_states" : {					
-						}
+			$interval(function () {
+				if ($location.path() === '/measurements') {
+					var post_data = {
+						"default_measurement_states": {}
 					};
 					post_data.default_measurement_states[$scope.current.mcc] = $scope.measurementState;
 
-					 UserPreference.savePreference(post_data)
-		               .success(function (data) {
-		               			console.log('saved'); 
-		               			//$scope.current.user_preferences.default_measurement_states[$scope.current.mcc] = 
-		                                        
-		                });
-		        }
+					UserPreference.savePreference(post_data).success(function (data) {
+					});
+				}
 
-			},60000);		
+			}, 60000);
 		};
 
-		$scope.toggleMeasurementState = function(measurmentState,perm_link_stub) {	
-			measurmentState[perm_link_stub] = (measurmentState[perm_link_stub]===1) ? 0 : 1;
+		$scope.toggleMeasurementState = function (measurementState, perm_link_stub) {
+			measurementState[perm_link_stub] = (measurementState[perm_link_stub] === 1) ? 0 : 1;
 		};
 
-		$scope.getExpandCollapse = function(measurmentState) {
-			return (measurmentState === 1);
+		$scope.getExpandCollapse = function (measurementState) {
+			return (measurementState === 1);
 		};
 
 
