@@ -442,6 +442,7 @@
             //case when moving member
             } else if ($scope.draggedType === 'member') {
                 console.log('A member was dropped ');
+                //todo send key_guid instead of key_username
                 var member = {
                     key_guid : $scope.draggedMember.key_guid,
                     username : $scope.draggedMember.key_username,
@@ -588,6 +589,15 @@
             return !_.contains(blocked_roles, member.team_role)
         };
 
+        /**
+         * @param role
+         * @returns {string}
+         */
+        $scope.getCurrentUserRole = function(role){
+            if (typeof role === 'undefined') return;
+            //capitalize first latter
+            return role.charAt(0).toUpperCase() + role.slice(1).replace('_',' ');
+        }
 
     }
 
