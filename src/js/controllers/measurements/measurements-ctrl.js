@@ -152,18 +152,21 @@
 		};
 
 		function saveMeasurementState() {
-
 			$interval(function () {
 				if ($location.path() === '/measurements') {
 					var post_data = {
 						"default_measurement_states": {}
 					};
-					post_data.default_measurement_states[$scope.current.mcc] = $scope.measurementState;
-
-					UserPreference.savePreference(post_data).success(function (data) {
-					});
+					if($scope.current.mcc !== 'undefined')
+					{
+						if($scope.measurementState.length != 0)
+						{
+						post_data.default_measurement_states[$scope.current.mcc] = $scope.measurementState;
+						UserPreference.savePreference(post_data).success(function (data) {
+						});
+						}
+					}
 				}
-
 			}, 60000);
 		};
 
