@@ -58,6 +58,12 @@
 				 <tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Actions</th></tr>
 				 </thead>
 				 <tbody>
+                 <tr class="active">
+                     <td>{{current.user.first_name}}</td>
+                     <td>{{current.user.last_name}}</td>
+                     <td>{{current.user.cas_username}}</td>
+                     <td>{{getCurrentUserRole(activeTeam.team_role)}}</td>
+                 </tr>
 				 <tr ng-repeat="member in activeTeamMembers | orderBy:['first_name', 'last_name'] | filter:filter.checkAdmin | filter : filter.checkLeader | filter:filter.checkDeleted | filter : filter.memberSearch"
 					 ng-if="current.user.person_id !== member.person_id"
 					 ng-class="{'danger':(member.team_role==='blocked')}"

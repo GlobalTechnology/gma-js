@@ -255,17 +255,16 @@
                     newMember.ministry_id = $scope.activeTeam.ministry_id;
                     Assignments.addTeamMember(newMember, function (response) {
                         growl.success('New member was added successfully');
-                        //push new member to current member list
-                        var new_member = {
-                            first_name: response.first_name,
-                            last_name: response.last_name,
-                            team_role: response.team_role,
-                            person_id: response.person_id,
-                            key_username: (typeof response.cas_username === 'undefined') ? '' : response.cas_username
-                        };
-                        $scope.activeTeamMembers.push(new_member);
-                    },function(){
-                        growl.error('Unable to add new member');
+                        //refresh members list
+                        //todo append new member to current member list
+                        $scope.loadMinistryMembers($scope.activeTeam.ministry_id);
+
+                    },function(response){
+                        if(response.status===404){
+                            growl.error('Failed, User not found');
+                        }else{
+                            growl.error('Unable to add new member');
+                        }
                     });
                 });
             scrollToTop();
@@ -420,6 +419,7 @@
             //case when moving team
             if($scope.draggedType==='team'){
                 console.log('A team was dropped');
+                var draggedTeam = angular.copy($scope.draggedTeam);
                 //update ministry parent id
                 var ministry = {
                     ministry_id:$scope.draggedTeam.ministry_id,
@@ -428,7 +428,13 @@
                 };
                 Ministries.updateMinistry(ministry,function(response){
                     growl.success('Ministry was moved successfully');
-                    //todo append sub-ministry to new ministry
+                    //todo delete source team from list
+                    if(team.hasOwnProperty('sub_ministries')){
+                        team.sub_ministries.push(draggedTeam);
+                    }else{
+                        team.sub_ministries = [];
+                        team.sub_ministries.push(draggedTeam);
+                    }
                 },function(){
                     growl.error('Unable to move ministry');
                 });
@@ -436,8 +442,16 @@
             //case when moving member
             } else if ($scope.draggedType === 'member') {
                 console.log('A member was dropped ');
-                $scope.draggedMember.team_role = 'self_assigned';
-                Assignments.saveAssignment({assignment_id: team.ministry_id}, {team_role: $scope.draggedMember.team_role}, function () {
+                //todo send key_guid instead of key_username
+                var member = {
+                    key_guid : $scope.draggedMember.key_guid,
+                    username : $scope.draggedMember.key_username,
+                    team_role : $scope.draggedMember.team_role,
+                    ministry_id : team.ministry_id
+                };
+
+                Assignments.addTeamMember(member, function () {
+                    $scope.draggedMember.team_role = 'self_assigned';
                     growl.success('Member was moved to ministry successfully');
                 }, function () {
                     growl.error('Unable to move member');
@@ -461,6 +475,7 @@
             if ($scope.draggedType == 'team') {
                 //check if team can be dropped or not
                 if(team.ministry_id===$scope.draggedTeam.parent_id){
+                    //todo prevent drop on child teams , recursive
                     growl.error("Drop canceled, can't be dropped on parent team");
                     return {
                         then:function(){
@@ -574,6 +589,15 @@
             return !_.contains(blocked_roles, member.team_role)
         };
 
+        /**
+         * @param role
+         * @returns {string}
+         */
+        $scope.getCurrentUserRole = function(role){
+            if (typeof role === 'undefined') return;
+            //capitalize first latter
+            return role.charAt(0).toUpperCase() + role.slice(1).replace('_',' ');
+        }
 
     }
 
