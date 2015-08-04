@@ -255,17 +255,16 @@
                     newMember.ministry_id = $scope.activeTeam.ministry_id;
                     Assignments.addTeamMember(newMember, function (response) {
                         growl.success('New member was added successfully');
-                        //push new member to current member list
-                        var new_member = {
-                            first_name: response.first_name,
-                            last_name: response.last_name,
-                            team_role: response.team_role,
-                            person_id: response.person_id,
-                            key_username: (typeof response.cas_username === 'undefined') ? '' : response.cas_username
-                        };
-                        $scope.activeTeamMembers.push(new_member);
-                    },function(){
-                        growl.error('Unable to add new member');
+                        //refresh members list
+                        //todo append new member to current member list
+                        $scope.loadMinistryMembers($scope.activeTeam.ministry_id);
+
+                    },function(response){
+                        if(response.status===404){
+                            growl.error('Failed, User not found');
+                        }else{
+                            growl.error('Unable to add new member');
+                        }
                     });
                 });
             scrollToTop();
@@ -475,6 +474,7 @@
             if ($scope.draggedType == 'team') {
                 //check if team can be dropped or not
                 if(team.ministry_id===$scope.draggedTeam.parent_id){
+                    //todo prevent drop on child teams , recursive
                     growl.error("Drop canceled, can't be dropped on parent team");
                     return {
                         then:function(){
