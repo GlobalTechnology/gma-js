@@ -129,25 +129,32 @@
 
 		var setMeasurementState = function(){			
 			
-			
-				$scope.measurementState = {};
-			
+			$scope.measurementState = {};
 			//get user preference from user profile	, will override default (defined in config.php)
 			if(typeof $scope.current.user_preferences !=='undefined'){
-				if(typeof $scope.current.user_preferences.default_measurement_states !== 'undefinded'){
+				//check if default_measurement_states exists in user preferences
+				if(typeof $scope.current.user_preferences.default_measurement_states !== "undefined"){
+					//check if current mcc exists in default_measurement_states
 					if(typeof $scope.current.user_preferences.default_measurement_states[$scope.current.mcc] !== 'undefined'){
-						$scope.measurementState = Settings.default_measurement_states[$scope.current.mcc];
-						//$scope.measurementState = $scope.current.user_preferences.default_measurement_states[$scope.current.mcc];
-				 } //else{
-				// 	if(Settings.default_measurement_states !== undefined){
-				// 		$scope.measurementState = Settings.default_measurement_states;
-				// 	}
-				//}
-			}	
-		}
+						$scope.measurementState = $scope.current.user_preferences.default_measurement_states[$scope.current.mcc];
+				 	} 
+				 	else
+				 	{	//check if settings for current mcc exists in config.php
+						if(typeof Settings.default_measurement_states[$scope.current.mcc] !== 'undefined')
+						{
+							$scope.measurementState = angular.copy(Settings.default_measurement_states[$scope.current.mcc]);
+						}
+					}
+				}
+				else
+				{	//check if settings for current mcc exists in config.php
+					if(typeof Settings.default_measurement_states[$scope.current.mcc] !== 'undefined')
+					{
+						$scope.measurementState = angular.copy(Settings.default_measurement_states[$scope.current.mcc]);
+					}
+				}
+			}
 			saveMeasurementState();
-
-		
 		};
 
 		function saveMeasurementState () {
@@ -172,7 +179,7 @@
 			},60000);		
 		};
 
-		$scope.toggleMeasurementState = function(measurmentState,perm_link_stub) {			
+		$scope.toggleMeasurementState = function(measurmentState,perm_link_stub) {	
 			measurmentState[perm_link_stub] = (measurmentState[perm_link_stub]===1) ? 0 : 1;
 		};
 
