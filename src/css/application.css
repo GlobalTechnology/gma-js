@@ -412,7 +412,7 @@ td.no-overflow:hover{
 .members-table tbody tr td{
 	vertical-align: middle;
 }
-/* drag and drop */
+
 .ui-draggable:not(.ui-draggable-disabled){
 	cursor: pointer;
 }
@@ -452,17 +452,22 @@ td.no-overflow:hover{
 	box-shadow: 0 0 0 2px #337ab7,0 4px 8px rgba(0,0,0,0.4);
 }
 
-.measurement-expanded{
-background-color:#586EFF !important;
+/* measurement expand and collapse states */
+.measurement-expanded {
+    cursor: pointer;
+    background-color: #337ab7 !important;
 }
 
-.measurement-collapsed{
-	background-color:#777777 !important;
+.measurement-collapsed {
+    cursor: pointer;
+    background-color: #777777 !important;
 }
+
 .measurement-expanded-text {
-	color: #586EFF !important;
+    color: #337ab7 !important;
 }
+
 /*angular growl position*/
-.growl-container{
-	margin-top:50px;
+.growl-container {
+    margin-top: 50px;
 }
