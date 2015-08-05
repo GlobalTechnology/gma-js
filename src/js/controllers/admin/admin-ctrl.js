@@ -432,12 +432,16 @@
                 };
                 Ministries.updateMinistry(ministry,function(response){
                     growl.success('Ministry was moved successfully');
-                    //todo delete source team from list
+                    //append team to new location
                     if(team.hasOwnProperty('sub_ministries')){
                         team.sub_ministries.push(draggedTeam);
                     }else{
                         team.sub_ministries = [];
                         team.sub_ministries.push(draggedTeam);
+                    }
+                    //remove team from list
+                    if($scope.draggedTeam.ministry_id===ministry.ministry_id){
+                        $scope.draggedTeam.hide_after_drop = true;
                     }
                 },function(){
                     growl.error('Unable to move ministry');
