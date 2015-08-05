@@ -81,6 +81,7 @@
                                      ng-change="updateUserRole('{{member.team_role}}',member)"
                                      class="form-control input-sm" style="width: 150px;"
                                      ng-model="member.team_role"
+                                     ng-disabled="member.team_role==='inherited_leader' || member.team_role==='inherited_admin'"
                                      >
                                  <option ng-repeat="role in roles" ng-disabled="role.value == 'inherited_admin' || role.value=='inherited_leader'">{{role.value}}</option>
                              </select>
