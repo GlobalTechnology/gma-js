@@ -125,50 +125,49 @@
 		};
 
 
-		function setMeasurementState() {
+        function setMeasurementState() {
 
-			$scope.measurementState = {};
-			//get user preference from user profile	, will override default (defined in config.php)
-			if (typeof $scope.current.user_preferences !== 'undefined') {
-				//check if default_measurement_states exists in user preferences
-				if (typeof $scope.current.user_preferences.default_measurement_states !== "undefined") {
-					//check if current mcc exists in default_measurement_states
-					if (typeof $scope.current.user_preferences.default_measurement_states[$scope.current.mcc] !== 'undefined') {
-						$scope.measurementState = $scope.current.user_preferences.default_measurement_states[$scope.current.mcc];
-					}
-					else {	//check if settings for current mcc exists in config.php
-						if (typeof Settings.default_measurement_states[$scope.current.mcc] !== 'undefined') {
-							$scope.measurementState = angular.copy(Settings.default_measurement_states[$scope.current.mcc]);
-						}
-					}
-				}
-				else {	//check if settings for current mcc exists in config.php
-					if (typeof Settings.default_measurement_states[$scope.current.mcc] !== 'undefined') {
-						$scope.measurementState = angular.copy(Settings.default_measurement_states[$scope.current.mcc]);
-					}
-				}
-			}
-			saveMeasurementState();
-		};
+            $scope.measurementState = {};
+            //get settings from config.php
+            var states_from_config = {};
+            if (typeof Settings.default_measurement_states[$scope.current.mcc] !== 'undefined') {
+                states_from_config = angular.copy(Settings.default_measurement_states[$scope.current.mcc]);
+            }
 
-		function saveMeasurementState() {
-			$interval(function () {
-				if ($location.path() === '/measurements') {
-					var post_data = {
-						"default_measurement_states": {}
-					};
-					if($scope.current.mcc !== 'undefined')
-					{
-						if( _.size($scope.measurementState) > 0)
-						{
-						post_data.default_measurement_states[$scope.current.mcc] = $scope.measurementState;
-						UserPreference.savePreference(post_data).success(function (data) {
-						});
-						}
-					}
-				}
-			}, 60000);
-		};
+            //get user preference from user profile	, will override default (defined in config.php)
+            if (typeof $scope.current.user_preferences !== 'undefined' && typeof $scope.current.user_preferences.default_measurement_states !== "undefined") {
+
+                //check if current mcc exists in default_measurement_states
+                if (typeof $scope.current.user_preferences.default_measurement_states[$scope.current.mcc] !== 'undefined') {
+                    $scope.measurementState = $scope.current.user_preferences.default_measurement_states[$scope.current.mcc];
+                }
+                else {
+                    $scope.measurementState = states_from_config;
+                }
+
+            } else {
+                $scope.measurementState = states_from_config;
+            }
+            //init automatic saving procedure
+            saveMeasurementState();
+        }
+
+        function saveMeasurementState() {
+            $interval(function () {
+                //if user in inside measurement tab
+                if ($location.path() === '/measurements') {
+
+                    if ($scope.current.mcc !== 'undefined' && (_.size($scope.measurementState) > 0)) {
+
+                        var post_data = {"default_measurement_states": {}};
+                        post_data.default_measurement_states[$scope.current.mcc] = $scope.measurementState;
+                        UserPreference.savePreference(post_data).success(function (data) {
+                        });
+
+                    }
+                }
+            }, 60000);
+        }
 
 		$scope.toggleMeasurementState = function (measurementState, perm_link_stub) {
 			measurementState[perm_link_stub] = (measurementState[perm_link_stub] === 1) ? 0 : 1;
