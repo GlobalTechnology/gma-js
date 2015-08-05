@@ -22,7 +22,7 @@
 			 <script type="text/ng-template" id="teams-tree.html">
 					 <li ng-repeat="team in teams" role="treeitem">
 						 <span 	 class="outer"
-								 ng-init="teamCollapsed = false"
+								 ng-init="teamCollapsed = ($index!==0)"
 								 ng-class="{'active' : (activeTeam.ministry_id === team.ministry_id)}"
 
 								 data-drop="true"
@@ -62,7 +62,7 @@
                      <td>{{current.user.first_name}}</td>
                      <td>{{current.user.last_name}}</td>
                      <td>{{current.user.cas_username}}</td>
-                     <td>{{getCurrentUserRole(activeTeam.team_role)}}</td>
+                     <td class="text-center">{{getCurrentUserRole(activeTeam.team_role)}}</td>
                  </tr>
 				 <tr ng-repeat="member in activeTeamMembers | orderBy:['first_name', 'last_name'] | filter:filter.checkAdmin | filter : filter.checkLeader | filter:filter.checkDeleted | filter : filter.memberSearch"
 					 ng-if="current.user.person_id !== member.person_id"
@@ -77,13 +77,13 @@
 					 <td>{{member.last_name}}</td>
 					 <td>{{member.key_username}}</td>
 					 <td class="text-center">
-						 <select
-								 ng-change="updateUserRole('{{member.team_role}}',member)"
-								 class="form-control input-sm" style="width: 150px;"
-								 ng-model="member.team_role"
-								 ng-options="r.value as r.text for r in roles"
-								 ng-disabled="'{{member.team_role}}'==='inherited_admin' || '{{member.team_role}}'==='inherited_leader'">
-						 </select>
+                             <select
+                                     ng-change="updateUserRole('{{member.team_role}}',member)"
+                                     class="form-control input-sm" style="width: 150px;"
+                                     ng-model="member.team_role"
+                                     >
+                                 <option ng-repeat="role in roles" ng-disabled="role.value == 'inherited_admin' || role.value=='inherited_leader'">{{role.value}}</option>
+                             </select>
 					 </td>
 				 </tr>
 				 </tbody>

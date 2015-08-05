@@ -234,8 +234,9 @@
         $scope.addNewTeamMember = function () {
             $modal.open({
                 templateUrl: 'partials/admin/add-team-member.html',
-                controller: function ($scope, $modalInstance, roles) {
-                    $scope.roles = roles;
+                controller: function ($scope, $modalInstance, modalData) {
+                    $scope.roles = modalData.roles;
+                    $scope.activeTeamName = modalData.activeTeam;
 
                     $scope.close = function () {
                         $modalInstance.dismiss();
@@ -246,8 +247,11 @@
                     };
                 },
                 resolve: {
-                    'roles': function () {
-                        return $scope.roles;
+                    'modalData': function () {
+                        return {
+                            roles : $scope.roles,
+                            activeTeam : $scope.activeTeam.name
+                        }
                     }
                 }
             }).result.then(function (newMember) {
@@ -256,7 +260,7 @@
                     Assignments.addTeamMember(newMember, function (response) {
                         growl.success('New member was added successfully');
                         //refresh members list
-                        //todo append new member to current member list
+                        //todo append new member to current member list instead of refreshing team list
                         $scope.loadMinistryMembers($scope.activeTeam.ministry_id);
 
                     },function(response){
@@ -442,7 +446,6 @@
             //case when moving member
             } else if ($scope.draggedType === 'member') {
                 console.log('A member was dropped ');
-                //todo send key_guid instead of key_username
                 var member = {
                     key_guid : $scope.draggedMember.key_guid,
                     username : $scope.draggedMember.key_username,
@@ -494,6 +497,7 @@
                 }
 
             } else if ($scope.draggedType == 'member') {
+                //prevent member drop on current active team itself
                 if($scope.activeTeam.ministry_id === team.ministry_id){
                     growl.error("Drop canceled, can't be dropped on selected team");
                     return {
@@ -541,7 +545,7 @@
             scrollToTop();
             return modalInstance.result;
 
-        };
+        }
 
         function confirmTeamDrop(team) {
             var modalInstance = $modal.open({
@@ -570,7 +574,7 @@
             scrollToTop();
             return modalInstance.result;
 
-        };
+        }
 
         $scope.teamOnOver = function (event,ui,teamCollapsed) {
             $(event.target).addClass('drag-on-over');
@@ -585,8 +589,22 @@
         };
 
         $scope.isMemberDraggable = function (member) {
-            var blocked_roles = ['inherited_admin', 'inherited_leader', 'blocked'];
-            return !_.contains(blocked_roles, member.team_role)
+            //if member does not have assignment id
+            if (member.assignment_id == '') {
+                return false;
+            }
+            //members who don't have key_guid or key_username are not be movable
+            else if (typeof member.key_guid === 'undefined') {
+                return false
+            } else if (typeof member.key_username === 'undefined') {
+                return false;
+            } else if (member.key_guid == '') {
+                return false;
+            } else if (member.key_username == '') {
+                return false;
+            }
+            //members who has these roles are not movable too
+            return !_.contains(['inherited_admin', 'inherited_leader', 'blocked'], member.team_role)
         };
 
         /**

@@ -1,7 +1,7 @@
 <div class="modal-header">
 	<button type="button" class="close" ng-click="close()">
 		<span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	<h4 class="modal-title">Add a new Team Member</h4>
+	<h4 class="modal-title">Add a new Team Member to {{activeTeamName}}</h4>
 </div>
 <div class="modal-body form-horizontal">
 	<div class="form-group">
@@ -16,7 +16,7 @@
 		<label class="col-sm-4 control-label">Role</label>
 
 		<div class="col-sm-8">
-			<select class="form-control" style="width: 150px;" ng-model="newMember.team_role" ng-options="r.value as r.text for r  in roles"></select>
+			<select class="form-control" style="width: 150px;" ng-model="newMember.team_role" ng-options="r.value as r.text for r  in roles | filter :{ value : '!inherited_admin' } | filter :{ value : '!inherited_leader' }"></select>
 		</div>
 	</div>
 </div>
