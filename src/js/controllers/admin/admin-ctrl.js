@@ -452,10 +452,15 @@
                     team_role : $scope.draggedMember.team_role,
                     ministry_id : team.ministry_id
                 };
+                var member_assignment_id = $scope.draggedMember.assignment_id;
 
                 Assignments.addTeamMember(member, function () {
                     $scope.draggedMember.team_role = 'self_assigned';
                     growl.success('Member was moved to ministry successfully');
+                    //set user's old role to self-assigned
+                    Assignments.saveAssignment({assignment_id:member_assignment_id},{team_role : 'self_assigned'},function(){
+                        $scope.draggedMember.team_role = 'self_assigned';
+                    });
                 }, function () {
                     growl.error('Unable to move member');
                 });
