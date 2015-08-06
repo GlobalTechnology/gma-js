@@ -4,6 +4,7 @@
 		'gma.services.googleAnalytics',
 		'gma.services.measurements',
 		'gma.services.settings',
-		'gma.services.preference'
+		'gma.services.preference',
+		'gma.services.stories'
 	] );
 })( angular );

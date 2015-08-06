@@ -6,6 +6,7 @@
 		'gma.controllers.map',
 		'gma.controllers.measurements',
 		'gma.controllers.reports',
-		'gma.controllers.preference'
+		'gma.controllers.preference',
+        'gma.controllers.stories'
 	] );
 })( angular );

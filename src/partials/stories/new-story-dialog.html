@@ -1,0 +1,72 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title">Add new story</h4>
+</div>
+<div class="modal-body">
+<form class="form-horizontal" name="form" ng-submit="saveStory(story)" novalidate>
+    <div class="form-group">
+        <label class="col-md-4 control-label">Title</label>
+        <div class="col-md-6">
+             <input type="text" name="title" maxlength="255" class="form-control" placeholder="Title" ng-model="story.title" ng-required="true">
+            <p class="help-text" ng-show="form.title.$dirty && form.title.$invalid">
+                <span class="text-danger"  ng-show="form.title.$error.required">Story title field is required.</span>
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label">Content</label>
+        <div class="col-md-6">
+            <textarea rows="5" name="content" maxlength="1000" class="form-control" ng-model="story.content" ng-required="true"></textarea>
+            <p class="help-text" ng-show="form.content.$dirty && form.content.$invalid">
+                <span class="text-danger"  ng-show="form.content.$error.required">Story content field is required.</span>
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label">Image</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="External Image URL" ng-model="story.image_url">
+            <p class="help-block">This can be an external image stored over internet</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label">Privacy</label>
+        <div class="col-md-4">
+            <select class="form-control" ng-model="story.privacy" ng-init="story.privacy='public'" ng-required="true">
+                <option value="public">Pubic</option>
+                <option value="team_only">Team Only</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label">Publish Status</label>
+        <div class="col-md-4">
+            <select class="form-control" ng-model="story.state" ng-init="story.state='published'" ng-required="true">
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+                <option value="removed">Removed</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label">Tagged Ministry:</label>
+        <div class="col-md-4">
+            <input type="hidden" ng-model="story.ministry_id" ng-init="story.ministry_id=current.assignment.ministry_id">
+            <p class="form-control-static">{{current.assignment.name}}</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label">Tagged MCC:</label>
+        <div class="col-md-4">
+            <input type="hidden" ng-model="story.mcc" ng-init="story.mcc=current.mcc">
+            <p class="form-control-static text-uppercase">{{current.mcc}}</p>
+        </div>
+    </div>
+</form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> Close</button>
+    <button ng-disabled="form.$invalid" type="button" class="btn btn-primary" ng-click="saveStory(story)"><i class="glyphicon glyphicon-ok"></i> Save</button>
+</div>
+

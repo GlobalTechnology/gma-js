@@ -350,7 +350,7 @@ td.no-overflow:hover{
 	overflow: auto;
 }
 /*team member drag and drop system*/
-.breadcrumbs-nav {
+.top-filter-nav {
 	border: 1px solid #ccc;
 	padding: 10px;
 }
@@ -470,4 +470,20 @@ td.no-overflow:hover{
 /*angular growl position*/
 .growl-container {
     margin-top: 50px;
+}
+/* stories and news*/
+.thumb-128{
+    height: 128px;
+    width: 128px;
+    overflow: hidden;
+}
+.list-media{
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+.story-content{
+    overflow: hidden;
+    max-height: 75px;
+    height: 75px;
+    text-overflow: ellipsis;
 }
