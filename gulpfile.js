@@ -42,6 +42,7 @@ gulp.task( 'html', ['clean', 'bower', 'scripts', 'partials', 'styles', 'library'
 			files:        [
 				// JavaScript
 				'google:jquery',
+				'google:jquery-ui',
 				'google:angular-loader',
 				'google:angular-resource',
 				'google:angular-route',
@@ -110,7 +111,10 @@ gulp.task( 'partials', ['clean'], function () {
 } );
 
 gulp.task( 'styles', ['clean'], function () {
-	return gulp.src( ['src/css/application.css', 'src/css/**/*.css'] )
+	return gulp.src( [
+		'bower_components/angular-growl-v2/build/angular-growl.css',
+		'src/css/application.css',
+		'src/css/**/*.css'] )
 		.pipe( concat( 'styles.min.css' ) )
 		.pipe( minifyCSS() )
 		.pipe( revisionMap() )
@@ -118,7 +122,11 @@ gulp.task( 'styles', ['clean'], function () {
 } );
 
 gulp.task( 'library', ['clean', 'bower'], function () {
-	return gulp.src( ['bower_components/easy-markerwithlabel/src/markerwithlabel.js', 'bower_components/iframe-resizer/src/iframeResizer.contentWindow.js'] )
+	return gulp.src( [
+		'bower_components/angular-growl-v2/build/angular-growl.js',
+		'bower_components/angular-dragdrop/src/angular-dragdrop.js',
+		'bower_components/easy-markerwithlabel/src/markerwithlabel.js',
+		'bower_components/iframe-resizer/src/iframeResizer.contentWindow.js'] )
 		.pipe( sourcemaps.init() )
 		.pipe( concat( 'common.min.js' ) )
 		.pipe( uglify() )
