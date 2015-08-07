@@ -1,5 +1,5 @@
 <div ng-show="current.isLoaded">
-    <aside class="pull-left col-md-6 col-lg-6 stories-section">
+    <aside class="pull-left col-md-6 col-lg-8 stories-section">
         <section class="row top-filter-nav">
             <div class="pull-left form-inline">
 
@@ -26,6 +26,7 @@
                         <ul class="list-inline">
                             <li><span class="story-status label" ng-class="{'label-success': (story.state==='published'), 'label-default' : (story.state=='draft'), 'label-danger' : (story.state=='removed')}">{{story.state}}</span></li>
                             <li><i class="glyphicon glyphicon-time"></i> {{story.created_at | date: 'MMM-dd-yyyy'}}</li>
+                            <li><i class="glyphicon glyphicon-tag"></i> <span>{{story.ministry_name}}</span>, <span class="text-uppercase">{{story.mcc}}</span></li>
                             <li><a title="Edit story" ng-click="editStory(story)" href="javascript:void(0)"><i class="glyphicon glyphicon-pencil"></i> Edit</a></li>
                         </ul>
                     </div>
@@ -41,7 +42,7 @@
         </section>
         <div ng-include="'partials/spinner.html'" ng-hide="storiesLoaded==true"><span class="sr-only">Loading.. Please wait...</span></div>
     </aside><!-- .stories-section-->
-    <aside class="pull-right col-md-6 col-lg-6 news-feed-section">
+    <aside class="pull-right col-md-6 col-lg-4 news-feed-section">
         <ul class="list-group">
             <li class="list-group-item">News feeds test</li>
             <li class="list-group-item">News feeds test</li>

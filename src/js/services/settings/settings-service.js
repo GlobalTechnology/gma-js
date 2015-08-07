@@ -43,15 +43,6 @@
 		this.routes = function () {
 			angular.forEach( config.tabs, function ( tab ) {
 				switch ( tab ) {
-                    case 'news':
-                        this.push( {
-                            name:          'News',
-                            path:          '/news',
-                            templateUrl:   'partials/stories/stories.html',
-                            controller:    'StoriesCtrl',
-                            requiredRoles: ['admin','inherited_admin','inherited_leader', 'leader']
-                        } );
-                        break;
 					case 'map':
 						this.push( {
 							name:          'Map',
@@ -88,6 +79,15 @@
 							requiredRoles: ['admin','inherited_admin','leader', 'inherited_leader']
 						} );
 						break;
+                    case 'news':
+                        this.push( {
+                            name:          'News',
+                            path:          '/news',
+                            templateUrl:   'partials/stories/stories.html',
+                            controller:    'StoriesCtrl',
+                            requiredRoles: ['admin','inherited_admin','inherited_leader', 'leader']
+                        } );
+                        break;
 				}
 			}, tabs );
 			return tabs;

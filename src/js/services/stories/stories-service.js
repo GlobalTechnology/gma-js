@@ -1,6 +1,8 @@
 (function () {
     'use strict';
-
+    /*
+     * Contains services for 'stories' and 'images'
+     */
     function Stories($http, Settings) {
 
         return {
@@ -15,6 +17,18 @@
             },
             updateStory: function (story) {
                 return $http.put(Settings.api.measurements('/stories') + '/' + story.story_id, story)
+            },
+            /*
+            * @source http://stackoverflow.com/questions/13963022/angularjs-how-to-implement-a-simple-file-upload-with-multipart-form
+            */
+            uploadStoryImage: function (story_id,formData) {
+                return $http.post(Settings.api.measurements('/images'+'?story_id='+story_id),
+                    formData,
+                    {
+                        headers: {'Content-Type': undefined },
+                        transformRequest: angular.identity
+                    }
+                )
             }
         };
 

@@ -24,10 +24,24 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-md-4 control-label">Image</label>
+        <label class="col-md-4 control-label">Image type</label>
+        <div class="col-md-6" ng-init="image_choice=1">
+            <label class="radio-inline"><input type="radio" ng-model="image_choice" value="0"> External image</label>
+            <label class="radio-inline"><input type="radio" ng-model="image_choice" value="1"> Upload an image</label>
+        </div>
+    </div>
+    <div class="form-group" ng-if="image_choice==0">
+        <label class="col-md-4 control-label">External Image URL</label>
         <div class="col-md-6">
             <input type="text" class="form-control" placeholder="External Image URL" ng-model="story.image_url">
             <p class="help-block">This can be an external image stored over internet</p>
+        </div>
+    </div>
+    <div class="form-group" ng-if="image_choice==1">
+        <label class="col-md-4 control-label">Upload an Image</label>
+        <div class="col-md-6">
+            <input type="file" accept="image/*" name="image_file" ng-model="image_file">
+            <p class="help-block">Image will be resized to 128px</p>
         </div>
     </div>
     <div class="form-group">
