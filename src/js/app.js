@@ -36,6 +36,9 @@
 			// Add itms-services scheme to safe aHref protocols
 			$compileProvider.aHrefSanitizationWhitelist( /^\s*(https?|ftp|mailto|tel|file|itms-services):/ );
 
+            // Define safe protocols for image src for this app
+            $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|data|blob):/);
+
 			// Register Session as an http interceptor
 			$httpProvider.interceptors.push( 'Session' );
 
