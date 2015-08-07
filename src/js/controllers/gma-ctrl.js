@@ -278,6 +278,10 @@
 				}
 			} );
 
+            window.setTimeout( function () {
+                window.parent.scrollTo( 0, 0 );
+            }, 10 );
+
 		};
 		/**
 		 * Sends true to show, false to hide

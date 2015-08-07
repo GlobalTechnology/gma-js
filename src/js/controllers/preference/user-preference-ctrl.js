@@ -4,7 +4,11 @@
         $scope.options = {};
 
         $scope.ministries = _.sortBy(UserPreference.getFlatMinistry($rootScope.current.assignments),'name');
-        angular.copy($rootScope.current.user_preferences, $scope.options);
+
+        if(typeof $rootScope.current.user_preferences === 'object'){
+            $scope.options =  angular.copy($rootScope.current.user_preferences);
+        }
+
         $scope.mccs = _.sortBy(UserPreference.getMappedMCCS($rootScope.current.assignment.mccs, modelData.mccLabels),'mccLabel');
 
         $scope.savePreference = function (options) {
@@ -51,10 +55,6 @@
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
-
-        window.setTimeout( function () {
-            window.parent.scrollTo( 0, 0 );
-        }, 10 );
 
     }
 

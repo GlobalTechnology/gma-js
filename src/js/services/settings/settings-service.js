@@ -110,7 +110,7 @@
 				gmaNamespace:    config.namespace,
 				tabs:            tabs,
 				googleAnalytics: config.googleanalytics,
-				default_measurement_states: config.default_measurement_states,
+				default_measurement_states: config.default_measurement_states || {}
 			}
 		};
 	}
