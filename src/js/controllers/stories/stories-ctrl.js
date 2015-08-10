@@ -10,7 +10,7 @@
         //init story pagination
         $scope.storiesNav = {
             currentPage: 1,
-            perPage: 5
+            perPage: $scope.storiesConfig.stories_per_page || 5
         };
         //lets keep some story search params in scope,  we may add some more in future
         $scope.storiesParams = {
@@ -38,7 +38,7 @@
             $scope.storiesLoaded = false;
             var params = {
                 ministry_id: $scope.current.assignment.ministry_id,
-                per_page: 5,
+                per_page: $scope.storiesConfig.stories_per_page || 5,
                 page: page || 1,
                 self_only: false
             };
@@ -214,7 +214,16 @@
                     growl.error('Error loading news feeds');
                 });
 
-        }
+        };
+
+        $scope.isStoryEditable=function(story){
+            //admin can edit any story
+            if($scope.current.hasRole(['admin','inherited_admin'])){
+               return true;
+            }
+
+            return ($scope.current.user.person_id === story.created_by);
+        };
 
 
     }
