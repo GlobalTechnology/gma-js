@@ -473,7 +473,7 @@ td.no-overflow:hover{
 }
 /* stories and news*/
 .thumb-128{
-    height: 128px;
+    max-height: 128px;
     width: 128px;
     overflow: hidden;
 }
@@ -486,4 +486,23 @@ td.no-overflow:hover{
     max-height: 75px;
     height: 75px;
     text-overflow: ellipsis;
+}
+.first-uppercase{
+    display: inline-block;
+}
+.first-uppercase:first-letter{
+    text-transform: uppercase;
+}
+.image-holder{
+    position: relative;
+}
+.image-holder i{
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.image-holder i:hover{
+    color: #da0000;
 }
