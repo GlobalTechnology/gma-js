@@ -176,52 +176,34 @@
 		$scope.getExpandCollapse = function (measurementState) {
 			return (measurementState === 1);
 		};
-		$scope.checkMeasureState = function(measurement){
-			//var role = $scope.current.assignment.team_role;
 
-			if(measurement.supported_staff_only === true)
-			{
-				if($scope.current.user_preferences.supported_staff != 'undefined')
-				{
-					if($scope.current.user_preferences.supported_staff == '1')
-					{
-						if(measurement.leader_only === true)
-						{
-							if($scope.current.assignment.team_role == 'leader' || 
-								$scope.current.assignment.team_role == 'inherited_leader' || 
-								$scope.current.assignment.team_role == 'admin'|| 
-								$scope.current.assignment.team_role == 'inherited_admin')
-							{
-								return true;
-							}
-							else
-								return false;
-						}
-						return true;
-					}
-					else
-						return false;
-				}
-				else
-				{
-					return false;
-				}
-			}
-			if(measurement.leader_only === true)	
-			{
-				if($scope.current.assignment.team_role == 'leader' || 
-					$scope.current.assignment.team_role == 'inherited_leader' || 
-					$scope.current.assignment.team_role == 'admin'|| 
-					$scope.current.assignment.team_role == 'inherited_admin')
-				{
-					return true;
-				}
-				else
-					return false;
-			}
+        $scope.checkMeasureState = function (measurement) {
 
-			return true;
-		};
+            if (measurement.supported_staff_only === true) {
+                if ($scope.current.user_preferences.supported_staff !== 'undefined') {
+                    if ($scope.current.user_preferences.supported_staff == '1') {
+                        if (measurement.leader_only === true) {
+
+                            return $scope.current.hasRole(['admin', 'inherited_admin', 'leader', 'inherited_leader']);
+
+                        }
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+
+                }
+                else {
+                    return false;
+                }
+            }
+            if (measurement.leader_only === true) {
+                return $scope.current.hasRole(['admin', 'inherited_admin', 'leader', 'inherited_leader']);
+            }
+
+            return true;
+        };
 
 	}
 
