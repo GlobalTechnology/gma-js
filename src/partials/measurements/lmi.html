@@ -1,5 +1,5 @@
 <div ng-switch="current.assignment.team_role">
-	<div class="lmi-item self_assigned" ng-switch-when="self_assigned">
+	<div class="lmi-item self_assigned" ng-switch-when="self_assigned" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name">{{m.name}}</div>
 		<div class="lmi-input-group">
 			<input type="number"
@@ -13,7 +13,7 @@
 		</div>
 	</div>
 
-	<div class="lmi-item member" ng-switch-when="member">
+	<div class="lmi-item member" ng-switch-when="member" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">{{m.name}}</div>
 		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
 			<div class="lmi-item-section col-xs-6">
@@ -38,7 +38,7 @@
 		</div>
 	</div>
 
-	<div class="lmi-item leader" ng-switch-when="leader">
+	<div class="lmi-item leader" ng-switch-when="leader" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">{{m.name}}</div>
 		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
 			<div class="lmi-item-section col-xs-4">
@@ -74,7 +74,7 @@
 		</div>
 	</div>
 
-	<div class="lmi-item leader" ng-switch-when="admin">
+	<div class="lmi-item leader" ng-switch-when="admin" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">{{m.name}}</div>
 		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
 			<div class="lmi-item-section col-xs-4">
@@ -110,7 +110,7 @@
 		</div>
 	</div>
 
-	<div class="lmi-item inherited_leader" ng-switch-when="inherited_leader">
+	<div class="lmi-item inherited_leader" ng-switch-when="inherited_leader" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">{{m.name}}</div>
 		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
 			<div class="lmi-item-section col-xs-6">
@@ -134,7 +134,7 @@
 		</div>
 	</div>
 
-	<div class="lmi-item inherited_leader" ng-switch-when="inherited_admin">
+	<div class="lmi-item inherited_leader" ng-switch-when="inherited_admin" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">{{m.name}}</div>
 		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
 			<div class="lmi-item-section col-xs-6">
