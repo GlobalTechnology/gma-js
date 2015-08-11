@@ -6,7 +6,7 @@
 <div class="modal-body">
 <div class="media">
     <div class="media-left">
-       <img class="media-object img-thumbnail" ng-src="{{(story.image_url===undefined  || story.image_url=='') ? 'img/placeholder-128.png' : story.image_url+'?v='+story.updated_at}}" alt="image" height="128" width="128">
+       <img class="media-object img-thumbnail" ng-src="{{(story.image_url===undefined  || story.image_url=='') ? versionUrl('img/story-128.png') : story.image_url+'?v='+story.updated_at}}" alt="image" height="128" width="128">
     </div>
     <div class="media-body">
         <h4 class="media-heading">{{story.title}}</h4>

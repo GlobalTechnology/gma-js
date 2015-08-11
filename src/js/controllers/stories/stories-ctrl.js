@@ -6,6 +6,7 @@
         $scope.storiesLoaded = false;
         $scope.feedsLoaded = false;
         //get configs from settings
+        $scope.versionUrl = Settings.versionUrl;
         $scope.storiesConfig = angular.copy(Settings.stories);
         //init story pagination
         $scope.storiesNav = {
@@ -115,6 +116,7 @@
                 size: 'lg',
                 controller: function ($scope, $modalInstance, modalData) {
                     $scope.story = modalData.story;
+                    $scope.versionUrl = modalData.versionUrl;
                     $scope.close = function () {
                         $modalInstance.dismiss('cancel');
                     };
@@ -122,7 +124,8 @@
                 resolve: {
                     modalData: function () {
                         return {
-                            story: angular.copy(story)
+                            story: angular.copy(story),
+                            versionUrl : $scope.versionUrl
                         }
                     }
                 }
