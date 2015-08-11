@@ -350,11 +350,6 @@ td.no-overflow:hover{
 	overflow: auto;
 }
 /*team member drag and drop system*/
-.top-filter-nav {
-	border: 1px solid #ccc;
-	padding: 10px;
-}
-
 .teams-list {
 	height: 100%;
 	overflow: auto;
@@ -471,38 +466,67 @@ td.no-overflow:hover{
 .growl-container {
     margin-top: 50px;
 }
+
 /* stories and news*/
-.thumb-128{
+.thumb-128 {
     max-height: 128px;
     width: 128px;
     overflow: hidden;
 }
-.list-media{
+
+.stories-holder {
     padding: 15px 0;
     border-bottom: 1px solid #eee;
 }
-.story-content{
+
+.story-content {
     overflow: hidden;
     max-height: 75px;
     height: 75px;
     text-overflow: ellipsis;
 }
-.first-uppercase{
+
+.first-uppercase {
     display: inline-block;
 }
-.first-uppercase:first-letter{
+
+.first-uppercase:first-letter {
     text-transform: uppercase;
 }
-.image-holder{
+
+.image-holder, .news-feeds-holder {
     position: relative;
 }
-.image-holder i{
+
+.image-holder i {
     position: absolute;
     top: -5px;
     right: -8px;
     font-size: 16px;
     cursor: pointer;
 }
-.image-holder i:hover{
+
+.image-holder i:hover {
     color: #da0000;
+}
+
+.refresh-feeds {
+    position: absolute;
+    top: -8px;
+    cursor: pointer;
+    font-size: 16px;
+    right: -8px;
+    z-index: 1;
+    padding: 3px 4px 4px;
+    background: #46b8da;
+    color: #fff;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.refresh-feeds:hover {
+    opacity: 1;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.4);
 }

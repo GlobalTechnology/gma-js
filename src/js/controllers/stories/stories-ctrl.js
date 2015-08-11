@@ -143,7 +143,7 @@
                     if (typeof $scope.story.image_url !== 'undefined' && $scope.story.image_url !== '') {
                         $scope.imageFile.url = $scope.story.image_url + '?v=' + $scope.story.updated_at;
                     }
-                    $scope.storiesConfig = angular.copy(modalData.storiesConfig);
+                    $scope.storiesConfig = modalData.storiesConfig;
 
                     $scope.close = function () {
                         $modalInstance.dismiss('cancel');
@@ -157,7 +157,7 @@
 
                                 if (typeof $scope.imageFile.resized !== 'undefined') {
                                     //Start uploading image file
-                                    uploadStoryImage(editStory.story_id, $scope.imageFile);
+                                    var upload = uploadStoryImage(editStory.story_id, $scope.imageFile);
 
                                 }
 
@@ -172,7 +172,7 @@
                 resolve: {
                     modalData: function () {
                         return {
-                            storiesConfig: $scope.storiesConfig,
+                            storiesConfig: angular.copy($scope.storiesConfig),
                             story: angular.copy(story)
                         }
                     }
@@ -188,6 +188,7 @@
             Stories.uploadStoryImage(story_id, form_data)
                 .success(function (response) {
                     growl.success('Image file was uploaded');
+                    return response;
                 })
                 .error(function (e) {
                     if (e.status === 400) {
@@ -195,6 +196,7 @@
                     } else {
                         growl.error('Unable to upload image file');
                     }
+                    return false;
                 });
         }
 
@@ -202,7 +204,7 @@
             $scope.feedsLoaded = false;
             var params = {
                 ministry_id: $scope.current.assignment.ministry_id,
-                number_of_entries: 15
+                number_of_entries: $scope.storiesConfig.feeds_count || 15
             };
             Stories.getNewsFeeds(params).
                 success(function (response) {
@@ -217,11 +219,15 @@
         };
 
         $scope.isStoryEditable=function(story){
-            //admin can edit any story
-            if($scope.current.hasRole(['admin','inherited_admin'])){
-               return true;
+
+            if(story.ministry_id === $scope.current.assignment.ministry_id){
+                //admin can edit any story but within his ministry
+                if($scope.current.hasRole(['admin','inherited_admin'])){
+                    return true;
+                }
             }
 
+            //you can always edit your own story
             return ($scope.current.user.person_id === story.created_by);
         };
 
