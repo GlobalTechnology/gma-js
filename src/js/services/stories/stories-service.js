@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     /*
-     * Contains services for 'stories' and 'images'
+     * Contains services for 'stories' ,'news feeds' and 'images'
      */
     function Stories($http, Settings) {
 
@@ -25,10 +25,13 @@
                 return $http.post(Settings.api.measurements('/images'+'?story_id='+story_id),
                     formData,
                     {
-                        headers: {'Content-Type': undefined },
+                        headers: {'Content-Type': undefined},
                         transformRequest: angular.identity
                     }
                 )
+            },
+            getNewsFeeds : function(params){
+                return $http.get(Settings.api.measurements('/audit'), {params: params})
             }
         };
 

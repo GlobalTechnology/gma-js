@@ -1,5 +1,6 @@
 <div class="admin-item" ng-init="initTeamAndMembers();">
-	 <section class="row top-filter-nav">
+    <section class="row panel panel-default">
+        <div class="panel-body" style="padding: 10px">
 		 <div class="pull-left form-inline">
 
 			 <input autofocus="" type="text" ng-model="filter.memberSearch" placeholder="Search Members.." class="form-control">&emsp;
@@ -16,6 +17,7 @@
 			 <button class="btn btn-primary btn-sm" type="button" ng-click="addNewTeamMember()"><i class="glyphicon glyphicon-user"></i> Add Member</button>
 			 <button ng-if="current.hasRole(['admin','inherited_admin'])" class="btn btn-primary btn-sm" type="button" ng-click="addNewSubMinistry()"><i class="glyphicon glyphicon-plus"></i> Add Sub Ministry</button>
 		 </div>
+         </div>
 	 </section>
 	 <section class="row" id="team-member-pane">
 		 <aside class="col-md-3 pull-left teams-list">

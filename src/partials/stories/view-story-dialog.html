@@ -6,15 +6,16 @@
 <div class="modal-body">
 <div class="media">
     <div class="media-left">
-       <img class="media-object img-thumbnail" ng-src="{{(story.image_url===undefined  || story.image_url=='') ? 'img/placeholder-128.png' : story.image_url}}" alt="image" height="128" width="128">
+       <img class="media-object img-thumbnail" ng-src="{{(story.image_url===undefined  || story.image_url=='') ? 'img/placeholder-128.png' : story.image_url+'?v='+story.updated_at}}" alt="image" height="128" width="128">
     </div>
     <div class="media-body">
         <h4 class="media-heading">{{story.title}}</h4>
         <ul class="list-inline">
-            <li><span class="story-status label" ng-class="{'label-success': (story.state==='published'), 'label-default' : (story.state=='draft'), 'label-danger' : (story.state=='removed')}">{{story.state}}</span></li>
+            <li><span class="first-uppercase label" ng-class="{'label-success': (story.state==='published'), 'label-default' : (story.state=='draft'), 'label-danger' : (story.state=='removed')}">{{story.state}}</span></li>
+            <li><i class="glyphicon" ng-class="{'glyphicon-eye-open':(story.privacy==='public'),'glyphicon-eye-close' : (story.privacy==='team_only')}"></i> <span class="first-uppercase">{{story.privacy}}</span></li>
+            <li><i class="glyphicon glyphicon-time"></i> <time>{{story.created_at | date: 'MMM-dd-yyyy'}}</time></li>
             <li><i class="glyphicon glyphicon-user"></i> {{story.created_name}}</li>
-            <li><i class="glyphicon glyphicon-time"></i> {{story.created_at | date: 'MMM-dd-yyyy'}}</li>
-            <li><i class="glyphicon glyphicon-tag"></i> <span>{{story.ministry_name}}</span>, <span class="text-uppercase">{{story.mcc}}</span></li>
+            <li><i class="glyphicon glyphicon-tag"></i> <span>{{story.ministry_name}}</span><span ng-if="story.mcc">,</span> <span class="text-uppercase">{{story.mcc}}</span></li>
         </ul>
         <p> {{story.content}} </p>
     </div>

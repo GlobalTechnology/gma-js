@@ -1,55 +1,63 @@
 <div ng-show="current.isLoaded">
     <aside class="pull-left col-md-6 col-lg-8 stories-section">
-        <section class="row top-filter-nav">
-            <div class="pull-left form-inline">
+        <section class="row panel panel-default">
+            <div class="panel-body" style="padding: 10px">
+            <div class="pull-left">
 
-                <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.self_only"> Created By Me</label>
-                <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.ministry_only"> This ministry</label>
+                <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-change="searchStories(1,storiesParams)" ng-model="storiesParams.self_only"> Created By Me</label>
 
             </div>
             <div class="pull-right">
-                <button class="btn btn-default btn-sm" ng-click="searchStories()" type="button" title="Refresh List"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only">Refresh List</span></button>
-                <button class="btn btn-primary btn-sm" ng-click="newStoryDialog()"><i class="glyphicon glyphicon-plus"></i> Add story</button>
+                <button class="btn btn-default btn-sm" ng-click="searchStories(1,storiesParams)" type="button" title="Refresh List"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only">Refresh List</span></button>
+                <button class="btn btn-primary btn-sm" ng-click="newStory()"><i class="glyphicon glyphicon-plus"></i> Add story</button>
             </div>
+           </div>
         </section>
         <section ng-hide="storiesLoaded==false">
-            <div class="list-media">
-                <div class="media" ng-repeat="story in visibleStories">
+            <div class="stories-holder">
+                    <div class="media" ng-repeat="story in visibleStories">
                     <div class="media-left">
                         <a ng-click="viewStory(story)" title="View" href="javascript:void(0)" class="thumbnail thumb-128">
-                            <img class="media-object" ng-src="{{(story.image_url===undefined || story.image_url=='') ? 'img/placeholder-128.png' : story.image_url}}" alt="image" height="128" width="128">
+                            <img class="media-object" ng-src="{{(story.image_url===undefined || story.image_url=='') ? 'img/placeholder-128.png' : story.image_url+'?v='+story.updated_at}}" alt="image" height="128" width="128">
                         </a>
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading"><a ng-click="viewStory(story)" href="javascript:void(0)">{{story.title}}</a></h4>
                         <p class="story-content">{{story.content}}</p>
                         <ul class="list-inline">
-                            <li><span class="story-status label" ng-class="{'label-success': (story.state==='published'), 'label-default' : (story.state=='draft'), 'label-danger' : (story.state=='removed')}">{{story.state}}</span></li>
-                            <li><i class="glyphicon glyphicon-time"></i> {{story.created_at | date: 'MMM-dd-yyyy'}}</li>
-                            <li><i class="glyphicon glyphicon-tag"></i> <span>{{story.ministry_name}}</span>, <span class="text-uppercase">{{story.mcc}}</span></li>
-                            <li><a title="Edit story" ng-click="editStory(story)" href="javascript:void(0)"><i class="glyphicon glyphicon-pencil"></i> Edit</a></li>
+                            <li ng-show="storiesParams.self_only===true"><span class="first-uppercase label" ng-class="{'label-success': (story.state==='published'), 'label-default' : (story.state=='draft'), 'label-danger' : (story.state=='removed')}">{{story.state}}</span></li>
+                            <li ng-hide="storiesParams.self_only===true"><i class="glyphicon glyphicon-user"></i> {{story.created_name}}</li>
+                            <li><i class="glyphicon glyphicon-time"></i> <time>{{story.created_at | date: 'MMM-dd-yyyy'}}</time></li>
+                            <li><i class="glyphicon glyphicon-tag"></i> <span>{{story.ministry_name}}</span><span ng-if="story.mcc">,</span> <span class="text-uppercase">{{story.mcc}}</span></li>
+                            <li ng-if="isStoryEditable(story)"><a title="Edit story" ng-click="editStory(story)" href="javascript:void(0)"><i class="glyphicon glyphicon-pencil"> </i>Edit</a></li>
                         </ul>
                     </div>
                 </div>
+                <div class="text-center"  ng-if="storiesLoaded==true && visibleStories.length==0">
+                    <h4><i class="glyphicon glyphicon-info-sign"></i> No story found</h4>
+                </div>
             </div>
             <!--.list media-->
-            <nav>
-                <ul class="pager">
-                    <li class="next"><a href="javascript:void(0)">Newer <span aria-hidden="true">&rarr;</span></a></li>
-                    <li class="previous"><a href="javascript:void(0)"><span aria-hidden="true">&larr;</span> Older</a></li>
-                </ul>
+            <nav class="stories-nav">
+                <pager ng-change="searchStories(storiesNav.currentPage,storiesParams)" total-items="storiesNav.totalItems" ng-model="storiesNav.currentPage" items-per-page="storiesNav.perPage" next-text="Older »" previous-text="« Newer"></pager>
             </nav>
         </section>
         <div ng-include="'partials/spinner.html'" ng-hide="storiesLoaded==true"><span class="sr-only">Loading.. Please wait...</span></div>
     </aside><!-- .stories-section-->
     <aside class="pull-right col-md-6 col-lg-4 news-feed-section">
-        <ul class="list-group">
-            <li class="list-group-item">News feeds test</li>
-            <li class="list-group-item">News feeds test</li>
-            <li class="list-group-item">News feeds test</li>
-            <li class="list-group-item">News feeds test</li>
-            <li class="list-group-item">News feeds test</li>
-        </ul>
+        <div class="news-feeds-holder" ng-hide="feedsLoaded==false || (recentNewsFeeds.length===0)">
+            <span class="refresh-feeds" ng-click="loadNewsFeeds()" title="Refresh"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only">Refresh Feeds</span></span>
+            <ul class="list-group news-feed-ul">
+            <li class="list-group-item" ng-repeat="feed in recentNewsFeeds">
+                <h5 class="list-group-item-heading"><i class="glyphicon glyphicon-time"></i> <b><time>{{feed.timestamp | date: 'MMM-dd-yyyy'}}</time> | {{feed.ministry_name}}</b></h5>
+                <p class="list-group-item-text">{{feed.message}}</p>
+            </li>
+            </ul>
+        </div>
+        <div class="text-center" ng-if="feedsLoaded==true && recentNewsFeeds.length==0">
+            <h4><i class="glyphicon glyphicon-info-sign"></i> No activity yet</h4>
+        </div>
+        <div ng-include="'partials/spinner.html'" ng-hide="feedsLoaded==true"><span class="sr-only">Loading.. Please wait...</span></div>
     </aside>
     <div class="clearfix"></div>
 </div>
