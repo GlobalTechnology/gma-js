@@ -10,7 +10,7 @@
         <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/training.png')}}" height="25" alt="+" />
 	</button>
 
-    <button title="Create new target city" type="button" class="btn btn-default btn-sm" ng-click="onAddTargetCity()" ng-if="current.mcc == 'llm'">
+    <button title="Create new target city" type="button" class="btn btn-default btn-sm" ng-click="onAddTargetCity()" ng-if="isTargetCitiesVisible===true">
         <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/target-city.png')}}" height="25" alt="+" />
     </button>
 
@@ -32,15 +32,6 @@
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/target.png')}}"></td>
 			<td><label for="targetPointCheckBox">Target point</label></td>
 		</tr>
-
-        <tr ng-if="current.mcc == 'llm'">
-            <td>
-                <input type="checkbox" id="targetCityCheckBox" class="church_development_checkbox" ng-model="$parent.show_target_city" development="1" ng-change="loadChurches()">
-            </td>
-            <td style="text-align:center; padding:2px 12px">
-                <img class="map_legend_icon" ng-src="{{versionUrl('img/icon/target-city.png')}}"></td>
-            <td><label for="targetCityCheckBox">Target city</label></td>
-        </tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
 			<td>
@@ -69,6 +60,15 @@
 			</td>
 			<td><label for="multiplyingChurchCheckBox">Multiplying church or community of disciples</label></td>
 		</tr>
+
+        <tr ng-if="isTargetCitiesVisible===true">
+            <td>
+                <input type="checkbox" id="targetCityCheckBox" class="church_development_checkbox" ng-model="show.targetCity" development="6">
+            </td>
+            <td style="text-align:center; padding:2px 12px">
+                <img class="map_legend_icon" ng-src="{{versionUrl('img/icon/target-city.png')}}"></td>
+            <td><label for="targetCityCheckBox">Target city</label></td>
+        </tr>
 
 		<tr>
 			<td>

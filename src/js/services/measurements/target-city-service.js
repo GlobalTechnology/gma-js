@@ -6,8 +6,8 @@
             createTargetCity: function (data) {
                 return $http.post(Settings.api.measurements('/target_cities'), data)
             },
-            updateTargetCity: function (target_city_id, data) {
-                return $http.put(Settings.api.measurements('/target_cities' + '?target_city_id=' + target_city_id), data)
+            updateTargetCity: function (data) {
+                return $http.put(Settings.api.measurements('/target_cities' + '/' + data.target_city_id), data)
             },
             getTargetCity: function (target_city_id) {
                 return $http.get(Settings.api.measurements('/target_cities' + '/' + target_city_id))

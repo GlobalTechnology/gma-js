@@ -3,7 +3,7 @@
         <div class="panel-body" style="padding: 10px">
 		 <div class="pull-left form-inline">
 
-			 <input autofocus="" type="text" ng-model="filter.memberSearch" placeholder="Search Members.." class="form-control">&emsp;
+			 <input autofocus="" type="text" ng-model="filter.memberSearch" placeholder="Search Members.." class="form-control input-sm">&emsp;
 
 			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.deletedUser"> Deleted</label>
 
@@ -17,6 +17,7 @@
 			 <button class="btn btn-primary btn-sm" type="button" ng-click="addNewTeamMember()"><i class="glyphicon glyphicon-user"></i> Add Member</button>
 			 <button ng-if="current.hasRole(['admin','inherited_admin'])" class="btn btn-primary btn-sm" type="button" ng-click="addNewSubMinistry()"><i class="glyphicon glyphicon-plus"></i> Add Sub Ministry</button>
 		 </div>
+            <div class="clearfix"></div>
          </div>
 	 </section>
 	 <section class="row" id="team-member-pane">
