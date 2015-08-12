@@ -1,0 +1,57 @@
+<div id="edit_target_city_window">
+    <div class="clearfix"></div>
+    <div class='target-city-window'>
+        <h4>Edit Target City </h4>
+
+        <table class="table table-condensed">
+            <tr>
+                <td><b>Name</b></td>
+                <td>
+                    <input type="text" class="form-control input-sm" maxlength="200" placeholder="Name" ng-model="new_targetCity.name" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>Area</b></td>
+                <td>
+                    <select class="form-control input-sm" ng-options="area.code as area.name for area in area_codes" ng-model="new_targetCity.area_code">
+                        <optgroup label="Select an area"></optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Country</b></td>
+                <td>
+                    <select class="form-control input-sm" ng-options="lang.iso3 as lang.name for lang in ISOCountries" ng-model="new_targetCity.iso_country_code">
+                        <optgroup label="Select country"></optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Stage</b></td>
+                <td>
+                    <select class="form-control input-sm" ng-model="new_targetCity.stage" ng-change="new_targetCity.substage=''">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Sub Stage</b></td>
+                <td>
+                    <select class="form-control input-sm" ng-options="substage.val as substage.name for substage in targetCitySubStages | filter :{ stage : new_targetCity.stage }" ng-model="new_targetCity.substage">
+                        <option value="">None</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <div>
+            <div class="btn-group btn-group-sm btn-group-justified" role="group">
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

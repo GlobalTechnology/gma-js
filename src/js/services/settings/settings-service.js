@@ -111,7 +111,8 @@
 				tabs:            tabs,
 				googleAnalytics: config.googleanalytics,
 				default_measurement_states: config.default_measurement_states || {},
-                stories: config.stories
+                stories:         config.stories,
+                area_codes:      config.area_codes
 			}
 		};
 	}

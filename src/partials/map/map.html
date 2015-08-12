@@ -2,21 +2,25 @@
 
 <div id="side" class="map_side" ng-show="current.isLoaded">
 
-	<button type="button" class="btn btn-default" ng-click="onAddIcon()" ng-if="current.mcc == 'gcm'">
-		<span class="glyphicon glyphicon-plus"></span>&nbsp;<img ng-src="{{versionUrl('img/icon/target.png')}}" style="max-height: 25px;" />
+	<button title="Create new target point" type="button" class="btn btn-default btn-sm" ng-click="onAddIcon()" ng-if="current.mcc == 'gcm'">
+		<i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/target.png')}}" height="25" alt="+" />
 	</button>
 
-	<button type="button" class="btn btn-default" ng-click="onAddTraining()">
-		<span class="glyphicon glyphicon-plus"></span>&nbsp;<img ng-src="{{versionUrl('img/icon/training.png')}}" style="max-height: 25px;" />
+	<button title="Create new training" type="button" class="btn btn-default btn-sm" ng-click="onAddTraining()">
+        <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/training.png')}}" height="25" alt="+" />
 	</button>
 
-	<button type="button" class="btn btn-default btn-my-location" ng-click="myLocation()" ng-if="supportsGeoLocation">
+    <button title="Create new target city" type="button" class="btn btn-default btn-sm" ng-click="onAddTargetCity()" ng-if="current.mcc == 'llm'">
+        <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/target-city.png')}}" height="25" alt="+" />
+    </button>
+
+	<button title="My location on map" type="button" class="btn btn-default btn-my-location btn-sm" ng-click="myLocation()" ng-if="supportsGeoLocation">
 		<span class="glyphicon glyphicon-screenshot"></span>
 	</button>
 
 	<div class="map_legend_header" ng-click="show_legend = !show_legend">
-		<span>LEGEND<img class="showMoreArrow" ng-src="{{versionUrl('img/' + (show_legend ? 'up' : 'down') + '.png')}}" style="padding-left:10px"></span>
-	</div>
+		<span>LEGEND <i class="glyphicon " ng-class="{'glyphicon-triangle-top': (show_legend===true), 'glyphicon-triangle-bottom' : (show_legend===false) }"></i> </span>
+    </div>
 	
 	<table class="map_legend" ng-show="show_legend" ng-init="show_legend=true">
 		<tbody>
@@ -28,6 +32,15 @@
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/target.png')}}"></td>
 			<td><label for="targetPointCheckBox">Target point</label></td>
 		</tr>
+
+        <tr ng-if="current.mcc == 'llm'">
+            <td>
+                <input type="checkbox" id="targetCityCheckBox" class="church_development_checkbox" ng-model="$parent.show_target_city" development="1" ng-change="loadChurches()">
+            </td>
+            <td style="text-align:center; padding:2px 12px">
+                <img class="map_legend_icon" ng-src="{{versionUrl('img/icon/target-city.png')}}"></td>
+            <td><label for="targetCityCheckBox">Target city</label></td>
+        </tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
 			<td>
@@ -87,8 +100,8 @@
 	
 	<div ng-if="current.mcc == 'gcm'">
 		<div class="map_legend_header" ng-click="show_filters = !show_filters">
-			<span>FILTERS<img class="showMoreArrow" ng-src="{{versionUrl('img/' + (show_filters ? 'up' : 'down') + '.png')}}" style="padding-left:10px"></span>
-		</div>
+			<span>FILTERS <i class="glyphicon " ng-class="{'glyphicon-triangle-top': (show_filters===true), 'glyphicon-triangle-bottom' : (show_filters===false) }"></i> </span>
+        </div>
 		<div class="map-legend" ng-show="show_filters" ng-init="show_filters=true">
 			<div class="radio">
 				<label>

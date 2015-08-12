@@ -1,9 +1,10 @@
 ﻿(function ( $ ) {
 	'use strict';
 
-	function MapCtrl( $scope, $document, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics,UserPreference , $modal,growl) {
+    function MapCtrl($scope, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics, UserPreference, $modal, growl, ISOCountries, TargetCity) {
 		$scope.current.isLoaded = false;
 		$scope.versionUrl = Settings.versionUrl;
+		$scope.area_codes = Settings.area_codes;
 		$scope.show_target_point = true;
 		$scope.show_group = true;
 		$scope.show_church = true;
@@ -29,6 +30,17 @@
 		$scope.show = {
 			training: true
 		};
+        //sub-stages for target city
+        $scope.targetCitySubStages = [
+            {val: '0', name: 'Nothing yet', stage: 0},
+            {val: '0a', name: 'Pioneering', stage: 0},
+            {val: '1a', name: 'Startup (1-5 Groups)', stage: 1},
+            {val: '1b', name: 'Solidification (5-10 groups)', stage: 1},
+            {val: '2', name: 'Growth (> 10 groups)', stage: 2},
+            {val: '3', name: 'Partnering (>30 groups)', stage: 3}
+        ];
+
+        //default map options
 		$scope.mapOptions = {
 			zoom:               3,
 			center:             new google.maps.LatLng( 0, 0 ),
@@ -60,6 +72,7 @@
 		}, 1000, {leading: false} );
 
 		function initialize() {
+            //init google map
 			$scope.map = new google.maps.Map( document.getElementById( 'map_canvas' ), $scope.mapOptions );
 			$scope.map.setOptions( {draggableCursor: ''} );
 
@@ -79,30 +92,43 @@
 			} );
 			$scope.map.markers = [];
 			$scope.church = {name: ""};
-
+            //church
 			$scope.churchWindow = new google.maps.InfoWindow();
 			$scope.churchWindowContent = $compile( '<div id="church_window_content" ng-include="\'partials/map/edit-church.html\'"></div>' )( $scope )
 			$scope.churchWindow.setOptions( {maxWidth: 300} );
-			$scope.trainingWindow = new google.maps.InfoWindow();
+            //traning
+            $scope.trainingWindow = new google.maps.InfoWindow();
 			$scope.trainingWindowContent = $compile( '<div id="training_window_content" ng-include="\'partials/map/edit-training.html\'"></div>' )( $scope )
 			$scope.trainingWindow.setOptions( {maxWidth: 400} );
+            //target city
+            $scope.targetCityWindow = new google.maps.InfoWindow();
+            $scope.trainingWindowContent = $compile( '<div id="traget_city_window_content" ng-include="\'partials/map/edit-target-city.html\'"></div>' )( $scope )
+            $scope.trainingWindow.setOptions( {maxWidth: 300} );
 
+            //church
 			$scope.newChurchWindow = new google.maps.InfoWindow();
 			google.maps.event.addListener( $scope.newChurchWindow, 'closeclick', function () {
 				$scope.cancelAddChurch();
 			} );
 			$scope.newChurchWindowContent = $compile( '<div id="new_church_window_content" ng-include="\'partials/map/new-church.html\'"></div>' )( $scope );
 			$scope.newChurchWindow.setOptions( {maxWidth: 300} );
-
-
+            //training
 			$scope.newTrainingWindow = new google.maps.InfoWindow();
 			google.maps.event.addListener( $scope.newTrainingWindow, 'closeclick', function () {
 				$scope.cancelAddChurch();
 			} );
 			$scope.newTrainingContent = $compile( '<div id="new_training_window_content" ng-include="\'partials/map/new-training.html\'"></div>' )( $scope );
 			$scope.newTrainingWindow.setOptions( {maxWidth: 300} );
+            //target city
+            $scope.newTargetCityWindow = new google.maps.InfoWindow();
+            google.maps.event.addListener( $scope.newTargetCityWindow, 'closeclick', function () {
+                $scope.cancelAddChurch();
+            } );
+            $scope.newTargetCityContent = $compile( '<div id="new_target_city_window_content" ng-include="\'partials/map/new-target-city.html\'"></div>' )( $scope );
+            $scope.newTargetCityWindow.setOptions( {maxWidth: 300} );
 
-			$scope.map.church_lines = [];
+            //map icons
+            $scope.map.church_lines = [];
 			$scope.map.icons = {};
 			$scope.map.icons.church = new google.maps.MarkerImage(
 				Settings.versionUrl( 'img/icon/church.png' ),
@@ -140,7 +166,13 @@
 				new google.maps.Point( 0, 0 ),
 				new google.maps.Point( 30, 43 )
 			);
-
+            $scope.map.icons.targetCity = new google.maps.MarkerImage(
+                Settings.versionUrl( 'img/icon/target-city.png' ),
+                new google.maps.Size( 60, 60 ), //size in pixel
+                new google.maps.Point( 0, 0 ), //The origin for this image is 0,0
+                new google.maps.Point( 30, 43 )  // The anchor for this image
+            );
+            //map sidebar and controls
 			$scope.map.side = document.getElementById( 'side' );
 			$scope.map.side.index = -1;
 			$scope.map.side.style.display = 'block';
@@ -150,7 +182,7 @@
 
 			$scope.map.controls[google.maps.ControlPosition.TOP_RIGHT].push( $scope.map.side );
 			$scope.map.controls[google.maps.ControlPosition.TOP_LEFT].push( $scope.map.search );
-
+            //search box control
 			$scope.autocomplete = new google.maps.places.Autocomplete( document.getElementById( 'searchBox' ) );
 			$scope.autocomplete.bindTo( 'bounds', $scope.map );
 
@@ -208,7 +240,7 @@
 
 				}
 			}, true );
-		}
+		}//end init function
 
 		$scope.$watch( 'current.assignment.ministry_id', function ( ministry_id ) {
 			if ( typeof ministry_id === 'undefined' ) {
@@ -339,7 +371,7 @@
 				}
 			} );
 		};
-
+        //create new training icon
 		$scope.addTraining = function () {
 			angular.forEach( $scope.map.markers, function ( m ) {
 
@@ -360,6 +392,36 @@
 				}
 			} );
 		};
+        //create new target city, hit the API
+        $scope.addTargetCity = function (new_targetCity) {
+            angular.forEach($scope.map.markers, function (m) {
+
+                if (m.id == -3) {
+                    new_targetCity.latitude = m.getPosition().lat();
+                    new_targetCity.longitude = m.getPosition().lng();
+
+                    TargetCity.createTargetCity(new_targetCity)
+                        .success(function () {
+                            //todo refresh target city icons
+                            growl.success('Target city was created successfully');
+                            //$scope.loadTargetCities
+                        }).error(function (e) {
+                            if (e.status === 400) {
+                                growl.error('Bad Request: Unable to create target city');
+                            } else {
+                                new_targetCity = {};
+                                growl.error('Error: Unable to create target city');
+                            }
+
+                        });
+
+                    m.setMap(null);
+                    var removedObject = $scope.map.markers.splice($scope.map.markers.indexOf(m), 1);
+
+                    removedObject = null;
+                }
+            })
+        };
 
 		$scope.cancelAddChurch = function () {
 			angular.forEach( $scope.map.markers, function ( m ) {
@@ -373,8 +435,9 @@
 			} );
 			$scope.new_church = {};
 			$scope.new_training = {};
+            $scope.new_targetCity = {};
 		};
-
+        //show create new traning dialog
 		$scope.onAddTraining = function () {
 			if ( $scope.map.markers.filter( function ( c ) {
 					return c.id < 0
@@ -406,11 +469,62 @@
 				$scope.map.markers.push( marker );
 			}
 		};
+        //show create new target city dialog
+        $scope.onAddTargetCity = function () {
+            if ($scope.map.markers.filter(function (c) {
+                    return c.id < 0
+                }).length == 0) {
+                $scope.new_targetCity = {};
+
+                var marker = new MarkerWithLabel({
+                    position: $scope.map.getCenter(),
+                    map: $scope.map,
+                    title: "new_targetCity",
+                    id: -3, //unique id for each type of icons used on the map
+                    cluster_count: 1,
+                    zIndex: 9999,
+                    icon: $scope.map.icons.targetCity,
+                    labelContent: 'MOVE ME!',
+                    labelAnchor: new google.maps.Point(50, -5),
+                    labelClass: "labelMoveMarker", // the CSS class for the label
+                    labelInBackground: false,
+                    draggable: true
+                });
+                $scope.map.new_targetCity_marker = marker;
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+
+                if (!$scope.newTargetCityWindow.getContent()) {
+                    $scope.newTargetCityWindow.setContent($scope.newTargetCityContent[0].nextSibling);
+                }
+                $scope.newTargetCityWindow.open($scope.map, marker);
+                //get iso countries if not loaded yet
+                getISOCountries();
+                $scope.map.markers.push(marker);
+            }
+        };
+
+        function getISOCountries() {
+
+            //don't not hit api we already have ISOCountries
+            if (typeof $scope.ISOCountries !== 'undefined' && $scope.ISOCountries.length !== 0) {
+                return $scope.ISOCountries;
+            } else {
+                ISOCountries.getCountries()
+                    .success(function (response) {
+                        $scope.ISOCountries = response;
+                        $scope.ISOCountries = _.sortBy($scope.ISOCountries,'name');
+                    })
+                    .error(function () {
+                        growl.error('Unable to load country codes');
+                    });
+            }
+
+        }
 
 		$scope.onSaveChurch = function ( response ) {
 			$scope.loadChurches();
 		};
-
+        // show create new church icon dialog
 		$scope.onAddIcon = function () {
 			if ( $scope.map.markers.filter( function ( c ) {
 					return c.id < 0
@@ -990,11 +1104,11 @@
 					$scope.map.setCenter( center );
 					$scope.map.setZoom( 15 );
 				}, function () {
-					// Failed
+                    growl.error('Falied to get your current location')
 				} );
 			}
 			else {
-				// Failed
+				growl.error('Your browser does not support GeoLocation')
 			}
 		};
 
@@ -1009,7 +1123,7 @@
 
                 Trainings.deleteTraining( $scope.current.sessionToken, $scope.edit_training )
                 .then(function ( data ) {
-						growl.success('Traning was deleted successfully');
+						growl.success('Training was deleted successfully');
                     //When status code 204
                     $scope.loadTrainings();
                 }, $scope.onError)
@@ -1062,16 +1176,7 @@
 
 		//function checks whether the current user is a leader/admin for current assignment
 		function isLeaderAdmin (){
-			switch($scope.current.assignment.team_role){
-				case 'leader':
-				case 'admin':
-				case 'inherited_leader':
-				case 'inherited_admin':
-					return true;
-					break;
-			};
-
-			return false;
+            return ($scope.current.hasRole(['admin','inherited_admin','leader','inherited_leader']));
 		}
 
         function confirmModalCtrl ($scope, $modalInstance){
