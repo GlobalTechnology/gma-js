@@ -11,6 +11,7 @@
                 <button class="btn btn-default btn-sm" ng-click="searchStories(1,storiesParams)" type="button" title="Refresh List"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only">Refresh List</span></button>
                 <button class="btn btn-primary btn-sm" ng-click="newStory()"><i class="glyphicon glyphicon-plus"></i> Add story</button>
             </div>
+            <div class="clearfix"></div>
            </div>
         </section>
         <section ng-hide="storiesLoaded==false">
@@ -48,7 +49,7 @@
         <div class="news-feeds-holder" ng-hide="feedsLoaded==false || (recentNewsFeeds.length===0)">
             <span class="refresh-feeds" ng-click="loadNewsFeeds()" title="Refresh"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only">Refresh Feeds</span></span>
             <ul class="list-group news-feed-ul">
-            <li class="list-group-item" ng-repeat="feed in recentNewsFeeds">
+            <li class="list-group-item" ng-repeat="feed in recentNewsFeeds | orderBy : '-timestamp'">
                 <h5 class="list-group-item-heading"><i class="glyphicon glyphicon-time"></i> <b><time>{{feed.timestamp | date: 'MMM-dd-yyyy'}}</time> | {{feed.ministry_name}}</b></h5>
                 <p class="list-group-item-text">{{feed.message}}</p>
             </li>

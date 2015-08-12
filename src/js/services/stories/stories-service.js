@@ -6,7 +6,7 @@
     function Stories($http, Settings) {
 
         return {
-            getStories: function (story_id) {
+            getStory: function (story_id) {
                 return $http.get(Settings.api.measurements('/stories') + '/' + story_id)
             },
             searchStories: function (params) {

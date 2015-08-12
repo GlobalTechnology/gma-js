@@ -59,7 +59,7 @@
                 })
                 .error(function (e) {
                     $scope.storiesLoaded = true;
-                    growl.error('Unable load stories');
+                    growl.error('Unable to load stories');
                 });
         };
 
@@ -117,6 +117,7 @@
                 controller: function ($scope, $modalInstance, modalData) {
                     $scope.story = modalData.story;
                     $scope.versionUrl = modalData.versionUrl;
+
                     $scope.close = function () {
                         $modalInstance.dismiss('cancel');
                     };
@@ -141,12 +142,12 @@
                 controller: function ($scope, $modalInstance, modalData) {
 
                     $scope.story = modalData.story;
+                    $scope.storiesConfig = modalData.storiesConfig;
 
                     $scope.imageFile = {};
                     if (typeof $scope.story.image_url !== 'undefined' && $scope.story.image_url !== '') {
                         $scope.imageFile.url = $scope.story.image_url + '?v=' + $scope.story.updated_at;
                     }
-                    $scope.storiesConfig = modalData.storiesConfig;
 
                     $scope.close = function () {
                         $modalInstance.dismiss('cancel');
