@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries,growl) {
+    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference) {
         $scope.current.isLoaded = false;
 
         var sendAnalytics = _.throttle(function () {
@@ -160,7 +160,7 @@
                         new_measurement.visible = false;
                         $scope.measurementTypes.push(new_measurement);
 
-                    },function(){
+                    }, function () {
                         growl.success('Unable to create measurement');
                     });
                 });
@@ -249,8 +249,8 @@
                 resolve: {
                     'modalData': function () {
                         return {
-                            roles : $scope.roles,
-                            activeTeam : $scope.activeTeam.name
+                            roles: $scope.roles,
+                            activeTeam: $scope.activeTeam.name
                         }
                     }
                 }
@@ -263,10 +263,10 @@
                         //todo append new member to current member list instead of refreshing team list
                         $scope.loadMinistryMembers($scope.activeTeam.ministry_id);
 
-                    },function(response){
-                        if(response.status===404){
+                    }, function (response) {
+                        if (response.status === 404) {
                             growl.error('Failed, User not found');
-                        }else{
+                        } else {
                             growl.error('Unable to add new member');
                         }
                     });
@@ -296,8 +296,7 @@
                         $modalInstance.close($scope.choice);
                     };
                     $scope.getRoleName = function (role) {
-                        if (typeof role === 'undefined') return;
-                        return role.charAt(0).toUpperCase() + role.slice(1).replace('_', ' ');
+                        return getActualRoleName(role);
                     }
                 },
                 resolve: {
@@ -366,7 +365,7 @@
                             $scope.activeTeam.sub_ministries = [got_ministry];
                         }
 
-                    },function(){
+                    }, function () {
                         growl.error('Unable to add sub ministry');
                     });
                 });
@@ -421,40 +420,40 @@
             $(event.target).removeClass('drag-on-over');
 
             //case when moving team
-            if($scope.draggedType==='team'){
+            if ($scope.draggedType === 'team') {
                 console.log('A team was dropped');
                 var draggedTeam = angular.copy($scope.draggedTeam);
                 //update ministry parent id
                 var ministry = {
-                    ministry_id:$scope.draggedTeam.ministry_id,
+                    ministry_id: $scope.draggedTeam.ministry_id,
                     min_code: $scope.draggedTeam.min_code,
-                    parent_id:team.ministry_id
+                    parent_id: team.ministry_id
                 };
-                Ministries.updateMinistry(ministry,function(response){
+                Ministries.updateMinistry(ministry, function (response) {
                     growl.success('Ministry was moved successfully');
                     //append team to new location
-                    if(team.hasOwnProperty('sub_ministries')){
+                    if (team.hasOwnProperty('sub_ministries')) {
                         team.sub_ministries.push(draggedTeam);
-                    }else{
+                    } else {
                         team.sub_ministries = [];
                         team.sub_ministries.push(draggedTeam);
                     }
                     //remove team from list
-                    if($scope.draggedTeam.ministry_id===ministry.ministry_id){
+                    if ($scope.draggedTeam.ministry_id === ministry.ministry_id) {
                         $scope.draggedTeam.hide_after_drop = true;
                     }
-                },function(){
+                }, function () {
                     growl.error('Unable to move ministry');
                 });
 
-            //case when moving member
+                //case when moving member
             } else if ($scope.draggedType === 'member') {
                 console.log('A member was dropped ');
                 var member = {
-                    key_guid : $scope.draggedMember.key_guid,
-                    username : $scope.draggedMember.key_username,
-                    team_role : $scope.draggedMember.team_role,
-                    ministry_id : team.ministry_id
+                    key_guid: $scope.draggedMember.key_guid,
+                    username: $scope.draggedMember.key_username,
+                    team_role: $scope.draggedMember.team_role,
+                    ministry_id: team.ministry_id
                 };
                 var member_assignment_id = $scope.draggedMember.assignment_id;
 
@@ -462,7 +461,7 @@
                     $scope.draggedMember.team_role = 'self_assigned';
                     growl.success('Member was moved to ministry successfully');
                     //set user's old role to self-assigned
-                    Assignments.saveAssignment({assignment_id:member_assignment_id},{team_role : 'self_assigned'},function(){
+                    Assignments.saveAssignment({assignment_id: member_assignment_id}, {team_role: 'self_assigned'}, function () {
                         $scope.draggedMember.team_role = 'self_assigned';
                     });
                 }, function () {
@@ -486,35 +485,41 @@
             // detect what type of object is being dropped and show relate popup
             if ($scope.draggedType == 'team') {
                 //check if team can be dropped or not
-                if(team.ministry_id===$scope.draggedTeam.parent_id){
-                    //todo prevent drop on child teams , recursive
+                if (team.ministry_id === $scope.draggedTeam.parent_id) {
                     growl.error("Drop canceled, can't be dropped on parent team");
                     return {
-                        then:function(){
+                        then: function () {
                             return false;
                         }
                     };
-                }else if(team.parent_id===$scope.draggedTeam.ministry_id){
+                } else if (team.parent_id === $scope.draggedTeam.ministry_id) {
                     growl.error("Drop canceled, can't be dropped on child team");
                     return {
-                        then:function(){
+                        then: function () {
                             return false;
                         }
                     };
-                }else{
+                } else if ($scope.draggedTeam.hasOwnProperty('sub_ministries') && checkIfDroppingOnChildTeam($scope.draggedTeam, team)) {
+                    growl.error("Drop canceled, can't be dropped on child team");
+                    return {
+                        then: function () {
+                            return false;
+                        }
+                    };
+                } else {
                     return confirmTeamDrop(team);
                 }
 
             } else if ($scope.draggedType == 'member') {
                 //prevent member drop on current active team itself
-                if($scope.activeTeam.ministry_id === team.ministry_id){
+                if ($scope.activeTeam.ministry_id === team.ministry_id) {
                     growl.error("Drop canceled, can't be dropped on selected team");
                     return {
-                        then:function(){
+                        then: function () {
                             return false;
                         }
                     };
-                }else{
+                } else {
                     return confirmMemberDrop(team);
                 }
 
@@ -524,7 +529,7 @@
 
         };
 
-        function confirmMemberDrop (team) {
+        function confirmMemberDrop(team) {
             var modalInstance = $modal.open({
                 templateUrl: 'partials/admin/confirm-member-drop.html',
                 controller: function ($scope, $modalInstance, modalData) {
@@ -538,8 +543,7 @@
                         $modalInstance.dismiss('cancel');
                     };
                     $scope.getRoleName = function (role) {
-                        if (typeof role === 'undefined') return;
-                        return role.charAt(0).toUpperCase() + role.slice(1).replace('_', ' ');
+                        return getActualRoleName(role);
                     }
                 },
                 resolve: {
@@ -585,10 +589,10 @@
 
         }
 
-        $scope.teamOnOver = function (event,ui,teamCollapsed) {
+        $scope.teamOnOver = function (event, ui, teamCollapsed) {
             $(event.target).addClass('drag-on-over');
             //expand tree if collapsed
-            if(teamCollapsed===true){
+            if (teamCollapsed === true) {
                 angular.element(event.target).find('i').trigger('click');
             }
         };
@@ -620,10 +624,32 @@
          * @param role
          * @returns {string}
          */
-        $scope.getCurrentUserRole = function(role){
+        $scope.getCurrentUserRole = function (role) {
             if (typeof role === 'undefined') return;
             //capitalize first latter
-            return role.charAt(0).toUpperCase() + role.slice(1).replace('_',' ');
+            return role.charAt(0).toUpperCase() + role.slice(1).replace('_', ' ');
+        };
+
+        function getActualRoleName(role) {
+            var found_role = _.find($scope.roles, function (r) {
+                return r.value === role;
+            });
+
+            if (found_role !== undefined) {
+                return found_role.text;
+            }
+            return role;
+        }
+
+
+        function checkIfDroppingOnChildTeam(sourceTeam, targetTeam) {
+            var flatTeams = UserPreference.getFlatMinistry(angular.copy(sourceTeam.sub_ministries));
+            //check if target is in source team's list
+            var foundAsChild = _.find(flatTeams, function (team) {
+                return team.ministry_id === targetTeam.ministry_id;
+            });
+
+            return (foundAsChild !== undefined);
         }
 
     }
