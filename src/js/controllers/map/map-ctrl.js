@@ -210,7 +210,9 @@
                 }
             });
 
-            if ($scope.current.assignment){load_training_markers();}
+            if ($scope.current.assignment) {
+                load_training_markers();
+            }
 
             $scope.$watch('current.assignment', function (assignment, oldVal) {
                 if (typeof assignment !== 'undefined') {
@@ -697,7 +699,7 @@
         };
 
         $scope.updateTrainingCompletion = function (data) {
-            Trainings.updateTrainingCompletion($scope.current.sessionToken, data).then(function(){
+            Trainings.updateTrainingCompletion($scope.current.sessionToken, data).then(function () {
                 growl.success('Traning was updated');
             }, $scope.onError);
         };
@@ -718,7 +720,7 @@
             }
         });
 
-        function load_training_markers () {
+        function load_training_markers() {
             if (typeof $scope.map === 'undefined') return;
             var toDelete = [];
 
@@ -811,6 +813,7 @@
                 });
             }
         }
+
         //watch for icon filters
         $scope.$watch('iconFilters.training', load_training_markers, true);
         $scope.$watch('iconFilters.targetCity', function () {
@@ -824,7 +827,7 @@
             }
         });
 
-         function load_target_city_markers () {
+        function load_target_city_markers() {
             if (typeof $scope.map === 'undefined') return;
             //note: using 'c' as a prefix in target city markers id
             var toDelete = [];
@@ -1316,7 +1319,7 @@
         };
 
         //function creates array of all parent ids of ministry id including id of item to check
-        function getParentMinistryIds (assignments, item) {
+        function getParentMinistryIds(assignments, item) {
             var ministries = UserPreference.getFlatMinistry(assignments);
             var ids = [];
             ids.push(item.ministry_id);
