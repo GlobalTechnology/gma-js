@@ -32,7 +32,7 @@
 			{value: "", text: 'Other'}
 		];
         //for filters on sidebar
-		$scope.show = {
+		$scope.iconFilters = {
 			training: true,
             targetCity : true
 		};
@@ -47,7 +47,7 @@
         ];
 
         //default map options
-		$scope.mapOptions = {
+		$scope.defaultMapOptions = {
 			zoom:               3,
 			center:             new google.maps.LatLng( 0, 0 ),
 			panControl:         true,
@@ -79,7 +79,7 @@
 
 		function initialize() {
             //init google map
-			$scope.map = new google.maps.Map( document.getElementById( 'map_canvas' ), $scope.mapOptions );
+			$scope.map = new google.maps.Map( document.getElementById( 'map_canvas' ), $scope.defaultMapOptions );
 			$scope.map.setOptions( {draggableCursor: ''} );
 
 			google.maps.event.addListener( $scope.map, "idle", function () {
@@ -98,35 +98,34 @@
 			} );
 			$scope.map.markers = [];
 			$scope.church = {name: ""};
-            //church
+            //edit church
 			$scope.churchWindow = new google.maps.InfoWindow();
 			$scope.churchWindowContent = $compile( '<div id="church_window_content" ng-include="\'partials/map/edit-church.html\'"></div>' )( $scope )
 			$scope.churchWindow.setOptions( {maxWidth: 300} );
-            //traning
+            //edit training
             $scope.trainingWindow = new google.maps.InfoWindow();
 			$scope.trainingWindowContent = $compile( '<div id="training_window_content" ng-include="\'partials/map/edit-training.html\'"></div>' )( $scope )
 			$scope.trainingWindow.setOptions( {maxWidth: 400} );
-            //target city
+            //edit target city
             $scope.targetCityWindow = new google.maps.InfoWindow();
             $scope.targetCityWindowContent = $compile( '<div id="traget_city_window_content" ng-include="\'partials/map/edit-target-city.html\'"></div>' )( $scope )
             $scope.targetCityWindow.setOptions( {maxWidth: 300} );
 
-            //church
-            //church
+            //new church
 			$scope.newChurchWindow = new google.maps.InfoWindow();
 			google.maps.event.addListener( $scope.newChurchWindow, 'closeclick', function () {
 				$scope.cancelAddChurch();
 			} );
 			$scope.newChurchWindowContent = $compile( '<div id="new_church_window_content" ng-include="\'partials/map/new-church.html\'"></div>' )( $scope );
 			$scope.newChurchWindow.setOptions( {maxWidth: 300} );
-            //training
+            //new training
 			$scope.newTrainingWindow = new google.maps.InfoWindow();
 			google.maps.event.addListener( $scope.newTrainingWindow, 'closeclick', function () {
 				$scope.cancelAddChurch();
 			} );
 			$scope.newTrainingContent = $compile( '<div id="new_training_window_content" ng-include="\'partials/map/new-training.html\'"></div>' )( $scope );
 			$scope.newTrainingWindow.setOptions( {maxWidth: 300} );
-            //target city
+            //new target city
             $scope.newTargetCityWindow = new google.maps.InfoWindow();
             google.maps.event.addListener( $scope.newTargetCityWindow, 'closeclick', function () {
                 $scope.cancelAddChurch();
@@ -392,7 +391,7 @@
 			})() );
 			$scope.loadChurches();
 		};
-
+        //creating new church icon, hit the API
 		$scope.addChurch = function () {
 			$scope.newChurchWindow.close();
 			angular.forEach( $scope.map.markers, function ( m ) {
@@ -402,7 +401,7 @@
 
 					$scope.new_church.latitude = m.getPosition().lat();
 					$scope.new_church.longitude = m.getPosition().lng();
-					console.log( $scope.new_church );
+
 					Churches.addChurch( $scope.new_church ).$promise.then( $scope.onAddChurch, $scope.onError );
 
 					m.setMap( null );
@@ -412,7 +411,7 @@
 				}
 			} );
 		};
-        //create new training icon
+        //create new training icon, hit the API
 		$scope.addTraining = function () {
 			angular.forEach( $scope.map.markers, function ( m ) {
 
@@ -443,7 +442,6 @@
 
                     TargetCity.createTargetCity(new_targetCity)
                         .success(function () {
-                            //todo refresh target city icons
                             growl.success('Target city was created successfully');
                             new_targetCity = {};
                             //refresh target city icons
@@ -452,7 +450,6 @@
                             if (e.status === 400) {
                                 growl.error('Bad Request: Unable to create target city');
                             } else {
-                                new_targetCity = {};
                                 growl.error('Error: Unable to create target city');
                             }
 
@@ -548,7 +545,7 @@
 
         function getISOCountries() {
 
-            //don't not hit api we already have ISOCountries
+            //don't not hit api if we already have ISOCountries
             if (typeof $scope.ISOCountries !== 'undefined' && $scope.ISOCountries.length !== 0) {
                 return $scope.ISOCountries;
             } else {
@@ -600,31 +597,31 @@
 			}
 		};
 
-		$scope.SetParent = function () {
-			$scope.SetParentMode = true;
-			$scope.churchWindow.close();
-			$scope.new_parentLine = new google.maps.Polyline( {
-				path:          [new google.maps.LatLng( $scope.edit_church.latitude, $scope.edit_church.longitude ), new google.maps.LatLng( $scope.edit_church.latitude, $scope.edit_church.longitude )],
-				geodesic:      true,
-				strokeColor:   '#777',
-				strokeOpacity: 1.0,
-				strokeWeight:  2,
-				icons:         [{
-									icon:   {
-										path:         google.maps.SymbolPath.FORWARD_OPEN_ARROW,
-										strokeWeight: 1.5
-									},
-									offset: '12px',
-									repeat: '25px'
-								}]
-			} );
+        $scope.SetParent = function () {
+            $scope.SetParentMode = true;
+            $scope.churchWindow.close();
+            $scope.new_parentLine = new google.maps.Polyline({
+                path: [new google.maps.LatLng($scope.edit_church.latitude, $scope.edit_church.longitude), new google.maps.LatLng($scope.edit_church.latitude, $scope.edit_church.longitude)],
+                geodesic: true,
+                strokeColor: '#777',
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
+                icons: [{
+                    icon: {
+                        path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
+                        strokeWeight: 1.5
+                    },
+                    offset: '12px',
+                    repeat: '25px'
+                }]
+            });
 
-			$scope.move_event = google.maps.event.addListener( $scope.map, 'mousemove', function ( e ) {
-				$scope.new_parentLine.setPath( [e.latLng, new google.maps.LatLng( $scope.edit_church.latitude, $scope.edit_church.longitude )] );
-			} );
+            $scope.move_event = google.maps.event.addListener($scope.map, 'mousemove', function (e) {
+                $scope.new_parentLine.setPath([e.latLng, new google.maps.LatLng($scope.edit_church.latitude, $scope.edit_church.longitude)]);
+            });
 
-			$scope.new_parentLine.setMap( $scope.map );
-		};
+            $scope.new_parentLine.setMap($scope.map);
+        };
 
 		$scope.RemoveParent = function () {
 			$scope.churchWindow.close();
@@ -637,36 +634,38 @@
 
 		};
 
-		$scope.MoveChurch = function () {
-			angular.forEach( $scope.map.markers, function ( m ) {
-				if ( m.id === $scope.edit_church.id ) {
-					m.setAnimation( google.maps.Animation.BOUNCE );
-					m.setDraggable( true );
-					$scope.churchWindow.close();
-				}
-			} );
-		};
+        $scope.makeMovableIcon = {
 
-		$scope.MoveTraining = function () {
-			var id = $scope.edit_training.id;
-			angular.forEach( $scope.map.markers, function ( m ) {
-				if ( m.id === 't' + id ) {
-					m.setAnimation( google.maps.Animation.BOUNCE );
-					m.setDraggable( true );
-					$scope.trainingWindow.close();
-				}
-			} );
-		};
+            MoveChurch: function () {
+                angular.forEach($scope.map.markers, function (m) {
+                    if (m.id === $scope.edit_church.id) {
+                        m.setAnimation(google.maps.Animation.BOUNCE);
+                        m.setDraggable(true);
+                        $scope.churchWindow.close();
+                    }
+                });
+            },
+            MoveTraining: function () {
+                var id = $scope.edit_training.id;
+                angular.forEach($scope.map.markers, function (m) {
+                    if (m.id === 't' + id) {
+                        m.setAnimation(google.maps.Animation.BOUNCE);
+                        m.setDraggable(true);
+                        $scope.trainingWindow.close();
+                    }
+                });
+            },
+            MoveTargetCity: function () {
+                var id = $scope.edit_targetCity.target_city_id;
+                angular.forEach($scope.map.markers, function (m) {
+                    if (m.id === 'c' + id) {
+                        m.setAnimation(google.maps.Animation.BOUNCE);
+                        m.setDraggable(true);
+                        $scope.targetCityWindow.close();
+                    }
+                });
+            }
 
-        $scope.MoveTargetCity = function () {
-            var id = $scope.edit_targetCity.target_city_id;
-            angular.forEach( $scope.map.markers, function ( m ) {
-                if ( m.id === 'c' + id ) {
-                    m.setAnimation( google.maps.Animation.BOUNCE );
-                    m.setDraggable( true );
-                    $scope.targetCityWindow.close();
-                }
-            } );
         };
 
 		$scope.SaveChurch = function () {
@@ -695,7 +694,7 @@
         $scope.SaveTargetCity = function (targetCity) {
             TargetCity.updateTargetCity(targetCity)
                 .success(function(response){
-                   growl.success('Traget City was updated');
+                   growl.success('Target City was updated');
                 }).error(function(e){
                     growl.error('Unable to update target city');
                 });
@@ -718,7 +717,7 @@
 					} ).length == 0 ) {
 					toDelete.push( training );
 				}
-				else if ( training.id[0] == 't' && !$scope.show.training ) toDelete.push( training );
+				else if ( training.id[0] == 't' && !$scope.iconFilters.training ) toDelete.push( training );
 			} );
 
 			angular.forEach( toDelete, function ( training ) {
@@ -727,7 +726,7 @@
 				removedObject = null;
 			} );
 
-			if ( $scope.show.training ) {
+			if ( $scope.iconFilters.training ) {
 				angular.forEach( $scope.trainings, function ( training ) {
 					if ( $scope.map.markers.filter( function ( c ) {
 							return c.id === 't' + training.id
@@ -783,7 +782,7 @@
 									$scope.trainingWindow.close();
 									$scope.trainingWindow.setOptions( {maxWidth: 400} );
 									$scope.trainingWindow.open( $scope.map, marker );
-									// $scope.churchWindow.open($scope.map, marker);
+
 								}
 							}( training, marker, $scope )) );
 
@@ -801,9 +800,11 @@
 				} );
 			}
 		};
-        //watch for filters
-		$scope.$watch( 'show.training', $scope.load_training_markers, true );
-		$scope.$watch('show.targetCity', function(){$scope.load_target_city_markers();}, true );
+        //watch for icon filters
+        $scope.$watch('iconFilters.training', $scope.load_training_markers, true);
+        $scope.$watch('iconFilters.targetCity', function () {
+            $scope.load_target_city_markers();
+        }, true);
 
         //watch for server response
         $scope.$watch( 'targetCities', function () {
@@ -812,84 +813,82 @@
             }
         } );
 
-        $scope.load_target_city_markers = function(){
-            if ( typeof $scope.map === 'undefined' ) return;
-
+        $scope.load_target_city_markers = function () {
+            if (typeof $scope.map === 'undefined') return;
+            //note: using 'c' as a prefix in target city markers id
             var toDelete = [];
             //collect cities to be deleted
-            angular.forEach( $scope.map.markers, function ( targetCity ) {
-                if ( targetCity.id[0] == 'c' && $scope.targetCities.filter( function ( t ) {
-
+            angular.forEach($scope.map.markers, function (targetCity) {
+                if (targetCity.id[0] == 'c' && $scope.targetCities.filter(function (t) {
                         return targetCity.id === 'c' + t.target_city_id;
-                    } ).length == 0 ) {
-                    toDelete.push( targetCity );
+                    }).length == 0) {
+                    toDelete.push(targetCity);
                 }
-                else if ( targetCity.id[0] == 'c' && !$scope.show.targetCity ) toDelete.push( targetCity );
-            } );
+                else if (targetCity.id[0] == 'c' && !$scope.iconFilters.targetCity) toDelete.push(targetCity);
+            });
             //remove target cities from markers
-            angular.forEach( toDelete, function ( targetCity ) {
-                targetCity.setMap( null );
-                var removedObject = $scope.map.markers.splice( $scope.map.markers.indexOf( targetCity ), 1 );
+            angular.forEach(toDelete, function (targetCity) {
+                targetCity.setMap(null);
+                var removedObject = $scope.map.markers.splice($scope.map.markers.indexOf(targetCity), 1);
                 removedObject = null;
-            } );
+            });
 
-            if ( $scope.isTargetCitiesVisible && $scope.show.targetCity) {
-                angular.forEach( $scope.targetCities, function ( targetCity ) {
-                    if ( $scope.map.markers.filter( function ( c ) {
+            if ($scope.isTargetCitiesVisible && $scope.iconFilters.targetCity) {
+                angular.forEach($scope.targetCities, function (targetCity) {
+                    if ($scope.map.markers.filter(function (c) {
                             return c.id === 'c' + targetCity.target_city_id;
-                        } ).length == 0 ) {
-                        if ( targetCity.longitude ) {
-                            var marker = new MarkerWithLabel( {
-                                position:          new google.maps.LatLng( targetCity.latitude, targetCity.longitude ),
-                                map:               $scope.map,
-                                id:                'c' + targetCity.target_city_id,
-                                title:             targetCity.name,
-                                icon:              $scope.map.icons.targetCity,
-                                labelContent:      '',
-                                labelAnchor:       new google.maps.Point( 30, 0 ),
-                                labelClass:        "labelMarker", // the CSS class for the label
+                        }).length == 0) {
+                        if (targetCity.longitude) {
+                            var marker = new MarkerWithLabel({
+                                position: new google.maps.LatLng(targetCity.latitude, targetCity.longitude),
+                                map: $scope.map,
+                                id: 'c' + targetCity.target_city_id,
+                                title: targetCity.name,
+                                icon: $scope.map.icons.targetCity,
+                                labelContent: '',
+                                labelAnchor: new google.maps.Point(30, 0),
+                                labelClass: "labelMarker", // the CSS class for the label
                                 labelInBackground: false,
-                                draggable:         false
-                            } );
-                            if ( !$scope.targetCityWindow.getContent() ) {
-                                $scope.targetCityWindow.setContent( $scope.targetCityWindowContent[0].nextSibling );
+                                draggable: false
+                            });
+                            if (!$scope.targetCityWindow.getContent()) {
+                                $scope.targetCityWindow.setContent($scope.targetCityWindowContent[0].nextSibling);
                             }
                             //register events on icon/marker
-                            google.maps.event.addListener( marker, 'click', (function ( targetCity, marker ) {
+                            google.maps.event.addListener(marker, 'click', (function (targetCity, marker) {
                                 return function () {
                                     $scope.edit_targetCity = targetCity;
 
                                     $scope.$apply();
                                     $scope.targetCityWindow.close();
-                                    $scope.targetCityWindow.setOptions( {maxWidth: 300} );
+                                    $scope.targetCityWindow.setOptions({maxWidth: 300});
 
                                     getISOCountries();
-                                    $scope.targetCityWindow.open( $scope.map, marker );
+                                    $scope.targetCityWindow.open($scope.map, marker);
 
                                 }
-                            }( targetCity, marker, $scope )) );
+                            }(targetCity, marker, $scope)));
 
                             //update marker lat and lang (position) upon drag
-                            google.maps.event.addListener( marker, 'dragend', (function () {
+                            google.maps.event.addListener(marker, 'dragend', (function () {
                                 targetCity.latitude = marker.getPosition().lat();
                                 targetCity.longitude = marker.getPosition().lng();
 
-                                TargetCity.updateTargetCity(targetCity )
-                                    .success(function(response){
-                                            growl.success('TargetCity was updated successfully');
-                                    }).error(function(e){
-                                          growl.error('Unable to update target city')
+                                TargetCity.updateTargetCity(targetCity)
+                                    .success(function (response) {
+                                        growl.success('TargetCity position was updated');
+                                    }).error(function (e) {
+                                        growl.error('Unable to update target city')
                                     });
-                                marker.setAnimation( null );
-                                marker.setDraggable( false );
-                            }) );
+                                marker.setAnimation(null);
+                                marker.setDraggable(false);
+                            }));
 
-                            $scope.map.markers.push( marker );
+                            $scope.map.markers.push(marker);
                         }
                     }
-                } );
+                });
             }
-
 
         };
 
@@ -901,7 +900,7 @@
 				$scope.churches = [];
 			}
 
-			console.log( 'got churches' );
+
 			$scope.removeLines();
 			$scope.removeJF();
 			// $scope.map.markers = [];
@@ -921,9 +920,9 @@
 			} );
 
 			angular.forEach( toDelete, function ( church ) {
-				//console.log(toDelete)
+
 				//var church = $scope.map.markers.filter(function (c) { return c.id == toDelete[i] });
-				//console.log(church.length);
+
 				church.setMap( null );
 				var removedObject = $scope.map.markers.splice( $scope.map.markers.indexOf( church ), 1 );
 

@@ -63,7 +63,7 @@
 
         <tr ng-if="isTargetCitiesVisible===true">
             <td>
-                <input type="checkbox" id="targetCityCheckBox" class="church_development_checkbox" ng-model="show.targetCity" development="6">
+                <input type="checkbox" id="targetCityCheckBox" class="church_development_checkbox" ng-model="iconFilters.targetCity" development="6">
             </td>
             <td style="text-align:center; padding:2px 12px">
                 <img class="map_legend_icon" ng-src="{{versionUrl('img/icon/target-city.png')}}"></td>
@@ -72,7 +72,7 @@
 
 		<tr>
 			<td>
-				<input type="checkbox" id="trainingActivityCheckBox" class="church_development_checkbox" ng-model="show.training">
+				<input type="checkbox" id="trainingActivityCheckBox" class="church_development_checkbox" ng-model="iconFilters.training">
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/training.png')}}"></td>
