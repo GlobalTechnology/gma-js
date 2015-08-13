@@ -9,6 +9,7 @@
 		'gma.filters',
 		'gma.services',
 		'ngDragDrop',
-		'angular-growl'
+		'angular-growl',
+        'gettext'
 	] );
 })( angular );

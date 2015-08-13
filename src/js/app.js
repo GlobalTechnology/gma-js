@@ -1,11 +1,14 @@
 ﻿(function () {
 	'use strict';
 	angular.module( 'gma' )
-		.run( function ( $rootScope, $route, $location, Session, Settings, GoogleAnalytics ) {
+		.run( function ( $rootScope, $route, $location, Session, Settings, GoogleAnalytics, gettextCatalog ) {
 			// Object to hold current values: assignments, assignment, user ...
 			$rootScope.current = {
 				isLoaded: false
 			};
+
+            //init app with english language
+            gettextCatalog.setCurrentLanguage('en');
 
 			// Init Google Analytics
 			GoogleAnalytics.init();
