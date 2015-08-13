@@ -5,7 +5,7 @@
 
         <table class="table table-condensed">
             <tr>
-                <td><b>Name</b></td>
+                <td><b>Name:</b></td>
                 <td>
                     <input type="text" class="form-control input-sm" ng-model='new_church.name' />
 
@@ -26,7 +26,7 @@
                 </td>
             </tr>
             <tr>
-                <td><b>Contact Mobile</b> </td>
+                <td><b>Contact Mobile:</b> </td>
                 <td>
 
                     <input type="text" class="form-control input-sm" ng-model='new_church.contact_mobile' />
@@ -34,11 +34,9 @@
                 </td>
             </tr>
             <tr>
-                <td><b>JESUS Film activity used</b> </td>
+                <td><b>JESUS Film activity:</b> </td>
                 <td>
-
-                    <input type="checkbox" class="checkbox" ng-model='new_church.jf_contrib' />
-
+                    <label class="checkbox-inline"><input type="checkbox" class="checkbox" ng-model='new_church.jf_contrib' />Check if used</label>
                 </td>
             </tr>
             <tr>
@@ -49,7 +47,6 @@
                         <option value="2">Group</option>
                         <option value="3">Church</option>
                         <option value="5">Multiplying Church</option>
-
                     </select>
 
                 </td>
@@ -58,7 +55,6 @@
                 <td><b>Size:</b> </td>
                 <td>
                     <input class="form-control input-sm" type="number" min="0" ng-model="new_church.size" />
-
                 </td>
             </tr>
             <tr ng-if="!current.hasRole('self_assigned')">
@@ -67,7 +63,7 @@
                     <select class="form-control input-sm" ng-model="new_church.security">
                         <option value="0">This Ministry Only</option>
                         <option value="1">This Ministry and above</option>
-                        <option value="2" >All Registred Users</option>
+                        <option value="2" >All Registered Users</option>
                         <option value="3">Everyone</option>
                     </select>
 
@@ -77,7 +73,7 @@
 
 		<div>
 			<div class="btn-group btn-group-sm btn-group-justified" role="group">
-				<a href class="btn btn-default" ng-click="cancelAddChurch()">Cancel</a>
+				<a href class="btn btn-default" ng-click="cancelAddNewIcon()">Cancel</a>
 				<a href class="btn btn-primary" ng-click="addChurch()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Add Church</a>
 			</div>
 		</div>

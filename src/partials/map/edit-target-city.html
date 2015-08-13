@@ -5,13 +5,13 @@
 
         <table class="table table-condensed">
             <tr>
-                <td><b>Name</b></td>
+                <td><b>Name:</b></td>
                 <td>
                     <input type="text" class="form-control input-sm" maxlength="200" placeholder="Name" ng-model="edit_targetCity.name" />
                 </td>
             </tr>
             <tr>
-                <td><b>Area</b></td>
+                <td><b>Area:</b></td>
                 <td>
                     <select class="form-control input-sm" ng-options="area.code as area.name for area in area_codes" ng-model="edit_targetCity.area_code">
                         <optgroup label="Select an area"></optgroup>
@@ -19,7 +19,7 @@
                 </td>
             </tr>
             <tr>
-                <td><b>Country</b></td>
+                <td><b>Country:</b></td>
                 <td>
                     <select class="form-control input-sm" ng-options="lang.iso3 as lang.name for lang in ISOCountries" ng-model="edit_targetCity.iso_country_code">
                         <optgroup label="Select country"></optgroup>
@@ -27,7 +27,7 @@
                 </td>
             </tr>
             <tr>
-                <td><b>Stage</b></td>
+                <td><b>Stage:</b></td>
                 <td>
                     <select class="form-control input-sm" ng-model="edit_targetCity.stage" ng-change="edit_targetCity.substage=''">
                         <option value="0">0</option>
@@ -38,7 +38,7 @@
                 </td>
             </tr>
             <tr>
-                <td><b>Sub Stage</b></td>
+                <td><b>Sub Stage:</b></td>
                 <td>
                     <select class="form-control input-sm" ng-options="substage.val as substage.name for substage in targetCitySubStages | filter :{ stage : edit_targetCity.stage }" ng-model="edit_targetCity.substage">
                         <option value="">None</option>
@@ -50,7 +50,7 @@
         <div>
             <div class="btn-group btn-group-sm btn-group-justified" role="group">
                 <a href class="btn btn-default" ng-click="makeMovableIcon.MoveTargetCity()"><span class="glyphicon glyphicon-move" aria-hidden="true"></span> Move TargetCity</a>
-                <a href class="btn btn-primary" ng-click="SaveTargetCity(edit_targetCity)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Save Changes</a>
+                <a href class="btn btn-primary" ng-click="updateTargetCity(edit_targetCity)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Save Changes</a>
             </div>
         </div>
         <div class="clearfix"></div>

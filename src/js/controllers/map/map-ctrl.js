@@ -17,8 +17,12 @@
         $scope.icon_add_mode = false;
         $scope.show_all = "year";
         $scope.show_tree = false;
+
         $scope.new_church = {};
+        $scope.new_training = {};
+        $scope.new_targetCity = {};
         $scope.edit_church = {};
+
         $scope.SetParentMode = false;
 
         $scope.church_lines = [];
@@ -114,21 +118,21 @@
             //new church
             $scope.newChurchWindow = new google.maps.InfoWindow();
             google.maps.event.addListener($scope.newChurchWindow, 'closeclick', function () {
-                $scope.cancelAddChurch();
+                $scope.cancelAddNewIcon();
             });
             $scope.newChurchWindowContent = $compile('<div id="new_church_window_content" ng-include="\'partials/map/new-church.html\'"></div>')($scope);
             $scope.newChurchWindow.setOptions({maxWidth: 300});
             //new training
             $scope.newTrainingWindow = new google.maps.InfoWindow();
             google.maps.event.addListener($scope.newTrainingWindow, 'closeclick', function () {
-                $scope.cancelAddChurch();
+                $scope.cancelAddNewIcon();
             });
             $scope.newTrainingContent = $compile('<div id="new_training_window_content" ng-include="\'partials/map/new-training.html\'"></div>')($scope);
             $scope.newTrainingWindow.setOptions({maxWidth: 300});
             //new target city
             $scope.newTargetCityWindow = new google.maps.InfoWindow();
             google.maps.event.addListener($scope.newTargetCityWindow, 'closeclick', function () {
-                $scope.cancelAddChurch();
+                $scope.cancelAddNewIcon();
             });
             $scope.newTargetCityContent = $compile('<div id="new_target_city_window_content" ng-include="\'partials/map/new-target-city.html\'"></div>')($scope);
             $scope.newTargetCityWindow.setOptions({maxWidth: 300});
@@ -206,7 +210,7 @@
                 }
             });
 
-            if ($scope.current.assignment)$scope.load_training_markers();
+            if ($scope.current.assignment){load_training_markers();}
 
             $scope.$watch('current.assignment', function (assignment, oldVal) {
                 if (typeof assignment !== 'undefined') {
@@ -463,8 +467,9 @@
             })
         };
 
-        $scope.cancelAddChurch = function () {
+        $scope.cancelAddNewIcon = function () {
             angular.forEach($scope.map.markers, function (m) {
+                //cause all dialog windows has ids like -1,-2,-3
                 if (m.id < 0) {
 
                     m.setMap(null);
@@ -668,7 +673,7 @@
 
         };
 
-        $scope.SaveChurch = function () {
+        $scope.updateChurch = function () {
             $scope.churchWindow.close();
             Churches.saveChurch($scope.edit_church).$promise.then($scope.onSaveChurch, $scope.onError);
         };
@@ -686,12 +691,18 @@
                 });
         };
 
-        $scope.SaveTraining = function () {
+        $scope.updateTraining = function () {
             Trainings.updateTraining($scope.current.sessionToken, $scope.edit_training).then($scope.onSaveChurch, $scope.onError);
             $scope.trainingWindow.close();
         };
 
-        $scope.SaveTargetCity = function (targetCity) {
+        $scope.updateTrainingCompletion = function (data) {
+            Trainings.updateTrainingCompletion($scope.current.sessionToken, data).then(function(){
+                growl.success('Traning was updated');
+            }, $scope.onError);
+        };
+
+        $scope.updateTargetCity = function (targetCity) {
             TargetCity.updateTargetCity(targetCity)
                 .success(function (response) {
                     growl.success('Target City was updated');
@@ -703,11 +714,11 @@
 
         $scope.$watch('trainings', function () {
             if ($scope.map) {
-                $scope.load_training_markers();
+                load_training_markers();
             }
         });
 
-        $scope.load_training_markers = function () {
+        function load_training_markers () {
             if (typeof $scope.map === 'undefined') return;
             var toDelete = [];
 
@@ -755,7 +766,7 @@
                                     //checking if training is editable
                                     $scope.edit_training.editable = false;
 
-                                    var parent_ids = $scope.getParentIds($scope.current.assignments, $scope.edit_training);
+                                    var parent_ids = getParentMinistryIds($scope.current.assignments, $scope.edit_training);
 
                                     //if training ministry id is child or equal to parent id
                                     var parent_id = _.find(parent_ids, function (id) {
@@ -799,21 +810,21 @@
                     }
                 });
             }
-        };
+        }
         //watch for icon filters
-        $scope.$watch('iconFilters.training', $scope.load_training_markers, true);
+        $scope.$watch('iconFilters.training', load_training_markers, true);
         $scope.$watch('iconFilters.targetCity', function () {
-            $scope.load_target_city_markers();
+            load_target_city_markers();
         }, true);
 
         //watch for server response
         $scope.$watch('targetCities', function () {
             if ($scope.map) {
-                $scope.load_target_city_markers();
+                load_target_city_markers();
             }
         });
 
-        $scope.load_target_city_markers = function () {
+         function load_target_city_markers () {
             if (typeof $scope.map === 'undefined') return;
             //note: using 'c' as a prefix in target city markers id
             var toDelete = [];
@@ -890,7 +901,7 @@
                 });
             }
 
-        };
+        }
 
         $scope.onGetChurches = function (response) {
             if ($scope.current.mcc === 'gcm') {
@@ -1021,7 +1032,7 @@
 
                                 //checking if church is editable
                                 $scope.edit_church.editable = false;
-                                var parent_ids = $scope.getParentIds($scope.current.assignments, $scope.edit_church);
+                                var parent_ids = getParentMinistryIds($scope.current.assignments, $scope.edit_church);
 
                                 //if training ministry id is child or equal to parent id
                                 var parent_id = _.find(parent_ids, function (id) {
@@ -1173,6 +1184,75 @@
         };
         $scope.jesusFilmSign.prototype = new google.maps.OverlayView();
 
+        $scope.addTrainingStage = function (training) {
+            var newPhase = {
+                phase: training.current_stage,
+                date: training.insert.date,
+                number_completed: training.insert.number_completed,
+                training_id: training.id
+
+            };
+            Trainings.addTrainingCompletion($scope.current.sessionToken, newPhase).then($scope.onAddTrainingCompletion, $scope.onError);
+
+            training.insert.date = "";
+            training.insert.number_completed = 0;
+
+        };
+
+        $scope.onAddTrainingCompletion = function (response) {
+            response.editMode = false;
+            growl.success('Training was saved successfully');
+            angular.forEach($scope.trainings, function (training) {
+                var id = training.hasOwnProperty('Id') ? training.Id : training.id;
+                if (id == response.training_id) {
+                    training.gcm_training_completions.push(response);
+                    training.current_stage = response.phase + 1;
+                }
+            });
+        };
+
+        //function deletes the training
+        $scope.DeleteTraining = function () {
+
+            //opening a confirmation dialog before deleting
+            $modal.open({
+                templateUrl: 'partials/map/_confirmation-dialog.html',
+                controller: confirmModalCtrl
+            }).result.then(function (result) {
+
+                    Trainings.deleteTraining($scope.current.sessionToken, $scope.edit_training)
+                        .then(function (data) {
+                            growl.success('Training was deleted successfully');
+                            //When status code 204
+                            $scope.loadTrainings();
+                        }, $scope.onError)
+                        .catch(function (error) {
+                            // Failed
+
+                        });
+                });
+        };
+
+        //function deletes stages of training
+        $scope.deleteTrainingComplete = function (training_complete, index) {
+
+            //opening a confirmation dialog before deleting
+            $modal.open({
+                templateUrl: 'partials/map/_confirmation-dialog.html',
+                controller: confirmModalCtrl
+            }).result.then(function (result) {
+
+                    Trainings.deleteTrainingCompletion($scope.current.sessionToken, training_complete)
+                        .then(function (data) {
+                            growl.success('Training stage was deleted successfully');
+                            $scope.edit_training.gcm_training_completions.splice(index, 1);
+                        }, $scope.onError)
+                        .catch(function (error) {
+                            // Failed
+                        });
+                });
+        };
+
         $scope.setMyDefaultMapView = function () {
 
             var center = $scope.map.getCenter();
@@ -1220,37 +1300,6 @@
             });
         };
 
-        $scope.addTrainingStage = function (training) {
-            var newPhase = {
-                phase: training.current_stage,
-                date: training.insert.date,
-                number_completed: training.insert.number_completed,
-                training_id: training.id
-
-            };
-            Trainings.addTrainingCompletion($scope.current.sessionToken, newPhase).then($scope.onAddTrainingCompletion, $scope.onError);
-
-            training.insert.date = "";
-            training.insert.number_completed = 0;
-
-        };
-
-        $scope.onAddTrainingCompletion = function (response) {
-            response.editMode = false;
-            growl.success('Training was saved successfully');
-            angular.forEach($scope.trainings, function (training) {
-                var id = training.hasOwnProperty('Id') ? training.Id : training.id;
-                if (id == response.training_id) {
-                    training.gcm_training_completions.push(response);
-                    training.current_stage = response.phase + 1;
-                }
-            });
-        };
-
-        $scope.saveTrainingCompletion = function (data) {
-            Trainings.updateTrainingCompletion($scope.current.sessionToken, data).then($scope.onSaveTrainingCompletion, $scope.onError);
-        };
-
         $scope.myLocation = function () {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
@@ -1266,50 +1315,8 @@
             }
         };
 
-        //function deletes the training
-        $scope.DeleteTraining = function () {
-
-            //opening a confirmation dialog before deleting
-            $modal.open({
-                templateUrl: 'partials/map/_confirmation-dialog.html',
-                controller: confirmModalCtrl
-            }).result.then(function (result) {
-
-                    Trainings.deleteTraining($scope.current.sessionToken, $scope.edit_training)
-                        .then(function (data) {
-                            growl.success('Training was deleted successfully');
-                            //When status code 204
-                            $scope.loadTrainings();
-                        }, $scope.onError)
-                        .catch(function (error) {
-                            // Failed
-
-                        });
-                });
-        };
-
-        //function deletes stages of training
-        $scope.deleteTrainingComplete = function (training_complete, index) {
-
-            //opening a confirmation dialog before deleting
-            $modal.open({
-                templateUrl: 'partials/map/_confirmation-dialog.html',
-                controller: confirmModalCtrl
-            }).result.then(function (result) {
-
-                    Trainings.deleteTrainingCompletion($scope.current.sessionToken, training_complete)
-                        .then(function (data) {
-                            growl.success('Training stage was deleted successfully');
-                            $scope.edit_training.gcm_training_completions.splice(index, 1);
-                        }, $scope.onError)
-                        .catch(function (error) {
-                            // Failed
-                        });
-                });
-        };
-
         //function creates array of all parent ids of ministry id including id of item to check
-        $scope.getParentIds = function (assignments, item) {
+        function getParentMinistryIds (assignments, item) {
             var ministries = UserPreference.getFlatMinistry(assignments);
             var ids = [];
             ids.push(item.ministry_id);

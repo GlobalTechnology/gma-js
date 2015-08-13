@@ -5,13 +5,13 @@
 
         <table class="table table-condensed">
             <tr>
-                <td><b>Name</b></td>
+                <td><b>Name:</b></td>
                 <td>
                     <input type="text" class="form-control input-sm" maxlength="200" placeholder="Name" ng-model="new_targetCity.name" />
                 </td>
             </tr>
             <tr>
-                <td><b>Area</b></td>
+                <td><b>Area:</b></td>
                 <td>
                     <select class="form-control input-sm" ng-options="area.code as area.name for area in area_codes" ng-model="new_targetCity.area_code">
                         <optgroup label="Select an area"></optgroup>
@@ -19,7 +19,7 @@
                 </td>
             </tr>
             <tr>
-                <td><b>Country</b></td>
+                <td><b>Country:</b></td>
                 <td>
                     <select class="form-control input-sm" ng-options="lang.iso3 as lang.name for lang in ISOCountries" ng-model="new_targetCity.iso_country_code">
                         <optgroup label="Select country"></optgroup>
@@ -27,7 +27,7 @@
                 </td>
             </tr>
             <tr>
-                <td><b>Stage</b></td>
+                <td><b>Stage:</b></td>
                 <td>
                     <select class="form-control input-sm" ng-model="new_targetCity.stage" ng-init="new_targetCity.stage=0" ng-change="new_targetCity.substage=''">
                         <option value="0">0</option>
@@ -38,7 +38,7 @@
                 </td>
             </tr>
             <tr>
-                <td><b>Sub Stage</b></td>
+                <td><b>Sub Stage:</b></td>
                 <td>
                     <select class="form-control input-sm" ng-options="substage.val as substage.name for substage in targetCitySubStages | filter :{ stage : new_targetCity.stage }" ng-model="new_targetCity.substage">
                         <option value="">None</option>
@@ -49,7 +49,7 @@
 
         <div>
             <div class="btn-group btn-group-sm btn-group-justified" role="group">
-                <a href class="btn btn-default" ng-click="cancelAddChurch()">Cancel</a>
+                <a href class="btn btn-default" ng-click="cancelAddNewIcon()">Cancel</a>
                 <a href class="btn btn-primary" ng-click="addTargetCity(new_targetCity)"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Add TargetCity</a>
             </div>
         </div>
