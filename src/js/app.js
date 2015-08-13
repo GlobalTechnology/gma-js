@@ -29,7 +29,7 @@
 			//TODO fetch a ticket from refresh to start session
 			Session.startSession( Settings.ticket );
 		} )
-		.config( function ( $routeProvider, $httpProvider, $compileProvider, SettingsProvider, $provide, growlProvider ) {
+		.config( function ( $routeProvider, $httpProvider, $compileProvider, SettingsProvider, $provide, growlProvider ,$rootScopeProvider ) {
 			// Initialize Settings from wrapper provided config
 			SettingsProvider.setConfig( window.gma.config );
 
@@ -42,6 +42,8 @@
 			// Register Session as an http interceptor
 			$httpProvider.interceptors.push( 'Session' );
 
+            //increase digest cycle limit , default is 10
+            $rootScopeProvider.digestTtl(100);
 
 			//global configs for angular-growl
 			growlProvider.globalPosition('top-right');
