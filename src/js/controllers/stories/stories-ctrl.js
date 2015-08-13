@@ -208,7 +208,7 @@
             $scope.feedsLoaded = false;
             var params = {
                 ministry_id: $scope.current.assignment.ministry_id,
-                number_of_entries: $scope.storiesConfig.feeds_count || 15
+                number_of_entries: $scope.storiesConfig.feeds_count || 10
             };
             Stories.getNewsFeeds(params).
                 success(function (response) {
