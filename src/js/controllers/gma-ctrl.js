@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 
-	function GMACtrl( $scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics, UserPreference ) {
+	function GMACtrl( $scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics, UserPreference,growl ) {
 		// Attach $location provider to scope, this is used to set active tabs
 		$scope.$location = $location;
 
@@ -247,7 +247,13 @@
 						dimensions[GoogleAnalytics.DIM.ministry_id] = assignment.ministry_id;
 						return dimensions;
 					})() );
-				} );
+				},function(e){
+                    if(e.status===400){
+                        growl.error('You are already assigned to requested ministry');
+                    }else{
+                        growl.error('Unable to join ministry')
+                    }
+                } );
 			} );
 		};
 
