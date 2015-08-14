@@ -3,8 +3,8 @@
 		<form name="lmiForm" class="measurements">
 			<fieldset>
 				<legend>
-					Local Movement Indicators
-					<button type="button" class="btn btn-primary pull-right" ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)" ng-click="save()"><i class="glyphicon glyphicon-floppy-disk"></i> Save Changes</button>
+					<span translate>Local Movement Indicators</span>
+					<button type="button" class="btn btn-primary pull-right" ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)" ng-click="save()"><i class="glyphicon glyphicon-floppy-disk"></i> <span translate>Save Changes</span></button>
 					<div class="clearfix"></div>
 				</legend>
 
@@ -15,19 +15,19 @@
 						<th></th>
 						<th>
 							<h1>
-								<small>Faith Actions</small>
+								<small translate>Faith Actions</small>
 							</h1>
 						</th>
 						<th></th>
 						<th>
 							<h1>
-								<small>Fruit</small>
+								<small translate>Fruit</small>
 							</h1>
 						</th>
 						<th></th>
 						<th>
 							<h1>
-								<small>Outcome</small>
+								<small translate>Outcome</small>
 							</h1>
 						</th>
 					</tr>
@@ -37,7 +37,7 @@
 						<!-- win-->
 						<td class="vertical-text">
 							<h1>
-								<small>Win</small>
+								<small translate>Win</small>
 							</h1>
 						</td>
 						<td>
@@ -60,7 +60,7 @@
 						<!-- build-->
 						<td class="vertical-text">
 							<h1>
-								<small>Build</small>
+								<small translate>Build</small>
 							</h1>
 						</td>
 						<td>
@@ -78,7 +78,7 @@
 						<!-- send-->
 						<td class="vertical-text">
 							<h1>
-								<small>Send</small>
+								<small translate>Send</small>
 							</h1>
 						</td>
 						<td>
@@ -95,14 +95,14 @@
 				</table>
 			</fieldset>
 			<fieldset ng-if="hasOther()">
-				<legend>Other Measurements</legend>
+				<legend translate>Other Measurements</legend>
 				<div>
 					<div ng-init="measurementState[m.perm_link_stub] = ((measurementState[m.perm_link_stub] === undefined) ? 0 : measurementState[m.perm_link_stub])" class="col-xs-4" ng-repeat="m in measurements | filter: {section: 'other', column: 'other'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 				</div>
 			</fieldset>
 		</form>
 		<div class="pull-right">
-			<button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)"><i class="glyphicon glyphicon-floppy-disk"></i> Save Changes</button>
+			<button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)" translate><i class="glyphicon glyphicon-floppy-disk"></i> <span translate>Save Changes</span></button>
 		</div>
 	</div>
 </div>

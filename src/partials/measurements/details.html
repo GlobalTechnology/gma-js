@@ -1,6 +1,6 @@
 <div class="modal-header">
 	<button type="button" class="close" ng-click="close();">
-		<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		<span aria-hidden="true">&times;</span><span class="sr-only" translate>Close</span>
 	</button>
 	<h2 class="modal-title">{{measurement.name}}
 		<small>{{current.period.format('YYYY-MM')}}</small>
@@ -14,7 +14,7 @@
 	<form class="form-horizontal" name="editForm">
 
 		<div class="form-group">
-			<label class="col-xs-5 control-label">TOTAL</label>
+			<label class="col-xs-5 control-label" translate>TOTAL</label>
 
 			<div class="col-xs-7">
 				<input class="form-control" type="number" ng-model="details.total[current.period.format('YYYY-MM')]" disabled />
@@ -23,14 +23,14 @@
 
 		<!-- Local Breakdown -->
 		<fieldset ng-init="localToggle=false">
-			<legend class="pointer" ng-click="localToggle=!localToggle">{{current.assignment.name}} (Local Team)
+			<legend class="pointer" ng-click="localToggle=!localToggle">{{current.assignment.name}} (<span translate>Local Team</span>)
 					<span class="glyphicon pull-right"
 						  ng-class="{'glyphicon-triangle-left': !localToggle, 'glyphicon-triangle-bottom': localToggle}">
 					</span>
 			</legend>
 			<div ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">
 				<div class="form-group" ng-class="{'has-error': !editForm.local.$valid}">
-					<label class="col-xs-5 control-label">Local</label>
+					<label class="col-xs-5 control-label" translate>Local</label>
 
 					<div class="col-xs-7">
 						<input class="form-control" type="number" placeholder="Local Team" name="local" ng-model="details.local_breakdown[ns]" />
@@ -46,7 +46,7 @@
 			</div>
 			<div ng-if="current.hasRole('member')" ng-show="localToggle">
 				<div class="form-group">
-					<label class="col-xs-5 control-label">Total</label>
+					<label class="col-xs-5 control-label" translate>Total</label>
 
 					<div class="col-xs-7">
 						<input class="form-control" type="number" ng-model="details.local_breakdown.total" disabled />
@@ -57,7 +57,7 @@
 
 		<!-- Team Members -->
 		<fieldset ng-init="teamToggle=false">
-			<legend class="pointer" ng-click="teamToggle=!teamToggle">Team Members
+			<legend class="pointer" ng-click="teamToggle=!teamToggle"><span translate>Team Members</span>
 					<span class="glyphicon pull-right"
 						  ng-class="{'glyphicon-triangle-left': !teamToggle, 'glyphicon-triangle-bottom': teamToggle}">
 					</span>
@@ -82,7 +82,7 @@
 
 		<!-- Sub Ministries -->
 		<fieldset ng-if="details.sub_ministries.length > 0" ng-init="ministryToggle = false">
-			<legend class="pointer" ng-click="ministryToggle=!ministryToggle">Sub-Ministries / Teams
+			<legend class="pointer" ng-click="ministryToggle=!ministryToggle"><span translate>Sub-Ministries / Teams</span>
 					<span class="glyphicon pull-right"
 						  ng-class="{'glyphicon-triangle-left': !ministryToggle, 'glyphicon-triangle-bottom': ministryToggle}">
 					</span>
@@ -100,7 +100,7 @@
 
 		<!-- Self Assigned -->
 		<fieldset ng-init="selfToggle=false" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader']) && details.self_assigned.length > 0">
-			<legend class="pointer" ng-click="selfToggle=!selfToggle">Self Assigned Members (not yet approved)
+			<legend class="pointer" ng-click="selfToggle=!selfToggle"><span translate>Self Assigned Members (not yet approved)</span>
 					<span class="glyphicon pull-right"
 						  ng-class="{'glyphicon-triangle-left': !selfToggle, 'glyphicon-triangle-bottom': selfToggle}">
 					</span>
@@ -118,16 +118,16 @@
 										dropdown-toggle
 										aria-expanded="false"
 										ng-disabled="member.state"
-										ng-class="{'btn-success':member.success, 'btn-danger':member.blocked}">
+										ng-class="{'btn-success':member.success, 'btn-danger':member.blocked}" translate>
 									{{member.state == 'success' ? 'Approved' : 'Approve'}}
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                    <li><a href ng-click="approveSelfAssigned(member, 'admin')">Admin</a></li>
-									<li><a href ng-click="approveSelfAssigned(member, 'member')">Member</a></li>
-									<li><a href ng-click="approveSelfAssigned(member, 'leader')">Leader</a></li>
+                                    <li><a href ng-click="approveSelfAssigned(member, 'admin')" translate>Admin</a></li>
+									<li><a href ng-click="approveSelfAssigned(member, 'member')" translate>Member</a></li>
+									<li><a href ng-click="approveSelfAssigned(member, 'leader')" translate>Leader</a></li>
 									<li role="presentation" class="divider"></li>
-									<li><a href ng-click="approveSelfAssigned(member, 'blocked')">Delete</a></li>
+									<li><a href ng-click="approveSelfAssigned(member, 'blocked')" translate>Delete</a></li>
 								</ul>
 							</div>
 						</div>
@@ -138,6 +138,6 @@
 	</form>
 </div>
 <div class="modal-footer">
-	<button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!editForm.$valid"><i class="glyphicon glyphicon-pencil"></i> Save Measurements</button>
-	<button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> Close</button>
+	<button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!editForm.$valid"><i class="glyphicon glyphicon-pencil"></i> <span translate>Save Measurements</span></button>
+	<button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Close</span></button>
 </div>

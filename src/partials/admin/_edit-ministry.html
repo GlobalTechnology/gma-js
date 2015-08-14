@@ -1,14 +1,14 @@
 <div class="admin-item">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title">Edit current Ministry</h3>
+			<h3 class="panel-title" translate>Edit current Ministry</h3>
 
 			<div class="clearfix"></div>
 		</div>
 		<div class="panel-body form-horizontal">
 
 			<div class="form-group row">
-				<label for="ministryName" class="col-sm-4 control-label">Ministry Name:</label>
+				<label for="ministryName" class="col-sm-4 control-label" translate>Ministry Name:</label>
 
 				<div class="col-sm-6">
 					<input id="ministryName" type="text" class="form-control" ng-model="ministry.name" />
@@ -16,7 +16,7 @@
 			</div>
 
 			<div class="form-group row" ng-show="ableToChangeParentMinistry(ministry.parent_id)">
-				<label class="col-sm-4 control-label">Parent Ministry:</label>
+				<label class="col-sm-4 control-label" translate>Parent Ministry:</label>
 
 				<div class="col-sm-6">
 					<select
@@ -24,12 +24,12 @@
 						class="form-control"
 						ng-model="ministry.parent_id"
 						ng-options="m.ministry_id as m.name for m in current.ministries | roleFilter:['admin','inherited_admin','leader','inherited_leader'] | orderBy:'name'">
-						<option value="">No Parent Ministry</option>
+						<option value="" translate>No Parent Ministry</option>
 					</select>
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-4 control-label">MCCs:</label>
+				<label class="col-sm-4 control-label" translate>MCCs:</label>
 
 				<div class="col-sm-6">
 					<div class="checkbox" ng-repeat="mcc in mccs">
@@ -41,20 +41,20 @@
 			</div>
 			<hr>
 			<div class="form-group">
-				<label class="col-sm-4 control-label">Default MCC:</label>
+				<label class="col-sm-4 control-label" translate>Default MCC:</label>
 
 				<div class="col-sm-6">
 					<select class="form-control" ng-model="ministry.default_mcc" ng-options="mcc.value as mcc.text for mcc in mccs | mccFilter:ministry.mccs">
-						<option value="">Default</option>
+						<option value="" translate>Default</option>
 					</select>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-4 control-label">Hide Reports Tab by default</label>
+				<label class="col-sm-4 control-label" translate>Hide Reports Tab by default</label>
 
 				<div class="col-sm-6">
-					<label class="radio-inline"><input type="radio" value="1" ng-model="ministry.hide_reports_tab"> Hide</label>
-					<label class="radio-inline"><input type="radio" value="0" ng-model="ministry.hide_reports_tab"> Show</label>
+					<label class="radio-inline"><input type="radio" value="1" ng-model="ministry.hide_reports_tab"> <span translate>Hide</span></label>
+					<label class="radio-inline"><input type="radio" value="0" ng-model="ministry.hide_reports_tab"> <span translate>Show</span></label>
 				</div>
 			</div>
 
@@ -74,7 +74,7 @@
 			
 		</div>
 		<div class="panel-footer">
-			<button type="button" class="btn btn-primary pull-right" ng-click="saveDetails()" ng-disabled="saveDetailsResource && !saveDetailsResource.$resolved"><i class="glyphicon glyphicon-pencil"></i> Update Ministry</button>
+			<button type="button" class="btn btn-primary pull-right" ng-click="saveDetails()" ng-disabled="saveDetailsResource && !saveDetailsResource.$resolved"><i class="glyphicon glyphicon-pencil"></i> <span>Update Ministry</span></button>
 			<div class="clearfix"></div>
 		</div>
 	</div>
