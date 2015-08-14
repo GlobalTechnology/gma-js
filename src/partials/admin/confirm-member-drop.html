@@ -5,9 +5,9 @@
 </div>
 <div class="modal-body form-horizontal">
     <ul class="list-unstyled">
-        <li>Name: {{member.first_name + ' '+member.last_name}}</li>
-        <li>Current Role: {{getRoleName(member.team_role)}}</li>
-        <li>Target Team: {{team.name}}</li>
+        <li><span translate>Name</span>: {{member.first_name + ' '+member.last_name}}</li>
+        <li><span translate>Current Role</span>: {{getRoleName(member.team_role)}}</li>
+        <li><span translate>Target Team</span>: {{team.name}}</li>
         <li><i class="glyphicon glyphicon-warning-sign text-danger"></i> <span translate>Current role will be set to self-assigned</span></li>
     </ul>
 </div>

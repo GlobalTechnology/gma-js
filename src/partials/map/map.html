@@ -30,7 +30,7 @@
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/target.png')}}"></td>
-			<td><label for="targetPointCheckBox">Target point</label></td>
+			<td><label for="targetPointCheckBox" translate>Target point</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
@@ -39,7 +39,7 @@
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/group.png')}}"></td>
-			<td><label for="groupPeopleCheckBox">Group</label></td>
+			<td><label for="groupPeopleCheckBox" translate>Group</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
@@ -48,7 +48,7 @@
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/church.png')}}"></td>
-			<td><label for="churchOrCummunityCheckBox">Church or community of disciples</label></td>
+			<td><label for="churchOrCummunityCheckBox" translate>Church or community of disciples</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
@@ -58,7 +58,7 @@
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/multiplying.png')}}">
 			</td>
-			<td><label for="multiplyingChurchCheckBox">Multiplying church or community of disciples</label></td>
+			<td><label for="multiplyingChurchCheckBox" translate>Multiplying church or community of disciples</label></td>
 		</tr>
 
         <tr ng-if="isTargetCitiesVisible===true">
@@ -67,7 +67,7 @@
             </td>
             <td style="text-align:center; padding:2px 12px">
                 <img class="map_legend_icon" ng-src="{{versionUrl('img/icon/target-city.png')}}"></td>
-            <td><label for="targetCityCheckBox">Target city</label></td>
+            <td><label for="targetCityCheckBox" translate>Target city</label></td>
         </tr>
 
 		<tr>
@@ -76,7 +76,7 @@
 			</td>
 			<td style="text-align:center; padding:2px 12px">
 				<img class="map_legend_icon" ng-src="{{versionUrl('img/icon/training.png')}}"></td>
-			<td><label for="trainingActivityCheckBox">Training activity</label></td>
+			<td><label for="trainingActivityCheckBox" translate>Training activity</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
@@ -84,7 +84,7 @@
 			<td style="text-align:center; padding:2px 12px">
 				<div style="display:inline-block; font-size:10px; font-weight:bold; border:1px solid #2a6800; padding:0px 3px; background-color:yellow; color:black">1</div>
 			</td>
-			<td><label for="jesusFilmCheckBox">Jesus Film contribution</label></td>
+			<td><label for="jesusFilmCheckBox" translate>Jesus Film contribution</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">
@@ -92,7 +92,7 @@
 			<td style="text-align:center; padding:2px 12px">
 				<div style="display:inline-block; width:14px; height:2px;  background-color:grey"></div>
 			</td>
-			<td><label for="parentLineCheckBox">Parent lines</label></td>
+			<td><label for="parentLineCheckBox" translate>Parent lines</label></td>
 		</tr>
 
 		</tbody>
@@ -106,34 +106,34 @@
 			<div class="radio">
 				<label>
 					<input type="radio" name="map_filter" id="filter_everything" ng-model="$parent.map_filter" value="everything" ng-change="loadChurches()">
-					Everything
+					<span translate>Everything</span>
 				</label>
 			</div>
 			<div class="radio">
 				<label>
 					<input type="radio" name="map_filter" id="filter_my_target_area_only" ng-model="$parent.map_filter" value="min_only" ng-change="loadChurches()">
-					{{current.assignment.name}} only
+					{{current.assignment.name}} <span translate>only</span>
 				</label>
 			</div>
 			<div class="radio">
 				<label>
 					<input type="radio" name="map_filter" id="filterMyTree" ng-model="$parent.map_filter" value="tree" ng-change="loadChurches()">
-					{{current.assignment.name}} + tree
+					{{current.assignment.name}} + <span translate>tree</span>
 				</label>
 			</div>
 		</div>
 	</div>
 	<hr style="margin:8px 0">
 	<div>
-		<button type="button" class="btn btn-default btn-block btn-sm" ng-click="setMyDefaultMapView()">Set as my Ministry Default View</button>
-		<button type="button" class="btn btn-default btn-block btn-sm" ng-click="setMinistryDefaultView()" ng-if="current.hasRole(['admin','inherited_admin'])">Set Ministry Default View for others</button>
+		<button type="button" class="btn btn-default btn-block btn-sm" ng-click="setMyDefaultMapView()" translate>Set as my Ministry Default View</button>
+		<button type="button" class="btn btn-default btn-block btn-sm" ng-click="setMinistryDefaultView()" ng-if="current.hasRole(['admin','inherited_admin'])" translate>Set Ministry Default View for others</button>
 	</div>
 </div>
 
 <div id="map_controls" class="map-controls" ng-show="current.isLoaded" ng-init="mapExpended=false" ng-class="(mapExpended==true)?'map-search-expand':'map-search-collapse'">
 	<div class="pull-left map-search">
 		<div class="input-group">
-			<input id="searchBox" type="text" class="form-control" placeholder="Search ..." ng-blur="mapExpended=!mapExpended">
+			<input id="searchBox" type="text" class="form-control" placeholder="{{'Search'|translate}}..." ng-blur="mapExpended=!mapExpended">
 			<span title="Click to expand/collapse search" ng-click="mapExpended=!mapExpended" class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 		</div>
 	</div>

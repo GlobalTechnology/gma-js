@@ -1,32 +1,32 @@
 ﻿<div id="new_church_window">
 	<div class="clearfix"></div>
     <div class='church-window'>
-        <h4>Create New Church </h4>
+        <h4 translate>Create New Church </h4>
 
         <table class="table table-condensed">
             <tr>
-                <td><b>Name:</b></td>
+                <td><b translate>Name:</b></td>
                 <td>
                     <input type="text" class="form-control input-sm" ng-model='new_church.name' />
 
                 </td>
             </tr>
             <tr>
-                <td><b>Contact Name: </b></td>
+                <td><b translate>Contact Name: </b></td>
                 <td>
                     <input type="text" class="form-control input-sm" ng-model='new_church.contact_name' />
                 </td>
             </tr>
             <tr>
-                <td><b>Contact Email:</b> </td>
+                <td><b translate>Contact Email:</b> </td>
                 <td>
 
-                    <input type="email" class="form-control input-sm" ng-model='new_church.contact_email' />
+                    <input type="email" placeholder="name@email.com" class="form-control input-sm" ng-model='new_church.contact_email' />
 
                 </td>
             </tr>
             <tr>
-                <td><b>Contact Mobile:</b> </td>
+                <td><b translate>Contact Mobile:</b> </td>
                 <td>
 
                     <input type="text" class="form-control input-sm" ng-model='new_church.contact_mobile' />
@@ -34,37 +34,37 @@
                 </td>
             </tr>
             <tr>
-                <td><b>JESUS Film activity:</b> </td>
+                <td><b translate>JESUS Film activity:</b> </td>
                 <td>
-                    <label class="checkbox-inline"><input type="checkbox" class="checkbox" ng-model='new_church.jf_contrib' />Check if used</label>
+                    <label class="checkbox-inline"><input type="checkbox" class="checkbox" ng-model='new_church.jf_contrib' /><span translate>Check if used</span></label>
                 </td>
             </tr>
             <tr>
-                <td><b>Type:</b> </td>
+                <td><b translate>Type:</b> </td>
                 <td>
                     <select class="form-control input-sm" ng-model="new_church.development">
-                        <option value="1">Target</option>
-                        <option value="2">Group</option>
-                        <option value="3">Church</option>
-                        <option value="5">Multiplying Church</option>
+                        <option value="1" translate>Target</option>
+                        <option value="2" translate>Group</option>
+                        <option value="3" translate>Church</option>
+                        <option value="5" translate>Multiplying Church</option>
                     </select>
 
                 </td>
             </tr>
             <tr>
-                <td><b>Size:</b> </td>
+                <td><b translate>Size:</b> </td>
                 <td>
                     <input class="form-control input-sm" type="number" min="0" ng-model="new_church.size" />
                 </td>
             </tr>
             <tr ng-if="!current.hasRole('self_assigned')">
-                <td><b>Security:</b> </td>
+                <td><b translate>Security:</b> </td>
                 <td>
                     <select class="form-control input-sm" ng-model="new_church.security">
-                        <option value="0">This Ministry Only</option>
-                        <option value="1">This Ministry and above</option>
-                        <option value="2" >All Registered Users</option>
-                        <option value="3">Everyone</option>
+                        <option value="0" translate>This Ministry Only</option>
+                        <option value="1" translate>This Ministry and above</option>
+                        <option value="2" translate>All Registered Users</option>
+                        <option value="3" translate>Everyone</option>
                     </select>
 
                 </td>
@@ -73,8 +73,8 @@
 
 		<div>
 			<div class="btn-group btn-group-sm btn-group-justified" role="group">
-				<a href class="btn btn-default" ng-click="cancelAddNewIcon()">Cancel</a>
-				<a href class="btn btn-primary" ng-click="addChurch()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Add Church</a>
+				<a href class="btn btn-default" ng-click="cancelAddNewIcon()" translate>Cancel</a>
+				<a href class="btn btn-primary" ng-click="addChurch()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span translate>Add Church</span></a>
 			</div>
 		</div>
 		<div class="clearfix"></div>

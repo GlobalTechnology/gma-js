@@ -40,7 +40,7 @@
             </div>
             <!--.list media-->
             <nav class="stories-nav">
-                <pager ng-change="searchStories(storiesNav.currentPage,storiesParams)" total-items="storiesNav.totalItems" ng-model="storiesNav.currentPage" items-per-page="storiesNav.perPage" next-text="Older »" previous-text="« Newer"></pager>
+                <pager ng-change="searchStories(storiesNav.currentPage,storiesParams)" total-items="storiesNav.totalItems" ng-model="storiesNav.currentPage" items-per-page="storiesNav.perPage" next-text="{{'Older'|translate}} »" previous-text="« {{'Newer'|translate}}"></pager>
             </nav>
         </section>
         <div ng-include="'partials/spinner.html'" ng-hide="storiesLoaded==true"><span class="sr-only" translate>Loading.. Please wait...</span></div>

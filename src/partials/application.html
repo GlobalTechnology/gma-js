@@ -18,7 +18,7 @@
 							<li ng-repeat="a in current.assignments | orderBy:'name'" ng-include="'partials/ministry-item.html'"></li>
 							<li class="divider"></li>
 							<li>
-								<a href ng-click="joinMinistry(true)">Join another location / ministry</a>
+								<a href ng-click="joinMinistry(true)" translate>Join another location / ministry</a>
 							</li>
 						</ul>
 					</li>
@@ -65,9 +65,9 @@
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="javascript:void(0)" ng-click="showUserPreference()"><i class="glyphicon glyphicon-cog"></i> My Preferences</a></li>
+							<li><a href="javascript:void(0)" ng-click="showUserPreference()"><i class="glyphicon glyphicon-cog"></i> <span translate>My Preferences</span></a></li>
 							<li class="divider"></li>
-							<li><a href="javascript:void(0)" ng-click="logout()"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+							<li><a href="javascript:void(0)" ng-click="logout()"><i class="glyphicon glyphicon-off"></i> <span translate>Logout</span></a></li>
 							<!--<li><a href ng-click="invalidateSession()">DEBUG: Invalidate Session</a></li>-->
 						</ul>
 					</li>
