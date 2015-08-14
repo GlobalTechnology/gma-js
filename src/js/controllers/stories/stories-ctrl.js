@@ -81,20 +81,10 @@
                         $scope.imageFile = {};
                     };
                     $scope.saveStory = function (story) {
-                        Stories.createStory(story)
-                            .success(function (response) {
-                                growl.success('Story saved successfully');
-                                if (typeof $scope.imageFile.resized !== 'undefined') {
-                                    //Start uploading image file
-                                    uploadStoryImage(response.story_id, $scope.imageFile);
-
-                                }
-                            })
-                            .error(function () {
-                                growl.error('Failed to save story');
-                            });
-                        $modalInstance.close();
-
+                        $modalInstance.close({
+                            story : story,
+                            imageFile : $scope.imageFile
+                        });
                     }
 
                 },
@@ -105,7 +95,24 @@
                         }
                     }
                 }
-            });
+            }).result.then(function(data){
+                    Stories.createStory(data.story)
+                        .success(function (response) {
+                            growl.success('Story saved successfully');
+                            if (typeof data.imageFile.resized !== 'undefined') {
+                                //Start uploading image file
+                                uploadStoryImage(response.story_id, data.imageFile)
+                                    .success(function (img) {
+                                        growl.success('Image file was uploaded');
+                                    })
+                                    .error(function(e){showUploadError(e)});
+
+                            }
+                        })
+                        .error(function () {
+                            growl.error('Failed to save story');
+                        });
+                });
             scrollToTop();
 
         };
@@ -135,7 +142,7 @@
         };
 
         $scope.editStory = function (story) {
-
+            var originalStory = story;
             $modal.open({
                 templateUrl: 'partials/stories/edit-story-dialog.html',
                 size: 'lg',
@@ -154,23 +161,10 @@
                     };
 
                     $scope.updateStory = function (editStory) {
-
-                        Stories.updateStory(editStory)
-                            .success(function (response) {
-                                growl.success('Story was updated');
-
-                                if (typeof $scope.imageFile.resized !== 'undefined') {
-                                    //Start uploading image file
-                                    var upload = uploadStoryImage(editStory.story_id, $scope.imageFile);
-
-                                }
-
-                            })
-                            .error(function (e) {
-                                growl.error('Unable to update story');
-                            });
-
-                        $modalInstance.close({});
+                        $modalInstance.close({
+                            editStory : editStory,
+                            imageFile : $scope.imageFile
+                        });
                     };
                 },
                 resolve: {
@@ -181,7 +175,27 @@
                         }
                     }
                 }
-            });
+            }).result.then(function(data){
+                    Stories.updateStory(data.editStory)
+                        .success(function (response) {
+                            growl.success('Story was updated');
+                            //update current story list with new contents
+                            angular.extend(originalStory,response);
+                            if (typeof data.imageFile.resized !== 'undefined') {
+                                //Start uploading image file
+                                uploadStoryImage(response.story_id, data.imageFile)
+                                .success(function (img) {
+                                    angular.extend(originalStory,img);
+                                    growl.success('Image file was uploaded');
+                                })
+                                .error(function(e){showUploadError(e)});
+
+                            }
+                        })
+                        .error(function (e) {
+                            growl.error('Unable to update story');
+                        });
+                });
             scrollToTop();
         };
 
@@ -189,19 +203,15 @@
             var form_data = new FormData();
             form_data.append('image-file', imageFile.resized.blob, imageFile.file.name);
 
-            Stories.uploadStoryImage(story_id, form_data)
-                .success(function (response) {
-                    growl.success('Image file was uploaded');
-                    return response;
-                })
-                .error(function (e) {
-                    if (e.status === 400) {
-                        growl.error('Upload failed: Invalid file input');
-                    } else {
-                        growl.error('Unable to upload image file');
-                    }
-                    return false;
-                });
+            return Stories.uploadStoryImage(story_id, form_data);
+
+        }
+        function showUploadError(e){
+            if (e.status === 400) {
+                growl.error('Upload failed: Invalid file input');
+            } else {
+                growl.error('Unable to upload image file');
+            }
         }
 
         $scope.loadNewsFeeds = function () {
