@@ -1,30 +1,30 @@
 <!-- Join new Ministry/Team Modal -->
 <div class="modal-header">
-	<h3 class="modal-title">Join Ministry/Team</h3>
+	<h3 class="modal-title" translate>Join Ministry/Team</h3>
 
-	<p>Please identify a ministry team that you work most closely with and request to join that team.</p>
+	<p translate>Please identify a ministry team that you work most closely with and request to join that team.</p>
 </div>
 <div class="modal-body form-horizontal">
 	<div class="form-group">
-		<label for="ministryName" class="col-xs-4 control-label">Ministry/Team:</label>
+		<label for="ministryName" class="col-xs-4 control-label" translate>Ministry/Team:</label>
 
 		<div class="col-xs-8">
 			<input id="ministryName" class="form-control" ng-model="ministry"
 				   typeahead="m as m.name for m in ministries | filter:$viewValue | limitTo:8"
 				   typeahead-min-length="2" typeahead-editable="false" />
 
-			<p class="help-block">Start typing to search for ministry</p>
+			<p class="help-block" translate>Start typing to search for ministry</p>
 		</div>
 	</div>
 	<div class="form-group" ng-if="!allowClose">
-        <label class="col-sm-4 control-label">Supported Staff</label>
+        <label class="col-sm-4 control-label" translate>Supported Staff</label>
         <div class="col-sm-8" ng-init="$parent.user_preference.supported_staff = 0">
-            <label class="radio-inline"><input type="radio" value="1" ng-model="$parent.user_preference.supported_staff"> Yes</label>
-            <label class="radio-inline"><input type="radio" value="0" ng-model="$parent.user_preference.supported_staff"> No</label>
+            <label class="radio-inline"><input type="radio" value="1" ng-model="$parent.user_preference.supported_staff" translate> Yes</label>
+            <label class="radio-inline"><input type="radio" value="0" ng-model="$parent.user_preference.supported_staff" translate> No</label>
         </div>
 	</div>
 </div>
 <div class="modal-footer">
-	<button type="button" class="btn btn-primary" ng-disabled="!ministry" ng-click="join()">Join Ministry/Team</button>
-	<button ng-if="allowClose" type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+	<button type="button" class="btn btn-primary" ng-disabled="!ministry" ng-click="join()" translate>Join Ministry/Team</button>
+	<button ng-if="allowClose" type="button" class="btn btn-default" ng-click="cancel()" translate>Cancel</button>
 </div>

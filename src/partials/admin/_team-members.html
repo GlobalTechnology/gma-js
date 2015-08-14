@@ -5,17 +5,17 @@
 
 			 <input autofocus="" type="text" ng-model="filter.memberSearch" placeholder="Search Members.." class="form-control input-sm">&emsp;
 
-			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.deletedUser"> Deleted</label>
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.deletedUser"> <span translate>Deleted</span></label>
 
-			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedLeader"> Inherited Leaders</label>
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedLeader"> <span translate>Inherited Leaders</span></label>
 
-			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedAdmin"> Inherited Admins</label>
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedAdmin"> <span translate>Inherited Admins</span></label>
 
 		 </div>
 		 <div class="pull-right">
-			 <button class="btn btn-default btn-sm" type="button" ng-click="loadMinistryMembers(activeTeam.ministry_id)" title="Refresh Members List"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only">Refresh Members List</span></button>
-			 <button class="btn btn-primary btn-sm" type="button" ng-click="addNewTeamMember()"><i class="glyphicon glyphicon-user"></i> Add Member</button>
-			 <button ng-if="current.hasRole(['admin','inherited_admin'])" class="btn btn-primary btn-sm" type="button" ng-click="addNewSubMinistry()"><i class="glyphicon glyphicon-plus"></i> Add Sub Ministry</button>
+			 <button class="btn btn-default btn-sm" type="button" ng-click="loadMinistryMembers(activeTeam.ministry_id)" title="Refresh Members List"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only" translate>Refresh Members List</span></button>
+			 <button class="btn btn-primary btn-sm" type="button" ng-click="addNewTeamMember()"><i class="glyphicon glyphicon-user"></i> <span translate>Add Member</span></button>
+			 <button ng-if="current.hasRole(['admin','inherited_admin'])" class="btn btn-primary btn-sm" type="button" ng-click="addNewSubMinistry()"><i class="glyphicon glyphicon-plus"></i> <span translate>Add Sub Ministry</span></button>
 		 </div>
             <div class="clearfix"></div>
          </div>
@@ -54,11 +54,11 @@
 
 		 <aside class="col-md-9 pull-right members-list">
 
-			 <div ng-include="'partials/spinner.html'" ng-hide="membersLoaded"><span class="sr-only">Loading.. Please wait...</span></div>
+			 <div ng-include="'partials/spinner.html'" ng-hide="membersLoaded"><span class="sr-only" translate>Loading.. Please wait...</span></div>
 
 			 <table class="table table-striped table-hover members-table" ng-hide="!membersLoaded">
 				 <thead>
-				 <tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Actions</th></tr>
+				 <tr><th translate>First Name</th><th translate>Last Name</th><th translate>Email</th><th translate>Actions</th></tr>
 				 </thead>
 				 <tbody>
                  <tr class="active">

@@ -1,31 +1,31 @@
 <div class="admin-item">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title pull-left">Measurements</h3>
-			<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addMeasurement()"><i class="glyphicon glyphicon-plus"></i> Add Measurement</button>
+			<h3 class="panel-title pull-left" translate>Measurements</h3>
+			<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addMeasurement()"><i class="glyphicon glyphicon-plus"></i> <span translate>Add Measurement</span></button>
 			<div class="clearfix"></div>
 		</div>
 		<div class="panel-body">
 			<table class="table table-striped table-hover table-condensed">
 					<thead>
 					<tr class="active">
-						<th>Name</th>
-						<th class="text-center" style="width: 25%">Actions</th>
+						<th translate>Name</th>
+						<th class="text-center" style="width: 25%" translate>Actions</th>
 					</tr>
 					</thead>
 					<tr ng-repeat="type in measurementTypes">
 					<td class=" no-overflow">{{type.english}}</td>
 					<td class="text-center">
 						<div class="btn-group">
-							<label class="btn btn-default btn-xs" ng-model="type.visible" btn-radio="true">Show</label>
-							<label class="btn btn-default btn-xs" ng-model="type.visible" btn-radio="false">Hide</label>
+							<label class="btn btn-default btn-xs" ng-model="type.visible" btn-radio="true" translate>Show</label>
+							<label class="btn btn-default btn-xs" ng-model="type.visible" btn-radio="false" translate>Hide</label>
 						</div>
 					</td>
 				</tr>
 			</table>
 		</div>
 		<div class="panel-footer">
-			<button type="button" class="btn btn-primary pull-right" ng-click="saveDetails()" ng-disabled="saveDetailsResource && !saveDetailsResource.$resolved"><i class="glyphicon glyphicon-pencil"></i> Save changes</button>
+			<button type="button" class="btn btn-primary pull-right" ng-click="saveDetails()" ng-disabled="saveDetailsResource && !saveDetailsResource.$resolved"><i class="glyphicon glyphicon-pencil"></i> <span translate>Save changes</span></button>
 			<div class="clearfix"></div>
 		</div>
 	</div>

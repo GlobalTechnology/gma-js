@@ -4,12 +4,12 @@
             <div class="panel-body">
             <div class="pull-left">
 
-                <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-change="searchStories(1,storiesParams)" ng-model="storiesParams.self_only"> Created By Me</label>
+                <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-change="searchStories(1,storiesParams)" ng-model="storiesParams.self_only" > <span translate>Created By Me</span></label>
 
             </div>
             <div class="pull-right">
-                <button class="btn btn-default btn-sm" ng-click="searchStories(1,storiesParams)" type="button" title="Refresh List"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only">Refresh List</span></button>
-                <button class="btn btn-primary btn-sm" ng-click="newStory()"><i class="glyphicon glyphicon-plus"></i> Add story</button>
+                <button class="btn btn-default btn-sm" ng-click="searchStories(1,storiesParams)" type="button" title="Refresh List"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only" translate>Refresh List</span></button>
+                <button class="btn btn-primary btn-sm" ng-click="newStory()"><i class="glyphicon glyphicon-plus"></i> <span translate>Add story</span></button>
             </div>
             <div class="clearfix"></div>
            </div>
@@ -30,12 +30,12 @@
                             <li ng-hide="storiesParams.self_only===true"><i class="glyphicon glyphicon-user"></i> {{story.created_name}}</li>
                             <li><i class="glyphicon glyphicon-time"></i> <time>{{story.created_at | date: 'MMM-dd-yyyy'}}</time></li>
                             <li><i class="glyphicon glyphicon-tag"></i> <span>{{story.ministry_name}}</span><span ng-if="story.mcc">,</span> <span class="text-uppercase">{{story.mcc}}</span></li>
-                            <li ng-if="isStoryEditable(story)"><a title="Edit story" ng-click="editStory(story)" href="javascript:void(0)"><i class="glyphicon glyphicon-pencil"> </i>Edit</a></li>
+                            <li ng-if="isStoryEditable(story)"><a title="Edit story" ng-click="editStory(story)" href="javascript:void(0)"><i class="glyphicon glyphicon-pencil"> </i><span translate>Edit</span></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="text-center"  ng-if="storiesLoaded==true && visibleStories.length==0">
-                    <h4><i class="glyphicon glyphicon-info-sign"></i> No story found</h4>
+                    <h4><i class="glyphicon glyphicon-info-sign"></i> <span translate>No story found</span></h4>
                 </div>
             </div>
             <!--.list media-->
@@ -43,11 +43,11 @@
                 <pager ng-change="searchStories(storiesNav.currentPage,storiesParams)" total-items="storiesNav.totalItems" ng-model="storiesNav.currentPage" items-per-page="storiesNav.perPage" next-text="Older »" previous-text="« Newer"></pager>
             </nav>
         </section>
-        <div ng-include="'partials/spinner.html'" ng-hide="storiesLoaded==true"><span class="sr-only">Loading.. Please wait...</span></div>
+        <div ng-include="'partials/spinner.html'" ng-hide="storiesLoaded==true"><span class="sr-only" translate>Loading.. Please wait...</span></div>
     </aside><!-- .stories-section-->
     <aside class="pull-right col-md-6 col-lg-4 news-feed-section">
         <div class="news-feeds-holder" ng-hide="feedsLoaded==false || (recentNewsFeeds.length===0)">
-            <span class="refresh-feeds" ng-click="loadNewsFeeds()" title="Refresh"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only">Refresh Feeds</span></span>
+            <span class="refresh-feeds" ng-click="loadNewsFeeds()" title="Refresh"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only" translate>Refresh Feeds</span></span>
             <ul class="list-group news-feed-ul">
             <li class="list-group-item" ng-repeat="feed in recentNewsFeeds | orderBy : '-timestamp'">
                 <h5 class="list-group-item-heading"><i class="glyphicon glyphicon-time"></i> <b><time>{{feed.timestamp | date: 'MMM-dd-yyyy'}}</time> | {{feed.ministry_name}}</b></h5>
@@ -58,7 +58,7 @@
         <div class="text-center" ng-if="feedsLoaded==true && recentNewsFeeds.length==0">
             <h4><i class="glyphicon glyphicon-info-sign"></i> No activity yet</h4>
         </div>
-        <div ng-include="'partials/spinner.html'" ng-hide="feedsLoaded==true"><span class="sr-only">Loading.. Please wait...</span></div>
+        <div ng-include="'partials/spinner.html'" ng-hide="feedsLoaded==true"><span class="sr-only" translate>Loading.. Please wait...</span></div>
     </aside>
     <div class="clearfix"></div>
 </div>
