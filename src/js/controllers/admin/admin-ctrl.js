@@ -620,14 +620,9 @@
             return !_.contains(['inherited_admin', 'inherited_leader', 'blocked'], member.team_role)
         };
 
-        /**
-         * @param role
-         * @returns {string}
-         */
+
         $scope.getCurrentUserRole = function (role) {
-            if (typeof role === 'undefined') return;
-            //capitalize first latter
-            return role.charAt(0).toUpperCase() + role.slice(1).replace('_', ' ');
+            return getActualRoleName(role);
         };
 
         function getActualRoleName(role) {

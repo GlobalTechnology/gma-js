@@ -314,16 +314,6 @@
             }
 
         };
-        /**
-         * Show logged in user role on top navigation
-         * @param role
-         * @returns {string}
-         */
-		$scope.getCurrentUserRole = function(role){
-			if (typeof role === 'undefined') return;
-			//capitalize first latter
-			return role.charAt(0).toUpperCase() + role.slice(1).replace('_',' ');
-		}
 
 	}
 

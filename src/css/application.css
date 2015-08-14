@@ -476,7 +476,7 @@ td.no-overflow:hover{
 
 .stories-holder {
     padding: 15px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
 }
 
 .story-content {
@@ -484,14 +484,6 @@ td.no-overflow:hover{
     max-height: 75px;
     height: 75px;
     text-overflow: ellipsis;
-}
-
-.first-uppercase {
-    display: inline-block;
-}
-
-.first-uppercase:first-letter {
-    text-transform: uppercase;
 }
 
 .image-holder, .news-feeds-holder {
@@ -518,7 +510,7 @@ td.no-overflow:hover{
     right: -8px;
     z-index: 1;
     padding: 3px 4px 4px;
-    background: #46b8da;
+    background: #337ab7;
     color: #fff;
     height: 24px;
     width: 24px;
@@ -537,4 +529,8 @@ td.no-overflow:hover{
 
 .panel-custom .panel-body {
     padding: 10px;
+}
+
+.media-custom:not(:last-child) {
+    border-bottom: 1px solid #eee;
 }

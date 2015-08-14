@@ -60,7 +60,7 @@
 						<a href class="dropdown-toggle" dropdown-toggle role="button" aria-expanded="false">
 							<span class="top-user-info pull-left">
 								<span class="top-user-name">{{current.user.cas_username}}</span>
-								<span class="top-user-role small">{{getCurrentUserRole(current.assignment.team_role)}}</span>
+								<span class="top-user-role small text-capitalize">{{(current.assignment.team_role).replace('_',' - ')}}</span>
 							</span>
 							<span class="caret"></span>
 						</a>
@@ -95,7 +95,7 @@
 		<div class="row" ng-if="mobileApps">
 			<div class="col-xs-12">
 				<div class="text-center">
-					Mobile Apps:
+					<span translate>Mobile Apps</span>:
 					<a ng-repeat-start="app in mobileApps" ng-href="{{app.link}}">{{app.label}}</a>
 					<span ng-repeat-end ng-if="!$last"> | </span>
 				</div>
@@ -108,4 +108,4 @@
 	</div>
 </div>
 <!-- global angular-growl container-->
-<div growl limit-messages="5"></div>
+<div growl limit-messages="3"></div>
