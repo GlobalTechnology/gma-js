@@ -14,6 +14,9 @@ var gulp        = require( 'gulp' ),
 	sourcemaps  = require( 'gulp-sourcemaps' ),
 	path        = require( 'path' ),
 	crypto      = require( 'crypto' ),
+	gettext     = require( 'gulp-angular-gettext' ),
+	url         = require( 'url' ),
+	request     = require( 'request' ),
 	revisions   = {};
 
 function revisionMap() {
@@ -28,6 +31,44 @@ function revisionMap() {
 	}
 
 	return require( 'event-stream' ).map( saveRevision );
+}
+
+function uploadToOneSky() {
+	var onesky = require( './onesky.json' ),
+		ts     = Math.floor( new Date() / 1000 );
+
+	function uploadPOTFile( file, callback ) {
+		//https://github.com/onesky/api-documentation-platform/blob/master/resources/file.md#upload---upload-a-file
+		request.post( {
+			url:      url.format( {
+				protocol: 'https',
+				host:     'platform.api.onesky.io',
+				pathname: '/1/projects/' + onesky.project_id + '/files',
+				query:    {
+					api_key:   onesky.api_key,
+					timestamp: ts,
+					dev_hash:  crypto.createHash( 'md5' ).update( ts + onesky.api_secret ).digest( 'hex' )
+				}
+			} ),
+			formData: {
+				file:                   {
+					value:   file.contents,
+					options: {
+						filename: file.relative
+					}
+				},
+				file_format:            'GNU_POT',
+				is_keeping_all_strings: 'false'
+			}
+		}, function ( err, httpResponse, body ) {
+			if ( err ) {
+				callback( err );
+			}
+			callback( null, file );
+		} );
+	}
+
+	return require( 'event-stream' ).map( uploadPOTFile );
 }
 
 gulp.task( 'clean', function ( callback ) {
@@ -157,6 +198,17 @@ gulp.task( 'angular-i18n', ['clean', 'bower'], function () {
 
 gulp.task( 'bower', function () {
 	return bower();
+} );
+
+gulp.task( 'pot', function () {
+	return gulp.src( ['src/partials/**/*.html', 'src/js/**/*.js'] )
+		.pipe( gettext.extract( 'gma-app.pot', {} ) )
+		.pipe( gulp.dest( 'src/languages/' ) );
+} );
+
+gulp.task( 'onesky', ['pot'], function () {
+	return gulp.src( 'src/languages/gma-app.pot' )
+		.pipe( uploadToOneSky() );
 } );
 
 gulp.task( 'build', ['images', 'wrapper', 'html', 'angular-i18n'] );

@@ -8,3 +8,6 @@ npm-debug.log
 #ignore any os generated files
 .DS_Store
 Thumbs.db
+
+# gulp settings
+onesky.json
