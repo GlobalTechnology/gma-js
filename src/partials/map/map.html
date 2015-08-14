@@ -105,19 +105,19 @@
 		<div class="map-legend" ng-show="show_filters" ng-init="show_filters=true">
 			<div class="radio">
 				<label>
-					<input type="radio" name="map_filter" id="filter_everything" ng-model="$parent.map_filter" value="everything" ng-change="loadChurches()">
+					<input type="radio" name="map_scope_filter" id="filter_everything" ng-model="$parent.map_scope_filter" value="everything">
 					<span translate>Everything</span>
 				</label>
 			</div>
 			<div class="radio">
 				<label>
-					<input type="radio" name="map_filter" id="filter_my_target_area_only" ng-model="$parent.map_filter" value="min_only" ng-change="loadChurches()">
+					<input type="radio" name="map_scope_filter" id="filter_my_target_area_only" ng-model="$parent.map_scope_filter" value="min_only">
 					{{current.assignment.name}} <span translate>only</span>
 				</label>
 			</div>
 			<div class="radio">
 				<label>
-					<input type="radio" name="map_filter" id="filterMyTree" ng-model="$parent.map_filter" value="tree" ng-change="loadChurches()">
+					<input type="radio" name="map_scope_filter" id="filterMyTree" ng-model="$parent.map_scope_filter" value="tree">
 					{{current.assignment.name}} + <span translate>tree</span>
 				</label>
 			</div>

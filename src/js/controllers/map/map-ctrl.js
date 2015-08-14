@@ -38,7 +38,7 @@
             jesus_film : true
         };
         //for radio button filter
-        $scope.map_filter = 'min_only';
+        $scope.map_scope_filter = 'min_only';
         //sub-stages for target city
         $scope.targetCitySubStages = [
             {val: '0', name: 'Nothing yet', stage: 0},
@@ -268,7 +268,8 @@
             }
         });
 
-        $scope.$watch('map_filter', function (filter) {
+        $scope.$watch('map_scope_filter', function (filter) {
+            $scope.loadChurches();
             $scope.loadTrainings();
         });
 
@@ -344,10 +345,10 @@
             if (!$scope.iconFilters.group) params['hide_group'] = 'true';
             if (!$scope.iconFilters.church) params['hide_church'] = 'true';
             if (!$scope.iconFilters.mult_church) params['hide_mult_church'] = 'true';
-            if ($scope.map_filter === 'everything') {
+            if ($scope.map_scope_filter === 'everything') {
                 params['show_all'] = 'true';
                 $scope.show_tree = true;
-            } else if ($scope.map_filter === 'tree') params['show_tree'] = 'true';
+            } else if ($scope.map_scope_filter === 'tree') params['show_tree'] = 'true';
 
             // Disable clustering at Zoom 14 and higher
             if ($scope.map.getZoom() >= 14) params['should_cluster'] = 'false';
