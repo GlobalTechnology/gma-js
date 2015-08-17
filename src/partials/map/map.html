@@ -6,7 +6,7 @@
 		<i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/target.png')}}" height="25" alt="+" />
 	</button>
 
-	<button title="Create new training" type="button" class="btn btn-default btn-sm" ng-click="onAddTraining()" ng-if="current.mcc.length>0">
+	<button title="Create new training" type="button" class="btn btn-default btn-sm" ng-click="onAddTraining()" ng-if="current.assignment.mccs.length>0">
         <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/training.png')}}" height="25" alt="+" />
 	</button>
 
@@ -70,7 +70,7 @@
             <td><label for="targetCityCheckBox" translate>Target city</label></td>
         </tr>
 
-		<tr>
+		<tr ng-if="current.assignment.mccs.length>0">
 			<td>
 				<input type="checkbox" id="trainingActivityCheckBox" class="church_development_checkbox" ng-model="iconFilters.training">
 			</td>
