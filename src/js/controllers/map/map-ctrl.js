@@ -30,12 +30,12 @@
         $scope.iconFilters = {
             training: true,
             targetCity: true,
-            target_point : true,
-            group : true,
-            church : true,
-            mult_church : true,
-            parent_lines : true,
-            jesus_film : true
+            target_point: true,
+            group: true,
+            church: true,
+            mult_church: true,
+            parent_lines: true,
+            jesus_film: true
         };
         //for radio button filter
         $scope.map_scope_filter = 'min_only';
@@ -140,43 +140,43 @@
             $scope.map.church_lines = [];
 
             $scope.map.icons = {
-                church : new google.maps.MarkerImage(
+                church: new google.maps.MarkerImage(
                     Settings.versionUrl('img/icon/church.png'),
                     new google.maps.Size(60, 60),
                     new google.maps.Point(0, 0),
                     new google.maps.Point(30, 58)
                 ),
-                cluster : new google.maps.MarkerImage(
+                cluster: new google.maps.MarkerImage(
                     Settings.versionUrl('img/icon/cluster.png'),
                     new google.maps.Size(60, 60),
                     new google.maps.Point(0, 0),
                     new google.maps.Point(30, 31)
                 ),
-                multiplying : new google.maps.MarkerImage(
+                multiplying: new google.maps.MarkerImage(
                     Settings.versionUrl('img/icon/multiplying.png'),
                     new google.maps.Size(60, 60),
                     new google.maps.Point(0, 0),
                     new google.maps.Point(30, 53)
                 ),
-                group : new google.maps.MarkerImage(
+                group: new google.maps.MarkerImage(
                     Settings.versionUrl('img/icon/group.png'),
                     new google.maps.Size(60, 60),
                     new google.maps.Point(0, 0),
                     new google.maps.Point(30, 55)
                 ),
-                targetpoint : new google.maps.MarkerImage(
+                targetpoint: new google.maps.MarkerImage(
                     Settings.versionUrl('img/icon/target.png'),
                     new google.maps.Size(60, 60),
                     new google.maps.Point(0, 0),
                     new google.maps.Point(32, 56)
                 ),
-                training : new google.maps.MarkerImage(
+                training: new google.maps.MarkerImage(
                     Settings.versionUrl('img/icon/training.png'),
                     new google.maps.Size(60, 60),
                     new google.maps.Point(0, 0),
                     new google.maps.Point(30, 43)
                 ),
-                targetCity : new google.maps.MarkerImage(
+                targetCity: new google.maps.MarkerImage(
                     Settings.versionUrl('img/icon/target-city.png'),
                     new google.maps.Size(60, 60), //size in pixel
                     new google.maps.Point(0, 0), //The origin for this image is 0,0
@@ -289,7 +289,7 @@
         //hit the API and update scope with response
         $scope.loadTargetCities = _.debounce(function () {
             //some additional checks
-            if ($scope.isTargetCitiesVisible && typeof $scope.current.assignment !== 'undefined' && $scope.current.mcc === 'llm') {
+            if ($scope.isTargetCitiesVisible && typeof $scope.current.assignment !== 'undefined' && $scope.current.mcc === 'llm' && $scope.current.assignment.area_code !== 'undefined') {
                 var bounds = $scope.map.getBounds(),
                     ne = bounds.getNorthEast(),
                     sw = bounds.getSouthWest(),
@@ -299,7 +299,7 @@
                         long_min: sw.lng(),
                         long_max: ne.lng(),
                         period: $scope.current.period.format('YYYY-MM'),
-                        area_code: 'AAOP' //todo get from current ministry
+                        area_code: $scope.current.assignment.area_code
                     };
                 TargetCity.searchTargetCities(params)
                     .success(function (response) {
@@ -439,6 +439,7 @@
                 if (m.id == -3) {
                     new_targetCity.latitude = m.getPosition().lat();
                     new_targetCity.longitude = m.getPosition().lng();
+                    new_targetCity.period = $scope.current.period.format('YYYY-MM');
 
                     TargetCity.createTargetCity(new_targetCity)
                         .success(function () {
@@ -693,11 +694,12 @@
 
         $scope.updateTrainingCompletion = function (data) {
             Trainings.updateTrainingCompletion($scope.current.sessionToken, data).then(function () {
-                growl.success('Traning was updated');
+                growl.success('Training was updated');
             }, $scope.onError);
         };
 
         $scope.updateTargetCity = function (targetCity) {
+            targetCity.period = $scope.current.period.format('YYYY-MM');
             TargetCity.updateTargetCity(targetCity)
                 .success(function (response) {
                     growl.success('Target City was updated');
@@ -1069,7 +1071,6 @@
                     google.maps.event.addListener(marker, 'dragend', (function (church, marker) {
                         return function () {
 
-                            //google.maps.event.addListener(marker, 'click', function () {
                             if (church.cluster_count == 1) {
                                 var new_church = {};
                                 new_church.id = church.id;
@@ -1281,16 +1282,14 @@
         $scope.setMinistryDefaultView = function () {
             var center = $scope.map.getCenter();
 
-            var location = {
-                latitude: center.lat(),
-                longitude: center.lng()
-            };
-
             // Save changes to API
             Ministries.updateMinistry({
                 ministry_id: $scope.current.assignment.ministry_id,
                 min_code: $scope.current.assignment.min_code.trim(),
-                location: location,
+                location: {
+                    latitude: center.lat(),
+                    longitude: center.lng()
+                },
                 location_zoom: $scope.map.getZoom()
             }, function (d) {
                 growl.success('Default ministry map view has been set');
@@ -1367,11 +1366,6 @@
             }
             //only visible to llm
             if ($scope.current.mcc === 'llm') {
-                //next one is temporary, hardcoded for testing, LAC
-                //todo remove very next if condition
-                if ($scope.current.assignment.id === '0e3e1c9c-3cf0-11e5-9331-1239ac62a775') {
-                    return true
-                }
                 //ministry must have an area code
                 if (typeof $scope.current.assignment.area_code !== 'undefined') {
                     return true;
