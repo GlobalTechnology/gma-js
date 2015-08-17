@@ -118,8 +118,11 @@
 										dropdown-toggle
 										aria-expanded="false"
 										ng-disabled="member.state"
-										ng-class="{'btn-success':member.success, 'btn-danger':member.blocked}" translate>
-									{{member.state == 'success' ? 'Approved' : 'Approve'}}
+										ng-class="{'btn-success':member.success, 'btn-danger':member.blocked}">
+                                            <span ng-switch="member.state">
+                                                <span ng-switch-when="success" translate>Approved</span>
+                                                <span ng-switch-default translate>Approve</span>
+                                            </span>
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu dropdown-menu-right" role="menu">

@@ -31,7 +31,10 @@
 				<td><b translate>Jesus Film activity:</b></td>
 				<td>
                     <label class="checkbox-inline" ng-show="edit_church.editable"><input type="checkbox" class="checkbox" ng-model='edit_church.jf_contrib'><span translate>Check if used</span></label>
-					<label ng-hide="edit_church.editable" translate>{{(edit_church.jf_contrib) ? 'Yes' : 'No'}}</label>
+					<label ng-hide="edit_church.editable" ng-switch="edit_church.jf_contrib">
+                        <span ng-switch-when="1" translate>Yes</span>
+                        <span ng-switch-when="0" translate>No</span>
+                    </label>
 				</td>
 			</tr>
 			<tr ng-show="edit_church.editable">

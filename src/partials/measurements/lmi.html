@@ -20,18 +20,18 @@
 				<div class="lmi-input-group">
 					<input type="number"
 						   min="0"
-						   class="form-control {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}"
+						   class="form-control"
 						   id="{{m.measurement_type_ids.person}}"
 						   name="{{m.measurement_type_ids.person}}"
 						   ng-model="m.person"
 						   select-on-focus>
-					<label class="lmi-input-addon {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" for="{{m.measurement_type_ids.person}}" translate>personal</label>
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}" translate>personal</label>
 				</div>
 			</div>
 			<div class="lmi-item-section col-xs-6" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
 				<div class="lmi-input-group">
-					<div class="form-control total {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}">{{m.total}}</div>
-					<label class="lmi-input-addon {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" translate>total</label>
+					<div class="form-control total">{{m.total}}</div>
+					<label class="lmi-input-addon" translate>total</label>
 				</div>
 			</div>
 			<span class="clearfix"></span>
@@ -45,29 +45,29 @@
 				<div class="lmi-input-group">
 					<input type="number"
 						   min="0"
-						   class="form-control {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}"
+						   class="form-control"
 						   id="{{m.measurement_type_ids.person}}"
 						   name="{{m.measurement_type_ids.person}}"
 						   ng-model="m.person"
 						   select-on-focus>
-					<label class="lmi-input-addon {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" for="{{m.measurement_type_ids.person}}" translate>personal</label>
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}" translate>personal</label>
 				</div>
 			</div>
 			<div class="lmi-item-section col-xs-4">
 				<div class="lmi-input-group">
 					<input type="number"
-						   class="form-control {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}"
+						   class="form-control"
 						   id="{{m.measurement_type_ids.local}}"
 						   name="{{m.measurement_type_ids.local}}"
 						   ng-model="m.local"
 						   select-on-focus>
-					<label class="lmi-input-addon {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" for="{{m.measurement_type_ids.local}}" translate>local</label>
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.local}}" translate>local</label>
 				</div>
 			</div>
 			<div class="lmi-item-section col-xs-4" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
 				<div class="lmi-input-group">
-					<div class="form-control total {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}">{{m.total}}</div>
-					<label class="lmi-input-addon {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" translate>total</label>
+					<div class="form-control total">{{m.total}}</div>
+					<label class="lmi-input-addon" translate>total</label>
 				</div>
 			</div>
 			<span class="clearfix"></span>
@@ -81,29 +81,29 @@
 				<div class="lmi-input-group">
 					<input type="number"
 						   min="0"
-						   class="form-control {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}"
+						   class="form-control"
 						   id="{{m.measurement_type_ids.person}}"
 						   name="{{m.measurement_type_ids.person}}"
 						   ng-model="m.person"
 						   select-on-focus>
-					<label class="lmi-input-addon {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" for="{{m.measurement_type_ids.person}}" translate>personal</label>
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}" translate>personal</label>
 				</div>
 			</div>
 			<div class="lmi-item-section col-xs-4">
 				<div class="lmi-input-group">
 					<input type="number"
-						   class="form-control {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}"
+						   class="form-control"
 						   id="{{m.measurement_type_ids.local}}"
 						   name="{{m.measurement_type_ids.local}}"
 						   ng-model="m.local"
 						   select-on-focus>
-					<label class="lmi-input-addon {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" for="{{m.measurement_type_ids.local}}" translate>local</label>
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.local}}" translate>local</label>
 				</div>
 			</div>
 			<div class="lmi-item-section col-xs-4" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
 				<div class="lmi-input-group">
-					<div class="form-control total {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}">{{m.total}}</div>
-					<label  class="lmi-input-addon {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" translate>total</label>
+					<div class="form-control total">{{m.total}}</div>
+					<label  class="lmi-input-addon" translate>total</label>
 				</div>
 			</div>
 			<span class="clearfix"></span>
@@ -116,7 +116,7 @@
 			<div class="lmi-item-section col-xs-6">
 				<div class="lmi-input-group" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">
 					<input type="number"
-						   class="form-control {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}"
+						   class="form-control "
 						   id="{{m.measurement_type_ids.local}}"
 						   name="{{m.measurement_type_ids.local}}"
 						   ng-model="m.local"
@@ -126,8 +126,8 @@
 			</div>
 			<div class="lmi-item-section col-xs-6" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
 				<div class="lmi-input-group">
-					<div class="form-control total {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}">{{m.total}}</div>
-					<label class="lmi-input-addon {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" translate>total</label>
+					<div class="form-control total ">{{m.total}}</div>
+					<label class="lmi-input-addon " translate>total</label>
 				</div>
 			</div>
 			<span class="clearfix"></span>
@@ -140,18 +140,18 @@
 			<div class="lmi-item-section col-xs-6">
 				<div class="lmi-input-group">
 					<input type="number"
-						   class="form-control  {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}"
+						   class="form-control  "
 						   id="{{m.measurement_type_ids.local}}"
 						   name="{{m.measurement_type_ids.local}}"
 						   ng-model="m.local"
 						   select-on-focus>
-					<label class="lmi-input-addon  {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" for="{{m.measurement_type_ids.local}}" translate>local</label>
+					<label class="lmi-input-addon  " for="{{m.measurement_type_ids.local}}" translate>local</label>
 				</div>
 			</div>
 			<div class="lmi-item-section col-xs-6" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
 				<div class="lmi-input-group">
-					<div class="form-control total  {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}">{{m.total}}</div>
-					<label class="lmi-input-addon  {{(measurementState[m.perm_link_stub]===1)? '':'measurement-expanded-text'}}" translate>total</label>
+					<div class="form-control total  ">{{m.total}}</div>
+					<label class="lmi-input-addon  " translate>total</label>
 				</div>
 			</div>
 			<span class="clearfix"></span>

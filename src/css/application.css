@@ -458,10 +458,6 @@ td.no-overflow:hover{
     background-color: #777777 !important;
 }
 
-.measurement-expanded-text {
-    color: #337ab7 !important;
-}
-
 /*angular growl position*/
 .growl-container {
     margin-top: 50px;
@@ -534,11 +530,13 @@ td.no-overflow:hover{
 .media-custom:not(:last-child) {
     border-bottom: 1px solid #eee;
 }
+
+/*for ministry drop-down menu*/
 .dropdown-submenu {
     position: relative;
 }
 
-.dropdown-submenu>.dropdown-menu {
+.dropdown-submenu > .dropdown-menu {
     top: 0;
     left: 100%;
     margin-top: -6px;
@@ -548,11 +546,11 @@ td.no-overflow:hover{
     border-radius: 0 6px 6px 6px;
 }
 
-.dropdown-submenu:hover>.dropdown-menu {
+.dropdown-submenu:hover > .dropdown-menu {
     display: block;
 }
 
-.dropdown-submenu>a:after {
+.dropdown-submenu > a:after {
     display: block;
     content: " ";
     float: right;
@@ -566,7 +564,7 @@ td.no-overflow:hover{
     margin-right: -10px;
 }
 
-.dropdown-submenu:hover>a:after {
+.dropdown-submenu:hover > a:after {
     border-left-color: #fff;
 }
 
@@ -574,7 +572,7 @@ td.no-overflow:hover{
     float: none;
 }
 
-.dropdown-submenu.pull-left>.dropdown-menu {
+.dropdown-submenu.pull-left > .dropdown-menu {
     left: -100%;
     margin-left: 10px;
     -webkit-border-radius: 6px 0 6px 6px;
