@@ -344,11 +344,7 @@ td.no-overflow:hover{
     text-align: right;
     margin: 0;
 }
-/** fix long list of assignments on top navigation **/
-.ministry-ul{
-	max-height: 350px;
-	overflow: auto;
-}
+
 /*team member drag and drop system*/
 .teams-list {
 	height: 100%;

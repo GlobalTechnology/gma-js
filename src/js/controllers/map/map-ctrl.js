@@ -1223,11 +1223,34 @@
                     Trainings.deleteTraining($scope.current.sessionToken, $scope.edit_training)
                         .then(function (data) {
                             growl.success('Training was deleted successfully');
+                            $scope.trainingWindow.close();
                             //When status code 204
                             $scope.loadTrainings();
                         }, $scope.onError)
                         .catch(function (error) {
                             // Failed
+
+                        });
+                });
+        };
+
+        //function deletes the target city
+        $scope.DeleteTargetCity = function (target_city) {
+
+            //opening a confirmation dialog before deleting
+            $modal.open({
+                templateUrl: 'partials/map/_confirmation-dialog.html',
+                controller: confirmModalCtrl
+            }).result.then(function (result) {
+
+                    TargetCity.deleteTargetCity(target_city.target_city_id)
+                        .success(function (data) {
+                            growl.success('TargetCity was deleted successfully');
+                            $scope.targetCityWindow.close();
+                            $scope.loadTargetCities();
+                        })
+                        .error(function (e) {
+                            growl.error('Unable to delete target city');
 
                         });
                 });
