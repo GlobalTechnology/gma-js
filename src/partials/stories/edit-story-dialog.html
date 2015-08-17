@@ -41,8 +41,8 @@
                             resize-quality="1"
                             />
                     <small class="help-block">
-                        <span class="text-info" translate>Image will be resized to {{storiesConfig.image_height}}x{{storiesConfig.image_width}} px, existing image will be replaced</span>
-                        <span class="text-danger"  ng-show="form.image.$error.invalidImage" translate><br>Invalid image file input.</span>
+                        <span class="text-info"><span translate>Image will be resized to</span> {{storiesConfig.image_height}}x{{storiesConfig.image_width}} px, <span translate>existing image will be replaced</span></span><br>
+                        <span class="text-danger"  ng-show="form.image.$error.invalidImage" translate>Invalid image file input.</span>
                     </small>
                 </div>
                 <div class="media-right col-md-2" ng-show="imageFile.url">
