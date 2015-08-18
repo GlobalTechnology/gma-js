@@ -440,6 +440,10 @@
                     new_targetCity.latitude = m.getPosition().lat();
                     new_targetCity.longitude = m.getPosition().lng();
                     new_targetCity.period = $scope.current.period.format('YYYY-MM');
+                    //send current ministry area_code to server
+                    if($scope.current.assignment.area_code !== 'GLBL'){
+                        new_targetCity.area_code = $scope.current.assignment.area_code;
+                    }
 
                     TargetCity.createTargetCity(new_targetCity)
                         .success(function () {
@@ -699,7 +703,10 @@
         };
 
         $scope.updateTargetCity = function (targetCity) {
-            targetCity.period = $scope.current.period.format('YYYY-MM');
+            //send current ministry area_code to server
+            if($scope.current.assignment.area_code !== 'GLBL'){
+                targetCity.area_code = $scope.current.assignment.area_code;
+            }
             TargetCity.updateTargetCity(targetCity)
                 .success(function (response) {
                     growl.success('Target City was updated');
