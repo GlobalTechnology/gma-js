@@ -38,6 +38,23 @@
             });
         });
 
+        $scope.getMCCValue=function(mcc){
+            return _.contains($scope.ministry.mccs,mcc);
+        };
+
+        $scope.createMCCArray = function(status,value){
+            if(status){
+                if($scope.ministry.mccs.indexOf(value) === -1){
+                    $scope.ministry.mccs.push(value);
+                }
+            }else{
+                var index = $scope.ministry.mccs.indexOf(value);
+                if(index !== -1){
+                    $scope.ministry.mccs.splice(index,1);
+                }
+            }
+        };
+
         //function initializes sub-tabs of admin section
         $scope.initSubTabs = function () {
 
@@ -93,10 +110,10 @@
 
         /** functions for edit-ministry and manage measurement tabs */
         $scope.mccs = [
-            {value: 'ds', text: 'Digital Strategies'},
-            {value: 'gcm', text: 'Global Church Movements'},
-            {value: 'llm', text: 'Leader Led'},
-            {value: 'slm', text: 'Student Led'}
+            {value: 'ds', text: 'Digital Strategies', checked: false},
+            {value: 'gcm', text: 'Global Church Movements', checked: false},
+            {value: 'llm', text: 'Leader Led', checked: false},
+            {value: 'slm', text: 'Student Led', checked: false}
         ];
 
         $scope.ableToChangeParentMinistry = function (parentToFind) {

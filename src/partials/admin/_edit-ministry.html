@@ -34,7 +34,7 @@
 				<div class="col-sm-6">
 					<div class="checkbox" ng-repeat="mcc in mccs">
 						<label>
-							<input type="checkbox" checklist-model="ministry.mccs" checklist-value="mcc.value"> {{mcc.text}}
+							<input type="checkbox" ng-model="mcc.checked" ng-init="mcc.checked = getMCCValue(mcc.value)" ng-change="createMCCArray(mcc.checked,mcc.value)"> {{mcc.text}}
 						</label>
 					</div>
 				</div>
