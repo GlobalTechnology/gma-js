@@ -197,14 +197,14 @@
 
         $scope.initTeamAndMembers = function () {
             $scope.allCurrentTeams = [];
-            $scope.allCurrentTeams.push($scope.current.assignment);
+            $scope.allCurrentTeams.push(angular.copy($scope.current.assignment));
 
             $scope.activeTeamMembers = {};
             if ($scope.ministry.hasOwnProperty('team_members')) {
                 $scope.activeTeamMembers = $scope.ministry.team_members;
             }
             //activate first top most team
-            $scope.activeTeam = $scope.current.assignment;
+            $scope.activeTeam = angular.copy($scope.current.assignment);
             $scope.membersLoaded = true;
         };
 
@@ -298,19 +298,16 @@
             }
 
             $modal.open({
-                animation: false,
-                backdrop: false,
                 templateUrl: 'partials/admin/confirm-update-role.html',
                 controller: function ($scope, $modalInstance, userInfo) {
                     $scope.userInfo = userInfo;
-                    $scope.choice = 0;
 
                     $scope.no = function () {
-                        $modalInstance.close($scope.choice);
+                        $modalInstance.dismiss();
                     };
 
                     $scope.yes = function () {
-                        $modalInstance.close($scope.choice);
+                        $modalInstance.close(true);
                     };
                     $scope.getRoleName = function (role) {
                         return getActualRoleName(role);
@@ -319,29 +316,26 @@
                 resolve: {
                     'userInfo': function () {
                         return {
-                            old_role: old_role,
-                            user: user
+                            old_role: angular.copy(old_role),
+                            user: angular.copy(user)
                         };
                     }
                 }
-            }).result.then(function (choice) {
-                    if (choice === 1) {
-                        //update user role
-                        Assignments.saveAssignment({assignment_id: user.assignment_id}, {team_role: user.team_role}, function () {
-                            growl.success('User role was updated');
-                            //success so update old_role
-                            old_role = user.team_role;
+            }).result.then(function (c) {
+                    //update user role
+                    Assignments.saveAssignment({assignment_id: user.assignment_id}, {team_role: user.team_role}, function () {
+                        growl.success('User role was updated');
+                        //success so update old_role in scope also
+                        old_role = user.team_role;
 
-                        }, function () {
-                            growl.error('Unable to update user role');
-                            //if failed lets restore old role
-                            user.team_role = old_role;
-                        });
-                    } else {
-                        //restore user role
+                    }, function () {
+                        growl.error('Unable to update user role');
+                        //if failed lets restore old role
                         user.team_role = old_role;
-                    }
-
+                    });
+                }, function () {
+                    //restore user role
+                    user.team_role = old_role;
                 });
 
             scrollToTop();
