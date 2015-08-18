@@ -134,6 +134,13 @@ angular.module('gma.directives', [])
                 element.bind('change', function (evt) {
                     //we do not support for multiple image select
                     var files = evt.target.files;
+                    //additional check, be fail safe
+                    if(files.length===0){
+                        applyScope({});//empty scope
+                        evt.preventDefault();
+                        evt.stopPropagation();
+                        return false;
+                    }
                     //check for file extension
                     if(files[0].type.match('image/*')===null){
                         angular.element(evt.target).val(''); //empty file input

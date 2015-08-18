@@ -124,6 +124,7 @@
                 controller: function ($scope, $modalInstance, modalData) {
                     $scope.story = modalData.story;
                     $scope.versionUrl = modalData.versionUrl;
+                    $scope.isSelfOnlyEnabled = modalData.self_only;
 
                     $scope.close = function () {
                         $modalInstance.dismiss('cancel');
@@ -133,7 +134,8 @@
                     modalData: function () {
                         return {
                             story: angular.copy(story),
-                            versionUrl : $scope.versionUrl
+                            versionUrl : $scope.versionUrl,
+                            self_only : angular.copy($scope.storiesParams.self_only)
                         }
                     }
                 }
