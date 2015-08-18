@@ -39,7 +39,7 @@
                 </div>
             </div>
             <!--.list media-->
-            <nav class="stories-nav">
+            <nav class="stories-nav" ng-hide="visibleStories.length==0">
                 <pager ng-change="searchStories(storiesNav.currentPage,storiesParams)" total-items="storiesNav.totalItems" ng-model="storiesNav.currentPage" items-per-page="storiesNav.perPage" next-text="{{'Older'|translate}} »" previous-text="« {{'Newer'|translate}}"></pager>
             </nav>
         </section>
