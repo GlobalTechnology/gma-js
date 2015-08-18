@@ -95,7 +95,8 @@
                         }
                     }
                 }
-            }).result.then(function(data){
+            }).result.then(function (data) {
+                    var originalParams = angular.copy($scope.storiesParams);
                     Stories.createStory(data.story)
                         .success(function (response) {
                             growl.success('Story saved successfully');
@@ -104,8 +105,23 @@
                                 uploadStoryImage(response.story_id, data.imageFile)
                                     .success(function (img) {
                                         growl.success('Image file was uploaded');
+                                        //find new story in list and update image url
+                                        var found_story = _.findWhere($scope.visibleStories,{story_id:img.story_id});
+                                        if(found_story!==undefined){
+                                            found_story.image_url= img.image_url;
+                                        }
                                     })
-                                    .error(function(e){showUploadError(e)});
+                                    .error(function (e) {
+                                        showUploadError(e)
+                                    });
+                                //if user is on first page, and params are same as before
+                                if ($scope.storiesNav.currentPage === 1 && angular.equals(originalParams,$scope.storiesParams)) {
+                                    if ($scope.visibleStories.length === 0) {
+                                        $scope.visibleStories = response
+                                    } else {
+                                        $scope.visibleStories.push(response);
+                                    }
+                                }
 
                             }
                         })
