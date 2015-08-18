@@ -15,7 +15,7 @@
 							{{current.assignment.name}} <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
-							<li ng-repeat="a in current.assignments | orderBy:'name'" ng-include="'partials/ministry-item.html'" class="dropdown-submenu"></li>
+							<li ng-repeat="a in current.assignments | orderBy:'name'" ng-include="'partials/ministry-item.html'" ng-class="{'dropdown-submenu' : (a.sub_ministries.length)}"></li>
 							<li class="divider"></li>
 							<li>
 								<a href ng-click="joinMinistry(true)" translate>Join another location / ministry</a>
