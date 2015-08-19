@@ -164,6 +164,7 @@ gulp.task( 'styles', ['clean'], function () {
 
 gulp.task( 'library', ['clean', 'bower'], function () {
 	return gulp.src( [
+		'bower_components/angular-gettext/dist/angular-gettext.js',
 		'bower_components/angular-growl-v2/build/angular-growl.js',
 		'bower_components/angular-dragdrop/src/angular-dragdrop.js',
 		'bower_components/easy-markerwithlabel/src/markerwithlabel.js',
