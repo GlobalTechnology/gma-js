@@ -892,7 +892,7 @@
 
                                 TargetCity.updateTargetCity(targetCity)
                                     .success(function (response) {
-                                        growl.success('TargetCity position was updated');
+                                        growl.success('Target city position was updated');
                                     }).error(function (e) {
                                         growl.error('Unable to update target city')
                                     });
@@ -1252,7 +1252,7 @@
 
                     TargetCity.deleteTargetCity(target_city.target_city_id)
                         .success(function (data) {
-                            growl.success('TargetCity was deleted successfully');
+                            growl.success('Target city was deleted successfully');
                             $scope.targetCityWindow.close();
                             $scope.loadTargetCities();
                         })
