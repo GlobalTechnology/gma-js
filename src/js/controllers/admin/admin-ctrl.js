@@ -472,7 +472,6 @@
                     team_role: $scope.draggedMember.team_role,
                     ministry_id: team.ministry_id
                 };
-               // var member_assignment_id = $scope.draggedMember.assignment_id;
 
                 Assignments.addTeamMember(member, function () {
                     $scope.draggedMember.team_role = 'former_member';
