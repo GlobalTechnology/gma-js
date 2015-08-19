@@ -154,8 +154,8 @@
 
         function saveMeasurementState() {  
             $interval(function () {
-                //if user in inside measurement tab
-                if ($location.path() === '/measurements') {
+                //if user in inside measurement tab and view has been loaded
+                if ($scope.current.isLoaded && $location.path() === '/measurements') {
 
                     if ($scope.current.mcc !== 'undefined' && (_.size($scope.measurementState) > 0)) {
 
