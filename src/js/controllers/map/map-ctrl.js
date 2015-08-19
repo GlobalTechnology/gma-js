@@ -41,12 +41,12 @@
         $scope.map_scope_filter = 'min_only';
         //sub-stages for target city
         $scope.targetCitySubStages = [
-            {val: '0', name: 'Nothing yet', stage: 0},
-            {val: '0a', name: 'Pioneering', stage: 0},
-            {val: '1a', name: 'Startup (1-5 Groups)', stage: 1},
-            {val: '1b', name: 'Solidification (5-10 groups)', stage: 1},
-            {val: '2', name: 'Growth (> 10 groups)', stage: 2},
-            {val: '3', name: 'Partnering (>30 groups)', stage: 3}
+            {val: '0', name: '0 - Nothing yet', stage: 0},
+            {val: '0a', name: '0a - Pioneering', stage: 0},
+            {val: '1a', name: '1a - Startup (1-5 Groups)', stage: 1},
+            {val: '1b', name: '1b - Solidification (5-10 groups)', stage: 1},
+            {val: '2', name: '2 - Growth (> 10 groups)', stage: 2},
+            {val: '3', name: '3 - Partnering (>30 groups)', stage: 3}
         ];
 
         //default map options
