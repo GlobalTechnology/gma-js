@@ -1397,8 +1397,11 @@
             //only visible to llm
             if ($scope.current.mcc === 'llm') {
                 //ministry must have an area code
-                if (typeof $scope.current.assignment.area_code !== 'undefined') {
-                    return true;
+                if (typeof $scope.current.assignment.area_code !== 'undefined' && typeof $scope.current.assignment.ministry_scope !== 'undefined') {
+                    //ministry_scope should be 'Area' or 'Global'
+                    if ($scope.current.assignment.ministry_scope == 'Area' || $scope.current.assignment.ministry_scope == 'National') {
+                        return true;
+                    }
                 }
             }
 
