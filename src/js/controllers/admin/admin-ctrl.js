@@ -192,6 +192,7 @@
             {value: "inherited_leader", text: "Leader (inherited)"},
             {value: "member", text: 'Member'},
             {value: "blocked", text: 'Deleted'},
+            {value: "former_member", text: 'Former Member'},
             {value: "self_assigned", text: 'Self Assigned'}
         ];
 
@@ -236,6 +237,10 @@
             inheritedLeader: true,
             inheritedAdmin: true,
             deletedUser: false,
+            formerMember: false,
+            checkFormer: function (item) {
+                return $scope.filter.formerMember ? true : item.team_role != 'former_member';
+            },
             checkDeleted: function (item) {
                 return $scope.filter.deletedUser ? true : item.team_role != 'blocked';
             },
@@ -461,19 +466,23 @@
             } else if ($scope.draggedType === 'member') {
                 console.log('A member was dropped ');
                 var member = {
+                    assignment_id :  $scope.draggedMember.assignment_id,
                     key_guid: $scope.draggedMember.key_guid,
                     username: $scope.draggedMember.key_username,
                     team_role: $scope.draggedMember.team_role,
                     ministry_id: team.ministry_id
                 };
-                var member_assignment_id = $scope.draggedMember.assignment_id;
+               // var member_assignment_id = $scope.draggedMember.assignment_id;
 
                 Assignments.addTeamMember(member, function () {
-                    $scope.draggedMember.team_role = 'self_assigned';
+                    $scope.draggedMember.team_role = 'former_member';
                     growl.success('Member was moved to ministry successfully');
-                    //set user's old role to self-assigned
-                    Assignments.saveAssignment({assignment_id: member_assignment_id}, {team_role: 'self_assigned'}, function () {
-                        $scope.draggedMember.team_role = 'self_assigned';
+                    //set user's old role to former_member
+                    Assignments.saveAssignment({assignment_id: member.assignment_id}, {team_role: 'former_member'}, function () {
+                        $scope.draggedMember.team_role = 'former_member';
+                    },function(){
+                        //restore upon fail
+                        $scope.draggedMember.team_role = member.team_role;
                     });
                 }, function () {
                     growl.error('Unable to move member');
@@ -628,7 +637,7 @@
                 return false;
             }
             //members who has these roles are not movable too
-            return !_.contains(['inherited_admin', 'inherited_leader', 'blocked'], member.team_role)
+            return !_.contains(['inherited_admin', 'inherited_leader', 'blocked','former_member'], member.team_role)
         };
 
 

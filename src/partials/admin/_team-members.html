@@ -6,6 +6,7 @@
 			 <input autofocus="" type="text" ng-model="filter.memberSearch" placeholder="{{'Search Members'|translate}}.." class="form-control input-sm">&emsp;
 
 			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.deletedUser"> <span translate>Deleted</span></label>
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.formerMember"> <span translate>Former Members</span></label>
 
 			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedLeader"> <span translate>Inherited Leaders</span></label>
 
@@ -67,7 +68,7 @@
                      <td>{{current.user.cas_username}}</td>
                      <td>{{getCurrentUserRole(activeTeam.team_role)}}</td>
                  </tr>
-				 <tr ng-repeat="member in activeTeamMembers | orderBy:['first_name', 'last_name'] | filter:filter.checkAdmin | filter : filter.checkLeader | filter:filter.checkDeleted | filter : filter.memberSearch"
+				 <tr ng-repeat="member in activeTeamMembers | orderBy:['first_name', 'last_name'] | filter:filter.checkAdmin | filter : filter.checkLeader | filter:filter.checkDeleted |filter:filter.checkFormer | filter : filter.memberSearch"
 					 ng-if="current.user.person_id !== member.person_id"
 					 ng-class="{'danger':(member.team_role==='blocked')}"
 
@@ -89,9 +90,10 @@
                                  >
                              <option
                                      ng-repeat="role in roles"
-                                     ng-disabled="role.value === 'inherited_admin' || role.value ==='inherited_leader'"
+                                     ng-disabled="role.value === 'inherited_admin' || role.value ==='inherited_leader' || role.value ==='former_member'"
                                      ng-selected="{{role.value === member.team_role}}"
                                      value="{{role.value}}"
+                                     ng-class="{'text-warning' : (role.value === 'former_member'),'text-danger' : (role.value==='blocked')}"
                                      > {{role.text}} </option>
                          </select>
 					 </td>
