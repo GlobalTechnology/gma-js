@@ -148,26 +148,23 @@
             } else {
                 $scope.measurementState = states_from_config;
             }
-            //init automatic saving procedure
-            saveMeasurementState();
         }
 
-        function saveMeasurementState() {  
-            $interval(function () {
-                //if user in inside measurement tab and view has been loaded
-                if ($scope.current.isLoaded && $location.path() === '/measurements') {
+        $interval(function () {
+            //if user in inside measurement tab and view has been loaded
+            if ($scope.current.isLoaded && $location.path() === '/measurements') {
 
-                    if ($scope.current.mcc !== 'undefined' && (_.size($scope.measurementState) > 0)) {
+                if ($scope.current.mcc !== 'undefined' && (_.size($scope.measurementState) > 0)) {
 
-                        var post_data = {"default_measurement_states": {}};
-                        post_data.default_measurement_states[$scope.current.mcc] = $scope.measurementState;
-                        UserPreference.savePreference(post_data).success(function (data) {
-                        });
+                    var post_data = {"default_measurement_states": {}};
+                    post_data.default_measurement_states[$scope.current.mcc] = $scope.measurementState;
+                    UserPreference.savePreference(post_data).success(function (data) {
+                    });
 
-                    }
                 }
-            }, 60000);
-        }
+            }
+        }, 60000);
+
 
 		$scope.toggleMeasurementState = function (measurementState, perm_link_stub) {
 			measurementState[perm_link_stub] = (measurementState[perm_link_stub] === 1) ? 0 : 1;
