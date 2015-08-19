@@ -3,12 +3,17 @@
 		<span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 	<h4 class="modal-title"><span translate>Add a new Team Member to</span> {{activeTeamName}}</h4>
 </div>
-<div class="modal-body form-horizontal">
+<div class="modal-body">
+    <form name="form" class="form-horizontal">
 	<div class="form-group">
-		<label for="tbUserName" class="col-sm-4 control-label" translate>TheKey username:</label>
+		<label class="col-sm-4 control-label" translate>TheKey username:</label>
 
 		<div class="col-sm-8">
-			<input id="tbUserName" type="email" class="form-control" placeholder="user@ccci.org" ng-model="newMember.username" />
+			<input name="username" type="email" class="form-control" placeholder="user@ccci.org" ng-model="newMember.username" ng-required="true"/>
+            <small class="help-text" ng-show="form.username.$dirty && form.username.$invalid">
+                <span class="text-danger"  ng-show="form.username.$error.required" translate>Username is required.</span>
+                <span class="text-danger"  ng-show="form.username.$error.email" translate>Invalid email format</span>
+            </small>
 		</div>
 
 	</div>
@@ -16,12 +21,14 @@
 		<label class="col-sm-4 control-label" translate>Role</label>
 
 		<div class="col-sm-8">
-			<select class="form-control" style="width: 150px;" ng-model="newMember.team_role" ng-options="r.value as r.text for r  in roles | filter :{ value : '!inherited_admin' } | filter :{ value : '!inherited_leader' }"></select>
+			<select name="team_role" class="form-control" style="width: 150px;" ng-model="newMember.team_role" ng-options="r.value as r.text for r  in roles | filter :{ value : '!inherited_admin' } | filter :{ value : '!inherited_leader' } | filter :{ value : '!former_member' }" ng-required="true"></select>
 		</div>
 	</div>
+</form>
 </div>
 <div class="modal-footer">
 	<button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Close</span></button>
-	<button type="button" class="btn btn-primary" ng-click="add()"><i class="glyphicon glyphicon-floppy-disk"></i> <span translate>Save</span></button>
+	<button type="button" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="add()"><i class="glyphicon glyphicon-floppy-disk"></i> <span translate>Save</span></button>
 </div>
+
 

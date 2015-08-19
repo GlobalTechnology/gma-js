@@ -5,13 +5,16 @@
 
 			<div class="clearfix"></div>
 		</div>
-		<div class="panel-body form-horizontal">
-
+		<div class="panel-body">
+            <form name="form" class="form-horizontal">
 			<div class="form-group row">
 				<label for="ministryName" class="col-sm-4 control-label" translate>Ministry Name:</label>
 
 				<div class="col-sm-6">
-					<input id="ministryName" type="text" class="form-control" ng-model="ministry.name" />
+					<input id="ministryName" maxlength="255" type="text" name="name" class="form-control" ng-model="ministry.name" ng-required="true"/>
+                    <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
+                        <span class="text-danger"  ng-show="form.name.$error.required" translate>Ministry name is required.</span>
+                    </small>
 				</div>
 			</div>
 
@@ -71,10 +74,10 @@
 					</div>
 				</div>
 			</div> -->
-			
+            </form>
 		</div>
 		<div class="panel-footer">
-			<button type="button" class="btn btn-primary pull-right" ng-click="saveDetails()" ng-disabled="saveDetailsResource && !saveDetailsResource.$resolved"><i class="glyphicon glyphicon-pencil"></i> <span tranalate>Update Ministry</span></button>
+			<button type="button" class="btn btn-primary pull-right" ng-click="saveDetails()" ng-disabled="form.$invalid || (saveDetailsResource && !saveDetailsResource.$resolved)"><i class="glyphicon glyphicon-pencil"></i> <span tranalate>Update Ministry</span></button>
 			<div class="clearfix"></div>
 		</div>
 	</div>
