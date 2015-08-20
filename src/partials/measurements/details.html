@@ -70,7 +70,7 @@
 				</div>
 			</div>
 			<div ng-show="teamToggle">
-				<div class="form-group" ng-repeat="member in details.team" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">
+				<div class="form-group" ng-repeat="member in details.team | orderBy : 'first_name'" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">
 					<label class="col-xs-5 control-label">{{member.last_name}}, {{member.first_name}}</label>
 
 					<div class="col-xs-7">
@@ -81,7 +81,7 @@
 		</fieldset>
 
 		<!-- Sub Ministries -->
-		<fieldset ng-if="details.sub_ministries.length > 0" ng-init="ministryToggle = false">
+		<fieldset ng-if="details.sub_ministries.length" ng-init="ministryToggle = false">
 			<legend class="pointer" ng-click="ministryToggle=!ministryToggle"><span translate>Sub-Ministries / Teams</span>
 					<span class="glyphicon pull-right"
 						  ng-class="{'glyphicon-triangle-left': !ministryToggle, 'glyphicon-triangle-bottom': ministryToggle}">
@@ -99,7 +99,7 @@
 		</fieldset>
 
 		<!-- Self Assigned -->
-		<fieldset ng-init="selfToggle=false" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader']) && details.self_assigned.length > 0">
+		<fieldset ng-init="selfToggle=false" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader']) && details.self_assigned.length">
 			<legend class="pointer" ng-click="selfToggle=!selfToggle"><span translate>Self Assigned Members (not yet approved)</span>
 					<span class="glyphicon pull-right"
 						  ng-class="{'glyphicon-triangle-left': !selfToggle, 'glyphicon-triangle-bottom': selfToggle}">
