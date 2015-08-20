@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-inverse navbar-static-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href>GMA</a>
+				<a class="navbar-brand" href="javascript:void(0)">GMA</a>
 			</div>
 
 			<div class="collapse navbar-collapse">
@@ -11,53 +11,53 @@
 
 					<!-- Ministry Assignments -->
 					<li class="dropdown" dropdown>
-						<a href class="dropdown-toggle  ministry-title" dropdown-toggle>
+						<a href="javascript:void(0)" class="dropdown-toggle  ministry-title" dropdown-toggle>
 							{{current.assignment.name}} <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li ng-repeat="a in current.assignments | orderBy:'name'" ng-include="'partials/ministry-item.html'" ng-class="{'dropdown-submenu' : (a.sub_ministries.length)}"></li>
 							<li class="divider"></li>
 							<li>
-								<a href ng-click="joinMinistry(true)" translate>Join another location / ministry</a>
+								<a href="javascript:void(0)" ng-click="joinMinistry(true)" translate>Join another location / ministry</a>
 							</li>
 						</ul>
 					</li>
 
 					<!-- Mission Critical Components -->
 					<li class="dropdown" ng-if="current.assignment.mccs.length" dropdown>
-						<a href class="dropdown-toggle" dropdown-toggle>
+						<a href="javascript:void(0)" class="dropdown-toggle" dropdown-toggle>
 							{{mccLabels[current.mcc]}} <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li ng-repeat="mcc in current.assignment.mccs | orderBy:mccSort">
-								<a href ng-click="current.mcc = mcc">{{mccLabels[mcc]}}</a>
+								<a href="javascript:void(0)" ng-click="current.mcc = mcc">{{mccLabels[mcc]}}</a>
 							</li>
 						</ul>
 					</li>
 
 					<!-- Period -->
 					<li>
-						<a href ng-click="prevPeriod()"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<a href="javascript:void(0)" ng-click="prevPeriod()"><span class="glyphicon glyphicon-chevron-left"></span></a>
 					</li>
 					<li class="dropdown" dropdown>
-						<a href class="dropdown-toggle" dropdown-toggle>
+						<a href="javascript:void(0)" class="dropdown-toggle" dropdown-toggle>
 							{{current.period.format('YYYY-MM')}} <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li ng-repeat="period in periods">
-								<a href ng-click="current.period = period">{{period.format('YYYY-MM')}}</a>
+								<a href="javascript:void(0)" ng-click="current.period = period">{{period.format('YYYY-MM')}}</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a href ng-click="nextPeriod()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a href="javascript:void(0)" ng-click="nextPeriod()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 					</li>
 				</ul>
 
 				<!-- Current User / Logout -->
 				<ul class="nav navbar-nav navbar-right" ng-if="current.user">
 					<li class="dropdown" dropdown>
-						<a href class="dropdown-toggle" dropdown-toggle role="button" aria-expanded="false">
+						<a href="javascript:void(0)" class="dropdown-toggle" dropdown-toggle role="button" aria-expanded="false">
 							<span class="top-user-info pull-left">
 								<span class="top-user-name">{{current.user.cas_username}}</span>
 								<span class="top-user-role small text-capitalize">{{(current.assignment.team_role).replace('_',' - ')}}</span>
@@ -68,7 +68,7 @@
 							<li><a href="javascript:void(0)" ng-click="showUserPreference()"><i class="glyphicon glyphicon-cog"></i> <span translate>My Preferences</span></a></li>
 							<li class="divider"></li>
 							<li><a href="javascript:void(0)" ng-click="logout()"><i class="glyphicon glyphicon-off"></i> <span translate>Logout</span></a></li>
-							<!--<li><a href ng-click="invalidateSession()">DEBUG: Invalidate Session</a></li>-->
+							<!--<li><a href="javascript:void(0)" ng-click="invalidateSession()">DEBUG: Invalidate Session</a></li>-->
 						</ul>
 					</li>
 				</ul>
