@@ -171,7 +171,7 @@
 
                     $scope.imageFile = {};
                     if (typeof $scope.story.image_url !== 'undefined' && $scope.story.image_url !== '') {
-                        $scope.imageFile.url = $scope.story.image_url + '?v=' + $scope.story.updated_at;
+                        $scope.imageFile.url = versionUrl($scope.story.image_url + '?v=' + $scope.story.updated_at);
                     }
 
                     $scope.close = function () {
