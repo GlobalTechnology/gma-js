@@ -989,7 +989,7 @@
                             labelInBackground: false,
                             draggable: false
                         });
-                        if (church.jf_contrib > 1) church.jf = new $scope.jesusFilmSign(new google.maps.LatLng(church.latitude, church.longitude), church.jf_contrib, church.development);
+                        if (church.jf_contrib > 1) { new $scope.jesusFilmSign(new google.maps.LatLng(church.latitude, church.longitude), church.jf_contrib, church.development);}
                     }
                     else {
                         marker = new MarkerWithLabel({
@@ -1004,7 +1004,7 @@
                             labelInBackground: false
 
                         });
-                        if (church.jf_contrib > 1) church.jf = new $scope.jesusFilmSign(new google.maps.LatLng(church.latitude, church.longitude), church.jf_contrib, 'cluster');
+                        if (church.jf_contrib > 1) { new $scope.jesusFilmSign(new google.maps.LatLng(church.latitude, church.longitude), church.jf_contrib, 'cluster');}
 
                     }
                     if (!$scope.churchWindow.getContent()) {
@@ -1129,17 +1129,22 @@
 
         };
 
-
-        $scope.jesusFilmSign = function (coordinates, n, type) {
+        /**
+         * Draws a jesus film rectangle icon on map
+         * @param coordinates
+         * @param number
+         * @param type
+         */
+        $scope.jesusFilmSign = function (coordinates, number, type) {
             this.div_ = null;
             this.setMap($scope.map);
-            if (n == 1) n = "JF";
+            if (number == 1) number = "JF";
 
             // onADD
             this.onAdd = function () {
                 var div = document.createElement('div');
                 div.className = 'jf_label';
-                div.innerHTML = n;
+                div.innerHTML = number;
                 this.div_ = div;
                 var panes = this.getPanes();
                 panes.overlayMouseTarget.appendChild(div);
@@ -1361,7 +1366,7 @@
                     }
                 });
             }
-        };
+        }
 
         //function checks whether the current user is a leader/admin for current assignment
         function isLeaderAdmin() {
