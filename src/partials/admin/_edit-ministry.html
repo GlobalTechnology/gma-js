@@ -61,12 +61,13 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-4 control-label" translate>Availabel Languages:</label>
+				<label class="col-sm-4 control-label" translate>Available Languages:</label>
 
 				<div class="col-sm-6">
 					<select multiple="multiple" class="form-control" ng-model="ministry.content_locales" ng-options="lang.iso_code as lang.english_name for lang in availableLanguages">
 						<optgroup label="Select Languages"></optgroup>
 					</select>
+                    <small class="help-text">CTRL + Click to select multiple languages</small>
 				</div>
 			</div>
 

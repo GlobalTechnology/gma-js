@@ -23,7 +23,7 @@
                 $scope.initTeamAndMembers();
                 //refresh the manage measurement view
                 $scope.measurementTypes = [];
-                loadLanguage();
+                loadLanguages();
                 MeasurementTypes.getMeasurementTypes().$promise.then(function (data) {
                     angular.forEach(data, function (type) {
                         if (type.is_custom && _.contains($scope.ministry.lmi_show, type.perm_link_stub)) {
@@ -39,16 +39,16 @@
             });
         });
 
- function loadLanguage() {
+        function loadLanguages() {
 
             //don't not hit api if we already have language
             if (typeof $scope.availableLanguages !== 'undefined' && $scope.availableLanguages.length !== 0) {
                 return $scope.availableLanguages;
             } else {
-                 MinistryLanguage.getLanguages()
+                MinistryLanguage.getLanguages()
                     .success(function (response) {
                         $scope.availableLanguages = response;
-                       $scope.availableLanguages = _.sortBy($scope.availableLanguages, 'english_name');
+                        $scope.availableLanguages = _.sortBy($scope.availableLanguages, 'english_name');
                     })
                     .error(function () {
                         growl.error('Unable to load languages');
