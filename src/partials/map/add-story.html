@@ -1,0 +1,99 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span aria-hidden="true">&times;</span><span class="sr-only" translate>Close</span></button>
+    <h4 class="modal-title"><span translate>Add new story to</span> - {{iconName}}</h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" name="form" ng-submit="saveStory(story)" novalidate>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" translate>Title :</label>
+            <div class="col-md-8">
+                <input type="text" name="title" maxlength="255" class="form-control" placeholder="Title" ng-model="story.title" ng-required="true">
+                <small class="help-text" ng-show="form.title.$dirty && form.title.$invalid">
+                    <span class="text-danger"  ng-show="form.title.$error.required" translate>Story title field is required.</span>
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" translate>Content :</label>
+            <div class="col-md-8">
+                <textarea rows="5" name="content" maxlength="{{storiesConfig.content_length}}"  class="form-control" ng-model="story.content" ng-required="true" style="resize: vertical;max-height: 300px;"></textarea>
+                <small class="help-text" ng-show="form.content.$dirty && form.content.$invalid">
+                    <span class="text-danger"  ng-show="form.content.$error.required" translate>Story content field is required.</span>
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" translate>Upload an Image :</label>
+            <div class="col-md-9">
+                <div class="col-md-8">
+                    <input
+                            type="file"
+                            accept="image/*"
+                            name="image"
+                            id="image-file"
+                            ng-model="image"
+
+                            image-resizer
+                            image-model="imageFile"
+                            resize-max-height="{{storiesConfig.image_height}}"
+                            resize-max-width="{{storiesConfig.image_width}}"
+                            resize-quality="1"
+                            />
+                    <small class="help-block">
+                        <span class="text-info"><span translate>Image will be resized to</span> {{storiesConfig.image_height}}x{{storiesConfig.image_width}} px</span><br>
+                        <span class="text-danger"  ng-show="form.image.$error.invalidImage" translate>Invalid image file input.</span>
+                    </small>
+                </div>
+                <div ng-show="imageFile.url" class="media-right col-md-2 image-holder">
+                    <img title="Preview" class="thumbnail" alt="image-preview" height="100" width="100" ng-src="{{imageFile.url}}">
+                    <i ng-click="removeImage()" class="glyphicon glyphicon-remove-sign" title="{{'Remove image' | translate }}"><span class="sr-only" translate>Remove image</span></i>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" translate>Privacy :</label>
+            <div class="col-md-9">
+                <div class="col-xs-3">
+                    <select class="form-control" ng-model="story.privacy" ng-init="story.privacy='team_only'" ng-required="true">
+                        <option value="public" translate>Pubic</option>
+                        <option value="team_only" translate>Team Only</option>
+                    </select>
+                </div>
+                <div class="col-xs-6">
+                    <label class="col-xs-6 control-label" translate>Publish Status :</label>
+                    <div class="col-xs-6">
+                        <select class="form-control" ng-model="story.state" ng-init="story.state='published'" ng-required="true">
+                            <option value="published" translate>Published</option>
+                            <option value="draft" translate>Draft</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" translate>Tagged Ministry :</label>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <input type="hidden" ng-model="story.ministry_id" ng-init="story.ministry_id=current.assignment.ministry_id">
+                        <p class="form-control-static text-center">{{current.assignment.name}}</p>
+                    </div>
+                    <div class="col-xs-6" ng-if="current.mcc">
+                        <label class="col-md-6 control-label" translate>Tagged MCC :</label>
+                        <div class="col-md-6">
+                            <input type="hidden" ng-model="story.mcc" ng-init="story.mcc=current.mcc">
+                            <p class="form-control-static text-center text-uppercase">{{current.mcc}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Close</span></button>
+    <button ng-disabled="form.title.$invalid || form.content.$invalid" type="button" class="btn btn-primary" ng-click="saveStory(story)"><i class="glyphicon glyphicon-ok"></i> <span translate>Save</span></button>
+</div>
+

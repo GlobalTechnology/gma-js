@@ -1,7 +1,7 @@
 ﻿(function ($) {
     'use strict';
 
-    function MapCtrl($scope, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics, UserPreference, $modal, growl, ISOCountries, TargetCity) {
+    function MapCtrl($scope, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics, UserPreference, $modal, growl, ISOCountries, TargetCity,Stories) {
         $scope.current.isLoaded = false;
         $scope.versionUrl = Settings.versionUrl;
         $scope.area_codes = _.sortBy(Settings.area_codes, 'name');
@@ -1197,6 +1197,7 @@
         $scope.jesusFilmSign.prototype = new google.maps.OverlayView();
 
         $scope.addTrainingStage = function (training) {
+            if(training.insert===undefined || training.insert.date === undefined || training.insert.number_completed === undefined) return false;
             var newPhase = {
                 phase: training.current_stage,
                 date: training.insert.date,
@@ -1411,6 +1412,78 @@
             }
 
             return false;
+        }
+
+        $scope.addStoryToIcon = function (icon, type) {
+            $modal.open({
+                templateUrl: 'partials/map/add-story.html',
+                size: 'lg',
+                controller: function ($scope, $modalInstance, modalData) {
+                    $scope.imageFile = {};
+                    $scope.storiesConfig = modalData.storiesConfig;
+                    $scope.iconName = modalData.iconName;
+
+                    $scope.close = function () {
+                        $modalInstance.dismiss('cancel');
+                    };
+
+                    $scope.saveStory = function (story) {
+                        $modalInstance.close({
+                            story: story,
+                            imageFile: $scope.imageFile
+                        });
+                    };
+                },
+                resolve: {
+                    modalData: function () {
+                        return {
+                            iconName: angular.copy(icon.name),
+                            storiesConfig: angular.copy(Settings.stories)
+                        }
+                    }
+                }
+            }).result.then(function (data) {
+
+                    //prepare story data to send
+                    data.story[type + '_id'] = icon.id;
+                    data.story.location = {
+                        latitude: icon.latitude,
+                        longitude: icon.longitude
+                    };
+
+                    Stories.createStory(data.story)
+                        .success(function (response) {
+                            growl.success('Story saved successfully');
+                            if (typeof data.imageFile.resized !== 'undefined') {
+                                //prepare form data for image file
+                                var form_data = new FormData();
+                                form_data.append('image-file', data.imageFile.resized.blob, data.imageFile.file.name);
+                                //Start uploading image file
+                                Stories.uploadStoryImage(response.story_id, form_data)
+                                    .success(function (img) {
+                                        growl.success('Image file was uploaded');
+                                    })
+                                    .error(function (e) {
+                                        if (e.status === 400) {
+                                            growl.error('Upload failed: Invalid file input');
+                                        } else {
+                                            growl.error('Unable to upload image file');
+                                        }
+                                    });
+                            }
+                        })
+                        .error(function () {
+                            growl.error('Failed to save story');
+                        });
+
+                });
+            //close all dialogWindow
+            $scope.churchWindow.close();
+            $scope.trainingWindow.close();
+            //scroll to top
+            window.setTimeout(function () {
+                window.parent.scrollTo(0, 0);
+            }, 10);
         }
     }
 
