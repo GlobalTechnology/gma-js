@@ -1,9 +1,9 @@
 ﻿(function () {
     'use strict';
 
-    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference) {
+    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference, MinistryLanguage) {
         $scope.current.isLoaded = false;
-
+        
         var sendAnalytics = _.throttle(function () {
             GoogleAnalytics.screen('Admin', (function () {
                 var dimensions = {};
@@ -23,6 +23,7 @@
                 $scope.initTeamAndMembers();
                 //refresh the manage measurement view
                 $scope.measurementTypes = [];
+                loadLanguage();
                 MeasurementTypes.getMeasurementTypes().$promise.then(function (data) {
                     angular.forEach(data, function (type) {
                         if (type.is_custom && _.contains($scope.ministry.lmi_show, type.perm_link_stub)) {
@@ -38,6 +39,23 @@
             });
         });
 
+ function loadLanguage() {
+
+            //don't not hit api if we already have language
+            if (typeof $scope.availableLanguages !== 'undefined' && $scope.availableLanguages.length !== 0) {
+                return $scope.availableLanguages;
+            } else {
+                 MinistryLanguage.getLanguages()
+                    .success(function (response) {
+                        $scope.availableLanguages = response;
+                       $scope.availableLanguages = _.sortBy($scope.availableLanguages, 'english_name');
+                    })
+                    .error(function () {
+                        growl.error('Unable to load languages');
+                    });
+            }
+
+        }
         $scope.getMCCValue=function(mcc){
             return _.contains($scope.ministry.mccs,mcc);
         };
@@ -132,6 +150,7 @@
                 min_code: $scope.ministry.min_code,
                 name: $scope.ministry.name,
                 mccs: $scope.ministry.mccs,
+                content_locales: $scope.ministry.content_locales,
                 private: $scope.ministry.private,
                 hide_reports_tab: $scope.ministry.hide_reports_tab,
                 default_mcc: $scope.ministry.default_mcc,
