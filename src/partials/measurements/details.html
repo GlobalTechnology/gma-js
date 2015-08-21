@@ -5,7 +5,7 @@
 	<h2 class="modal-title">{{measurement.name}}
 		<small>{{current.period.format('YYYY-MM')}}</small>
 	</h2>
-	<div class="well well-sm measurement-desc">{{measurement.description}}</div>
+	<div class="well well-sm measurement-desc" ng-show="measurement.description">{{measurement.description}}</div>
 </div>
 <div class="modal-body" ng-show="spinner" ng-include="'partials/spinner.html'"></div>
 <div class="modal-body edit_meas_form" ng-hide="spinner">
@@ -28,7 +28,7 @@
 						  ng-class="{'glyphicon-triangle-left': !localToggle, 'glyphicon-triangle-bottom': localToggle}">
 					</span>
 			</legend>
-			<div ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">
+			<div ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])" ng-show="localToggle">
 				<div class="form-group" ng-class="{'has-error': !editForm.local.$valid}">
 					<label class="col-xs-5 control-label" translate>Local</label>
 
@@ -37,7 +37,7 @@
 					</div>
 				</div>
 				<div ng-show="localToggle" class="form-group" ng-repeat="(name, value) in filterSource(details.local_breakdown)">
-					<label class="col-xs-5 control-label">{{name}}</label>
+					<label class="col-xs-5 control-label text-capitalize">{{name}}</label>
 
 					<div class="col-xs-7">
 						<input class="form-control" type="number" disabled ng-model="value" />
@@ -141,6 +141,6 @@
 	</form>
 </div>
 <div class="modal-footer">
-	<button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!editForm.$valid"><i class="glyphicon glyphicon-pencil"></i> <span translate>Save Measurements</span></button>
 	<button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Close</span></button>
+    <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!editForm.$valid || spinner"><i class="glyphicon glyphicon-pencil"></i> <span translate>Save Measurements</span></button>
 </div>
