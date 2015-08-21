@@ -56,7 +56,7 @@
         <label class="col-md-3 control-label" translate>Privacy :</label>
         <div class="col-md-9">
             <div class="col-xs-3">
-                <select class="form-control" ng-model="story.privacy" ng-init="story.privacy='public'" ng-required="true">
+                <select class="form-control" ng-model="story.privacy" ng-init="story.privacy='team_only'" ng-required="true">
                     <option value="public" translate>Pubic</option>
                     <option value="team_only" translate>Team Only</option>
                 </select>
@@ -64,7 +64,7 @@
             <div class="col-xs-6">
                 <label class="col-xs-6 control-label" translate>Publish Status :</label>
                 <div class="col-xs-6">
-                    <select class="form-control" ng-model="story.state" ng-init="story.state='draft'" ng-required="true">
+                    <select class="form-control" ng-model="story.state" ng-init="story.state='published'" ng-required="true">
                         <option value="published" translate>Published</option>
                         <option value="draft" translate>Draft</option>
                     </select>

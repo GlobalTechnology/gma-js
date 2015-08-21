@@ -168,10 +168,11 @@
 
                     $scope.story = modalData.story;
                     $scope.storiesConfig = modalData.storiesConfig;
+                    $scope.versionUrl = modalData.versionUrl;
 
                     $scope.imageFile = {};
                     if (typeof $scope.story.image_url !== 'undefined' && $scope.story.image_url !== '') {
-                        $scope.imageFile.url = versionUrl($scope.story.image_url + '?v=' + $scope.story.updated_at);
+                        $scope.imageFile.url = $scope.versionUrl($scope.story.image_url + '?v=' + $scope.story.updated_at);
                     }
 
                     $scope.close = function () {
@@ -189,7 +190,8 @@
                     modalData: function () {
                         return {
                             storiesConfig: angular.copy($scope.storiesConfig),
-                            story: angular.copy(story)
+                            story: angular.copy(story),
+                            versionUrl : $scope.versionUrl
                         }
                     }
                 }

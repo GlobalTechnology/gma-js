@@ -17,7 +17,7 @@
         <section ng-hide="storiesLoaded==false">
             <div class="stories-holder">
                     <div class="media media-custom" ng-repeat="story in visibleStories | orderBy : '-created_at'">
-                    <div class="media-left" style="vertical-align: middle">
+                    <div class="media-left media-middle">
                         <a ng-click="viewStory(story)" title="View" href="javascript:void(0)" class="thumbnail thumb-128">
                             <img class="media-object" ng-src="{{(story.image_url===undefined || story.image_url=='') ? versionUrl('img/story-128.png') : versionUrl(story.image_url+'?v='+story.updated_at)}}" alt="image" height="128" width="128">
                         </a>
