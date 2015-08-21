@@ -3,6 +3,7 @@
 	<div class='church-window'>
 		<h4>{{edit_church.name}} <br />
 			<small>{{edit_church.size}} <span translate>members</span></small>
+            <small ng-if="!edit_church.editable && edit_church.created_by_email"><br>{{edit_church.created_by_email}}</small>
 		</h4>
 
 		<table class="table table-condensed">
@@ -32,8 +33,8 @@
 				<td>
                     <label class="checkbox-inline" ng-show="edit_church.editable"><input type="checkbox" class="checkbox" ng-model='edit_church.jf_contrib'><span translate>Check if used</span></label>
 					<label ng-hide="edit_church.editable" ng-switch="edit_church.jf_contrib">
-                        <span ng-switch-when="1" translate>Yes</span>
-                        <span ng-switch-when="0" translate>No</span>
+                        <span ng-switch-when="true" translate>Yes</span>
+                        <span ng-switch-when="false" translate>No</span>
                     </label>
 				</td>
 			</tr>
@@ -100,21 +101,21 @@
 					<ul class="dropdown-menu" role="menu">
 						<li>
 							<a href ng-click="makeMovableIcon.MoveChurch()">
-								<span class="glyphicon glyphicon-move" aria-hidden="true"></span> <span translate>Move Church</span>
+								<span class="glyphicon glyphicon-move" aria-hidden="true"></span> <span translate> Move Church</span>
 							</a>
 						</li>
 						<li>
 							<a href ng-click="SetParent()" ng-if="edit_church.parents.length == 0">
-								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <span translate>Set Parent Church</span>
+								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <span translate> Set Parent Church</span>
 							</a>
 							<a href ng-click="RemoveParent()" ng-if="edit_church.parents.length == 1">
-								<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> <span translate>Remove Parent Church</span>
+								<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> <span translate> Remove Parent Church</span>
 							</a>
 						</li>
 						<li ng-if="edit_church.child_count == 0" role="presentation" class="divider"></li>
 						<li ng-if="edit_church.child_count == 0">
 							<a href ng-click="DeleteChurch()">
-								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> <span translate>Delete Church</span>
+								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> <span translate> Delete Church</span>
 							</a>
 						</li>
 					</ul>

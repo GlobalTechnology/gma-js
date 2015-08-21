@@ -3,6 +3,7 @@
 	<div class='training-window'>
 		<h4>{{edit_training.name}}
 			<small>{{edit_training.type}}</small>
+            <small ng-if="!edit_training.editable && edit_training.created_by_email"><br>{{edit_training.created_by_email}}</small>
 		</h4>
 
 		<table class="table table-condensed">
@@ -25,7 +26,7 @@
 				<td><b translate>Date:</b></td>
 				<td>
 					<input class="form-control input-sm" id="tbDate" type="date" class="map-training-date" placeholder="Date" ng-model="edit_training.date"  ng-if="edit_training.editable"/>
-					<b ng-if="!edit_training.editable">{{edit_training.date}}</b>
+					<b ng-if="!edit_training.editable">{{edit_training.date | date: 'MMM-dd-yyyy'}}</b>
 				</td>
 			</tr>
 
