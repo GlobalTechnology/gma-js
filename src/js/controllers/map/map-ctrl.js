@@ -1,7 +1,7 @@
 ﻿(function ($) {
     'use strict';
 
-    function MapCtrl($scope, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics, UserPreference, $modal, growl, ISOCountries, TargetCity,Stories) {
+    function MapCtrl($scope, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics, UserPreference, $modal, growl, ISOCountries, TargetCity, Stories) {
         $scope.current.isLoaded = false;
         $scope.versionUrl = Settings.versionUrl;
         $scope.area_codes = _.sortBy(Settings.area_codes, 'name');
@@ -402,7 +402,11 @@
                     $scope.new_church.latitude = m.getPosition().lat();
                     $scope.new_church.longitude = m.getPosition().lng();
 
-                    Churches.addChurch($scope.new_church).$promise.then($scope.onAddChurch, $scope.onError);
+                    Churches.addChurch($scope.new_church).$promise.then(function () {
+                            growl.success('Church was created');
+                            $scope.onAddChurch();
+                        }, $scope.onError
+                    );
 
                     m.setMap(null);
                     var removedObject = $scope.map.markers.splice($scope.map.markers.indexOf(m), 1);
@@ -420,9 +424,10 @@
                     $scope.new_training.latitude = m.getPosition().lat();
                     $scope.new_training.longitude = m.getPosition().lng();
                     $scope.new_training.mcc = $scope.current.mcc;
-                    Trainings.addTraining($scope.current.sessionToken, $scope.new_training).then(
-                        $scope.loadTrainings,
-                        $scope.onError
+                    Trainings.addTraining($scope.current.sessionToken, $scope.new_training).then(function () {
+                            growl.success('Training was created');
+                            $scope.loadTrainings();
+                        }, $scope.onError
                     );
 
                     m.setMap(null);
@@ -441,7 +446,7 @@
                     new_targetCity.longitude = m.getPosition().lng();
                     new_targetCity.period = $scope.current.period.format('YYYY-MM');
                     //send current ministry area_code to server
-                    if($scope.current.assignment.area_code !== 'GLBL'){
+                    if ($scope.current.assignment.area_code !== 'GLBL') {
                         new_targetCity.area_code = $scope.current.assignment.area_code;
                     }
 
@@ -675,7 +680,16 @@
 
         $scope.updateChurch = function () {
             $scope.churchWindow.close();
-            Churches.saveChurch($scope.edit_church).$promise.then($scope.onSaveChurch, $scope.onError);
+            Churches.saveChurch($scope.edit_church).$promise
+                .then(function () {
+                    growl.success('Church was updated successfully');
+                    $scope.onSaveChurch()
+                },
+                function () {
+                    growl.error('Unable to update church');
+                    $scope.onError();
+                }
+            );
         };
 
         $scope.DeleteChurch = function () {
@@ -687,12 +701,25 @@
             }).result.then(function (result) {
                     // Set end_date to the last day of the previous month
                     $scope.edit_church.end_date = moment().subtract(1, 'months').endOf('month').format('YYYY-MM-DD');
-                    Churches.saveChurch($scope.edit_church).$promise.then($scope.onSaveChurch, $scope.onError);
+                    Churches.saveChurch($scope.edit_church).$promise.then(
+                        function () {
+                            growl.success('Church was deleted successfully');
+                            $scope.onSaveChurch()
+                        },
+                        $scope.onError);
                 });
         };
 
         $scope.updateTraining = function () {
-            Trainings.updateTraining($scope.current.sessionToken, $scope.edit_training).then($scope.onSaveChurch, $scope.onError);
+            Trainings.updateTraining($scope.current.sessionToken, $scope.edit_training).then(
+                function () {
+                    growl.success('Training was updated');
+                    $scope.onSaveChurch();
+                }, function () {
+                    growl.error('Unable to update training')
+                    $scope.onError();
+                }
+            );
             $scope.trainingWindow.close();
         };
 
@@ -704,7 +731,7 @@
 
         $scope.updateTargetCity = function (targetCity) {
             //send current ministry area_code to server
-            if($scope.current.assignment.area_code !== 'GLBL'){
+            if ($scope.current.assignment.area_code !== 'GLBL') {
                 targetCity.area_code = $scope.current.assignment.area_code;
             }
             TargetCity.updateTargetCity(targetCity)
@@ -920,9 +947,6 @@
             angular.forEach($scope.map.church_lines, function (l) {
                 l.setMap(null);
             });
-            //remove jesus film rectangle labels
-            $('.jf_label').remove();
-            // $scope.map.markers = [];
 
             // do more intelligent replace
             //remove elements that are not in the new one.
@@ -939,9 +963,8 @@
             });
 
             angular.forEach(toDelete, function (church) {
-
-                //var church = $scope.map.markers.filter(function (c) { return c.id == toDelete[i] });
-
+                //remove jf icons one by one
+                angular.element('div#map_canvas div#jf_icon_' + church.id + '.jf_label').remove();
                 church.setMap(null);
                 var removedObject = $scope.map.markers.splice($scope.map.markers.indexOf(church), 1);
 
@@ -989,7 +1012,9 @@
                             labelInBackground: false,
                             draggable: false
                         });
-                        if (church.jf_contrib > 1) { new $scope.jesusFilmSign(new google.maps.LatLng(church.latitude, church.longitude), church.jf_contrib, church.development);}
+                        if (church.jf_contrib >= 1) {
+                            new $scope.jesusFilmSign(new google.maps.LatLng(church.latitude, church.longitude), church.jf_contrib, church.development, church.id);
+                        }
                     }
                     else {
                         marker = new MarkerWithLabel({
@@ -1004,7 +1029,9 @@
                             labelInBackground: false
 
                         });
-                        if (church.jf_contrib > 1) { new $scope.jesusFilmSign(new google.maps.LatLng(church.latitude, church.longitude), church.jf_contrib, 'cluster');}
+                        if (church.jf_contrib > 1) {
+                            new $scope.jesusFilmSign(new google.maps.LatLng(church.latitude, church.longitude), church.jf_contrib, 'cluster', church.id);
+                        }
 
                     }
                     if (!$scope.churchWindow.getContent()) {
@@ -1134,8 +1161,9 @@
          * @param coordinates
          * @param number
          * @param type
+         * @param id church id
          */
-        $scope.jesusFilmSign = function (coordinates, number, type) {
+        $scope.jesusFilmSign = function (coordinates, number, type, id) {
             this.div_ = null;
             this.setMap($scope.map);
             if (number == 1) number = "JF";
@@ -1144,6 +1172,7 @@
             this.onAdd = function () {
                 var div = document.createElement('div');
                 div.className = 'jf_label';
+                div.id = 'jf_icon_' + id;
                 div.innerHTML = number;
                 this.div_ = div;
                 var panes = this.getPanes();
@@ -1197,7 +1226,7 @@
         $scope.jesusFilmSign.prototype = new google.maps.OverlayView();
 
         $scope.addTrainingStage = function (training) {
-            if(training.insert===undefined || training.insert.date === undefined || training.insert.number_completed === undefined) return false;
+            if (training.insert === undefined || training.insert.date === undefined || training.insert.number_completed === undefined) return false;
             var newPhase = {
                 phase: training.current_stage,
                 date: training.insert.date,
@@ -1486,8 +1515,8 @@
             }, 10);
         };
 
-        $scope.canAddStories = function(){
-            return $scope.current.hasRole('admin','inherited_admin','leader','inherited_leader','member');
+        $scope.canAddStories = function () {
+            return $scope.current.hasRole('admin', 'inherited_admin', 'leader', 'inherited_leader', 'member');
         }
     }
 
