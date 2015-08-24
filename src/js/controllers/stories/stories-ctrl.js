@@ -252,11 +252,11 @@
 
         };
 
-        $scope.isStoryEditable=function(story){
+        $scope.isStoryEditable = function (story) {
 
-            if(story.ministry_id === $scope.current.assignment.ministry_id){
-                //admin can edit any story but within his ministry
-                if($scope.current.hasRole(['admin','inherited_admin'])){
+            if (story.ministry_id === $scope.current.assignment.ministry_id) {
+                //admin and leaders can edit any story but within his ministry
+                if ($scope.current.hasRole(['admin', 'inherited_admin', 'leader', 'inherited_leader'])) {
                     return true;
                 }
             }
