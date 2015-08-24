@@ -178,8 +178,9 @@
             $modal.open({
                 templateUrl: 'partials/admin/add-measurement-type.html',
                 controller: function ($scope, $modalInstance) {
+                    $scope.newMeasurement = {};
                     $scope.close = function () {
-                        $modalInstance.dismiss();
+                        $modalInstance.dismiss('cancel');
                     };
 
                     $scope.add = function () {
@@ -197,7 +198,7 @@
                         $scope.measurementTypes.push(new_measurement);
 
                     }, function () {
-                        growl.success('Unable to create measurement');
+                        growl.error('Unable to create measurement');
                     });
                 });
         };
