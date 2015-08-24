@@ -7,16 +7,16 @@
     <div class="form-group">
         <label class="col-sm-4 control-label" translate>Preferred Ministry</label>
 
-        <div class="col-sm-8">
+        <div class="col-sm-7">
             <select class="form-control" ng-change="changeMCCS(options.preferred_ministry)" ng-model="options.preferred_ministry" ng-options="ministry.ministry_id as ministry.name for ministry in ministries">
                 <option value="" translate>Default</option>
             </select>
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-4 control-label" translate>Preferred MCC:</label>
+        <label class="col-sm-4 control-label" translate>Preferred MCC</label>
 
-        <div class="col-sm-8">
+        <div class="col-sm-7">
             <select class="form-control" ng-model="options.preferred_mcc" ng-options="mcc.mcc as mcc.mccLabel for mcc in mccs">
                 <option value="" translate>Default</option>
             </select>
@@ -38,11 +38,19 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-4 control-label" translate>Ministry Language</label>
-        <div class="col-sm-8">
-            <select class="form-control" ng-model="options.language">
-                <option value="en-gb" translate>Default</option>
-                <option value="es-gt" translate>Spanish</option>
+        <label class="col-sm-4 control-label" translate>Content Language</label>
+        <div class="col-sm-7">
+            <select class="form-control" ng-model="options.content_locales[current.assignment.ministry_id]" ng-options="lang.iso_code as lang.english_name for lang in contentLocales | filter:filterByLangCode">
+                <option value="en-us">Default</option>
+            </select>
+            <small class="help-text text-info">Preferred content language for this ministry</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label" translate>Application Language</label>
+        <div class="col-sm-7">
+            <select class="form-control" ng-model="options.static_locale" ng-options="code as name+' - ('+code+')' for (code,name) in staticLocales">
+                <option value="en-us">Default</option>
             </select>
         </div>
     </div>
