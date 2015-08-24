@@ -10,11 +10,15 @@
 					<thead>
 					<tr class="active">
 						<th translate>Name</th>
+                        <th>Column</th>
+                        <th>Section</th>
 						<th class="text-center" style="width: 25%" translate>Actions</th>
 					</tr>
 					</thead>
 					<tr ng-repeat="type in measurementTypes">
 					<td class=" no-overflow">{{type.english}}</td>
+					<td class="text-capitalize">{{type.column}}</td>
+					<td class="text-capitalize">{{type.section}}</td>
 					<td class="text-center">
 						<div class="btn-group">
 							<label class="btn btn-default btn-xs" ng-model="type.visible" btn-radio="true" translate>Show</label>
