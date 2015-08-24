@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    function UserPreferenceCtrl($scope, $rootScope, $modalInstance, modelData, UserPreference,growl) {
+    function UserPreferenceCtrl($scope, $rootScope, $modalInstance, modelData, UserPreference,growl, Settings) {
 
         $scope.options = {
             supported_staff : '0',
@@ -17,6 +17,9 @@
 
         $scope.savePreference = function (options) {
 
+                options.content_locales = {};
+                options.content_locales[$scope.current.assignment.ministry_id]=options.language ;
+                delete options.language;
             UserPreference.savePreference(options)
                 .success(function (data) {
                     growl.success('Preferences were saved');

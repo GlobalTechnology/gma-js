@@ -37,6 +37,15 @@
             <label class="radio-inline"><input type="radio" value="0" ng-model="options.supported_staff"> <span translate>No</span></label>
         </div>
     </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label" translate>Ministry Language</label>
+        <div class="col-sm-8">
+            <select class="form-control" ng-model="options.language">
+                <option value="en-gb" translate>Default</option>
+                <option value="es-gt" translate>Spanish</option>
+            </select>
+        </div>
+    </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Cancel</span></button>
