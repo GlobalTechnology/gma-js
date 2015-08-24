@@ -62,7 +62,7 @@
 						  ng-class="{'glyphicon-triangle-left': !teamToggle, 'glyphicon-triangle-bottom': teamToggle}">
 					</span>
 			</legend>
-			<div class="form-group" ng-class="{'has-error': !editForm.person.$valid}" ng-if="current.hasRole(['member','leader'])">
+			<div class="form-group" ng-class="{'has-error': !editForm.person.$valid}" ng-if="current.hasRole(['member','leader','admin'])">
 				<label class="col-xs-5 control-label">{{current.user.last_name}}, {{current.user.first_name}}</label>
 
 				<div class="col-xs-7">
