@@ -1484,6 +1484,10 @@
             window.setTimeout(function () {
                 window.parent.scrollTo(0, 0);
             }, 10);
+        };
+
+        $scope.canAddStories = function(){
+            return $scope.current.hasRole('admin','inherited_admin','leader','inherited_leader','member');
         }
     }
 
