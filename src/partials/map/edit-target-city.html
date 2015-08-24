@@ -13,7 +13,7 @@
             <tr ng-if="current.assignment.area_code==='GLBL'">
                 <td><b translate>Area:</b></td>
                 <td>
-                    <select class="form-control input-sm" ng-options="area.code as area.name for area in area_codes" ng-model="edit_targetCity.area_code">
+                    <select class="form-control input-sm" ng-options="code as name for (code,name) in area_codes" ng-model="new_targetCity.area_code">
                         <optgroup label="Select an area"></optgroup>
                     </select>
                 </td>
