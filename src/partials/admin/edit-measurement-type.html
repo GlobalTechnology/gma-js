@@ -8,7 +8,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label" translate>Language</label>
             <div class="col-sm-8">
-                <select class="form-control" ng-model="measurement.locale" ng-options="lang.iso_code as lang.english_name for lang in contentLocales | filter:filterByLangCode" ng-required="true">
+                <select class="form-control" ng-model="measurement.locale" ng-options="lang.iso_code as lang.english_name for lang in contentLocales | filter:filterByLangCode" ng-required="true" ng-change="changeLocale(measurement.locale)">
                 </select>
             </div>
         </div>
@@ -35,6 +35,6 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default btn-sm" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Close</span></button>
+    <button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Close</span></button>
     <button type="button" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="save()"><i class="glyphicon glyphicon-ok"></i> <span translate>Save</span></button>
 </div>

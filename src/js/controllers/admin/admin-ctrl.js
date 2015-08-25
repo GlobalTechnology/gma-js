@@ -211,13 +211,12 @@
                 templateUrl: 'partials/admin/edit-measurement-type.html',
                 controller: function ($scope, $modalInstance, modalData) {
                     $scope.measurement = {};
-                    $scope.englishName = modalData.englishName;
+                    $scope.englishName = modalData.measurement.english;
                     $scope.contentLocales = modalData.contentLocales;
+
                     $scope.close = function () {
                         $modalInstance.dismiss('cancel');
                     };
-                    //init with first found language
-                    $scope.measurement.locale = modalData.supportedLanguages[0];
 
                     $scope.filterByLangCode = function (lang) {
 
@@ -227,13 +226,27 @@
                     $scope.save = function () {
                         $modalInstance.close($scope.measurement);
                     };
+
+                    $scope.changeLocale = function (locale) {
+                        MeasurementTypes.getMeasurementType({
+                            measurement_type_id : modalData.measurement.perm_link_stub,
+                            ministry_id: modalData.ministry_id,
+                            locale: locale
+                        }, function (response) {
+                            //todo update the view with response > name and description
+                            console.log(response);
+                        }, function () {
+                           growl.error('Unable to update measurement');
+                        })
+                    }
                 },
                 resolve: {
                     'modalData': function () {
                         return {
-                            englishName : measurement.english,
+                            measurement : angular.copy(measurement),
+                            ministry_id : $scope.current.assignment.ministry_id,
                             contentLocales: $scope.availableLanguages,
-                            supportedLanguages: $scope.current.assignment.content_locales || {}
+                            supportedLanguages: $scope.ministry.content_locales || {}
                         }
                     }
                 }
@@ -249,6 +262,7 @@
 
 
                 });
+            scrollToTop();
         };
 
         /** functions for team-members tab **/
