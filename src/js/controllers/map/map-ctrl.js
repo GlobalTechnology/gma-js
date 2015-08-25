@@ -402,9 +402,9 @@
                     $scope.new_church.latitude = m.getPosition().lat();
                     $scope.new_church.longitude = m.getPosition().lng();
 
-                    Churches.addChurch($scope.new_church).$promise.then(function () {
+                    Churches.addChurch($scope.new_church).$promise.then(function (response) {
                             growl.success('Church was created');
-                            $scope.onAddChurch();
+                            $scope.onAddChurch(response);
                         }, $scope.onError
                     );
 
@@ -681,9 +681,9 @@
         $scope.updateChurch = function () {
             $scope.churchWindow.close();
             Churches.saveChurch($scope.edit_church).$promise
-                .then(function () {
+                .then(function (response) {
                     growl.success('Church was updated successfully');
-                    $scope.onSaveChurch()
+                    $scope.onSaveChurch(response)
                 },
                 function () {
                     growl.error('Unable to update church');
@@ -702,9 +702,9 @@
                     // Set end_date to the last day of the previous month
                     $scope.edit_church.end_date = moment().subtract(1, 'months').endOf('month').format('YYYY-MM-DD');
                     Churches.saveChurch($scope.edit_church).$promise.then(
-                        function () {
+                        function (response) {
                             growl.success('Church was deleted successfully');
-                            $scope.onSaveChurch()
+                            $scope.onSaveChurch(response)
                         },
                         $scope.onError);
                 });
@@ -712,11 +712,11 @@
 
         $scope.updateTraining = function () {
             Trainings.updateTraining($scope.current.sessionToken, $scope.edit_training).then(
-                function () {
+                function (response) {
                     growl.success('Training was updated');
-                    $scope.onSaveChurch();
+                    $scope.onSaveChurch(response);
                 }, function () {
-                    growl.error('Unable to update training')
+                    growl.error('Unable to update training');
                     $scope.onError();
                 }
             );
