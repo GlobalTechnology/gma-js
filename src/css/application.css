@@ -404,8 +404,12 @@ td.no-overflow:hover{
 	vertical-align: middle;
 }
 
-.ui-draggable:not(.ui-draggable-disabled){
-	cursor: pointer;
+.ui-draggable:not(.ui-draggable-disabled) {
+    cursor: move;
+}
+
+.ui-draggable.ui-draggable-disabled {
+    cursor: no-drop;
 }
 
 .drag-member {

@@ -32,7 +32,7 @@
 								 data-drop="true"
 								 jqyoui-droppable="{index: {{$index}},onOver:'teamOnOver(teamCollapsed)',onOut:'teamOnOut',onDrop:'teamOnDrop(team)',beforeDrop:'teamBeforeDrop(team)'}"
 
-								 data-drag="true"
+								 data-drag="{{current.assignment.ministry_id !== team.ministry_id}}"
 								 jqyoui-draggable="{index: {{$index}},placeholder:'keep',animate:true,onStart:'teamOnStart(team)'}"
 								 jqyoui-options="teamDraggableOptions"
 
@@ -86,7 +86,7 @@
                                  class="form-control input-sm"
                                  style="width: 150px;"
                                  ng-model="member.team_role"
-                                 ng-disabled="member.team_role === 'inherited_leader' || member.team_role === 'inherited_admin'"
+                                 ng-disabled="member.team_role === 'inherited_leader' || member.team_role === 'inherited_admin' || member.team_role === 'former_member'"
                                  >
                              <option
                                      ng-repeat="role in roles"
