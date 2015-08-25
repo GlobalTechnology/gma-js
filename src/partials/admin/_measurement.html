@@ -2,7 +2,7 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title pull-left" translate>Measurements</h3>
-			<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addMeasurement()"><i class="glyphicon glyphicon-plus"></i> <span translate>Add Measurement</span></button>
+			<button type="button" class="pull-right btn btn-primary btn-sm" ng-click="addNewMeasurement()"><i class="glyphicon glyphicon-plus"></i> <span translate>Add Measurement</span></button>
 			<div class="clearfix"></div>
 		</div>
 		<div class="panel-body">
@@ -24,6 +24,7 @@
 							<label class="btn btn-default btn-xs" ng-model="type.visible" btn-radio="true" translate>Show</label>
 							<label class="btn btn-default btn-xs" ng-model="type.visible" btn-radio="false" translate>Hide</label>
 						</div>
+                        <button ng-if="current.assignment.content_locales.length" type="button" ng-click="editMeasurement(type)" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-globe"></span> <span translate>Localize</span></button>
 					</td>
 				</tr>
 			</table>

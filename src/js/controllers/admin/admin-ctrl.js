@@ -24,7 +24,7 @@
                 //refresh the manage measurement view
                 $scope.measurementTypes = [];
                 loadLanguages();
-                MeasurementTypes.getMeasurementTypes().$promise.then(function (data) {
+                MeasurementTypes.getMeasurementTypes({ministry_id : new_ministry_id }).$promise.then(function (data) {
                     angular.forEach(data, function (type) {
                         if (type.is_custom && _.contains($scope.ministry.lmi_show, type.perm_link_stub)) {
                             type.visible = true;
@@ -56,22 +56,6 @@
             }
 
         }
-        $scope.getMCCValue=function(mcc){
-            return _.contains($scope.ministry.mccs,mcc);
-        };
-
-        $scope.createMCCArray = function(status,value){
-            if(status){
-                if($scope.ministry.mccs.indexOf(value) === -1){
-                    $scope.ministry.mccs.push(value);
-                }
-            }else{
-                var index = $scope.ministry.mccs.indexOf(value);
-                if(index !== -1){
-                    $scope.ministry.mccs.splice(index,1);
-                }
-            }
-        };
 
         //function initializes sub-tabs of admin section
         $scope.initSubTabs = function () {
@@ -139,6 +123,23 @@
             return _.contains(availableMinIds, parentToFind);
         };
 
+        $scope.getMCCValue=function(mcc){
+            return _.contains($scope.ministry.mccs,mcc);
+        };
+
+        $scope.createMCCArray = function(status,value){
+            if(status){
+                if($scope.ministry.mccs.indexOf(value) === -1){
+                    $scope.ministry.mccs.push(value);
+                }
+            }else{
+                var index = $scope.ministry.mccs.indexOf(value);
+                if(index !== -1){
+                    $scope.ministry.mccs.splice(index,1);
+                }
+            }
+        };
+
         $scope.saveDetails = function () {
             //additional check if admin un-select all mccs then default_mcc should be empty
             if (_.size($scope.mccs) == 0) {
@@ -174,7 +175,7 @@
                 });
         };
 
-        $scope.addMeasurement = function () {
+        $scope.addNewMeasurement = function () {
             $modal.open({
                 templateUrl: 'partials/admin/add-measurement-type.html',
                 controller: function ($scope, $modalInstance) {
@@ -200,6 +201,51 @@
                     }, function () {
                         growl.error('Unable to create measurement');
                     });
+                });
+            scrollToTop();
+        };
+
+        $scope.editMeasurement = function (measurement) {
+
+            $modal.open({
+                templateUrl: 'partials/admin/edit-measurement-type.html',
+                controller: function ($scope, $modalInstance, modalData) {
+                    $scope.measurement = {};
+                    $scope.contentLocales = modalData.contentLocales;
+                    $scope.close = function () {
+                        $modalInstance.dismiss('cancel');
+                    };
+                    //init with first found language
+                    $scope.measurement.locale = modalData.supportedLanguages[0];
+
+                    $scope.filterByLangCode = function (lang) {
+
+                        return (_.contains(modalData.supportedLanguages, lang.iso_code)) ? lang : false;
+
+                    };
+                    $scope.save = function () {
+                        $modalInstance.close($scope.measurement);
+                    };
+                },
+                resolve: {
+                    'modalData': function () {
+                        return {
+                            contentLocales: $scope.availableLanguages,
+                            supportedLanguages: $scope.current.assignment.content_locales || {}
+                        }
+                    }
+                }
+            }).result.then(function (form) {
+                    form.measurement_type_id = measurement.perm_link_stub;
+                    form.ministry_id = $scope.current.assignment.ministry_id;
+
+                    MeasurementTypes.updateMeasurementType(form, function (response) {
+                        growl.success('Measurement was updated');
+                    }, function () {
+                        growl.error('Unable to update measurement');
+                    });
+
+
                 });
         };
 
