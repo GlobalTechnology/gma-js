@@ -1,14 +1,13 @@
 <div class="admin-item">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title" translate>Edit current Ministry</h3>
-
+			<h3 class="panel-title" translate>Edit current ministry</h3>
 			<div class="clearfix"></div>
 		</div>
 		<div class="panel-body">
             <form name="form" class="form-horizontal">
 			<div class="form-group row">
-				<label for="ministryName" class="col-sm-4 control-label" translate>Ministry Name:</label>
+				<label for="ministryName" class="col-sm-4 control-label" translate>Ministry Name</label>
 
 				<div class="col-sm-6">
 					<input id="ministryName" maxlength="255" type="text" name="name" class="form-control" ng-model="ministry.name" ng-required="true"/>
@@ -19,7 +18,7 @@
 			</div>
 
 			<div class="form-group row" ng-show="ableToChangeParentMinistry(ministry.parent_id)">
-				<label class="col-sm-4 control-label" translate>Parent Ministry:</label>
+				<label class="col-sm-4 control-label" translate>Parent Ministry</label>
 
 				<div class="col-sm-6">
 					<select
@@ -32,7 +31,7 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-4 control-label" translate>MCCs:</label>
+				<label class="col-sm-4 control-label" translate>MCCs</label>
 
 				<div class="col-sm-6">
 					<div class="checkbox" ng-repeat="mcc in mccs">
@@ -44,7 +43,7 @@
 			</div>
 			<hr>
 			<div class="form-group">
-				<label class="col-sm-4 control-label" translate>Default MCC:</label>
+				<label class="col-sm-4 control-label" translate>Default MCC</label>
 
 				<div class="col-sm-6">
 					<select class="form-control" ng-model="ministry.default_mcc" ng-options="mcc.value as mcc.text for mcc in mccs | mccFilter:ministry.mccs">
@@ -61,7 +60,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-4 control-label" translate>Available Languages:</label>
+				<label class="col-sm-4 control-label" translate>Supported Languages</label>
 
 				<div class="col-sm-6">
 					<select multiple="multiple" class="form-control" ng-model="ministry.content_locales" ng-options="lang.iso_code as lang.english_name for lang in availableLanguages">
@@ -87,7 +86,7 @@
             </form>
 		</div>
 		<div class="panel-footer">
-			<button type="button" class="btn btn-primary pull-right" ng-click="saveDetails()" ng-disabled="form.$invalid || (saveDetailsResource && !saveDetailsResource.$resolved)"><i class="glyphicon glyphicon-pencil"></i> <span tranalate>Update Ministry</span></button>
+			<button type="button" class="btn btn-primary pull-right btn-sm" ng-click="saveDetails()" ng-disabled="form.$invalid || (saveDetailsResource && !saveDetailsResource.$resolved)"><i class="glyphicon glyphicon-pencil"></i> <span tranalate>Update Ministry</span></button>
 			<div class="clearfix"></div>
 		</div>
 	</div>
