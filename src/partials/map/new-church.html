@@ -2,12 +2,15 @@
 	<div class="clearfix"></div>
     <div class='church-window'>
         <h4 translate>Create New Church </h4>
-
+        <form name="form" novalidate>
         <table class="table table-condensed">
             <tr>
                 <td><b translate>Name:</b></td>
                 <td>
-                    <input type="text" class="form-control input-sm" ng-model='new_church.name' />
+                    <input type="text" name="name" class="form-control input-sm" ng-model='new_church.name' />
+                    <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
+                        <span class="text-danger"  ng-show="form.name.$error.required" translate>Name is required.</span>
+                    </small>
 
                 </td>
             </tr>
@@ -21,15 +24,20 @@
                 <td><b translate>Contact Email:</b> </td>
                 <td>
 
-                    <input type="email" placeholder="name@email.com" class="form-control input-sm" ng-model='new_church.contact_email' />
-
+                    <input type="email" name="email" placeholder="name@email.com" class="form-control input-sm" ng-model='new_church.contact_email' />
+                    <small class="help-text" ng-show="form.email.$dirty && form.email.$invalid">
+                        <span class="text-danger"  ng-show="form.email.$error.email" translate>Invalid email format</span>
+                    </small>
                 </td>
             </tr>
             <tr>
                 <td><b translate>Contact Mobile:</b> </td>
                 <td>
 
-                    <input type="text" class="form-control input-sm" ng-model='new_church.contact_mobile' />
+                    <input type="text" name="mobile" placeholder="+99 99999999" class="form-control input-sm" ng-model='new_church.contact_mobile' ng-pattern="/^(\d+|\+)*(\s|\d)+$/"/>
+                    <small class="help-text" ng-show="form.mobile.$dirty && form.mobile.$invalid">
+                        <span class="text-danger"  ng-show="form.mobile.$error.pattern" translate>Mobile number is invalid.</span>
+                    </small>
 
                 </td>
             </tr>
@@ -42,7 +50,7 @@
             <tr>
                 <td><b translate>Type:</b> </td>
                 <td>
-                    <select class="form-control input-sm" ng-model="new_church.development">
+                    <select class="form-control input-sm" ng-model="new_church.development" ng-required="true">
                         <option value="1" translate>Target</option>
                         <option value="2" translate>Group</option>
                         <option value="3" translate>Church</option>
@@ -70,11 +78,12 @@
                 </td>
             </tr>
         </table>
+        </form>
 
 		<div>
 			<div class="btn-group btn-group-sm btn-group-justified" role="group">
 				<a href class="btn btn-default" ng-click="cancelAddNewIcon()" translate>Cancel</a>
-				<a href class="btn btn-primary" ng-click="addChurch()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span translate>Add Church</span></a>
+				<a href ng-disabled="form.$invalid" class="btn btn-primary" ng-click="addChurch()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span translate>Add Church</span></a>
 			</div>
 		</div>
 		<div class="clearfix"></div>
