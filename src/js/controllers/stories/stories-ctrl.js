@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    function StoriesCtrl($scope, $modal, growl, Stories, Settings) {
+    function StoriesCtrl($scope, $modal, growl, Stories, Settings, $filter) {
         $scope.current.isLoaded = false;
         $scope.storiesLoaded = false;
         $scope.feedsLoaded = false;
@@ -99,6 +99,7 @@
                     var originalParams = angular.copy($scope.storiesParams);
                     Stories.createStory(data.story)
                         .success(function (response) {
+                            response.created_at = $filter('date')(new Date(),'yyyy-MM-dd');
                             growl.success('Story saved successfully');
                             if (typeof data.imageFile.resized !== 'undefined') {
                                 //Start uploading image file
@@ -114,15 +115,15 @@
                                     .error(function (e) {
                                         showUploadError(e)
                                     });
-                                //if user is on first page, and params are same as before
-                                if ($scope.storiesNav.currentPage === 1 && angular.equals(originalParams,$scope.storiesParams)) {
-                                    if ($scope.visibleStories.length === 0) {
-                                        $scope.visibleStories = response
-                                    } else {
-                                        $scope.visibleStories.push(response);
-                                    }
-                                }
 
+                            }
+                            //if user is on first page, and params are same as before
+                            if ($scope.storiesNav.currentPage === 1 && angular.equals(originalParams,$scope.storiesParams)) {
+                                if ($scope.visibleStories.length === 0) {
+                                    $scope.visibleStories = response
+                                } else {
+                                    $scope.visibleStories.push(response);
+                                }
                             }
                         })
                         .error(function () {
@@ -196,6 +197,10 @@
                     }
                 }
             }).result.then(function(data){
+                    //fixed a bug , that was causing a 500
+                    delete data.editStory.church_id;
+                    delete data.editStory.training_id;
+
                     Stories.updateStory(data.editStory)
                         .success(function (response) {
                             growl.success('Story was updated');
