@@ -9,10 +9,10 @@
     <div class="form-group">
         <label class="col-md-3 control-label" translate>Title :</label>
         <div class="col-md-8">
-             <input type="text" name="title" ng-maxlength="200" class="form-control" placeholder="Title" ng-model="story.title" ng-required="true">
+             <input type="text" name="title" ng-maxlength="120" class="form-control" placeholder="Title" ng-model="story.title" ng-required="true">
             <small class="help-text" ng-show="form.title.$dirty && form.title.$invalid">
                 <span class="text-danger"  ng-show="form.title.$error.required" translate>Story title field is required</span>
-                <span class="text-danger"  ng-show="form.title.$error.maxlength" translate>Story title should not exceed 200 characters</span>
+                <span class="text-danger"  ng-show="form.title.$error.maxlength" translate>Story title should not exceed 120 characters</span>
             </small>
         </div>
     </div>
