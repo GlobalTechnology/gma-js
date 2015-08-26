@@ -9,18 +9,20 @@
         <div class="form-group">
             <label class="col-md-3 control-label" translate>Title :</label>
             <div class="col-md-8">
-                <input type="text" name="title" maxlength="255" class="form-control" placeholder="Title" ng-model="story.title" ng-required="true">
+                <input type="text" name="title" ng-maxlength="200" class="form-control" placeholder="Title" ng-model="story.title" ng-required="true">
                 <small class="help-text" ng-show="form.title.$dirty && form.title.$invalid">
                     <span class="text-danger"  ng-show="form.title.$error.required" translate>Story title field is required.</span>
+                    <span class="text-danger"  ng-show="form.title.$error.maxlength" translate>Story title should not exceed 200 characters</span>
                 </small>
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-3 control-label" translate>Content :</label>
             <div class="col-md-8">
-                <textarea rows="5" name="content" maxlength="{{storiesConfig.content_length}}"  class="form-control" ng-model="story.content" ng-required="true" style="resize: vertical;max-height: 300px;"></textarea>
+                <textarea rows="5" name="content" ng-maxlength="{{storiesConfig.content_length}}"  class="form-control" ng-model="story.content" ng-required="true" style="resize: vertical;max-height: 300px;"></textarea>
                 <small class="help-text" ng-show="form.content.$dirty && form.content.$invalid">
                     <span class="text-danger"  ng-show="form.content.$error.required" translate>Story content field is required.</span>
+                    <span class="text-danger"  ng-show="form.content.$error.maxlength"><span translate>Story content should not exceed</span> {{storiesConfig.content_length}} <span translate>characters</span></span>
                 </small>
             </div>
         </div>
