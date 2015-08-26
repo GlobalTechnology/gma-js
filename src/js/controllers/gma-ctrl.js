@@ -255,6 +255,7 @@
                     }
                 } );
 			} );
+            scrollToTop();
 		};
 
 		$scope.onError = function ( response, code ) {
@@ -263,6 +264,11 @@
 
 		$scope.mobileApps = Settings.mobileApps;
 
+        function scrollToTop() {
+            window.setTimeout(function () {
+                window.parent.scrollTo(0, 0);
+            }, 10);
+        }
 		//---------------------------------------
 		// User Preferences Dialog
 		//---------------------------------------
@@ -284,9 +290,7 @@
 				}
 			} );
 
-            window.setTimeout( function () {
-                window.parent.scrollTo( 0, 0 );
-            }, 10 );
+            scrollToTop();
 
 		};
 		/**

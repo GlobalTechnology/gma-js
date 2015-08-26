@@ -1,225 +1,215 @@
 ﻿(function () {
-	'use strict';
+    'use strict';
 
-	function MeasurementsCtrl( $scope, $document, $filter, $modal,$location, Measurements,UserPreference, Settings, GoogleAnalytics,$interval ,growl,MinistryLanguage) {
+    function MeasurementsCtrl($scope,$rootScope, $modal, $location, Measurements, UserPreference, Settings, GoogleAnalytics, $interval, growl, MinistryLanguage) {
 
-		$scope.current.isLoaded = false;
-		$scope.isConfirmationMessage = false;
-		$scope.showDropdown = false;
-		var otherLanguage = false;
-		$scope.ns = Settings.gmaNamespace;
-		$scope.measurementLanguage = [];
-		var supportedLanguages = {};
-		var sendAnalytics = _.throttle( function () {
-			GoogleAnalytics.screen( 'Measurements', (function () {
-				var dimensions = {};
-				dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;
-				if ( angular.isDefined( $scope.current.assignment.ministry_id ) ) {
-					dimensions[GoogleAnalytics.DIM.ministry_id] = $scope.current.assignment.ministry_id;
-				}
-				if ( angular.isDefined( $scope.current.mcc ) ) {
-					dimensions[GoogleAnalytics.DIM.mcc] = $scope.current.mcc;
-				}
-				if ( angular.isDefined( $scope.current.period ) ) {
-					dimensions[GoogleAnalytics.DIM.period] = $scope.current.period.format( 'YYYY-MM' );
-				}
-				return dimensions;
-			})() );
-		}, 1000, {leading: false} );
+        $scope.current.isLoaded = false;
+        var defaultLocale = 'en-us';
+        $scope.currentLanguage = 'en-us';
+        var otherLanguage = false;
+        $scope.ns = Settings.gmaNamespace;
+        $scope.allLanguages = [];
 
-		// Debounced method to fetch Measurements at most once every 100 milliseconds
-		var getMeasurements = _.debounce( function () {
-			if ( typeof $scope.current.assignment !== 'undefined' && typeof $scope.current.period !== 'undefined' && typeof $scope.current.mcc !== 'undefined' ) {
-				$scope.getMeaurements();
-			}
-		}, 100 );
+        var sendAnalytics = _.throttle(function () {
+            GoogleAnalytics.screen('Measurements', (function () {
+                var dimensions = {};
+                dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;
+                if (angular.isDefined($scope.current.assignment.ministry_id)) {
+                    dimensions[GoogleAnalytics.DIM.ministry_id] = $scope.current.assignment.ministry_id;
+                }
+                if (angular.isDefined($scope.current.mcc)) {
+                    dimensions[GoogleAnalytics.DIM.mcc] = $scope.current.mcc;
+                }
+                if (angular.isDefined($scope.current.period)) {
+                    dimensions[GoogleAnalytics.DIM.period] = $scope.current.period.format('YYYY-MM');
+                }
+                return dimensions;
+            })());
+        }, 1000, {leading: false});
 
-		$scope.getMeaurements = function(language) {
-		$scope.current.isLoaded = false;
-		$scope.lmiForm.$setPristine();
+        $scope.$watch('current.assignment.ministry_id', function (old) {
+            //only need to decide preferred language if user changes the ministry
+            $scope.currentLanguage = decideLocaleToLoad();
+            getMeasurements();
+            sendAnalytics();
+            if (old != undefined) {
+                getMinistryLanguages();
+                setMeasurementStates();
+            }
+        });
 
-		if(typeof $scope.current.user_preferences.content_locales[$scope.current.assignment.ministry_id] != 'undefined' )
-		{
-			$scope.showDropdown = true;
-		}
-			//if language is undefined or empty
-			if(typeof language === 'undefined' || language === '' )
-			{	//if language is empty then call measurement without langauge
-				if(language === '' )
-				{
-					$scope.measurements = Measurements.getMeasurements( {
-					ministry_id: $scope.current.assignment.ministry_id,
-					mcc:         $scope.current.mcc,
-					period:      $scope.current.period.format( 'YYYY-MM' )
-					}, function () {
-							$scope.current.isLoaded = true;
-						} );
-				}	//check if user has selected prefer language for current ministry, if he does then load the language
-				else if(typeof $scope.current.user_preferences.content_locales[$scope.current.assignment.ministry_id] != 'undefined' )
-				{
-					$scope.measurements = Measurements.getMeasurements( {
-					ministry_id: $scope.current.assignment.ministry_id,
-					mcc:         $scope.current.mcc,
-					locale:      $scope.current.user_preferences.content_locales[$scope.current.assignment.ministry_id],
-					period:      $scope.current.period.format( 'YYYY-MM' )
-					}, function () {
-							$scope.current.isLoaded = true;
-							otherLanguage = true;
-						} );
-				} 
-				else
-				{
-					$scope.measurements = Measurements.getMeasurements( {
-					ministry_id: $scope.current.assignment.ministry_id,
-					mcc:         $scope.current.mcc,
-					period:      $scope.current.period.format( 'YYYY-MM' )
-					}, function () {
-							$scope.current.isLoaded = true;
-						} );
-				}
-			} // check if language has some value then load the measurement with selected language
-			else if(typeof language != 'undefined'){
-				$scope.measurements = Measurements.getMeasurements( {
-				ministry_id: $scope.current.assignment.ministry_id,
-				mcc:         $scope.current.mcc,
-				locale:         language,
-				period:      $scope.current.period.format( 'YYYY-MM' )
-				}, function () {
-					$scope.current.isLoaded = true;
-					otherLanguage = true;
-					} );
-			}
-		}
+        $scope.$watch('current.mcc', function (old) {
+            getMeasurements();
+            sendAnalytics();
+            if (old !== undefined) {
+                setMeasurementStates();
+            }
+        });
 
-		$scope.$watch( 'current.assignment.ministry_id', function (old) {
-			getMeasurements();
-			sendAnalytics();
-		if(old != undefined)
-		{	
-	        if (typeof $scope.current.assignment.content_locales !== 'undefined') {
-	            supportedLanguages = angular.copy($scope.current.assignment.content_locales);
-	        }
-	      }  
-		} );
+        $scope.$watch('current.period', function () {
+            getMeasurements();
+            sendAnalytics();
+        });
 
-		$scope.$watch( 'current.mcc', function (old) {
-			getMeasurements();
-			sendAnalytics();
+        // Debounced method to fetch Measurements at most once every 100 milliseconds
+        var getMeasurements = _.debounce(function () {
+            if (typeof $scope.current.assignment !== 'undefined' && typeof $scope.current.period !== 'undefined' && typeof $scope.current.mcc !== 'undefined') {
 
-			if(old !== undefined){
-				setMeasurementState();
-				getMinistryLanguages();
-			}			
-		} );
+                $scope.loadMeasurements($scope.currentLanguage);
+            }
+        }, 100);
 
-		$scope.$watch( 'current.period', function () {
-			getMeasurements();
-			sendAnalytics();
-		} );
+        /**
+         * Also fires on change event of language selector
+         * Always pass a language, default = en-us
+         * @param language
+         */
+        $scope.loadMeasurements = function (language) {
+            //be fail safe
+            if (language === undefined || language === '') {
+                language = defaultLocale;
+            }
+            $scope.current.isLoaded = false;
+            $scope.measurements = Measurements.getMeasurements({
+                ministry_id: $scope.current.assignment.ministry_id,
+                mcc: $scope.current.mcc,
+                locale: language,
+                period: $scope.current.period.format('YYYY-MM')
+            }, function () {
+                $scope.current.isLoaded = true;
+            });
+        };
 
-		$scope.hasOther = function () {
-			return _.where( $scope.measurements, {section: 'other', column: 'other'} ).length > 0;
-		};
 
-		// Method used to save measurements
-		$scope.save = function () {
-			var measurements = [];
-			angular.forEach( $scope.measurements, function ( measurement ) {
-				angular.forEach( ['person', 'local'], function ( type ) {
-					if ( $scope.lmiForm.hasOwnProperty( measurement.measurement_type_ids[type] ) ) {
-						var type_id = measurement.measurement_type_ids[type],
-							input = $scope.lmiForm[type_id];
+        function decideLocaleToLoad() {
+            //check for user-preferred locale , if not found then load default
+            if (typeof $scope.current.user_preferences === 'undefined') {
+                return defaultLocale;
+            }
+            if (typeof $scope.current.user_preferences.content_locales === 'undefined') {
+                return defaultLocale;
+            }
+            if (typeof $scope.current.user_preferences.content_locales[$scope.current.assignment.ministry_id] !== 'undefined') {
+                return $scope.current.user_preferences.content_locales[$scope.current.assignment.ministry_id];
+            }
 
-						if ( input.$dirty && input.$valid ) {
-							measurements.push( {
-								period:              $scope.current.period.format( 'YYYY-MM' ),
-								mcc:                 $scope.current.mcc,
-								source:              Settings.gmaNamespace,
-								measurement_type_id: type_id,
-								related_entity_id:   type === 'person' ? $scope.current.assignment.id : $scope.current.assignment.ministry_id,
-								value:               input.$modelValue
-							} );
-						}
-					}
-				} );
-			} );
+            return defaultLocale;
+        }
 
-			if ( measurements.length > 0 ) {
-				Measurements.saveMeasurement( {}, measurements ,function (response) {
-					//setting confirmation message
-					growl.success('Measurements saved successfully');
-					getMeasurements();
-				});
-			}
-			else {
-				getMeasurements();
-			}
-		};
-		
-		function getMinistryLanguages(){
 
-			 if (typeof $scope.measurementLanguage !== 'undefined' && $scope.measurementLanguage.length !== 0) {
-                return $scope.measurementLanguage;
+        $scope.hasOther = function () {
+            return _.where($scope.measurements, {section: 'other', column: 'other'}).length > 0;
+        };
+
+        // Method used to save measurements
+        $scope.saveMeasurements = function () {
+            var measurements = [];
+            angular.forEach($scope.measurements, function (measurement) {
+                angular.forEach(['person', 'local'], function (type) {
+                    if ($scope.lmiForm.hasOwnProperty(measurement.measurement_type_ids[type])) {
+                        var type_id = measurement.measurement_type_ids[type],
+                            input = $scope.lmiForm[type_id];
+
+                        if (input.$dirty && input.$valid) {
+                            measurements.push({
+                                period: $scope.current.period.format('YYYY-MM'),
+                                mcc: $scope.current.mcc,
+                                source: Settings.gmaNamespace,
+                                measurement_type_id: type_id,
+                                related_entity_id: type === 'person' ? $scope.current.assignment.id : $scope.current.assignment.ministry_id,
+                                value: input.$modelValue
+                            });
+                        }
+                    }
+                });
+            });
+
+            if (measurements.length > 0) {
+                 Measurements.saveMeasurement({}, measurements, function (response) {
+                    growl.success('Measurements saved successfully');
+                    getMeasurements();
+                    $scope.lmiForm.$setPristine();
+                }, function () {
+                    growl.error('Unable to save measurements');
+                });
+            }
+        };
+
+        /**
+         * Get languages from API and update scope
+         * @returns {Array|*}
+         */
+        function getMinistryLanguages() {
+
+            if (typeof $scope.allLanguages !== 'undefined' && $scope.allLanguages.length !== 0) {
+                return $scope.allLanguages;
             } else {
-            	
+
                 MinistryLanguage.getLanguages()
                     .success(function (response) {
-                        $scope.measurementLanguage = response;
-                        if(typeof $scope.current.user_preferences.content_locales[$scope.current.assignment.ministry_id] != 'undefined')
-                        	$scope.selectedLanguage = $scope.current.user_preferences.content_locales[$scope.current.assignment.ministry_id];
+                        $scope.allLanguages = response;
+                        return response;
                     })
                     .error(function () {
                         growl.error('Unable to load languages');
+                        return false;
                     });
-                
+
             }
-		}
-		//show measurement's name and description according to selected language, default will be english
-		$scope.getMeasurementDetail = function(measurement, key){
-			if(key === 'description'){
-				return otherLanguage ? measurement.localized_description :measurement.description ;
-			}
-			else if(key === 'name') {
-				return otherLanguage ? measurement.localized_name :measurement.name ;
-			}
-		};
+        }
 
-		
+        //show measurement's name and description according to selected language, default will be english
+        /*$scope.getMeasurementDetail = function (measurement, key) {
+         if (key === 'description') {
+         return otherLanguage ? measurement.localized_description : measurement.description;
+         }
+         else if (key === 'name') {
+         return otherLanguage ? measurement.localized_name : measurement.name;
+         }
+         };*/
+
+
         $scope.filterByLangCode = function (lang) {
-            return (_.contains(supportedLanguages, lang.iso_code)) ? lang : false;
-
+            if (typeof $scope.current.assignment.content_locales !== 'undefined') {
+                return (_.contains($scope.current.assignment.content_locales, lang.iso_code)) ? lang : false;
+            } else {
+                return false;
+            }
         };
 
-		$scope.editMeasurementDetails = function ( measurement ) {
-			var instance = $modal.open( {
-				templateUrl: 'partials/measurements/details.html',
-				controller:  'MeasurementDetailsCtrl',
-				keyboard:    true,
-				backdrop:    true,
-				resolve:     {
-					'measurement': function () {
-						return measurement;
-					},
-					'details':     function () {
-						// Return the promise so resolve waits
-						return Measurements.getMeasurement( {
-							perm_link_stub: measurement.perm_link_stub,
-							ministry_id:    $scope.current.assignment.ministry_id,
-							mcc:            $scope.current.mcc,
-							period:         $scope.current.period.format( 'YYYY-MM' )
-						} );
-					}
-				}
-			} );
-			instance.result.then( function () {
-				//setting confirmation message
-				growl.success('Measurements updated successfully');
-				getMeasurements();
-			} );
-		};
+        $scope.editMeasurementDetails = function (measurement) {
+            var instance = $modal.open({
+                templateUrl: 'partials/measurements/details.html',
+                controller: 'MeasurementDetailsCtrl',
+                keyboard: true,
+                backdrop: true,
+                resolve: {
+                    'measurement': function () {
+                        return measurement;
+                    },
+                    'details': function () {
+                        // Return the promise so resolve waits
+                        return Measurements.getMeasurement({
+                            perm_link_stub: measurement.perm_link_stub,
+                            ministry_id: $scope.current.assignment.ministry_id,
+                            mcc: $scope.current.mcc,
+                            period: $scope.current.period.format('YYYY-MM')
+                        });
+                    }
+                }
+            });
+            instance.result.then(function () {
+                //setting confirmation message
+                growl.success('Measurements updated successfully');
+                getMeasurements();
+            });
+            window.setTimeout(function () {
+                window.parent.scrollTo(0, 0);
+            }, 10);
+        };
 
 
-        function setMeasurementState() {
+        function setMeasurementStates() {
 
             $scope.measurementState = {};
             //get settings from config.php
@@ -244,7 +234,7 @@
             }
         }
 
-        $interval(function () {
+        var autoSave = $interval(function () {
             //if user in inside measurement tab and view has been loaded
             if ($scope.current.isLoaded && $location.path() === '/measurements') {
 
@@ -253,6 +243,13 @@
                     var post_data = {"default_measurement_states": {}};
                     post_data.default_measurement_states[$scope.current.mcc] = $scope.measurementState;
                     UserPreference.savePreference(post_data).success(function (data) {
+
+                    }, function (e) {
+                        //stop auto-saving if server sends 500 or 400
+                        if (e.status === 500 || e.status === 400) {
+                            $interval.cancel(autoSave);
+                            growl.info('Server is having problems in saving measurement states');
+                        }
                     });
 
                 }
@@ -260,13 +257,13 @@
         }, 60000);
 
 
-		$scope.toggleMeasurementState = function (measurementState, perm_link_stub) {
-			measurementState[perm_link_stub] = (measurementState[perm_link_stub] === 1) ? 0 : 1;
-		};
+        $scope.toggleMeasurementState = function (measurementState, perm_link_stub) {
+            measurementState[perm_link_stub] = (measurementState[perm_link_stub] === 1) ? 0 : 1;
+        };
 
-		$scope.getExpandCollapse = function (measurementState) {
-			return (measurementState === 1);
-		};
+        $scope.getExpandCollapse = function (measurementState) {
+            return (measurementState === 1);
+        };
 
         $scope.checkMeasureState = function (measurement) {
 
@@ -296,7 +293,7 @@
             return true;
         };
 
-	}
+    }
 
-	angular.module( 'gma.controllers.measurements' ).controller( 'MeasurementsCtrl', MeasurementsCtrl );
+    angular.module('gma.controllers.measurements').controller('MeasurementsCtrl', MeasurementsCtrl);
 })();
