@@ -7,11 +7,10 @@
             <tr>
                 <td><b translate>Name:</b></td>
                 <td>
-                    <input type="text" name="name" class="form-control input-sm" ng-model='new_church.name' />
+                    <input type="text" name="name" class="form-control input-sm" ng-model='new_church.name' ng-required="true"/>
                     <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
                         <span class="text-danger"  ng-show="form.name.$error.required" translate>Name is required.</span>
                     </small>
-
                 </td>
             </tr>
             <tr>
