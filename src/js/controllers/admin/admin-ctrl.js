@@ -234,7 +234,6 @@
                             locale: locale
                         }, function (response) {
                             //todo update the view with response > name and description
-                            console.log(response);
                         }, function () {
                            growl.error('Unable to update measurement');
                         })
@@ -479,6 +478,9 @@
         }
 
         $scope.memberDraggableOptions = {
+            containment: "#team-member-pane",
+            refreshPositions: true,
+            cursorAt: { bottom: 0 },
             helper: function (event) {
                 var tr = $(event.target).closest('tr');
                 var first_name = tr.find('td:first').text();
@@ -490,21 +492,19 @@
             }
         };
         $scope.teamDraggableOptions = {
+            refreshPositions: true,
             helper: function (event) {
                 var team = $(event.target).closest('span').text();
                 return $('<span class="drag-team"><i class="glyphicon glyphicon-certificate"></i> ' + team + '</span>');
-
             }
         };
         $scope.teamOnStart = function (event, ui, team) {
             $scope.draggedType = 'team';
             $scope.draggedTeam = team;
-            console.log('Start dragging the team: ' + team.name);
         };
         $scope.memberOnStart = function (event, ui, member) {
             $scope.draggedType = 'member';
             $scope.draggedMember = member;
-            console.log('Start dragging the member: ' + member.first_name + ' ' + member.last_name);
         };
 
         /**
@@ -519,7 +519,6 @@
 
             //case when moving team
             if ($scope.draggedType === 'team') {
-                console.log('A team was dropped');
                 var draggedTeam = angular.copy($scope.draggedTeam);
                 //update ministry parent id
                 var ministry = {
@@ -546,7 +545,6 @@
 
                 //case when moving member
             } else if ($scope.draggedType === 'member') {
-                console.log('A member was dropped ');
                 var member = {
                     assignment_id :  $scope.draggedMember.assignment_id,
                     key_guid: $scope.draggedMember.key_guid,
