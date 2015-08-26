@@ -1,11 +1,11 @@
 ﻿(function () {
     'use strict';
 
-    function MeasurementsCtrl($scope,$rootScope, $modal, $location, Measurements, UserPreference, Settings, GoogleAnalytics, $interval, growl, MinistryLanguage) {
+    function MeasurementsCtrl($scope, $modal, $location, Measurements, UserPreference, Settings, GoogleAnalytics, $interval, growl, MinistryLanguage) {
 
         $scope.current.isLoaded = false;
-        var defaultLocale = 'en-us';
-        $scope.currentLanguage = 'en-us';
+        var defaultLocale = 'en-US';
+        $scope.currentLanguage = defaultLocale;
         var otherLanguage = false;
         $scope.ns = Settings.gmaNamespace;
         $scope.allLanguages = [];
