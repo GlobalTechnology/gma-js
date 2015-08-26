@@ -53,7 +53,7 @@
         <div>
             <div class="btn-group btn-group-sm btn-group-justified" role="group">
                 <a href class="btn btn-default" ng-click="cancelAddNewIcon()" translate>Cancel</a>
-                <a href ng-disabled="form.$invalid" class="btn btn-primary" ng-click="addTargetCity(new_targetCity)"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span translate>Add TargetCity</span></a>
+                <a href ng-disabled="form.$invalid" class="btn btn-primary" ng-click="(form.$valid) ? addTargetCity(new_targetCity) : false"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span translate>Add TargetCity</span></a>
             </div>
         </div>
         <div class="clearfix"></div>
