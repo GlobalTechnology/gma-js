@@ -1,9 +1,19 @@
-﻿<div class="panel panel-default" ng-show="current.isLoaded">
+<div class="panel panel-default" ng-show="current.isLoaded">
 	<div class="panel-body">
 		<form name="lmiForm" class="measurements">
 			<fieldset>
 				<legend>
+				<div class="col-sm-4">
 					<span translate>Local Movement Indicators</span>
+				</div>
+				
+
+				<div class="col-sm-3" ng-if="showDropdown">
+					<select class="form-control" ng-change="getMeaurements(selectedLanguage)" ng-model="selectedLanguage"  ng-options="lang.iso_code as lang.english_name for lang in measurementLanguage | filter:filterByLangCode">
+					<option value="">Select Languages</option>
+					</select>
+				</div>
+			
 					<button type="button" class="btn btn-primary pull-right" ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)" ng-click="save()"><i class="glyphicon glyphicon-floppy-disk"></i> <span translate>Save Changes</span></button>
 					<div class="clearfix"></div>
 				</legend>
