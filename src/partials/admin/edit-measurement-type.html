@@ -1,7 +1,7 @@
 <div class="modal-header">
     <button type="button" class="close" ng-click="close()">
         <span aria-hidden="true">&times;</span><span class="sr-only" translate>Close</span></button>
-    <h4 class="modal-title"><span translate>Localize</span> - <small>{{englishName}}</small></h4>
+    <h4 class="modal-title" translate>Localize</h4>
 </div>
 <div class="modal-body form-horizontal">
     <form name="form" class="form-horizontal">
@@ -13,22 +13,36 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="measurementName" class="col-sm-3 control-label" translate>Name</label>
+            <label class="col-sm-3 control-label" translate>English Name</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{original.english}}</p>
+            </div>
+         </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" translate>English Description</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{original.description}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="measurementName" class="col-sm-3 control-label" translate>Localized Name</label>
 
             <div class="col-sm-8">
-                <input id="measurementName" name="name" type="text" class="form-control" maxlength="200" ng-model="measurement.localized_name" ng-required="true"/>
+                <input id="measurementName" name="name" type="text" class="form-control" ng-maxlength="200" ng-model="measurement.localized_name" ng-required="true"/>
                 <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
                     <span class="text-danger"  ng-show="form.name.$error.required" translate>Name is required.</span>
+                    <span class="text-danger"  ng-show="form.name.$error.maxlength" translate>Name should not exceed 200 characters</span>
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label for="measurementDesc" class="col-sm-3 control-label" translate>Description</label>
+            <label for="measurementDesc" class="col-sm-3 control-label" translate>Localized Description</label>
 
             <div class="col-sm-8">
-                <textarea rows="4" id="measurementDesc" name="description" class="form-control" maxlength="200" ng-model="measurement.localized_description" ng-required="true" style="resize: vertical;max-height: 200px;"></textarea>
+                <textarea rows="4" id="measurementDesc" name="description" class="form-control" ng-maxlength="200" ng-model="measurement.localized_description" ng-required="true" style="resize: vertical;max-height: 200px;"></textarea>
                 <small class="help-text" ng-show="form.description.$dirty && form.description.$invalid">
                     <span class="text-danger"  ng-show="form.description.$error.required" translate>Description is required.</span>
+                    <span class="text-danger"  ng-show="form.description.$error.maxlength" translate>Description should not exceed 200 characters</span>
                 </small>
             </div>
         </div>

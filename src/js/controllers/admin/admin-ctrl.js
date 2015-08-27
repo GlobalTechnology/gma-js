@@ -211,8 +211,8 @@
                 templateUrl: 'partials/admin/edit-measurement-type.html',
                 controller: function ($scope, $modalInstance, modalData) {
                     $scope.measurement = {};
-                    $scope.englishName = modalData.measurement.english;
                     $scope.contentLocales = modalData.contentLocales;
+                    $scope.original = modalData.measurement;
 
                     $scope.close = function () {
                         $modalInstance.dismiss('cancel');
