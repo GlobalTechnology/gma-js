@@ -1,7 +1,8 @@
 <div class="modal-header">
     <button type="button" class="close" ng-click="close()">
         <span aria-hidden="true">&times;</span><span class="sr-only" translate>Close</span></button>
-    <h4 class="modal-title" translate>Add new story</h4>
+    <h4 ng-hide="iconName" class="modal-title" translate>Add new story</h4>
+    <h4 ng-show="iconName" class="modal-title"><span translate>Add new story to</span> - {{iconName}}</h4>
 </div>
 <div class="modal-body">
 <form class="form-horizontal" name="form" ng-submit="saveStory(story)" novalidate>

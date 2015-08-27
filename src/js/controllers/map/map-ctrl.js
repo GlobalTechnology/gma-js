@@ -1445,7 +1445,7 @@
 
         $scope.addStoryToIcon = function (icon, type) {
             $modal.open({
-                templateUrl: 'partials/map/add-story.html',
+                templateUrl: 'partials/stories/new-story-dialog.html',
                 size: 'lg',
                 controller: function ($scope, $modalInstance, modalData) {
                     $scope.imageFile = {};
