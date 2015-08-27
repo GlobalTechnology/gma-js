@@ -54,7 +54,7 @@
 			return result;
 		};
 
-		$scope.save = function () {
+		$scope.saveDetails = function () {
 			$scope.spinner = true;
 			var measurements = [];
 			angular.forEach( ['local', 'person'], function ( type ) {

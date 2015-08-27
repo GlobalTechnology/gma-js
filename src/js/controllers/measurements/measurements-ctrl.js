@@ -158,17 +158,6 @@
             }
         }
 
-        //show measurement's name and description according to selected language, default will be english
-        /*$scope.getMeasurementDetail = function (measurement, key) {
-         if (key === 'description') {
-         return otherLanguage ? measurement.localized_description : measurement.description;
-         }
-         else if (key === 'name') {
-         return otherLanguage ? measurement.localized_name : measurement.name;
-         }
-         };*/
-
-
         $scope.filterByLangCode = function (lang) {
             if (typeof $scope.current.assignment.content_locales !== 'undefined') {
                 return (_.contains($scope.current.assignment.content_locales, lang.iso_code)) ? lang : false;
@@ -193,7 +182,8 @@
                             perm_link_stub: measurement.perm_link_stub,
                             ministry_id: $scope.current.assignment.ministry_id,
                             mcc: $scope.current.mcc,
-                            period: $scope.current.period.format('YYYY-MM')
+                            period: $scope.current.period.format('YYYY-MM'),
+                            locale : $scope.currentLanguage
                         });
                     }
                 }

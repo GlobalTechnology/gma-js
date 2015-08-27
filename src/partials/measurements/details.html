@@ -2,10 +2,10 @@
 	<button type="button" class="close" ng-click="close();">
 		<span aria-hidden="true">&times;</span><span class="sr-only" translate>Close</span>
 	</button>
-	<h2 class="modal-title">{{measurement.name}}
+	<h3 class="modal-title">{{measurement.localized_name || measurement.localize_name || measurement.name}}
 		<small>{{current.period.format('YYYY-MM')}}</small>
-	</h2>
-	<div class="well well-sm measurement-desc" ng-show="measurement.description">{{measurement.description}}</div>
+	</h3>
+	<div class="well well-sm measurement-desc" ng-show="measurement.description">{{measurement.localized_description || measurement.localize_description || measurement.description}}</div>
 </div>
 <div class="modal-body" ng-show="spinner" ng-include="'partials/spinner.html'"></div>
 <div class="modal-body edit_meas_form" ng-hide="spinner">
@@ -143,5 +143,5 @@
 </div>
 <div class="modal-footer">
 	<button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Close</span></button>
-    <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!editForm.$valid || spinner"><i class="glyphicon glyphicon-pencil"></i> <span translate>Save Measurements</span></button>
+    <button type="button" class="btn btn-primary" ng-click="saveDetails()" ng-disabled="!editForm.$valid || spinner"><i class="glyphicon glyphicon-pencil"></i> <span translate>Save Measurements</span></button>
 </div>
