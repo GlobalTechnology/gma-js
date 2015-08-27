@@ -37,20 +37,18 @@
             <label class="radio-inline"><input type="radio" value="0" ng-model="options.supported_staff"> <span translate>No</span></label>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" ng-if="current.assignment.content_locales">
         <label class="col-sm-4 control-label" translate>Content Language</label>
         <div class="col-sm-7">
             <select class="form-control" ng-model="options.content_locales[current.assignment.ministry_id]" ng-options="lang.iso_code as lang.english_name for lang in contentLocales | filter:filterByLangCode">
-                <option value="en-us">Default</option>
             </select>
             <small class="help-text text-info">Preferred content language for this ministry</small>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" ng-if="staticLocales">
         <label class="col-sm-4 control-label" translate>Application Language</label>
         <div class="col-sm-7">
             <select class="form-control" ng-model="options.static_locale" ng-options="code as name+' - ('+code+')' for (code,name) in staticLocales">
-                <option value="en-us">Default</option>
             </select>
         </div>
     </div>

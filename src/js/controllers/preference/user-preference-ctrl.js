@@ -8,8 +8,6 @@
             static_locale: 'en-us',
             content_locales: {}
         };
-        //set default lang for current ministry
-        $scope.options.content_locales[$scope.current.assignment.ministry_id] = 'en-us';
         //collect data for looping
         $scope.ministries = _.sortBy(UserPreference.getFlatMinistry($scope.current.assignments), 'name');
         $scope.mccs = _.sortBy(UserPreference.getMappedMCCS($scope.current.assignment.mccs, modelData.mccLabels), 'mccLabel');
