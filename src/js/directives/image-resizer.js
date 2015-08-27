@@ -3,7 +3,7 @@
  * Made some changes
  */
 (function (angular) {
-    angular.module('gma.directives', [])
+    angular.module('gma.directives')
         .directive('imageResizer', function ($q) {
             'use strict';
 
