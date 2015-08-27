@@ -21,7 +21,11 @@
                     }
                 }
 
-                return ministries;
+                //remove duplicates
+                return _.uniq( ministries, false, function ( m ) {
+                    return m.ministry_id;
+                } );
+
             },
             getMappedMCCS: function (mccs, mccLabels) {
                 var mapped_mccs = [];
