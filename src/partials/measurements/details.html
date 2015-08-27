@@ -70,7 +70,8 @@
 				</div>
 			</div>
 			<div ng-show="teamToggle">
-				<div class="form-group" ng-repeat="member in details.team | orderBy : 'first_name'" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">
+                <!-- hide former_member member with total =0 -->
+				<div class="form-group" ng-repeat="member in details.team | orderBy : 'first_name'" ng-hide="(member.team_role==='former_member' && member.total===0)" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">
 					<label class="col-xs-5 control-label">{{member.last_name}}, {{member.first_name}}</label>
 
 					<div class="col-xs-7">
