@@ -26,7 +26,7 @@
             })());
         }, 1000, {leading: false});
 
-        $scope.$watch('current.assignment.ministry_id', function (old) {
+        $scope.$watch('current.assignment.ministry_id', function (old,newVal) {
             //only need to decide preferred language if user changes the ministry
             $scope.currentLanguage = decideLocaleToLoad();
             getMeasurements();
@@ -34,10 +34,6 @@
             if (old != undefined) {
                 getMinistryLanguages();
                 setMeasurementStates();
-            }
-            //redirect user to map tab if there is no mcc in current ministry
-            if (typeof $scope.current.assignment.mccs === 'undefined' || $scope.current.assignment.mccs.length === 0) {
-                $location.path('/map');
             }
         });
 
