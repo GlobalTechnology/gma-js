@@ -3,7 +3,7 @@
 
     function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference, MinistryLanguage) {
         $scope.current.isLoaded = false;
-        
+
         var sendAnalytics = _.throttle(function () {
             GoogleAnalytics.screen('Admin', (function () {
                 var dimensions = {};
@@ -24,7 +24,7 @@
                 //refresh the manage measurement view
                 $scope.measurementTypes = [];
                 loadLanguages();
-                MeasurementTypes.getMeasurementTypes({ministry_id : new_ministry_id }).$promise.then(function (data) {
+                MeasurementTypes.getMeasurementTypes({ministry_id: new_ministry_id}).$promise.then(function (data) {
                     angular.forEach(data, function (type) {
                         if (type.is_custom && _.contains($scope.ministry.lmi_show, type.perm_link_stub)) {
                             type.visible = true;
@@ -123,19 +123,19 @@
             return _.contains(availableMinIds, parentToFind);
         };
 
-        $scope.getMCCValue=function(mcc){
-            return _.contains($scope.ministry.mccs,mcc);
+        $scope.getMCCValue = function (mcc) {
+            return _.contains($scope.ministry.mccs, mcc);
         };
 
-        $scope.createMCCArray = function(status,value){
-            if(status){
-                if($scope.ministry.mccs.indexOf(value) === -1){
+        $scope.createMCCArray = function (status, value) {
+            if (status) {
+                if ($scope.ministry.mccs.indexOf(value) === -1) {
                     $scope.ministry.mccs.push(value);
                 }
-            }else{
+            } else {
                 var index = $scope.ministry.mccs.indexOf(value);
-                if(index !== -1){
-                    $scope.ministry.mccs.splice(index,1);
+                if (index !== -1) {
+                    $scope.ministry.mccs.splice(index, 1);
                 }
             }
         };
@@ -229,22 +229,22 @@
 
                     $scope.changeLocale = function (locale) {
                         MeasurementTypes.getMeasurementType({
-                            measurement_type_id : modalData.measurement.perm_link_stub,
+                            measurement_type_id: modalData.measurement.perm_link_stub,
                             ministry_id: modalData.ministry_id,
                             locale: locale
                         }, function (response) {
                             $scope.measurement.localized_name = response.localize_name;
                             $scope.measurement.localized_description = response.localize_description;
                         }, function () {
-                           growl.error('Unable to get measurement');
+                            growl.error('Unable to get measurement');
                         })
                     }
                 },
                 resolve: {
                     'modalData': function () {
                         return {
-                            measurement : angular.copy(measurement),
-                            ministry_id : $scope.current.assignment.ministry_id,
+                            measurement: angular.copy(measurement),
+                            ministry_id: $scope.current.assignment.ministry_id,
                             contentLocales: $scope.availableLanguages,
                             supportedLanguages: $scope.ministry.content_locales || {}
                         }
@@ -409,19 +409,43 @@
                     }
                 }
             }).result.then(function (c) {
-                    //update user role
-                    Assignments.saveAssignment({assignment_id: user.assignment_id}, {team_role: user.team_role}, function () {
-                        growl.success('User role was updated');
-                        //success so update old_role in scope also
-                        old_role = user.team_role;
+                    //check if user has a real assignment
+                    if (typeof user.assignment_id !== 'undefined' && user.assignment_id.trim() !== '') {
+                        //update user role
+                        Assignments.saveAssignment({assignment_id: user.assignment_id}, {team_role: user.team_role}, function () {
+                            growl.success('User role was updated');
+                            //success so update old_role in scope also
+                            old_role = user.team_role;
 
-                    }, function () {
-                        growl.error('Unable to update user role');
-                        //if failed lets restore old role
-                        user.team_role = old_role;
-                    });
+                        }, function () {
+                            growl.error('Unable to update user role');
+                            //if failed lets restore old role
+                            user.team_role = old_role;
+                        });
+                    } else {
+                        //if user does not hav a real assignment it should a new Assignment call
+                        var post_data = {
+                            ministry_id: $scope.activeTeam.ministry_id,
+                            key_guid: user.key_guid || '',
+                            username: user.key_username || '',
+                            team_role: user.team_role
+                        };
+                        Assignments.addTeamMember(post_data, function (response) {
+                            growl.success('User role was updated');
+                            //refresh members list
+                            //todo update user_role and assignment_id in scope instead of refreshing list
+                            $scope.loadMinistryMembers($scope.activeTeam.ministry_id);
+
+                        }, function () {
+                            growl.error('Unable to update user role');
+                            //if failed lets restore old role
+                            user.team_role = old_role;
+
+                        });
+                    }
+
                 }, function () {
-                    //restore user role
+                    //restore user role upon cancel
                     user.team_role = old_role;
                 });
 
@@ -481,7 +505,7 @@
         $scope.memberDraggableOptions = {
             containment: "#team-member-pane",
             refreshPositions: true,
-            cursorAt: { bottom: 0 },
+            cursorAt: {bottom: 0},
             helper: function (event) {
                 var tr = $(event.target).closest('tr');
                 var first_name = tr.find('td:first').text();
@@ -547,7 +571,7 @@
                 //case when moving member
             } else if ($scope.draggedType === 'member') {
                 var member = {
-                    assignment_id :  $scope.draggedMember.assignment_id,
+                    assignment_id: $scope.draggedMember.assignment_id,
                     key_guid: $scope.draggedMember.key_guid,
                     username: $scope.draggedMember.key_username,
                     team_role: $scope.draggedMember.team_role,
@@ -560,7 +584,7 @@
                     //set user's old role to former_member
                     Assignments.saveAssignment({assignment_id: member.assignment_id}, {team_role: 'former_member'}, function () {
                         $scope.draggedMember.team_role = 'former_member';
-                    },function(){
+                    }, function () {
                         //restore upon fail
                         $scope.draggedMember.team_role = member.team_role;
                     });
@@ -703,7 +727,7 @@
 
         $scope.isMemberDraggable = function (member) {
             //if member does not have assignment id
-            if (member.assignment_id == '') {
+            if (typeof member.assignment_id === 'undefined' || member.assignment_id.trim() === '') {
                 return false;
             }
             //members who don't have key_guid or key_username are not be movable
@@ -717,7 +741,7 @@
                 return false;
             }
             //members who has these roles are not movable too
-            return !_.contains(['inherited_admin', 'inherited_leader', 'blocked','former_member'], member.team_role)
+            return !_.contains(['inherited_admin', 'inherited_leader', 'blocked', 'former_member'], member.team_role)
         };
 
 
