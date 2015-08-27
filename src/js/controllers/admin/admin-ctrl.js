@@ -232,8 +232,8 @@
                             ministry_id: modalData.ministry_id,
                             locale: locale
                         }, function (response) {
-                            $scope.measurement.localized_name = response.localize_name;
-                            $scope.measurement.localized_description = response.localize_description;
+                            $scope.measurement.localized_name = response.localize_name || response.localized_name;
+                            $scope.measurement.localized_description = response.localize_description || response.localized_description;
                         }, function () {
                             growl.error('Unable to get measurement');
                         })
