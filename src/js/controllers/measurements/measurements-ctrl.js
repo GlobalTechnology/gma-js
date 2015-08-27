@@ -3,10 +3,9 @@
 
     function MeasurementsCtrl($scope, $modal, $location, Measurements, UserPreference, Settings, GoogleAnalytics, $interval, growl, MinistryLanguage) {
 
-        $scope.current.isLoaded = false;
         var defaultLocale = 'en-US';
+        $scope.current.isLoaded = false;
         $scope.currentLanguage = defaultLocale;
-        var otherLanguage = false;
         $scope.ns = Settings.gmaNamespace;
         $scope.allLanguages = [];
 
@@ -35,6 +34,10 @@
             if (old != undefined) {
                 getMinistryLanguages();
                 setMeasurementStates();
+            }
+            //redirect user to map tab if there is no mcc in current ministry
+            if (typeof $scope.current.assignment.mccs === 'undefined' || $scope.current.assignment.mccs.length === 0) {
+                $location.path('/map');
             }
         });
 
@@ -125,7 +128,7 @@
             });
 
             if (measurements.length > 0) {
-                 Measurements.saveMeasurement({}, measurements, function (response) {
+                Measurements.saveMeasurement({}, measurements, function (response) {
                     growl.success('Measurements saved successfully');
                     getMeasurements();
                     $scope.lmiForm.$setPristine();
@@ -182,8 +185,7 @@
                             perm_link_stub: measurement.perm_link_stub,
                             ministry_id: $scope.current.assignment.ministry_id,
                             mcc: $scope.current.mcc,
-                            period: $scope.current.period.format('YYYY-MM'),
-                            locale : $scope.currentLanguage
+                            period: $scope.current.period.format('YYYY-MM')
                         });
                     }
                 }
