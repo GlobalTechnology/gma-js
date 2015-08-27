@@ -16,11 +16,6 @@
                     //additional check, be fail safe
                     if (typeof response.data.user_preferences === 'object') {
                         $rootScope.current.user_preferences = response.data.user_preferences;
-                        if (typeof response.data.user_preferences.default_measurement_states === 'object') {
-                            $rootScope.current.user_preferences.default_measurement_states = response.data.user_preferences.default_measurement_states;
-                        } else {
-                            delete $rootScope.current.user_preferences.default_measurement_states;
-                        }
                     } else {
                         delete $rootScope.current.user_preferences;
                     }
