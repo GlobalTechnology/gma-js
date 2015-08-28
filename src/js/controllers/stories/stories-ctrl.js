@@ -13,18 +13,22 @@
             currentPage: 1,
             perPage: $scope.storiesConfig.stories_per_page || 5
         };
+        //init feeds pagination
+        $scope.feedsNav = {
+            currentPage: 1,
+            perPage: $scope.storiesConfig.feeds_count || 10
+        };
         //lets keep some story search params in scope,  we may add some more in future
         $scope.storiesParams = {
             self_only: false
         };
-
 
         $scope.$watch('current.assignment', function (assignment, oldVal) {
             if (typeof assignment !== 'undefined') {
                 $scope.current.isLoaded = true;
                 //load data from server
                 $scope.searchStories(1, $scope.storiesParams); //load first page
-                $scope.loadNewsFeeds();
+                $scope.loadNewsFeeds(1);
 
             }
         }, true);
@@ -34,6 +38,28 @@
                 window.parent.scrollTo(0, 0);
             }, 10);
         }
+
+        $scope.loadNewsFeeds = function (page) {
+            $scope.feedsLoaded = false;
+            var params = {
+                ministry_id: $scope.current.assignment.ministry_id,
+                per_page: $scope.storiesConfig.feeds_count || 10,
+                page : page || 1
+            };
+            Stories.getNewsFeeds(params).
+                success(function (response) {
+                    $scope.feedsLoaded = true;
+                    $scope.recentNewsFeeds = response.entries;
+                    //update pagination nav
+                    $scope.feedsNav.totalItems = response.meta.total;
+                    $scope.feedsNav.currentPage = response.meta.page;
+                })
+                .error(function (e) {
+                    $scope.feedsLoaded = true;
+                    growl.error('Error loading news feeds');
+                });
+
+        };
 
         $scope.searchStories = function (page, storiesParams) {
             $scope.storiesLoaded = false;
@@ -238,24 +264,6 @@
                 growl.error('Unable to upload image file');
             }
         }
-
-        $scope.loadNewsFeeds = function () {
-            $scope.feedsLoaded = false;
-            var params = {
-                ministry_id: $scope.current.assignment.ministry_id,
-                number_of_entries: $scope.storiesConfig.feeds_count || 10
-            };
-            Stories.getNewsFeeds(params).
-                success(function (response) {
-                    $scope.feedsLoaded = true;
-                    $scope.recentNewsFeeds = response;
-                })
-                .error(function (e) {
-                    $scope.feedsLoaded = true;
-                    growl.error('Error loading news feeds');
-                });
-
-        };
 
         $scope.isStoryEditable = function (story) {
 
