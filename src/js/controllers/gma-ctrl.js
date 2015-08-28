@@ -298,14 +298,18 @@
 		 * @param tab
 		 * @returns {boolean}
 		 */
-        $scope.hideTabsConditionally = function (tab) {
-            //current may not be defined
-            if (typeof $scope.current === 'undefined') return true;
+        $scope.tabFilter = function (tab) {
+            //current may not be defined, so hide un-till user get an assignment
+            if (typeof $scope.current === 'undefined') return false;
+            //check for role first
+            if (!$scope.current.hasRole(tab.requiredRoles)) {
+                return false;
+            }
 
             if (tab.path == '/reports') {
                 //user preferences not found
                 if (typeof $scope.current.user_preferences === 'undefined') {
-                	//send admin preferences
+                    //send admin preferences
                     return ($scope.current.hide_reports_tab != '1');
                 }
                 //lastly send user preferences
@@ -318,6 +322,19 @@
             }
 
         };
+
+        $scope.$on('$locationChangeStart', function(event,next,current) {
+                //get tab name
+                var nextRoutePath = next.split('#/')[1];
+                //get required role for requested tab
+                var foundTab = _.findWhere($scope.tabs,{path: '/'+nextRoutePath});
+                //check if user has permission to load this tab
+                if(!$scope.current.hasRole(foundTab.requiredRoles)){
+                    event.preventDefault();
+                    growl.error('You are not authorised for this');
+                    return false;
+                }
+        });
 
 	}
 
