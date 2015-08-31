@@ -65,7 +65,7 @@
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="javascript:void(0)" ng-click="showUserPreference()"><i class="glyphicon glyphicon-cog"></i> <span translate>My Preferences</span></a></li>
+							<li><a href="javascript:void(0)" ng-click="showUserPreference()"><i class="glyphicon glyphicon-star"></i> <span translate>My Preferences</span></a></li>
 							<li class="divider"></li>
 							<li><a href="javascript:void(0)" ng-click="logout()"><i class="glyphicon glyphicon-off"></i> <span translate>Logout</span></a></li>
 							<!--<li><a href="javascript:void(0)" ng-click="invalidateSession()">DEBUG: Invalidate Session</a></li>-->
@@ -81,7 +81,7 @@
 		<div>
 			<ul class="nav nav-tabs" role="tablist">
 				<li ng-repeat="tab in tabs | filter:tabFilter" ng-class="{active: $location.path() === tab.path}">
-					<a ng-href="#{{tab.path}}">{{tab.name}}</a>
+					<a ng-href="#{{tab.path}}"><i class="glyphicon {{tab.icon}}"> </i> {{tab.name}}</a>
 				</li>
 			</ul>
 			<div class="tab-content">

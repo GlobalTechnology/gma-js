@@ -47,6 +47,7 @@
 						this.push( {
 							name:          'Map',
 							path:          '/map',
+                            icon:          'glyphicon-map-marker',
 							templateUrl:   'partials/map/map.html',
 							controller:    'MapCtrl',
 							requiredRoles: ['admin','inherited_admin','self_assigned', 'member', 'inherited_leader', 'leader']
@@ -56,6 +57,7 @@
 						this.push( {
 							name:          'Measurements',
 							path:          '/measurements',
+                            icon:          'glyphicon-stats',
 							templateUrl:   'partials/measurements/measurements.html',
 							controller:    'MeasurementsCtrl',
 							requiredRoles: ['admin','inherited_admin','self_assigned', 'member', 'inherited_leader', 'leader']
@@ -65,6 +67,7 @@
 						this.push( {
 							name:          'Reports',
 							path:          '/reports',
+                            icon:          'glyphicon-list-alt',
 							templateUrl:   'partials/reports/reports.html',
 							controller:    'ReportsCtrl',
 							requiredRoles: ['admin','inherited_admin','inherited_leader', 'leader']
@@ -74,6 +77,7 @@
 						this.push( {
 							name:          'Admin',
 							path:          '/admin',
+                            icon:          'glyphicon-cog',
 							templateUrl:   'partials/admin/admin.html',
 							controller:    'AdminCtrl',
 							requiredRoles: ['admin','inherited_admin','leader', 'inherited_leader']
@@ -83,6 +87,7 @@
                         this.push( {
                             name:          'Home',
                             path:          '/news',
+                            icon:          'glyphicon-home',
                             templateUrl:   'partials/stories/stories.html',
                             controller:    'StoriesCtrl',
                             requiredRoles: ['admin','inherited_admin','inherited_leader', 'leader']
