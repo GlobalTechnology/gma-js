@@ -24,6 +24,7 @@
                 <p class="form-control-static">{{original.description}}</p>
             </div>
         </div>
+        <div ng-show="isLocaleLoaded">
         <div class="form-group">
             <label for="measurementName" class="col-sm-3 control-label" translate>Localized Name</label>
 
@@ -46,9 +47,11 @@
                 </small>
             </div>
         </div>
+        </div>
+        <div ng-include="'partials/spinner.html'" ng-hide="isLocaleLoaded"></div>
     </form>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Close</span></button>
-    <button type="button" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="save()"><i class="glyphicon glyphicon-ok"></i> <span translate>Save</span></button>
+    <button type="button" ng-disabled="form.$invalid || isLocaleLoaded == false" class="btn btn-primary" ng-click="save()"><i class="glyphicon glyphicon-ok"></i> <span translate>Save</span></button>
 </div>

@@ -204,8 +204,10 @@
                 templateUrl: 'partials/admin/edit-measurement-type.html',
                 controller: function ($scope, $modalInstance, modalData) {
                     $scope.measurement = {};
+                    $scope.isLocaleLoaded = true;
                     $scope.contentLocales = modalData.contentLocales;
                     $scope.original = modalData.measurement;
+                    $scope.measurement.locale = modalData.supportedLanguages[0];
 
                     $scope.close = function () {
                         $modalInstance.dismiss('cancel');
@@ -221,6 +223,8 @@
                     };
 
                     $scope.changeLocale = function (locale) {
+                        if(locale===undefined||locale==='') return false;
+                        $scope.isLocaleLoaded = false;
                         MeasurementTypes.getMeasurementType({
                             measurement_type_id: modalData.measurement.perm_link_stub,
                             ministry_id: modalData.ministry_id,
@@ -228,10 +232,13 @@
                         }, function (response) {
                             $scope.measurement.localized_name = response.localize_name || response.localized_name;
                             $scope.measurement.localized_description = response.localize_description || response.localized_description;
+                            $scope.isLocaleLoaded = true;
                         }, function () {
                             growl.error('Unable to get measurement');
+                            $scope.isLocaleLoaded = true;
                         })
-                    }
+                    };
+                    $scope.changeLocale($scope.measurement.locale);
                 },
                 resolve: {
                     'modalData': function () {
