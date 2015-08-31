@@ -8,7 +8,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label" translate>Language</label>
             <div class="col-sm-8">
-                <select class="form-control" ng-model="measurement.locale" ng-options="lang.iso_code as lang.english_name for lang in contentLocales | filter:filterByLangCode" ng-required="true" ng-change="changeLocale(measurement.locale)">
+                <select class="form-control" ng-model="measurement.locale" ng-options="lang.iso_code as lang.english_name for lang in current.langList | filter:filterByLangCode" ng-required="true" ng-change="changeLocale(measurement.locale)">
                 </select>
             </div>
         </div>
