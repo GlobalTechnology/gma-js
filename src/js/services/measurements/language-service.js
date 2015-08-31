@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    function MinistryLanguage($http, Settings) {
+    function Languages($http, Settings) {
         return {
             getLanguages: function () {
                 return $http.get(Settings.api.measurements('/languages'))
@@ -9,5 +9,5 @@
         }
     }
 
-    angular.module('gma.services.measurements').factory('MinistryLanguage', MinistryLanguage);
+    angular.module('gma.services.measurements').factory('Languages', Languages);
 })();

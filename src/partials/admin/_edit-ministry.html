@@ -63,7 +63,7 @@
 				<label class="col-sm-4 control-label" translate>Supported Languages</label>
 
 				<div class="col-sm-6">
-					<select size="10" multiple="multiple" class="form-control" ng-model="ministry.content_locales" ng-options="lang.iso_code as lang.english_name for lang in availableLanguages">
+					<select size="10" multiple="multiple" class="form-control" ng-model="ministry.content_locales" ng-options="lang.iso_code as lang.english_name for lang in current.langList">
 						<optgroup label="Select Languages"></optgroup>
 					</select>
                     <small class="help-text">CTRL + Click to select multiple languages</small>

@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference, MinistryLanguage) {
+    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference) {
         $scope.current.isLoaded = false;
 
         var sendAnalytics = _.throttle(function () {
@@ -31,7 +31,7 @@
                     if($scope.current.hasRole(['admin','inherited_admin'])){
                         //refresh the manage measurement view
                         $scope.measurementTypes = [];
-                        loadLanguages();
+                        $scope.current.loadLanguages();
                         MeasurementTypes.getMeasurementTypes({ministry_id: ministry_id}).$promise.then(function (data) {
                             angular.forEach(data, function (type) {
                                 if (type.is_custom && _.contains($scope.ministry.lmi_show, type.perm_link_stub)) {
@@ -50,24 +50,6 @@
                 $scope.current.redirectToHomeTab();
             }
         });
-
-        function loadLanguages() {
-
-            //don't not hit api if we already have language
-            if (typeof $scope.availableLanguages !== 'undefined' && $scope.availableLanguages.length !== 0) {
-                return $scope.availableLanguages;
-            } else {
-                MinistryLanguage.getLanguages()
-                    .success(function (response) {
-                        $scope.availableLanguages = response;
-                        $scope.availableLanguages = _.sortBy($scope.availableLanguages, 'english_name');
-                    })
-                    .error(function () {
-                        growl.error('Unable to load languages');
-                    });
-            }
-
-        }
 
         //function initializes sub-tabs of admin section
         $scope.initSubTabs = function () {

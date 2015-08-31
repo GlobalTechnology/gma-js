@@ -1,13 +1,12 @@
 ﻿(function () {
     'use strict';
 
-    function MeasurementsCtrl($scope, $modal, $location, Measurements, UserPreference, Settings, GoogleAnalytics, $interval, growl, MinistryLanguage) {
+    function MeasurementsCtrl($scope, $modal, $location, Measurements, UserPreference, Settings, GoogleAnalytics, $interval, growl) {
 
         var defaultLocale = 'en-US';
         $scope.current.isLoaded = false;
         $scope.currentLanguage = defaultLocale;
         $scope.ns = Settings.gmaNamespace;
-        $scope.allLanguages = [];
 
         var sendAnalytics = _.throttle(function () {
             GoogleAnalytics.screen('Measurements', (function () {
@@ -33,7 +32,7 @@
                     $scope.currentLanguage = decideLocaleToLoad();
                     getMeasurements();
                     sendAnalytics();
-                    getMinistryLanguages();
+                    $scope.current.loadLanguages();
                     setMeasurementStates();
                 }
                 else {
@@ -138,29 +137,6 @@
                 });
             }
         };
-
-        /**
-         * Get languages from API and update scope
-         * @returns {Array|*}
-         */
-        function getMinistryLanguages() {
-
-            if (typeof $scope.allLanguages !== 'undefined' && $scope.allLanguages.length !== 0) {
-                return $scope.allLanguages;
-            } else {
-
-                MinistryLanguage.getLanguages()
-                    .success(function (response) {
-                        $scope.allLanguages = response;
-                        return response;
-                    })
-                    .error(function () {
-                        growl.error('Unable to load languages');
-                        return false;
-                    });
-
-            }
-        }
 
         $scope.filterByLangCode = function (lang) {
             if (typeof $scope.current.assignment.content_locales !== 'undefined') {

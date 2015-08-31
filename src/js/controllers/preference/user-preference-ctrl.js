@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    function UserPreferenceCtrl($scope, $modalInstance, modelData, UserPreference, growl, Settings, MinistryLanguage) {
+    function UserPreferenceCtrl($scope, $modalInstance, modelData, UserPreference, growl, Settings) {
         //set some defaults
         $scope.options = {
             supported_staff: '0',
@@ -13,14 +13,7 @@
         $scope.mccs = _.sortBy(UserPreference.getMappedMCCS($scope.current.assignment.mccs, modelData.mccLabels), 'mccLabel');
         $scope.staticLocales = angular.copy(Settings.static_locales);
 
-        $scope.contentLocales = {};
-        MinistryLanguage.getLanguages()
-            .success(function (response) {
-                $scope.contentLocales = response;
-            })
-            .error(function () {
-                growl.error('Unable to load languages');
-            });
+        $scope.current.loadLanguages();
 
         //override user preferences from token response
         if (typeof $scope.current.user_preferences === 'object') {

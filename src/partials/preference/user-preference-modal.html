@@ -40,9 +40,9 @@
     <div class="form-group" ng-if="current.assignment.content_locales">
         <label class="col-sm-4 control-label" translate>Content Language</label>
         <div class="col-sm-7">
-            <select class="form-control" ng-model="options.content_locales[current.assignment.ministry_id]" ng-options="lang.iso_code as lang.english_name for lang in contentLocales | filter:filterByLangCode">
+            <select class="form-control" ng-model="options.content_locales[current.assignment.ministry_id]" ng-options="lang.iso_code as lang.english_name for lang in current.langList | filter:filterByLangCode">
             </select>
-            <small class="help-text text-info">Preferred content language for this ministry</small>
+            <small class="help-text text-info"><span translate>Preferred content language for </span> {{current.assignment.name}}</small>
         </div>
     </div>
     <div class="form-group" ng-if="staticLocales">
