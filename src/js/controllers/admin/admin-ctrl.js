@@ -13,30 +13,42 @@
             })());
         }, 1000, {leading: false});
 
-        $scope.$watch('current.assignment.ministry_id', function (new_ministry_id) {
-            if (typeof new_ministry_id === 'undefined') return;
-            sendAnalytics();
-            $scope.current.isLoaded = false;
-            $scope.ministry = Ministries.getMinistry({ministry_id: new_ministry_id}, function () {
-                $scope.current.isLoaded = true;
-                //refresh the teams and team member view
-                $scope.initTeamAndMembers();
-                //refresh the manage measurement view
-                $scope.measurementTypes = [];
-                loadLanguages();
-                MeasurementTypes.getMeasurementTypes({ministry_id: new_ministry_id}).$promise.then(function (data) {
-                    angular.forEach(data, function (type) {
-                        if (type.is_custom && _.contains($scope.ministry.lmi_show, type.perm_link_stub)) {
-                            type.visible = true;
-                        } else if (!type.is_custom && !_.contains($scope.ministry.lmi_hide, type.perm_link_stub)) {
-                            type.visible = true;
-                        } else {
-                            type.visible = false;
-                        }
-                        $scope.measurementTypes.push(type);
-                    });
+        $scope.$watch('current.assignment.ministry_id', function (ministry_id) {
+            if (typeof ministry_id === 'undefined') return;
+            if ($scope.current.canAccessCurrentTab()) {
+                //move user to first tab if he is a leader
+                if(!$scope.current.hasRole(['admin','inherited_admin'])){
+                    $scope.selectTab('team-members');
+                }
+
+                sendAnalytics();
+                $scope.current.isLoaded = false;
+                $scope.ministry = Ministries.getMinistry({ministry_id: ministry_id}, function () {
+                    $scope.current.isLoaded = true;
+                    //refresh the teams and team member view
+                    $scope.initTeamAndMembers();
+                    //load next data only if has permissions
+                    if($scope.current.hasRole(['admin','inherited_admin'])){
+                        //refresh the manage measurement view
+                        $scope.measurementTypes = [];
+                        loadLanguages();
+                        MeasurementTypes.getMeasurementTypes({ministry_id: ministry_id}).$promise.then(function (data) {
+                            angular.forEach(data, function (type) {
+                                if (type.is_custom && _.contains($scope.ministry.lmi_show, type.perm_link_stub)) {
+                                    type.visible = true;
+                                } else if (!type.is_custom && !_.contains($scope.ministry.lmi_hide, type.perm_link_stub)) {
+                                    type.visible = true;
+                                } else {
+                                    type.visible = false;
+                                }
+                                $scope.measurementTypes.push(type);
+                            });
+                        });
+                    }
                 });
-            });
+            } else {
+                $scope.current.redirectToHomeTab();
+            }
         });
 
         function loadLanguages() {

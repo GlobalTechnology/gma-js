@@ -23,15 +23,19 @@
             self_only: false
         };
 
-        $scope.$watch('current.assignment', function (assignment, oldVal) {
-            if (typeof assignment !== 'undefined') {
-                $scope.current.isLoaded = true;
-                //load data from server
-                $scope.searchStories(1, $scope.storiesParams); //load first page
-                $scope.loadNewsFeeds(1);
+        $scope.$watch('current.assignment.ministry_id', function (assignment, oldVal) {
 
+            if (typeof assignment !== 'undefined') {
+                if ($scope.current.canAccessCurrentTab()) {
+                    $scope.current.isLoaded = true;
+                    //load data from server
+                    $scope.searchStories(1, $scope.storiesParams); //load first page
+                    $scope.loadNewsFeeds(1);
+                } else {
+                    $scope.current.redirectToHomeTab();
+                }
             }
-        }, true);
+        });
 
         function scrollToTop() {
             window.setTimeout(function () {

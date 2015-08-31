@@ -81,7 +81,7 @@
 						break;
                     case 'news':
                         this.push( {
-                            name:          'News',
+                            name:          'Home',
                             path:          '/news',
                             templateUrl:   'partials/stories/stories.html',
                             controller:    'StoriesCtrl',

@@ -68,8 +68,15 @@
 			}
 		}, 100 );
 
-		$scope.$watch( 'current.assignment.ministry_id', function () {
-			getMeasurements();
+		$scope.$watch( 'current.assignment.ministry_id', function (ministry_id) {
+            if (typeof ministry_id !== 'undefined') {
+                if ($scope.current.canAccessCurrentTab()) {
+                    getMeasurements();
+                } else {
+                    $scope.current.redirectToHomeTab();
+                }
+            }
+
 		} );
 
 		$scope.$watch( 'current.mcc', function () {

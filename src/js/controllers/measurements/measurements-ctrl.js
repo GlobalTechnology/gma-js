@@ -26,14 +26,19 @@
             })());
         }, 1000, {leading: false});
 
-        $scope.$watch('current.assignment.ministry_id', function (old,newVal) {
-            //only need to decide preferred language if user changes the ministry
-            $scope.currentLanguage = decideLocaleToLoad();
-            getMeasurements();
-            sendAnalytics();
-            if (old != undefined) {
-                getMinistryLanguages();
-                setMeasurementStates();
+        $scope.$watch('current.assignment.ministry_id', function (old, newVal) {
+            if (typeof old !== 'undefined') {
+                if ($scope.current.canAccessCurrentTab() && typeof $scope.current.mcc !== 'undefined') {
+                    //only need to decide preferred language if user changes the ministry
+                    $scope.currentLanguage = decideLocaleToLoad();
+                    getMeasurements();
+                    sendAnalytics();
+                    getMinistryLanguages();
+                    setMeasurementStates();
+                }
+                else {
+                    $scope.current.redirectToHomeTab();
+                }
             }
         });
 

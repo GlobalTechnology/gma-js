@@ -79,14 +79,14 @@
 
 	<div class="container">
 		<div>
-			<ul class="nav nav-tabs" role="tablist" class="map-ministries">
+			<ul class="nav nav-tabs" role="tablist">
 				<li ng-repeat="tab in tabs | filter:tabFilter" ng-class="{active: $location.path() === tab.path}">
 					<a ng-href="#{{tab.path}}">{{tab.name}}</a>
 				</li>
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane active">
-					<div ng-view></div>
+					<div ng-view ng-show="current.isLoaded"></div>
 					<div ng-include="'partials/spinner.html'" ng-hide="current.isLoaded"></div>
 				</div>
 			</div>

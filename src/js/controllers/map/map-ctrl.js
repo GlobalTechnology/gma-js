@@ -319,7 +319,7 @@
             if (typeof $scope.current.assignment !== 'undefined' && $scope.current.mcc !== 'undefined') {
                 Trainings.getTrainings($scope.current.sessionToken, $scope.current.assignment.ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree).then(function (trainings) {
                     $scope.trainings = trainings;
-                }, $scope.onError);
+                });
             }
             else {
                 $scope.trainings = [];
@@ -353,7 +353,7 @@
             // Disable clustering at Zoom 14 and higher
             if ($scope.map.getZoom() >= 14) params['should_cluster'] = 'false';
 
-            Churches.getChurches(params).$promise.then($scope.onGetChurches, $scope.onError);
+            Churches.getChurches(params).$promise.then($scope.onGetChurches);
         }, 500);
 
 
@@ -405,7 +405,7 @@
                     Churches.addChurch($scope.new_church).$promise.then(function (response) {
                             growl.success('Church was created');
                             $scope.onAddChurch(response);
-                        }, $scope.onError
+                        }
                     );
 
                     m.setMap(null);
@@ -427,7 +427,7 @@
                     Trainings.addTraining($scope.current.sessionToken, $scope.new_training).then(function () {
                             growl.success('Training was created');
                             $scope.loadTrainings();
-                        }, $scope.onError
+                        }
                     );
 
                     m.setMap(null);
@@ -640,7 +640,7 @@
             Churches.saveChurch({
                 id: $scope.edit_church.id,
                 parent_id: -1
-            }).$promise.then($scope.onSaveChurch, $scope.onError);
+            }).$promise.then($scope.onSaveChurch);
 
         };
 
@@ -687,7 +687,6 @@
                 },
                 function () {
                     growl.error('Unable to update church');
-                    $scope.onError();
                 }
             );
         };
@@ -705,8 +704,7 @@
                         function (response) {
                             growl.success('Church was deleted successfully');
                             $scope.onSaveChurch(response)
-                        },
-                        $scope.onError);
+                        });
                 });
         };
 
@@ -717,7 +715,6 @@
                     $scope.onSaveChurch(response);
                 }, function () {
                     growl.error('Unable to update training');
-                    $scope.onError();
                 }
             );
             $scope.trainingWindow.close();
@@ -726,7 +723,7 @@
         $scope.updateTrainingCompletion = function (data) {
             Trainings.updateTrainingCompletion($scope.current.sessionToken, data).then(function () {
                 growl.success('Training was updated');
-            }, $scope.onError);
+            });
         };
 
         $scope.updateTargetCity = function (targetCity) {
@@ -831,7 +828,7 @@
                             google.maps.event.addListener(marker, 'dragend', (function () {
                                 training.latitude = marker.getPosition().lat();
                                 training.longitude = marker.getPosition().lng();
-                                Trainings.updateTraining($scope.current.sessionToken, training).then($scope.onSaveChurch, $scope.onError);
+                                Trainings.updateTraining($scope.current.sessionToken, training).then($scope.onSaveChurch);
                                 marker.setAnimation(null);
                                 marker.setDraggable(false);
                             }));
@@ -1051,7 +1048,7 @@
                                     new_church.parent_id = church.id;
                                     $scope.edit_church.parent_id = church.id;
                                     $scope.edit_church.parents = [church.id];
-                                    Churches.saveChurch(new_church).$promise.then($scope.onSaveChurch, $scope.onError);
+                                    Churches.saveChurch(new_church).$promise.then($scope.onSaveChurch);
                                 }
                                 else {
                                     google.maps.event.removeListener($scope.move_event);
@@ -1112,7 +1109,7 @@
                                 new_church.longitude = marker.getPosition().lng();
                                 church.latitude = new_church.latitude;
                                 church.longitude = new_church.longitude;
-                                Churches.saveChurch(new_church).$promise.then($scope.onSaveChurch, $scope.onError);
+                                Churches.saveChurch(new_church).$promise.then($scope.onSaveChurch);
 
                                 marker.setAnimation(null);
                                 marker.setDraggable(false);
@@ -1234,7 +1231,7 @@
                 training_id: training.id
 
             };
-            Trainings.addTrainingCompletion($scope.current.sessionToken, newPhase).then($scope.onAddTrainingCompletion, $scope.onError);
+            Trainings.addTrainingCompletion($scope.current.sessionToken, newPhase).then($scope.onAddTrainingCompletion);
 
             training.insert.date = "";
             training.insert.number_completed = 0;
@@ -1266,12 +1263,7 @@
                         .then(function (data) {
                             growl.success('Training was deleted successfully');
                             $scope.trainingWindow.close();
-                            //When status code 204
                             $scope.loadTrainings();
-                        }, $scope.onError)
-                        .catch(function (error) {
-                            // Failed
-
                         });
                 });
         };
@@ -1311,10 +1303,8 @@
                         .then(function (data) {
                             growl.success('Training stage was deleted successfully');
                             $scope.edit_training.gcm_training_completions.splice(index, 1);
-                        }, $scope.onError)
-                        .catch(function (error) {
-                            // Failed
                         });
+
                 });
         };
 
@@ -1423,7 +1413,7 @@
                 return false;
             }
             //check for required role
-            if (!$scope.current.hasRole(['admin', 'inherited_admin', 'leader', 'inherited-leader', 'member'])) {
+            if (!$scope.current.hasRole(['admin', 'inherited_admin', 'leader', 'inherited_leader', 'member'])) {
                 return false;
             }
             if (typeof $scope.current.mcc === 'undefined') {

@@ -6,6 +6,8 @@
 		$scope.$location = $location;
 
 		$scope.tabs = Settings.tabs;
+        // always redirect user to map tab when init
+        $location.path('/map');
 
 		$scope.appEnvironment = Settings.appEnvironment;
 		//---------------------------------------
@@ -323,18 +325,38 @@
 
         };
 
-        $scope.$on('$locationChangeStart', function(event,next,current) {
-                //get tab name
-                var nextRoutePath = next.split('#/')[1];
-                //get required role for requested tab
-                var foundTab = _.findWhere($scope.tabs,{path: '/'+nextRoutePath});
-                //check if user has permission to load this tab
-                if(!$scope.current.hasRole(foundTab.requiredRoles)){
-                    event.preventDefault();
-                    growl.error('You are not authorised for this');
-                    return false;
-                }
+        $scope.$on('$locationChangeStart', function (event, next, current) {
+            if ($scope.current.user === undefined) return true;
+            //get tab name
+            var nextRoutePath = next.split('#/')[1];
+            //get required role for requested tab
+            var foundTab = _.findWhere($scope.tabs, {path: '/' + nextRoutePath});
+
+            //check if user has permission to load this tab
+            if (typeof foundTab !== 'undefined' && !$scope.current.hasRole(foundTab.requiredRoles)) {
+                growl.error('You are not authorised for this');
+                event.preventDefault();
+                return false;
+            }
         });
+
+        $scope.current.redirectToHomeTab = function () {
+
+            if ($scope.current.hasRole(['admin', 'inherited_admin', 'leader', 'inherited_leader'])) {
+                $location.path('/news');
+            } else {
+                $location.path('/map');
+            }
+        };
+
+        $scope.current.canAccessCurrentTab = function () {
+            if (typeof $scope.current.assignment === 'undefined') {
+                return false;
+            }
+
+            return ($scope.current.hasRole(_.findWhere($scope.tabs, {path: $location.path()}).requiredRoles));
+
+        };
 
 	}
 
