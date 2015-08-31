@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    function UserPreferenceCtrl($scope, $modalInstance, modelData, UserPreference, growl, Settings) {
+    function UserPreferenceCtrl($scope,$location, $modalInstance, modelData, UserPreference, growl, Settings) {
         //set some defaults
         $scope.options = {
             supported_staff: '0',
@@ -37,6 +37,10 @@
             UserPreference.savePreference(options)
                 .success(function (data) {
                     growl.success('Your preferences were saved');
+                    //if user want to hide reports tab and is on reports tab so
+                    if(options.hide_reports_tab==1 && $location.path()=='/reports'){
+                        $scope.current.redirectToHomeTab();
+                    }
                     //update root scope
                     $scope.current.user_preferences = data;
                 })
