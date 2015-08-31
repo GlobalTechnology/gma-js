@@ -29,7 +29,7 @@
 
             //first time when page loads
             if (typeof assignments === 'object' && typeof oldVal === 'undefined') {
-                    var min_choice = false;
+                var min_choice = false;
                 if ($scope.current.hasOwnProperty('user_preferences') && typeof $scope.current.user_preferences !== 'undefined') {
                     var flat_assignments = UserPreference.getFlatMinistry(assignments);
                     //apply user preference
@@ -49,13 +49,11 @@
 
                 }
                 //redirect user to his home tab
-                if(min_choice!==false){
-                    if(_.contains(['admin','inherited_admin','leader','inherited_leader'],min_choice.team_role)){
+                if (min_choice !== false) {
+                    if (_.contains(['admin', 'inherited_admin', 'leader', 'inherited_leader'], min_choice.team_role)) {
                         $location.path('/news').replace();
-                        $scope.$on('$routeChangeSuccess',function(){
-                            $scope.current.assignment = min_choice;
-                        });
-                    }else{
+                        $scope.current.assignment = min_choice;
+                    } else {
                         $scope.current.assignment = min_choice;
                     }
                 }
@@ -377,7 +375,7 @@
 
                 Languages.getLanguages()
                     .success(function (response) {
-                        $scope.current.langList =  _.sortBy(response, 'english_name');
+                        $scope.current.langList = _.sortBy(response, 'english_name');
                         return $scope.current.langList;
                     })
                     .error(function () {
