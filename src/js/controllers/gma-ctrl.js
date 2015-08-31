@@ -4,10 +4,10 @@
     function GMACtrl($scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics, UserPreference, growl, Languages) {
         // Attach $location provider to scope, this is used to set active tabs
         $scope.$location = $location;
-
+        $scope.mobileApps = Settings.mobileApps;
         $scope.tabs = Settings.tabs;
         // always redirect user to map tab when init
-        $location.path('/map');
+        $location.path('/map').replace();
 
         $scope.appEnvironment = Settings.appEnvironment;
         //---------------------------------------
@@ -264,8 +264,6 @@
             $location.path('/error');
         };
 
-        $scope.mobileApps = Settings.mobileApps;
-
         function scrollToTop() {
             window.setTimeout(function () {
                 window.parent.scrollTo(0, 0);
@@ -327,7 +325,7 @@
         };
 
         $scope.$on('$locationChangeStart', function (event, next, current) {
-            if ($scope.current.user === undefined) return true;
+            if ($scope.current.assignment === undefined) return true;
             //get tab name
             var nextRoutePath = next.split('#/')[1];
             //get required role for requested tab
@@ -344,9 +342,9 @@
         $scope.current.redirectToHomeTab = function () {
 
             if ($scope.current.hasRole(['admin', 'inherited_admin', 'leader', 'inherited_leader'])) {
-                $location.path('/news');
+                $location.path('/news').replace();
             } else {
-                $location.path('/map');
+                $location.path('/map').replace();
             }
         };
 
