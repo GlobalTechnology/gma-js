@@ -29,7 +29,7 @@
 
             //first time when page loads
             if (typeof assignments === 'object' && typeof oldVal === 'undefined') {
-
+                    var min_choice = false;
                 if ($scope.current.hasOwnProperty('user_preferences') && typeof $scope.current.user_preferences !== 'undefined') {
                     var flat_assignments = UserPreference.getFlatMinistry(assignments);
                     //apply user preference
@@ -38,15 +38,26 @@
                     });
 
                     if (typeof found_assignment !== 'undefined' && typeof found_assignment !== '') {
-                        $scope.current.assignment = found_assignment;
+                        min_choice = found_assignment;
                     } else {
-                        $scope.current.assignment = $filter('orderBy')(assignments, 'name')[0];
+                        min_choice = $filter('orderBy')(assignments, 'name')[0];
 
                     }
                 } else {
                     //load first ministry if user preferences not found
-                    $scope.current.assignment = $filter('orderBy')(assignments, 'name')[0];
+                    min_choice = $filter('orderBy')(assignments, 'name')[0];
 
+                }
+                //redirect user to his home tab
+                if(min_choice!==false){
+                    if(_.contains(['admin','inherited_admin','leader','inherited_leader'],min_choice.team_role)){
+                        $location.path('/news').replace();
+                        $scope.$on('$routeChangeSuccess',function(){
+                            $scope.current.assignment = min_choice;
+                        });
+                    }else{
+                        $scope.current.assignment = min_choice;
+                    }
                 }
                 $scope.current.ministries = flattenMinistries(assignments);
 
