@@ -212,6 +212,20 @@ gulp.task( 'onesky', ['pot'], function () {
 		.pipe( uploadToOneSky() );
 } );
 
-gulp.task( 'build', ['images', 'wrapper', 'html', 'angular-i18n'] );
+gulp.task( 'po', function () {
+	return gulp.src( 'src/languages/**/*.po' )
+		.pipe( gettext.compile( {
+			format: 'json'
+		} ) )
+		.pipe( gulp.dest( 'src/languages/' ) );
+} );
+
+gulp.task( 'languages', ['po'], function () {
+	return gulp.src( ['src/languages/**/*.json', 'src/languages/**/*.pot'] )
+		.pipe( gulp.dest( 'dist/languages' ) );
+} );
+
+gulp.task( 'build', ['images', 'wrapper', 'html', 'angular-i18n', 'languages'] );
 
 gulp.task( 'default', ['build'] );
+

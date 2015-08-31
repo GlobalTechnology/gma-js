@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function GMACtrl($scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics, UserPreference, growl, Languages) {
+    function GMACtrl($scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics, UserPreference, growl, Languages, gettextCatalog) {
         // Attach $location provider to scope, this is used to set active tabs
         $scope.$location = $location;
         $scope.mobileApps = Settings.mobileApps;
@@ -301,13 +301,25 @@
             });
 
             scrollToTop();
+		};
 
-        };
-        /**
-         * Sends true to show, false to hide
-         * @param tab
-         * @returns {boolean}
-         */
+		/**
+		 * Watches for changes to static_locale
+		 * - update gettext language
+		 * - load external language JSON
+		 */
+		$scope.$watch( 'current.user_preferences.static_locale', function(locale, oldLocale) {
+			if( typeof locale === 'undefined') return;
+			var parts = locale.split('-');
+			gettextCatalog.setCurrentLanguage(parts[0] + '_' + parts[1].toUpperCase());
+			gettextCatalog.loadRemote('languages/' + parts[0] + '-' + parts[1].toUpperCase() + '.json');
+		} );
+
+		/**
+		 * Sends true to show, false to hide
+		 * @param tab
+		 * @returns {boolean}
+		 */
         $scope.tabFilter = function (tab) {
             //current may not be defined, so hide un-till user get an assignment
             if (typeof $scope.current === 'undefined') return false;
