@@ -163,6 +163,10 @@
             }
             $scope.saveDetailsResource = Ministries.updateMinistry(ministry,
                 function () {
+                    //update current scope also
+                    $scope.current.assignment.name = $scope.ministry.name;
+                    $scope.current.assignment.mccs = $scope.ministry.mccs;
+                    $scope.current.assignment.content_locales = $scope.ministry.content_locales;
                     growl.success('Changes saved successfully');
                 }, function (response) {
                     growl.error('Unable to save changes');
