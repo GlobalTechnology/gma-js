@@ -6,7 +6,7 @@
 <div class="modal-body">
     <form class="form-horizontal" name="form" ng-submit="updateStory(story)" novalidate>
         <div class="form-group">
-            <label class="col-md-3 control-label" translate>Title :</label>
+            <label class="col-md-3 control-label" translate>Title</label>
             <div class="col-md-8">
                 <input type="text" name="title" ng-maxlength="120" class="form-control" placeholder="Title" ng-model="story.title" ng-required="true">
                 <small class="help-text" ng-show="form.title.$dirty && form.title.$invalid">
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label" translate>Content :</label>
+            <label class="col-md-3 control-label" translate>Content</label>
             <div class="col-md-8">
                 <textarea rows="5" name="content" ng-maxlength="{{storiesConfig.content_length}}" class="form-control" ng-model="story.content" ng-required="true" style="resize: vertical;max-height: 300px;"></textarea>
                 <small class="help-text" ng-hide="form.content.$error.maxlength">
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label" translate>Upload an Image :</label>
+            <label class="col-md-3 control-label" translate>Upload an image</label>
             <div class="col-md-9">
                 <div class="col-md-8">
                     <input
@@ -55,16 +55,16 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label" translate>Privacy :</label>
+            <label class="col-md-3 control-label" translate>Privacy</label>
             <div class="col-md-9">
                 <div class="col-xs-3">
                     <select class="form-control" ng-model="story.privacy" ng-required="true">
                         <option value="public">Pubic</option>
-                        <option value="team_only" translate>Team Only</option>
+                        <option value="team_only" translate>Team only</option>
                     </select>
                 </div>
                 <div class="col-xs-6">
-                    <label class="col-xs-6 control-label" translate>Publish Status :</label>
+                    <label class="col-xs-6 control-label" translate>Publish status</label>
                     <div class="col-xs-6">
                         <select class="form-control" ng-model="story.state" ng-required="true">
                             <option value="published" translate>Published</option>

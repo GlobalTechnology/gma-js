@@ -3,15 +3,15 @@
 <div id="side" class="map_side" ng-show="current.isLoaded">
 
 	<button title="Create new target point" type="button" class="btn btn-default btn-sm" ng-click="onAddIcon()" ng-if="current.mcc == 'gcm'">
-		<i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/target.png')}}" height="25" alt="+" />
+		<i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/target.png')}}" height="25" alt="" />
 	</button>
 
 	<button title="Create new training" type="button" class="btn btn-default btn-sm" ng-click="onAddTraining()" ng-if="current.assignment.mccs.length">
-        <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/training.png')}}" height="25" alt="+" />
+        <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/training.png')}}" height="25" alt="" />
 	</button>
 
     <button title="Create new target city" type="button" class="btn btn-default btn-sm" ng-click="onAddTargetCity()" ng-if="isTargetCitiesVisible===true">
-        <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/target-city.png')}}" height="25" alt="+" />
+        <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/target-city.png')}}" height="25" alt="" />
     </button>
 
 	<button title="My location on map" type="button" class="btn btn-default btn-my-location btn-sm" ng-click="myLocation()" ng-if="supportsGeoLocation">
@@ -84,7 +84,7 @@
 			<td style="text-align:center; padding:2px 12px">
 				<div style="display:inline-block; font-size:10px; font-weight:bold; border:1px solid #2a6800; padding:0px 3px; background-color:yellow; color:black">1</div>
 			</td>
-			<td><label for="jesusFilmCheckBox" translate>Jesus Film contribution</label></td>
+			<td><label for="jesusFilmCheckBox" translate>Jesus film contribution</label></td>
 		</tr>
 
 		<tr ng-if="current.mcc == 'gcm'">

@@ -1,11 +1,11 @@
 <div class="modal-header">
     <button type="button" class="close" ng-click="close()">
         <span aria-hidden="true">&times;</span><span class="sr-only" translate>Close</span></button>
-    <h4 class="modal-title" translate>My Preferences</h4>
+    <h4 class="modal-title" translate>My preferences</h4>
 </div>
 <div class="modal-body form-horizontal">
     <div class="form-group">
-        <label class="col-sm-4 control-label" translate>Preferred Ministry</label>
+        <label class="col-sm-4 control-label" translate>Preferred ministry</label>
 
         <div class="col-sm-7">
             <select class="form-control" ng-change="changeMCCS(options.preferred_ministry)" ng-model="options.preferred_ministry" ng-options="ministry.ministry_id as ministry.name for ministry in ministries">
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="form-group" ng-if="current.hasRole(['admin','inherited_admin','leader', 'inherited_leader'])">
-        <label class="col-sm-4 control-label" translate>Hide Reports Tab</label>
+        <label class="col-sm-4 control-label" translate>Hide reports tab</label>
 
         <div class="col-sm-8">
             <label class="radio-inline"><input type="radio" value="1" ng-model="options.hide_reports_tab"> <span translate>Hide</span></label>
@@ -31,14 +31,14 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-4 control-label" translate>Supported Staff</label>
+        <label class="col-sm-4 control-label" translate>Supported staff</label>
         <div class="col-sm-8">
             <label class="radio-inline"><input type="radio" value="1" ng-model="options.supported_staff"> <span translate>Yes</span></label>
             <label class="radio-inline"><input type="radio" value="0" ng-model="options.supported_staff"> <span translate>No</span></label>
         </div>
     </div>
     <div class="form-group" ng-if="current.assignment.content_locales">
-        <label class="col-sm-4 control-label" translate>Content Language</label>
+        <label class="col-sm-4 control-label" translate>Content language</label>
         <div class="col-sm-7">
             <select class="form-control" ng-model="options.content_locales[current.assignment.ministry_id]" ng-options="lang.iso_code as lang.english_name for lang in current.langList | filter:filterByLangCode">
             </select>
@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="form-group" ng-if="staticLocales">
-        <label class="col-sm-4 control-label" translate>Application Language</label>
+        <label class="col-sm-4 control-label" translate>Application language</label>
         <div class="col-sm-7">
             <select class="form-control" ng-model="options.static_locale" ng-options="code as name+' - ('+code+')' for (code,name) in staticLocales">
             </select>
