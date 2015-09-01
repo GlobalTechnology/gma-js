@@ -52,7 +52,12 @@
                 if (min_choice !== false) {
                     if (_.contains(['admin', 'inherited_admin', 'leader', 'inherited_leader'], min_choice.team_role)) {
                         $location.path('/news').replace();
-                        $scope.current.assignment = min_choice;
+                       var deRegister = $scope.$on('$routeChangeSuccess',function(){
+                           if(min_choice===false) return;
+                            $scope.current.assignment = min_choice;
+                            min_choice = false;
+                            deRegister();
+                        });
                     } else {
                         $scope.current.assignment = min_choice;
                     }
@@ -301,25 +306,25 @@
             });
 
             scrollToTop();
-		};
+        };
 
-		/**
-		 * Watches for changes to static_locale
-		 * - update gettext language
-		 * - load external language JSON
-		 */
-		$scope.$watch( 'current.user_preferences.static_locale', function(locale, oldLocale) {
-			if( typeof locale === 'undefined') return;
-			var parts = locale.split('-');
-			gettextCatalog.setCurrentLanguage(parts[0] + '_' + parts[1].toUpperCase());
-			gettextCatalog.loadRemote('languages/' + parts[0] + '-' + parts[1].toUpperCase() + '.json');
-		} );
+        /**
+         * Watches for changes to static_locale
+         * - update gettext language
+         * - load external language JSON
+         */
+        $scope.$watch('current.user_preferences.static_locale', function (locale, oldLocale) {
+            if (typeof locale === 'undefined') return;
+            var parts = locale.split('-');
+            gettextCatalog.setCurrentLanguage(parts[0] + '_' + parts[1].toUpperCase());
+            gettextCatalog.loadRemote('languages/' + parts[0] + '-' + parts[1].toUpperCase() + '.json');
+        });
 
-		/**
-		 * Sends true to show, false to hide
-		 * @param tab
-		 * @returns {boolean}
-		 */
+        /**
+         * Sends true to show, false to hide
+         * @param tab
+         * @returns {boolean}
+         */
         $scope.tabFilter = function (tab) {
             //current may not be defined, so hide un-till user get an assignment
             if (typeof $scope.current === 'undefined') return false;

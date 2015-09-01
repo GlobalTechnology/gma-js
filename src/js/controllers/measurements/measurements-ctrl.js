@@ -80,6 +80,9 @@
                 period: $scope.current.period.format('YYYY-MM')
             }, function () {
                 $scope.current.isLoaded = true;
+            },function(){
+                $scope.current.isLoaded = true;
+                growl.error('Unable to load measurements')
             });
         };
 
@@ -225,6 +228,9 @@
             }
         }, 60000);
 
+        $scope.$on('$destroy',function(){
+            $interval.cancel(autoSave);
+        });
 
         $scope.toggleMeasurementState = function (measurementState, perm_link_stub) {
             measurementState[perm_link_stub] = (measurementState[perm_link_stub] === 1) ? 0 : 1;
