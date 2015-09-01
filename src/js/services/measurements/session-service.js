@@ -21,7 +21,7 @@
                     }
 
 					token = response.data.session_ticket;
-					if ( typeof response.data.assignments === 'object' ) {
+					if ( typeof response.data.assignments === 'object' && response.data.assignments.length) {
 						$rootScope.current.assignments = response.data.assignments;
 					} else {
 						delete $rootScope.current.assignments;

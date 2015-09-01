@@ -15,7 +15,7 @@
         //---------------------------------------
 
         $scope.$on('sessionStart', function (event, session) {
-            if (typeof session.assignments === 'undefined') {
+            if (typeof session.assignments === 'undefined' || session.assignments.length==0) {
                 //Open Modal if user has no assignment
                 $scope.joinMinistry(false);
             }
