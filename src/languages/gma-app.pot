@@ -98,6 +98,10 @@ msgstr ""
 msgid "Area:"
 msgstr ""
 
+#: controllers/map/map-ctrl.js:461
+msgid "Bad Request: Unable to create target city"
+msgstr ""
+
 #: admin/add-measurement-type.html:60
 #: measurements/measurements.html:80
 msgid "Build"
@@ -116,6 +120,10 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+#: controllers/admin/admin-ctrl.js:170
+msgid "Changes saved successfully"
+msgstr ""
+
 #: map/edit-church.html:40
 #: map/new-church.html:46
 msgid "Check if used"
@@ -128,6 +136,14 @@ msgstr ""
 
 #: map/map.html:51
 msgid "Church or community of disciples"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:705
+msgid "Church was deleted successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:685
+msgid "Church was updated successfully"
 msgstr ""
 
 #: admin/add-measurement-type.html:3
@@ -230,6 +246,10 @@ msgstr ""
 msgid "Default MCC"
 msgstr ""
 
+#: controllers/map/map-ctrl.js:1349
+msgid "Default ministry map view has been set"
+msgstr ""
+
 #: map/_confirmation-dialog.html:11
 #: map/edit-training.html:72
 #: measurements/details.html:134
@@ -271,6 +291,19 @@ msgstr ""
 msgid "Draft"
 msgstr ""
 
+#: controllers/admin/admin-ctrl.js:624
+#: controllers/admin/admin-ctrl.js:631
+msgid "Drop canceled, can't be dropped on child team"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:617
+msgid "Drop canceled, can't be dropped on parent team"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:644
+msgid "Drop canceled, can't be dropped on selected team"
+msgstr ""
+
 #: stories/stories.html:35
 msgid "Edit"
 msgstr ""
@@ -299,6 +332,14 @@ msgstr ""
 msgid "English name"
 msgstr ""
 
+#: controllers/stories/stories-ctrl.js:63
+msgid "Error loading news feeds"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:463
+msgid "Error: Unable to create target city"
+msgstr ""
+
 #: map/edit-church.html:71
 #: map/new-church.html:74
 msgid "Everyone"
@@ -306,6 +347,19 @@ msgstr ""
 
 #: map/map.html:109
 msgid "Everything"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1362
+msgid "Failed to get your current location"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1494
+#: controllers/stories/stories-ctrl.js:160
+msgid "Failed to save story"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:376
+msgid "Failed, User not found"
 msgstr ""
 
 #: admin/add-measurement-type.html:47
@@ -347,6 +401,12 @@ msgstr ""
 
 #: admin/_edit-ministry.html:55
 msgid "Hide reports tab by default"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1482
+#: controllers/stories/stories-ctrl.js:138
+#: controllers/stories/stories-ctrl.js:244
+msgid "Image file was uploaded"
 msgstr ""
 
 #: stories/edit-story-dialog.html:48
@@ -449,13 +509,33 @@ msgstr ""
 msgid "MCCs"
 msgstr ""
 
+#: controllers/admin/admin-ctrl.js:191
+msgid "Measurement was created successfully"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:262
+msgid "Measurement was updated"
+msgstr ""
+
 #: admin/_measurement.html:4
 msgid "Measurements"
+msgstr ""
+
+#: controllers/measurements/measurements-ctrl.js:135
+msgid "Measurements saved successfully"
+msgstr ""
+
+#: controllers/measurements/measurements-ctrl.js:175
+msgid "Measurements updated successfully"
 msgstr ""
 
 #: admin/confirm-update-role.html:8
 #: measurements/details.html:131
 msgid "Member"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:587
+msgid "Member was moved to ministry successfully"
 msgstr ""
 
 #: admin/add-sub-ministry.html:19
@@ -478,6 +558,10 @@ msgstr ""
 #: admin/_edit-ministry.html:15
 #: admin/add-sub-ministry.html:14
 msgid "Ministry name is required."
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:559
+msgid "Ministry was moved successfully"
 msgstr ""
 
 #: join-ministry.html:9
@@ -577,6 +661,10 @@ msgstr ""
 
 #: map/new-target-city.html:4
 msgid "New Target city"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:369
+msgid "New member was added successfully"
 msgstr ""
 
 #: stories/stories.html:45
@@ -829,6 +917,10 @@ msgstr ""
 msgid "Story content should not exceed"
 msgstr ""
 
+#: controllers/stories/stories-ctrl.js:133
+msgid "Story saved successfully"
+msgstr ""
+
 #: stories/edit-story-dialog.html:13
 #: stories/new-story-dialog.html:15
 msgid "Story title field is required"
@@ -839,9 +931,17 @@ msgstr ""
 msgid "Story title should not exceed 120 characters"
 msgstr ""
 
+#: controllers/stories/stories-ctrl.js:236
+msgid "Story was updated"
+msgstr ""
+
 #: map/edit-target-city.html:44
 #: map/new-target-city.html:44
 msgid "Sub Stage:"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:479
+msgid "Sub ministry was created successfully"
 msgstr ""
 
 #: measurements/details.html:86
@@ -881,6 +981,22 @@ msgstr ""
 
 #: map/map.html:70
 msgid "Target city"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:919
+msgid "Target city position was updated"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:455
+msgid "Target city was created successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1282
+msgid "Target city was deleted successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:736
+msgid "Target city was updated"
 msgstr ""
 
 #: map/map.html:33
@@ -933,9 +1049,138 @@ msgstr ""
 msgid "Training activity"
 msgstr ""
 
+#: controllers/map/map-ctrl.js:1304
+msgid "Training stage was deleted successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:428
+msgid "Training was created"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1264
+msgid "Training was deleted successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1243
+msgid "Training was saved successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:714
+#: controllers/map/map-ctrl.js:725
+msgid "Training was updated"
+msgstr ""
+
 #: map/edit-church.html:48
 #: map/new-church.html:50
 msgid "Type:"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:378
+msgid "Unable to add new member"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:495
+msgid "Unable to add sub ministry"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:199
+msgid "Unable to create measurement"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1287
+msgid "Unable to delete target city"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:241
+msgid "Unable to get measurement"
+msgstr ""
+
+#: controllers/gma-ctrl.js:283
+msgid "Unable to join to requested ministry"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:568
+msgid "Unable to load countries list"
+msgstr ""
+
+#: controllers/gma-ctrl.js:412
+msgid "Unable to load languages"
+msgstr ""
+
+#: controllers/measurements/measurements-ctrl.js:85
+msgid "Unable to load measurements"
+msgstr ""
+
+#: controllers/reports/reports-ctrl.js:69
+msgid "Unable to load measurements for reporting"
+msgstr ""
+
+#: controllers/stories/stories-ctrl.js:92
+msgid "Unable to load stories"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:309
+msgid "Unable to load target cities"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:316
+msgid "Unable to load team members"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:596
+msgid "Unable to move member"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:572
+msgid "Unable to move ministry"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:172
+msgid "Unable to save changes"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1331
+#: controllers/map/map-ctrl.js:1351
+msgid "Unable to save default map view"
+msgstr ""
+
+#: controllers/measurements/measurements-ctrl.js:139
+msgid "Unable to save measurements"
+msgstr ""
+
+#: controllers/preference/user-preference-ctrl.js:48
+msgid "Unable to save preferences"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:689
+msgid "Unable to update church"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:264
+msgid "Unable to update measurement"
+msgstr ""
+
+#: controllers/stories/stories-ctrl.js:253
+msgid "Unable to update story"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:738
+#: controllers/map/map-ctrl.js:921
+msgid "Unable to update target city"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:717
+msgid "Unable to update training"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:425
+#: controllers/admin/admin-ctrl.js:444
+msgid "Unable to update user role"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1488
+#: controllers/stories/stories-ctrl.js:271
+msgid "Unable to upload image file"
 msgstr ""
 
 #: stories/edit-story-dialog.html:101
@@ -951,8 +1196,18 @@ msgstr ""
 msgid "Upload an image"
 msgstr ""
 
+#: controllers/map/map-ctrl.js:1486
+#: controllers/stories/stories-ctrl.js:269
+msgid "Upload failed, Invalid file input"
+msgstr ""
+
 #: error/error.html:4
 msgid "Use the button below to log back in."
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:420
+#: controllers/admin/admin-ctrl.js:438
+msgid "User role was updated"
 msgstr ""
 
 #: admin/add-team-member.html:14
@@ -976,6 +1231,14 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
+#: controllers/gma-ctrl.js:281
+msgid "You are already assigned to requested ministry"
+msgstr ""
+
+#: controllers/gma-ctrl.js:375
+msgid "You are not authorised for this"
+msgstr ""
+
 #: stories/edit-story-dialog.html:23
 #: stories/new-story-dialog.html:25
 msgid "You have"
@@ -983,6 +1246,18 @@ msgstr ""
 
 #: error/error.html:3
 msgid "You have been logged out or your session has expired due to inactivity."
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1366
+msgid "Your browser does not support GeoLocation"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1328
+msgid "Your default map view has been set"
+msgstr ""
+
+#: controllers/preference/user-preference-ctrl.js:39
+msgid "Your preferences were saved"
 msgstr ""
 
 #: stories/edit-story-dialog.html:26
