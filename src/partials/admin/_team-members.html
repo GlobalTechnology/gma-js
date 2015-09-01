@@ -6,17 +6,17 @@
 			 <input autofocus="" type="text" ng-model="filter.memberSearch" placeholder="{{'Search Members'|translate}}.." class="form-control input-sm">&emsp;
 
 			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.deletedUser"> <span translate>Deleted</span></label>
-			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.formerMember"> <span translate>Former Members</span></label>
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.formerMember"> <span translate>Former members</span></label>
 
-			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedLeader"> <span translate>Inherited Leaders</span></label>
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedLeader"> <span translate>Inherited leaders</span></label>
 
-			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedAdmin"> <span translate>Inherited Admins</span></label>
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedAdmin"> <span translate>Inherited admins</span></label>
 
 		 </div>
 		 <div class="pull-right">
-			 <button class="btn btn-default btn-sm" type="button" ng-click="loadMinistryMembers(activeTeam.ministry_id)" title="Refresh Members List"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only" translate>Refresh Members List</span></button>
-			 <button class="btn btn-primary btn-sm" type="button" ng-click="addNewTeamMember()"><i class="glyphicon glyphicon-user"></i> <span translate>Add Member</span></button>
-			 <button ng-if="current.hasRole(['admin','inherited_admin'])" class="btn btn-primary btn-sm" type="button" ng-click="addNewSubMinistry()"><i class="glyphicon glyphicon-plus"></i> <span translate>Add Sub Ministry</span></button>
+			 <button class="btn btn-default btn-sm" type="button" ng-click="loadMinistryMembers(activeTeam.ministry_id)" title="Refresh Members List"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only" translate>Refresh members list</span></button>
+			 <button class="btn btn-primary btn-sm" type="button" ng-click="addNewTeamMember()"><i class="glyphicon glyphicon-user"></i> <span translate>Add member</span></button>
+			 <button ng-if="current.hasRole(['admin','inherited_admin'])" class="btn btn-primary btn-sm" type="button" ng-click="addNewSubMinistry()"><i class="glyphicon glyphicon-plus"></i> <span translate>Add sub ministry</span></button>
 		 </div>
             <div class="clearfix"></div>
          </div>

@@ -7,7 +7,7 @@
 		<div class="panel-body">
             <form name="form" class="form-horizontal">
 			<div class="form-group row">
-				<label for="ministryName" class="col-sm-4 control-label" translate>Ministry Name</label>
+				<label for="ministryName" class="col-sm-4 control-label" translate>Ministry name</label>
 
 				<div class="col-sm-6">
 					<input id="ministryName" maxlength="255" type="text" name="name" class="form-control" ng-model="ministry.name" ng-required="true"/>
@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="form-group row" ng-show="ableToChangeParentMinistry(ministry.parent_id)">
-				<label class="col-sm-4 control-label" translate>Parent Ministry</label>
+				<label class="col-sm-4 control-label" translate>Parent ministry</label>
 
 				<div class="col-sm-6">
 					<select
@@ -26,7 +26,7 @@
 						class="form-control"
 						ng-model="ministry.parent_id"
 						ng-options="m.ministry_id as m.name for m in current.ministries | roleFilter:['admin','inherited_admin','leader','inherited_leader'] | orderBy:'name'">
-						<option value="" translate>No Parent Ministry</option>
+						<option value="" translate>No parent ministry</option>
 					</select>
 				</div>
 			</div>
@@ -52,7 +52,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-4 control-label" translate>Hide Reports Tab by default</label>
+				<label class="col-sm-4 control-label" translate>Hide reports tab by default</label>
 
 				<div class="col-sm-6">
 					<label class="radio-inline"><input type="radio" value="1" ng-model="ministry.hide_reports_tab"> <span translate>Hide</span></label>
@@ -60,13 +60,13 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-4 control-label" translate>Supported Languages</label>
+				<label class="col-sm-4 control-label" translate>Supported languages</label>
 
 				<div class="col-sm-6">
 					<select size="10" multiple="multiple" class="form-control" ng-model="ministry.content_locales" ng-options="lang.iso_code as lang.english_name for lang in current.langList">
 						<optgroup label="Select Languages"></optgroup>
 					</select>
-                    <small class="help-text" translate>CTRL + Click to select multiple languages</small>
+                    <small class="help-text" translate>CTRL + click to select multiple languages</small>
 				</div>
 			</div>
 
