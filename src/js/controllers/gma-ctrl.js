@@ -132,6 +132,19 @@
             }
         });
 
+        /**
+         * Deep watch for mccs array
+         */
+        $scope.$watch('current.assignment.mccs', function (mccs, oldVal) {
+            if (mccs !== undefined && mccs.length !== 0) {
+                if (typeof $scope.current.mcc === 'undefined' || mccs.indexOf($scope.current.mcc) < 0) {
+                    $scope.current.mcc = $filter('orderBy')(mccs, $scope.mccSort)[0];
+                }
+            } else {
+                delete $scope.current.mcc;
+            }
+        }, true);
+
         $scope.current.hasRole = function (role) {
             if (typeof $scope.current.assignment === 'undefined' || typeof $scope.current.assignment.team_role === 'undefined') return false;
             return (typeof role === 'string') ? role == $scope.current.assignment.team_role : _.contains(role, $scope.current.assignment.team_role);
@@ -234,7 +247,7 @@
                     ministry_id: data.ministry.ministry_id,
                     team_role: 'self_assigned'
                 }, function (assignment) {
-                    if (typeof $scope.current.assignments === 'undefined') {
+                    if (typeof $scope.current.assignments === 'undefined' || $scope.current.assignments===[]) {
                         // If assignments is empty, setting the array will also set the current assignment
                         $scope.current.assignments = [assignment];
 
@@ -299,7 +312,7 @@
                 resolve: {
                     modelData: function () {
                         return {
-                            mccLabels: $scope.mccLabels
+                            mccLabels: angular.copy($scope.mccLabels)
                         }
                     }
                 }
