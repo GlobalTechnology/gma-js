@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     function GMACtrl($scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics, UserPreference, growl, Languages, gettextCatalog) {
@@ -15,7 +15,7 @@
         //---------------------------------------
 
         $scope.$on('sessionStart', function (event, session) {
-            if (typeof session.assignments === 'undefined' || session.assignments.length==0) {
+            if (typeof session.assignments === 'undefined' || session.assignments.length == 0) {
                 //Open Modal if user has no assignment
                 $scope.joinMinistry(false);
             }
@@ -52,8 +52,8 @@
                 if (min_choice !== false) {
                     if (_.contains(['admin', 'inherited_admin', 'leader', 'inherited_leader'], min_choice.team_role)) {
                         $location.path('/news').replace();
-                       var deRegister = $scope.$on('$routeChangeSuccess',function(){
-                           if(min_choice===false) return;
+                        var deRegister = $scope.$on('$routeChangeSuccess', function () {
+                            if (min_choice === false) return;
                             $scope.current.assignment = min_choice;
                             min_choice = false;
                             deRegister();
@@ -406,4 +406,4 @@
     }
 
     angular.module('gma.controllers').controller('GMACtrl', GMACtrl);
-})();
+})(angular);

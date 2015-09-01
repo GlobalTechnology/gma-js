@@ -1,7 +1,7 @@
 ﻿(function ($) {
     'use strict';
 
-    function MapCtrl($scope, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics, UserPreference, $modal, growl, ISOCountries, TargetCity, Stories) {
+    function MapCtrl($scope, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics, UserPreference, $modal, growl, ISOCountries, TargetCity, Stories, gettextCatalog) {
         $scope.current.isLoaded = false;
         $scope.versionUrl = Settings.versionUrl;
         $scope.area_codes = _.sortBy(Settings.area_codes, 'name');
@@ -63,7 +63,7 @@
         setTimeout(initialize, 0);
 
         var sendAnalytics = _.throttle(function () {
-            console.log('Send analytics');
+
             GoogleAnalytics.screen('Map', (function () {
                 var dimensions = {};
                 dimensions[GoogleAnalytics.DIM.guid] = $scope.current.user.key_guid;

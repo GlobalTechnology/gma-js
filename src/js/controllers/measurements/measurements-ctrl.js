@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function MeasurementsCtrl($scope, $modal, $location, Measurements, UserPreference, Settings, GoogleAnalytics, $interval, growl) {
+    function MeasurementsCtrl($scope, $modal, $location, Measurements, UserPreference, Settings, GoogleAnalytics, $interval, growl, gettextCatalog) {
 
         var defaultLocale = 'en-US';
         $scope.current.isLoaded = false;
@@ -80,7 +80,7 @@
                 period: $scope.current.period.format('YYYY-MM')
             }, function () {
                 $scope.current.isLoaded = true;
-            },function(){
+            }, function () {
                 $scope.current.isLoaded = true;
                 growl.error('Unable to load measurements')
             });
@@ -228,7 +228,7 @@
             }
         }, 60000);
 
-        $scope.$on('$destroy',function(){
+        $scope.$on('$destroy', function () {
             $interval.cancel(autoSave);
         });
 

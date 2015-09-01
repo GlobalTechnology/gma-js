@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    function StoriesCtrl($scope, $modal, growl, Stories, Settings, $filter) {
+    function StoriesCtrl($scope, $modal, growl, Stories, Settings, $filter, gettextCatalog) {
         $scope.current.isLoaded = false;
         $scope.storiesLoaded = false;
         $scope.feedsLoaded = false;
@@ -48,7 +48,7 @@
             var params = {
                 ministry_id: $scope.current.assignment.ministry_id,
                 per_page: $scope.storiesConfig.feeds_count || 10,
-                page : page || 1
+                page: page || 1
             };
             Stories.getNewsFeeds(params).
                 success(function (response) {
@@ -112,8 +112,8 @@
                     };
                     $scope.saveStory = function (story) {
                         $modalInstance.close({
-                            story : story,
-                            imageFile : $scope.imageFile
+                            story: story,
+                            imageFile: $scope.imageFile
                         });
                     }
 
@@ -129,7 +129,7 @@
                     var originalParams = angular.copy($scope.storiesParams);
                     Stories.createStory(data.story)
                         .success(function (response) {
-                            response.created_at = $filter('date')(new Date(),'yyyy-MM-dd');
+                            response.created_at = $filter('date')(new Date(), 'yyyy-MM-dd');
                             growl.success('Story saved successfully');
                             if (typeof data.imageFile.resized !== 'undefined') {
                                 //Start uploading image file
@@ -137,9 +137,9 @@
                                     .success(function (img) {
                                         growl.success('Image file was uploaded');
                                         //find new story in list and update image url
-                                        var found_story = _.findWhere($scope.visibleStories,{story_id:img.story_id});
-                                        if(found_story!==undefined){
-                                            found_story.image_url= img.image_url;
+                                        var found_story = _.findWhere($scope.visibleStories, {story_id: img.story_id});
+                                        if (found_story !== undefined) {
+                                            found_story.image_url = img.image_url;
                                         }
                                     })
                                     .error(function (e) {
@@ -148,7 +148,7 @@
 
                             }
                             //if user is on first page, and params are same as before
-                            if ($scope.storiesNav.currentPage === 1 && angular.equals(originalParams,$scope.storiesParams)) {
+                            if ($scope.storiesNav.currentPage === 1 && angular.equals(originalParams, $scope.storiesParams)) {
                                 if ($scope.visibleStories.length === 0) {
                                     $scope.visibleStories = response
                                 } else {
@@ -181,8 +181,8 @@
                     modalData: function () {
                         return {
                             story: angular.copy(story),
-                            versionUrl : $scope.versionUrl,
-                            self_only : angular.copy($scope.storiesParams.self_only)
+                            versionUrl: $scope.versionUrl,
+                            self_only: angular.copy($scope.storiesParams.self_only)
                         }
                     }
                 }
@@ -212,8 +212,8 @@
 
                     $scope.updateStory = function (editStory) {
                         $modalInstance.close({
-                            editStory : editStory,
-                            imageFile : $scope.imageFile
+                            editStory: editStory,
+                            imageFile: $scope.imageFile
                         });
                     };
                 },
@@ -222,11 +222,11 @@
                         return {
                             storiesConfig: angular.copy($scope.storiesConfig),
                             story: angular.copy(story),
-                            versionUrl : $scope.versionUrl
+                            versionUrl: $scope.versionUrl
                         }
                     }
                 }
-            }).result.then(function(data){
+            }).result.then(function (data) {
                     //fixed a bug , that was causing a 500
                     delete data.editStory.church_id;
                     delete data.editStory.training_id;
@@ -235,15 +235,17 @@
                         .success(function (response) {
                             growl.success('Story was updated');
                             //update current story list with new contents
-                            angular.extend(originalStory,response);
+                            angular.extend(originalStory, response);
                             if (typeof data.imageFile.resized !== 'undefined') {
                                 //Start uploading image file
                                 uploadStoryImage(response.story_id, data.imageFile)
-                                .success(function (img) {
-                                    angular.extend(originalStory,img);
-                                    growl.success('Image file was uploaded');
-                                })
-                                .error(function(e){showUploadError(e)});
+                                    .success(function (img) {
+                                        angular.extend(originalStory, img);
+                                        growl.success('Image file was uploaded');
+                                    })
+                                    .error(function (e) {
+                                        showUploadError(e)
+                                    });
 
                             }
                         })
@@ -261,7 +263,8 @@
             return Stories.uploadStoryImage(story_id, form_data);
 
         }
-        function showUploadError(e){
+
+        function showUploadError(e) {
             if (e.status === 400) {
                 growl.error('Upload failed: Invalid file input');
             } else {

@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference) {
+    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference,gettextCatalog) {
         $scope.current.isLoaded = false;
 
         var sendAnalytics = _.throttle(function () {
