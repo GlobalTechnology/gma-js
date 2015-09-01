@@ -103,7 +103,7 @@
                                 var admin_mcc = _.find(assignment.mccs, function (mcc) {
                                     return (mcc === $scope.current.assignment.default_mcc);
                                 });
-                                if (typeof admin_mcc !== 'undefined' || admin_mcc !== '') {
+                                if (typeof admin_mcc !== 'undefined' && admin_mcc !== '') {
                                     $scope.current.mcc = admin_mcc;
                                 } else {
                                     //if admin preferences not found then use fist one
