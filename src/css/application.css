@@ -4,30 +4,9 @@
 	border-radius: 0 0 4px 4px;
 	padding: 15px;
 }
-
-.admin-columns {
-	-webkit-column-count: 2;
-	-webkit-column-gap: 0;
-	-moz-column-count: 2;
-	-moz-column-gap: 0;
-	-moz-column-fill: auto;
-	column-count: 2;
-	column-gap: 0;
-	column-fill: auto;
-}
-
 .admin-item {
-	display: inline-block;
-	padding: 15px;
+	padding: 10px 15px 15px;
 	width: 100%;
-	-webkit-column-break-inside: avoid;
-	page-break-inside: avoid;
-	break-inside: avoid;
-}
-
-.admin-item .panel {
-	position: relative;
-	display: block;
 }
 
 .map_legend {
@@ -537,8 +516,6 @@ td.no-overflow:hover{
     left: 100%;
     margin-top: -6px;
     margin-left: -1px;
-    -webkit-border-radius: 0 6px 6px 6px;
-    -moz-border-radius: 0 6px 6px;
     border-radius: 0 6px 6px 6px;
 }
 
@@ -571,7 +548,5 @@ td.no-overflow:hover{
 .dropdown-submenu.pull-left > .dropdown-menu {
     left: -100%;
     margin-left: 10px;
-    -webkit-border-radius: 6px 0 6px 6px;
-    -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
 }
