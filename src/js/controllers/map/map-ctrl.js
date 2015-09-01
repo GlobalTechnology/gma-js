@@ -306,7 +306,7 @@
                         $scope.targetCities = response
                     })
                     .error(function (e) {
-                        growl.error('Unable to load target cities');
+                        growl.error(gettextCatalog.getString('Unable to load target cities'));
                     })
             }
             else {
@@ -425,7 +425,7 @@
                     $scope.new_training.longitude = m.getPosition().lng();
                     $scope.new_training.mcc = $scope.current.mcc;
                     Trainings.addTraining($scope.current.sessionToken, $scope.new_training).then(function () {
-                            growl.success('Training was created');
+                            growl.success(gettextCatalog.getString('Training was created'));
                             $scope.loadTrainings();
                         }
                     );
@@ -452,15 +452,15 @@
 
                     TargetCity.createTargetCity(new_targetCity)
                         .success(function () {
-                            growl.success('Target city was created successfully');
+                            growl.success(gettextCatalog.getString('Target city was created successfully'));
                             new_targetCity = {};
                             //refresh target city icons
                             $scope.loadTargetCities();
                         }).error(function (e) {
                             if (e.status === 400) {
-                                growl.error('Bad Request: Unable to create target city');
+                                growl.error(gettextCatalog.getString('Bad Request: Unable to create target city'));
                             } else {
-                                growl.error('Error: Unable to create target city');
+                                growl.error(gettextCatalog.getString('Error: Unable to create target city'));
                             }
 
                         });
@@ -565,7 +565,7 @@
                         $scope.ISOCountries = _.sortBy($scope.ISOCountries, 'name');
                     })
                     .error(function () {
-                        growl.error('Unable to load country codes');
+                        growl.error(gettextCatalog.getString('Unable to load countries list'));
                     });
             }
 
@@ -682,11 +682,11 @@
             $scope.churchWindow.close();
             Churches.saveChurch($scope.edit_church).$promise
                 .then(function (response) {
-                    growl.success('Church was updated successfully');
+                    growl.success(gettextCatalog.getString('Church was updated successfully'));
                     $scope.onSaveChurch(response)
                 },
                 function () {
-                    growl.error('Unable to update church');
+                    growl.error(gettextCatalog.getString('Unable to update church'));
                 }
             );
         };
@@ -702,7 +702,7 @@
                     $scope.edit_church.end_date = moment().subtract(1, 'months').endOf('month').format('YYYY-MM-DD');
                     Churches.saveChurch($scope.edit_church).$promise.then(
                         function (response) {
-                            growl.success('Church was deleted successfully');
+                            growl.success(gettextCatalog.getString('Church was deleted successfully'));
                             $scope.onSaveChurch(response)
                         });
                 });
@@ -711,10 +711,10 @@
         $scope.updateTraining = function () {
             Trainings.updateTraining($scope.current.sessionToken, $scope.edit_training).then(
                 function (response) {
-                    growl.success('Training was updated');
+                    growl.success(gettextCatalog.getString('Training was updated'));
                     $scope.onSaveChurch(response);
                 }, function () {
-                    growl.error('Unable to update training');
+                    growl.error(gettextCatalog.getString('Unable to update training'));
                 }
             );
             $scope.trainingWindow.close();
@@ -722,7 +722,7 @@
 
         $scope.updateTrainingCompletion = function (data) {
             Trainings.updateTrainingCompletion($scope.current.sessionToken, data).then(function () {
-                growl.success('Training was updated');
+                growl.success(gettextCatalog.getString('Training was updated'));
             });
         };
 
@@ -733,9 +733,9 @@
             }
             TargetCity.updateTargetCity(targetCity)
                 .success(function (response) {
-                    growl.success('Target City was updated');
+                    growl.success(gettextCatalog.getString('Target city was updated'));
                 }).error(function (e) {
-                    growl.error('Unable to update target city');
+                    growl.error(gettextCatalog.getString('Unable to update target city'));
                 });
             $scope.targetCityWindow.close();
         };
@@ -916,9 +916,9 @@
 
                                 TargetCity.updateTargetCity(targetCity)
                                     .success(function (response) {
-                                        growl.success('Target city position was updated');
+                                        growl.success(gettextCatalog.getString('Target city position was updated'));
                                     }).error(function (e) {
-                                        growl.error('Unable to update target city')
+                                        growl.error(gettextCatalog.getString('Unable to update target city'))
                                     });
                                 marker.setAnimation(null);
                                 marker.setDraggable(false);
@@ -1240,7 +1240,7 @@
 
         $scope.onAddTrainingCompletion = function (response) {
             response.editMode = false;
-            growl.success('Training was saved successfully');
+            growl.success(gettextCatalog.getString('Training was saved successfully'));
             angular.forEach($scope.trainings, function (training) {
                 var id = training.hasOwnProperty('Id') ? training.Id : training.id;
                 if (id == response.training_id) {
@@ -1261,7 +1261,7 @@
 
                     Trainings.deleteTraining($scope.current.sessionToken, $scope.edit_training)
                         .then(function (data) {
-                            growl.success('Training was deleted successfully');
+                            growl.success(gettextCatalog.getString('Training was deleted successfully'));
                             $scope.trainingWindow.close();
                             $scope.loadTrainings();
                         });
@@ -1279,12 +1279,12 @@
 
                     TargetCity.deleteTargetCity(target_city.target_city_id)
                         .success(function (data) {
-                            growl.success('Target city was deleted successfully');
+                            growl.success(gettextCatalog.getString('Target city was deleted successfully'));
                             $scope.targetCityWindow.close();
                             $scope.loadTargetCities();
                         })
                         .error(function (e) {
-                            growl.error('Unable to delete target city');
+                            growl.error(gettextCatalog.getString('Unable to delete target city'));
 
                         });
                 });
@@ -1301,8 +1301,7 @@
 
                     Trainings.deleteTrainingCompletion($scope.current.sessionToken, training_complete)
                         .then(function (data) {
-                            growl.success('Training stage was deleted successfully');
-                            $scope.edit_training.gcm_training_completions.splice(index, 1);
+                            growl.success(gettextCatalog.getString('Training stage was deleted successfully'));                            $scope.edit_training.gcm_training_completions.splice(index, 1);
                         });
 
                 });
@@ -1326,10 +1325,10 @@
             };
             //save user preference
             UserPreference.savePreference(post_data).success(function (data) {
-                growl.success('Your default map view has been set');
+                growl.success(gettextCatalog.getString('Your default map view has been set'));
                 $scope.current.user_preferences = data;
             }, function () {
-                growl.error('Unable to save default map view');
+                growl.error(gettextCatalog.getString('Unable to save default map view'));
             });
 
         };
@@ -1347,9 +1346,9 @@
                 },
                 location_zoom: $scope.map.getZoom()
             }, function (d) {
-                growl.success('Default ministry map view has been set');
+                growl.success(gettextCatalog.getString('Default ministry map view has been set'));
             }, function () {
-                growl.error('Unable to save default map view');
+                growl.error(gettextCatalog.getString('Unable to save default map view'));
             });
         };
 
@@ -1360,11 +1359,11 @@
                     $scope.map.setCenter(center);
                     $scope.map.setZoom(15);
                 }, function () {
-                    growl.error('Failed to get your current location')
+                    growl.error(gettextCatalog.getString('Failed to get your current location'))
                 });
             }
             else {
-                growl.error('Your browser does not support GeoLocation')
+                growl.error(gettextCatalog.getString('Your browser does not support GeoLocation'));
             }
         };
 
@@ -1480,19 +1479,19 @@
                                 //Start uploading image file
                                 Stories.uploadStoryImage(response.story_id, form_data)
                                     .success(function (img) {
-                                        growl.success('Image file was uploaded');
+                                        growl.success(gettextCatalog.getString('Image file was uploaded'));
                                     })
                                     .error(function (e) {
                                         if (e.status === 400) {
-                                            growl.error('Upload failed: Invalid file input');
+                                            growl.error(gettextCatalog.getString('Upload failed, Invalid file input'));
                                         } else {
-                                            growl.error('Unable to upload image file');
+                                            growl.error(gettextCatalog.getString('Unable to upload image file'));
                                         }
                                     });
                             }
                         })
                         .error(function () {
-                            growl.error('Failed to save story');
+                            growl.error(gettextCatalog.getString('Failed to save story'));
                         });
 
                 });

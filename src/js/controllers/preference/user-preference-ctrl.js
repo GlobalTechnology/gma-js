@@ -36,7 +36,7 @@
             delete options.default_measurement_states;
             UserPreference.savePreference(options)
                 .success(function (data) {
-                    growl.success('Your preferences were saved');
+                    growl.success(gettextCatalog.getString('Your preferences were saved'));
                     //if user want to hide reports tab and is on reports tab so
                     if (options.hide_reports_tab == 1 && $location.path() == '/reports') {
                         $scope.current.redirectToHomeTab();
@@ -45,7 +45,7 @@
                     $scope.current.user_preferences = data;
                 })
                 .error(function () {
-                    growl.error('Unable to save preferences');
+                    growl.error(gettextCatalog.getString('Unable to save preferences'));
                 });
             $modalInstance.close(true);
         };

@@ -60,7 +60,7 @@
                 })
                 .error(function (e) {
                     $scope.feedsLoaded = true;
-                    growl.error('Error loading news feeds');
+                    growl.error(gettextCatalog.getString('Error loading news feeds'));
                 });
 
         };
@@ -89,7 +89,7 @@
                 })
                 .error(function (e) {
                     $scope.storiesLoaded = true;
-                    growl.error('Unable to load stories');
+                    growl.error(gettextCatalog.getString('Unable to load stories'));
                 });
         };
 
@@ -130,12 +130,12 @@
                     Stories.createStory(data.story)
                         .success(function (response) {
                             response.created_at = $filter('date')(new Date(), 'yyyy-MM-dd');
-                            growl.success('Story saved successfully');
+                            growl.success(gettextCatalog.getString('Story saved successfully'));
                             if (typeof data.imageFile.resized !== 'undefined') {
                                 //Start uploading image file
                                 uploadStoryImage(response.story_id, data.imageFile)
                                     .success(function (img) {
-                                        growl.success('Image file was uploaded');
+                                        growl.success(gettextCatalog.getString('Image file was uploaded'));
                                         //find new story in list and update image url
                                         var found_story = _.findWhere($scope.visibleStories, {story_id: img.story_id});
                                         if (found_story !== undefined) {
@@ -157,7 +157,7 @@
                             }
                         })
                         .error(function () {
-                            growl.error('Failed to save story');
+                            growl.error(gettextCatalog.getString('Failed to save story'));
                         });
                 });
             scrollToTop();
@@ -233,7 +233,7 @@
 
                     Stories.updateStory(data.editStory)
                         .success(function (response) {
-                            growl.success('Story was updated');
+                            growl.success(gettextCatalog.getString('Story was updated'));
                             //update current story list with new contents
                             angular.extend(originalStory, response);
                             if (typeof data.imageFile.resized !== 'undefined') {
@@ -241,7 +241,7 @@
                                 uploadStoryImage(response.story_id, data.imageFile)
                                     .success(function (img) {
                                         angular.extend(originalStory, img);
-                                        growl.success('Image file was uploaded');
+                                        growl.success(gettextCatalog.getString('Image file was uploaded'));
                                     })
                                     .error(function (e) {
                                         showUploadError(e)
@@ -250,7 +250,7 @@
                             }
                         })
                         .error(function (e) {
-                            growl.error('Unable to update story');
+                            growl.error(gettextCatalog.getString('Unable to update story'));
                         });
                 });
             scrollToTop();
@@ -266,9 +266,9 @@
 
         function showUploadError(e) {
             if (e.status === 400) {
-                growl.error('Upload failed: Invalid file input');
+                growl.error(gettextCatalog.getString('Upload failed, Invalid file input'));
             } else {
-                growl.error('Unable to upload image file');
+                growl.error(gettextCatalog.getString('Unable to upload image file'));
             }
         }
 

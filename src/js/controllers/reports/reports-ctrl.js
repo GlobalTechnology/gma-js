@@ -66,7 +66,7 @@
                 }, function () {
                     $scope.current.isLoaded = true;
                     delete $scope.dataTable;
-                    growl.error('Unable to load measurements')
+                    growl.error(gettextCatalog.getString('Unable to load measurements for reporting'))
                 });
             }
         }, 100);

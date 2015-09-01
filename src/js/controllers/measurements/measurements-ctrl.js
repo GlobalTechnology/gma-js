@@ -82,7 +82,7 @@
                 $scope.current.isLoaded = true;
             }, function () {
                 $scope.current.isLoaded = true;
-                growl.error('Unable to load measurements')
+                growl.error(gettextCatalog.getString('Unable to load measurements'));
             });
         };
 
@@ -132,11 +132,11 @@
 
             if (measurements.length > 0) {
                 Measurements.saveMeasurement({}, measurements, function (response) {
-                    growl.success('Measurements saved successfully');
+                    growl.success(gettextCatalog.getString('Measurements saved successfully'));
                     getMeasurements();
                     $scope.lmiForm.$setPristine();
                 }, function () {
-                    growl.error('Unable to save measurements');
+                    growl.error(gettextCatalog.getString('Unable to save measurements'));
                 });
             }
         };
@@ -172,7 +172,7 @@
             });
             instance.result.then(function () {
                 //setting confirmation message
-                growl.success('Measurements updated successfully');
+                growl.success(gettextCatalog.getString('Measurements updated successfully'));
                 getMeasurements();
             });
             window.setTimeout(function () {
@@ -220,7 +220,6 @@
                         //stop auto-saving if server sends 500 or 400
                         if (e.status === 500 || e.status === 400) {
                             $interval.cancel(autoSave);
-                            growl.info('Server is having problems in saving measurement states');
                         }
                     });
 

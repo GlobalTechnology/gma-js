@@ -265,9 +265,9 @@
                     })());
                 }, function (e) {
                     if (e.status === 400) {
-                        growl.error('You are already assigned to requested ministry');
+                        growl.error(gettextCatalog.getString('You are already assigned to requested ministry'));
                     } else {
-                        growl.error('Unable to join ministry')
+                        growl.error(gettextCatalog.getString('Unable to join to requested ministry'));
                     }
                 });
             });
@@ -359,7 +359,7 @@
 
             //check if user has permission to load this tab
             if (typeof foundTab !== 'undefined' && !$scope.current.hasRole(foundTab.requiredRoles)) {
-                growl.error('You are not authorised for this');
+                growl.error(gettextCatalog.getString('You are not authorised for this'));
                 event.preventDefault();
                 return false;
             }
@@ -396,7 +396,7 @@
                         return $scope.current.langList;
                     })
                     .error(function () {
-                        growl.error('Unable to load languages');
+                        growl.error(gettextCatalog.getString('Unable to load languages'));
                         return false;
                     });
 

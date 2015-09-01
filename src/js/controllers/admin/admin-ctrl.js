@@ -167,9 +167,9 @@
                     $scope.current.assignment.name = $scope.ministry.name;
                     $scope.current.assignment.mccs = $scope.ministry.mccs;
                     $scope.current.assignment.content_locales = $scope.ministry.content_locales;
-                    growl.success('Changes saved successfully');
+                    growl.success(gettextCatalog.getString('Changes saved successfully'));
                 }, function (response) {
-                    growl.error('Unable to save changes');
+                    growl.error(gettextCatalog.getString('Unable to save changes'));
                 });
         };
 
@@ -188,7 +188,7 @@
                 }
             }).result.then(function (newMeasurement) {
                     MeasurementTypes.addMeasurementType(newMeasurement, function (response) {
-                        growl.success('Measurement was created successfully');
+                        growl.success(gettextCatalog.getString('Measurement was created successfully'));
 
                         //push new measurement type to current list of measurement
                         var new_measurement = angular.fromJson(angular.toJson(response));
@@ -196,7 +196,7 @@
                         $scope.measurementTypes.push(new_measurement);
 
                     }, function () {
-                        growl.error('Unable to create measurement');
+                        growl.error(gettextCatalog.getString('Unable to create measurement'));
                     });
                 });
             scrollToTop();
@@ -238,7 +238,7 @@
                             $scope.measurement.localized_description = response.localize_description || response.localized_description;
                             $scope.isLocaleLoaded = true;
                         }, function () {
-                            growl.error('Unable to get measurement');
+                            growl.error(gettextCatalog.getString('Unable to get measurement'));
                             $scope.isLocaleLoaded = true;
                         })
                     };
@@ -259,9 +259,9 @@
                     form.ministry_id = $scope.current.assignment.ministry_id;
 
                     MeasurementTypes.updateMeasurementType(form, function (response) {
-                        growl.success('Measurement was updated');
+                        growl.success(gettextCatalog.getString('Measurement was updated'));
                     }, function () {
-                        growl.error('Unable to update measurement');
+                        growl.error(gettextCatalog.getString('Unable to update measurement'));
                     });
 
 
@@ -313,7 +313,7 @@
                 $scope.activeTeamMembers = response.team_members;
                 $scope.membersLoaded = true;
             }, function () {
-                growl.error('Unable to load team members');
+                growl.error(gettextCatalog.getString('Unable to load team members'));
                 $scope.membersLoaded = true;
             });
         };
@@ -366,16 +366,16 @@
                     if (typeof newMember === 'undefined') return false;
                     newMember.ministry_id = $scope.activeTeam.ministry_id;
                     Assignments.addTeamMember(newMember, function (response) {
-                        growl.success('New member was added successfully');
+                        growl.success(gettextCatalog.getString('New member was added successfully'));
                         //refresh members list
                         //todo append new member to current member list instead of refreshing team list
                         $scope.loadMinistryMembers($scope.activeTeam.ministry_id);
 
                     }, function (response) {
                         if (response.status === 404) {
-                            growl.error('Failed, User not found');
+                            growl.error(gettextCatalog.getString('Failed, User not found'));
                         } else {
-                            growl.error('Unable to add new member');
+                            growl.error(gettextCatalog.getString('Unable to add new member'));
                         }
                     });
                 });
@@ -417,12 +417,12 @@
                     if (typeof user.assignment_id !== 'undefined' && user.assignment_id.trim() !== '') {
                         //update user role
                         Assignments.saveAssignment({assignment_id: user.assignment_id}, {team_role: user.team_role}, function () {
-                            growl.success('User role was updated');
+                            growl.success(gettextCatalog.getString('User role was updated'));
                             //success so update old_role in scope also
                             old_role = user.team_role;
 
                         }, function () {
-                            growl.error('Unable to update user role');
+                            growl.error(gettextCatalog.getString('Unable to update user role'));
                             //if failed lets restore old role
                             user.team_role = old_role;
                         });
@@ -435,13 +435,13 @@
                             team_role: user.team_role
                         };
                         Assignments.addTeamMember(post_data, function (response) {
-                            growl.success('User role was updated');
+                            growl.success(gettextCatalog.getString('User role was updated'));
                             //refresh members list
                             //todo update user_role and assignment_id in scope instead of refreshing list
                             $scope.loadMinistryMembers($scope.activeTeam.ministry_id);
 
                         }, function () {
-                            growl.error('Unable to update user role');
+                            growl.error(gettextCatalog.getString('Unable to update user role'));
                             //if failed lets restore old role
                             user.team_role = old_role;
 
@@ -476,7 +476,7 @@
                     newMinistry.parent_id = $scope.activeTeam.ministry_id;
 
                     Ministries.createMinistry(newMinistry, function (response) {
-                        growl.success('Sub ministry was created successfully');
+                        growl.success(gettextCatalog.getString('Sub ministry was created successfully'));
 
                         var got_ministry = {
                             ministry_id: response.id,
@@ -492,7 +492,7 @@
                         }
 
                     }, function () {
-                        growl.error('Unable to add sub ministry');
+                        growl.error(gettextCatalog.getString('Unable to add sub ministry'));
                     });
                 });
 
@@ -556,7 +556,7 @@
                     parent_id: team.ministry_id
                 };
                 Ministries.updateMinistry(ministry, function (response) {
-                    growl.success('Ministry was moved successfully');
+                    growl.success(gettextCatalog.getString('Ministry was moved successfully'));
                     //append team to new location
                     if (team.hasOwnProperty('sub_ministries')) {
                         team.sub_ministries.push(draggedTeam);
@@ -569,7 +569,7 @@
                         $scope.draggedTeam.hide_after_drop = true;
                     }
                 }, function () {
-                    growl.error('Unable to move ministry');
+                    growl.error(gettextCatalog.getString('Unable to move ministry'));
                 });
 
                 //case when moving member
@@ -584,7 +584,7 @@
 
                 Assignments.addTeamMember(member, function () {
                     $scope.draggedMember.team_role = 'former_member';
-                    growl.success('Member was moved to ministry successfully');
+                    growl.success(gettextCatalog.getString('Member was moved to ministry successfully'));
                     //set user's old role to former_member
                     Assignments.saveAssignment({assignment_id: member.assignment_id}, {team_role: 'former_member'}, function () {
                         $scope.draggedMember.team_role = 'former_member';
@@ -593,7 +593,7 @@
                         $scope.draggedMember.team_role = member.team_role;
                     });
                 }, function () {
-                    growl.error('Unable to move member');
+                    growl.error(gettextCatalog.getString('Unable to move member'));
                 });
             } else {
                 return false;
@@ -614,21 +614,21 @@
             if ($scope.draggedType == 'team') {
                 //check if team can be dropped or not
                 if (team.ministry_id === $scope.draggedTeam.parent_id) {
-                    growl.error("Drop canceled, can't be dropped on parent team");
+                    growl.error(gettextCatalog.getString("Drop canceled, can't be dropped on parent team"));
                     return {
                         then: function () {
                             return false;
                         }
                     };
                 } else if (team.parent_id === $scope.draggedTeam.ministry_id) {
-                    growl.error("Drop canceled, can't be dropped on child team");
+                    growl.error(gettextCatalog.getString("Drop canceled, can't be dropped on child team"));
                     return {
                         then: function () {
                             return false;
                         }
                     };
                 } else if ($scope.draggedTeam.hasOwnProperty('sub_ministries') && checkIfDroppingOnChildTeam($scope.draggedTeam, team)) {
-                    growl.error("Drop canceled, can't be dropped on child team");
+                    growl.error(gettextCatalog.getString("Drop canceled, can't be dropped on child team"));
                     return {
                         then: function () {
                             return false;
@@ -641,7 +641,7 @@
             } else if ($scope.draggedType == 'member') {
                 //prevent member drop on current active team itself
                 if ($scope.activeTeam.ministry_id === team.ministry_id) {
-                    growl.error("Drop canceled, can't be dropped on selected team");
+                    growl.error(gettextCatalog.getString("Drop canceled, can't be dropped on selected team"));
                     return {
                         then: function () {
                             return false;
