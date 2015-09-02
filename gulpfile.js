@@ -151,7 +151,7 @@ gulp.task( 'partials', ['clean'], function () {
 		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
-gulp.task( 'styles', ['clean'], function () {
+gulp.task( 'styles', ['clean','bower'], function () {
 	return gulp.src( [
 		'bower_components/angular-growl-v2/build/angular-growl.css',
 		'src/css/application.css',
