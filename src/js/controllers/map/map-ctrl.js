@@ -1526,7 +1526,7 @@
         };
 
         $scope.canAddStories = function () {
-            return $scope.current.hasRole('admin', 'inherited_admin', 'leader', 'inherited_leader', 'member');
+            return $scope.current.hasRole(['admin', 'inherited_admin', 'leader', 'inherited_leader', 'member']);
         }
     }
 
