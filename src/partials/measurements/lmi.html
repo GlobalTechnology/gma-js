@@ -15,7 +15,7 @@
 
 	<div class="lmi-item member" ng-switch-when="member" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
-		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
+		<div collapse="(measurementState[m.perm_link_stub]===1)">
 			<div class="lmi-item-section col-xs-6">
 				<div class="lmi-input-group">
 					<input type="number"
@@ -40,7 +40,7 @@
 
 	<div class="lmi-item leader" ng-switch-when="leader" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
-		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
+		<div collapse="(measurementState[m.perm_link_stub]===1)">
 			<div class="lmi-item-section col-xs-4">
 				<div class="lmi-input-group">
 					<input type="number"
@@ -76,7 +76,7 @@
 
 	<div class="lmi-item leader" ng-switch-when="admin" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
-		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
+		<div collapse="(measurementState[m.perm_link_stub]===1)">
 			<div class="lmi-item-section col-xs-4">
 				<div class="lmi-input-group">
 					<input type="number"
@@ -112,7 +112,7 @@
 
 	<div class="lmi-item inherited_leader" ng-switch-when="inherited_leader" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
-		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
+		<div collapse="(measurementState[m.perm_link_stub]===1)">
 			<div class="lmi-item-section col-xs-6">
 				<div class="lmi-input-group" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">
 					<input type="number"
@@ -136,7 +136,7 @@
 
 	<div class="lmi-item inherited_leader" ng-switch-when="inherited_admin" ng-if="checkMeasureState(m)">
 		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
-		<div collapse="getExpandCollapse(measurementState[m.perm_link_stub])">
+		<div collapse="(measurementState[m.perm_link_stub]===1)">
 			<div class="lmi-item-section col-xs-6">
 				<div class="lmi-input-group">
 					<input type="number"

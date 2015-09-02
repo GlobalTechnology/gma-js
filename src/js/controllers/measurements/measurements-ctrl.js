@@ -235,10 +235,6 @@
             measurementState[perm_link_stub] = (measurementState[perm_link_stub] === 1) ? 0 : 1;
         };
 
-        $scope.getExpandCollapse = function (measurementState) {
-            return (measurementState === 1);
-        };
-
         $scope.checkMeasureState = function (measurement) {
 
             if (measurement.supported_staff_only === true) {
