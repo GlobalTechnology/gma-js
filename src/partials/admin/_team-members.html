@@ -89,10 +89,10 @@
                                  >
                              <option
                                      ng-repeat="role in roles"
-                                     ng-disabled="role.value === 'inherited_admin' || role.value ==='inherited_leader' || role.value ==='former_member'"
+                                     ng-disabled="role.value === 'inherited_admin' || role.value ==='inherited_leader'"
                                      ng-selected="{{role.value === member.team_role}}"
                                      value="{{role.value}}"
-                                     ng-class="{'text-warning' : (role.value === 'former_member'),'text-danger' : (role.value==='blocked')}"
+                                     ng-class="{'text-danger' : (role.value==='blocked')}"
                                      > {{role.text}} </option>
                          </select>
 					 </td>
