@@ -633,6 +633,24 @@
             $scope.new_parentLine.setMap($scope.map);
         };
 
+        /**
+         * Press ESC to cancel SetParent for churches
+         * @param evt
+         */
+        document.onkeydown = function(evt){
+            evt = evt || window.event;
+            if ($scope.SetParentMode && evt.keyCode == 27) {
+                google.maps.event.removeListener($scope.move_event);
+                $scope.SetParentMode = false;
+                $scope.new_parentLine.setMap(null);
+            }
+        };
+
+        $scope.$on('$destroy', function () {
+            document.onkeydown = null
+        });
+
+
         $scope.RemoveParent = function () {
             $scope.churchWindow.close();
             $scope.edit_church.parent_id = null;
