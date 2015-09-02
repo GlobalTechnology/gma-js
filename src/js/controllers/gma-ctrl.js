@@ -50,7 +50,7 @@
                 }
                 //redirect user to his home tab
                 if (min_choice !== false) {
-                    if (_.contains(['admin', 'inherited_admin', 'leader', 'inherited_leader'], min_choice.team_role)) {
+                    if (_.contains(['admin', 'inherited_admin', 'leader', 'inherited_leader','member'], min_choice.team_role)) {
                         $location.path('/news').replace();
                         var deRegister = $scope.$on('$routeChangeSuccess', function () {
                             if (min_choice === false) return;

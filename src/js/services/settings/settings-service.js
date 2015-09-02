@@ -90,7 +90,7 @@
                             icon:          'glyphicon-home',
                             templateUrl:   'partials/stories/stories.html',
                             controller:    'StoriesCtrl',
-                            requiredRoles: ['admin','inherited_admin','inherited_leader', 'leader']
+                            requiredRoles: ['admin','inherited_admin','inherited_leader', 'leader','member']
                         } );
                         break;
 				}
