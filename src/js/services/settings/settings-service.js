@@ -111,14 +111,14 @@
 					logout:       config.api.logout,
 					login:        config.api.login
 				},
-				mobileApps:      ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
+				mobileApps:      ( typeof config.mobileapps === 'object' && Object.keys(config.mobileapps).length > 0  ) ? config.mobileapps : false,
 				gmaNamespace:    config.namespace,
 				tabs:            tabs,
 				googleAnalytics: config.googleanalytics,
 				default_measurement_states: config.default_measurement_states || {},
                 stories:         config.stories,
                 area_codes:      config.area_codes,
-                static_locales:      config.static_locales
+                static_locales:  config.static_locales
 			}
 		};
 	}
