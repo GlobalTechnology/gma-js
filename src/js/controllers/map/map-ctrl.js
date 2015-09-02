@@ -783,6 +783,7 @@
                                 labelInBackground: false,
                                 draggable: false
                             });
+                            marker.setAnimation(google.maps.Animation.DROP);
                             if (!$scope.trainingWindow.getContent()) {
                                 $scope.trainingWindow.setContent($scope.trainingWindowContent[0].nextSibling);
                             }
@@ -891,6 +892,7 @@
                                 labelInBackground: false,
                                 draggable: false
                             });
+                            marker.setAnimation(google.maps.Animation.DROP);
                             if (!$scope.targetCityWindow.getContent()) {
                                 $scope.targetCityWindow.setContent($scope.targetCityWindowContent[0].nextSibling);
                             }
@@ -1009,6 +1011,7 @@
                             labelInBackground: false,
                             draggable: false
                         });
+                        marker.setAnimation(google.maps.Animation.DROP);
                         if (church.jf_contrib >= 1) {
                             new $scope.jesusFilmSign(new google.maps.LatLng(church.latitude, church.longitude), church.jf_contrib, church.development, church.id);
                         }
