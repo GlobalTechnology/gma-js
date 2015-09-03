@@ -16,6 +16,10 @@
 					$element.on( 'blur', function () {
 						focusedElement = null;
 					} );
+                    $element.on( 'mouseup', function (evt) {
+                        evt.preventDefault();
+                        return false;
+                    } );
 				}
 			};
 		}] )
