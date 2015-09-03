@@ -16,8 +16,8 @@
             <li ng-show="story.church_name"><i class="glyphicon glyphicon-map-marker"></i> {{story.church_name}}</li>
             <li ng-show="story.training_name"><i class="glyphicon glyphicon-education"></i> {{story.training_name}}</li>
         </ul>
-        <div class="pull-left" style="margin: 0.5em 1em 1em 0">
-            <img class="media-object img-thumbnail" ng-src="{{(story.image_url===undefined  || story.image_url=='') ? versionUrl('img/story-128.png') : versionUrl(story.image_url+'?v='+story.updated_at)}}" alt="image" height="128" width="128">
+        <div class="pull-left" style="margin: 0.5em 1em 1em 0" ng-if="(story.image_url!==undefined  && story.image_url!=='')">
+            <img class="media-object img-thumbnail" ng-src="{{story.image_url+'?v='+story.updated_at}}" alt="image" height="128" width="128">
         </div>
         <p> {{story.content}} </p>
     </div>

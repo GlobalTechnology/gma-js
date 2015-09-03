@@ -4,7 +4,7 @@
             <div class="panel-body">
             <div class="pull-left">
 
-                <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-change="searchStories(1,storiesParams)" ng-model="storiesParams.self_only" > <span translate>Created By Me</span></label>
+                <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-change="searchStories(1,storiesParams)" ng-model="storiesParams.self_only" > <span translate>Created by me</span></label>
 
             </div>
             <div class="pull-right">
@@ -19,7 +19,7 @@
                     <div class="media media-custom" ng-repeat="story in visibleStories | orderBy : '-created_at'">
                     <div class="media-left media-middle">
                         <a ng-click="viewStory(story)" title="View" href="javascript:void(0)" class="thumbnail thumb-128">
-                            <img class="media-object" ng-src="{{(story.image_url===undefined || story.image_url=='') ? versionUrl('img/story-128.png') : versionUrl(story.image_url+'?v='+story.updated_at)}}" alt="image" height="128" width="128">
+                            <img class="media-object" ng-src="{{(story.image_url===undefined || story.image_url=='') ? versionUrl('img/story-128.png') : story.image_url+'?v='+story.updated_at}}" alt="image" height="128" width="128">
                         </a>
                     </div>
                     <div class="media-body">
