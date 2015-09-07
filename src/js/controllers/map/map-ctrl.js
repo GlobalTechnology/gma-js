@@ -795,7 +795,7 @@
                                 position: new google.maps.LatLng(training.latitude, training.longitude),
                                 map: $scope.map,
                                 id: 't' + training.id,
-                                title: training.type,
+                                title: training.name+' ('+training.type+')',
                                 icon: $scope.map.icons.training,
                                 labelContent: '', //training.type + '<span class="map-trained-count">' + training.leaders_trained + '</span>',
                                 labelAnchor: new google.maps.Point(30, 0),
@@ -1040,6 +1040,7 @@
                         marker = new MarkerWithLabel({
                             position: new google.maps.LatLng(church.latitude, church.longitude),
                             map: $scope.map,
+                            title: 'Click to zoom',
                             id: church.id,
                             cluster_count: church.cluster_count,
                             icon: $scope.map.icons.cluster,
