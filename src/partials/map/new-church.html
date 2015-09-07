@@ -33,7 +33,7 @@
                 <td><b translate>Contact Mobile:</b> </td>
                 <td>
 
-                    <input type="text" name="mobile" placeholder="+99 99999999" class="form-control input-sm" ng-model='new_church.contact_mobile' ng-pattern="/^(\d+|\+)*(\s|\d)+$/"/>
+                    <input type="text" name="mobile" placeholder="+99 99999999" ng-maxlength="25" class="form-control input-sm" ng-model='new_church.contact_mobile' ng-pattern="/^(\d+|\+)*(\s|\d)+$/"/>
                     <small class="help-text" ng-show="form.mobile.$dirty && form.mobile.$invalid">
                         <span class="text-danger"  ng-show="form.mobile.$error.pattern" translate>Mobile number is invalid.</span>
                     </small>
@@ -67,12 +67,15 @@
             <tr ng-if="!current.hasRole('self_assigned')">
                 <td><b translate>Security:</b> </td>
                 <td>
-                    <select class="form-control input-sm" ng-model="new_church.security">
+                    <select name="security" class="form-control input-sm" ng-model="new_church.security" ng-required="true">
                         <option value="0" translate>This Ministry Only</option>
                         <option value="1" translate>This Ministry and above</option>
                         <option value="2" translate>All Registered Users</option>
                         <option value="3" translate>Everyone</option>
                     </select>
+                    <small class="help-text" ng-show="form.security.$dirty && form.security.$invalid">
+                        <span class="text-danger"  ng-show="form.security.$error.required" translate>Security is a required field</span>
+                    </small>
 
                 </td>
             </tr>
