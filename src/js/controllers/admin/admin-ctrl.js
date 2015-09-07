@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference,gettextCatalog) {
+    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference, gettextCatalog) {
         $scope.current.isLoaded = false;
 
         var sendAnalytics = _.throttle(function () {
@@ -16,8 +16,8 @@
         $scope.$watch('current.assignment.ministry_id', function (ministry_id) {
             if (typeof ministry_id === 'undefined') return;
             if ($scope.current.canAccessCurrentTab()) {
-                //move user to first tab if he is a leader
-                if(!$scope.current.hasRole(['admin','inherited_admin'])){
+                //move user to first sub-tab if he is a leader
+                if (!$scope.current.hasRole(['admin', 'inherited_admin'])) {
                     $scope.selectTab('team-members');
                 }
 
@@ -28,7 +28,7 @@
                     //refresh the teams and team member view
                     $scope.initTeamAndMembers();
                     //load next data only if has permissions
-                    if($scope.current.hasRole(['admin','inherited_admin'])){
+                    if ($scope.current.hasRole(['admin', 'inherited_admin'])) {
                         //refresh the manage measurement view
                         $scope.measurementTypes = [];
                         $scope.current.loadLanguages();
@@ -227,7 +227,7 @@
                     };
 
                     $scope.changeLocale = function (locale) {
-                        if(locale===undefined||locale==='') return false;
+                        if (locale === undefined || locale === '') return false;
                         $scope.isLocaleLoaded = false;
                         MeasurementTypes.getMeasurementType({
                             measurement_type_id: modalData.measurement.perm_link_stub,
@@ -288,7 +288,7 @@
 
             $scope.activeTeamMembers = {};
             if ($scope.ministry.hasOwnProperty('team_members')) {
-                $scope.activeTeamMembers = $scope.ministry.team_members;
+                $scope.activeTeamMembers = angular.copy($scope.ministry.team_members);
             }
             //activate first top most team
             $scope.activeTeam = angular.copy($scope.current.assignment);
@@ -460,8 +460,9 @@
         $scope.addNewSubMinistry = function () {
             $modal.open({
                 templateUrl: 'partials/admin/add-sub-ministry.html',
-                controller: function ($scope, $modalInstance) {
+                controller: function ($scope, $modalInstance, modalData) {
                     $scope.newMinistry = {};
+                    $scope.activeTeamName = modalData.activeTeam;
                     $scope.close = function () {
                         $modalInstance.dismiss();
                     };
@@ -469,6 +470,13 @@
                     $scope.add = function () {
                         $modalInstance.close($scope.newMinistry);
                     };
+                },
+                resolve: {
+                    'modalData': function () {
+                        return {
+                            activeTeam: $scope.activeTeam.name
+                        };
+                    }
                 }
             }).result.then(function (newMinistry) {
                     if (typeof newMinistry === 'undefined') return false;
