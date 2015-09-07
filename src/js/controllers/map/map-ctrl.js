@@ -1527,7 +1527,15 @@
             }, 10);
         };
 
-        $scope.canAddStories = function () {
+        $scope.canAddStories = function (icon) {
+            if (typeof icon === 'undefined') return false;
+            if (typeof icon.ministry_id === 'undefined') return false;
+            //old churches or training which does not have ministry_id can not be tagged
+            if (icon.ministry_id === null || icon.ministry_id === '') return false;
+
+            if (icon.ministry_id !== $scope.current.assignment.ministry_id) {
+                return false;
+            }
             return $scope.current.hasRole(['admin', 'inherited_admin', 'leader', 'inherited_leader', 'member']);
         }
     }
