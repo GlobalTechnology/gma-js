@@ -210,6 +210,8 @@
                     $scope.map.setCenter(place.geometry.location);
                     $scope.map.setZoom(15);
                 }
+                //close any newIcon window
+                $scope.cancelAddNewIcon();
             });
 
             if ($scope.current.assignment) {
