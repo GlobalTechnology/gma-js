@@ -67,11 +67,10 @@
 			<tr ng-show="edit_church.editable" ng-if="!current.hasRole('blocked')">
 				<td><b translate>Security: </b></td>
 				<td>
-					<select class="form-control input-sm" name="security" ng-model="edit_church.security" ng-disabled="!edit_church.editable">
-                        <option value="0" translate>This Ministry Only</option>
-                        <option value="1" translate>This Ministry and above</option>
-                        <option value="2" translate>All Registered Users</option>
-                        <option value="3" translate>Everyone</option>
+					<select class="form-control input-sm" name="security" ng-model="edit_church.security" ng-disabled="!edit_church.editable" ng-required="true">
+                        <option value="1" translate>Private</option>
+                        <option value="2" translate>Registered Users</option>
+                        <option value="3" translate>Public</option>
 					</select>
                     <small class="help-text" ng-show="form.security.$dirty && form.security.$invalid">
                         <span class="text-danger"  ng-show="form.security.$error.required" translate>Security is a required field</span>
