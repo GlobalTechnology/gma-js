@@ -399,14 +399,17 @@
             angular.forEach($scope.map.markers, function (m) {
 
                 if (m.id == -1) {
-                    $scope.new_church.ministry_id = $scope.current.assignment.ministry_id;
+                    var newChurch = angular.copy($scope.new_church);
+                    newChurch.ministry_id = $scope.current.assignment.ministry_id;
+                    newChurch.latitude = m.getPosition().lat();
+                    newChurch.longitude = m.getPosition().lng();
+                    newChurch.jf_contrib = ($scope.new_church.jf_contrib === 1);
 
-                    $scope.new_church.latitude = m.getPosition().lat();
-                    $scope.new_church.longitude = m.getPosition().lng();
-
-                    Churches.addChurch($scope.new_church).$promise.then(function (response) {
-                            growl.success('Church was created');
+                    Churches.addChurch(newChurch).$promise.then(function (response) {
+                            growl.success(gettextCatalog.getString('Church was created'));
                             $scope.onAddChurch(response);
+                        }, function (e) {
+                            growl.error(gettextCatalog.getString('Unable to create church'));
                         }
                     );
 
@@ -581,7 +584,7 @@
             if ($scope.map.markers.filter(function (c) {
                     return c.id < 0
                 }).length == 0) {
-                $scope.new_church = {security: 2};
+                $scope.new_church = {security: 2, jf_contrib: 0};
 
                 var marker = new MarkerWithLabel({
                     position: $scope.map.getCenter(),
@@ -599,7 +602,7 @@
                 });
 
                 marker.setAnimation(google.maps.Animation.BOUNCE);
-                //$scope.$apply();
+
                 if (!$scope.newChurchWindow.getContent()) {
                     $scope.newChurchWindow.setContent($scope.newChurchWindowContent[0].nextSibling);
                 }
@@ -639,7 +642,7 @@
          * Press ESC to cancel SetParent for churches
          * @param evt
          */
-        document.onkeydown = function(evt){
+        document.onkeydown = function (evt) {
             evt = evt || window.event;
             if ($scope.SetParentMode && evt.keyCode == 27) {
                 google.maps.event.removeListener($scope.move_event);
@@ -700,7 +703,10 @@
 
         $scope.updateChurch = function () {
             $scope.churchWindow.close();
-            Churches.saveChurch($scope.edit_church).$promise
+            var church = angular.copy($scope.edit_church);
+            church.jf_contrib = ($scope.edit_church === 1);
+            delete church.editable;
+            Churches.saveChurch(church).$promise
                 .then(function (response) {
                     growl.success(gettextCatalog.getString('Church was updated successfully'));
                     $scope.onSaveChurch(response)
@@ -724,6 +730,8 @@
                         function (response) {
                             growl.success(gettextCatalog.getString('Church was deleted successfully'));
                             $scope.onSaveChurch(response)
+                        }, function () {
+                            growl.error(gettextCatalog.getString('Unable to delete church'));
                         });
                 });
         };
@@ -795,7 +803,7 @@
                                 position: new google.maps.LatLng(training.latitude, training.longitude),
                                 map: $scope.map,
                                 id: 't' + training.id,
-                                title: training.name+' ('+training.type+')',
+                                title: training.name + ' (' + training.type + ')',
                                 icon: $scope.map.icons.training,
                                 labelContent: '', //training.type + '<span class="map-trained-count">' + training.leaders_trained + '</span>',
                                 labelAnchor: new google.maps.Point(30, 0),
@@ -1084,7 +1092,7 @@
 
                             if (church.cluster_count == 1) {
                                 $scope.edit_church = church;
-                                $scope.edit_church.jf_contrib = ($scope.edit_church.jf_contrib >= 1 ); //setting boolean value to check box
+                                $scope.edit_church.jf_contrib = ($scope.edit_church.jf_contrib >= 1 ) ? 1 : 0;
 
                                 //checking if church is editable
                                 $scope.edit_church.editable = false;
@@ -1288,6 +1296,8 @@
                             growl.success(gettextCatalog.getString('Training was deleted successfully'));
                             $scope.trainingWindow.close();
                             $scope.loadTrainings();
+                        }, function (e) {
+                            growl.error(gettextCatalog.getString('Unable to delete training'));
                         });
                 });
         };
@@ -1325,7 +1335,8 @@
 
                     Trainings.deleteTrainingCompletion($scope.current.sessionToken, training_complete)
                         .then(function (data) {
-                            growl.success(gettextCatalog.getString('Training stage was deleted successfully'));                            $scope.edit_training.gcm_training_completions.splice(index, 1);
+                            growl.success(gettextCatalog.getString('Training stage was deleted successfully'));
+                            $scope.edit_training.gcm_training_completions.splice(index, 1);
                         });
 
                 });

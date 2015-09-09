@@ -35,9 +35,12 @@
 				</td>
 			</tr>
 			<tr>
-				<td><b translate>Jesus Film activity:</b></td>
+				<td><b translate>Jesus film activity</b></td>
 				<td>
-                    <label class="checkbox-inline" ng-show="edit_church.editable"><input type="checkbox" class="checkbox" ng-model='edit_church.jf_contrib'><span translate>Check if used</span></label>
+                    <div ng-show="edit_church.editable">
+                        <label class="radio-inline"><input type="radio" value="1" name="jf_contrib" ng-model="edit_church.jf_contrib" ng-required="true"> <span translate>Yes</span></label>
+                        <label class="radio-inline"><input type="radio" value="0" name="jf_contrib" ng-model="edit_church.jf_contrib" ng-required="true"> <span translate>No</span></label>
+                    </div>
 					<label ng-hide="edit_church.editable" ng-switch="edit_church.jf_contrib">
                         <span ng-switch-when="true" translate>Yes</span>
                         <span ng-switch-when="false" translate>No</span>
@@ -58,7 +61,7 @@
 			<tr ng-show="edit_church.editable">
 				<td><b translate>Size:</b></td>
 				<td>
-					<input type="number" class="form-control input-sm" ng-disabled="!edit_church.editable" ng-model="edit_church.size" min="0" />
+					<input type="number" class="form-control input-sm" ng-disabled="!edit_church.editable" ng-model="edit_church.size" min="0" max="2147483647" ng-maxlength="10"/>
 				</td>
 			</tr>
 			<tr ng-show="edit_church.editable" ng-if="!current.hasRole('blocked')">
@@ -120,7 +123,7 @@
 						</li>
 						<li>
 							<a href ng-click="SetParent()" ng-if="edit_church.parents.length == 0">
-								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <span translate> Set Parent Church</span>
+								<span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span> <span translate> Set Parent Church</span>
 							</a>
 							<a href ng-click="RemoveParent()" ng-if="edit_church.parents.length == 1">
 								<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> <span translate> Remove Parent Church</span>
