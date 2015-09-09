@@ -734,6 +734,7 @@
                             growl.error(gettextCatalog.getString('Unable to delete church'));
                         });
                 });
+            scrollToTop();
         };
 
         $scope.updateTraining = function () {
@@ -1106,7 +1107,7 @@
                                 //checking if parent id is not empty
                                 if (typeof parent_id !== 'undefined') {
 
-                                    //if training ministry id is same as parent id
+                                    //if ministry id is same as parent id
                                     if ($scope.edit_church.ministry_id === parent_id) {
 
                                         if ($scope.edit_church.created_by === $scope.current.user.person_id || isLeaderAdmin() === true) {
@@ -1300,6 +1301,7 @@
                             growl.error(gettextCatalog.getString('Unable to delete training'));
                         });
                 });
+            scrollToTop();
         };
 
         //function deletes the target city
@@ -1322,6 +1324,8 @@
 
                         });
                 });
+            scrollToTop();
+
         };
 
         //function deletes stages of training
@@ -1340,6 +1344,7 @@
                         });
 
                 });
+            scrollToTop();
         };
 
         $scope.setMyDefaultMapView = function () {
@@ -1533,11 +1538,14 @@
             //close all dialogWindow
             $scope.churchWindow.close();
             $scope.trainingWindow.close();
-            //scroll to top
+            scrollToTop();
+        };
+
+        function scrollToTop() {
             window.setTimeout(function () {
                 window.parent.scrollTo(0, 0);
             }, 10);
-        };
+        }
 
         $scope.canAddStories = function (icon) {
             if (typeof icon === 'undefined') return false;
