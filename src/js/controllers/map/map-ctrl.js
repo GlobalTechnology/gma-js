@@ -271,6 +271,7 @@
         });
 
         $scope.$watch('map_scope_filter', function (filter) {
+            if(filter === undefined) return;
             $scope.loadChurches();
             $scope.loadTrainings();
         });

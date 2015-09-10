@@ -98,7 +98,7 @@
 		</tbody>
 	</table>
 	
-	<div ng-if="current.mcc == 'gcm'">
+	<div ng-if="current.assignment.mccs.length">
 		<div class="map_legend_header" ng-click="show_filters = !show_filters">
 			<span>FILTERS <i class="glyphicon " ng-class="{'glyphicon-triangle-top': (show_filters===true), 'glyphicon-triangle-bottom' : (show_filters===false) }"></i> </span>
         </div>
