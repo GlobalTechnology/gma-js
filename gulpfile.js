@@ -154,6 +154,7 @@ gulp.task( 'partials', ['clean'], function () {
 gulp.task( 'styles', ['clean','bower'], function () {
 	return gulp.src( [
 		'bower_components/angular-growl-v2/build/angular-growl.css',
+		'bower_components/flag-sprites/dist/css/flag-sprites.css',
 		'src/css/application.css',
 		'src/css/**/*.css'] )
 		.pipe( concat( 'styles.min.css' ) )
@@ -186,8 +187,8 @@ gulp.task( 'wrapper', ['clean', 'bower'], function () {
 		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
-gulp.task( 'images', ['clean'], function () {
-	return gulp.src( ['src/img/**/*.png'] )
+gulp.task( 'images', ['clean','bower'], function () {
+	return gulp.src( ['src/img/**/*.png','bower_components/flag-sprites/dist/img/flags.png'] )
 		.pipe( gulp.dest( 'dist/img' ) );
 } );
 
