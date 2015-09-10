@@ -6,6 +6,7 @@
         $scope.$location = $location;
         $scope.mobileApps = Settings.mobileApps;
         $scope.tabs = Settings.tabs;
+        $scope.langFlagClass = 'flag-us'; //used to show language flag indicator
         // always redirect user to map tab when init
         $location.path('/map').replace();
 
@@ -325,12 +326,23 @@
          * Watches for changes to static_locale
          * - update gettext language
          * - load external language JSON
+         * - update language flag indicator css class
          */
         $scope.$watch('current.user_preferences.static_locale', function (locale, oldLocale) {
-            if (typeof locale === 'undefined') return;
-            var parts = locale.split('-');
-            gettextCatalog.setCurrentLanguage(parts[0] + '_' + parts[1].toUpperCase());
-            gettextCatalog.loadRemote('languages/' + parts[0] + '-' + parts[1].toUpperCase() + '.json');
+            if (typeof locale === 'undefined' || locale === '') return;
+            //load json file from server
+            gettextCatalog.loadRemote('languages/' + locale + '.json')
+                .success(function (response) {
+                    //set css class to show language flag on top
+                    $scope.langFlagClass = 'flag-' + locale.split('-')[1].toLowerCase();
+                    //set current language, match with json file object name
+                    gettextCatalog.setCurrentLanguage(Object.keys(response)[0]);
+                })
+                .error(function (e) {
+                    if (e.status === 404) {
+                        growl.error(gettextCatalog.getString('Unable to load language data'));
+                    }
+                });
         });
 
         /**

@@ -550,3 +550,9 @@ td.no-overflow:hover{
     margin-left: 10px;
     border-radius: 6px 0 6px 6px;
 }
+
+.flag-indicator {
+    vertical-align: middle;
+    margin-right: 4px;
+
+}
