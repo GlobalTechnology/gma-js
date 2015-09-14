@@ -404,7 +404,7 @@
                     newChurch.ministry_id = $scope.current.assignment.ministry_id;
                     newChurch.latitude = m.getPosition().lat();
                     newChurch.longitude = m.getPosition().lng();
-                    newChurch.jf_contrib = ($scope.new_church.jf_contrib === 1);
+                    newChurch.jf_contrib = ($scope.new_church.jf_contrib == 1);
 
                     Churches.addChurch(newChurch).$promise.then(function (response) {
                             growl.success(gettextCatalog.getString('Church was created'));
@@ -705,7 +705,7 @@
         $scope.updateChurch = function () {
             $scope.churchWindow.close();
             var church = angular.copy($scope.edit_church);
-            church.jf_contrib = ($scope.edit_church === 1);
+            church.jf_contrib = ($scope.edit_church.jf_contrib == 1);
             delete church.editable;
             Churches.saveChurch(church).$promise
                 .then(function (response) {
