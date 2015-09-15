@@ -6,9 +6,6 @@
         $scope.versionUrl = Settings.versionUrl;
         $scope.area_codes = _.sortBy(Settings.area_codes, 'name');
 
-        $scope.show_all = "year";
-        $scope.show_tree = false;
-
         $scope.new_church = {};
         $scope.new_training = {};
         $scope.new_targetCity = {};
@@ -319,9 +316,16 @@
 
         $scope.loadTrainings = _.debounce(function () {
             // Everyone can view trainings
+            var show_tree = false;
+            var show_all = false; //false means show past 12 months activity only, this does not relate to map_scope_filter, please see api wiki docs
+            if ($scope.map_scope_filter === 'everything' || $scope.map_scope_filter === 'tree') {
+                show_tree = true;
+            }
             if (typeof $scope.current.assignment !== 'undefined' && $scope.current.mcc !== 'undefined') {
-                Trainings.getTrainings($scope.current.sessionToken, $scope.current.assignment.ministry_id, $scope.current.mcc, $scope.show_all == "all", $scope.show_tree).then(function (trainings) {
+                Trainings.getTrainings($scope.current.sessionToken, $scope.current.assignment.ministry_id, $scope.current.mcc, show_all, show_tree).then(function (trainings) {
                     $scope.trainings = trainings;
+                }, function () {
+                    growl.error(gettextCatalog.getString('Unable to load trainings'));
                 });
             }
             else {
@@ -330,7 +334,7 @@
         }, 500);
 
         $scope.loadChurches = _.debounce(function () {
-            $scope.show_tree = false; //resetting show tree flag
+
             if (typeof $scope.current.assignment === 'undefined') return;
 
             var bounds = $scope.map.getBounds(),
@@ -348,10 +352,12 @@
             if (!$scope.iconFilters.group) params['hide_group'] = 'true';
             if (!$scope.iconFilters.church) params['hide_church'] = 'true';
             if (!$scope.iconFilters.mult_church) params['hide_mult_church'] = 'true';
+
             if ($scope.map_scope_filter === 'everything') {
                 params['show_all'] = 'true';
-                $scope.show_tree = true;
-            } else if ($scope.map_scope_filter === 'tree') params['show_tree'] = 'true';
+            } else if ($scope.map_scope_filter === 'tree') {
+                params['show_tree'] = 'true';
+            }
 
             // Disable clustering at Zoom 14 and higher
             if ($scope.map.getZoom() >= 14) params['should_cluster'] = 'false';
