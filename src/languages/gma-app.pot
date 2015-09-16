@@ -9,7 +9,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: map/new-church.html:88
+#: map/new-church.html:89
 msgid "Add Church"
 msgstr ""
 
@@ -21,8 +21,8 @@ msgstr ""
 msgid "Add Stage"
 msgstr ""
 
-#: map/edit-church.html:115
-#: map/edit-church.html:144
+#: map/edit-church.html:116
+#: map/edit-church.html:145
 #: map/edit-training.html:101
 #: map/edit-training.html:122
 msgid "Add Story"
@@ -93,7 +93,7 @@ msgstr ""
 msgid "Area:"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:466
+#: controllers/map/map-ctrl.js:480
 msgid "Bad Request: Unable to create target city"
 msgstr ""
 
@@ -108,7 +108,7 @@ msgstr ""
 
 #: join-ministry.html:29
 #: map/_confirmation-dialog.html:10
-#: map/new-church.html:87
+#: map/new-church.html:88
 #: map/new-target-city.html:55
 #: map/new-training.html:45
 #: preference/user-preference-modal.html:57
@@ -119,8 +119,8 @@ msgstr ""
 msgid "Changes saved successfully"
 msgstr ""
 
-#: map/edit-church.html:56
-#: map/new-church.html:56
+#: map/edit-church.html:57
+#: map/new-church.html:57
 msgid "Church"
 msgstr ""
 
@@ -128,15 +128,15 @@ msgstr ""
 msgid "Church or community of disciples"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:409
+#: controllers/map/map-ctrl.js:423
 msgid "Church was created"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:731
+#: controllers/map/map-ctrl.js:745
 msgid "Church was deleted successfully"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:711
+#: controllers/map/map-ctrl.js:725
 msgid "Church was updated successfully"
 msgstr ""
 
@@ -240,7 +240,7 @@ msgstr ""
 msgid "Default MCC"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1389
+#: controllers/map/map-ctrl.js:1403
 msgid "Default ministry map view has been set"
 msgstr ""
 
@@ -250,7 +250,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: map/edit-church.html:134
+#: map/edit-church.html:135
 msgid "Delete Church"
 msgstr ""
 
@@ -330,7 +330,7 @@ msgstr ""
 msgid "Error loading news feeds"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:468
+#: controllers/map/map-ctrl.js:482
 msgid "Error: Unable to create target city"
 msgstr ""
 
@@ -338,11 +338,11 @@ msgstr ""
 msgid "Everything"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1402
+#: controllers/map/map-ctrl.js:1416
 msgid "Failed to get your current location"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1534
+#: controllers/map/map-ctrl.js:1548
 #: controllers/stories/stories-ctrl.js:160
 msgid "Failed to save story"
 msgstr ""
@@ -372,27 +372,22 @@ msgstr ""
 msgid "Fruit"
 msgstr ""
 
-#: map/edit-church.html:55
+#: map/edit-church.html:56
 #: map/map.html:42
-#: map/new-church.html:55
+#: map/new-church.html:56
 msgid "Group"
 msgstr ""
 
 #: admin/_edit-ministry.html:58
 #: admin/_measurement.html:25
-#: preference/user-preference-modal.html:29
 msgid "Hide"
-msgstr ""
-
-#: preference/user-preference-modal.html:26
-msgid "Hide reports tab"
 msgstr ""
 
 #: admin/_edit-ministry.html:55
 msgid "Hide reports tab by default"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1522
+#: controllers/map/map-ctrl.js:1536
 #: controllers/stories/stories-ctrl.js:138
 #: controllers/stories/stories-ctrl.js:242
 msgid "Image file was uploaded"
@@ -548,7 +543,7 @@ msgstr ""
 msgid "Ministry/Team:"
 msgstr ""
 
-#: map/edit-church.html:81
+#: map/edit-church.html:82
 msgid "Ministry:"
 msgstr ""
 
@@ -561,7 +556,7 @@ msgstr ""
 msgid "Mobile number is invalid."
 msgstr ""
 
-#: map/edit-church.html:120
+#: map/edit-church.html:121
 msgid "Move Church"
 msgstr ""
 
@@ -581,8 +576,8 @@ msgstr ""
 msgid "Move sub-team to this team ?"
 msgstr ""
 
-#: map/edit-church.html:57
-#: map/new-church.html:57
+#: map/edit-church.html:58
+#: map/new-church.html:58
 msgid "Multiplying Church"
 msgstr ""
 
@@ -656,7 +651,7 @@ msgstr ""
 #: admin/confirm-team-drop.html:13
 #: admin/confirm-update-role.html:14
 #: map/edit-church.html:42
-#: map/edit-church.html:46
+#: map/edit-church.html:47
 #: map/new-church.html:47
 #: preference/user-preference-modal.html:37
 msgid "No"
@@ -684,7 +679,7 @@ msgstr ""
 msgid "Older"
 msgstr ""
 
-#: map/edit-church.html:110
+#: map/edit-church.html:111
 #: map/edit-target-city.html:58
 #: map/edit-training.html:96
 msgid "Options"
@@ -740,6 +735,11 @@ msgstr ""
 msgid "Please identify a ministry team that you work most closely with and request to join that team."
 msgstr ""
 
+#: map/edit-church.html:43
+#: map/new-church.html:48
+msgid "Please make a choice"
+msgstr ""
+
 #: preference/user-preference-modal.html:17
 msgid "Preferred MCC"
 msgstr ""
@@ -757,17 +757,13 @@ msgstr ""
 msgid "Privacy"
 msgstr ""
 
-#: map/edit-church.html:71
-#: map/new-church.html:72
+#: map/edit-church.html:72
+#: map/new-church.html:73
 msgid "Private"
 msgstr ""
 
-#: stories/new-story-dialog.html:66
-msgid "Pubic"
-msgstr ""
-
-#: map/edit-church.html:73
-#: map/new-church.html:74
+#: map/edit-church.html:74
+#: map/new-church.html:75
 msgid "Public"
 msgstr ""
 
@@ -793,12 +789,16 @@ msgstr ""
 msgid "Refresh members list"
 msgstr ""
 
-#: map/edit-church.html:72
-#: map/new-church.html:73
+#: map/edit-church.html:73
+#: map/new-church.html:74
 msgid "Registered Users"
 msgstr ""
 
-#: map/edit-church.html:128
+#: stories/new-story-dialog.html:66
+msgid "Registered users"
+msgstr ""
+
+#: map/edit-church.html:129
 msgid "Remove Parent Church"
 msgstr ""
 
@@ -821,7 +821,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: map/edit-church.html:139
+#: map/edit-church.html:140
 #: map/edit-target-city.html:74
 #: map/edit-training.html:117
 #: measurements/measurements.html:122
@@ -850,13 +850,13 @@ msgstr ""
 msgid "Section"
 msgstr ""
 
-#: map/edit-church.html:76
-#: map/new-church.html:77
+#: map/edit-church.html:77
+#: map/new-church.html:78
 msgid "Security is a required field"
 msgstr ""
 
-#: map/edit-church.html:68
-#: map/new-church.html:69
+#: map/edit-church.html:69
+#: map/new-church.html:70
 msgid "Security:"
 msgstr ""
 
@@ -873,7 +873,7 @@ msgstr ""
 msgid "Set Ministry Default View for others"
 msgstr ""
 
-#: map/edit-church.html:125
+#: map/edit-church.html:126
 msgid "Set Parent Church"
 msgstr ""
 
@@ -883,12 +883,11 @@ msgstr ""
 
 #: admin/_edit-ministry.html:59
 #: admin/_measurement.html:24
-#: preference/user-preference-modal.html:30
 msgid "Show"
 msgstr ""
 
-#: map/edit-church.html:62
-#: map/new-church.html:63
+#: map/edit-church.html:63
+#: map/new-church.html:64
 msgid "Size:"
 msgstr ""
 
@@ -972,8 +971,8 @@ msgstr ""
 msgid "Tagged ministry"
 msgstr ""
 
-#: map/edit-church.html:54
-#: map/new-church.html:54
+#: map/edit-church.html:55
+#: map/new-church.html:55
 msgid "Target"
 msgstr ""
 
@@ -985,19 +984,19 @@ msgstr ""
 msgid "Target city"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:950
+#: controllers/map/map-ctrl.js:964
 msgid "Target city position was updated"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:460
+#: controllers/map/map-ctrl.js:474
 msgid "Target city was created successfully"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1318
+#: controllers/map/map-ctrl.js:1332
 msgid "Target city was deleted successfully"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:765
+#: controllers/map/map-ctrl.js:779
 msgid "Target city was updated"
 msgstr ""
 
@@ -1041,29 +1040,29 @@ msgstr ""
 msgid "Training activity"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1342
+#: controllers/map/map-ctrl.js:1356
 msgid "Training stage was deleted successfully"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:433
+#: controllers/map/map-ctrl.js:447
 msgid "Training was created"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1297
+#: controllers/map/map-ctrl.js:1311
 msgid "Training was deleted successfully"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1276
+#: controllers/map/map-ctrl.js:1290
 msgid "Training was saved successfully"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:743
-#: controllers/map/map-ctrl.js:754
+#: controllers/map/map-ctrl.js:757
+#: controllers/map/map-ctrl.js:768
 msgid "Training was updated"
 msgstr ""
 
-#: map/edit-church.html:51
-#: map/new-church.html:51
+#: map/edit-church.html:52
+#: map/new-church.html:52
 msgid "Type:"
 msgstr ""
 
@@ -1075,7 +1074,7 @@ msgstr ""
 msgid "Unable to add sub ministry"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:412
+#: controllers/map/map-ctrl.js:426
 msgid "Unable to create church"
 msgstr ""
 
@@ -1083,15 +1082,15 @@ msgstr ""
 msgid "Unable to create measurement"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:734
+#: controllers/map/map-ctrl.js:748
 msgid "Unable to delete church"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1323
+#: controllers/map/map-ctrl.js:1337
 msgid "Unable to delete target city"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1301
+#: controllers/map/map-ctrl.js:1315
 msgid "Unable to delete training"
 msgstr ""
 
@@ -1099,15 +1098,19 @@ msgstr ""
 msgid "Unable to get measurement"
 msgstr ""
 
-#: controllers/gma-ctrl.js:283
+#: controllers/gma-ctrl.js:284
 msgid "Unable to join to requested ministry"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:573
+#: controllers/map/map-ctrl.js:587
 msgid "Unable to load countries list"
 msgstr ""
 
-#: controllers/gma-ctrl.js:412
+#: controllers/gma-ctrl.js:343
+msgid "Unable to load language data"
+msgstr ""
+
+#: controllers/gma-ctrl.js:424
 msgid "Unable to load languages"
 msgstr ""
 
@@ -1123,12 +1126,16 @@ msgstr ""
 msgid "Unable to load stories"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:311
+#: controllers/map/map-ctrl.js:316
 msgid "Unable to load target cities"
 msgstr ""
 
 #: controllers/admin/admin-ctrl.js:316
 msgid "Unable to load team members"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:335
+msgid "Unable to load trainings"
 msgstr ""
 
 #: controllers/admin/admin-ctrl.js:604
@@ -1143,8 +1150,8 @@ msgstr ""
 msgid "Unable to save changes"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1371
-#: controllers/map/map-ctrl.js:1391
+#: controllers/map/map-ctrl.js:1385
+#: controllers/map/map-ctrl.js:1405
 msgid "Unable to save default map view"
 msgstr ""
 
@@ -1156,7 +1163,7 @@ msgstr ""
 msgid "Unable to save preferences"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:715
+#: controllers/map/map-ctrl.js:729
 msgid "Unable to update church"
 msgstr ""
 
@@ -1168,12 +1175,12 @@ msgstr ""
 msgid "Unable to update story"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:767
-#: controllers/map/map-ctrl.js:952
+#: controllers/map/map-ctrl.js:781
+#: controllers/map/map-ctrl.js:966
 msgid "Unable to update target city"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:746
+#: controllers/map/map-ctrl.js:760
 msgid "Unable to update training"
 msgstr ""
 
@@ -1182,7 +1189,7 @@ msgstr ""
 msgid "Unable to update user role"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1528
+#: controllers/map/map-ctrl.js:1542
 #: controllers/stories/stories-ctrl.js:269
 msgid "Unable to upload image file"
 msgstr ""
@@ -1200,7 +1207,7 @@ msgstr ""
 msgid "Upload an image"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1526
+#: controllers/map/map-ctrl.js:1540
 #: controllers/stories/stories-ctrl.js:267
 msgid "Upload failed, Invalid file input"
 msgstr ""
@@ -1231,17 +1238,17 @@ msgstr ""
 #: admin/confirm-team-drop.html:14
 #: admin/confirm-update-role.html:15
 #: map/edit-church.html:41
-#: map/edit-church.html:45
+#: map/edit-church.html:46
 #: map/new-church.html:46
 #: preference/user-preference-modal.html:36
 msgid "Yes"
 msgstr ""
 
-#: controllers/gma-ctrl.js:281
+#: controllers/gma-ctrl.js:282
 msgid "You are already assigned to requested ministry"
 msgstr ""
 
-#: controllers/gma-ctrl.js:375
+#: controllers/gma-ctrl.js:387
 msgid "You are not authorised for this"
 msgstr ""
 
@@ -1254,11 +1261,11 @@ msgstr ""
 msgid "You have been logged out or your session has expired due to inactivity."
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1406
+#: controllers/map/map-ctrl.js:1420
 msgid "Your browser does not support GeoLocation"
 msgstr ""
 
-#: controllers/map/map-ctrl.js:1368
+#: controllers/map/map-ctrl.js:1382
 msgid "Your default map view has been set"
 msgstr ""
 
