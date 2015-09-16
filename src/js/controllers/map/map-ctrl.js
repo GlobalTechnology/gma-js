@@ -52,7 +52,14 @@
             center: new google.maps.LatLng(0, 0),
             panControl: true,
             zoomControl: true,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_CENTER
+            },
             mapTypeControl: true,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                position: google.maps.ControlPosition.TOP_RIGHT
+            },
             streetViewControl: false,
             overviewMapControl: false
         };
