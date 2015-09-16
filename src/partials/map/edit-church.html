@@ -38,8 +38,9 @@
 				<td><b translate>Jesus film activity</b></td>
 				<td>
                     <div ng-show="edit_church.editable">
-                        <label class="radio-inline"><input type="radio" value="1" name="jf_contrib" ng-model="edit_church.jf_contrib" ng-required="true"> <span translate>Yes</span></label>
-                        <label class="radio-inline"><input type="radio" value="0" name="jf_contrib" ng-model="edit_church.jf_contrib" ng-required="true"> <span translate>No</span></label>
+                        <label class="radio-inline"><input name="jf_contrib" type="radio" value="1" name="jf_contrib" ng-model="edit_church.jf_contrib" ng-required="true"> <span translate>Yes</span></label>
+                        <label class="radio-inline"><input name="jf_contrib" type="radio" value="0" name="jf_contrib" ng-model="edit_church.jf_contrib" ng-required="true"> <span translate>No</span></label>
+                        <br><small ng-show="form.jf_contrib.$invalid" class="help-text text-danger" translate>Please make a choice</small>
                     </div>
 					<label ng-hide="edit_church.editable" ng-switch="edit_church.jf_contrib">
                         <span ng-switch-when="true" translate>Yes</span>

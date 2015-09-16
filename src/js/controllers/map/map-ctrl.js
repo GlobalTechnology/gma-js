@@ -591,7 +591,7 @@
             if ($scope.map.markers.filter(function (c) {
                     return c.id < 0
                 }).length == 0) {
-                $scope.new_church = {security: 2, jf_contrib: 0};
+                $scope.new_church = {security: 2};
 
                 var marker = new MarkerWithLabel({
                     position: $scope.map.getCenter(),

@@ -43,8 +43,9 @@
             <tr>
                 <td><b translate>Jesus film activity:</b> </td>
                 <td>
-                    <label class="radio-inline"><input type="radio" value="1" ng-model="new_church.jf_contrib" ng-required="true"> <span translate>Yes</span></label>
-                    <label class="radio-inline"><input type="radio" value="0" ng-model="new_church.jf_contrib" ng-required="true"> <span translate>No</span></label>
+                    <label class="radio-inline"><input name="jf_contrib" type="radio" value="1" ng-model="new_church.jf_contrib" ng-required="true"> <span translate>Yes</span></label>
+                    <label class="radio-inline"><input name="jf_contrib" type="radio" value="0" ng-model="new_church.jf_contrib" ng-required="true"> <span translate>No</span></label>
+                    <br><small ng-show="form.jf_contrib.$invalid" class="help-text text-danger" translate>Please make a choice</small>
                 </td>
             </tr>
             <tr>
