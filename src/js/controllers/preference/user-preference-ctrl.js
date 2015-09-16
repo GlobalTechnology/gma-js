@@ -4,7 +4,7 @@
         //set some defaults
         $scope.options = {
             supported_staff: '0',
-            hide_reports_tab: '0',
+            hide_reports_tab: '0', //0 means visible
             static_locale: 'en-us',
             content_locales: {}
         };
