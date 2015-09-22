@@ -1008,6 +1008,13 @@ msgstr ""
 msgid "Target team"
 msgstr ""
 
+#: measurements/lmi.html:100
+#: measurements/lmi.html:124
+#: measurements/lmi.html:148
+#: measurements/lmi.html:64
+msgid "Team"
+msgstr ""
+
 #: measurements/details.html:60
 msgid "Team Members"
 msgstr ""
@@ -1285,13 +1292,6 @@ msgstr ""
 
 #: stories/edit-story-dialog.html:48
 msgid "existing image will be replaced"
-msgstr ""
-
-#: measurements/lmi.html:100
-#: measurements/lmi.html:124
-#: measurements/lmi.html:148
-#: measurements/lmi.html:64
-msgid "local"
 msgstr ""
 
 #: map/edit-church.html:5
