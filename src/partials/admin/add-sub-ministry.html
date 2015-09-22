@@ -1,25 +1,23 @@
 <div class="modal-header">
 	<button type="button" class="close" ng-click="close()">
-		<span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	<h4 class="modal-title">Add a new Sub Ministry</h4>
+		<span aria-hidden="true">&times;</span><span class="sr-only" translate>Close</span></button>
+	<h4 class="modal-title"><span translate>Add a new sub ministry to</span> - {{activeTeamName}}</h4>
 </div>
-<div class="modal-body form-horizontal">
+<div class="modal-body">
+    <form name="form" class="form-horizontal">
 	<div class="form-group">
-		<label for="sbName" class="col-sm-4 control-label">Ministry name:</label>
+		<label for="sbName" class="col-sm-4 control-label" translate>Ministry name</label>
 
 		<div class="col-sm-8">
-			<input id="sbName" type="text" class="form-control" ng-model="newMinistry.name" />
+			<input id="sbName" name="name" type="text" class="form-control" ng-model="newMinistry.name" ng-required="true"/>
+            <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
+                <span class="text-danger"  ng-show="form.min_code.$error.required" translate>Ministry name is required.</span>
+            </small>
 		</div>
 	</div>
-	<div class="form-group">
-		<label for="sbCode" class="col-sm-4 control-label">Ministry code:</label>
-
-		<div class="col-sm-8">
-			<input id="sbCode" type="text" class="form-control" ng-model="newMinistry.min_code" />
-		</div>
-	</div>
+    </form>
 </div>
 <div class="modal-footer">
-	<button type="button" class="btn btn-default" ng-click="close()">Close</button>
-	<button type="button" class="btn btn-primary" ng-click="add()">Create</button>
+	<button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Close</span></button>
+	<button type="button" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="add()"><i class="glyphicon glyphicon-floppy-disk"></i> <span translate>Create</span></button>
 </div>

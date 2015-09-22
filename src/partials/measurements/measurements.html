@@ -1,12 +1,29 @@
-﻿<div class="panel panel-default" ng-show="current.isLoaded">
+<div class="panel panel-default" ng-show="current.isLoaded">
 	<div class="panel-body">
-		<form name="lmiForm" class="measurements">
+		<form name="lmiForm" class="measurements" novalidate>
 			<fieldset>
-				<legend>
-					Local Movement Indicators
-					<button type="button" class="btn btn-primary pull-right" ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)" ng-click="save()">Save Changes</button>
-					<div class="clearfix"></div>
-				</legend>
+                <legend>
+                    <div class="col-sm-4">
+                        <span translate>Local Movement Indicators</span>
+                    </div>
+                    <div class="col-sm-8 text-right">
+                        <div class="col-sm-5"><!--empty div--></div>
+                        <div class="col-sm-4" ng-if="current.assignment.content_locales">
+                        <select class="form-control input-sm" ng-change="loadMeasurements(currentLanguage)"
+                                ng-model="currentLanguage"
+                                ng-options="lang.iso_code as lang.english_name for lang in current.langList | filter:filterByLangCode">
+                            <optgroup label="Select a language"></optgroup>
+                        </select>
+                        </div>
+                        <div class="col-sm-3 pull-right">
+                            <button type="button" class="btn btn-primary pull-right btn-sm"
+                                    ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)" ng-click="saveMeasurements()">
+                                <i class="glyphicon glyphicon-floppy-disk"></i> <span translate>Save Changes</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </legend>
 
 				<table class="lmi_table">
 					<thead>
@@ -15,19 +32,19 @@
 						<th></th>
 						<th>
 							<h1>
-								<small>Faith Actions</small>
+								<small translate>Faith Actions</small>
 							</h1>
 						</th>
 						<th></th>
 						<th>
 							<h1>
-								<small>Fruit</small>
+								<small translate>Fruit</small>
 							</h1>
 						</th>
 						<th></th>
 						<th>
 							<h1>
-								<small>Outcome</small>
+								<small translate>Outcome</small>
 							</h1>
 						</th>
 					</tr>
@@ -37,40 +54,40 @@
 						<!-- win-->
 						<td class="vertical-text">
 							<h1>
-								<small>Win</small>
+								<small translate>Win</small>
 							</h1>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'win', column:'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+							<div ng-init="measurementState[m.perm_link_stub] = ((measurementState[m.perm_link_stub] === undefined) ? 0 : measurementState[m.perm_link_stub])" ng-repeat="m in measurements | filter: {section: 'win', column:'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 						</td>
 						<td>
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'win', column: 'fruit'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+							<div ng-init="measurementState[m.perm_link_stub] = ((measurementState[m.perm_link_stub] === undefined) ? 0 : measurementState[m.perm_link_stub])" ng-repeat="m in measurements | filter: {section: 'win', column: 'fruit'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 						</td>
 						<td rowspan="3">
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</td>
 						<td rowspan="3">
-							<div ng-repeat="m in measurements | filter:{column: 'outcome'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+							<div ng-init="measurementState[m.perm_link_stub] = ((measurementState[m.perm_link_stub] === undefined) ? 0 : measurementState[m.perm_link_stub])" ng-repeat="m in measurements | filter:{column: 'outcome'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 						</td>
 					</tr>
 					<tr>
 						<!-- build-->
 						<td class="vertical-text">
 							<h1>
-								<small>Build</small>
+								<small translate>Build</small>
 							</h1>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'build', column: 'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+							<div ng-init="measurementState[m.perm_link_stub] = ((measurementState[m.perm_link_stub] === undefined) ? 0 : measurementState[m.perm_link_stub])" ng-repeat="m in measurements | filter: {section: 'build', column: 'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 						</td>
 						<td>
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'build', column: 'fruit'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+							<div ng-init="measurementState[m.perm_link_stub] = ((measurementState[m.perm_link_stub] === undefined) ? 0 : measurementState[m.perm_link_stub])" ng-repeat="m in measurements | filter: {section: 'build', column: 'fruit'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 						</td>
 
 					</tr>
@@ -78,31 +95,31 @@
 						<!-- send-->
 						<td class="vertical-text">
 							<h1>
-								<small>Send</small>
+								<small translate>Send</small>
 							</h1>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'send', column: 'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+							<div ng-init="measurementState[m.perm_link_stub] = ((measurementState[m.perm_link_stub] === undefined) ? 0 : measurementState[m.perm_link_stub])" ng-repeat="m in measurements | filter: {section: 'send', column: 'faith'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 						</td>
 						<td>
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</td>
 						<td>
-							<div ng-repeat="m in measurements | filter: {section: 'send', column: 'fruit'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+							<div ng-init="measurementState[m.perm_link_stub] = ((measurementState[m.perm_link_stub] === undefined) ? 0 : measurementState[m.perm_link_stub])" ng-repeat="m in measurements | filter: {section: 'send', column: 'fruit'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 						</td>
 					</tr>
 					</tbody>
 				</table>
 			</fieldset>
 			<fieldset ng-if="hasOther()">
-				<legend>Other Measurements</legend>
+				<legend translate>Other Measurements</legend>
 				<div>
-					<div class="col-xs-4" ng-repeat="m in measurements | filter: {section: 'other', column: 'other'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
+					<div ng-init="measurementState[m.perm_link_stub] = ((measurementState[m.perm_link_stub] === undefined) ? 0 : measurementState[m.perm_link_stub])" class="col-xs-4" ng-repeat="m in measurements | filter: {section: 'other', column: 'other'} | orderBy:'sort_order'" ng-include="'partials/measurements/lmi.html'"></div>
 				</div>
 			</fieldset>
 		</form>
 		<div class="pull-right">
-			<button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)">Save Changes</button>
+			<button type="button" class="btn btn-primary btn-sm" ng-click="saveMeasurements()" ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)"><i class="glyphicon glyphicon-floppy-disk"></i> <span translate>Save Changes</span></button>
 		</div>
 	</div>
 </div>

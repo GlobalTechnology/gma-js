@@ -1,68 +1,92 @@
 ﻿<div id="new_church_window">
 	<div class="clearfix"></div>
     <div class='church-window'>
-        <h4>Create New Church </h4>
-
+        <h4 translate>Create New Church </h4>
+        <form name="form" novalidate>
         <table class="table table-condensed">
             <tr>
-                <td><b>Name</b></td>
+                <td><b translate>Name:</b></td>
                 <td>
-                    <input type="text" class="form-control input-sm" ng-model='new_church.name' />
-
+                    <input type="text" name="name" class="form-control input-sm" ng-model='new_church.name' ng-required="true"/>
+                    <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
+                        <span class="text-danger"  ng-show="form.name.$error.required" translate>Name is required.</span>
+                    </small>
                 </td>
             </tr>
             <tr>
-                <td><b>Contact Name: </b></td>
+                <td><b translate>Contact Name: </b></td>
                 <td>
                     <input type="text" class="form-control input-sm" ng-model='new_church.contact_name' />
                 </td>
             </tr>
             <tr>
-                <td><b>Contact Email:</b> </td>
+                <td><b translate>Contact Email:</b> </td>
                 <td>
 
-                    <input type="email" class="form-control input-sm" ng-model='new_church.contact_email' />
+                    <input type="email" name="email" placeholder="name@email.com" class="form-control input-sm" ng-model='new_church.contact_email' />
+                    <small class="help-text" ng-show="form.email.$dirty && form.email.$invalid">
+                        <span class="text-danger"  ng-show="form.email.$error.email" translate>Invalid email format</span>
+                    </small>
+                </td>
+            </tr>
+            <tr>
+                <td><b translate>Contact Mobile:</b> </td>
+                <td>
+
+                    <input type="text" name="mobile" placeholder="+99 99999999" ng-maxlength="25" class="form-control input-sm" ng-model='new_church.contact_mobile' ng-pattern="/^(\d+|\+)*(\s|\d)+$/"/>
+                    <small class="help-text" ng-show="form.mobile.$dirty && form.mobile.$invalid">
+                        <span class="text-danger"  ng-show="form.mobile.$error.pattern" translate>Mobile number is invalid.</span>
+                    </small>
 
                 </td>
             </tr>
             <tr>
-                <td><b>Type:</b> </td>
+                <td><b translate>Jesus film activity:</b> </td>
                 <td>
-                    <select class="form-control input-sm" ng-model="new_church.development">
-                        <option value="1">Target</option>
-                        <option value="2">Group</option>
-                        <option value="3">Church</option>
-                        <option value="5">Multiplying Church</option>
-
+                    <label class="radio-inline"><input name="jf_contrib" type="radio" value="1" ng-model="new_church.jf_contrib" ng-required="true"> <span translate>Yes</span></label>
+                    <label class="radio-inline"><input name="jf_contrib" type="radio" value="0" ng-model="new_church.jf_contrib" ng-required="true"> <span translate>No</span></label>
+                    <br><small ng-show="form.jf_contrib.$invalid" class="help-text text-danger" translate>Please make a choice</small>
+                </td>
+            </tr>
+            <tr>
+                <td><b translate>Type:</b> </td>
+                <td>
+                    <select class="form-control input-sm" ng-model="new_church.development" ng-required="true">
+                        <option value="1" translate>Target</option>
+                        <option value="2" translate>Group</option>
+                        <option value="3" translate>Church</option>
+                        <option value="5" translate>Multiplying Church</option>
                     </select>
 
                 </td>
             </tr>
             <tr>
-                <td><b>Size:</b> </td>
+                <td><b translate>Size:</b> </td>
                 <td>
-                    <input class="form-control input-sm" type="number" min="0" ng-model="new_church.size" />
-
+                    <input class="form-control input-sm" type="number" min="0" max="2147483647" ng-maxlength="10" ng-model="new_church.size" />
                 </td>
             </tr>
             <tr ng-if="!current.hasRole('self_assigned')">
-                <td><b>Security:</b> </td>
+                <td><b translate>Security:</b> </td>
                 <td>
-                    <select class="form-control input-sm" ng-model="new_church.security">
-                        <option value="0">This Ministry Only</option>
-                        <option value="1">This Ministry and above</option>
-                        <option value="2" >All Registred Users</option>
-                        <option value="3">Everyone</option>
+                    <select name="security" class="form-control input-sm" ng-model="new_church.security" ng-required="true">
+                        <option value="1" translate>Private</option>
+                        <option value="2" translate>Registered Users</option>
+                        <option value="3" translate>Public</option>
                     </select>
+                    <small class="help-text" ng-show="form.security.$dirty && form.security.$invalid">
+                        <span class="text-danger"  ng-show="form.security.$error.required" translate>Security is a required field</span>
+                    </small>
 
                 </td>
             </tr>
         </table>
+        </form>
 
 		<div>
 			<div class="btn-group btn-group-sm btn-group-justified" role="group">
-				<a href class="btn btn-default" ng-click="cancelAddChurch()">Cancel</a>
-				<a href class="btn btn-primary" ng-click="addChurch()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Add Church</a>
+				<a href class="btn btn-default" ng-click="cancelAddNewIcon()" translate>Cancel</a>
+				<a href ng-disabled="form.$invalid" class="btn btn-primary" ng-click="(form.$valid) ? addChurch() : false"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span translate>Add Church</span></a>
 			</div>
 		</div>
 		<div class="clearfix"></div>

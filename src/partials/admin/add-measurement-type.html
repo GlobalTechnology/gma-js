@@ -1,49 +1,71 @@
 <div class="modal-header">
 	<button type="button" class="close" ng-click="close()">
-		<span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	<h4 class="modal-title">Add Measurement</h4>
+		<span aria-hidden="true">&times;</span><span class="sr-only" translate>Close</span></button>
+	<h4 class="modal-title" translate>Add new measurement</h4>
 </div>
 <div class="modal-body form-horizontal">
+    <form name="form" class="form-horizontal">
 	<div class="form-group">
-		<label for="newMeasurementName" class="col-sm-4 control-label">Name:</label>
+		<label for="newMeasurementName" class="col-sm-3 control-label" translate>Name</label>
 
 		<div class="col-sm-8">
-			<input id="newMeasurementName" type="text" class="form-control" ng-model="newMeasurement.english" />
+			<input id="newMeasurementName" name="name" type="text" class="form-control" ng-maxlength="200" ng-model="newMeasurement.english" ng-required="true"/>
+            <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
+                <span class="text-danger"  ng-show="form.name.$error.required" translate>Name is required</span>
+                <span class="text-danger"  ng-show="form.name.$error.maxlength" translate>Name should not exceed 200 characters</span>
+            </small>
+		</div>
+	</div>
+        <div class="form-group">
+            <label for="newMeasurementDesc" class="col-sm-3 control-label" translate>Description</label>
+
+            <div class="col-sm-8">
+                <textarea id="newMeasurementDesc" name="description" class="form-control" ng-maxlength="200" ng-model="newMeasurement.description" ng-required="true" style="resize: vertical;max-height: 200px;"></textarea>
+                <small class="help-text" ng-show="form.description.$dirty && form.description.$invalid">
+                    <span class="text-danger"  ng-show="form.description.$error.required" translate>Description is required</span>
+                    <span class="text-danger"  ng-show="form.name.$error.maxlength" translate>Description should not exceed 200 characters</span>
+                </small>
+            </div>
+        </div>
+	<div class="form-group">
+		<label for="newMeasurementPermalink" class="col-sm-3 control-label" translate>Permalink</label>
+
+		<div class="col-sm-8">
+			<input id="newMeasurementPermalink" name="permalink" placeholder="name_name" ng-maxlength="100" type="text" class="form-control" ng-model="newMeasurement.perm_link_stub" ng-required="true" ng-pattern="/^[\w&-]+$/"/>
+            <small class="help-text" ng-show="form.permalink.$dirty && form.permalink.$invalid">
+                <span class="text-danger"  ng-show="form.permalink.$error.required" translate>Permalink is required</span>
+                <span class="text-danger"  ng-show="form.permalink.$error.pattern" translate>Permalink is invalid. Please match with required format</span>
+                <span class="text-danger"  ng-show="form.name.$error.maxlength" translate>Permalink should not exceed 100 characters</span>
+            </small>
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="newMeasurementPermalink" class="col-sm-4 control-label">Permalink:</label>
+		<label class="col-sm-3 control-label" translate>Column</label>
 
 		<div class="col-sm-8">
-			<input id="newMeasurementPermalink" type="text" class="form-control" ng-model="newMeasurement.perm_link_stub" />
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-4 control-label">Column:</label>
-
-		<div class="col-sm-8">
-			<select class="form-control" style="width: 150px;" ng-model="newMeasurement.column">
-				<option value="faith">Faith</option>
-				<option value="fruit">Fruit</option>
-				<option value="outcome">Outcome</option>
-				<option value="other">Other</option>
+			<select class="form-control" style="width: 150px;" ng-model="newMeasurement.column" ng-required="true">
+				<option value="faith" translate>Faith</option>
+				<option value="fruit" translate>Fruit</option>
+				<option value="outcome" translate>Outcome</option>
+				<option value="other" translate>Other</option>
 			</select>
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-4 control-label">Section:</label>
+		<label class="col-sm-3 control-label" translate>Section</label>
 
 		<div class="col-sm-8">
-			<select class="form-control" style="width: 150px;" ng-model="newMeasurement.section">
-				<option value="win">Win</option>
-				<option value="build">Build</option>
-				<option value="send">Send</option>
-				<option value="other">Other</option>
+			<select class="form-control" style="width: 150px;" ng-model="newMeasurement.section" ng-required="true">
+				<option value="win" translate>Win</option>
+				<option value="build" translate>Build</option>
+				<option value="send" translate>Send</option>
+				<option value="other" translate>Other</option>
 			</select>
 		</div>
 	</div>
+    </form>
 </div>
 <div class="modal-footer">
-	<button type="button" class="btn btn-default" ng-click="close()">Close</button>
-	<button type="button" class="btn btn-primary" ng-click="add()">Create</button>
+	<button type="button" class="btn btn-default" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> <span translate>Close</span></button>
+	<button type="button" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="add()"><i class="glyphicon glyphicon-ok"></i> <span translate>Create</span></button>
 </div>

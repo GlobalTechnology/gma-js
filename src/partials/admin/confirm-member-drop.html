@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="no()">
+        <span aria-hidden="true">&times;</span><span class="sr-only" translate>Close</span></button>
+    <h4 class="modal-title" translate>Move member to this team ?</h4>
+</div>
+<div class="modal-body form-horizontal">
+    <ul class="list-unstyled">
+        <li><span translate>Name</span>: {{member.first_name + ' '+member.last_name}}</li>
+        <li><span translate>Current role</span>: {{getRoleName(member.team_role)}}</li>
+        <li><span translate>Target team</span>: {{team.name}}</li>
+        <li><i class="glyphicon glyphicon-warning-sign text-danger"></i> <span translate>Current role will be set to former-member</span></li>
+    </ul>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="no()"><i class="glyphicon glyphicon-remove"></i> <span translate>No</span></button>
+    <button type="button" class="btn btn-primary" ng-click="yes()"><i class="glyphicon glyphicon-ok"></i> <span translate>Yes</span></button>
+</div>
+

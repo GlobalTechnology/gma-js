@@ -1,0 +1,104 @@
+<div class="admin-item" ng-init="initTeamAndMembers();">
+    <section class="row panel panel-default panel-custom">
+        <div class="panel-body">
+		 <div class="pull-left form-inline">
+
+			 <input autofocus="" type="text" ng-model="filter.memberSearch" placeholder="{{'Search Members'|translate}}.." class="form-control input-sm">&emsp;
+
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.deletedUser"> <span translate>Deleted</span></label>
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.formerMember"> <span translate>Former members</span></label>
+
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedLeader"> <span translate>Inherited leaders</span></label>
+
+			 <label title="Toggle" class="checkbox-inline"><input type="checkbox" ng-model="filter.inheritedAdmin"> <span translate>Inherited admins</span></label>
+
+		 </div>
+		 <div class="pull-right">
+			 <button class="btn btn-default btn-sm" type="button" ng-click="loadMinistryMembers(activeTeam.ministry_id)" title="Refresh Members List"><i class="glyphicon glyphicon-refresh"></i><span class="sr-only" translate>Refresh members list</span></button>
+			 <button class="btn btn-primary btn-sm" type="button" ng-click="addNewTeamMember()"><i class="glyphicon glyphicon-user"></i> <span translate>Add member</span></button>
+			 <button ng-if="current.hasRole(['admin','inherited_admin'])" class="btn btn-primary btn-sm" type="button" ng-click="addNewSubMinistry()"><i class="glyphicon glyphicon-plus"></i> <span translate>Add sub ministry</span></button>
+		 </div>
+            <div class="clearfix"></div>
+         </div>
+	 </section>
+	 <section class="row" id="team-member-pane">
+		 <aside class="col-md-3 pull-left teams-list">
+			 <script type="text/ng-template" id="teams-tree.html">
+					 <li ng-repeat="team in teams" role="treeitem" ng-hide="team.hide_after_drop===true">
+						 <span 	 class="outer"
+								 ng-init="teamCollapsed = true"
+								 ng-class="{'active' : (activeTeam.ministry_id === team.ministry_id)}"
+
+								 data-drop="true"
+								 jqyoui-droppable="{index: {{$index}},onOver:'teamOnOver(teamCollapsed)',onOut:'teamOnOut',onDrop:'teamOnDrop(team)',beforeDrop:'teamBeforeDrop(team)'}"
+
+								 data-drag="{{current.assignment.ministry_id !== team.ministry_id}}"
+								 jqyoui-draggable="{index: {{$index}},placeholder:'keep',animate:true,onStart:'teamOnStart(team)'}"
+								 jqyoui-options="teamDraggableOptions"
+
+								>
+							<i  class="glyphicon"
+								title="Toggle"
+								ng-class="{'glyphicon-certificate' : (!team.sub_ministries.length || team.sub_ministries.length == 0), 'glyphicon-triangle-right' : (teamCollapsed == true && (team.sub_ministries.length || team.sub_ministries.length >= 0)), 'glyphicon-triangle-bottom' : (teamCollapsed == false && (team.sub_ministries.length || team.sub_ministries.length >= 0))}"
+								ng-click="teamCollapsed = !teamCollapsed;"
+								></i>
+							<span class="inner"
+								ng-click="setActiveTeam(team)"
+								>{{team.name}}</span>
+						 </span>
+						<ul ng-if="team.sub_ministries.length" collapse="teamCollapsed" ng-include="'teams-tree.html'" onload="teams = team.sub_ministries" role="tree"></ul>
+					 </li>
+			 </script>
+			<ul ng-include="'teams-tree.html'" onload="teams = allCurrentTeams" role="tree"></ul>
+
+		 </aside><!-- .teams-list -->
+
+		 <aside class="col-md-9 pull-right members-list">
+
+			 <div ng-include="'partials/spinner.html'" ng-hide="membersLoaded"></div>
+
+			 <table class="table table-striped table-hover members-table" ng-hide="!membersLoaded">
+				 <thead>
+				 <tr><th translate>First Name</th><th translate>Last Name</th><th translate>Email</th><th translate>Actions</th></tr>
+				 </thead>
+				 <tbody>
+                 <tr class="active">
+                     <td>{{current.user.first_name}}</td>
+                     <td>{{current.user.last_name}}</td>
+                     <td>{{current.user.cas_username}}</td>
+                     <td>{{getCurrentUserRole(activeTeam.team_role)}}</td>
+                 </tr>
+				 <tr ng-repeat="member in activeTeamMembers | orderBy:['first_name', 'last_name'] | filter:filter.checkAdmin | filter : filter.checkLeader | filter:filter.checkDeleted |filter:filter.checkFormer | filter : filter.memberSearch"
+					 ng-if="current.user.person_id !== member.person_id"
+					 ng-class="{'danger':(member.team_role==='blocked')}"
+
+					 data-drag="isMemberDraggable(member)"
+					 ng-model="member"
+					 jqyoui-draggable="{index: {{$index}},animate:true,placeholder:'keep',onStart:'memberOnStart(member)'}"
+					 jqyoui-options="memberDraggableOptions"
+						 >
+					 <td>{{member.first_name}}</td>
+					 <td>{{member.last_name}}</td>
+					 <td>{{member.key_username}}</td>
+					 <td class="text-center">
+                         <select
+                                 ng-change="updateUserRole('{{member.team_role}}',member)"
+                                 class="form-control input-sm"
+                                 style="width: 150px;"
+                                 ng-model="member.team_role"
+                                 >
+                             <option
+                                     ng-repeat="role in roles"
+                                     ng-disabled="role.value === 'inherited_admin' || role.value ==='inherited_leader'"
+                                     ng-selected="{{role.value === member.team_role}}"
+                                     value="{{role.value}}"
+                                     ng-class="{'text-danger' : (role.value==='blocked')}"
+                                     > {{role.text}} </option>
+                         </select>
+					 </td>
+				 </tr>
+				 </tbody>
+			 </table>
+		 </aside>
+	 </section>
+ </div>

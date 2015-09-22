@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Next-Gen Measurements</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="icon" type="image/png" href="img/logo/favicon.png">
 
 	<!-- Global Measurements Application config -->
@@ -11,6 +13,7 @@
 
 	<!-- Global Scripts / Styles -->
 	<script type="application/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+	<script type="application/javascript" src="../bower_components/jquery-ui/jquery-ui.js"></script>
 	<script type="application/javascript" src="../bower_components/angular-loader/angular-loader.js"></script>
 	<script type="application/javascript" src="../bower_components/angular/angular.js"></script>
 	<script type="application/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
@@ -34,13 +37,26 @@
 		google.load( 'visualization', '1', {packages: ['corechart', 'table']} );
 	</script>
 
+	<!-- Google Analytics -->
+	<script type="application/javascript">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	</script>
+
 	<!-- build:styles -->
+	<link rel="stylesheet" href="../bower_components/angular-growl-v2/build/angular-growl.css" />
+    <link rel="stylesheet" href="../bower_components/flag-sprites/dist/css/flag-sprites.css" />
 	<link rel="stylesheet" href="css/application.css" />
 	<link rel="stylesheet" href="css/measurements.css" />
 	<link rel="stylesheet" href="css/spinner.css" />
 	<!-- endbuild -->
 
 	<!-- build:other -->
+    <script type="application/javascript" src="../bower_components/angular-gettext/dist/angular-gettext.js"></script>
+	<script type="application/javascript" src="../bower_components/angular-growl-v2/build/angular-growl.js"></script>
+	<script type="application/javascript" src="../bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
 	<script type="application/javascript" src="../bower_components/easy-markerwithlabel/src/markerwithlabel.js"></script>
 	<script type="application/javascript" src="../bower_components/iframe-resizer/src/iframeResizer.contentWindow.js"></script>
 	<!-- endbuild -->
@@ -48,19 +64,26 @@
 <body ng-app="gma">
 <div ng-include="'partials/application.html'"></div>
 <!-- build:application -->
+
 <script type="application/javascript" src="js/controllers/admin/_admin.js"></script>
 <script type="application/javascript" src="js/controllers/error/_error.js"></script>
 <script type="application/javascript" src="js/controllers/map/_map.js"></script>
 <script type="application/javascript" src="js/controllers/measurements/_measurements.js"></script>
 <script type="application/javascript" src="js/controllers/reports/_reports.js"></script>
+<script type="application/javascript" src="js/controllers/preference/_preference.js"></script>
+<script type="application/javascript" src="js/controllers/stories/_stories.js"></script>
 <script type="application/javascript" src="js/controllers/_controllers.js"></script>
 <script type="application/javascript" src="js/directives/_directives.js"></script>
 <script type="application/javascript" src="js/filters/_filters.js"></script>
+<script type="application/javascript" src="js/services/google-analytics/_google-analytics.js"></script>
 <script type="application/javascript" src="js/services/measurements/_measurements.js"></script>
 <script type="application/javascript" src="js/services/settings/_settings.js"></script>
+<script type="application/javascript" src="js/services/preference/_preference.js"></script>
+<script type="application/javascript" src="js/services/stories/_stories.js"></script>
 <script type="application/javascript" src="js/services/_services.js"></script>
 <script type="application/javascript" src="js/_app.js"></script>
 
+<script type="application/javascript" src="js/services/google-analytics/google-analytics-service.js"></script>
 <script type="application/javascript" src="js/services/measurements/assignments-service.js"></script>
 <script type="application/javascript" src="js/services/measurements/churches-service.js"></script>
 <script type="application/javascript" src="js/services/measurements/measurements-service.js"></script>
@@ -68,7 +91,12 @@
 <script type="application/javascript" src="js/services/measurements/ministries-service.js"></script>
 <script type="application/javascript" src="js/services/measurements/session-service.js"></script>
 <script type="application/javascript" src="js/services/measurements/trainings-service.js"></script>
+<script type="application/javascript" src="js/services/measurements/target-city-service.js"></script>
+<script type="application/javascript" src="js/services/measurements/iso-countries-service.js"></script>
+<script type="application/javascript" src="js/services/measurements/language-service.js"></script>
 <script type="application/javascript" src="js/services/settings/settings-service.js"></script>
+<script type="application/javascript" src="js/services/preference/user-preference-service.js"></script>
+<script type="application/javascript" src="js/services/stories/stories-service.js"></script>
 <script type="application/javascript" src="js/controllers/gma-ctrl.js"></script>
 <script type="application/javascript" src="js/controllers/join-ministry-ctrl.js"></script>
 <script type="application/javascript" src="js/controllers/admin/admin-ctrl.js"></script>
@@ -77,10 +105,12 @@
 <script type="application/javascript" src="js/controllers/measurements/measurements-ctrl.js"></script>
 <script type="application/javascript" src="js/controllers/measurements/measurement-details-ctrl.js"></script>
 <script type="application/javascript" src="js/controllers/reports/reports-ctrl.js"></script>
+<script type="application/javascript" src="js/controllers/preference/user-preference-ctrl.js"></script>
+<script type="application/javascript" src="js/controllers/stories/stories-ctrl.js"></script>
 <script type="application/javascript" src="js/directives/gma-trend-directive.js"></script>
-<script type="application/javascript" src="js/directives/select-on-focus.js"></script>
-<script type="application/javascript" src="js/directives/checklist-model.js"></script>
+<script type="application/javascript" src="js/directives/image-resizer.js"></script>
 <script type="application/javascript" src="js/filters/role-filter.js"></script>
+<script type="application/javascript" src="js/filters/mcc-filter.js"></script>
 <script type="application/javascript" src="js/app.js"></script>
 <!-- endbuild -->
 </body>

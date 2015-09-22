@@ -1,0 +1,1037 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2015-08-28 15:06+0000\n"
+"PO-Revision-Date: 2015-08-28 15:06+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin/_measurement.html:15
+#: admin/_team-members.html:62
+msgid "Actions"
+msgstr "Actions"
+
+#: map/new-church.html:85
+msgid "Add Church"
+msgstr "Add Church"
+
+#: admin/_measurement.html:5
+msgid "Add Measurement"
+msgstr "Add Measurement"
+
+#: admin/_team-members.html:18
+msgid "Add Member"
+msgstr "Add Member"
+
+#: map/edit-training.html:86
+msgid "Add Stage"
+msgstr "Add Stage"
+
+#: map/edit-church.html:110
+#: map/edit-church.html:139
+#: map/edit-training.html:101
+#: map/edit-training.html:122
+msgid "Add Story"
+msgstr "Add Story"
+
+#: admin/_team-members.html:19
+msgid "Add Sub Ministry"
+msgstr "Add Sub Ministry"
+
+#: map/new-target-city.html:56
+msgid "Add TargetCity"
+msgstr "Add TargetCity"
+
+#: map/new-training.html:46
+msgid "Add Training"
+msgstr "Add Training"
+
+#: admin/add-sub-ministry.html:4
+msgid "Add a new Sub Ministry"
+msgstr "Add a new Sub Ministry"
+
+#: admin/add-team-member.html:4
+msgid "Add a new Team Member to"
+msgstr "Add a new Team Member to"
+
+#: admin/add-measurement-type.html:4
+msgid "Add new measurement"
+msgstr "Add new measurement"
+
+#: stories/new-story-dialog.html:4
+msgid "Add new story"
+msgstr "Add new story"
+
+#: stories/new-story-dialog.html:5
+msgid "Add new story to"
+msgstr "Add new story to"
+
+#: stories/stories.html:12
+msgid "Add story"
+msgstr "Add story"
+
+#: measurements/details.html:130
+msgid "Admin"
+msgstr "Admin"
+
+#: map/edit-church.html:70
+#: map/new-church.html:73
+msgid "All Registered Users"
+msgstr "All Registered Users"
+
+#: preference/user-preference-modal.html:49
+msgid "Application Language"
+msgstr "Application Language"
+
+#: measurements/details.html:125
+msgid "Approve"
+msgstr "Approve"
+
+#: measurements/details.html:124
+msgid "Approved"
+msgstr "Approved"
+
+#: map/_confirmation-dialog.html:7
+msgid "Are you sure you want to delete ?"
+msgstr "Are you sure you want to delete ?"
+
+#: map/edit-target-city.html:17
+#: map/new-target-city.html:17
+msgid "Area:"
+msgstr "Area:"
+
+#: admin/add-measurement-type.html:60
+#: measurements/measurements.html:80
+msgid "Build"
+msgstr "Build"
+
+#: join-ministry.html:29
+#: map/_confirmation-dialog.html:10
+#: map/new-church.html:84
+#: map/new-target-city.html:55
+#: map/new-training.html:45
+#: preference/user-preference-modal.html:57
+msgid "Cancel"
+msgstr "Cancel"
+
+#: map/edit-church.html:40
+#: map/new-church.html:46
+msgid "Check if used"
+msgstr "Check if used"
+
+#: map/edit-church.html:53
+#: map/new-church.html:55
+msgid "Church"
+msgstr "Church"
+
+#: map/map.html:51
+msgid "Church or community of disciples"
+msgstr "Church or community of disciples"
+
+#: admin/add-measurement-type.html:3
+#: admin/add-measurement-type.html:69
+#: admin/add-sub-ministry.html:3
+#: admin/add-sub-ministry.html:32
+#: admin/add-team-member.html:30
+#: admin/confirm-member-drop.html:3
+#: admin/confirm-team-drop.html:3
+#: admin/confirm-update-role.html:3
+#: admin/edit-measurement-type.html:3
+#: admin/edit-measurement-type.html:52
+#: map/_confirmation-dialog.html:3
+#: measurements/details.html:145
+#: measurements/details.html:3
+#: preference/user-preference-modal.html:3
+#: stories/edit-story-dialog.html:3
+#: stories/new-story-dialog.html:102
+#: stories/new-story-dialog.html:3
+#: stories/view-story-dialog.html:27
+#: stories/view-story-dialog.html:3
+msgid "Close"
+msgstr "Close"
+
+#: admin/_measurement.html:13
+#: admin/add-measurement-type.html:43
+msgid "Column"
+msgstr "Column"
+
+#: map/_confirmation-dialog.html:4
+msgid "Confirm ?"
+msgstr "Confirm ?"
+
+#: map/edit-church.html:18
+#: map/new-church.html:23
+msgid "Contact Email:"
+msgstr "Contact Email:"
+
+#: map/edit-church.html:28
+#: map/new-church.html:33
+msgid "Contact Mobile:"
+msgstr "Contact Mobile:"
+
+#: map/edit-church.html:11
+#: map/new-church.html:17
+msgid "Contact Name:"
+msgstr "Contact Name:"
+
+#: stories/edit-story-dialog.html:19
+#: stories/new-story-dialog.html:21
+msgid "Content :"
+msgstr "Content :"
+
+#: preference/user-preference-modal.html:41
+msgid "Content Language"
+msgstr "Content Language"
+
+#: map/edit-target-city.html:25
+#: map/new-target-city.html:25
+msgid "Country:"
+msgstr "Country:"
+
+#: admin/add-measurement-type.html:70
+#: admin/add-sub-ministry.html:33
+msgid "Create"
+msgstr "Create"
+
+#: map/new-church.html:4
+msgid "Create New Church"
+msgstr "Create New Church"
+
+#: stories/stories.html:7
+msgid "Created By Me"
+msgstr "Created By Me"
+
+#: admin/confirm-member-drop.html:9
+msgid "Current Role"
+msgstr "Current Role"
+
+#: admin/confirm-member-drop.html:11
+msgid "Current role will be set to former-member"
+msgstr "Current role will be set to former-member"
+
+#: map/edit-training.html:46
+msgid "Date"
+msgstr "Date"
+
+#: map/edit-training.html:29
+#: map/new-training.html:24
+msgid "Date:"
+msgstr "Date:"
+
+#: admin/_edit-ministry.html:50
+#: preference/user-preference-modal.html:12
+#: preference/user-preference-modal.html:21
+msgid "Default"
+msgstr "Default"
+
+#: admin/_edit-ministry.html:46
+msgid "Default MCC"
+msgstr "Default MCC"
+
+#: map/_confirmation-dialog.html:11
+#: map/edit-training.html:72
+#: measurements/details.html:134
+msgid "Delete"
+msgstr "Delete"
+
+#: map/edit-church.html:129
+msgid "Delete Church"
+msgstr "Delete Church"
+
+#: map/edit-target-city.html:69
+msgid "Delete Target city"
+msgstr "Delete Target city"
+
+#: map/edit-training.html:112
+msgid "Delete Training"
+msgstr "Delete Training"
+
+#: admin/_team-members.html:8
+msgid "Deleted"
+msgstr "Deleted"
+
+#: admin/add-measurement-type.html:20
+msgid "Description"
+msgstr "Description"
+
+#: admin/add-measurement-type.html:25
+#: admin/edit-measurement-type.html:44
+msgid "Description is required."
+msgstr "Description is required."
+
+#: admin/edit-measurement-type.html:45
+msgid "Description should not exceed 200 characters"
+msgstr "Description should not exceed 200 characters"
+
+#: admin/add-measurement-type.html:26
+msgid "Description should not exceed 200 characters."
+msgstr "Description should not exceed 200 characters."
+
+#: stories/edit-story-dialog.html:71
+#: stories/new-story-dialog.html:75
+msgid "Draft"
+msgstr "Draft"
+
+#: stories/stories.html:35
+msgid "Edit"
+msgstr "Edit"
+
+#: map/edit-target-city.html:4
+msgid "Edit Target City"
+msgstr "Edit Target City"
+
+#: admin/_edit-ministry.html:4
+msgid "Edit current ministry"
+msgstr "Edit current ministry"
+
+#: stories/edit-story-dialog.html:4
+msgid "Edit story"
+msgstr "Edit story"
+
+#: admin/_team-members.html:62
+msgid "Email"
+msgstr "Email"
+
+#: admin/edit-measurement-type.html:22
+msgid "English Description"
+msgstr "English Description"
+
+#: admin/edit-measurement-type.html:16
+msgid "English Name"
+msgstr "English Name"
+
+#: map/edit-church.html:71
+#: map/new-church.html:74
+msgid "Everyone"
+msgstr "Everyone"
+
+#: map/map.html:109
+msgid "Everything"
+msgstr "Everything"
+
+#: admin/add-measurement-type.html:47
+msgid "Faith"
+msgstr "Faith"
+
+#: measurements/measurements.html:35
+msgid "Faith Actions"
+msgstr "Faith Actions"
+
+#: admin/_team-members.html:62
+msgid "First Name"
+msgstr "First Name"
+
+#: admin/_team-members.html:9
+msgid "Former Members"
+msgstr "Former Members"
+
+#: admin/add-measurement-type.html:48
+#: measurements/measurements.html:41
+msgid "Fruit"
+msgstr "Fruit"
+
+#: map/edit-church.html:52
+#: map/map.html:42
+#: map/new-church.html:54
+msgid "Group"
+msgstr "Group"
+
+#: admin/_edit-ministry.html:58
+#: admin/_measurement.html:25
+#: preference/user-preference-modal.html:29
+msgid "Hide"
+msgstr "Hide"
+
+#: preference/user-preference-modal.html:26
+msgid "Hide Reports Tab"
+msgstr "Hide Reports Tab"
+
+#: admin/_edit-ministry.html:55
+msgid "Hide Reports Tab by default"
+msgstr "Hide Reports Tab by default"
+
+#: stories/edit-story-dialog.html:48
+#: stories/new-story-dialog.html:51
+msgid "Image will be resized to"
+msgstr "Image will be resized to"
+
+#: admin/_team-members.html:13
+msgid "Inherited Admins"
+msgstr "Inherited Admins"
+
+#: admin/_team-members.html:11
+msgid "Inherited Leaders"
+msgstr "Inherited Leaders"
+
+#: error/error.html:2
+msgid "Invalid Session"
+msgstr "Invalid Session"
+
+#: admin/add-team-member.html:15
+#: map/edit-church.html:22
+#: map/new-church.html:28
+msgid "Invalid email format"
+msgstr "Invalid email format"
+
+#: stories/edit-story-dialog.html:49
+#: stories/new-story-dialog.html:52
+msgid "Invalid image file input."
+msgstr "Invalid image file input."
+
+#: map/edit-church.html:38
+#: map/new-church.html:44
+msgid "Jesus Film activity:"
+msgstr "Jesus Film activity:"
+
+#: map/map.html:87
+msgid "Jesus Film contribution"
+msgstr "Jesus Film contribution"
+
+#: join-ministry.html:28
+#: join-ministry.html:3
+msgid "Join Ministry/Team"
+msgstr "Join Ministry/Team"
+
+#: application.html:21
+msgid "Join another location / ministry"
+msgstr "Join another location / ministry"
+
+#: admin/edit-measurement-type.html:9
+msgid "Language"
+msgstr "Language"
+
+#: admin/_team-members.html:62
+msgid "Last Name"
+msgstr "Last Name"
+
+#: measurements/details.html:132
+msgid "Leader"
+msgstr "Leader"
+
+#: measurements/details.html:33
+msgid "Local"
+msgstr "Local"
+
+#: measurements/measurements.html:7
+msgid "Local Movement Indicators"
+msgstr "Local Movement Indicators"
+
+#: measurements/details.html:26
+msgid "Local Team"
+msgstr "Local Team"
+
+#: admin/_measurement.html:27
+#: admin/edit-measurement-type.html:4
+msgid "Localize"
+msgstr "Localize"
+
+#: admin/edit-measurement-type.html:39
+msgid "Localized Description"
+msgstr "Localized Description"
+
+#: admin/edit-measurement-type.html:28
+msgid "Localized Name"
+msgstr "Localized Name"
+
+#: error/error.html:5
+msgid "Log In"
+msgstr "Log In"
+
+#: application.html:70
+msgid "Logout"
+msgstr "Logout"
+
+#: map/edit-training.html:37
+#: map/new-training.html:38
+msgid "MCC:"
+msgstr "MCC:"
+
+#: admin/_edit-ministry.html:34
+msgid "MCCs"
+msgstr "MCCs"
+
+#: admin/_measurement.html:4
+msgid "Measurements"
+msgstr "Measurements"
+
+#: admin/confirm-update-role.html:8
+#: measurements/details.html:131
+msgid "Member"
+msgstr "Member"
+
+#: admin/_edit-ministry.html:10
+msgid "Ministry Name"
+msgstr "Ministry Name"
+
+#: admin/add-sub-ministry.html:25
+msgid "Ministry code is invalid. Please match with required format."
+msgstr "Ministry code is invalid. Please match with required format."
+
+#: admin/add-sub-ministry.html:24
+msgid "Ministry code is required."
+msgstr "Ministry code is required."
+
+#: admin/add-sub-ministry.html:19
+msgid "Ministry code:"
+msgstr "Ministry code:"
+
+#: admin/_edit-ministry.html:15
+#: admin/add-sub-ministry.html:14
+msgid "Ministry name is required."
+msgstr "Ministry name is required."
+
+#: admin/add-sub-ministry.html:9
+msgid "Ministry name:"
+msgstr "Ministry name:"
+
+#: join-ministry.html:9
+msgid "Ministry/Team:"
+msgstr "Ministry/Team:"
+
+#: map/edit-church.html:76
+msgid "Ministry:"
+msgstr "Ministry:"
+
+#: application.html:98
+msgid "Mobile Apps"
+msgstr "Mobile Apps"
+
+#: map/edit-church.html:32
+#: map/new-church.html:38
+msgid "Mobile number is invalid."
+msgstr "Mobile number is invalid."
+
+#: map/edit-church.html:115
+msgid "Move Church"
+msgstr "Move Church"
+
+#: map/edit-target-city.html:64
+msgid "Move Target city"
+msgstr "Move Target city"
+
+#: map/edit-training.html:106
+msgid "Move Training"
+msgstr "Move Training"
+
+#: admin/confirm-member-drop.html:4
+msgid "Move member to this team ?"
+msgstr "Move member to this team ?"
+
+#: admin/confirm-team-drop.html:4
+msgid "Move sub-team to this team ?"
+msgstr "Move sub-team to this team ?"
+
+#: map/edit-church.html:54
+#: map/new-church.html:56
+msgid "Multiplying Church"
+msgstr "Multiplying Church"
+
+#: map/map.html:61
+msgid "Multiplying church or community of disciples"
+msgstr "Multiplying church or community of disciples"
+
+#: application.html:68
+#: preference/user-preference-modal.html:4
+msgid "My Preferences"
+msgstr "My Preferences"
+
+#: admin/_measurement.html:12
+#: admin/add-measurement-type.html:9
+#: admin/confirm-member-drop.html:8
+#: map/edit-target-city.html:10
+msgid "Name"
+msgstr "Name"
+
+#: admin/add-measurement-type.html:14
+#: admin/edit-measurement-type.html:33
+#: map/edit-target-city.html:12
+#: map/edit-training.html:15
+#: map/new-church.html:12
+#: map/new-target-city.html:12
+#: map/new-training.html:12
+msgid "Name is required."
+msgstr "Name is required."
+
+#: admin/edit-measurement-type.html:34
+msgid "Name should not exceed 200 characters"
+msgstr "Name should not exceed 200 characters"
+
+#: admin/add-measurement-type.html:15
+msgid "Name should not exceed 200 characters."
+msgstr "Name should not exceed 200 characters."
+
+#: map/edit-target-city.html:8
+#: map/edit-training.html:11
+#: map/new-church.html:8
+#: map/new-target-city.html:8
+#: map/new-training.html:8
+msgid "Name:"
+msgstr "Name:"
+
+#: map/new-training.html:4
+msgid "New Church Training Activity"
+msgstr "New Church Training Activity"
+
+#: admin/confirm-update-role.html:10
+msgid "New Role"
+msgstr "New Role"
+
+#: map/new-target-city.html:4
+msgid "New Target City"
+msgstr "New Target City"
+
+#: stories/stories.html:45
+msgid "Newer"
+msgstr "Newer"
+
+#: admin/confirm-member-drop.html:15
+#: admin/confirm-team-drop.html:13
+#: admin/confirm-update-role.html:14
+#: map/edit-church.html:43
+#: preference/user-preference-modal.html:37
+msgid "No"
+msgstr "No"
+
+#: admin/_edit-ministry.html:29
+msgid "No Parent Ministry"
+msgstr "No Parent Ministry"
+
+#: stories/stories.html:40
+msgid "No story found"
+msgstr "No story found"
+
+#: map/edit-target-city.html:47
+#: map/new-target-city.html:47
+msgid "None"
+msgstr "None"
+
+#: admin/confirm-update-role.html:9
+msgid "Old Role"
+msgstr "Old Role"
+
+#: stories/stories.html:45
+msgid "Older"
+msgstr "Older"
+
+#: map/edit-church.html:105
+#: map/edit-target-city.html:58
+#: map/edit-training.html:96
+msgid "Options"
+msgstr "Options"
+
+#: admin/add-measurement-type.html:50
+#: admin/add-measurement-type.html:62
+msgid "Other"
+msgstr "Other"
+
+#: measurements/measurements.html:115
+msgid "Other Measurements"
+msgstr "Other Measurements"
+
+#: admin/add-measurement-type.html:49
+#: measurements/measurements.html:47
+msgid "Outcome"
+msgstr "Outcome"
+
+#: admin/_edit-ministry.html:21
+msgid "Parent Ministry"
+msgstr "Parent Ministry"
+
+#: map/map.html:95
+msgid "Parent lines"
+msgstr "Parent lines"
+
+#: map/edit-training.html:47
+msgid "Participants"
+msgstr "Participants"
+
+#: map/new-training.html:31
+msgid "Participants:"
+msgstr "Participants:"
+
+#: admin/add-measurement-type.html:31
+msgid "Permalink"
+msgstr "Permalink"
+
+#: admin/add-measurement-type.html:37
+msgid "Permalink is invalid. Please match with required format."
+msgstr "Permalink is invalid. Please match with required format."
+
+#: admin/add-measurement-type.html:36
+msgid "Permalink is required."
+msgstr "Permalink is required."
+
+#: admin/add-measurement-type.html:38
+msgid "Permalink should not exceed 100 characters."
+msgstr "Permalink should not exceed 100 characters."
+
+#: join-ministry.html:5
+msgid "Please identify a ministry team that you work most closely with and request to join that team."
+msgstr "Please identify a ministry team that you work most closely with and request to join that team."
+
+#: preference/user-preference-modal.html:17
+msgid "Preferred MCC"
+msgstr "Preferred MCC"
+
+#: preference/user-preference-modal.html:8
+msgid "Preferred Ministry"
+msgstr "Preferred Ministry"
+
+#: stories/edit-story-dialog.html:58
+#: stories/new-story-dialog.html:62
+msgid "Privacy :"
+msgstr "Privacy :"
+
+#: stories/new-story-dialog.html:66
+msgid "Pubic"
+msgstr "Pubic"
+
+#: stories/edit-story-dialog.html:67
+#: stories/new-story-dialog.html:71
+msgid "Publish Status :"
+msgstr "Publish Status :"
+
+#: stories/edit-story-dialog.html:70
+#: stories/new-story-dialog.html:74
+msgid "Published"
+msgstr "Published"
+
+#: stories/stories.html:52
+msgid "Refresh Feeds"
+msgstr "Refresh Feeds"
+
+#: stories/stories.html:11
+msgid "Refresh List"
+msgstr "Refresh List"
+
+#: admin/_team-members.html:17
+msgid "Refresh Members List"
+msgstr "Refresh Members List"
+
+#: map/edit-church.html:123
+msgid "Remove Parent Church"
+msgstr "Remove Parent Church"
+
+#: stories/new-story-dialog.html:57
+msgid "Remove image"
+msgstr "Remove image"
+
+#: stories/edit-story-dialog.html:72
+msgid "Removed"
+msgstr "Removed"
+
+#: admin/add-team-member.html:21
+msgid "Role"
+msgstr "Role"
+
+#: admin/add-team-member.html:31
+#: admin/edit-measurement-type.html:53
+#: preference/user-preference-modal.html:58
+#: stories/new-story-dialog.html:103
+msgid "Save"
+msgstr "Save"
+
+#: map/edit-church.html:134
+#: map/edit-target-city.html:74
+#: map/edit-training.html:117
+#: measurements/measurements.html:122
+#: measurements/measurements.html:21
+msgid "Save Changes"
+msgstr "Save Changes"
+
+#: measurements/details.html:146
+msgid "Save Measurements"
+msgstr "Save Measurements"
+
+#: admin/_measurement.html:33
+msgid "Save changes"
+msgstr "Save changes"
+
+#: map/map.html:136
+msgid "Search"
+msgstr "Search"
+
+#: admin/_team-members.html:6
+msgid "Search Members"
+msgstr "Search Members"
+
+#: admin/_measurement.html:14
+#: admin/add-measurement-type.html:55
+msgid "Section"
+msgstr "Section"
+
+#: map/edit-church.html:65
+#: map/new-church.html:68
+msgid "Security:"
+msgstr "Security:"
+
+#: measurements/details.html:104
+msgid "Self Assigned Members (not yet approved)"
+msgstr "Self Assigned Members (not yet approved)"
+
+#: admin/add-measurement-type.html:61
+#: measurements/measurements.html:98
+msgid "Send"
+msgstr "Send"
+
+#: map/map.html:129
+msgid "Set Ministry Default View for others"
+msgstr "Set Ministry Default View for others"
+
+#: map/edit-church.html:120
+msgid "Set Parent Church"
+msgstr "Set Parent Church"
+
+#: map/map.html:128
+msgid "Set as my Ministry Default View"
+msgstr "Set as my Ministry Default View"
+
+#: admin/_edit-ministry.html:59
+#: admin/_measurement.html:24
+#: preference/user-preference-modal.html:30
+msgid "Show"
+msgstr "Show"
+
+#: map/edit-church.html:59
+#: map/new-church.html:62
+msgid "Size:"
+msgstr "Size:"
+
+#: admin/confirm-team-drop.html:8
+msgid "Source Name"
+msgstr "Source Name"
+
+#: map/edit-training.html:45
+msgid "Stage"
+msgstr "Stage"
+
+#: map/edit-target-city.html:33
+#: map/new-target-city.html:33
+msgid "Stage:"
+msgstr "Stage:"
+
+#: join-ministry.html:16
+msgid "Start typing to search for ministry"
+msgstr "Start typing to search for ministry"
+
+#: stories/edit-story-dialog.html:26
+#: stories/new-story-dialog.html:28
+msgid "Story content field is required"
+msgstr "Story content field is required"
+
+#: stories/edit-story-dialog.html:26
+#: stories/new-story-dialog.html:29
+msgid "Story content should not exceed"
+msgstr "Story content should not exceed"
+
+#: stories/edit-story-dialog.html:13
+#: stories/new-story-dialog.html:15
+msgid "Story title field is required"
+msgstr "Story title field is required"
+
+#: stories/edit-story-dialog.html:14
+#: stories/new-story-dialog.html:16
+msgid "Story title should not exceed 120 characters"
+msgstr "Story title should not exceed 120 characters"
+
+#: map/edit-target-city.html:44
+#: map/new-target-city.html:44
+msgid "Sub Stage:"
+msgstr "Sub Stage:"
+
+#: measurements/details.html:86
+msgid "Sub-Ministries / Teams"
+msgstr "Sub-Ministries / Teams"
+
+#: admin/_edit-ministry.html:63
+msgid "Supported Languages"
+msgstr "Supported Languages"
+
+#: join-ministry.html:20
+#: preference/user-preference-modal.html:34
+msgid "Supported Staff"
+msgstr "Supported Staff"
+
+#: measurements/details.html:17
+msgid "TOTAL"
+msgstr "TOTAL"
+
+#: stories/edit-story-dialog.html:87
+#: stories/new-story-dialog.html:90
+msgid "Tagged MCC :"
+msgstr "Tagged MCC :"
+
+#: stories/edit-story-dialog.html:79
+#: stories/new-story-dialog.html:82
+msgid "Tagged Ministry :"
+msgstr "Tagged Ministry :"
+
+#: map/edit-church.html:51
+#: map/new-church.html:53
+msgid "Target"
+msgstr "Target"
+
+#: admin/confirm-member-drop.html:10
+#: admin/confirm-team-drop.html:9
+msgid "Target Team"
+msgstr "Target Team"
+
+#: map/map.html:70
+msgid "Target city"
+msgstr "Target city"
+
+#: map/map.html:33
+msgid "Target point"
+msgstr "Target point"
+
+#: measurements/details.html:60
+msgid "Team Members"
+msgstr "Team Members"
+
+#: stories/edit-story-dialog.html:63
+#: stories/new-story-dialog.html:67
+msgid "Team Only"
+msgstr "Team Only"
+
+#: admin/add-team-member.html:9
+msgid "TheKey username:"
+msgstr "TheKey username:"
+
+#: map/edit-church.html:68
+#: map/new-church.html:71
+msgid "This Ministry Only"
+msgstr "This Ministry Only"
+
+#: map/edit-church.html:69
+#: map/new-church.html:72
+msgid "This Ministry and above"
+msgstr "This Ministry and above"
+
+#: stories/edit-story-dialog.html:9
+#: stories/new-story-dialog.html:11
+msgid "Title :"
+msgstr "Title :"
+
+#: measurements/details.html:49
+msgid "Total"
+msgstr "Total"
+
+#: map/edit-training.html:21
+#: map/new-training.html:17
+msgid "Training Type:"
+msgstr "Training Type:"
+
+#: map/map.html:79
+msgid "Training activity"
+msgstr "Training activity"
+
+#: map/edit-church.html:48
+#: map/new-church.html:50
+msgid "Type:"
+msgstr "Type:"
+
+#: stories/edit-story-dialog.html:101
+msgid "Update"
+msgstr "Update"
+
+#: admin/confirm-update-role.html:4
+msgid "Update Team Member Role ?"
+msgstr "Update Team Member Role ?"
+
+#: stories/edit-story-dialog.html:31
+#: stories/new-story-dialog.html:34
+msgid "Upload an Image :"
+msgstr "Upload an Image :"
+
+#: error/error.html:4
+msgid "Use the button below to log back in."
+msgstr "Use the button below to log back in."
+
+#: admin/add-team-member.html:14
+msgid "Username is required."
+msgstr "Username is required."
+
+#: stories/view-story-dialog.html:4
+msgid "View story"
+msgstr "View story"
+
+#: admin/add-measurement-type.html:59
+#: measurements/measurements.html:57
+msgid "Win"
+msgstr "Win"
+
+#: admin/confirm-member-drop.html:16
+#: admin/confirm-team-drop.html:14
+#: admin/confirm-update-role.html:15
+#: map/edit-church.html:42
+#: preference/user-preference-modal.html:36
+msgid "Yes"
+msgstr "Yes"
+
+#: stories/edit-story-dialog.html:23
+#: stories/new-story-dialog.html:25
+msgid "You have"
+msgstr "You have"
+
+#: error/error.html:3
+msgid "You have been logged out or your session has expired due to inactivity."
+msgstr "You have been logged out or your session has expired due to inactivity."
+
+#: stories/edit-story-dialog.html:26
+#: stories/new-story-dialog.html:29
+msgid "characters"
+msgstr "characters"
+
+#: stories/edit-story-dialog.html:23
+#: stories/new-story-dialog.html:25
+msgid "characters remaining"
+msgstr "characters remaining"
+
+#: stories/edit-story-dialog.html:48
+msgid "existing image will be replaced"
+msgstr "existing image will be replaced"
+
+#: measurements/lmi.html:100
+#: measurements/lmi.html:124
+#: measurements/lmi.html:148
+#: measurements/lmi.html:64
+msgid "local"
+msgstr "local"
+
+#: map/edit-church.html:5
+msgid "members"
+msgstr "members"
+
+#: stories/edit-story-dialog.html:23
+#: stories/new-story-dialog.html:25
+msgid "of"
+msgstr "of"
+
+#: map/map.html:115
+msgid "only"
+msgstr "only"
+
+#: measurements/lmi.html:12
+#: measurements/lmi.html:28
+#: measurements/lmi.html:53
+#: measurements/lmi.html:89
+msgid "personal"
+msgstr "personal"
+
+#: measurements/lmi.html:106
+#: measurements/lmi.html:130
+#: measurements/lmi.html:154
+#: measurements/lmi.html:34
+#: measurements/lmi.html:70
+msgid "total"
+msgstr "total"
+
+#: map/map.html:121
+msgid "tree"
+msgstr "tree"
+

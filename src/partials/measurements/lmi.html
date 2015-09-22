@@ -1,6 +1,6 @@
 <div ng-switch="current.assignment.team_role">
-	<div class="lmi-item self_assigned" ng-switch-when="self_assigned">
-		<div class="lmi-item-name">{{m.name}}</div>
+	<div class="lmi-item self_assigned" ng-switch-when="self_assigned" ng-if="checkMeasureState(m)">
+		<div class="lmi-item-name" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
 		<div class="lmi-input-group">
 			<input type="number"
 				   min="0"
@@ -8,14 +8,14 @@
 				   id="{{m.measurement_type_ids.person}}"
 				   name="{{m.measurement_type_ids.person}}"
 				   ng-model="m.person"
-				   select-on-focus>
-			<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}">personal</label>
+				   >
+			<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}" translate>personal</label>
 		</div>
 	</div>
 
-	<div class="lmi-item member" ng-switch-when="member">
-		<div class="lmi-item-name">{{m.name}}</div>
-		<div>
+	<div class="lmi-item member" ng-switch-when="member" ng-if="checkMeasureState(m)">
+		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
+		<div collapse="(measurementState[m.perm_link_stub]===1)">
 			<div class="lmi-item-section col-xs-6">
 				<div class="lmi-input-group">
 					<input type="number"
@@ -24,23 +24,23 @@
 						   id="{{m.measurement_type_ids.person}}"
 						   name="{{m.measurement_type_ids.person}}"
 						   ng-model="m.person"
-						   select-on-focus>
-					<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}">personal</label>
+						   >
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}" translate>personal</label>
 				</div>
 			</div>
 			<div class="lmi-item-section col-xs-6" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
 				<div class="lmi-input-group">
 					<div class="form-control total">{{m.total}}</div>
-					<label class="lmi-input-addon">total</label>
+					<label class="lmi-input-addon" translate>total</label>
 				</div>
 			</div>
 			<span class="clearfix"></span>
 		</div>
 	</div>
 
-	<div class="lmi-item leader" ng-switch-when="leader">
-		<div class="lmi-item-name">{{m.name}}</div>
-		<div>
+	<div class="lmi-item leader" ng-switch-when="leader" ng-if="checkMeasureState(m)">
+		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
+		<div collapse="(measurementState[m.perm_link_stub]===1)">
 			<div class="lmi-item-section col-xs-4">
 				<div class="lmi-input-group">
 					<input type="number"
@@ -49,8 +49,8 @@
 						   id="{{m.measurement_type_ids.person}}"
 						   name="{{m.measurement_type_ids.person}}"
 						   ng-model="m.person"
-						   select-on-focus>
-					<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}">personal</label>
+						   >
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}" translate>personal</label>
 				</div>
 			</div>
 			<div class="lmi-item-section col-xs-4">
@@ -60,38 +60,98 @@
 						   id="{{m.measurement_type_ids.local}}"
 						   name="{{m.measurement_type_ids.local}}"
 						   ng-model="m.local"
-						   select-on-focus>
-					<label class="lmi-input-addon" for="{{m.measurement_type_ids.local}}">local</label>
+						   >
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.local}}" translate>Team</label>
 				</div>
 			</div>
 			<div class="lmi-item-section col-xs-4" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
 				<div class="lmi-input-group">
 					<div class="form-control total">{{m.total}}</div>
-					<label class="lmi-input-addon">total</label>
+					<label class="lmi-input-addon" translate>total</label>
 				</div>
 			</div>
 			<span class="clearfix"></span>
 		</div>
 	</div>
 
-	<div class="lmi-item inherited_leader" ng-switch-when="inherited_leader">
-		<div class="lmi-item-name">{{m.name}}</div>
-		<div>
-			<div class="lmi-item-section col-xs-6">
+	<div class="lmi-item leader" ng-switch-when="admin" ng-if="checkMeasureState(m)">
+		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
+		<div collapse="(measurementState[m.perm_link_stub]===1)">
+			<div class="lmi-item-section col-xs-4">
+				<div class="lmi-input-group">
+					<input type="number"
+						   min="0"
+						   class="form-control"
+						   id="{{m.measurement_type_ids.person}}"
+						   name="{{m.measurement_type_ids.person}}"
+						   ng-model="m.person"
+						   >
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.person}}" translate>personal</label>
+				</div>
+			</div>
+			<div class="lmi-item-section col-xs-4">
 				<div class="lmi-input-group">
 					<input type="number"
 						   class="form-control"
 						   id="{{m.measurement_type_ids.local}}"
 						   name="{{m.measurement_type_ids.local}}"
 						   ng-model="m.local"
-						   select-on-focus>
-					<label class="lmi-input-addon" for="{{m.measurement_type_ids.local}}">local</label>
+						   >
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.local}}" translate>Team</label>
+				</div>
+			</div>
+			<div class="lmi-item-section col-xs-4" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
+				<div class="lmi-input-group">
+					<div class="form-control total">{{m.total}}</div>
+					<label  class="lmi-input-addon" translate>total</label>
+				</div>
+			</div>
+			<span class="clearfix"></span>
+		</div>
+	</div>
+
+	<div class="lmi-item inherited_leader" ng-switch-when="inherited_leader" ng-if="checkMeasureState(m)">
+		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
+		<div collapse="(measurementState[m.perm_link_stub]===1)">
+			<div class="lmi-item-section col-xs-6">
+				<div class="lmi-input-group" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'">
+					<input type="number"
+						   class="form-control "
+						   id="{{m.measurement_type_ids.local}}"
+						   name="{{m.measurement_type_ids.local}}"
+						   ng-model="m.local"
+						   >
+					<label class="lmi-input-addon" for="{{m.measurement_type_ids.local}}" translate>Team</label>
 				</div>
 			</div>
 			<div class="lmi-item-section col-xs-6" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
 				<div class="lmi-input-group">
-					<div class="form-control total">{{m.total}}</div>
-					<label class="lmi-input-addon">total</label>
+					<div class="form-control total ">{{m.total}}</div>
+					<label class="lmi-input-addon " translate>total</label>
+				</div>
+			</div>
+			<span class="clearfix"></span>
+		</div>
+	</div>
+
+	<div class="lmi-item inherited_leader" ng-switch-when="inherited_admin" ng-if="checkMeasureState(m)">
+		<div class="lmi-item-name" ng-click="toggleMeasurementState(measurementState,m.perm_link_stub)" ng-class="(measurementState[m.perm_link_stub]===1)? 'measurement-collapsed':'measurement-expanded'" popover="{{m.localized_description || m.localize_description || m.description}}" popover-trigger="mouseenter" popover-popup-delay='1000'>{{m.localized_name || m.localize_name || m.name}}</div>
+		<div collapse="(measurementState[m.perm_link_stub]===1)">
+			<div class="lmi-item-section col-xs-6">
+				<div class="lmi-input-group">
+					<input type="number"
+						   class="form-control  "
+						   id="{{m.measurement_type_ids.local}}"
+						   name="{{m.measurement_type_ids.local}}"
+						   ng-model="m.local"
+						   >
+					<label class="lmi-input-addon  " for="{{m.measurement_type_ids.local}}" translate>Team</label>
+				</div>
+			</div>
+			<div class="lmi-item-section col-xs-6" ng-click="editMeasurementDetails(m);" style="cursor: pointer;">
+				<div class="lmi-input-group">
+					<div class="form-control total  ">{{m.total}}</div>
+					<label class="lmi-input-addon  " translate>total</label>
 				</div>
 			</div>
 			<span class="clearfix"></span>

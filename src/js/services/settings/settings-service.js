@@ -3,7 +3,7 @@
 
 	function SettingsService() {
 		var config = {},
-			tabs = [];
+			tabs   = [];
 
 		this.setConfig = function ( c ) {
 			config = c;
@@ -47,36 +47,50 @@
 						this.push( {
 							name:          'Map',
 							path:          '/map',
+							icon:          'glyphicon-map-marker',
 							templateUrl:   'partials/map/map.html',
 							controller:    'MapCtrl',
-							requiredRoles: ['self_assigned', 'member', 'inherited_leader', 'leader']
+							requiredRoles: ['admin', 'inherited_admin', 'self_assigned', 'member', 'inherited_leader', 'leader']
 						} );
 						break;
 					case 'measurements':
 						this.push( {
 							name:          'Measurements',
 							path:          '/measurements',
+							icon:          'glyphicon-stats',
 							templateUrl:   'partials/measurements/measurements.html',
 							controller:    'MeasurementsCtrl',
-							requiredRoles: ['self_assigned', 'member', 'inherited_leader', 'leader']
+							requiredRoles: ['admin', 'inherited_admin', 'self_assigned', 'member', 'inherited_leader', 'leader']
 						} );
 						break;
 					case 'reports':
 						this.push( {
 							name:          'Reports',
 							path:          '/reports',
+							icon:          'glyphicon-list-alt',
 							templateUrl:   'partials/reports/reports.html',
 							controller:    'ReportsCtrl',
-							requiredRoles: ['inherited_leader', 'leader']
+							requiredRoles: ['admin', 'inherited_admin', 'inherited_leader', 'leader']
 						} );
 						break;
 					case 'admin':
 						this.push( {
 							name:          'Admin',
 							path:          '/admin',
+							icon:          'glyphicon-cog',
 							templateUrl:   'partials/admin/admin.html',
 							controller:    'AdminCtrl',
-							requiredRoles: ['leader', 'inherited_leader']
+							requiredRoles: ['admin', 'inherited_admin', 'leader', 'inherited_leader']
+						} );
+						break;
+					case 'news':
+						this.push( {
+							name:          'Home',
+							path:          '/news',
+							icon:          'glyphicon-home',
+							templateUrl:   'partials/stories/stories.html',
+							controller:    'StoriesCtrl',
+							requiredRoles: ['admin', 'inherited_admin', 'inherited_leader', 'leader', 'member']
 						} );
 						break;
 				}
@@ -86,19 +100,26 @@
 
 		this.$get = function () {
 			return {
-				appUrl:         appUrl,
-				versionUrl:     versionUrl,
-				ticket:         config.ticket,
-				appEnvironment: config.environment,
-				api:            {
+				appUrl:                     appUrl,
+				versionUrl:                 versionUrl,
+				version:                    config.version,
+				name:                       config.name,
+				ticket:                     config.ticket,
+				appEnvironment:             config.environment,
+				api:                        {
 					measurements: measurementsApi,
 					refresh:      config.api.refresh,
 					logout:       config.api.logout,
 					login:        config.api.login
 				},
-				mobileApps:     ( typeof config.mobileapps !== 'undefined' && config.mobileapps.length > 0  ) ? config.mobileapps : false,
-				gmaNamespace:   config.namespace,
-				tabs:           tabs
+				mobileApps:                 ( typeof config.mobileapps === 'object' && Object.keys( config.mobileapps ).length > 0  ) ? config.mobileapps : false,
+				gmaNamespace:               config.namespace,
+				tabs:                       tabs,
+				googleAnalytics:            config.googleanalytics,
+				default_measurement_states: config.default_measurement_states || {},
+				stories:                    config.stories,
+				area_codes:                 config.area_codes,
+				static_locales:             config.static_locales
 			}
 		};
 	}

@@ -62,7 +62,12 @@
 			deleteTraining:           function ( session_ticket, training ) {
 				return $http.delete( Settings.api.measurements( '/training/' + training.id ) )
 					.then( function ( response ) {
-						return;
+						//checking if response is 204 for successful delete
+						if(response.status === 204){
+							return response;
+						}
+						// if response is not 204 then throwing error
+						throw response;
 					} );
 			},
 			addTrainingCompletion:    function ( session_ticket, training_completion ) {
@@ -80,7 +85,12 @@
 			deleteTrainingCompletion: function ( session_ticket, training_completion ) {
 				return $http.delete( Settings.api.measurements( '/training_completion/' + training_completion.id ) )
 					.then( function ( response ) {
-						return;
+						//checking if response is 204 for successful delete
+						if(response.status === 204){
+							return response;
+						}
+						// if response is not 204 then throwing response as error
+						throw response;
 					} );
 			}
 		}

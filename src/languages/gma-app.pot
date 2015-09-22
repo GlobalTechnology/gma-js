@@ -1,0 +1,1327 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: admin/_measurement.html:15
+#: admin/_team-members.html:62
+msgid "Actions"
+msgstr ""
+
+#: map/new-church.html:89
+msgid "Add Church"
+msgstr ""
+
+#: admin/_measurement.html:5
+msgid "Add Measurement"
+msgstr ""
+
+#: map/edit-training.html:86
+msgid "Add Stage"
+msgstr ""
+
+#: map/edit-church.html:116
+#: map/edit-church.html:145
+#: map/edit-training.html:101
+#: map/edit-training.html:122
+msgid "Add Story"
+msgstr ""
+
+#: map/new-target-city.html:56
+msgid "Add Target city"
+msgstr ""
+
+#: map/new-training.html:46
+msgid "Add Training"
+msgstr ""
+
+#: admin/add-sub-ministry.html:4
+msgid "Add a new sub ministry to"
+msgstr ""
+
+#: admin/_team-members.html:18
+msgid "Add member"
+msgstr ""
+
+#: admin/add-measurement-type.html:4
+msgid "Add new measurement"
+msgstr ""
+
+#: admin/add-team-member.html:4
+msgid "Add new member to"
+msgstr ""
+
+#: stories/new-story-dialog.html:4
+msgid "Add new story"
+msgstr ""
+
+#: stories/new-story-dialog.html:5
+msgid "Add new story to"
+msgstr ""
+
+#: stories/stories.html:12
+msgid "Add story"
+msgstr ""
+
+#: admin/_team-members.html:19
+msgid "Add sub ministry"
+msgstr ""
+
+#: measurements/details.html:130
+msgid "Admin"
+msgstr ""
+
+#: preference/user-preference-modal.html:49
+msgid "Application language"
+msgstr ""
+
+#: measurements/details.html:125
+msgid "Approve"
+msgstr ""
+
+#: measurements/details.html:124
+msgid "Approved"
+msgstr ""
+
+#: map/_confirmation-dialog.html:7
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
+#: map/edit-target-city.html:17
+#: map/new-target-city.html:17
+msgid "Area:"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:480
+msgid "Bad Request: Unable to create target city"
+msgstr ""
+
+#: admin/add-measurement-type.html:60
+#: measurements/measurements.html:80
+msgid "Build"
+msgstr ""
+
+#: admin/_edit-ministry.html:69
+msgid "CTRL + click to select multiple languages"
+msgstr ""
+
+#: join-ministry.html:29
+#: map/_confirmation-dialog.html:10
+#: map/new-church.html:88
+#: map/new-target-city.html:55
+#: map/new-training.html:45
+#: preference/user-preference-modal.html:57
+msgid "Cancel"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:170
+msgid "Changes saved successfully"
+msgstr ""
+
+#: map/edit-church.html:57
+#: map/new-church.html:57
+msgid "Church"
+msgstr ""
+
+#: map/map.html:51
+msgid "Church or community of disciples"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:423
+msgid "Church was created"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:745
+msgid "Church was deleted successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:725
+msgid "Church was updated successfully"
+msgstr ""
+
+#: admin/add-measurement-type.html:3
+#: admin/add-measurement-type.html:69
+#: admin/add-sub-ministry.html:21
+#: admin/add-sub-ministry.html:3
+#: admin/add-team-member.html:30
+#: admin/confirm-member-drop.html:3
+#: admin/confirm-team-drop.html:3
+#: admin/confirm-update-role.html:3
+#: admin/edit-measurement-type.html:3
+#: admin/edit-measurement-type.html:55
+#: map/_confirmation-dialog.html:3
+#: measurements/details.html:145
+#: measurements/details.html:3
+#: preference/user-preference-modal.html:3
+#: stories/edit-story-dialog.html:3
+#: stories/new-story-dialog.html:102
+#: stories/new-story-dialog.html:3
+#: stories/view-story-dialog.html:27
+#: stories/view-story-dialog.html:3
+msgid "Close"
+msgstr ""
+
+#: admin/_measurement.html:13
+#: admin/add-measurement-type.html:43
+msgid "Column"
+msgstr ""
+
+#: map/_confirmation-dialog.html:4
+msgid "Confirm ?"
+msgstr ""
+
+#: map/edit-church.html:18
+#: map/new-church.html:23
+msgid "Contact Email:"
+msgstr ""
+
+#: map/edit-church.html:28
+#: map/new-church.html:33
+msgid "Contact Mobile:"
+msgstr ""
+
+#: map/edit-church.html:11
+#: map/new-church.html:17
+msgid "Contact Name:"
+msgstr ""
+
+#: stories/edit-story-dialog.html:19
+#: stories/new-story-dialog.html:21
+msgid "Content"
+msgstr ""
+
+#: preference/user-preference-modal.html:41
+msgid "Content language"
+msgstr ""
+
+#: map/edit-target-city.html:25
+#: map/new-target-city.html:25
+msgid "Country:"
+msgstr ""
+
+#: admin/add-measurement-type.html:70
+#: admin/add-sub-ministry.html:22
+msgid "Create"
+msgstr ""
+
+#: map/new-church.html:4
+msgid "Create New Church"
+msgstr ""
+
+#: stories/stories.html:7
+msgid "Created by me"
+msgstr ""
+
+#: admin/confirm-member-drop.html:9
+msgid "Current role"
+msgstr ""
+
+#: admin/confirm-member-drop.html:11
+msgid "Current role will be set to former-member"
+msgstr ""
+
+#: map/edit-training.html:46
+msgid "Date"
+msgstr ""
+
+#: map/edit-training.html:29
+#: map/new-training.html:24
+msgid "Date:"
+msgstr ""
+
+#: admin/_edit-ministry.html:50
+#: preference/user-preference-modal.html:12
+#: preference/user-preference-modal.html:21
+msgid "Default"
+msgstr ""
+
+#: admin/_edit-ministry.html:46
+msgid "Default MCC"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1403
+msgid "Default ministry map view has been set"
+msgstr ""
+
+#: map/_confirmation-dialog.html:11
+#: map/edit-training.html:72
+#: measurements/details.html:134
+msgid "Delete"
+msgstr ""
+
+#: map/edit-church.html:135
+msgid "Delete Church"
+msgstr ""
+
+#: map/edit-target-city.html:69
+msgid "Delete Target city"
+msgstr ""
+
+#: map/edit-training.html:112
+msgid "Delete Training"
+msgstr ""
+
+#: admin/_team-members.html:8
+msgid "Deleted"
+msgstr ""
+
+#: admin/add-measurement-type.html:20
+msgid "Description"
+msgstr ""
+
+#: admin/add-measurement-type.html:25
+#: admin/edit-measurement-type.html:45
+msgid "Description is required"
+msgstr ""
+
+#: admin/add-measurement-type.html:26
+#: admin/edit-measurement-type.html:46
+msgid "Description should not exceed 200 characters"
+msgstr ""
+
+#: stories/edit-story-dialog.html:71
+#: stories/new-story-dialog.html:75
+msgid "Draft"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:632
+#: controllers/admin/admin-ctrl.js:639
+msgid "Drop canceled, can't be dropped on child team"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:625
+msgid "Drop canceled, can't be dropped on parent team"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:652
+msgid "Drop canceled, can't be dropped on selected team"
+msgstr ""
+
+#: stories/stories.html:35
+msgid "Edit"
+msgstr ""
+
+#: map/edit-target-city.html:4
+msgid "Edit Target City"
+msgstr ""
+
+#: admin/_edit-ministry.html:4
+msgid "Edit current ministry"
+msgstr ""
+
+#: stories/edit-story-dialog.html:4
+msgid "Edit story"
+msgstr ""
+
+#: admin/_team-members.html:62
+msgid "Email"
+msgstr ""
+
+#: admin/edit-measurement-type.html:22
+msgid "English description"
+msgstr ""
+
+#: admin/edit-measurement-type.html:16
+msgid "English name"
+msgstr ""
+
+#: controllers/stories/stories-ctrl.js:63
+msgid "Error loading news feeds"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:482
+msgid "Error: Unable to create target city"
+msgstr ""
+
+#: map/map.html:109
+msgid "Everything"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1416
+msgid "Failed to get your current location"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1548
+#: controllers/stories/stories-ctrl.js:160
+msgid "Failed to save story"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:376
+msgid "Failed, User not found"
+msgstr ""
+
+#: admin/add-measurement-type.html:47
+msgid "Faith"
+msgstr ""
+
+#: measurements/measurements.html:35
+msgid "Faith Actions"
+msgstr ""
+
+#: admin/_team-members.html:62
+msgid "First Name"
+msgstr ""
+
+#: admin/_team-members.html:9
+msgid "Former members"
+msgstr ""
+
+#: admin/add-measurement-type.html:48
+#: measurements/measurements.html:41
+msgid "Fruit"
+msgstr ""
+
+#: map/edit-church.html:56
+#: map/map.html:42
+#: map/new-church.html:56
+msgid "Group"
+msgstr ""
+
+#: admin/_edit-ministry.html:58
+#: admin/_measurement.html:25
+msgid "Hide"
+msgstr ""
+
+#: admin/_edit-ministry.html:55
+msgid "Hide reports tab by default"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1536
+#: controllers/stories/stories-ctrl.js:138
+#: controllers/stories/stories-ctrl.js:242
+msgid "Image file was uploaded"
+msgstr ""
+
+#: stories/edit-story-dialog.html:48
+#: stories/new-story-dialog.html:51
+msgid "Image will be resized to"
+msgstr ""
+
+#: admin/_team-members.html:13
+msgid "Inherited admins"
+msgstr ""
+
+#: admin/_team-members.html:11
+msgid "Inherited leaders"
+msgstr ""
+
+#: error/error.html:2
+msgid "Invalid Session"
+msgstr ""
+
+#: admin/add-team-member.html:15
+#: map/edit-church.html:22
+#: map/new-church.html:28
+msgid "Invalid email format"
+msgstr ""
+
+#: stories/edit-story-dialog.html:49
+#: stories/new-story-dialog.html:52
+msgid "Invalid image file input."
+msgstr ""
+
+#: map/edit-church.html:38
+msgid "Jesus film activity"
+msgstr ""
+
+#: map/new-church.html:44
+msgid "Jesus film activity:"
+msgstr ""
+
+#: map/map.html:87
+msgid "Jesus film contribution"
+msgstr ""
+
+#: join-ministry.html:28
+#: join-ministry.html:3
+msgid "Join Ministry/Team"
+msgstr ""
+
+#: application.html:21
+msgid "Join another location / ministry"
+msgstr ""
+
+#: admin/edit-measurement-type.html:9
+msgid "Language"
+msgstr ""
+
+#: admin/_team-members.html:62
+msgid "Last Name"
+msgstr ""
+
+#: measurements/details.html:132
+msgid "Leader"
+msgstr ""
+
+#: measurements/details.html:33
+msgid "Local"
+msgstr ""
+
+#: measurements/measurements.html:7
+msgid "Local Movement Indicators"
+msgstr ""
+
+#: measurements/details.html:26
+msgid "Local Team"
+msgstr ""
+
+#: admin/_measurement.html:27
+#: admin/edit-measurement-type.html:4
+msgid "Localize"
+msgstr ""
+
+#: admin/edit-measurement-type.html:40
+msgid "Localized description"
+msgstr ""
+
+#: admin/edit-measurement-type.html:29
+msgid "Localized name"
+msgstr ""
+
+#: error/error.html:5
+msgid "Log In"
+msgstr ""
+
+#: application.html:70
+msgid "Logout"
+msgstr ""
+
+#: map/edit-training.html:37
+#: map/new-training.html:38
+msgid "MCC:"
+msgstr ""
+
+#: admin/_edit-ministry.html:34
+msgid "MCCs"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:191
+msgid "Measurement was created successfully"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:262
+msgid "Measurement was updated"
+msgstr ""
+
+#: admin/_measurement.html:4
+msgid "Measurements"
+msgstr ""
+
+#: controllers/measurements/measurements-ctrl.js:135
+msgid "Measurements saved successfully"
+msgstr ""
+
+#: controllers/measurements/measurements-ctrl.js:175
+msgid "Measurements updated successfully"
+msgstr ""
+
+#: admin/confirm-update-role.html:8
+#: measurements/details.html:131
+msgid "Member"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:595
+msgid "Member was moved to ministry successfully"
+msgstr ""
+
+#: admin/_edit-ministry.html:10
+#: admin/add-sub-ministry.html:9
+msgid "Ministry name"
+msgstr ""
+
+#: admin/_edit-ministry.html:15
+#: admin/add-sub-ministry.html:14
+msgid "Ministry name is required."
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:567
+msgid "Ministry was moved successfully"
+msgstr ""
+
+#: join-ministry.html:9
+msgid "Ministry/Team:"
+msgstr ""
+
+#: map/edit-church.html:82
+msgid "Ministry:"
+msgstr ""
+
+#: application.html:98
+msgid "Mobile Apps"
+msgstr ""
+
+#: map/edit-church.html:32
+#: map/new-church.html:38
+msgid "Mobile number is invalid."
+msgstr ""
+
+#: map/edit-church.html:121
+msgid "Move Church"
+msgstr ""
+
+#: map/edit-target-city.html:64
+msgid "Move Target city"
+msgstr ""
+
+#: map/edit-training.html:106
+msgid "Move Training"
+msgstr ""
+
+#: admin/confirm-member-drop.html:4
+msgid "Move member to this team ?"
+msgstr ""
+
+#: admin/confirm-team-drop.html:4
+msgid "Move sub-team to this team ?"
+msgstr ""
+
+#: map/edit-church.html:58
+#: map/new-church.html:58
+msgid "Multiplying Church"
+msgstr ""
+
+#: map/map.html:61
+msgid "Multiplying church or community of disciples"
+msgstr ""
+
+#: application.html:68
+msgid "My Preferences"
+msgstr ""
+
+#: preference/user-preference-modal.html:4
+msgid "My preferences"
+msgstr ""
+
+#: admin/_measurement.html:12
+#: admin/add-measurement-type.html:9
+#: admin/confirm-member-drop.html:8
+#: map/edit-target-city.html:10
+msgid "Name"
+msgstr ""
+
+#: admin/add-measurement-type.html:14
+#: admin/edit-measurement-type.html:34
+msgid "Name is required"
+msgstr ""
+
+#: map/edit-target-city.html:12
+#: map/edit-training.html:15
+#: map/new-church.html:12
+#: map/new-target-city.html:12
+#: map/new-training.html:12
+msgid "Name is required."
+msgstr ""
+
+#: admin/add-measurement-type.html:15
+#: admin/edit-measurement-type.html:35
+msgid "Name should not exceed 200 characters"
+msgstr ""
+
+#: map/edit-target-city.html:8
+#: map/edit-training.html:11
+#: map/new-church.html:8
+#: map/new-target-city.html:8
+#: map/new-training.html:8
+msgid "Name:"
+msgstr ""
+
+#: map/new-training.html:4
+msgid "New Church Training Activity"
+msgstr ""
+
+#: admin/confirm-update-role.html:10
+msgid "New Role"
+msgstr ""
+
+#: map/new-target-city.html:4
+msgid "New Target city"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:369
+msgid "New member was added successfully"
+msgstr ""
+
+#: stories/stories.html:45
+#: stories/stories.html:61
+msgid "Newer"
+msgstr ""
+
+#: admin/confirm-member-drop.html:15
+#: admin/confirm-team-drop.html:13
+#: admin/confirm-update-role.html:14
+#: map/edit-church.html:42
+#: map/edit-church.html:47
+#: map/new-church.html:47
+#: preference/user-preference-modal.html:37
+msgid "No"
+msgstr ""
+
+#: admin/_edit-ministry.html:29
+msgid "No parent ministry"
+msgstr ""
+
+#: stories/stories.html:40
+msgid "No story found"
+msgstr ""
+
+#: map/edit-target-city.html:47
+#: map/new-target-city.html:47
+msgid "None"
+msgstr ""
+
+#: admin/confirm-update-role.html:9
+msgid "Old Role"
+msgstr ""
+
+#: stories/stories.html:45
+#: stories/stories.html:61
+msgid "Older"
+msgstr ""
+
+#: map/edit-church.html:111
+#: map/edit-target-city.html:58
+#: map/edit-training.html:96
+msgid "Options"
+msgstr ""
+
+#: admin/add-measurement-type.html:50
+#: admin/add-measurement-type.html:62
+msgid "Other"
+msgstr ""
+
+#: measurements/measurements.html:115
+msgid "Other Measurements"
+msgstr ""
+
+#: admin/add-measurement-type.html:49
+#: measurements/measurements.html:47
+msgid "Outcome"
+msgstr ""
+
+#: map/map.html:95
+msgid "Parent lines"
+msgstr ""
+
+#: admin/_edit-ministry.html:21
+msgid "Parent ministry"
+msgstr ""
+
+#: map/edit-training.html:47
+msgid "Participants"
+msgstr ""
+
+#: map/new-training.html:31
+msgid "Participants:"
+msgstr ""
+
+#: admin/add-measurement-type.html:31
+msgid "Permalink"
+msgstr ""
+
+#: admin/add-measurement-type.html:37
+msgid "Permalink is invalid. Please match with required format"
+msgstr ""
+
+#: admin/add-measurement-type.html:36
+msgid "Permalink is required"
+msgstr ""
+
+#: admin/add-measurement-type.html:38
+msgid "Permalink should not exceed 100 characters"
+msgstr ""
+
+#: join-ministry.html:5
+msgid "Please identify a ministry team that you work most closely with and request to join that team."
+msgstr ""
+
+#: map/edit-church.html:43
+#: map/new-church.html:48
+msgid "Please make a choice"
+msgstr ""
+
+#: preference/user-preference-modal.html:17
+msgid "Preferred MCC"
+msgstr ""
+
+#: preference/user-preference-modal.html:45
+msgid "Preferred content language for"
+msgstr ""
+
+#: preference/user-preference-modal.html:8
+msgid "Preferred ministry"
+msgstr ""
+
+#: stories/edit-story-dialog.html:58
+#: stories/new-story-dialog.html:62
+msgid "Privacy"
+msgstr ""
+
+#: map/edit-church.html:72
+#: map/new-church.html:73
+msgid "Private"
+msgstr ""
+
+#: map/edit-church.html:74
+#: map/new-church.html:75
+msgid "Public"
+msgstr ""
+
+#: stories/edit-story-dialog.html:67
+#: stories/new-story-dialog.html:71
+msgid "Publish status"
+msgstr ""
+
+#: stories/edit-story-dialog.html:70
+#: stories/new-story-dialog.html:74
+msgid "Published"
+msgstr ""
+
+#: stories/stories.html:52
+msgid "Refresh Feeds"
+msgstr ""
+
+#: stories/stories.html:11
+msgid "Refresh List"
+msgstr ""
+
+#: admin/_team-members.html:17
+msgid "Refresh members list"
+msgstr ""
+
+#: map/edit-church.html:73
+#: map/new-church.html:74
+msgid "Registered Users"
+msgstr ""
+
+#: stories/new-story-dialog.html:66
+msgid "Registered users"
+msgstr ""
+
+#: map/edit-church.html:129
+msgid "Remove Parent Church"
+msgstr ""
+
+#: stories/new-story-dialog.html:57
+msgid "Remove image"
+msgstr ""
+
+#: stories/edit-story-dialog.html:72
+msgid "Removed"
+msgstr ""
+
+#: admin/add-team-member.html:21
+msgid "Role"
+msgstr ""
+
+#: admin/add-team-member.html:31
+#: admin/edit-measurement-type.html:56
+#: preference/user-preference-modal.html:58
+#: stories/new-story-dialog.html:103
+msgid "Save"
+msgstr ""
+
+#: map/edit-church.html:140
+#: map/edit-target-city.html:74
+#: map/edit-training.html:117
+#: measurements/measurements.html:122
+#: measurements/measurements.html:21
+msgid "Save Changes"
+msgstr ""
+
+#: measurements/details.html:146
+msgid "Save Measurements"
+msgstr ""
+
+#: admin/_measurement.html:33
+msgid "Save changes"
+msgstr ""
+
+#: map/map.html:136
+msgid "Search"
+msgstr ""
+
+#: admin/_team-members.html:6
+msgid "Search Members"
+msgstr ""
+
+#: admin/_measurement.html:14
+#: admin/add-measurement-type.html:55
+msgid "Section"
+msgstr ""
+
+#: map/edit-church.html:77
+#: map/new-church.html:78
+msgid "Security is a required field"
+msgstr ""
+
+#: map/edit-church.html:69
+#: map/new-church.html:70
+msgid "Security:"
+msgstr ""
+
+#: measurements/details.html:104
+msgid "Self Assigned Members (not yet approved)"
+msgstr ""
+
+#: admin/add-measurement-type.html:61
+#: measurements/measurements.html:98
+msgid "Send"
+msgstr ""
+
+#: map/map.html:129
+msgid "Set Ministry Default View for others"
+msgstr ""
+
+#: map/edit-church.html:126
+msgid "Set Parent Church"
+msgstr ""
+
+#: map/map.html:128
+msgid "Set as my Ministry Default View"
+msgstr ""
+
+#: admin/_edit-ministry.html:59
+#: admin/_measurement.html:24
+msgid "Show"
+msgstr ""
+
+#: map/edit-church.html:63
+#: map/new-church.html:64
+msgid "Size:"
+msgstr ""
+
+#: admin/confirm-team-drop.html:8
+msgid "Source Name"
+msgstr ""
+
+#: map/edit-training.html:45
+msgid "Stage"
+msgstr ""
+
+#: map/edit-target-city.html:33
+#: map/new-target-city.html:33
+msgid "Stage:"
+msgstr ""
+
+#: join-ministry.html:16
+msgid "Start typing to search for ministry"
+msgstr ""
+
+#: stories/edit-story-dialog.html:26
+#: stories/new-story-dialog.html:28
+msgid "Story content field is required"
+msgstr ""
+
+#: stories/edit-story-dialog.html:26
+#: stories/new-story-dialog.html:29
+msgid "Story content should not exceed"
+msgstr ""
+
+#: controllers/stories/stories-ctrl.js:133
+msgid "Story saved successfully"
+msgstr ""
+
+#: stories/edit-story-dialog.html:13
+#: stories/new-story-dialog.html:15
+msgid "Story title field is required"
+msgstr ""
+
+#: stories/edit-story-dialog.html:14
+#: stories/new-story-dialog.html:16
+msgid "Story title should not exceed 120 characters"
+msgstr ""
+
+#: controllers/stories/stories-ctrl.js:234
+msgid "Story was updated"
+msgstr ""
+
+#: map/edit-target-city.html:44
+#: map/new-target-city.html:44
+msgid "Sub Stage:"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:487
+msgid "Sub ministry was created successfully"
+msgstr ""
+
+#: measurements/details.html:86
+msgid "Sub-Ministries / Teams"
+msgstr ""
+
+#: admin/_edit-ministry.html:63
+msgid "Supported languages"
+msgstr ""
+
+#: join-ministry.html:20
+#: preference/user-preference-modal.html:34
+msgid "Supported staff"
+msgstr ""
+
+#: stories/new-story-dialog.html:90
+msgid "Tagged MCC"
+msgstr ""
+
+#: stories/edit-story-dialog.html:87
+msgid "Tagged MCC :"
+msgstr ""
+
+#: stories/edit-story-dialog.html:79
+#: stories/new-story-dialog.html:82
+msgid "Tagged ministry"
+msgstr ""
+
+#: map/edit-church.html:55
+#: map/new-church.html:55
+msgid "Target"
+msgstr ""
+
+#: admin/confirm-team-drop.html:9
+msgid "Target Team"
+msgstr ""
+
+#: map/map.html:70
+msgid "Target city"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:964
+msgid "Target city position was updated"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:474
+msgid "Target city was created successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1332
+msgid "Target city was deleted successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:779
+msgid "Target city was updated"
+msgstr ""
+
+#: map/map.html:33
+msgid "Target point"
+msgstr ""
+
+#: admin/confirm-member-drop.html:10
+msgid "Target team"
+msgstr ""
+
+#: measurements/lmi.html:100
+#: measurements/lmi.html:124
+#: measurements/lmi.html:148
+#: measurements/lmi.html:64
+msgid "Team"
+msgstr ""
+
+#: measurements/details.html:60
+msgid "Team Members"
+msgstr ""
+
+#: stories/edit-story-dialog.html:63
+#: stories/new-story-dialog.html:67
+msgid "Team only"
+msgstr ""
+
+#: admin/add-team-member.html:9
+msgid "TheKey username"
+msgstr ""
+
+#: stories/edit-story-dialog.html:9
+#: stories/new-story-dialog.html:11
+msgid "Title"
+msgstr ""
+
+#: measurements/details.html:17
+#: measurements/details.html:49
+msgid "Total"
+msgstr ""
+
+#: map/edit-training.html:21
+#: map/new-training.html:17
+msgid "Training Type:"
+msgstr ""
+
+#: map/map.html:79
+msgid "Training activity"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1356
+msgid "Training stage was deleted successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:447
+msgid "Training was created"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1311
+msgid "Training was deleted successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1290
+msgid "Training was saved successfully"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:757
+#: controllers/map/map-ctrl.js:768
+msgid "Training was updated"
+msgstr ""
+
+#: map/edit-church.html:52
+#: map/new-church.html:52
+msgid "Type:"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:378
+msgid "Unable to add new member"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:503
+msgid "Unable to add sub ministry"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:426
+msgid "Unable to create church"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:199
+msgid "Unable to create measurement"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:748
+msgid "Unable to delete church"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1337
+msgid "Unable to delete target city"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1315
+msgid "Unable to delete training"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:241
+msgid "Unable to get measurement"
+msgstr ""
+
+#: controllers/gma-ctrl.js:286
+msgid "Unable to join to requested ministry"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:587
+msgid "Unable to load countries list"
+msgstr ""
+
+#: controllers/gma-ctrl.js:345
+msgid "Unable to load language data"
+msgstr ""
+
+#: controllers/gma-ctrl.js:426
+msgid "Unable to load languages"
+msgstr ""
+
+#: controllers/measurements/measurements-ctrl.js:85
+msgid "Unable to load measurements"
+msgstr ""
+
+#: controllers/reports/reports-ctrl.js:69
+msgid "Unable to load measurements for reporting"
+msgstr ""
+
+#: controllers/stories/stories-ctrl.js:92
+msgid "Unable to load stories"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:316
+msgid "Unable to load target cities"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:316
+msgid "Unable to load team members"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:335
+msgid "Unable to load trainings"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:604
+msgid "Unable to move member"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:580
+msgid "Unable to move ministry"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:172
+msgid "Unable to save changes"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1385
+#: controllers/map/map-ctrl.js:1405
+msgid "Unable to save default map view"
+msgstr ""
+
+#: controllers/measurements/measurements-ctrl.js:139
+msgid "Unable to save measurements"
+msgstr ""
+
+#: controllers/preference/user-preference-ctrl.js:48
+msgid "Unable to save preferences"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:729
+msgid "Unable to update church"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:264
+msgid "Unable to update measurement"
+msgstr ""
+
+#: controllers/stories/stories-ctrl.js:251
+msgid "Unable to update story"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:781
+#: controllers/map/map-ctrl.js:966
+msgid "Unable to update target city"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:760
+msgid "Unable to update training"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:425
+#: controllers/admin/admin-ctrl.js:444
+msgid "Unable to update user role"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1542
+#: controllers/stories/stories-ctrl.js:269
+msgid "Unable to upload image file"
+msgstr ""
+
+#: stories/edit-story-dialog.html:101
+msgid "Update"
+msgstr ""
+
+#: admin/confirm-update-role.html:4
+msgid "Update Team Member Role ?"
+msgstr ""
+
+#: stories/edit-story-dialog.html:31
+#: stories/new-story-dialog.html:34
+msgid "Upload an image"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1540
+#: controllers/stories/stories-ctrl.js:267
+msgid "Upload failed, Invalid file input"
+msgstr ""
+
+#: error/error.html:4
+msgid "Use the button below to log back in."
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:420
+#: controllers/admin/admin-ctrl.js:438
+msgid "User role was updated"
+msgstr ""
+
+#: admin/add-team-member.html:14
+msgid "Username is required."
+msgstr ""
+
+#: stories/view-story-dialog.html:4
+msgid "View story"
+msgstr ""
+
+#: admin/add-measurement-type.html:59
+#: measurements/measurements.html:57
+msgid "Win"
+msgstr ""
+
+#: admin/confirm-member-drop.html:16
+#: admin/confirm-team-drop.html:14
+#: admin/confirm-update-role.html:15
+#: map/edit-church.html:41
+#: map/edit-church.html:46
+#: map/new-church.html:46
+#: preference/user-preference-modal.html:36
+msgid "Yes"
+msgstr ""
+
+#: controllers/gma-ctrl.js:284
+msgid "You are already assigned to requested ministry"
+msgstr ""
+
+#: controllers/gma-ctrl.js:389
+msgid "You are not authorised for this"
+msgstr ""
+
+#: stories/edit-story-dialog.html:23
+#: stories/new-story-dialog.html:25
+msgid "You have"
+msgstr ""
+
+#: error/error.html:3
+msgid "You have been logged out or your session has expired due to inactivity."
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1420
+msgid "Your browser does not support GeoLocation"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:1382
+msgid "Your default map view has been set"
+msgstr ""
+
+#: controllers/preference/user-preference-ctrl.js:39
+msgid "Your preferences were saved"
+msgstr ""
+
+#: stories/edit-story-dialog.html:26
+#: stories/new-story-dialog.html:29
+msgid "characters"
+msgstr ""
+
+#: stories/edit-story-dialog.html:23
+#: stories/new-story-dialog.html:25
+msgid "characters remaining"
+msgstr ""
+
+#: stories/edit-story-dialog.html:48
+msgid "existing image will be replaced"
+msgstr ""
+
+#: map/edit-church.html:5
+msgid "members"
+msgstr ""
+
+#: stories/edit-story-dialog.html:23
+#: stories/new-story-dialog.html:25
+msgid "of"
+msgstr ""
+
+#: map/map.html:115
+msgid "only"
+msgstr ""
+
+#: measurements/lmi.html:12
+#: measurements/lmi.html:28
+#: measurements/lmi.html:53
+#: measurements/lmi.html:89
+msgid "personal"
+msgstr ""
+
+#: measurements/lmi.html:106
+#: measurements/lmi.html:130
+#: measurements/lmi.html:154
+#: measurements/lmi.html:34
+#: measurements/lmi.html:70
+msgid "total"
+msgstr ""
+
+#: map/map.html:121
+msgid "tree"
+msgstr ""

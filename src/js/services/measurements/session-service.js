@@ -13,13 +13,19 @@
 				.then( function ( response ) {
 					$rootScope.current.user = response.data.user;
 					$rootScope.current.sessionToken = response.data.session_ticket;
+                    //additional check, be fail safe
+                    if (typeof response.data.user_preferences === 'object') {
+                        $rootScope.current.user_preferences = response.data.user_preferences;
+                    } else {
+                        delete $rootScope.current.user_preferences;
+                    }
+
 					token = response.data.session_ticket;
-					if ( typeof response.data.assignments === 'object' ) {
+					if ( typeof response.data.assignments === 'object' && response.data.assignments.length) {
 						$rootScope.current.assignments = response.data.assignments;
 					} else {
 						delete $rootScope.current.assignments;
 					}
-
 					$rootScope.$broadcast( 'sessionStart', response.data );
 
 					return response.data;

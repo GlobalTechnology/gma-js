@@ -1,85 +1,99 @@
 ﻿(function () {
-	'use strict';
-	angular.module( 'gma' )
-		.run( function ( $rootScope, $route, $location, Session, Settings ) {
-			// Object to hold current values: assignments, assignment, user ...
-			$rootScope.current = {
-				isLoaded: false
-			};
+    'use strict';
+    angular.module('gma')
+        .run(function ($rootScope, $route, $location, Session, Settings, GoogleAnalytics) {
+            // Object to hold current values: assignments, assignment, user ...
+            $rootScope.current = {
+                isLoaded: false
+            };
 
-			// Support application inside an iframe, sync parent hash.
-			if ( typeof window.parent !== 'undefined' ) {
-				var parentHash = window.parent.location.hash;
-				if ( parentHash ) {
-					$location.path( parentHash.slice( 1 ) );
-				}
+            // Init Google Analytics
+            GoogleAnalytics.init();
 
-				$rootScope.$on( '$locationChangeSuccess', function () {
-					window.parent.location.hash = '#' + $location.path();
-				} );
-			}
+            // Support application inside an iframe, sync parent hash.
+            if (typeof window.parent !== 'undefined') {
+                var parentHash = window.parent.location.hash;
+                if (parentHash) {
+                    $location.path(parentHash.slice(1));
+                }
 
-			// Reload the route since ng-view directive is inside a template.
-			$route.reload();
+                $rootScope.$on('$locationChangeSuccess', function () {
+                    window.parent.location.hash = '#' + $location.path();
+                });
+            }
 
-			// Start the session with the API
-			//TODO fetch a ticket from refresh to start session
-			Session.startSession( Settings.ticket );
-		} )
-		.config( function ( $routeProvider, $httpProvider, $compileProvider, SettingsProvider, $provide ) {
-			// Initialize Settings from wrapper provided config
-			SettingsProvider.setConfig( window.gma.config );
+            // Reload the route since ng-view directive is inside a template.
+            $route.reload();
 
-			// Add itms-services scheme to safe aHref protocols
-			$compileProvider.aHrefSanitizationWhitelist( /^\s*(https?|ftp|mailto|tel|file|itms-services):/ );
+            // Start the session with the API
+            //TODO fetch a ticket from refresh to start session
+            Session.startSession(Settings.ticket);
+        })
+        .config(function ($routeProvider, $httpProvider, $compileProvider, SettingsProvider, $provide, growlProvider, $rootScopeProvider) {
+            // Initialize Settings from wrapper provided config
+            SettingsProvider.setConfig(window.gma.config);
 
-			// Register Session as an http interceptor
-			$httpProvider.interceptors.push( 'Session' );
+            // Add itms-services scheme to safe aHref protocols
+            $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|itms-services):/);
 
-			// Setup application routes
-			angular.forEach( SettingsProvider.routes(), function ( route, i ) {
-				if ( i === 0 ) {
-					$routeProvider.otherwise( {redirectTo: route.path} );
-				}
-				$routeProvider
-					.when( route.path, {
-						templateUrl: route.templateUrl,
-						controller:  route.controller
-					} );
-			} );
-			$routeProvider.when( '/error/:reason', {
-				templateUrl: 'partials/error/error.html',
-				controller: 'ErrorCtrl'
-			} );
+            // Define safe protocols for image src for this app
+            $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|data|blob):/);
 
-			// https://github.com/angular/angular.js/issues/1404
-			// Source: http://plnkr.co/edit/hSMzWC?p=preview
-			$provide.decorator( 'ngModelDirective', function ( $delegate ) {
-				var ngModel = $delegate[0], controller = ngModel.controller;
-				ngModel.controller = ['$scope', '$element', '$attrs', '$injector', function ( scope, element, attrs, $injector ) {
-					var $interpolate = $injector.get( '$interpolate' );
-					attrs.$set( 'name', $interpolate( attrs.name || '' )( scope ) );
-					$injector.invoke( controller, this, {
-						'$scope':   scope,
-						'$element': element,
-						'$attrs':   attrs
-					} );
-				}];
-				return $delegate;
-			} );
+            // Register Session as an http interceptor
+            $httpProvider.interceptors.push('Session');
 
-			$provide.decorator( 'formDirective', function ( $delegate ) {
-				var form = $delegate[0], controller = form.controller;
-				form.controller = ['$scope', '$element', '$attrs', '$injector', function ( scope, element, attrs, $injector ) {
-					var $interpolate = $injector.get( '$interpolate' );
-					attrs.$set( 'name', $interpolate( attrs.name || attrs.ngForm || '' )( scope ) );
-					$injector.invoke( controller, this, {
-						'$scope':   scope,
-						'$element': element,
-						'$attrs':   attrs
-					} );
-				}];
-				return $delegate;
-			} );
-		} );
+            //increase digest cycle limit , default is 10
+            $rootScopeProvider.digestTtl(100);
+
+            //global configs for angular-growl
+            growlProvider.globalPosition('top-right');
+            growlProvider.globalTimeToLive({success: 5000, error: 10000, warning: 10000, info: 5000});
+            growlProvider.globalDisableCountDown(true);
+
+            // Setup application routes
+            angular.forEach(SettingsProvider.routes(), function (route, i) {
+                if (i === 0) {
+                    $routeProvider.otherwise({redirectTo: route.path});
+                }
+                $routeProvider
+                    .when(route.path, {
+                        templateUrl: route.templateUrl,
+                        controller: route.controller
+                    });
+            });
+            $routeProvider.when('/error/:reason', {
+                templateUrl: 'partials/error/error.html',
+                controller: 'ErrorCtrl'
+            });
+
+            // https://github.com/angular/angular.js/issues/1404
+            // Source: http://plnkr.co/edit/hSMzWC?p=preview
+            $provide.decorator('ngModelDirective', function ($delegate) {
+                var ngModel = $delegate[0], controller = ngModel.controller;
+                ngModel.controller = ['$scope', '$element', '$attrs', '$injector', function (scope, element, attrs, $injector) {
+                    var $interpolate = $injector.get('$interpolate');
+                    attrs.$set('name', $interpolate(attrs.name || '')(scope));
+                    $injector.invoke(controller, this, {
+                        '$scope': scope,
+                        '$element': element,
+                        '$attrs': attrs
+                    });
+                }];
+                return $delegate;
+            });
+
+            $provide.decorator('formDirective', function ($delegate) {
+                var form = $delegate[0], controller = form.controller;
+                form.controller = ['$scope', '$element', '$attrs', '$injector', function (scope, element, attrs, $injector) {
+                    var $interpolate = $injector.get('$interpolate');
+                    attrs.$set('name', $interpolate(attrs.name || attrs.ngForm || '')(scope));
+                    $injector.invoke(controller, this, {
+                        '$scope': scope,
+                        '$element': element,
+                        '$attrs': attrs
+                    });
+                }];
+                return $delegate;
+            });
+        });
 })();

@@ -14,6 +14,9 @@ var gulp        = require( 'gulp' ),
 	sourcemaps  = require( 'gulp-sourcemaps' ),
 	path        = require( 'path' ),
 	crypto      = require( 'crypto' ),
+	gettext     = require( 'gulp-angular-gettext' ),
+	url         = require( 'url' ),
+	request     = require( 'request' ),
 	revisions   = {};
 
 function revisionMap() {
@@ -30,6 +33,44 @@ function revisionMap() {
 	return require( 'event-stream' ).map( saveRevision );
 }
 
+function uploadToOneSky() {
+	var onesky = require( './onesky.json' ),
+		ts     = Math.floor( new Date() / 1000 );
+
+	function uploadPOTFile( file, callback ) {
+		//https://github.com/onesky/api-documentation-platform/blob/master/resources/file.md#upload---upload-a-file
+		request.post( {
+			url:      url.format( {
+				protocol: 'https',
+				host:     'platform.api.onesky.io',
+				pathname: '/1/projects/' + onesky.project_id + '/files',
+				query:    {
+					api_key:   onesky.api_key,
+					timestamp: ts,
+					dev_hash:  crypto.createHash( 'md5' ).update( ts + onesky.api_secret ).digest( 'hex' )
+				}
+			} ),
+			formData: {
+				file:                   {
+					value:   file.contents,
+					options: {
+						filename: file.relative
+					}
+				},
+				file_format:            'GNU_POT',
+				is_keeping_all_strings: 'false'
+			}
+		}, function ( err, httpResponse, body ) {
+			if ( err ) {
+				callback( err );
+			}
+			callback( null, file );
+		} );
+	}
+
+	return require( 'event-stream' ).map( uploadPOTFile );
+}
+
 gulp.task( 'clean', function ( callback ) {
 	del( ['dist'], callback );
 } );
@@ -42,6 +83,7 @@ gulp.task( 'html', ['clean', 'bower', 'scripts', 'partials', 'styles', 'library'
 			files:        [
 				// JavaScript
 				'google:jquery',
+				'google:jquery-ui',
 				'google:angular-loader',
 				'google:angular-resource',
 				'google:angular-route',
@@ -109,8 +151,12 @@ gulp.task( 'partials', ['clean'], function () {
 		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
-gulp.task( 'styles', ['clean'], function () {
-	return gulp.src( ['src/css/application.css', 'src/css/**/*.css'] )
+gulp.task( 'styles', ['clean','bower'], function () {
+	return gulp.src( [
+		'bower_components/angular-growl-v2/build/angular-growl.css',
+		'bower_components/flag-sprites/dist/css/flag-sprites.css',
+		'src/css/application.css',
+		'src/css/**/*.css'] )
 		.pipe( concat( 'styles.min.css' ) )
 		.pipe( minifyCSS() )
 		.pipe( revisionMap() )
@@ -118,7 +164,12 @@ gulp.task( 'styles', ['clean'], function () {
 } );
 
 gulp.task( 'library', ['clean', 'bower'], function () {
-	return gulp.src( ['bower_components/easy-markerwithlabel/src/markerwithlabel.js', 'bower_components/iframe-resizer/src/iframeResizer.contentWindow.js'] )
+	return gulp.src( [
+		'bower_components/angular-gettext/dist/angular-gettext.js',
+		'bower_components/angular-growl-v2/build/angular-growl.js',
+		'bower_components/angular-dragdrop/src/angular-dragdrop.js',
+		'bower_components/easy-markerwithlabel/src/markerwithlabel.js',
+		'bower_components/iframe-resizer/src/iframeResizer.contentWindow.js'] )
 		.pipe( sourcemaps.init() )
 		.pipe( concat( 'common.min.js' ) )
 		.pipe( uglify() )
@@ -136,8 +187,8 @@ gulp.task( 'wrapper', ['clean', 'bower'], function () {
 		.pipe( gulp.dest( 'dist/js' ) );
 } );
 
-gulp.task( 'images', ['clean'], function () {
-	return gulp.src( ['src/img/**/*.png'] )
+gulp.task( 'images', ['clean','bower'], function () {
+	return gulp.src( ['src/img/**/*.png','bower_components/flag-sprites/dist/img/flags.png'] )
 		.pipe( gulp.dest( 'dist/img' ) );
 } );
 
@@ -151,6 +202,31 @@ gulp.task( 'bower', function () {
 	return bower();
 } );
 
-gulp.task( 'build', ['images', 'wrapper', 'html', 'angular-i18n'] );
+gulp.task( 'pot', function () {
+	return gulp.src( ['src/partials/**/*.html', 'src/js/**/*.js'] )
+		.pipe( gettext.extract( 'gma-app.pot', {} ) )
+		.pipe( gulp.dest( 'src/languages/' ) );
+} );
+
+gulp.task( 'onesky', ['pot'], function () {
+	return gulp.src( 'src/languages/gma-app.pot' )
+		.pipe( uploadToOneSky() );
+} );
+
+gulp.task( 'po', function () {
+	return gulp.src( 'src/languages/**/*.po' )
+		.pipe( gettext.compile( {
+			format: 'json'
+		} ) )
+		.pipe( gulp.dest( 'src/languages/' ) );
+} );
+
+gulp.task( 'languages', ['po'], function () {
+	return gulp.src( ['src/languages/**/*.json', 'src/languages/**/*.pot'] )
+		.pipe( gulp.dest( 'dist/languages' ) );
+} );
+
+gulp.task( 'build', ['images', 'wrapper', 'html', 'angular-i18n', 'languages'] );
 
 gulp.task( 'default', ['build'] );
+

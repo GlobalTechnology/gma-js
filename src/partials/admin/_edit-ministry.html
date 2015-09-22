@@ -1,0 +1,93 @@
+<div class="admin-item">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title" translate>Edit current ministry</h3>
+			<div class="clearfix"></div>
+		</div>
+		<div class="panel-body">
+            <form name="form" class="form-horizontal">
+			<div class="form-group row">
+				<label for="ministryName" class="col-sm-4 control-label" translate>Ministry name</label>
+
+				<div class="col-sm-6">
+					<input id="ministryName" maxlength="255" type="text" name="name" class="form-control" ng-model="ministry.name" ng-required="true"/>
+                    <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
+                        <span class="text-danger"  ng-show="form.name.$error.required" translate>Ministry name is required.</span>
+                    </small>
+				</div>
+			</div>
+
+			<div class="form-group row" ng-show="ableToChangeParentMinistry(ministry.parent_id)">
+				<label class="col-sm-4 control-label" translate>Parent ministry</label>
+
+				<div class="col-sm-6">
+					<select
+						name="prent"
+						class="form-control"
+						ng-model="ministry.parent_id"
+						ng-options="m.ministry_id as m.name for m in current.ministries | roleFilter:['admin','inherited_admin','leader','inherited_leader'] | orderBy:'name'">
+						<option value="" translate>No parent ministry</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-4 control-label" translate>MCCs</label>
+
+				<div class="col-sm-6">
+					<div class="checkbox" ng-repeat="mcc in mccs">
+						<label>
+							<input type="checkbox" ng-model="mcc.checked" ng-init="mcc.checked = getMCCValue(mcc.value)" ng-change="createMCCArray(mcc.checked,mcc.value)"> {{mcc.text}}
+						</label>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="form-group">
+				<label class="col-sm-4 control-label" translate>Default MCC</label>
+
+				<div class="col-sm-6">
+					<select class="form-control" ng-model="ministry.default_mcc" ng-options="mcc.value as mcc.text for mcc in mccs | mccFilter:ministry.mccs">
+						<option value="" translate>Default</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label" translate>Hide reports tab by default</label>
+
+				<div class="col-sm-6">
+					<label class="radio-inline"><input type="radio" value="1" ng-model="ministry.hide_reports_tab"> <span translate>Hide</span></label>
+					<label class="radio-inline"><input type="radio" value="0" ng-model="ministry.hide_reports_tab"> <span translate>Show</span></label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label" translate>Supported languages</label>
+
+				<div class="col-sm-6">
+					<select size="10" multiple="multiple" class="form-control" ng-model="ministry.content_locales" ng-options="lang.iso_code as lang.english_name for lang in current.langList">
+						<optgroup label="Select Languages"></optgroup>
+					</select>
+                    <small class="help-text" translate>CTRL + click to select multiple languages</small>
+				</div>
+			</div>
+
+			<!-- 
+			<div class="form-group row">
+				<label class="col-sm-4 control-label">Privacy:</label>
+
+				<div class="col-sm-8">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" ng-model="ministry.private">
+							Private Ministry
+						</label>
+					</div>
+				</div>
+			</div> -->
+            </form>
+		</div>
+		<div class="panel-footer">
+			<button type="button" class="btn btn-primary pull-right btn-sm" ng-click="saveDetails()" ng-disabled="form.$invalid || (saveDetailsResource && !saveDetailsResource.$resolved)"><i class="glyphicon glyphicon-pencil"></i> <span tranalate>Update Ministry</span></button>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div> 
