@@ -11,6 +11,8 @@
         $location.path('/map').replace();
 
         $scope.appEnvironment = Settings.appEnvironment;
+        $scope.appName = Settings.name;
+		$scope.appVersion = Settings.version;
         //---------------------------------------
         // Assignments
         //---------------------------------------
