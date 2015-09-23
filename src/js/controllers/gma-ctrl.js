@@ -339,19 +339,31 @@
 		 */
 		$scope.$watch( 'current.user_preferences.static_locale', function ( locale, oldLocale ) {
 			if ( typeof locale === 'undefined' || locale === '' ) return;
-			//load json file from server
-			gettextCatalog.loadRemote( 'languages/' + locale + '.json' )
-				.success( function ( response ) {
-					//set css class to show language flag on top
-					$scope.langFlagClass = 'flag-' + locale.split( '-' )[1].toLowerCase();
-					//set current language, match with json file object name
-					gettextCatalog.setCurrentLanguage( Object.keys( response )[0] );
-				} )
-				.error( function ( e ) {
-					if ( e.status === 404 ) {
-						growl.error( gettextCatalog.getString( 'Unable to load language data' ) );
-					}
-				} );
+
+			var intLocale = locale.replace( '-', '_' );
+
+			var loadLanguage = function ( locale, i ) {
+				var fallback = i != -1 ? locale.substring( 0, i ) : locale;
+				gettextCatalog.loadRemote( 'languages/' + fallback + '.json' )
+					.success( function ( response ) {
+						gettextCatalog.setStrings( intLocale, response[fallback.replace( '-', '_' )] );
+
+						if ( i != -1 ) {
+							loadLanguage( locale, locale.indexOf( '-', i + 1 ) );
+						} else {
+							//set css class to show language flag on top
+							$scope.langFlagClass = 'flag-' + locale.split( '-' )[1].toLowerCase();
+							//set current language, match with json file object name
+							gettextCatalog.setCurrentLanguage( intLocale );
+						}
+					} )
+					.error( function ( e ) {
+						if ( i != -1 ) {
+							loadLanguage( locale, locale.indexOf( '-', i + 1 ) );
+						}
+					} );
+			};
+			loadLanguage( locale, locale.indexOf( '-' ) );
 		} );
 
 		/**
