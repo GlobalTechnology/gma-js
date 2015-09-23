@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	function SettingsService() {
+	function SettingsService( gettext ) {
 		var config = {},
 			tabs   = [];
 
@@ -45,7 +45,8 @@
 				switch ( tab ) {
 					case 'map':
 						this.push( {
-							name:          'Map',
+							/// Main Navigation Tabs - Map
+							name:          gettext( 'Map' ),
 							path:          '/map',
 							icon:          'glyphicon-map-marker',
 							templateUrl:   'partials/map/map.html',
@@ -55,7 +56,8 @@
 						break;
 					case 'measurements':
 						this.push( {
-							name:          'Measurements',
+							/// Main Navigation Tabs - Measurements
+							name:          gettext( 'Measurements' ),
 							path:          '/measurements',
 							icon:          'glyphicon-stats',
 							templateUrl:   'partials/measurements/measurements.html',
@@ -65,7 +67,8 @@
 						break;
 					case 'reports':
 						this.push( {
-							name:          'Reports',
+							/// Main Navigation Tabs - Reports
+							name:          gettext( 'Reports' ),
 							path:          '/reports',
 							icon:          'glyphicon-list-alt',
 							templateUrl:   'partials/reports/reports.html',
@@ -75,7 +78,8 @@
 						break;
 					case 'admin':
 						this.push( {
-							name:          'Admin',
+							/// Main Navigation Tabs - Administrate
+							name:          gettext( 'Admin' ),
 							path:          '/admin',
 							icon:          'glyphicon-cog',
 							templateUrl:   'partials/admin/admin.html',
@@ -85,7 +89,8 @@
 						break;
 					case 'news':
 						this.push( {
-							name:          'Home',
+							/// Main Navigation Tabs - Home (News/Stories)
+							name:          gettext( 'Home' ),
 							path:          '/news',
 							icon:          'glyphicon-home',
 							templateUrl:   'partials/stories/stories.html',
