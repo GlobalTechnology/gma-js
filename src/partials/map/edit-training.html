@@ -8,9 +8,9 @@
         <form name="form" novalidate>
 		<table class="table table-condensed">
 			<tr>
-				<td><b translate>Name:</b></td>
+				<td><b translate>Name</b></td>
 				<td>
-					<input id="tbName" name="name" class="form-control input-sm" type="text" placeholder="Name" ng-model="edit_training.name" ng-if="edit_training.editable" ng-required="true"/>
+					<input id="tbName" name="name" class="form-control input-sm" type="text" placeholder="{{'Name'|translate}}" ng-model="edit_training.name" ng-if="edit_training.editable" ng-required="true"/>
                     <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
                         <span class="text-danger"  ng-show="form.name.$error.required" translate>Name is required.</span>
                     </small>
@@ -18,7 +18,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><b translate>Training Type: </b></td>
+				<td><b translate>Training Type</b></td>
 				<td>
 					<select name="type" class="form-control input-sm" id="ddlTrainingType" ng-model="edit_training.type" ng-options="s.value as s.text for s in training_types" ng-if="edit_training.editable" ng-required="true"></select>
 					<b ng-if="!edit_training.editable">{{edit_training.type}}</b>
@@ -26,15 +26,15 @@
 			</tr>
 
 			<tr>
-				<td><b translate>Date:</b></td>
+				<td><b translate>Date</b></td>
 				<td>
-					<input class="form-control input-sm" id="tbDate" type="date" class="map-training-date" placeholder="Date" ng-model="edit_training.date"  ng-if="edit_training.editable"/>
+					<input class="form-control input-sm" id="tbDate" type="date" class="map-training-date" ng-model="edit_training.date"  ng-if="edit_training.editable"/>
 					<b ng-if="!edit_training.editable">{{edit_training.date | date: 'MMM-dd-yyyy'}}</b>
 				</td>
 			</tr>
 
 			<tr>
-				<td><b translate>MCC:</b></td>
+				<td><b translate>MCC</b></td>
 				<td class="text-uppercase">{{edit_training.mcc}}</td>
 			</tr>
 		</table>
@@ -119,8 +119,8 @@
 		</div>
     <div ng-if="!edit_training.editable && canAddStories(edit_training)" class="btn-group btn-group-justified" role="group">
         <a href ng-click="trainingWindow.close()" class="btn btn-sm btn-default">Close</a>
-        <a href ng-click="addStoryToIcon(edit_training,'training')" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> <span translate> Add Story</span></a>
+        <a href ng-click="addStoryToIcon(edit_training,'training')" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> <span translate>Add Story</span></a>
     </div>
-		<div class="clearfix"></div>
+	<div class="clearfix"></div>
 
 </div>

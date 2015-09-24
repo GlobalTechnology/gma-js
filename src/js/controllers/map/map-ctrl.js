@@ -522,8 +522,8 @@
                     cluster_count: 1,
                     zIndex: 9999,
                     icon: $scope.map.icons.training,
-                    labelContent: 'MOVE ME!',
-                    labelAnchor: new google.maps.Point(50, -5),
+                    labelContent: gettextCatalog.getString('Drag to Move'),
+                    labelAnchor: new google.maps.Point(75, -5),
                     labelClass: "labelMoveMarker", // the CSS class for the label
                     labelInBackground: false,
                     draggable: true
@@ -554,8 +554,8 @@
                     cluster_count: 1,
                     zIndex: 9999,
                     icon: $scope.map.icons.targetCity,
-                    labelContent: 'MOVE ME!',
-                    labelAnchor: new google.maps.Point(50, -5),
+                    labelContent: gettextCatalog.getString('Drag to Move'),
+                    labelAnchor: new google.maps.Point(75, -5),
                     labelClass: "labelMoveMarker", // the CSS class for the label
                     labelInBackground: false,
                     draggable: true
@@ -608,8 +608,8 @@
                     cluster_count: 1,
                     zIndex: 9999,
                     icon: $scope.map.icons.targetpoint,
-                    labelContent: 'Move me!',
-                    labelAnchor: new google.maps.Point(50, -20),
+                    labelContent: gettextCatalog.getString('Drag to Move'),
+                    labelAnchor: new google.maps.Point(75, -20),
                     labelClass: "labelMoveMarker", // the CSS class for the label
                     labelInBackground: false,
                     draggable: true

@@ -360,6 +360,11 @@
 					.error( function ( e ) {
 						if ( i != -1 ) {
 							loadLanguage( locale, locale.indexOf( '-', i + 1 ) );
+						} else {
+							//set css class to show language flag on top
+							$scope.langFlagClass = 'flag-' + locale.split( '-' )[1].toLowerCase();
+							//set current language, match with json file object name
+							gettextCatalog.setCurrentLanguage( intLocale );
 						}
 					} );
 			};

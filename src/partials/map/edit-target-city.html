@@ -1,11 +1,11 @@
 <div id="edit_target_city_window">
     <div class="clearfix"></div>
     <div class='target-city-window'>
-        <h4 translate>Edit Target City </h4>
+        <h4 translate>Edit Target City</h4>
         <form name="form" novalidate>
         <table class="table table-condensed">
             <tr>
-                <td><b translate>Name:</b></td>
+                <td><b translate>Name</b></td>
                 <td>
                     <input type="text" name="name" class="form-control input-sm" maxlength="200" placeholder="{{'Name'|translate}}" ng-model="edit_targetCity.name" ng-required="true"/>
                     <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
@@ -14,7 +14,7 @@
                 </td>
             </tr>
             <tr ng-if="current.assignment.area_code==='GLBL'">
-                <td><b translate>Area:</b></td>
+                <td><b translate>Area</b></td>
                 <td>
                     <select class="form-control input-sm" name="area_code" ng-options="code as name for (code,name) in area_codes" ng-model="new_targetCity.area_code" ng-required="true">
                         <optgroup label="Select an area"></optgroup>
@@ -22,7 +22,7 @@
                 </td>
             </tr>
             <tr>
-                <td><b translate>Country:</b></td>
+                <td><b translate>Country</b></td>
                 <td>
                     <select class="form-control input-sm" name="iso_country" ng-options="lang.iso3 as lang.name for lang in ISOCountries" ng-model="edit_targetCity.iso_country_code" ng-required="true">
                         <optgroup label="Select country"></optgroup>
@@ -30,7 +30,7 @@
                 </td>
             </tr>
             <tr>
-                <td><b translate>Stage:</b></td>
+                <td><b translate>Stage</b></td>
                 <td>
                     <select class="form-control input-sm" name="stage" ng-model="edit_targetCity.stage" ng-change="edit_targetCity.substage=''" ng-required="true">
                         <option value="0">0</option>
@@ -41,10 +41,10 @@
                 </td>
             </tr>
             <tr>
-                <td><b translate>Sub Stage:</b></td>
+                <td><b translate>Sub Stage</b></td>
                 <td>
                     <select class="form-control input-sm" ng-options="substage.val as substage.name for substage in targetCitySubStages | filter :{ stage : edit_targetCity.stage }" ng-model="edit_targetCity.substage">
-                        <option value=""  translate>None</option>
+                        <option value="" translate>None</option>
                     </select>
                 </td>
             </tr>
