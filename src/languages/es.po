@@ -1,122 +1,129 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2015-09-28 17:37+0000\n"
+"PO-Revision-Date: 2015-09-28 17:37+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: map/edit-church.html:30
 #: map/new-church.html:36
 msgid "+99 99999999"
-msgstr ""
+msgstr "+99 99999999"
 
 #: admin/_measurement.html:15
 #: admin/_team-members.html:62
 msgid "Actions"
-msgstr ""
+msgstr "Acciones"
 
 #: map/new-church.html:89
 msgid "Add Church"
-msgstr ""
+msgstr "Agregar iglesia"
 
 #: admin/_measurement.html:5
 msgid "Add Measurement"
-msgstr ""
+msgstr "Agregar medición"
 
 #: map/edit-training.html:86
 msgid "Add Stage"
-msgstr ""
+msgstr "Agregar etapa"
 
 #: map/edit-church.html:116
 #: map/edit-church.html:145
 #: map/edit-training.html:101
 #: map/edit-training.html:122
 msgid "Add Story"
-msgstr ""
+msgstr "Agregar historia"
 
 #: map/new-target-city.html:56
 msgid "Add Target city"
-msgstr ""
+msgstr "Agregar ciudad objetivo"
 
 #: map/new-training.html:46
 msgid "Add Training"
-msgstr ""
+msgstr "Agregar entrenamiento"
 
 #: admin/add-sub-ministry.html:4
 msgid "Add a new sub ministry to"
-msgstr ""
+msgstr "Agregar un nuevo subministerio a"
 
 #: admin/_team-members.html:18
 msgid "Add member"
-msgstr ""
+msgstr "Agregar miembro"
 
 #: admin/add-measurement-type.html:4
 msgid "Add new measurement"
-msgstr ""
+msgstr "Agregar nueva medición"
 
 #: admin/add-team-member.html:4
 msgid "Add new member to"
-msgstr ""
+msgstr "Agregar nuevo miembro a"
 
 #: stories/new-story-dialog.html:4
 msgid "Add new story"
-msgstr ""
+msgstr "Agregar nueva historia"
 
 #: stories/new-story-dialog.html:5
 msgid "Add new story to - {{iconName}}"
-msgstr ""
+msgstr "Agregar nueva historia a - {{iconName}}"
 
 #: stories/stories.html:12
 msgid "Add story"
-msgstr ""
+msgstr "Agregar historia"
 
 #: admin/_team-members.html:19
 msgid "Add sub ministry"
-msgstr ""
+msgstr "Agregar subministerio"
 
 #. Main Navigation Tabs - Administrate
 #: controllers/admin/admin-ctrl.js:275
 #: measurements/details.html:130
 #: services/settings/settings-service.js:82
 msgid "Admin"
-msgstr ""
+msgstr "Administrador"
 
 #: controllers/admin/admin-ctrl.js:276
 msgid "Admin (inherited)"
-msgstr ""
+msgstr "Administrador (heredado)"
 
 #: preference/user-preference-modal.html:49
 msgid "Application language"
-msgstr ""
+msgstr "Idioma de la aplicación"
 
 #: measurements/details.html:125
 msgid "Approve"
-msgstr ""
+msgstr "Aprobar"
 
 #: measurements/details.html:124
 msgid "Approved"
-msgstr ""
+msgstr "Aprobado"
 
 #: map/_confirmation-dialog.html:7
 msgid "Are you sure you want to delete ?"
-msgstr ""
+msgstr "¿Seguro que deseas eliminar?"
 
 #: map/edit-target-city.html:17
 #: map/new-target-city.html:17
 msgid "Area"
-msgstr ""
+msgstr "Área"
 
 #: controllers/map/map-ctrl.js:480
 msgid "Bad Request: Unable to create target city"
-msgstr ""
+msgstr "Solicitud errónea: no se puede crear la ciudad objetivo"
 
 #: admin/add-measurement-type.html:60
 #: measurements/measurements.html:80
 msgid "Build"
-msgstr ""
+msgstr "Construir"
 
 #: admin/_edit-ministry.html:69
 msgid "CTRL + click to select multiple languages"
-msgstr ""
+msgstr "CTRL + clic para seleccionar varios idiomas"
 
 #. Verb - Button
 #: join-ministry.html:29
@@ -126,36 +133,36 @@ msgstr ""
 #: map/new-training.html:45
 #: preference/user-preference-modal.html:57
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: controllers/admin/admin-ctrl.js:170
 msgid "Changes saved successfully"
-msgstr ""
+msgstr "Los cambios se han guardado con éxito"
 
 #: map/edit-church.html:57
 #: map/new-church.html:57
 msgid "Church"
-msgstr ""
+msgstr "Iglesia"
 
 #: map/map.html:51
 msgid "Church or community of disciples"
-msgstr ""
+msgstr "Iglesia o comunidad de discípulos"
 
 #: controllers/map/map-ctrl.js:423
 msgid "Church was created"
-msgstr ""
+msgstr "Se ha creado la iglesia"
 
 #: controllers/map/map-ctrl.js:745
 msgid "Church was deleted successfully"
-msgstr ""
+msgstr "La iglesia se ha eliminado con éxito"
 
 #: controllers/map/map-ctrl.js:725
 msgid "Church was updated successfully"
-msgstr ""
+msgstr "La iglesia se ha actualizado con éxito"
 
 #: map/map.html:137
 msgid "Click to expand/collapse search"
-msgstr ""
+msgstr "Clic para expandir/contraer búsqueda"
 
 #: admin/add-measurement-type.html:3
 #: admin/add-measurement-type.html:69
@@ -177,510 +184,510 @@ msgstr ""
 #: stories/view-story-dialog.html:27
 #: stories/view-story-dialog.html:3
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: admin/_measurement.html:13
 #: admin/add-measurement-type.html:43
 msgid "Column"
-msgstr ""
+msgstr "Columna"
 
 #: map/_confirmation-dialog.html:4
 msgid "Confirm ?"
-msgstr ""
+msgstr "¿Confirmar?"
 
 #: map/edit-church.html:18
 #: map/new-church.html:23
 msgid "Contact Email"
-msgstr ""
+msgstr "Email de contacto"
 
 #: map/edit-church.html:28
 #: map/new-church.html:33
 msgid "Contact Mobile"
-msgstr ""
+msgstr "Celular de contacto"
 
 #: map/edit-church.html:11
 #: map/new-church.html:17
 msgid "Contact Name"
-msgstr ""
+msgstr "Nombre de contacto"
 
 #: stories/edit-story-dialog.html:19
 #: stories/new-story-dialog.html:21
 msgid "Content"
-msgstr ""
+msgstr "Contenido"
 
 #: preference/user-preference-modal.html:41
 msgid "Content language"
-msgstr ""
+msgstr "Idioma del contenido"
 
 #: map/edit-target-city.html:25
 #: map/new-target-city.html:25
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #: admin/add-measurement-type.html:70
 #: admin/add-sub-ministry.html:22
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 #: map/new-church.html:4
 msgid "Create New Church"
-msgstr ""
+msgstr "Crear nueva iglesia"
 
 #: map/map.html:13
 msgid "Create new target city"
-msgstr ""
+msgstr "Crear nueva ciudad objetivo"
 
 #: map/map.html:5
 msgid "Create new target point"
-msgstr ""
+msgstr "Crear nuevo punto objetivo"
 
 #: map/map.html:9
 msgid "Create new training"
-msgstr ""
+msgstr "Crear nuevo entrenamiento"
 
 #: stories/stories.html:7
 msgid "Created by me"
-msgstr ""
+msgstr "Creado por mí"
 
 #: admin/confirm-member-drop.html:9
 msgid "Current role"
-msgstr ""
+msgstr "Rol actual"
 
 #: admin/confirm-member-drop.html:11
 msgid "Current role will be set to former-member"
-msgstr ""
+msgstr "El rol actual se establecerá como exmiembro"
 
 #: map/edit-training.html:29
 #: map/edit-training.html:46
 #: map/new-training.html:24
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #: admin/_edit-ministry.html:50
 #: preference/user-preference-modal.html:12
 #: preference/user-preference-modal.html:21
 msgid "Default"
-msgstr ""
+msgstr "Predeterminado"
 
 #: admin/_edit-ministry.html:46
 msgid "Default MCC"
-msgstr ""
+msgstr "MCC predeterminado"
 
 #: controllers/map/map-ctrl.js:1403
 msgid "Default ministry map view has been set"
-msgstr ""
+msgstr "Se ha establecido la vista de mapa de ministerios predeterminada"
 
 #: map/_confirmation-dialog.html:11
 #: map/edit-training.html:72
 #: measurements/details.html:134
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: map/edit-church.html:135
 msgid "Delete Church"
-msgstr ""
+msgstr "Eliminar iglesia"
 
 #: map/edit-target-city.html:69
 msgid "Delete Target city"
-msgstr ""
+msgstr "Eliminar ciudad objetivo"
 
 #: map/edit-training.html:112
 msgid "Delete Training"
-msgstr ""
+msgstr "Eliminar entrenamiento"
 
 #: admin/_team-members.html:8
 #: controllers/admin/admin-ctrl.js:280
 msgid "Deleted"
-msgstr ""
+msgstr "Eliminado"
 
 #: admin/add-measurement-type.html:20
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: admin/add-measurement-type.html:25
 #: admin/edit-measurement-type.html:45
 msgid "Description is required"
-msgstr ""
+msgstr "Se requiere descripción"
 
 #: admin/add-measurement-type.html:26
 #: admin/edit-measurement-type.html:46
 msgid "Description should not exceed 200 characters"
-msgstr ""
+msgstr "La descripción no debe exceder los 200 caracteres"
 
 #. MCC - Digital Strategies
 #: controllers/gma-ctrl.js:182
 msgid "Digital Strategies"
-msgstr ""
+msgstr "Digital Strategies"
 
 #: stories/edit-story-dialog.html:71
 #: stories/new-story-dialog.html:75
 msgid "Draft"
-msgstr ""
+msgstr "Borrador"
 
 #: controllers/map/map-ctrl.js:525
 #: controllers/map/map-ctrl.js:557
 #: controllers/map/map-ctrl.js:611
 msgid "Drag to Move"
-msgstr ""
+msgstr "Arrastra para mover"
 
 #: controllers/admin/admin-ctrl.js:632
 #: controllers/admin/admin-ctrl.js:639
 msgid "Drop canceled, can't be dropped on child team"
-msgstr ""
+msgstr "Acción cancelada, no se puede soltar sobre un equipo hijo"
 
 #: controllers/admin/admin-ctrl.js:625
 msgid "Drop canceled, can't be dropped on parent team"
-msgstr ""
+msgstr "Acción cancelada, no se puede soltar sobre un equipo padre"
 
 #: controllers/admin/admin-ctrl.js:652
 msgid "Drop canceled, can't be dropped on selected team"
-msgstr ""
+msgstr "Acción cancelada, no se puede soltar sobre el equipo seleccionado"
 
 #: stories/stories.html:35
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: controllers/admin/admin-ctrl.js:95
 msgid "Edit Ministry"
-msgstr ""
+msgstr "Editar ministerio"
 
 #: map/edit-target-city.html:4
 msgid "Edit Target City"
-msgstr ""
+msgstr "Editar ciudad objetivo"
 
 #: admin/_edit-ministry.html:4
 msgid "Edit current ministry"
-msgstr ""
+msgstr "Editar ministerio actual"
 
 #: stories/edit-story-dialog.html:4
 msgid "Edit story"
-msgstr ""
+msgstr "Editar historia"
 
 #: admin/_team-members.html:62
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: admin/edit-measurement-type.html:22
 msgid "English description"
-msgstr ""
+msgstr "Descripción en inglés"
 
 #: admin/edit-measurement-type.html:16
 msgid "English name"
-msgstr ""
+msgstr "Nombre en inglés"
 
 #: controllers/stories/stories-ctrl.js:63
 msgid "Error loading news feeds"
-msgstr ""
+msgstr "Error al cargar transmisión de noticias"
 
 #: controllers/map/map-ctrl.js:482
 msgid "Error: Unable to create target city"
-msgstr ""
+msgstr "Error: no se puede crear ciudad objetivo"
 
 #: map/map.html:109
 msgid "Everything"
-msgstr ""
+msgstr "Todo"
 
 #: map/map.html:103
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTROS"
 
 #: controllers/map/map-ctrl.js:1416
 msgid "Failed to get your current location"
-msgstr ""
+msgstr "No se pudo obtener tu ubicación actual"
 
 #: controllers/map/map-ctrl.js:1548
 #: controllers/stories/stories-ctrl.js:160
 msgid "Failed to save story"
-msgstr ""
+msgstr "No se pudo guardar la historia"
 
 #: controllers/admin/admin-ctrl.js:376
 msgid "Failed, User not found"
-msgstr ""
+msgstr "Error. Usuario no encontrado"
 
 #: admin/add-measurement-type.html:47
 msgid "Faith"
-msgstr ""
+msgstr "Fe"
 
 #: measurements/measurements.html:35
 msgid "Faith Actions"
-msgstr ""
+msgstr "Acciones de fe"
 
 #: admin/_team-members.html:62
 msgid "First Name"
-msgstr ""
+msgstr "Nombre"
 
 #: controllers/admin/admin-ctrl.js:281
 msgid "Former Member"
-msgstr ""
+msgstr "Exmiembro"
 
 #: admin/_team-members.html:9
 msgid "Former members"
-msgstr ""
+msgstr "Exmiembros"
 
 #: admin/add-measurement-type.html:48
 #: measurements/measurements.html:41
 msgid "Fruit"
-msgstr ""
+msgstr "Fruto"
 
 #. MCC - Global Church Movements
 #: controllers/gma-ctrl.js:185
 msgid "Global Church Movements"
-msgstr ""
+msgstr "Global Church Movements"
 
 #: map/edit-church.html:56
 #: map/map.html:42
 #: map/new-church.html:56
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 #: admin/_edit-ministry.html:58
 #: admin/_measurement.html:25
 msgid "Hide"
-msgstr ""
+msgstr "Ocultar"
 
 #: admin/_edit-ministry.html:55
 msgid "Hide reports tab by default"
-msgstr ""
+msgstr "Ocultar pestaña de informes de modo predeterminado"
 
 #. Main Navigation Tabs - Home (News/Stories)
 #: services/settings/settings-service.js:93
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #: controllers/map/map-ctrl.js:1536
 #: controllers/stories/stories-ctrl.js:138
 #: controllers/stories/stories-ctrl.js:242
 msgid "Image file was uploaded"
-msgstr ""
+msgstr "Se ha cargado el archivo de imagen"
 
 #: stories/edit-story-dialog.html:48
 #: stories/new-story-dialog.html:51
 msgid "Image will be resized to"
-msgstr ""
+msgstr "Se cambiará el tamaño de la imagen a"
 
 #: admin/_team-members.html:13
 msgid "Inherited admins"
-msgstr ""
+msgstr "Administradores heredados"
 
 #: admin/_team-members.html:11
 msgid "Inherited leaders"
-msgstr ""
+msgstr "Líderes heredados"
 
 #: error/error.html:2
 msgid "Invalid Session"
-msgstr ""
+msgstr "Sesión no válida"
 
 #: admin/add-team-member.html:15
 #: map/edit-church.html:22
 #: map/new-church.html:28
 msgid "Invalid email format"
-msgstr ""
+msgstr "Formato de email no válido"
 
 #: stories/edit-story-dialog.html:49
 #: stories/new-story-dialog.html:52
 msgid "Invalid image file input."
-msgstr ""
+msgstr "Entrada de archivo de imagen no válida."
 
 #: map/edit-church.html:38
 #: map/new-church.html:44
 msgid "Jesus film activity"
-msgstr ""
+msgstr "Actividad de Jesus Film"
 
 #: map/map.html:87
 msgid "Jesus film contribution"
-msgstr ""
+msgstr "Contribución de Jesus Film"
 
 #. Modal Title
 #. Verb - Button
 #: join-ministry.html:28
 #: join-ministry.html:3
 msgid "Join Ministry/Team"
-msgstr ""
+msgstr "Unirse a ministerio/equipo"
 
 #: application.html:21
 msgid "Join another location / ministry"
-msgstr ""
+msgstr "Unirse a otra ubicación / ministerio"
 
 #: map/map.html:22
 msgid "LEGEND"
-msgstr ""
+msgstr "LEYENDA"
 
 #: admin/edit-measurement-type.html:9
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: admin/_team-members.html:62
 msgid "Last Name"
-msgstr ""
+msgstr "Apellido"
 
 #: controllers/admin/admin-ctrl.js:277
 #: measurements/details.html:132
 msgid "Leader"
-msgstr ""
+msgstr "Líder"
 
 #: controllers/admin/admin-ctrl.js:278
 msgid "Leader (inherited)"
-msgstr ""
+msgstr "Líder (heredado)"
 
 #. MCC - Leader Led
 #: controllers/gma-ctrl.js:188
 msgid "Leader Led"
-msgstr ""
+msgstr "Leader Led"
 
 #: measurements/details.html:33
 msgid "Local"
-msgstr ""
+msgstr "Local"
 
 #: measurements/measurements.html:7
 msgid "Local Movement Indicators"
-msgstr ""
+msgstr "Indicadores de movimientos locales"
 
 #: measurements/details.html:26
 msgid "Local Team"
-msgstr ""
+msgstr "Equipo local"
 
 #: admin/_measurement.html:27
 #: admin/edit-measurement-type.html:4
 msgid "Localize"
-msgstr ""
+msgstr "Localizar"
 
 #: admin/edit-measurement-type.html:40
 msgid "Localized description"
-msgstr ""
+msgstr "Descripción localizada"
 
 #: admin/edit-measurement-type.html:29
 msgid "Localized name"
-msgstr ""
+msgstr "Nombre localizado"
 
 #: error/error.html:5
 msgid "Log In"
-msgstr ""
+msgstr "Acceder"
 
 #: application.html:70
 msgid "Logout"
-msgstr ""
+msgstr "Cerrar sesión"
 
 #: map/edit-training.html:37
 #: map/new-training.html:38
 msgid "MCC"
-msgstr ""
+msgstr "MCC"
 
 #: admin/_edit-ministry.html:34
 msgid "MCCs"
-msgstr ""
+msgstr "MCCs"
 
 #: controllers/admin/admin-ctrl.js:101
 msgid "Manage Measurements"
-msgstr ""
+msgstr "Administrar mediciones"
 
 #. Main Navigation Tabs - Map
 #: services/settings/settings-service.js:49
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 #: controllers/admin/admin-ctrl.js:191
 msgid "Measurement was created successfully"
-msgstr ""
+msgstr "La medición se ha creado con éxito"
 
 #: controllers/admin/admin-ctrl.js:262
 msgid "Measurement was updated"
-msgstr ""
+msgstr "La medición se ha actualizado"
 
 #. Main Navigation Tabs - Measurements
 #: admin/_measurement.html:4
 #: services/settings/settings-service.js:60
 msgid "Measurements"
-msgstr ""
+msgstr "Mediciones"
 
 #: controllers/measurements/measurements-ctrl.js:135
 msgid "Measurements saved successfully"
-msgstr ""
+msgstr "Las mediciones se han guardado con éxito"
 
 #: controllers/measurements/measurements-ctrl.js:175
 msgid "Measurements updated successfully"
-msgstr ""
+msgstr "Las mediciones se han actualizado con éxito"
 
 #: admin/confirm-update-role.html:8
 #: controllers/admin/admin-ctrl.js:279
 #: measurements/details.html:131
 msgid "Member"
-msgstr ""
+msgstr "Miembro"
 
 #: controllers/admin/admin-ctrl.js:595
 msgid "Member was moved to ministry successfully"
-msgstr ""
+msgstr "El miembro se ha movido al ministerio con éxito"
 
 #: map/edit-church.html:82
 msgid "Ministry"
-msgstr ""
+msgstr "Ministerio"
 
 #: admin/_edit-ministry.html:10
 #: admin/add-sub-ministry.html:9
 msgid "Ministry name"
-msgstr ""
+msgstr "Nombre del ministerio"
 
 #: admin/_edit-ministry.html:15
 #: admin/add-sub-ministry.html:14
 msgid "Ministry name is required."
-msgstr ""
+msgstr "Se requiere el nombre del ministerio."
 
 #: controllers/admin/admin-ctrl.js:567
 msgid "Ministry was moved successfully"
-msgstr ""
+msgstr "El ministerio se ha movido con éxito"
 
 #: join-ministry.html:9
 msgid "Ministry/Team:"
-msgstr ""
+msgstr "Ministerio/Equipo:"
 
 #: application.html:98
 msgid "Mobile Apps"
-msgstr ""
+msgstr "Aplicaciones móviles"
 
 #: map/edit-church.html:32
 #: map/new-church.html:38
 msgid "Mobile number is invalid."
-msgstr ""
+msgstr "El número de celular no es válido."
 
 #: map/edit-church.html:121
 msgid "Move Church"
-msgstr ""
+msgstr "Mover iglesia"
 
 #: map/edit-target-city.html:64
 msgid "Move Target city"
-msgstr ""
+msgstr "Mover ciudad objetivo"
 
 #: map/edit-training.html:106
 msgid "Move Training"
-msgstr ""
+msgstr "Mover entrenamiento"
 
 #: admin/confirm-member-drop.html:4
 msgid "Move member to this team ?"
-msgstr ""
+msgstr "¿Mover miembro a este equipo?"
 
 #: admin/confirm-team-drop.html:4
 msgid "Move sub-team to this team ?"
-msgstr ""
+msgstr "¿Mover subequipo a este equipo?"
 
 #: map/edit-church.html:58
 #: map/new-church.html:58
 msgid "Multiplying Church"
-msgstr ""
+msgstr "Iglesia multiplicadora"
 
 #: map/map.html:61
 msgid "Multiplying church or community of disciples"
-msgstr ""
+msgstr "Iglesia multiplicadora o comunidad de discípulos"
 
 #: application.html:68
 msgid "My Preferences"
-msgstr ""
+msgstr "Mis preferencias"
 
 #: map/map.html:17
 msgid "My location on map"
-msgstr ""
+msgstr "Mi ubicación en el mapa"
 
 #: preference/user-preference-modal.html:4
 msgid "My preferences"
-msgstr ""
+msgstr "Mis preferencias"
 
 #: admin/_measurement.html:12
 #: admin/add-measurement-type.html:9
@@ -693,12 +700,12 @@ msgstr ""
 #: map/new-target-city.html:8
 #: map/new-training.html:8
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: admin/add-measurement-type.html:14
 #: admin/edit-measurement-type.html:34
 msgid "Name is required"
-msgstr ""
+msgstr "Se requiere el nombre"
 
 #: map/edit-target-city.html:12
 #: map/edit-training.html:15
@@ -706,33 +713,33 @@ msgstr ""
 #: map/new-target-city.html:12
 #: map/new-training.html:12
 msgid "Name is required."
-msgstr ""
+msgstr "Se requiere el nombre."
 
 #: admin/add-measurement-type.html:15
 #: admin/edit-measurement-type.html:35
 msgid "Name should not exceed 200 characters"
-msgstr ""
+msgstr "El nombre no debe exceder los 200 caracteres"
 
 #: map/new-training.html:4
 msgid "New Church Training Activity"
-msgstr ""
+msgstr "Nueva actividad de entrenamiento de iglesia"
 
 #: admin/confirm-update-role.html:10
 msgid "New Role"
-msgstr ""
+msgstr "Nuevo rol"
 
 #: map/new-target-city.html:4
 msgid "New Target city"
-msgstr ""
+msgstr "Nueva ciudad objetivo"
 
 #: controllers/admin/admin-ctrl.js:369
 msgid "New member was added successfully"
-msgstr ""
+msgstr "El nuevo miembro se ha agregado con éxito"
 
 #: stories/stories.html:45
 #: stories/stories.html:61
 msgid "Newer"
-msgstr ""
+msgstr "Más reciente"
 
 #: admin/confirm-member-drop.html:15
 #: admin/confirm-team-drop.html:13
@@ -742,173 +749,173 @@ msgstr ""
 #: map/new-church.html:47
 #: preference/user-preference-modal.html:37
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: admin/_edit-ministry.html:29
 msgid "No parent ministry"
-msgstr ""
+msgstr "No hay padre de ministerio"
 
 #: stories/stories.html:40
 msgid "No story found"
-msgstr ""
+msgstr "No se encontró la historia"
 
 #: map/edit-target-city.html:47
 #: map/new-target-city.html:47
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 #: admin/confirm-update-role.html:9
 msgid "Old Role"
-msgstr ""
+msgstr "Rol anterior"
 
 #: stories/stories.html:45
 #: stories/stories.html:61
 msgid "Older"
-msgstr ""
+msgstr "Más antiguo"
 
 #: map/edit-church.html:111
 #: map/edit-target-city.html:58
 #: map/edit-training.html:96
 msgid "Options"
-msgstr ""
+msgstr "Opciones"
 
 #: admin/add-measurement-type.html:50
 #: admin/add-measurement-type.html:62
 msgid "Other"
-msgstr ""
+msgstr "Otro"
 
 #: measurements/measurements.html:115
 msgid "Other Measurements"
-msgstr ""
+msgstr "Otras mediciones"
 
 #: admin/add-measurement-type.html:49
 #: measurements/measurements.html:47
 msgid "Outcome"
-msgstr ""
+msgstr "Resultado"
 
 #: map/map.html:95
 msgid "Parent lines"
-msgstr ""
+msgstr "Líneas de padres"
 
 #: admin/_edit-ministry.html:21
 msgid "Parent ministry"
-msgstr ""
+msgstr "Padre de ministerio"
 
 #: map/edit-training.html:47
 #: map/new-training.html:31
 msgid "Participants"
-msgstr ""
+msgstr "Participantes"
 
 #: admin/add-measurement-type.html:31
 msgid "Permalink"
-msgstr ""
+msgstr "Enlace permanente"
 
 #: admin/add-measurement-type.html:37
 msgid "Permalink is invalid. Please match with required format"
-msgstr ""
+msgstr "El enlace permanente no es válido. Utiliza el formato requerido"
 
 #: admin/add-measurement-type.html:36
 msgid "Permalink is required"
-msgstr ""
+msgstr "Se requiere un enlace permanente"
 
 #: admin/add-measurement-type.html:38
 msgid "Permalink should not exceed 100 characters"
-msgstr ""
+msgstr "El enlace permanente no debe exceder los 100 caracteres"
 
 #: join-ministry.html:5
 msgid "Please identify a ministry team that you work most closely with and request to join that team."
-msgstr ""
+msgstr "Identifica un equipo de ministerio con el cual trabajas de modo más cercano y solicita unirte a ese equipo."
 
 #: map/edit-church.html:43
 #: map/new-church.html:48
 msgid "Please make a choice"
-msgstr ""
+msgstr "Elige una opción"
 
 #: preference/user-preference-modal.html:17
 msgid "Preferred MCC"
-msgstr ""
+msgstr "MCC preferido"
 
 #: preference/user-preference-modal.html:45
 msgid "Preferred content language for"
-msgstr ""
+msgstr "Idioma de contenido preferido para"
 
 #: preference/user-preference-modal.html:8
 msgid "Preferred ministry"
-msgstr ""
+msgstr "Ministerio preferido"
 
 #: stories/edit-story-dialog.html:58
 #: stories/new-story-dialog.html:62
 msgid "Privacy"
-msgstr ""
+msgstr "Privacidad"
 
 #: map/edit-church.html:72
 #: map/new-church.html:73
 msgid "Private"
-msgstr ""
+msgstr "Privado"
 
 #: map/edit-church.html:74
 #: map/new-church.html:75
 msgid "Public"
-msgstr ""
+msgstr "Público"
 
 #: stories/edit-story-dialog.html:67
 #: stories/new-story-dialog.html:71
 msgid "Publish status"
-msgstr ""
+msgstr "Estado de publicación"
 
 #: stories/edit-story-dialog.html:70
 #: stories/new-story-dialog.html:74
 msgid "Published"
-msgstr ""
+msgstr "Publicado"
 
 #: stories/stories.html:52
 msgid "Refresh Feeds"
-msgstr ""
+msgstr "Actualizar transmisión"
 
 #: stories/stories.html:11
 msgid "Refresh List"
-msgstr ""
+msgstr "Actualizar lista"
 
 #: admin/_team-members.html:17
 msgid "Refresh members list"
-msgstr ""
+msgstr "Actualizar lista de miembros"
 
 #: map/edit-church.html:73
 #: map/new-church.html:74
 msgid "Registered Users"
-msgstr ""
+msgstr "Usuarios registrados"
 
 #: stories/new-story-dialog.html:66
 msgid "Registered users"
-msgstr ""
+msgstr "Usuarios registrados"
 
 #: map/edit-church.html:129
 msgid "Remove Parent Church"
-msgstr ""
+msgstr "Quitar padre de iglesia"
 
 #: stories/new-story-dialog.html:57
 msgid "Remove image"
-msgstr ""
+msgstr "Quitar imagen"
 
 #: stories/edit-story-dialog.html:72
 msgid "Removed"
-msgstr ""
+msgstr "Quitado"
 
 #. Main Navigation Tabs - Reports
 #: services/settings/settings-service.js:71
 msgid "Reports"
-msgstr ""
+msgstr "Informes"
 
 #: admin/add-team-member.html:21
 msgid "Role"
-msgstr ""
+msgstr "Rol"
 
 #: admin/add-team-member.html:31
 #: admin/edit-measurement-type.html:56
 #: preference/user-preference-modal.html:58
 #: stories/new-story-dialog.html:103
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: map/edit-church.html:140
 #: map/edit-target-city.html:74
@@ -916,430 +923,430 @@ msgstr ""
 #: measurements/measurements.html:122
 #: measurements/measurements.html:21
 msgid "Save Changes"
-msgstr ""
+msgstr "Guardar cambios"
 
 #: measurements/details.html:146
 msgid "Save Measurements"
-msgstr ""
+msgstr "Guardar mediciones"
 
 #: admin/_measurement.html:33
 msgid "Save changes"
-msgstr ""
+msgstr "Guardar cambios"
 
 #: map/map.html:136
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: admin/_team-members.html:6
 msgid "Search Members"
-msgstr ""
+msgstr "Buscar miembros"
 
 #: admin/_measurement.html:14
 #: admin/add-measurement-type.html:55
 msgid "Section"
-msgstr ""
+msgstr "Sección"
 
 #: map/edit-church.html:69
 #: map/new-church.html:70
 msgid "Security"
-msgstr ""
+msgstr "Seguridad"
 
 #: map/edit-church.html:77
 #: map/new-church.html:78
 msgid "Security is a required field"
-msgstr ""
+msgstr "Seguridad es un campo obligatorio"
 
 #: controllers/admin/admin-ctrl.js:282
 msgid "Self Assigned"
-msgstr ""
+msgstr "Autoasignado"
 
 #: measurements/details.html:104
 msgid "Self Assigned Members (not yet approved)"
-msgstr ""
+msgstr "Miembros autoasignados (aún no aprobados)"
 
 #: admin/add-measurement-type.html:61
 #: measurements/measurements.html:98
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 #: map/map.html:129
 msgid "Set Ministry Default View for others"
-msgstr ""
+msgstr "Establecer la vista de ministerio predeterminada para otros"
 
 #: map/edit-church.html:126
 msgid "Set Parent Church"
-msgstr ""
+msgstr "Establecer padre de iglesia"
 
 #: map/map.html:128
 msgid "Set as my Ministry Default View"
-msgstr ""
+msgstr "Establecer como mi vista de ministerio predeterminada"
 
 #: admin/_edit-ministry.html:59
 #: admin/_measurement.html:24
 msgid "Show"
-msgstr ""
+msgstr "Mostrar"
 
 #: map/edit-church.html:63
 #: map/new-church.html:64
 msgid "Size"
-msgstr ""
+msgstr "Tamaño"
 
 #: admin/confirm-team-drop.html:8
 msgid "Source Name"
-msgstr ""
+msgstr "Nombre de origen"
 
 #: map/edit-target-city.html:33
 #: map/edit-training.html:45
 #: map/new-target-city.html:33
 msgid "Stage"
-msgstr ""
+msgstr "Etapa"
 
 #: join-ministry.html:16
 msgid "Start typing to search for ministry"
-msgstr ""
+msgstr "Comienza a escribir para buscar un ministerio"
 
 #: stories/edit-story-dialog.html:26
 #: stories/new-story-dialog.html:28
 msgid "Story content field is required"
-msgstr ""
+msgstr "El campo de contenido de historia es obligatorio"
 
 #: stories/edit-story-dialog.html:26
 msgid "Story content should not exceed"
-msgstr ""
+msgstr "El contenido de la historia no debe exceder"
 
 #: stories/new-story-dialog.html:29
 msgid "Story content should not exceed {{storiesConfig.content_length}} characters"
-msgstr ""
+msgstr "El contenido de la historia no debe exceder los {{storiesConfig.content_length}} caracteres"
 
 #: controllers/stories/stories-ctrl.js:133
 msgid "Story saved successfully"
-msgstr ""
+msgstr "La historia se ha guardado con éxito"
 
 #: stories/edit-story-dialog.html:13
 #: stories/new-story-dialog.html:15
 msgid "Story title field is required"
-msgstr ""
+msgstr "El campo de título de historia es obligatorio"
 
 #: stories/edit-story-dialog.html:14
 #: stories/new-story-dialog.html:16
 msgid "Story title should not exceed 120 characters"
-msgstr ""
+msgstr "El título de historia no debe exceder los 120 caracteres"
 
 #: controllers/stories/stories-ctrl.js:234
 msgid "Story was updated"
-msgstr ""
+msgstr "Se ha actualizado la historia"
 
 #. MCC - Student Led
 #: controllers/gma-ctrl.js:191
 msgid "Student Led"
-msgstr ""
+msgstr "Student Led"
 
 #: map/edit-target-city.html:44
 #: map/new-target-city.html:44
 msgid "Sub Stage"
-msgstr ""
+msgstr "Sub etapa"
 
 #: controllers/admin/admin-ctrl.js:487
 msgid "Sub ministry was created successfully"
-msgstr ""
+msgstr "El subministerio se ha creado con éxito"
 
 #: measurements/details.html:86
 msgid "Sub-Ministries / Teams"
-msgstr ""
+msgstr "Subministerios / Equipos"
 
 #: admin/_edit-ministry.html:63
 msgid "Supported languages"
-msgstr ""
+msgstr "Idiomas admitidos"
 
 #: join-ministry.html:20
 #: preference/user-preference-modal.html:34
 msgid "Supported staff"
-msgstr ""
+msgstr "Personal admitido"
 
 #: stories/new-story-dialog.html:90
 msgid "Tagged MCC"
-msgstr ""
+msgstr "MCC etiquetado"
 
 #: stories/edit-story-dialog.html:87
 msgid "Tagged MCC :"
-msgstr ""
+msgstr "MCC etiquetado"
 
 #: stories/edit-story-dialog.html:79
 #: stories/new-story-dialog.html:82
 msgid "Tagged ministry"
-msgstr ""
+msgstr "Ministerio etiquetado"
 
 #: map/edit-church.html:55
 #: map/map.html:33
 #: map/new-church.html:55
 msgid "Target"
-msgstr ""
+msgstr "Objetivo"
 
 #: admin/confirm-team-drop.html:9
 msgid "Target Team"
-msgstr ""
+msgstr "Equipo objetivo"
 
 #: map/map.html:70
 msgid "Target city"
-msgstr ""
+msgstr "Ciudad objetivo"
 
 #: controllers/map/map-ctrl.js:964
 msgid "Target city position was updated"
-msgstr ""
+msgstr "Se actualizó la posición de la ciudad objetivo"
 
 #: controllers/map/map-ctrl.js:474
 msgid "Target city was created successfully"
-msgstr ""
+msgstr "La ciudad objetivo se ha creado con éxito"
 
 #: controllers/map/map-ctrl.js:1332
 msgid "Target city was deleted successfully"
-msgstr ""
+msgstr "La ciudad objetivo se ha eliminado con éxito"
 
 #: controllers/map/map-ctrl.js:779
 msgid "Target city was updated"
-msgstr ""
+msgstr "Se actualizó la ciudad objetivo"
 
 #: admin/confirm-member-drop.html:10
 msgid "Target team"
-msgstr ""
+msgstr "Equipo objetivo"
 
 #: measurements/lmi.html:100
 #: measurements/lmi.html:124
 #: measurements/lmi.html:148
 #: measurements/lmi.html:64
 msgid "Team"
-msgstr ""
+msgstr "Equipo"
 
 #: controllers/admin/admin-ctrl.js:89
 msgid "Team & Members"
-msgstr ""
+msgstr "Equipos y miembros"
 
 #: measurements/details.html:60
 msgid "Team Members"
-msgstr ""
+msgstr "Miembros del equipo"
 
 #: stories/edit-story-dialog.html:63
 #: stories/new-story-dialog.html:67
 msgid "Team only"
-msgstr ""
+msgstr "Solo equipo"
 
 #: admin/add-team-member.html:9
 msgid "TheKey username"
-msgstr ""
+msgstr "Nombre de usuario de TheKey"
 
 #: stories/edit-story-dialog.html:9
 #: stories/new-story-dialog.html:11
 #: stories/new-story-dialog.html:13
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: measurements/details.html:17
 #: measurements/details.html:49
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #: map/edit-training.html:21
 #: map/new-training.html:17
 msgid "Training Type"
-msgstr ""
+msgstr "Tipo de entrenamiento"
 
 #: map/map.html:79
 msgid "Training activity"
-msgstr ""
+msgstr "Actividad de entrenamiento"
 
 #: controllers/map/map-ctrl.js:1356
 msgid "Training stage was deleted successfully"
-msgstr ""
+msgstr "La etapa de entrenamiento se ha eliminado con éxito"
 
 #: controllers/map/map-ctrl.js:447
 msgid "Training was created"
-msgstr ""
+msgstr "Se ha creado entrenamiento"
 
 #: controllers/map/map-ctrl.js:1311
 msgid "Training was deleted successfully"
-msgstr ""
+msgstr "El entrenamiento se ha eliminado con éxito"
 
 #: controllers/map/map-ctrl.js:1290
 msgid "Training was saved successfully"
-msgstr ""
+msgstr "El entrenamiento se ha guardado con éxito"
 
 #: controllers/map/map-ctrl.js:757
 #: controllers/map/map-ctrl.js:768
 msgid "Training was updated"
-msgstr ""
+msgstr "El entrenamiento se ha actualizado"
 
 #: map/edit-church.html:52
 #: map/new-church.html:52
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: controllers/admin/admin-ctrl.js:378
 msgid "Unable to add new member"
-msgstr ""
+msgstr "No se puede agregar nuevo miembro"
 
 #: controllers/admin/admin-ctrl.js:503
 msgid "Unable to add sub ministry"
-msgstr ""
+msgstr "No se puede agregar subministerio"
 
 #: controllers/map/map-ctrl.js:426
 msgid "Unable to create church"
-msgstr ""
+msgstr "No se puede crear iglesia"
 
 #: controllers/admin/admin-ctrl.js:199
 msgid "Unable to create measurement"
-msgstr ""
+msgstr "No se puede crear medición"
 
 #: controllers/map/map-ctrl.js:748
 msgid "Unable to delete church"
-msgstr ""
+msgstr "No se puede eliminar iglesia"
 
 #: controllers/map/map-ctrl.js:1337
 msgid "Unable to delete target city"
-msgstr ""
+msgstr "No se puede eliminar ciudad objetivo"
 
 #: controllers/map/map-ctrl.js:1315
 msgid "Unable to delete training"
-msgstr ""
+msgstr "No se puede eliminar entrenamiento"
 
 #: controllers/admin/admin-ctrl.js:241
 msgid "Unable to get measurement"
-msgstr ""
+msgstr "No se puede obtener medición"
 
 #: controllers/gma-ctrl.js:293
 msgid "Unable to join to requested ministry"
-msgstr ""
+msgstr "No se puede unirse al ministerio solicitado"
 
 #: controllers/map/map-ctrl.js:587
 msgid "Unable to load countries list"
-msgstr ""
+msgstr "No se puede cargar lista de países"
 
 #: controllers/gma-ctrl.js:450
 msgid "Unable to load languages"
-msgstr ""
+msgstr "No se pueden cargar idiomas"
 
 #: controllers/measurements/measurements-ctrl.js:85
 msgid "Unable to load measurements"
-msgstr ""
+msgstr "No se pueden cargar mediciones"
 
 #: controllers/reports/reports-ctrl.js:69
 msgid "Unable to load measurements for reporting"
-msgstr ""
+msgstr "No se pueden cargar mediciones para informar"
 
 #: controllers/stories/stories-ctrl.js:92
 msgid "Unable to load stories"
-msgstr ""
+msgstr "No se pueden cargar historias"
 
 #: controllers/map/map-ctrl.js:316
 msgid "Unable to load target cities"
-msgstr ""
+msgstr "No se pueden cargar ciudades objetivos"
 
 #: controllers/admin/admin-ctrl.js:316
 msgid "Unable to load team members"
-msgstr ""
+msgstr "No se pueden cargar miembros del equipo"
 
 #: controllers/map/map-ctrl.js:335
 msgid "Unable to load trainings"
-msgstr ""
+msgstr "No se pueden cargar entrenamientos"
 
 #: controllers/admin/admin-ctrl.js:604
 msgid "Unable to move member"
-msgstr ""
+msgstr "No se pueden mover miembros"
 
 #: controllers/admin/admin-ctrl.js:580
 msgid "Unable to move ministry"
-msgstr ""
+msgstr "No se puede mover ministerio"
 
 #: controllers/admin/admin-ctrl.js:172
 msgid "Unable to save changes"
-msgstr ""
+msgstr "No se pueden guardar cambios"
 
 #: controllers/map/map-ctrl.js:1385
 #: controllers/map/map-ctrl.js:1405
 msgid "Unable to save default map view"
-msgstr ""
+msgstr "No se puede guardar vista de mapa predeterminada"
 
 #: controllers/measurements/measurements-ctrl.js:139
 msgid "Unable to save measurements"
-msgstr ""
+msgstr "No se pueden guardar mediciones"
 
 #: controllers/preference/user-preference-ctrl.js:48
 msgid "Unable to save preferences"
-msgstr ""
+msgstr "No se pueden guardar preferencias"
 
 #: controllers/map/map-ctrl.js:729
 msgid "Unable to update church"
-msgstr ""
+msgstr "No se puede actualizar iglesia"
 
 #: controllers/admin/admin-ctrl.js:264
 msgid "Unable to update measurement"
-msgstr ""
+msgstr "No se puede actualizar medición"
 
 #: controllers/stories/stories-ctrl.js:251
 msgid "Unable to update story"
-msgstr ""
+msgstr "No se puede actualizar la historia"
 
 #: controllers/map/map-ctrl.js:781
 #: controllers/map/map-ctrl.js:966
 msgid "Unable to update target city"
-msgstr ""
+msgstr "No se puede actualizar ciudad objetivo"
 
 #: controllers/map/map-ctrl.js:760
 msgid "Unable to update training"
-msgstr ""
+msgstr "No se puede actualizar entrenamiento"
 
 #: controllers/admin/admin-ctrl.js:425
 #: controllers/admin/admin-ctrl.js:444
 msgid "Unable to update user role"
-msgstr ""
+msgstr "No se puede actualizar rol de usuario"
 
 #: controllers/map/map-ctrl.js:1542
 #: controllers/stories/stories-ctrl.js:269
 msgid "Unable to upload image file"
-msgstr ""
+msgstr "No se puede cargar archivo de imagen"
 
 #: stories/edit-story-dialog.html:101
 msgid "Update"
-msgstr ""
+msgstr "Actualizar"
 
 #: admin/_edit-ministry.html:89
 msgid "Update Ministry"
-msgstr ""
+msgstr "Actualizar ministerio"
 
 #: admin/confirm-update-role.html:4
 msgid "Update Team Member Role ?"
-msgstr ""
+msgstr "¿Actualizar rol del miembro del equipo?"
 
 #: stories/edit-story-dialog.html:31
 #: stories/new-story-dialog.html:34
 msgid "Upload an image"
-msgstr ""
+msgstr "Cargar una imagen"
 
 #: controllers/map/map-ctrl.js:1540
 #: controllers/stories/stories-ctrl.js:267
 msgid "Upload failed, Invalid file input"
-msgstr ""
+msgstr "Ha fallado la carga. Entrada de archivo no válida"
 
 #: error/error.html:4
 msgid "Use the button below to log back in."
-msgstr ""
+msgstr "Usa el botón a continuación para volver a acceder."
 
 #: controllers/admin/admin-ctrl.js:420
 #: controllers/admin/admin-ctrl.js:438
 msgid "User role was updated"
-msgstr ""
+msgstr "El rol del usuario se ha actualizado"
 
 #: admin/add-team-member.html:14
 msgid "Username is required."
-msgstr ""
+msgstr "Se requiere nombre de usuario."
 
 #: stories/view-story-dialog.html:4
 msgid "View story"
-msgstr ""
+msgstr "Ver historia"
 
 #: admin/add-measurement-type.html:59
 #: measurements/measurements.html:57
 msgid "Win"
-msgstr ""
+msgstr "Ganar"
 
 #: admin/confirm-member-drop.html:16
 #: admin/confirm-team-drop.html:14
@@ -1349,58 +1356,58 @@ msgstr ""
 #: map/new-church.html:46
 #: preference/user-preference-modal.html:36
 msgid "Yes"
-msgstr ""
+msgstr "Sí"
 
 #: controllers/gma-ctrl.js:291
 msgid "You are already assigned to requested ministry"
-msgstr ""
+msgstr "Ya estás asignado al ministerio solicitado"
 
 #: controllers/gma-ctrl.js:413
 msgid "You are not authorised for this"
-msgstr ""
+msgstr "No estás autorizado para esto"
 
 #: error/error.html:3
 msgid "You have been logged out or your session has expired due to inactivity."
-msgstr ""
+msgstr "Tu sesión se ha cerrado o ha caducado debido a inactividad."
 
 #: stories/new-story-dialog.html:25
 msgid "You have {{storiesConfig.content_length - story.content.length}} of {{storiesConfig.content_length}} characters remaining"
-msgstr ""
+msgstr "Tienes {{storiesConfig.content_length - story.content.length}} de {{storiesConfig.content_length}} caracteres restantes"
 
 #: controllers/map/map-ctrl.js:1420
 msgid "Your browser does not support GeoLocation"
-msgstr ""
+msgstr "Tu navegador no admite geolocalización"
 
 #: controllers/map/map-ctrl.js:1382
 msgid "Your default map view has been set"
-msgstr ""
+msgstr "Se ha establecido tu vista de mapa predeterminada"
 
 #: controllers/preference/user-preference-ctrl.js:39
 msgid "Your preferences were saved"
-msgstr ""
+msgstr "Se han guardado tus preferencias"
 
 #: stories/edit-story-dialog.html:26
 msgid "characters"
-msgstr ""
+msgstr "caracteres"
 
 #: stories/edit-story-dialog.html:48
 msgid "existing image will be replaced"
-msgstr ""
+msgstr "se reemplazará la imagen existente"
 
 #: map/edit-church.html:5
 msgid "members"
-msgstr ""
+msgstr "miembros"
 
 #: map/new-church.html:26
 msgid "name@email.com"
-msgstr ""
+msgstr "nombre@email.com"
 
 #: measurements/lmi.html:12
 #: measurements/lmi.html:28
 #: measurements/lmi.html:53
 #: measurements/lmi.html:89
 msgid "personal"
-msgstr ""
+msgstr "personal"
 
 #: measurements/lmi.html:106
 #: measurements/lmi.html:130
@@ -1408,12 +1415,13 @@ msgstr ""
 #: measurements/lmi.html:34
 #: measurements/lmi.html:70
 msgid "total"
-msgstr ""
+msgstr "total"
 
 #: map/map.html:121
 msgid "{{current.assignment.name}} + tree"
-msgstr ""
+msgstr "{{current.assignment.name}} + árbol"
 
 #: map/map.html:115
 msgid "{{current.assignment.name}} only"
-msgstr ""
+msgstr "{{current.assignment.name}} solamente"
+

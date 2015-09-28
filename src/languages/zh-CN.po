@@ -1,122 +1,129 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2015-09-28 17:37+0000\n"
+"PO-Revision-Date: 2015-09-28 17:37+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: map/edit-church.html:30
 #: map/new-church.html:36
 msgid "+99 99999999"
-msgstr ""
+msgstr "'+99 99999999"
 
 #: admin/_measurement.html:15
 #: admin/_team-members.html:62
 msgid "Actions"
-msgstr ""
+msgstr "行动"
 
 #: map/new-church.html:89
 msgid "Add Church"
-msgstr ""
+msgstr "添加教会"
 
 #: admin/_measurement.html:5
 msgid "Add Measurement"
-msgstr ""
+msgstr "添加指标"
 
 #: map/edit-training.html:86
 msgid "Add Stage"
-msgstr ""
+msgstr "添加阶段"
 
 #: map/edit-church.html:116
 #: map/edit-church.html:145
 #: map/edit-training.html:101
 #: map/edit-training.html:122
 msgid "Add Story"
-msgstr ""
+msgstr "添加故事"
 
 #: map/new-target-city.html:56
 msgid "Add Target city"
-msgstr ""
+msgstr "添加目标城市"
 
 #: map/new-training.html:46
 msgid "Add Training"
-msgstr ""
+msgstr "添加训练"
 
 #: admin/add-sub-ministry.html:4
 msgid "Add a new sub ministry to"
-msgstr ""
+msgstr "添加新下属神职"
 
 #: admin/_team-members.html:18
 msgid "Add member"
-msgstr ""
+msgstr "添加成员"
 
 #: admin/add-measurement-type.html:4
 msgid "Add new measurement"
-msgstr ""
+msgstr "添加新指标"
 
 #: admin/add-team-member.html:4
 msgid "Add new member to"
-msgstr ""
+msgstr "添加新成员"
 
 #: stories/new-story-dialog.html:4
 msgid "Add new story"
-msgstr ""
+msgstr "添加新故事"
 
 #: stories/new-story-dialog.html:5
 msgid "Add new story to - {{iconName}}"
-msgstr ""
+msgstr "添加新故事－{{iconName}}"
 
 #: stories/stories.html:12
 msgid "Add story"
-msgstr ""
+msgstr "添加故事"
 
 #: admin/_team-members.html:19
 msgid "Add sub ministry"
-msgstr ""
+msgstr "添加下属神职"
 
 #. Main Navigation Tabs - Administrate
 #: controllers/admin/admin-ctrl.js:275
 #: measurements/details.html:130
 #: services/settings/settings-service.js:82
 msgid "Admin"
-msgstr ""
+msgstr "管理员"
 
 #: controllers/admin/admin-ctrl.js:276
 msgid "Admin (inherited)"
-msgstr ""
+msgstr "管理员（继承）"
 
 #: preference/user-preference-modal.html:49
 msgid "Application language"
-msgstr ""
+msgstr "应用语言"
 
 #: measurements/details.html:125
 msgid "Approve"
-msgstr ""
+msgstr "审批"
 
 #: measurements/details.html:124
 msgid "Approved"
-msgstr ""
+msgstr "已批准"
 
 #: map/_confirmation-dialog.html:7
 msgid "Are you sure you want to delete ?"
-msgstr ""
+msgstr "确定要删除？"
 
 #: map/edit-target-city.html:17
 #: map/new-target-city.html:17
 msgid "Area"
-msgstr ""
+msgstr "地区"
 
 #: controllers/map/map-ctrl.js:480
 msgid "Bad Request: Unable to create target city"
-msgstr ""
+msgstr "错误请求：无法创建目标城市"
 
 #: admin/add-measurement-type.html:60
 #: measurements/measurements.html:80
 msgid "Build"
-msgstr ""
+msgstr "建造"
 
 #: admin/_edit-ministry.html:69
 msgid "CTRL + click to select multiple languages"
-msgstr ""
+msgstr "按住Ctrl点击鼠标选择多种语言"
 
 #. Verb - Button
 #: join-ministry.html:29
@@ -126,36 +133,36 @@ msgstr ""
 #: map/new-training.html:45
 #: preference/user-preference-modal.html:57
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: controllers/admin/admin-ctrl.js:170
 msgid "Changes saved successfully"
-msgstr ""
+msgstr "修改保存成功"
 
 #: map/edit-church.html:57
 #: map/new-church.html:57
 msgid "Church"
-msgstr ""
+msgstr "教会"
 
 #: map/map.html:51
 msgid "Church or community of disciples"
-msgstr ""
+msgstr "信徒教会或社区"
 
 #: controllers/map/map-ctrl.js:423
 msgid "Church was created"
-msgstr ""
+msgstr "教会已创建"
 
 #: controllers/map/map-ctrl.js:745
 msgid "Church was deleted successfully"
-msgstr ""
+msgstr "教会删除成功"
 
 #: controllers/map/map-ctrl.js:725
 msgid "Church was updated successfully"
-msgstr ""
+msgstr "教会更新成功"
 
 #: map/map.html:137
 msgid "Click to expand/collapse search"
-msgstr ""
+msgstr "点击扩大/折叠搜索"
 
 #: admin/add-measurement-type.html:3
 #: admin/add-measurement-type.html:69
@@ -177,510 +184,510 @@ msgstr ""
 #: stories/view-story-dialog.html:27
 #: stories/view-story-dialog.html:3
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: admin/_measurement.html:13
 #: admin/add-measurement-type.html:43
 msgid "Column"
-msgstr ""
+msgstr "列"
 
 #: map/_confirmation-dialog.html:4
 msgid "Confirm ?"
-msgstr ""
+msgstr "确定？"
 
 #: map/edit-church.html:18
 #: map/new-church.html:23
 msgid "Contact Email"
-msgstr ""
+msgstr "联系人电子邮箱"
 
 #: map/edit-church.html:28
 #: map/new-church.html:33
 msgid "Contact Mobile"
-msgstr ""
+msgstr "联系人移动电话"
 
 #: map/edit-church.html:11
 #: map/new-church.html:17
 msgid "Contact Name"
-msgstr ""
+msgstr "联系人姓名"
 
 #: stories/edit-story-dialog.html:19
 #: stories/new-story-dialog.html:21
 msgid "Content"
-msgstr ""
+msgstr "内容"
 
 #: preference/user-preference-modal.html:41
 msgid "Content language"
-msgstr ""
+msgstr "内容语言"
 
 #: map/edit-target-city.html:25
 #: map/new-target-city.html:25
 msgid "Country"
-msgstr ""
+msgstr "国家"
 
 #: admin/add-measurement-type.html:70
 #: admin/add-sub-ministry.html:22
 msgid "Create"
-msgstr ""
+msgstr "创建"
 
 #: map/new-church.html:4
 msgid "Create New Church"
-msgstr ""
+msgstr "创建新教会"
 
 #: map/map.html:13
 msgid "Create new target city"
-msgstr ""
+msgstr "创建新目标城市"
 
 #: map/map.html:5
 msgid "Create new target point"
-msgstr ""
+msgstr "创建新目标点"
 
 #: map/map.html:9
 msgid "Create new training"
-msgstr ""
+msgstr "创建新训练"
 
 #: stories/stories.html:7
 msgid "Created by me"
-msgstr ""
+msgstr "我来创建"
 
 #: admin/confirm-member-drop.html:9
 msgid "Current role"
-msgstr ""
+msgstr "当前角色"
 
 #: admin/confirm-member-drop.html:11
 msgid "Current role will be set to former-member"
-msgstr ""
+msgstr "当前角色将调至前成员"
 
 #: map/edit-training.html:29
 #: map/edit-training.html:46
 #: map/new-training.html:24
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 #: admin/_edit-ministry.html:50
 #: preference/user-preference-modal.html:12
 #: preference/user-preference-modal.html:21
 msgid "Default"
-msgstr ""
+msgstr "默认"
 
 #: admin/_edit-ministry.html:46
 msgid "Default MCC"
-msgstr ""
+msgstr "默认MCC"
 
 #: controllers/map/map-ctrl.js:1403
 msgid "Default ministry map view has been set"
-msgstr ""
+msgstr "默认神职地图视图已设置"
 
 #: map/_confirmation-dialog.html:11
 #: map/edit-training.html:72
 #: measurements/details.html:134
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: map/edit-church.html:135
 msgid "Delete Church"
-msgstr ""
+msgstr "删除教会"
 
 #: map/edit-target-city.html:69
 msgid "Delete Target city"
-msgstr ""
+msgstr "删除目标城市"
 
 #: map/edit-training.html:112
 msgid "Delete Training"
-msgstr ""
+msgstr "删除训练"
 
 #: admin/_team-members.html:8
 #: controllers/admin/admin-ctrl.js:280
 msgid "Deleted"
-msgstr ""
+msgstr "已删除"
 
 #: admin/add-measurement-type.html:20
 msgid "Description"
-msgstr ""
+msgstr "说明"
 
 #: admin/add-measurement-type.html:25
 #: admin/edit-measurement-type.html:45
 msgid "Description is required"
-msgstr ""
+msgstr "需要填写说明"
 
 #: admin/add-measurement-type.html:26
 #: admin/edit-measurement-type.html:46
 msgid "Description should not exceed 200 characters"
-msgstr ""
+msgstr "说明不超过 200 字符"
 
 #. MCC - Digital Strategies
 #: controllers/gma-ctrl.js:182
 msgid "Digital Strategies"
-msgstr ""
+msgstr "数字策略"
 
 #: stories/edit-story-dialog.html:71
 #: stories/new-story-dialog.html:75
 msgid "Draft"
-msgstr ""
+msgstr "草稿"
 
 #: controllers/map/map-ctrl.js:525
 #: controllers/map/map-ctrl.js:557
 #: controllers/map/map-ctrl.js:611
 msgid "Drag to Move"
-msgstr ""
+msgstr "拖动派遣"
 
 #: controllers/admin/admin-ctrl.js:632
 #: controllers/admin/admin-ctrl.js:639
 msgid "Drop canceled, can't be dropped on child team"
-msgstr ""
+msgstr "降落取消，无法降落到子团队"
 
 #: controllers/admin/admin-ctrl.js:625
 msgid "Drop canceled, can't be dropped on parent team"
-msgstr ""
+msgstr "降落取消，无法降落到母团队"
 
 #: controllers/admin/admin-ctrl.js:652
 msgid "Drop canceled, can't be dropped on selected team"
-msgstr ""
+msgstr "降落取消，无法降落到选定团队"
 
 #: stories/stories.html:35
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 #: controllers/admin/admin-ctrl.js:95
 msgid "Edit Ministry"
-msgstr ""
+msgstr "编辑教会"
 
 #: map/edit-target-city.html:4
 msgid "Edit Target City"
-msgstr ""
+msgstr "编辑目标城市"
 
 #: admin/_edit-ministry.html:4
 msgid "Edit current ministry"
-msgstr ""
+msgstr "编辑当前神职"
 
 #: stories/edit-story-dialog.html:4
 msgid "Edit story"
-msgstr ""
+msgstr "编辑故事"
 
 #: admin/_team-members.html:62
 msgid "Email"
-msgstr ""
+msgstr "电子邮箱"
 
 #: admin/edit-measurement-type.html:22
 msgid "English description"
-msgstr ""
+msgstr "英文说明"
 
 #: admin/edit-measurement-type.html:16
 msgid "English name"
-msgstr ""
+msgstr "英文名称"
 
 #: controllers/stories/stories-ctrl.js:63
 msgid "Error loading news feeds"
-msgstr ""
+msgstr "载入新闻推送错误"
 
 #: controllers/map/map-ctrl.js:482
 msgid "Error: Unable to create target city"
-msgstr ""
+msgstr "错误：无法创建目标城市"
 
 #: map/map.html:109
 msgid "Everything"
-msgstr ""
+msgstr "一切"
 
 #: map/map.html:103
 msgid "FILTERS"
-msgstr ""
+msgstr "过滤"
 
 #: controllers/map/map-ctrl.js:1416
 msgid "Failed to get your current location"
-msgstr ""
+msgstr "获取当前位置失败"
 
 #: controllers/map/map-ctrl.js:1548
 #: controllers/stories/stories-ctrl.js:160
 msgid "Failed to save story"
-msgstr ""
+msgstr "保存故事失败"
 
 #: controllers/admin/admin-ctrl.js:376
 msgid "Failed, User not found"
-msgstr ""
+msgstr "失败，用户不存在"
 
 #: admin/add-measurement-type.html:47
 msgid "Faith"
-msgstr ""
+msgstr "信仰"
 
 #: measurements/measurements.html:35
 msgid "Faith Actions"
-msgstr ""
+msgstr "信仰行动"
 
 #: admin/_team-members.html:62
 msgid "First Name"
-msgstr ""
+msgstr "名字"
 
 #: controllers/admin/admin-ctrl.js:281
 msgid "Former Member"
-msgstr ""
+msgstr "前成员"
 
 #: admin/_team-members.html:9
 msgid "Former members"
-msgstr ""
+msgstr "前成员"
 
 #: admin/add-measurement-type.html:48
 #: measurements/measurements.html:41
 msgid "Fruit"
-msgstr ""
+msgstr "成果"
 
 #. MCC - Global Church Movements
 #: controllers/gma-ctrl.js:185
 msgid "Global Church Movements"
-msgstr ""
+msgstr "全球教会运动"
 
 #: map/edit-church.html:56
 #: map/map.html:42
 #: map/new-church.html:56
 msgid "Group"
-msgstr ""
+msgstr "小组"
 
 #: admin/_edit-ministry.html:58
 #: admin/_measurement.html:25
 msgid "Hide"
-msgstr ""
+msgstr "隐藏"
 
 #: admin/_edit-ministry.html:55
 msgid "Hide reports tab by default"
-msgstr ""
+msgstr "默认隐藏报告标签"
 
 #. Main Navigation Tabs - Home (News/Stories)
 #: services/settings/settings-service.js:93
 msgid "Home"
-msgstr ""
+msgstr "主页"
 
 #: controllers/map/map-ctrl.js:1536
 #: controllers/stories/stories-ctrl.js:138
 #: controllers/stories/stories-ctrl.js:242
 msgid "Image file was uploaded"
-msgstr ""
+msgstr "图片文件已上传"
 
 #: stories/edit-story-dialog.html:48
 #: stories/new-story-dialog.html:51
 msgid "Image will be resized to"
-msgstr ""
+msgstr "调整图片大小"
 
 #: admin/_team-members.html:13
 msgid "Inherited admins"
-msgstr ""
+msgstr "继承管理员"
 
 #: admin/_team-members.html:11
 msgid "Inherited leaders"
-msgstr ""
+msgstr "继承领导人"
 
 #: error/error.html:2
 msgid "Invalid Session"
-msgstr ""
+msgstr "会话无效"
 
 #: admin/add-team-member.html:15
 #: map/edit-church.html:22
 #: map/new-church.html:28
 msgid "Invalid email format"
-msgstr ""
+msgstr "电子邮箱格式无效"
 
 #: stories/edit-story-dialog.html:49
 #: stories/new-story-dialog.html:52
 msgid "Invalid image file input."
-msgstr ""
+msgstr "图片文件输入无效"
 
 #: map/edit-church.html:38
 #: map/new-church.html:44
 msgid "Jesus film activity"
-msgstr ""
+msgstr "耶稣团队活动"
 
 #: map/map.html:87
 msgid "Jesus film contribution"
-msgstr ""
+msgstr "耶稣团队贡献"
 
 #. Modal Title
 #. Verb - Button
 #: join-ministry.html:28
 #: join-ministry.html:3
 msgid "Join Ministry/Team"
-msgstr ""
+msgstr "加入神职/团队"
 
 #: application.html:21
 msgid "Join another location / ministry"
-msgstr ""
+msgstr "加入另一职位/神职"
 
 #: map/map.html:22
 msgid "LEGEND"
-msgstr ""
+msgstr "图例"
 
 #: admin/edit-measurement-type.html:9
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 #: admin/_team-members.html:62
 msgid "Last Name"
-msgstr ""
+msgstr "姓"
 
 #: controllers/admin/admin-ctrl.js:277
 #: measurements/details.html:132
 msgid "Leader"
-msgstr ""
+msgstr "领导人"
 
 #: controllers/admin/admin-ctrl.js:278
 msgid "Leader (inherited)"
-msgstr ""
+msgstr "领导人（继承）"
 
 #. MCC - Leader Led
 #: controllers/gma-ctrl.js:188
 msgid "Leader Led"
-msgstr ""
+msgstr "领导人领导"
 
 #: measurements/details.html:33
 msgid "Local"
-msgstr ""
+msgstr "当地"
 
 #: measurements/measurements.html:7
 msgid "Local Movement Indicators"
-msgstr ""
+msgstr "当地调派标志"
 
 #: measurements/details.html:26
 msgid "Local Team"
-msgstr ""
+msgstr "当地团队"
 
 #: admin/_measurement.html:27
 #: admin/edit-measurement-type.html:4
 msgid "Localize"
-msgstr ""
+msgstr "地方化"
 
 #: admin/edit-measurement-type.html:40
 msgid "Localized description"
-msgstr ""
+msgstr "地方化说明"
 
 #: admin/edit-measurement-type.html:29
 msgid "Localized name"
-msgstr ""
+msgstr "地方化名称"
 
 #: error/error.html:5
 msgid "Log In"
-msgstr ""
+msgstr "登录"
 
 #: application.html:70
 msgid "Logout"
-msgstr ""
+msgstr "退出"
 
 #: map/edit-training.html:37
 #: map/new-training.html:38
 msgid "MCC"
-msgstr ""
+msgstr "MCC"
 
 #: admin/_edit-ministry.html:34
 msgid "MCCs"
-msgstr ""
+msgstr "MCC"
 
 #: controllers/admin/admin-ctrl.js:101
 msgid "Manage Measurements"
-msgstr ""
+msgstr "管理指标"
 
 #. Main Navigation Tabs - Map
 #: services/settings/settings-service.js:49
 msgid "Map"
-msgstr ""
+msgstr "地图"
 
 #: controllers/admin/admin-ctrl.js:191
 msgid "Measurement was created successfully"
-msgstr ""
+msgstr "指标创建成功"
 
 #: controllers/admin/admin-ctrl.js:262
 msgid "Measurement was updated"
-msgstr ""
+msgstr "指标已更新"
 
 #. Main Navigation Tabs - Measurements
 #: admin/_measurement.html:4
 #: services/settings/settings-service.js:60
 msgid "Measurements"
-msgstr ""
+msgstr "指标"
 
 #: controllers/measurements/measurements-ctrl.js:135
 msgid "Measurements saved successfully"
-msgstr ""
+msgstr "指标保存成功"
 
 #: controllers/measurements/measurements-ctrl.js:175
 msgid "Measurements updated successfully"
-msgstr ""
+msgstr "指标更新成功"
 
 #: admin/confirm-update-role.html:8
 #: controllers/admin/admin-ctrl.js:279
 #: measurements/details.html:131
 msgid "Member"
-msgstr ""
+msgstr "成员"
 
 #: controllers/admin/admin-ctrl.js:595
 msgid "Member was moved to ministry successfully"
-msgstr ""
+msgstr "成员调至神职成功"
 
 #: map/edit-church.html:82
 msgid "Ministry"
-msgstr ""
+msgstr "教会"
 
 #: admin/_edit-ministry.html:10
 #: admin/add-sub-ministry.html:9
 msgid "Ministry name"
-msgstr ""
+msgstr "神职名称"
 
 #: admin/_edit-ministry.html:15
 #: admin/add-sub-ministry.html:14
 msgid "Ministry name is required."
-msgstr ""
+msgstr "需要填写神职名称"
 
 #: controllers/admin/admin-ctrl.js:567
 msgid "Ministry was moved successfully"
-msgstr ""
+msgstr "神职调动成功"
 
 #: join-ministry.html:9
 msgid "Ministry/Team:"
-msgstr ""
+msgstr "神职/团队："
 
 #: application.html:98
 msgid "Mobile Apps"
-msgstr ""
+msgstr "移动应用"
 
 #: map/edit-church.html:32
 #: map/new-church.html:38
 msgid "Mobile number is invalid."
-msgstr ""
+msgstr "移动号码无效"
 
 #: map/edit-church.html:121
 msgid "Move Church"
-msgstr ""
+msgstr "调动教会"
 
 #: map/edit-target-city.html:64
 msgid "Move Target city"
-msgstr ""
+msgstr "调动目标城市"
 
 #: map/edit-training.html:106
 msgid "Move Training"
-msgstr ""
+msgstr "调动训练"
 
 #: admin/confirm-member-drop.html:4
 msgid "Move member to this team ?"
-msgstr ""
+msgstr "成员调至该团队？"
 
 #: admin/confirm-team-drop.html:4
 msgid "Move sub-team to this team ?"
-msgstr ""
+msgstr "小分队调至该团队？"
 
 #: map/edit-church.html:58
 #: map/new-church.html:58
 msgid "Multiplying Church"
-msgstr ""
+msgstr "教会增长"
 
 #: map/map.html:61
 msgid "Multiplying church or community of disciples"
-msgstr ""
+msgstr "信徒教会或社区增长"
 
 #: application.html:68
 msgid "My Preferences"
-msgstr ""
+msgstr "我的参数设置"
 
 #: map/map.html:17
 msgid "My location on map"
-msgstr ""
+msgstr "我在地图上的位置"
 
 #: preference/user-preference-modal.html:4
 msgid "My preferences"
-msgstr ""
+msgstr "我的参数设置"
 
 #: admin/_measurement.html:12
 #: admin/add-measurement-type.html:9
@@ -693,12 +700,12 @@ msgstr ""
 #: map/new-target-city.html:8
 #: map/new-training.html:8
 msgid "Name"
-msgstr ""
+msgstr "名字"
 
 #: admin/add-measurement-type.html:14
 #: admin/edit-measurement-type.html:34
 msgid "Name is required"
-msgstr ""
+msgstr "需要填写名字"
 
 #: map/edit-target-city.html:12
 #: map/edit-training.html:15
@@ -706,33 +713,33 @@ msgstr ""
 #: map/new-target-city.html:12
 #: map/new-training.html:12
 msgid "Name is required."
-msgstr ""
+msgstr "需要填写名字"
 
 #: admin/add-measurement-type.html:15
 #: admin/edit-measurement-type.html:35
 msgid "Name should not exceed 200 characters"
-msgstr ""
+msgstr "名字不超过 200 字符"
 
 #: map/new-training.html:4
 msgid "New Church Training Activity"
-msgstr ""
+msgstr "新教会训练活动"
 
 #: admin/confirm-update-role.html:10
 msgid "New Role"
-msgstr ""
+msgstr "新角色"
 
 #: map/new-target-city.html:4
 msgid "New Target city"
-msgstr ""
+msgstr "新目标城市"
 
 #: controllers/admin/admin-ctrl.js:369
 msgid "New member was added successfully"
-msgstr ""
+msgstr "新成员添加成功"
 
 #: stories/stories.html:45
 #: stories/stories.html:61
 msgid "Newer"
-msgstr ""
+msgstr "更新"
 
 #: admin/confirm-member-drop.html:15
 #: admin/confirm-team-drop.html:13
@@ -742,173 +749,173 @@ msgstr ""
 #: map/new-church.html:47
 #: preference/user-preference-modal.html:37
 msgid "No"
-msgstr ""
+msgstr "无"
 
 #: admin/_edit-ministry.html:29
 msgid "No parent ministry"
-msgstr ""
+msgstr "无母神职"
 
 #: stories/stories.html:40
 msgid "No story found"
-msgstr ""
+msgstr "故事不存在"
 
 #: map/edit-target-city.html:47
 #: map/new-target-city.html:47
 msgid "None"
-msgstr ""
+msgstr "无"
 
 #: admin/confirm-update-role.html:9
 msgid "Old Role"
-msgstr ""
+msgstr "旧角色"
 
 #: stories/stories.html:45
 #: stories/stories.html:61
 msgid "Older"
-msgstr ""
+msgstr "更旧"
 
 #: map/edit-church.html:111
 #: map/edit-target-city.html:58
 #: map/edit-training.html:96
 msgid "Options"
-msgstr ""
+msgstr "选项"
 
 #: admin/add-measurement-type.html:50
 #: admin/add-measurement-type.html:62
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 #: measurements/measurements.html:115
 msgid "Other Measurements"
-msgstr ""
+msgstr "其他指标"
 
 #: admin/add-measurement-type.html:49
 #: measurements/measurements.html:47
 msgid "Outcome"
-msgstr ""
+msgstr "成果"
 
 #: map/map.html:95
 msgid "Parent lines"
-msgstr ""
+msgstr "母线"
 
 #: admin/_edit-ministry.html:21
 msgid "Parent ministry"
-msgstr ""
+msgstr "母神职"
 
 #: map/edit-training.html:47
 #: map/new-training.html:31
 msgid "Participants"
-msgstr ""
+msgstr "参与者"
 
 #: admin/add-measurement-type.html:31
 msgid "Permalink"
-msgstr ""
+msgstr "永久链接"
 
 #: admin/add-measurement-type.html:37
 msgid "Permalink is invalid. Please match with required format"
-msgstr ""
+msgstr "永久链接无效。请匹配所需的格式"
 
 #: admin/add-measurement-type.html:36
 msgid "Permalink is required"
-msgstr ""
+msgstr "需要永久链接"
 
 #: admin/add-measurement-type.html:38
 msgid "Permalink should not exceed 100 characters"
-msgstr ""
+msgstr "永久链接不超过 100 字符"
 
 #: join-ministry.html:5
 msgid "Please identify a ministry team that you work most closely with and request to join that team."
-msgstr ""
+msgstr "请找出您合作最密切的神职团队，并申请加入该团队。"
 
 #: map/edit-church.html:43
 #: map/new-church.html:48
 msgid "Please make a choice"
-msgstr ""
+msgstr "请选择"
 
 #: preference/user-preference-modal.html:17
 msgid "Preferred MCC"
-msgstr ""
+msgstr "首选 MCC"
 
 #: preference/user-preference-modal.html:45
 msgid "Preferred content language for"
-msgstr ""
+msgstr "首选内容语言"
 
 #: preference/user-preference-modal.html:8
 msgid "Preferred ministry"
-msgstr ""
+msgstr "首选神职"
 
 #: stories/edit-story-dialog.html:58
 #: stories/new-story-dialog.html:62
 msgid "Privacy"
-msgstr ""
+msgstr "隐私"
 
 #: map/edit-church.html:72
 #: map/new-church.html:73
 msgid "Private"
-msgstr ""
+msgstr "私密"
 
 #: map/edit-church.html:74
 #: map/new-church.html:75
 msgid "Public"
-msgstr ""
+msgstr "公共"
 
 #: stories/edit-story-dialog.html:67
 #: stories/new-story-dialog.html:71
 msgid "Publish status"
-msgstr ""
+msgstr "公布状态"
 
 #: stories/edit-story-dialog.html:70
 #: stories/new-story-dialog.html:74
 msgid "Published"
-msgstr ""
+msgstr "已公布"
 
 #: stories/stories.html:52
 msgid "Refresh Feeds"
-msgstr ""
+msgstr "刷新提要"
 
 #: stories/stories.html:11
 msgid "Refresh List"
-msgstr ""
+msgstr "刷新列表"
 
 #: admin/_team-members.html:17
 msgid "Refresh members list"
-msgstr ""
+msgstr "刷新成员列表"
 
 #: map/edit-church.html:73
 #: map/new-church.html:74
 msgid "Registered Users"
-msgstr ""
+msgstr "注册用户"
 
 #: stories/new-story-dialog.html:66
 msgid "Registered users"
-msgstr ""
+msgstr "注册用户"
 
 #: map/edit-church.html:129
 msgid "Remove Parent Church"
-msgstr ""
+msgstr "删除母教会"
 
 #: stories/new-story-dialog.html:57
 msgid "Remove image"
-msgstr ""
+msgstr "删除图片"
 
 #: stories/edit-story-dialog.html:72
 msgid "Removed"
-msgstr ""
+msgstr "已删除"
 
 #. Main Navigation Tabs - Reports
 #: services/settings/settings-service.js:71
 msgid "Reports"
-msgstr ""
+msgstr "报告"
 
 #: admin/add-team-member.html:21
 msgid "Role"
-msgstr ""
+msgstr "角色"
 
 #: admin/add-team-member.html:31
 #: admin/edit-measurement-type.html:56
 #: preference/user-preference-modal.html:58
 #: stories/new-story-dialog.html:103
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: map/edit-church.html:140
 #: map/edit-target-city.html:74
@@ -916,430 +923,430 @@ msgstr ""
 #: measurements/measurements.html:122
 #: measurements/measurements.html:21
 msgid "Save Changes"
-msgstr ""
+msgstr "保存修改"
 
 #: measurements/details.html:146
 msgid "Save Measurements"
-msgstr ""
+msgstr "保存指标"
 
 #: admin/_measurement.html:33
 msgid "Save changes"
-msgstr ""
+msgstr "保存修改"
 
 #: map/map.html:136
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: admin/_team-members.html:6
 msgid "Search Members"
-msgstr ""
+msgstr "搜索成员"
 
 #: admin/_measurement.html:14
 #: admin/add-measurement-type.html:55
 msgid "Section"
-msgstr ""
+msgstr "分区"
 
 #: map/edit-church.html:69
 #: map/new-church.html:70
 msgid "Security"
-msgstr ""
+msgstr "验证码"
 
 #: map/edit-church.html:77
 #: map/new-church.html:78
 msgid "Security is a required field"
-msgstr ""
+msgstr "认证码为必填字段"
 
 #: controllers/admin/admin-ctrl.js:282
 msgid "Self Assigned"
-msgstr ""
+msgstr "自我分派"
 
 #: measurements/details.html:104
 msgid "Self Assigned Members (not yet approved)"
-msgstr ""
+msgstr "自我指派成员（尚未批准）"
 
 #: admin/add-measurement-type.html:61
 #: measurements/measurements.html:98
 msgid "Send"
-msgstr ""
+msgstr "发送"
 
 #: map/map.html:129
 msgid "Set Ministry Default View for others"
-msgstr ""
+msgstr "设置他人默认神职视图"
 
 #: map/edit-church.html:126
 msgid "Set Parent Church"
-msgstr ""
+msgstr "设置母教会"
 
 #: map/map.html:128
 msgid "Set as my Ministry Default View"
-msgstr ""
+msgstr "设置我的默认神职视图"
 
 #: admin/_edit-ministry.html:59
 #: admin/_measurement.html:24
 msgid "Show"
-msgstr ""
+msgstr "展示"
 
 #: map/edit-church.html:63
 #: map/new-church.html:64
 msgid "Size"
-msgstr ""
+msgstr "尺寸"
 
 #: admin/confirm-team-drop.html:8
 msgid "Source Name"
-msgstr ""
+msgstr "源名称"
 
 #: map/edit-target-city.html:33
 #: map/edit-training.html:45
 #: map/new-target-city.html:33
 msgid "Stage"
-msgstr ""
+msgstr "阶段"
 
 #: join-ministry.html:16
 msgid "Start typing to search for ministry"
-msgstr ""
+msgstr "开始键入搜索神职"
 
 #: stories/edit-story-dialog.html:26
 #: stories/new-story-dialog.html:28
 msgid "Story content field is required"
-msgstr ""
+msgstr "需要填写故事内容"
 
 #: stories/edit-story-dialog.html:26
 msgid "Story content should not exceed"
-msgstr ""
+msgstr "故事内容不超过"
 
 #: stories/new-story-dialog.html:29
 msgid "Story content should not exceed {{storiesConfig.content_length}} characters"
-msgstr ""
+msgstr "故事内容不超过{{storiesConfig.content_length}}字符"
 
 #: controllers/stories/stories-ctrl.js:133
 msgid "Story saved successfully"
-msgstr ""
+msgstr "故事保存成功"
 
 #: stories/edit-story-dialog.html:13
 #: stories/new-story-dialog.html:15
 msgid "Story title field is required"
-msgstr ""
+msgstr "需要填写故事名称"
 
 #: stories/edit-story-dialog.html:14
 #: stories/new-story-dialog.html:16
 msgid "Story title should not exceed 120 characters"
-msgstr ""
+msgstr "故事名称不超过 120 字符"
 
 #: controllers/stories/stories-ctrl.js:234
 msgid "Story was updated"
-msgstr ""
+msgstr "故事已更新"
 
 #. MCC - Student Led
 #: controllers/gma-ctrl.js:191
 msgid "Student Led"
-msgstr ""
+msgstr "学生领导"
 
 #: map/edit-target-city.html:44
 #: map/new-target-city.html:44
 msgid "Sub Stage"
-msgstr ""
+msgstr "次阶段"
 
 #: controllers/admin/admin-ctrl.js:487
 msgid "Sub ministry was created successfully"
-msgstr ""
+msgstr "下属神职创建成功"
 
 #: measurements/details.html:86
 msgid "Sub-Ministries / Teams"
-msgstr ""
+msgstr "下属神职/团队"
 
 #: admin/_edit-ministry.html:63
 msgid "Supported languages"
-msgstr ""
+msgstr "支持语言"
 
 #: join-ministry.html:20
 #: preference/user-preference-modal.html:34
 msgid "Supported staff"
-msgstr ""
+msgstr "支持人员"
 
 #: stories/new-story-dialog.html:90
 msgid "Tagged MCC"
-msgstr ""
+msgstr "标记 MCC"
 
 #: stories/edit-story-dialog.html:87
 msgid "Tagged MCC :"
-msgstr ""
+msgstr "标记 MCC："
 
 #: stories/edit-story-dialog.html:79
 #: stories/new-story-dialog.html:82
 msgid "Tagged ministry"
-msgstr ""
+msgstr "标记神职"
 
 #: map/edit-church.html:55
 #: map/map.html:33
 #: map/new-church.html:55
 msgid "Target"
-msgstr ""
+msgstr "目标"
 
 #: admin/confirm-team-drop.html:9
 msgid "Target Team"
-msgstr ""
+msgstr "目标团队"
 
 #: map/map.html:70
 msgid "Target city"
-msgstr ""
+msgstr "目标城市"
 
 #: controllers/map/map-ctrl.js:964
 msgid "Target city position was updated"
-msgstr ""
+msgstr "目标城市位置已更新"
 
 #: controllers/map/map-ctrl.js:474
 msgid "Target city was created successfully"
-msgstr ""
+msgstr "目标城市创建成功"
 
 #: controllers/map/map-ctrl.js:1332
 msgid "Target city was deleted successfully"
-msgstr ""
+msgstr "目标城市删除成功"
 
 #: controllers/map/map-ctrl.js:779
 msgid "Target city was updated"
-msgstr ""
+msgstr "目标城市已更新"
 
 #: admin/confirm-member-drop.html:10
 msgid "Target team"
-msgstr ""
+msgstr "目标团队"
 
 #: measurements/lmi.html:100
 #: measurements/lmi.html:124
 #: measurements/lmi.html:148
 #: measurements/lmi.html:64
 msgid "Team"
-msgstr ""
+msgstr "团队"
 
 #: controllers/admin/admin-ctrl.js:89
 msgid "Team & Members"
-msgstr ""
+msgstr "团队与成员"
 
 #: measurements/details.html:60
 msgid "Team Members"
-msgstr ""
+msgstr "团队成员"
 
 #: stories/edit-story-dialog.html:63
 #: stories/new-story-dialog.html:67
 msgid "Team only"
-msgstr ""
+msgstr "仅团队"
 
 #: admin/add-team-member.html:9
 msgid "TheKey username"
-msgstr ""
+msgstr "关键用户名"
 
 #: stories/edit-story-dialog.html:9
 #: stories/new-story-dialog.html:11
 #: stories/new-story-dialog.html:13
 msgid "Title"
-msgstr ""
+msgstr "名称"
 
 #: measurements/details.html:17
 #: measurements/details.html:49
 msgid "Total"
-msgstr ""
+msgstr "合计"
 
 #: map/edit-training.html:21
 #: map/new-training.html:17
 msgid "Training Type"
-msgstr ""
+msgstr "训练类型"
 
 #: map/map.html:79
 msgid "Training activity"
-msgstr ""
+msgstr "训练活动"
 
 #: controllers/map/map-ctrl.js:1356
 msgid "Training stage was deleted successfully"
-msgstr ""
+msgstr "训练阶段删除成功"
 
 #: controllers/map/map-ctrl.js:447
 msgid "Training was created"
-msgstr ""
+msgstr "训练已创建"
 
 #: controllers/map/map-ctrl.js:1311
 msgid "Training was deleted successfully"
-msgstr ""
+msgstr "训练删除成功"
 
 #: controllers/map/map-ctrl.js:1290
 msgid "Training was saved successfully"
-msgstr ""
+msgstr "训练保存成功"
 
 #: controllers/map/map-ctrl.js:757
 #: controllers/map/map-ctrl.js:768
 msgid "Training was updated"
-msgstr ""
+msgstr "训练已更新"
 
 #: map/edit-church.html:52
 #: map/new-church.html:52
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #: controllers/admin/admin-ctrl.js:378
 msgid "Unable to add new member"
-msgstr ""
+msgstr "无法添加新成员"
 
 #: controllers/admin/admin-ctrl.js:503
 msgid "Unable to add sub ministry"
-msgstr ""
+msgstr "无法添加下属神职"
 
 #: controllers/map/map-ctrl.js:426
 msgid "Unable to create church"
-msgstr ""
+msgstr "无法创建教会"
 
 #: controllers/admin/admin-ctrl.js:199
 msgid "Unable to create measurement"
-msgstr ""
+msgstr "无法创建指标"
 
 #: controllers/map/map-ctrl.js:748
 msgid "Unable to delete church"
-msgstr ""
+msgstr "无法删除教会"
 
 #: controllers/map/map-ctrl.js:1337
 msgid "Unable to delete target city"
-msgstr ""
+msgstr "无法删除目标城市"
 
 #: controllers/map/map-ctrl.js:1315
 msgid "Unable to delete training"
-msgstr ""
+msgstr "无法删除训练"
 
 #: controllers/admin/admin-ctrl.js:241
 msgid "Unable to get measurement"
-msgstr ""
+msgstr "无法获得指标"
 
 #: controllers/gma-ctrl.js:293
 msgid "Unable to join to requested ministry"
-msgstr ""
+msgstr "无法加入申请教会"
 
 #: controllers/map/map-ctrl.js:587
 msgid "Unable to load countries list"
-msgstr ""
+msgstr "无法加载国家列表"
 
 #: controllers/gma-ctrl.js:450
 msgid "Unable to load languages"
-msgstr ""
+msgstr "无法加载语言"
 
 #: controllers/measurements/measurements-ctrl.js:85
 msgid "Unable to load measurements"
-msgstr ""
+msgstr "无法加载指标"
 
 #: controllers/reports/reports-ctrl.js:69
 msgid "Unable to load measurements for reporting"
-msgstr ""
+msgstr "无法加载报告指标"
 
 #: controllers/stories/stories-ctrl.js:92
 msgid "Unable to load stories"
-msgstr ""
+msgstr "无法加载故事"
 
 #: controllers/map/map-ctrl.js:316
 msgid "Unable to load target cities"
-msgstr ""
+msgstr "无法加载目标城市"
 
 #: controllers/admin/admin-ctrl.js:316
 msgid "Unable to load team members"
-msgstr ""
+msgstr "针法加载团队成员"
 
 #: controllers/map/map-ctrl.js:335
 msgid "Unable to load trainings"
-msgstr ""
+msgstr "无法加载训练"
 
 #: controllers/admin/admin-ctrl.js:604
 msgid "Unable to move member"
-msgstr ""
+msgstr "无法调派成员"
 
 #: controllers/admin/admin-ctrl.js:580
 msgid "Unable to move ministry"
-msgstr ""
+msgstr "无法调派教会"
 
 #: controllers/admin/admin-ctrl.js:172
 msgid "Unable to save changes"
-msgstr ""
+msgstr "无法保存修改"
 
 #: controllers/map/map-ctrl.js:1385
 #: controllers/map/map-ctrl.js:1405
 msgid "Unable to save default map view"
-msgstr ""
+msgstr "无法保存默认地图视图"
 
 #: controllers/measurements/measurements-ctrl.js:139
 msgid "Unable to save measurements"
-msgstr ""
+msgstr "无法保存指标"
 
 #: controllers/preference/user-preference-ctrl.js:48
 msgid "Unable to save preferences"
-msgstr ""
+msgstr "无法保存选项"
 
 #: controllers/map/map-ctrl.js:729
 msgid "Unable to update church"
-msgstr ""
+msgstr "无法更新教会"
 
 #: controllers/admin/admin-ctrl.js:264
 msgid "Unable to update measurement"
-msgstr ""
+msgstr "无法更新指标"
 
 #: controllers/stories/stories-ctrl.js:251
 msgid "Unable to update story"
-msgstr ""
+msgstr "无法更新故事"
 
 #: controllers/map/map-ctrl.js:781
 #: controllers/map/map-ctrl.js:966
 msgid "Unable to update target city"
-msgstr ""
+msgstr "无法更新目标城市"
 
 #: controllers/map/map-ctrl.js:760
 msgid "Unable to update training"
-msgstr ""
+msgstr "无法更新训练"
 
 #: controllers/admin/admin-ctrl.js:425
 #: controllers/admin/admin-ctrl.js:444
 msgid "Unable to update user role"
-msgstr ""
+msgstr "无法更新用户角色"
 
 #: controllers/map/map-ctrl.js:1542
 #: controllers/stories/stories-ctrl.js:269
 msgid "Unable to upload image file"
-msgstr ""
+msgstr "无法上传图片文件"
 
 #: stories/edit-story-dialog.html:101
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 #: admin/_edit-ministry.html:89
 msgid "Update Ministry"
-msgstr ""
+msgstr "更新教会"
 
 #: admin/confirm-update-role.html:4
 msgid "Update Team Member Role ?"
-msgstr ""
+msgstr "更新团队成员角色？"
 
 #: stories/edit-story-dialog.html:31
 #: stories/new-story-dialog.html:34
 msgid "Upload an image"
-msgstr ""
+msgstr "上传图片"
 
 #: controllers/map/map-ctrl.js:1540
 #: controllers/stories/stories-ctrl.js:267
 msgid "Upload failed, Invalid file input"
-msgstr ""
+msgstr "上传失败，文件输入无效"
 
 #: error/error.html:4
 msgid "Use the button below to log back in."
-msgstr ""
+msgstr "使用下面的按钮重新登录。"
 
 #: controllers/admin/admin-ctrl.js:420
 #: controllers/admin/admin-ctrl.js:438
 msgid "User role was updated"
-msgstr ""
+msgstr "用户角色已更新"
 
 #: admin/add-team-member.html:14
 msgid "Username is required."
-msgstr ""
+msgstr "需要填写用户名"
 
 #: stories/view-story-dialog.html:4
 msgid "View story"
-msgstr ""
+msgstr "查看故事"
 
 #: admin/add-measurement-type.html:59
 #: measurements/measurements.html:57
 msgid "Win"
-msgstr ""
+msgstr "获胜"
 
 #: admin/confirm-member-drop.html:16
 #: admin/confirm-team-drop.html:14
@@ -1349,58 +1356,58 @@ msgstr ""
 #: map/new-church.html:46
 #: preference/user-preference-modal.html:36
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: controllers/gma-ctrl.js:291
 msgid "You are already assigned to requested ministry"
-msgstr ""
+msgstr "您已被分派到申请教会"
 
 #: controllers/gma-ctrl.js:413
 msgid "You are not authorised for this"
-msgstr ""
+msgstr "您没有权限"
 
 #: error/error.html:3
 msgid "You have been logged out or your session has expired due to inactivity."
-msgstr ""
+msgstr "您已退出或您的会话因不活动而过期。"
 
 #: stories/new-story-dialog.html:25
 msgid "You have {{storiesConfig.content_length - story.content.length}} of {{storiesConfig.content_length}} characters remaining"
-msgstr ""
+msgstr "您有{{storiesConfig.content_length}}{{storiesConfig.content_length - story.content.length}}人物保留"
 
 #: controllers/map/map-ctrl.js:1420
 msgid "Your browser does not support GeoLocation"
-msgstr ""
+msgstr "您的浏览器不支持地理定位"
 
 #: controllers/map/map-ctrl.js:1382
 msgid "Your default map view has been set"
-msgstr ""
+msgstr "您的默认地图视图已设置"
 
 #: controllers/preference/user-preference-ctrl.js:39
 msgid "Your preferences were saved"
-msgstr ""
+msgstr "您的选项已保存"
 
 #: stories/edit-story-dialog.html:26
 msgid "characters"
-msgstr ""
+msgstr "人物"
 
 #: stories/edit-story-dialog.html:48
 msgid "existing image will be replaced"
-msgstr ""
+msgstr "现有图片将被更换"
 
 #: map/edit-church.html:5
 msgid "members"
-msgstr ""
+msgstr "成员"
 
 #: map/new-church.html:26
 msgid "name@email.com"
-msgstr ""
+msgstr "姓名@email.com"
 
 #: measurements/lmi.html:12
 #: measurements/lmi.html:28
 #: measurements/lmi.html:53
 #: measurements/lmi.html:89
 msgid "personal"
-msgstr ""
+msgstr "个人"
 
 #: measurements/lmi.html:106
 #: measurements/lmi.html:130
@@ -1408,12 +1415,13 @@ msgstr ""
 #: measurements/lmi.html:34
 #: measurements/lmi.html:70
 msgid "total"
-msgstr ""
+msgstr "合计"
 
 #: map/map.html:121
 msgid "{{current.assignment.name}} + tree"
-msgstr ""
+msgstr "{{current.assignment.name}} + 树"
 
 #: map/map.html:115
 msgid "{{current.assignment.name}} only"
-msgstr ""
+msgstr "仅{{current.assignment.name}}"
+

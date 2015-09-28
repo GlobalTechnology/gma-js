@@ -1,122 +1,129 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2015-09-28 17:37+0000\n"
+"PO-Revision-Date: 2015-09-28 17:37+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: map/edit-church.html:30
 #: map/new-church.html:36
 msgid "+99 99999999"
-msgstr ""
+msgstr "+99 99999999"
 
 #: admin/_measurement.html:15
 #: admin/_team-members.html:62
 msgid "Actions"
-msgstr ""
+msgstr "Hành động"
 
 #: map/new-church.html:89
 msgid "Add Church"
-msgstr ""
+msgstr "Thêm Nhà thờ"
 
 #: admin/_measurement.html:5
 msgid "Add Measurement"
-msgstr ""
+msgstr "Thêm Phép đo"
 
 #: map/edit-training.html:86
 msgid "Add Stage"
-msgstr ""
+msgstr "Thêm Giai đoạn"
 
 #: map/edit-church.html:116
 #: map/edit-church.html:145
 #: map/edit-training.html:101
 #: map/edit-training.html:122
 msgid "Add Story"
-msgstr ""
+msgstr "Thêm Câu chuyện"
 
 #: map/new-target-city.html:56
 msgid "Add Target city"
-msgstr ""
+msgstr "Thêm thành phố Đích"
 
 #: map/new-training.html:46
 msgid "Add Training"
-msgstr ""
+msgstr "Thêm Đào tạo"
 
 #: admin/add-sub-ministry.html:4
 msgid "Add a new sub ministry to"
-msgstr ""
+msgstr "Thêm một tiểu đoàn mục sư"
 
 #: admin/_team-members.html:18
 msgid "Add member"
-msgstr ""
+msgstr "Thêm thành viên"
 
 #: admin/add-measurement-type.html:4
 msgid "Add new measurement"
-msgstr ""
+msgstr "Thêm phép đo mới"
 
 #: admin/add-team-member.html:4
 msgid "Add new member to"
-msgstr ""
+msgstr "Thêm thành viên mới vào"
 
 #: stories/new-story-dialog.html:4
 msgid "Add new story"
-msgstr ""
+msgstr "Thêm câu chuyện mới"
 
 #: stories/new-story-dialog.html:5
 msgid "Add new story to - {{iconName}}"
-msgstr ""
+msgstr "Thêm câu chuyện mới vào - {{iconName}}"
 
 #: stories/stories.html:12
 msgid "Add story"
-msgstr ""
+msgstr "Thêm câu chuyện"
 
 #: admin/_team-members.html:19
 msgid "Add sub ministry"
-msgstr ""
+msgstr "Thêm tiểu đoàn mục sư"
 
 #. Main Navigation Tabs - Administrate
 #: controllers/admin/admin-ctrl.js:275
 #: measurements/details.html:130
 #: services/settings/settings-service.js:82
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: controllers/admin/admin-ctrl.js:276
 msgid "Admin (inherited)"
-msgstr ""
+msgstr "Admin (được thừa kế)"
 
 #: preference/user-preference-modal.html:49
 msgid "Application language"
-msgstr ""
+msgstr "Ngôn ngữ ứng dụng"
 
 #: measurements/details.html:125
 msgid "Approve"
-msgstr ""
+msgstr "Chấp thuận"
 
 #: measurements/details.html:124
 msgid "Approved"
-msgstr ""
+msgstr "Được chấp thuận"
 
 #: map/_confirmation-dialog.html:7
 msgid "Are you sure you want to delete ?"
-msgstr ""
+msgstr "Bạn có chắc là mình muốn xóa không?"
 
 #: map/edit-target-city.html:17
 #: map/new-target-city.html:17
 msgid "Area"
-msgstr ""
+msgstr "Khu vực"
 
 #: controllers/map/map-ctrl.js:480
 msgid "Bad Request: Unable to create target city"
-msgstr ""
+msgstr "Yêu cầu xấu: Không thể tạo ra thành phố đích"
 
 #: admin/add-measurement-type.html:60
 #: measurements/measurements.html:80
 msgid "Build"
-msgstr ""
+msgstr "Xây dựng"
 
 #: admin/_edit-ministry.html:69
 msgid "CTRL + click to select multiple languages"
-msgstr ""
+msgstr "CTRL + nhấp để lựa chọn đa ngôn ngữ"
 
 #. Verb - Button
 #: join-ministry.html:29
@@ -126,36 +133,36 @@ msgstr ""
 #: map/new-training.html:45
 #: preference/user-preference-modal.html:57
 msgid "Cancel"
-msgstr ""
+msgstr "Hủy"
 
 #: controllers/admin/admin-ctrl.js:170
 msgid "Changes saved successfully"
-msgstr ""
+msgstr "Đã lưu thành công các thay đổi"
 
 #: map/edit-church.html:57
 #: map/new-church.html:57
 msgid "Church"
-msgstr ""
+msgstr "Nhà thờ"
 
 #: map/map.html:51
 msgid "Church or community of disciples"
-msgstr ""
+msgstr "Nhà thờ hoặc cộng đồng các môn đồ"
 
 #: controllers/map/map-ctrl.js:423
 msgid "Church was created"
-msgstr ""
+msgstr "Đã tạo nhà thờ"
 
 #: controllers/map/map-ctrl.js:745
 msgid "Church was deleted successfully"
-msgstr ""
+msgstr "Đã xóa thành công nhà thờ"
 
 #: controllers/map/map-ctrl.js:725
 msgid "Church was updated successfully"
-msgstr ""
+msgstr "Nhà thờ đã được cập nhật thành công"
 
 #: map/map.html:137
 msgid "Click to expand/collapse search"
-msgstr ""
+msgstr "Nhấp để mở rộng hoặc thu hẹp tìm kiếm"
 
 #: admin/add-measurement-type.html:3
 #: admin/add-measurement-type.html:69
@@ -177,510 +184,510 @@ msgstr ""
 #: stories/view-story-dialog.html:27
 #: stories/view-story-dialog.html:3
 msgid "Close"
-msgstr ""
+msgstr "Đóng"
 
 #: admin/_measurement.html:13
 #: admin/add-measurement-type.html:43
 msgid "Column"
-msgstr ""
+msgstr "Cột"
 
 #: map/_confirmation-dialog.html:4
 msgid "Confirm ?"
-msgstr ""
+msgstr "Xác nhận ?"
 
 #: map/edit-church.html:18
 #: map/new-church.html:23
 msgid "Contact Email"
-msgstr ""
+msgstr "Email liên lạc"
 
 #: map/edit-church.html:28
 #: map/new-church.html:33
 msgid "Contact Mobile"
-msgstr ""
+msgstr "Điện thoại liên lạc"
 
 #: map/edit-church.html:11
 #: map/new-church.html:17
 msgid "Contact Name"
-msgstr ""
+msgstr "Tên liên lạc"
 
 #: stories/edit-story-dialog.html:19
 #: stories/new-story-dialog.html:21
 msgid "Content"
-msgstr ""
+msgstr "Nội dung"
 
 #: preference/user-preference-modal.html:41
 msgid "Content language"
-msgstr ""
+msgstr "Ngôn ngữ nội dung"
 
 #: map/edit-target-city.html:25
 #: map/new-target-city.html:25
 msgid "Country"
-msgstr ""
+msgstr "Quốc gia"
 
 #: admin/add-measurement-type.html:70
 #: admin/add-sub-ministry.html:22
 msgid "Create"
-msgstr ""
+msgstr "Tạo"
 
 #: map/new-church.html:4
 msgid "Create New Church"
-msgstr ""
+msgstr "Tạo Nhà thờ Mới"
 
 #: map/map.html:13
 msgid "Create new target city"
-msgstr ""
+msgstr "Tạo thêm thành phố đích mới"
 
 #: map/map.html:5
 msgid "Create new target point"
-msgstr ""
+msgstr "Tạo thêm điểm đích mới"
 
 #: map/map.html:9
 msgid "Create new training"
-msgstr ""
+msgstr "Tạo thêm đào tạo mới"
 
 #: stories/stories.html:7
 msgid "Created by me"
-msgstr ""
+msgstr "Được tạo bởi tôi"
 
 #: admin/confirm-member-drop.html:9
 msgid "Current role"
-msgstr ""
+msgstr "Vai trò hiện tại"
 
 #: admin/confirm-member-drop.html:11
 msgid "Current role will be set to former-member"
-msgstr ""
+msgstr "Vai trò hiện tại sẽ được đặt thành cựu thành viên"
 
 #: map/edit-training.html:29
 #: map/edit-training.html:46
 #: map/new-training.html:24
 msgid "Date"
-msgstr ""
+msgstr "Ngày"
 
 #: admin/_edit-ministry.html:50
 #: preference/user-preference-modal.html:12
 #: preference/user-preference-modal.html:21
 msgid "Default"
-msgstr ""
+msgstr "Mặc định"
 
 #: admin/_edit-ministry.html:46
 msgid "Default MCC"
-msgstr ""
+msgstr "MCC mặc định"
 
 #: controllers/map/map-ctrl.js:1403
 msgid "Default ministry map view has been set"
-msgstr ""
+msgstr "Đã đặt xem bản đồ đoàn mục sư mặc định"
 
 #: map/_confirmation-dialog.html:11
 #: map/edit-training.html:72
 #: measurements/details.html:134
 msgid "Delete"
-msgstr ""
+msgstr "Xóa"
 
 #: map/edit-church.html:135
 msgid "Delete Church"
-msgstr ""
+msgstr "Xóa Nhà thờ"
 
 #: map/edit-target-city.html:69
 msgid "Delete Target city"
-msgstr ""
+msgstr "Xóa Thành phố Đích"
 
 #: map/edit-training.html:112
 msgid "Delete Training"
-msgstr ""
+msgstr "Xóa Đào tạo"
 
 #: admin/_team-members.html:8
 #: controllers/admin/admin-ctrl.js:280
 msgid "Deleted"
-msgstr ""
+msgstr "Đã xóa"
 
 #: admin/add-measurement-type.html:20
 msgid "Description"
-msgstr ""
+msgstr "Mô tả"
 
 #: admin/add-measurement-type.html:25
 #: admin/edit-measurement-type.html:45
 msgid "Description is required"
-msgstr ""
+msgstr "Yêu cầu mô tả"
 
 #: admin/add-measurement-type.html:26
 #: admin/edit-measurement-type.html:46
 msgid "Description should not exceed 200 characters"
-msgstr ""
+msgstr "Mô tả không được vượt quá 200 kí tự"
 
 #. MCC - Digital Strategies
 #: controllers/gma-ctrl.js:182
 msgid "Digital Strategies"
-msgstr ""
+msgstr "Chiến lược Số hóa (Digital Strategies)"
 
 #: stories/edit-story-dialog.html:71
 #: stories/new-story-dialog.html:75
 msgid "Draft"
-msgstr ""
+msgstr "Nháp"
 
 #: controllers/map/map-ctrl.js:525
 #: controllers/map/map-ctrl.js:557
 #: controllers/map/map-ctrl.js:611
 msgid "Drag to Move"
-msgstr ""
+msgstr "Kéo để Di chuyển"
 
 #: controllers/admin/admin-ctrl.js:632
 #: controllers/admin/admin-ctrl.js:639
 msgid "Drop canceled, can't be dropped on child team"
-msgstr ""
+msgstr "Đã hủy lệnh thả, không thể thả vào một đội con"
 
 #: controllers/admin/admin-ctrl.js:625
 msgid "Drop canceled, can't be dropped on parent team"
-msgstr ""
+msgstr "Đã hủy lệnh thả, không thể thả vào một đội cha"
 
 #: controllers/admin/admin-ctrl.js:652
 msgid "Drop canceled, can't be dropped on selected team"
-msgstr ""
+msgstr "Đã hủy lệnh thả, không thể thả vào đội được lựa chọn"
 
 #: stories/stories.html:35
 msgid "Edit"
-msgstr ""
+msgstr "Sửa"
 
 #: controllers/admin/admin-ctrl.js:95
 msgid "Edit Ministry"
-msgstr ""
+msgstr "Sửa Đoàn mục sư"
 
 #: map/edit-target-city.html:4
 msgid "Edit Target City"
-msgstr ""
+msgstr "Sửa Thành phố Đích"
 
 #: admin/_edit-ministry.html:4
 msgid "Edit current ministry"
-msgstr ""
+msgstr "Sửa đoàn mục sư hiện tại"
 
 #: stories/edit-story-dialog.html:4
 msgid "Edit story"
-msgstr ""
+msgstr "Sửa câu chuyện"
 
 #: admin/_team-members.html:62
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: admin/edit-measurement-type.html:22
 msgid "English description"
-msgstr ""
+msgstr "Mô tả Tiếng Anh"
 
 #: admin/edit-measurement-type.html:16
 msgid "English name"
-msgstr ""
+msgstr "Tên tiếng Anh"
 
 #: controllers/stories/stories-ctrl.js:63
 msgid "Error loading news feeds"
-msgstr ""
+msgstr "Lỗi khi tải dòng tin tức mới"
 
 #: controllers/map/map-ctrl.js:482
 msgid "Error: Unable to create target city"
-msgstr ""
+msgstr "Lỗi: Không thể tạo ra thành phố đích"
 
 #: map/map.html:109
 msgid "Everything"
-msgstr ""
+msgstr "Mọi thứ"
 
 #: map/map.html:103
 msgid "FILTERS"
-msgstr ""
+msgstr "BỘ LỌC"
 
 #: controllers/map/map-ctrl.js:1416
 msgid "Failed to get your current location"
-msgstr ""
+msgstr "Lỗi khi nhận được vị trí hiện tại của bạn"
 
 #: controllers/map/map-ctrl.js:1548
 #: controllers/stories/stories-ctrl.js:160
 msgid "Failed to save story"
-msgstr ""
+msgstr "Lỗi khi lưu câu chuyện"
 
 #: controllers/admin/admin-ctrl.js:376
 msgid "Failed, User not found"
-msgstr ""
+msgstr "Lỗi khi tìm thấy người dùng"
 
 #: admin/add-measurement-type.html:47
 msgid "Faith"
-msgstr ""
+msgstr "Tín ngưỡng"
 
 #: measurements/measurements.html:35
 msgid "Faith Actions"
-msgstr ""
+msgstr "Hành vi Tín ngưỡng"
 
 #: admin/_team-members.html:62
 msgid "First Name"
-msgstr ""
+msgstr "Tên"
 
 #: controllers/admin/admin-ctrl.js:281
 msgid "Former Member"
-msgstr ""
+msgstr "Cựu thành viên"
 
 #: admin/_team-members.html:9
 msgid "Former members"
-msgstr ""
+msgstr "Các cựu thành viên"
 
 #: admin/add-measurement-type.html:48
 #: measurements/measurements.html:41
 msgid "Fruit"
-msgstr ""
+msgstr "Hoa quả"
 
 #. MCC - Global Church Movements
 #: controllers/gma-ctrl.js:185
 msgid "Global Church Movements"
-msgstr ""
+msgstr "Phong trào Nhà thờ Toàn cầu (Global Church Movements)"
 
 #: map/edit-church.html:56
 #: map/map.html:42
 #: map/new-church.html:56
 msgid "Group"
-msgstr ""
+msgstr "Nhóm"
 
 #: admin/_edit-ministry.html:58
 #: admin/_measurement.html:25
 msgid "Hide"
-msgstr ""
+msgstr "Ẩn"
 
 #: admin/_edit-ministry.html:55
 msgid "Hide reports tab by default"
-msgstr ""
+msgstr "Ẩn tab báo cáo theo mặc định"
 
 #. Main Navigation Tabs - Home (News/Stories)
 #: services/settings/settings-service.js:93
 msgid "Home"
-msgstr ""
+msgstr "Trang chủ"
 
 #: controllers/map/map-ctrl.js:1536
 #: controllers/stories/stories-ctrl.js:138
 #: controllers/stories/stories-ctrl.js:242
 msgid "Image file was uploaded"
-msgstr ""
+msgstr "Đã tải lên tệp hình ảnh"
 
 #: stories/edit-story-dialog.html:48
 #: stories/new-story-dialog.html:51
 msgid "Image will be resized to"
-msgstr ""
+msgstr "Hình ảnh sẽ được định lại cỡ thành"
 
 #: admin/_team-members.html:13
 msgid "Inherited admins"
-msgstr ""
+msgstr "Admin thừa kế"
 
 #: admin/_team-members.html:11
 msgid "Inherited leaders"
-msgstr ""
+msgstr "Lãnh đạo thừa kế"
 
 #: error/error.html:2
 msgid "Invalid Session"
-msgstr ""
+msgstr "Phiên Không hợp lệ"
 
 #: admin/add-team-member.html:15
 #: map/edit-church.html:22
 #: map/new-church.html:28
 msgid "Invalid email format"
-msgstr ""
+msgstr "Định dạng email không hợp lệ"
 
 #: stories/edit-story-dialog.html:49
 #: stories/new-story-dialog.html:52
 msgid "Invalid image file input."
-msgstr ""
+msgstr "Đầu vào tệp tin hình ảnh không hợp lệ."
 
 #: map/edit-church.html:38
 #: map/new-church.html:44
 msgid "Jesus film activity"
-msgstr ""
+msgstr "Hoạt động của Jesus film"
 
 #: map/map.html:87
 msgid "Jesus film contribution"
-msgstr ""
+msgstr "Đóng góp của Jesus film"
 
 #. Modal Title
 #. Verb - Button
 #: join-ministry.html:28
 #: join-ministry.html:3
 msgid "Join Ministry/Team"
-msgstr ""
+msgstr "Tham gia vào Đoàn mục sư/Đội"
 
 #: application.html:21
 msgid "Join another location / ministry"
-msgstr ""
+msgstr "Tham gia một vị trí / đoàn mục sư khác"
 
 #: map/map.html:22
 msgid "LEGEND"
-msgstr ""
+msgstr "HUYỀN THOẠI"
 
 #: admin/edit-measurement-type.html:9
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
 #: admin/_team-members.html:62
 msgid "Last Name"
-msgstr ""
+msgstr "Họ"
 
 #: controllers/admin/admin-ctrl.js:277
 #: measurements/details.html:132
 msgid "Leader"
-msgstr ""
+msgstr "Lãnh đạo"
 
 #: controllers/admin/admin-ctrl.js:278
 msgid "Leader (inherited)"
-msgstr ""
+msgstr "Lãnh đạo (thừa kế)"
 
 #. MCC - Leader Led
 #: controllers/gma-ctrl.js:188
 msgid "Leader Led"
-msgstr ""
+msgstr "Leader Led"
 
 #: measurements/details.html:33
 msgid "Local"
-msgstr ""
+msgstr "Địa phương"
 
 #: measurements/measurements.html:7
 msgid "Local Movement Indicators"
-msgstr ""
+msgstr "Chỉ số Phong trào Địa phương"
 
 #: measurements/details.html:26
 msgid "Local Team"
-msgstr ""
+msgstr "Đội Địa phương"
 
 #: admin/_measurement.html:27
 #: admin/edit-measurement-type.html:4
 msgid "Localize"
-msgstr ""
+msgstr "Nội địa hóa"
 
 #: admin/edit-measurement-type.html:40
 msgid "Localized description"
-msgstr ""
+msgstr "Mô tả nội địa hóa"
 
 #: admin/edit-measurement-type.html:29
 msgid "Localized name"
-msgstr ""
+msgstr "Tên nội địa hóa"
 
 #: error/error.html:5
 msgid "Log In"
-msgstr ""
+msgstr "Đăng nhập"
 
 #: application.html:70
 msgid "Logout"
-msgstr ""
+msgstr "Đăng xuất"
 
 #: map/edit-training.html:37
 #: map/new-training.html:38
 msgid "MCC"
-msgstr ""
+msgstr "MCC"
 
 #: admin/_edit-ministry.html:34
 msgid "MCCs"
-msgstr ""
+msgstr "MCCs"
 
 #: controllers/admin/admin-ctrl.js:101
 msgid "Manage Measurements"
-msgstr ""
+msgstr "Quản lý Phép đo"
 
 #. Main Navigation Tabs - Map
 #: services/settings/settings-service.js:49
 msgid "Map"
-msgstr ""
+msgstr "Bản đồ"
 
 #: controllers/admin/admin-ctrl.js:191
 msgid "Measurement was created successfully"
-msgstr ""
+msgstr "Đã tạo thành công phép đo"
 
 #: controllers/admin/admin-ctrl.js:262
 msgid "Measurement was updated"
-msgstr ""
+msgstr "Đã cập nhật thành công phép đo"
 
 #. Main Navigation Tabs - Measurements
 #: admin/_measurement.html:4
 #: services/settings/settings-service.js:60
 msgid "Measurements"
-msgstr ""
+msgstr "Phép đo"
 
 #: controllers/measurements/measurements-ctrl.js:135
 msgid "Measurements saved successfully"
-msgstr ""
+msgstr "Đã lưu thành công phép đo"
 
 #: controllers/measurements/measurements-ctrl.js:175
 msgid "Measurements updated successfully"
-msgstr ""
+msgstr "Đã cập nhật thành công phép đo"
 
 #: admin/confirm-update-role.html:8
 #: controllers/admin/admin-ctrl.js:279
 #: measurements/details.html:131
 msgid "Member"
-msgstr ""
+msgstr "Thành viên"
 
 #: controllers/admin/admin-ctrl.js:595
 msgid "Member was moved to ministry successfully"
-msgstr ""
+msgstr "Đã di chuyển thành công thành viên vào đoàn mục sư."
 
 #: map/edit-church.html:82
 msgid "Ministry"
-msgstr ""
+msgstr "Đoàn mục sư"
 
 #: admin/_edit-ministry.html:10
 #: admin/add-sub-ministry.html:9
 msgid "Ministry name"
-msgstr ""
+msgstr "Tên Đoàn mục sư"
 
 #: admin/_edit-ministry.html:15
 #: admin/add-sub-ministry.html:14
 msgid "Ministry name is required."
-msgstr ""
+msgstr "Tên đoàn mục sư là bắt buộc."
 
 #: controllers/admin/admin-ctrl.js:567
 msgid "Ministry was moved successfully"
-msgstr ""
+msgstr "Đã di chuyển thành công đoàn mục sư"
 
 #: join-ministry.html:9
 msgid "Ministry/Team:"
-msgstr ""
+msgstr "Đoàn mục sư/Đội:"
 
 #: application.html:98
 msgid "Mobile Apps"
-msgstr ""
+msgstr "Ứng dụng Di động"
 
 #: map/edit-church.html:32
 #: map/new-church.html:38
 msgid "Mobile number is invalid."
-msgstr ""
+msgstr "Số di động không hợp lệ."
 
 #: map/edit-church.html:121
 msgid "Move Church"
-msgstr ""
+msgstr "Di chuyển Nhà thờ"
 
 #: map/edit-target-city.html:64
 msgid "Move Target city"
-msgstr ""
+msgstr "Di chuyển thành phố Đích"
 
 #: map/edit-training.html:106
 msgid "Move Training"
-msgstr ""
+msgstr "Di chuyển Đào tạo"
 
 #: admin/confirm-member-drop.html:4
 msgid "Move member to this team ?"
-msgstr ""
+msgstr "Di chuyển thành viên vào đội này?"
 
 #: admin/confirm-team-drop.html:4
 msgid "Move sub-team to this team ?"
-msgstr ""
+msgstr "Di chuyển tiểu đội vào đội này?"
 
 #: map/edit-church.html:58
 #: map/new-church.html:58
 msgid "Multiplying Church"
-msgstr ""
+msgstr "Tăng thêm Nhà thờ"
 
 #: map/map.html:61
 msgid "Multiplying church or community of disciples"
-msgstr ""
+msgstr "Tăng thêm nhà thờ hoặc cộng đồng môn đồ"
 
 #: application.html:68
 msgid "My Preferences"
-msgstr ""
+msgstr "Các ưu tiên của Tôi"
 
 #: map/map.html:17
 msgid "My location on map"
-msgstr ""
+msgstr "Địa điểm của tôi trên bản đồ"
 
 #: preference/user-preference-modal.html:4
 msgid "My preferences"
-msgstr ""
+msgstr "Các ưu tiên của tôi"
 
 #: admin/_measurement.html:12
 #: admin/add-measurement-type.html:9
@@ -693,12 +700,12 @@ msgstr ""
 #: map/new-target-city.html:8
 #: map/new-training.html:8
 msgid "Name"
-msgstr ""
+msgstr "Tên"
 
 #: admin/add-measurement-type.html:14
 #: admin/edit-measurement-type.html:34
 msgid "Name is required"
-msgstr ""
+msgstr "Tên là bắt buộc"
 
 #: map/edit-target-city.html:12
 #: map/edit-training.html:15
@@ -706,33 +713,33 @@ msgstr ""
 #: map/new-target-city.html:12
 #: map/new-training.html:12
 msgid "Name is required."
-msgstr ""
+msgstr "Tên là bắt buộc"
 
 #: admin/add-measurement-type.html:15
 #: admin/edit-measurement-type.html:35
 msgid "Name should not exceed 200 characters"
-msgstr ""
+msgstr "Tên không được vượt quá 200 ký tự"
 
 #: map/new-training.html:4
 msgid "New Church Training Activity"
-msgstr ""
+msgstr "Hoạt động Đào tạo Nhà thờ Mới"
 
 #: admin/confirm-update-role.html:10
 msgid "New Role"
-msgstr ""
+msgstr "Vai trò Mới"
 
 #: map/new-target-city.html:4
 msgid "New Target city"
-msgstr ""
+msgstr "Thành phố Đích Mới"
 
 #: controllers/admin/admin-ctrl.js:369
 msgid "New member was added successfully"
-msgstr ""
+msgstr "Đã thêm thành công thành viên mới"
 
 #: stories/stories.html:45
 #: stories/stories.html:61
 msgid "Newer"
-msgstr ""
+msgstr "Người mới"
 
 #: admin/confirm-member-drop.html:15
 #: admin/confirm-team-drop.html:13
@@ -742,173 +749,173 @@ msgstr ""
 #: map/new-church.html:47
 #: preference/user-preference-modal.html:37
 msgid "No"
-msgstr ""
+msgstr "Không"
 
 #: admin/_edit-ministry.html:29
 msgid "No parent ministry"
-msgstr ""
+msgstr "Không có đoàn mục sư chính"
 
 #: stories/stories.html:40
 msgid "No story found"
-msgstr ""
+msgstr "Không tìm thấy câu chuyện"
 
 #: map/edit-target-city.html:47
 #: map/new-target-city.html:47
 msgid "None"
-msgstr ""
+msgstr "Không gì cả"
 
 #: admin/confirm-update-role.html:9
 msgid "Old Role"
-msgstr ""
+msgstr "Vai trò Cũ"
 
 #: stories/stories.html:45
 #: stories/stories.html:61
 msgid "Older"
-msgstr ""
+msgstr "Cũ hơn"
 
 #: map/edit-church.html:111
 #: map/edit-target-city.html:58
 #: map/edit-training.html:96
 msgid "Options"
-msgstr ""
+msgstr "Tuỳ chọn"
 
 #: admin/add-measurement-type.html:50
 #: admin/add-measurement-type.html:62
 msgid "Other"
-msgstr ""
+msgstr "Khác"
 
 #: measurements/measurements.html:115
 msgid "Other Measurements"
-msgstr ""
+msgstr "Phép đo khác"
 
 #: admin/add-measurement-type.html:49
 #: measurements/measurements.html:47
 msgid "Outcome"
-msgstr ""
+msgstr "Kết quả"
 
 #: map/map.html:95
 msgid "Parent lines"
-msgstr ""
+msgstr "Các đường chính"
 
 #: admin/_edit-ministry.html:21
 msgid "Parent ministry"
-msgstr ""
+msgstr "Đoàn mục sư chính"
 
 #: map/edit-training.html:47
 #: map/new-training.html:31
 msgid "Participants"
-msgstr ""
+msgstr "Người tham gia"
 
 #: admin/add-measurement-type.html:31
 msgid "Permalink"
-msgstr ""
+msgstr "Permalink"
 
 #: admin/add-measurement-type.html:37
 msgid "Permalink is invalid. Please match with required format"
-msgstr ""
+msgstr "Permalink không hợp lệ. Vui lòng khớp với định dạng yêu cầu"
 
 #: admin/add-measurement-type.html:36
 msgid "Permalink is required"
-msgstr ""
+msgstr "Yêu cầu có Permalink"
 
 #: admin/add-measurement-type.html:38
 msgid "Permalink should not exceed 100 characters"
-msgstr ""
+msgstr "Permalink không được vượt quá 100 ký tự"
 
 #: join-ministry.html:5
 msgid "Please identify a ministry team that you work most closely with and request to join that team."
-msgstr ""
+msgstr "Xin hãy nhận diện một đội đoàn mục sư mà bạn làm việc nhiều nhất với họ và yêu cầu tham ra đội đó."
 
 #: map/edit-church.html:43
 #: map/new-church.html:48
 msgid "Please make a choice"
-msgstr ""
+msgstr "Xin hãy đưa ra lựa chọn"
 
 #: preference/user-preference-modal.html:17
 msgid "Preferred MCC"
-msgstr ""
+msgstr "MCC ưu tiên"
 
 #: preference/user-preference-modal.html:45
 msgid "Preferred content language for"
-msgstr ""
+msgstr "Ngôn ngữ nội dung ưu tiên cho"
 
 #: preference/user-preference-modal.html:8
 msgid "Preferred ministry"
-msgstr ""
+msgstr "Đoàn mục sư ưu tiên"
 
 #: stories/edit-story-dialog.html:58
 #: stories/new-story-dialog.html:62
 msgid "Privacy"
-msgstr ""
+msgstr "Tính riêng tư"
 
 #: map/edit-church.html:72
 #: map/new-church.html:73
 msgid "Private"
-msgstr ""
+msgstr "Riêng tư"
 
 #: map/edit-church.html:74
 #: map/new-church.html:75
 msgid "Public"
-msgstr ""
+msgstr "Công khai"
 
 #: stories/edit-story-dialog.html:67
 #: stories/new-story-dialog.html:71
 msgid "Publish status"
-msgstr ""
+msgstr "Trạng thái công khai"
 
 #: stories/edit-story-dialog.html:70
 #: stories/new-story-dialog.html:74
 msgid "Published"
-msgstr ""
+msgstr "Đã công bố"
 
 #: stories/stories.html:52
 msgid "Refresh Feeds"
-msgstr ""
+msgstr "Làm mới dòng Tin tức"
 
 #: stories/stories.html:11
 msgid "Refresh List"
-msgstr ""
+msgstr "Làm mới Danh sách"
 
 #: admin/_team-members.html:17
 msgid "Refresh members list"
-msgstr ""
+msgstr "Làm mới danh sách thành viên"
 
 #: map/edit-church.html:73
 #: map/new-church.html:74
 msgid "Registered Users"
-msgstr ""
+msgstr "Những người dùng đã đăng ký"
 
 #: stories/new-story-dialog.html:66
 msgid "Registered users"
-msgstr ""
+msgstr "Những người dùng đã đăng ký"
 
 #: map/edit-church.html:129
 msgid "Remove Parent Church"
-msgstr ""
+msgstr "Loại bỏ Nhà thờ Cha"
 
 #: stories/new-story-dialog.html:57
 msgid "Remove image"
-msgstr ""
+msgstr "Loại bỏ hình ảnh"
 
 #: stories/edit-story-dialog.html:72
 msgid "Removed"
-msgstr ""
+msgstr "Đã loại bỏ"
 
 #. Main Navigation Tabs - Reports
 #: services/settings/settings-service.js:71
 msgid "Reports"
-msgstr ""
+msgstr "Báo cáo"
 
 #: admin/add-team-member.html:21
 msgid "Role"
-msgstr ""
+msgstr "Vai trò"
 
 #: admin/add-team-member.html:31
 #: admin/edit-measurement-type.html:56
 #: preference/user-preference-modal.html:58
 #: stories/new-story-dialog.html:103
 msgid "Save"
-msgstr ""
+msgstr "Lưu lại"
 
 #: map/edit-church.html:140
 #: map/edit-target-city.html:74
@@ -916,430 +923,430 @@ msgstr ""
 #: measurements/measurements.html:122
 #: measurements/measurements.html:21
 msgid "Save Changes"
-msgstr ""
+msgstr "Lưu lại các Thay đổi"
 
 #: measurements/details.html:146
 msgid "Save Measurements"
-msgstr ""
+msgstr "Lưu lại Phép đo"
 
 #: admin/_measurement.html:33
 msgid "Save changes"
-msgstr ""
+msgstr "Lưu lại các thay đổi"
 
 #: map/map.html:136
 msgid "Search"
-msgstr ""
+msgstr "Tìm kiếm"
 
 #: admin/_team-members.html:6
 msgid "Search Members"
-msgstr ""
+msgstr "Tìm kiếm Thành viên"
 
 #: admin/_measurement.html:14
 #: admin/add-measurement-type.html:55
 msgid "Section"
-msgstr ""
+msgstr "Phiên"
 
 #: map/edit-church.html:69
 #: map/new-church.html:70
 msgid "Security"
-msgstr ""
+msgstr "An ninh"
 
 #: map/edit-church.html:77
 #: map/new-church.html:78
 msgid "Security is a required field"
-msgstr ""
+msgstr "An ninh là trường bắt buộc"
 
 #: controllers/admin/admin-ctrl.js:282
 msgid "Self Assigned"
-msgstr ""
+msgstr "Tự Chỉ định"
 
 #: measurements/details.html:104
 msgid "Self Assigned Members (not yet approved)"
-msgstr ""
+msgstr "Các Thành viên được Tự Chỉ định (chưa được chấp thuận)"
 
 #: admin/add-measurement-type.html:61
 #: measurements/measurements.html:98
 msgid "Send"
-msgstr ""
+msgstr "Gửi"
 
 #: map/map.html:129
 msgid "Set Ministry Default View for others"
-msgstr ""
+msgstr "Đặt Xem Mặc định Đoàn mục sư cho những mục khác"
 
 #: map/edit-church.html:126
 msgid "Set Parent Church"
-msgstr ""
+msgstr "Đặt Nhà thờ Cha mẹ"
 
 #: map/map.html:128
 msgid "Set as my Ministry Default View"
-msgstr ""
+msgstr "Đặt làm Xem Mặc định Đoàn mục sư"
 
 #: admin/_edit-ministry.html:59
 #: admin/_measurement.html:24
 msgid "Show"
-msgstr ""
+msgstr "Hiển thị"
 
 #: map/edit-church.html:63
 #: map/new-church.html:64
 msgid "Size"
-msgstr ""
+msgstr "Kích cỡ"
 
 #: admin/confirm-team-drop.html:8
 msgid "Source Name"
-msgstr ""
+msgstr "Tên Nguồn"
 
 #: map/edit-target-city.html:33
 #: map/edit-training.html:45
 #: map/new-target-city.html:33
 msgid "Stage"
-msgstr ""
+msgstr "Giai đoạn"
 
 #: join-ministry.html:16
 msgid "Start typing to search for ministry"
-msgstr ""
+msgstr "Bắt đầu gõ để tìm kiếm đoàn mục sư"
 
 #: stories/edit-story-dialog.html:26
 #: stories/new-story-dialog.html:28
 msgid "Story content field is required"
-msgstr ""
+msgstr "Trường nội dung câu chuyện là bắt buộc"
 
 #: stories/edit-story-dialog.html:26
 msgid "Story content should not exceed"
-msgstr ""
+msgstr "Nội dung câu chuyện không nên vượt quá"
 
 #: stories/new-story-dialog.html:29
 msgid "Story content should not exceed {{storiesConfig.content_length}} characters"
-msgstr ""
+msgstr "Nội dung câu chuyện không nên vượt quá {{storiesConfig.content_length}} ký tự"
 
 #: controllers/stories/stories-ctrl.js:133
 msgid "Story saved successfully"
-msgstr ""
+msgstr "Đã lưu thành công câu chuyện"
 
 #: stories/edit-story-dialog.html:13
 #: stories/new-story-dialog.html:15
 msgid "Story title field is required"
-msgstr ""
+msgstr "Trường tiêu đề câu chuyện là bắt buộc"
 
 #: stories/edit-story-dialog.html:14
 #: stories/new-story-dialog.html:16
 msgid "Story title should not exceed 120 characters"
-msgstr ""
+msgstr "Tiêu đề câu chuyện không nên vượt quá 120 ký tự"
 
 #: controllers/stories/stories-ctrl.js:234
 msgid "Story was updated"
-msgstr ""
+msgstr "Đã cập nhật câu chuyện"
 
 #. MCC - Student Led
 #: controllers/gma-ctrl.js:191
 msgid "Student Led"
-msgstr ""
+msgstr "Student Led"
 
 #: map/edit-target-city.html:44
 #: map/new-target-city.html:44
 msgid "Sub Stage"
-msgstr ""
+msgstr "Giai đoạn Phụ"
 
 #: controllers/admin/admin-ctrl.js:487
 msgid "Sub ministry was created successfully"
-msgstr ""
+msgstr "Đã tạo thành công tiểu đoàn mục sư"
 
 #: measurements/details.html:86
 msgid "Sub-Ministries / Teams"
-msgstr ""
+msgstr "Tiểu đoàn mục sư / Đội"
 
 #: admin/_edit-ministry.html:63
 msgid "Supported languages"
-msgstr ""
+msgstr "Ngôn ngữ Hỗ trợ"
 
 #: join-ministry.html:20
 #: preference/user-preference-modal.html:34
 msgid "Supported staff"
-msgstr ""
+msgstr "Nhân viên hỗ trợ"
 
 #: stories/new-story-dialog.html:90
 msgid "Tagged MCC"
-msgstr ""
+msgstr "MCC được tag"
 
 #: stories/edit-story-dialog.html:87
 msgid "Tagged MCC :"
-msgstr ""
+msgstr "MCC được tag:"
 
 #: stories/edit-story-dialog.html:79
 #: stories/new-story-dialog.html:82
 msgid "Tagged ministry"
-msgstr ""
+msgstr "Đoàn mục sư được tag"
 
 #: map/edit-church.html:55
 #: map/map.html:33
 #: map/new-church.html:55
 msgid "Target"
-msgstr ""
+msgstr "Đích"
 
 #: admin/confirm-team-drop.html:9
 msgid "Target Team"
-msgstr ""
+msgstr "Đội Đích"
 
 #: map/map.html:70
 msgid "Target city"
-msgstr ""
+msgstr "Thành phố Đích"
 
 #: controllers/map/map-ctrl.js:964
 msgid "Target city position was updated"
-msgstr ""
+msgstr "Đã cập nhật vị trí thành phố đích"
 
 #: controllers/map/map-ctrl.js:474
 msgid "Target city was created successfully"
-msgstr ""
+msgstr "Đã tạo thành công thành phố đích"
 
 #: controllers/map/map-ctrl.js:1332
 msgid "Target city was deleted successfully"
-msgstr ""
+msgstr "Đã xóa thành công thành phố đích"
 
 #: controllers/map/map-ctrl.js:779
 msgid "Target city was updated"
-msgstr ""
+msgstr "Đã cập nhật thành công thành phố đích"
 
 #: admin/confirm-member-drop.html:10
 msgid "Target team"
-msgstr ""
+msgstr "Đội đích"
 
 #: measurements/lmi.html:100
 #: measurements/lmi.html:124
 #: measurements/lmi.html:148
 #: measurements/lmi.html:64
 msgid "Team"
-msgstr ""
+msgstr "Đội"
 
 #: controllers/admin/admin-ctrl.js:89
 msgid "Team & Members"
-msgstr ""
+msgstr "Đội & Thành viên"
 
 #: measurements/details.html:60
 msgid "Team Members"
-msgstr ""
+msgstr "Các thành viên trong Đội"
 
 #: stories/edit-story-dialog.html:63
 #: stories/new-story-dialog.html:67
 msgid "Team only"
-msgstr ""
+msgstr "Chỉ duy nhất Đội"
 
 #: admin/add-team-member.html:9
 msgid "TheKey username"
-msgstr ""
+msgstr "Tên người dùng TheKey"
 
 #: stories/edit-story-dialog.html:9
 #: stories/new-story-dialog.html:11
 #: stories/new-story-dialog.html:13
 msgid "Title"
-msgstr ""
+msgstr "Tiêu đề"
 
 #: measurements/details.html:17
 #: measurements/details.html:49
 msgid "Total"
-msgstr ""
+msgstr "Tổng số"
 
 #: map/edit-training.html:21
 #: map/new-training.html:17
 msgid "Training Type"
-msgstr ""
+msgstr "Loại Đào tạo"
 
 #: map/map.html:79
 msgid "Training activity"
-msgstr ""
+msgstr "Hoạt động đào tạo"
 
 #: controllers/map/map-ctrl.js:1356
 msgid "Training stage was deleted successfully"
-msgstr ""
+msgstr "Đã xóa thành công giai đoạn đào tạo"
 
 #: controllers/map/map-ctrl.js:447
 msgid "Training was created"
-msgstr ""
+msgstr "Đã tạo đào tạo"
 
 #: controllers/map/map-ctrl.js:1311
 msgid "Training was deleted successfully"
-msgstr ""
+msgstr "Đã xóa thành công đào tạo"
 
 #: controllers/map/map-ctrl.js:1290
 msgid "Training was saved successfully"
-msgstr ""
+msgstr "Đã lưu thành công đào tạo"
 
 #: controllers/map/map-ctrl.js:757
 #: controllers/map/map-ctrl.js:768
 msgid "Training was updated"
-msgstr ""
+msgstr "Đã cập nhật đào tạo"
 
 #: map/edit-church.html:52
 #: map/new-church.html:52
 msgid "Type"
-msgstr ""
+msgstr "Loại"
 
 #: controllers/admin/admin-ctrl.js:378
 msgid "Unable to add new member"
-msgstr ""
+msgstr "Không thể thêm thành viên mới"
 
 #: controllers/admin/admin-ctrl.js:503
 msgid "Unable to add sub ministry"
-msgstr ""
+msgstr "Không thể thêm tiểu đoàn mục sư"
 
 #: controllers/map/map-ctrl.js:426
 msgid "Unable to create church"
-msgstr ""
+msgstr "Không thể tạo ra nhà thờ"
 
 #: controllers/admin/admin-ctrl.js:199
 msgid "Unable to create measurement"
-msgstr ""
+msgstr "Không thể tạo ra phép đo"
 
 #: controllers/map/map-ctrl.js:748
 msgid "Unable to delete church"
-msgstr ""
+msgstr "Không thể xóa nhà thờ"
 
 #: controllers/map/map-ctrl.js:1337
 msgid "Unable to delete target city"
-msgstr ""
+msgstr "Không thể xóa thành phố đích"
 
 #: controllers/map/map-ctrl.js:1315
 msgid "Unable to delete training"
-msgstr ""
+msgstr "Không thể xóa đào tạo"
 
 #: controllers/admin/admin-ctrl.js:241
 msgid "Unable to get measurement"
-msgstr ""
+msgstr "Không thể nhận phép đo"
 
 #: controllers/gma-ctrl.js:293
 msgid "Unable to join to requested ministry"
-msgstr ""
+msgstr "Không thể tham gia vào đoàn mục sư đã yêu cầu"
 
 #: controllers/map/map-ctrl.js:587
 msgid "Unable to load countries list"
-msgstr ""
+msgstr "Không thể tải danh sách các quốc gia"
 
 #: controllers/gma-ctrl.js:450
 msgid "Unable to load languages"
-msgstr ""
+msgstr "Không thể tải ngôn ngữ"
 
 #: controllers/measurements/measurements-ctrl.js:85
 msgid "Unable to load measurements"
-msgstr ""
+msgstr "Không thể tải các phép đo"
 
 #: controllers/reports/reports-ctrl.js:69
 msgid "Unable to load measurements for reporting"
-msgstr ""
+msgstr "Không thể tải các phép đo cho báo cáo"
 
 #: controllers/stories/stories-ctrl.js:92
 msgid "Unable to load stories"
-msgstr ""
+msgstr "Không thể tải các câu chuyện"
 
 #: controllers/map/map-ctrl.js:316
 msgid "Unable to load target cities"
-msgstr ""
+msgstr "Không thể tải các thành phố đích"
 
 #: controllers/admin/admin-ctrl.js:316
 msgid "Unable to load team members"
-msgstr ""
+msgstr "Không thể tải các thành viên trong đội"
 
 #: controllers/map/map-ctrl.js:335
 msgid "Unable to load trainings"
-msgstr ""
+msgstr "Không thể tải đào tạo"
 
 #: controllers/admin/admin-ctrl.js:604
 msgid "Unable to move member"
-msgstr ""
+msgstr "Không thể di chuyển thành viên"
 
 #: controllers/admin/admin-ctrl.js:580
 msgid "Unable to move ministry"
-msgstr ""
+msgstr "Không thể di chuyển đoàn mục sư"
 
 #: controllers/admin/admin-ctrl.js:172
 msgid "Unable to save changes"
-msgstr ""
+msgstr "Không thể lưu lại các thay đổi"
 
 #: controllers/map/map-ctrl.js:1385
 #: controllers/map/map-ctrl.js:1405
 msgid "Unable to save default map view"
-msgstr ""
+msgstr "Không thể lưu lại xem bản đồ mặc định"
 
 #: controllers/measurements/measurements-ctrl.js:139
 msgid "Unable to save measurements"
-msgstr ""
+msgstr "Không thể lưu lại các phép đo"
 
 #: controllers/preference/user-preference-ctrl.js:48
 msgid "Unable to save preferences"
-msgstr ""
+msgstr "Không thể lưu lại các ưu tiên"
 
 #: controllers/map/map-ctrl.js:729
 msgid "Unable to update church"
-msgstr ""
+msgstr "Không thể cập nhật nhà thờ"
 
 #: controllers/admin/admin-ctrl.js:264
 msgid "Unable to update measurement"
-msgstr ""
+msgstr "Không thể cập nhật phép đo"
 
 #: controllers/stories/stories-ctrl.js:251
 msgid "Unable to update story"
-msgstr ""
+msgstr "Không thể cập nhật câu chuyện"
 
 #: controllers/map/map-ctrl.js:781
 #: controllers/map/map-ctrl.js:966
 msgid "Unable to update target city"
-msgstr ""
+msgstr "Không thể cập nhật thành phố đích"
 
 #: controllers/map/map-ctrl.js:760
 msgid "Unable to update training"
-msgstr ""
+msgstr "Không thể cập nhật đào tạo"
 
 #: controllers/admin/admin-ctrl.js:425
 #: controllers/admin/admin-ctrl.js:444
 msgid "Unable to update user role"
-msgstr ""
+msgstr "Không thể cập nhật vai trò người dùng"
 
 #: controllers/map/map-ctrl.js:1542
 #: controllers/stories/stories-ctrl.js:269
 msgid "Unable to upload image file"
-msgstr ""
+msgstr "Không thể cập nhật tập tin ảnh"
 
 #: stories/edit-story-dialog.html:101
 msgid "Update"
-msgstr ""
+msgstr "Cập nhật"
 
 #: admin/_edit-ministry.html:89
 msgid "Update Ministry"
-msgstr ""
+msgstr "Cập nhật Đoàn mục sư"
 
 #: admin/confirm-update-role.html:4
 msgid "Update Team Member Role ?"
-msgstr ""
+msgstr "Cập nhật Vai trò Thành viên trong Đội?"
 
 #: stories/edit-story-dialog.html:31
 #: stories/new-story-dialog.html:34
 msgid "Upload an image"
-msgstr ""
+msgstr "Tải lên một ảnh"
 
 #: controllers/map/map-ctrl.js:1540
 #: controllers/stories/stories-ctrl.js:267
 msgid "Upload failed, Invalid file input"
-msgstr ""
+msgstr "Tải lên không thành công, dữ liệu đầu vào tập tin không hợp lệ"
 
 #: error/error.html:4
 msgid "Use the button below to log back in."
-msgstr ""
+msgstr "Sử dụng nút bên dưới để đăng nhập lại."
 
 #: controllers/admin/admin-ctrl.js:420
 #: controllers/admin/admin-ctrl.js:438
 msgid "User role was updated"
-msgstr ""
+msgstr "Đã cập nhật vai trò người dùng"
 
 #: admin/add-team-member.html:14
 msgid "Username is required."
-msgstr ""
+msgstr "Tên người dùng là bắt buộc."
 
 #: stories/view-story-dialog.html:4
 msgid "View story"
-msgstr ""
+msgstr "Xem câu chuyện"
 
 #: admin/add-measurement-type.html:59
 #: measurements/measurements.html:57
 msgid "Win"
-msgstr ""
+msgstr "Chiến thắng"
 
 #: admin/confirm-member-drop.html:16
 #: admin/confirm-team-drop.html:14
@@ -1349,58 +1356,58 @@ msgstr ""
 #: map/new-church.html:46
 #: preference/user-preference-modal.html:36
 msgid "Yes"
-msgstr ""
+msgstr "Có"
 
 #: controllers/gma-ctrl.js:291
 msgid "You are already assigned to requested ministry"
-msgstr ""
+msgstr "Bạn đã được chỉ định cho đoàn mục sư đã yêu cầu"
 
 #: controllers/gma-ctrl.js:413
 msgid "You are not authorised for this"
-msgstr ""
+msgstr "Bạn không được uỷ quyền cho việc này"
 
 #: error/error.html:3
 msgid "You have been logged out or your session has expired due to inactivity."
-msgstr ""
+msgstr "Bạn đã được đăng xuất hoặc phiên của bạn đã hết hạn do không hoạt động."
 
 #: stories/new-story-dialog.html:25
 msgid "You have {{storiesConfig.content_length - story.content.length}} of {{storiesConfig.content_length}} characters remaining"
-msgstr ""
+msgstr "Bạn có  {{storiesConfig.content_length - story.content.length}} của {{storiesConfig.content_length}} ký tự còn lại"
 
 #: controllers/map/map-ctrl.js:1420
 msgid "Your browser does not support GeoLocation"
-msgstr ""
+msgstr "Trình duyệt của bạn không hỗ trợ GeoLocation"
 
 #: controllers/map/map-ctrl.js:1382
 msgid "Your default map view has been set"
-msgstr ""
+msgstr "Đã đặt mục xem bản đồ mặc định của bạn"
 
 #: controllers/preference/user-preference-ctrl.js:39
 msgid "Your preferences were saved"
-msgstr ""
+msgstr "Đã lưu các ưu tiên của bạn"
 
 #: stories/edit-story-dialog.html:26
 msgid "characters"
-msgstr ""
+msgstr "các ký tự"
 
 #: stories/edit-story-dialog.html:48
 msgid "existing image will be replaced"
-msgstr ""
+msgstr "hình ảnh hiện tại sẽ được thay thế"
 
 #: map/edit-church.html:5
 msgid "members"
-msgstr ""
+msgstr "các thành viên"
 
 #: map/new-church.html:26
 msgid "name@email.com"
-msgstr ""
+msgstr "tên@email.com"
 
 #: measurements/lmi.html:12
 #: measurements/lmi.html:28
 #: measurements/lmi.html:53
 #: measurements/lmi.html:89
 msgid "personal"
-msgstr ""
+msgstr "cá nhân"
 
 #: measurements/lmi.html:106
 #: measurements/lmi.html:130
@@ -1408,12 +1415,13 @@ msgstr ""
 #: measurements/lmi.html:34
 #: measurements/lmi.html:70
 msgid "total"
-msgstr ""
+msgstr "tổng cộng"
 
 #: map/map.html:121
 msgid "{{current.assignment.name}} + tree"
-msgstr ""
+msgstr "{{current.assignment.name}} + cây"
 
 #: map/map.html:115
 msgid "{{current.assignment.name}} only"
-msgstr ""
+msgstr "{{current.assignment.name}} chỉ duy nhất"
+

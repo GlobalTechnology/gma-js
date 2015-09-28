@@ -1,122 +1,129 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2015-09-28 17:37+0000\n"
+"PO-Revision-Date: 2015-09-28 17:37+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: map/edit-church.html:30
 #: map/new-church.html:36
 msgid "+99 99999999"
-msgstr ""
+msgstr "'+99 99999999"
 
 #: admin/_measurement.html:15
 #: admin/_team-members.html:62
 msgid "Actions"
-msgstr ""
+msgstr "Tindakan"
 
 #: map/new-church.html:89
 msgid "Add Church"
-msgstr ""
+msgstr "Tambah Gereja"
 
 #: admin/_measurement.html:5
 msgid "Add Measurement"
-msgstr ""
+msgstr "Tambah Pengukuran"
 
 #: map/edit-training.html:86
 msgid "Add Stage"
-msgstr ""
+msgstr "Tambah Tahap"
 
 #: map/edit-church.html:116
 #: map/edit-church.html:145
 #: map/edit-training.html:101
 #: map/edit-training.html:122
 msgid "Add Story"
-msgstr ""
+msgstr "Tambah Cerita"
 
 #: map/new-target-city.html:56
 msgid "Add Target city"
-msgstr ""
+msgstr "Tambah Kota Target"
 
 #: map/new-training.html:46
 msgid "Add Training"
-msgstr ""
+msgstr "Tambah Pelatihan"
 
 #: admin/add-sub-ministry.html:4
 msgid "Add a new sub ministry to"
-msgstr ""
+msgstr "Tambah sub pelayanan baru untuk"
 
 #: admin/_team-members.html:18
 msgid "Add member"
-msgstr ""
+msgstr "Tambah anggota"
 
 #: admin/add-measurement-type.html:4
 msgid "Add new measurement"
-msgstr ""
+msgstr "Tambah pengukuran baru"
 
 #: admin/add-team-member.html:4
 msgid "Add new member to"
-msgstr ""
+msgstr "Tambah anggota baru ke"
 
 #: stories/new-story-dialog.html:4
 msgid "Add new story"
-msgstr ""
+msgstr "Tambah cerita baru"
 
 #: stories/new-story-dialog.html:5
 msgid "Add new story to - {{iconName}}"
-msgstr ""
+msgstr "Tambah cerita baru ke - {{iconName}}"
 
 #: stories/stories.html:12
 msgid "Add story"
-msgstr ""
+msgstr "Tambah cerita"
 
 #: admin/_team-members.html:19
 msgid "Add sub ministry"
-msgstr ""
+msgstr "Tambah sub pelayanan"
 
 #. Main Navigation Tabs - Administrate
 #: controllers/admin/admin-ctrl.js:275
 #: measurements/details.html:130
 #: services/settings/settings-service.js:82
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: controllers/admin/admin-ctrl.js:276
 msgid "Admin (inherited)"
-msgstr ""
+msgstr "Admin (diwariskan)"
 
 #: preference/user-preference-modal.html:49
 msgid "Application language"
-msgstr ""
+msgstr "Bahasa aplikasi"
 
 #: measurements/details.html:125
 msgid "Approve"
-msgstr ""
+msgstr "Setuju"
 
 #: measurements/details.html:124
 msgid "Approved"
-msgstr ""
+msgstr "Disetujui"
 
 #: map/_confirmation-dialog.html:7
 msgid "Are you sure you want to delete ?"
-msgstr ""
+msgstr "Apakah Anda yakin ingin menghapus?"
 
 #: map/edit-target-city.html:17
 #: map/new-target-city.html:17
 msgid "Area"
-msgstr ""
+msgstr "Area"
 
 #: controllers/map/map-ctrl.js:480
 msgid "Bad Request: Unable to create target city"
-msgstr ""
+msgstr "Permintaan Buruk: Tidak dapat membuat kota target"
 
 #: admin/add-measurement-type.html:60
 #: measurements/measurements.html:80
 msgid "Build"
-msgstr ""
+msgstr "Bangun"
 
 #: admin/_edit-ministry.html:69
 msgid "CTRL + click to select multiple languages"
-msgstr ""
+msgstr "CTRL + klik untuk memilih beberapa bahasa"
 
 #. Verb - Button
 #: join-ministry.html:29
@@ -126,36 +133,36 @@ msgstr ""
 #: map/new-training.html:45
 #: preference/user-preference-modal.html:57
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: controllers/admin/admin-ctrl.js:170
 msgid "Changes saved successfully"
-msgstr ""
+msgstr "Perubahan berhasil disimpan"
 
 #: map/edit-church.html:57
 #: map/new-church.html:57
 msgid "Church"
-msgstr ""
+msgstr "Gereja"
 
 #: map/map.html:51
 msgid "Church or community of disciples"
-msgstr ""
+msgstr "Gereja atau komunitas para murid"
 
 #: controllers/map/map-ctrl.js:423
 msgid "Church was created"
-msgstr ""
+msgstr "Gereja telah dibuat"
 
 #: controllers/map/map-ctrl.js:745
 msgid "Church was deleted successfully"
-msgstr ""
+msgstr "Gereja berhasil dihapus"
 
 #: controllers/map/map-ctrl.js:725
 msgid "Church was updated successfully"
-msgstr ""
+msgstr "Gereja berhasil diperbarui"
 
 #: map/map.html:137
 msgid "Click to expand/collapse search"
-msgstr ""
+msgstr "Klik untuk meluaskan/menciutkan pencarian"
 
 #: admin/add-measurement-type.html:3
 #: admin/add-measurement-type.html:69
@@ -177,510 +184,510 @@ msgstr ""
 #: stories/view-story-dialog.html:27
 #: stories/view-story-dialog.html:3
 msgid "Close"
-msgstr ""
+msgstr "Tutup"
 
 #: admin/_measurement.html:13
 #: admin/add-measurement-type.html:43
 msgid "Column"
-msgstr ""
+msgstr "Kolom"
 
 #: map/_confirmation-dialog.html:4
 msgid "Confirm ?"
-msgstr ""
+msgstr "Yakin?"
 
 #: map/edit-church.html:18
 #: map/new-church.html:23
 msgid "Contact Email"
-msgstr ""
+msgstr "Email Kontak"
 
 #: map/edit-church.html:28
 #: map/new-church.html:33
 msgid "Contact Mobile"
-msgstr ""
+msgstr "Kontak Ponsel"
 
 #: map/edit-church.html:11
 #: map/new-church.html:17
 msgid "Contact Name"
-msgstr ""
+msgstr "Nama Kontak"
 
 #: stories/edit-story-dialog.html:19
 #: stories/new-story-dialog.html:21
 msgid "Content"
-msgstr ""
+msgstr "Konten"
 
 #: preference/user-preference-modal.html:41
 msgid "Content language"
-msgstr ""
+msgstr "Bahasa Konten"
 
 #: map/edit-target-city.html:25
 #: map/new-target-city.html:25
 msgid "Country"
-msgstr ""
+msgstr "Negara"
 
 #: admin/add-measurement-type.html:70
 #: admin/add-sub-ministry.html:22
 msgid "Create"
-msgstr ""
+msgstr "Buat"
 
 #: map/new-church.html:4
 msgid "Create New Church"
-msgstr ""
+msgstr "Buat Gereja Baru"
 
 #: map/map.html:13
 msgid "Create new target city"
-msgstr ""
+msgstr "Buat kota target baru"
 
 #: map/map.html:5
 msgid "Create new target point"
-msgstr ""
+msgstr "Buat titik sasaran baru"
 
 #: map/map.html:9
 msgid "Create new training"
-msgstr ""
+msgstr "Buat pelatihan baru"
 
 #: stories/stories.html:7
 msgid "Created by me"
-msgstr ""
+msgstr "Dibuat oleh saya"
 
 #: admin/confirm-member-drop.html:9
 msgid "Current role"
-msgstr ""
+msgstr "Peran saat ini"
 
 #: admin/confirm-member-drop.html:11
 msgid "Current role will be set to former-member"
-msgstr ""
+msgstr "Peran saat ini akan diatur untuk mantan-anggota"
 
 #: map/edit-training.html:29
 #: map/edit-training.html:46
 #: map/new-training.html:24
 msgid "Date"
-msgstr ""
+msgstr "Tanggal"
 
 #: admin/_edit-ministry.html:50
 #: preference/user-preference-modal.html:12
 #: preference/user-preference-modal.html:21
 msgid "Default"
-msgstr ""
+msgstr "Default"
 
 #: admin/_edit-ministry.html:46
 msgid "Default MCC"
-msgstr ""
+msgstr "MCC Default"
 
 #: controllers/map/map-ctrl.js:1403
 msgid "Default ministry map view has been set"
-msgstr ""
+msgstr "Tampilan peta pelayanan default telah disetel"
 
 #: map/_confirmation-dialog.html:11
 #: map/edit-training.html:72
 #: measurements/details.html:134
 msgid "Delete"
-msgstr ""
+msgstr "Hapus"
 
 #: map/edit-church.html:135
 msgid "Delete Church"
-msgstr ""
+msgstr "Hapus Gereja"
 
 #: map/edit-target-city.html:69
 msgid "Delete Target city"
-msgstr ""
+msgstr "Hapus Kota Target"
 
 #: map/edit-training.html:112
 msgid "Delete Training"
-msgstr ""
+msgstr "Hapus Pelatihan"
 
 #: admin/_team-members.html:8
 #: controllers/admin/admin-ctrl.js:280
 msgid "Deleted"
-msgstr ""
+msgstr "Dihapus"
 
 #: admin/add-measurement-type.html:20
 msgid "Description"
-msgstr ""
+msgstr "Deskripsi"
 
 #: admin/add-measurement-type.html:25
 #: admin/edit-measurement-type.html:45
 msgid "Description is required"
-msgstr ""
+msgstr "Deskripsi wajib diisi"
 
 #: admin/add-measurement-type.html:26
 #: admin/edit-measurement-type.html:46
 msgid "Description should not exceed 200 characters"
-msgstr ""
+msgstr "Deskripsi tidak boleh melebihi 200 karakter"
 
 #. MCC - Digital Strategies
 #: controllers/gma-ctrl.js:182
 msgid "Digital Strategies"
-msgstr ""
+msgstr "Digital Strategies"
 
 #: stories/edit-story-dialog.html:71
 #: stories/new-story-dialog.html:75
 msgid "Draft"
-msgstr ""
+msgstr "Draf"
 
 #: controllers/map/map-ctrl.js:525
 #: controllers/map/map-ctrl.js:557
 #: controllers/map/map-ctrl.js:611
 msgid "Drag to Move"
-msgstr ""
+msgstr "Tarik untuk pindahkan"
 
 #: controllers/admin/admin-ctrl.js:632
 #: controllers/admin/admin-ctrl.js:639
 msgid "Drop canceled, can't be dropped on child team"
-msgstr ""
+msgstr "Penjatuhan dibatalkan, tidak dapat dijatuhkan pada tim anak"
 
 #: controllers/admin/admin-ctrl.js:625
 msgid "Drop canceled, can't be dropped on parent team"
-msgstr ""
+msgstr "Penjatuhan dibatalkan, tidak dapat dijatuhkan pada tim induk"
 
 #: controllers/admin/admin-ctrl.js:652
 msgid "Drop canceled, can't be dropped on selected team"
-msgstr ""
+msgstr "Penjatuhan dibatalkan, tidak dapat dijatuhkan pada tim terpilh"
 
 #: stories/stories.html:35
 msgid "Edit"
-msgstr ""
+msgstr "Edit"
 
 #: controllers/admin/admin-ctrl.js:95
 msgid "Edit Ministry"
-msgstr ""
+msgstr "Edit Pelayanan"
 
 #: map/edit-target-city.html:4
 msgid "Edit Target City"
-msgstr ""
+msgstr "Edit Kota Target"
 
 #: admin/_edit-ministry.html:4
 msgid "Edit current ministry"
-msgstr ""
+msgstr "Edit pelayanan saat ini"
 
 #: stories/edit-story-dialog.html:4
 msgid "Edit story"
-msgstr ""
+msgstr "Edit cerita"
 
 #: admin/_team-members.html:62
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: admin/edit-measurement-type.html:22
 msgid "English description"
-msgstr ""
+msgstr "Deskripsi Bahasa Inggris"
 
 #: admin/edit-measurement-type.html:16
 msgid "English name"
-msgstr ""
+msgstr "Nama Inggrisnya"
 
 #: controllers/stories/stories-ctrl.js:63
 msgid "Error loading news feeds"
-msgstr ""
+msgstr "Kesalahan memuat umpan berita"
 
 #: controllers/map/map-ctrl.js:482
 msgid "Error: Unable to create target city"
-msgstr ""
+msgstr "Galat: Tidak dapat membuat kota target"
 
 #: map/map.html:109
 msgid "Everything"
-msgstr ""
+msgstr "Semuanya"
 
 #: map/map.html:103
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTER"
 
 #: controllers/map/map-ctrl.js:1416
 msgid "Failed to get your current location"
-msgstr ""
+msgstr "Gagal mendapatkan lokasi Anda saat ini"
 
 #: controllers/map/map-ctrl.js:1548
 #: controllers/stories/stories-ctrl.js:160
 msgid "Failed to save story"
-msgstr ""
+msgstr "Gagal menyimpan cerita"
 
 #: controllers/admin/admin-ctrl.js:376
 msgid "Failed, User not found"
-msgstr ""
+msgstr "Gagal, Pengguna tidak ditemukan"
 
 #: admin/add-measurement-type.html:47
 msgid "Faith"
-msgstr ""
+msgstr "Iman"
 
 #: measurements/measurements.html:35
 msgid "Faith Actions"
-msgstr ""
+msgstr "Tindakan Iman"
 
 #: admin/_team-members.html:62
 msgid "First Name"
-msgstr ""
+msgstr "Nama Depan"
 
 #: controllers/admin/admin-ctrl.js:281
 msgid "Former Member"
-msgstr ""
+msgstr "Mantan Anggota"
 
 #: admin/_team-members.html:9
 msgid "Former members"
-msgstr ""
+msgstr "Mantan anggota"
 
 #: admin/add-measurement-type.html:48
 #: measurements/measurements.html:41
 msgid "Fruit"
-msgstr ""
+msgstr "Buah"
 
 #. MCC - Global Church Movements
 #: controllers/gma-ctrl.js:185
 msgid "Global Church Movements"
-msgstr ""
+msgstr "Global Church Movements"
 
 #: map/edit-church.html:56
 #: map/map.html:42
 #: map/new-church.html:56
 msgid "Group"
-msgstr ""
+msgstr "Grup"
 
 #: admin/_edit-ministry.html:58
 #: admin/_measurement.html:25
 msgid "Hide"
-msgstr ""
+msgstr "Sembunyikan"
 
 #: admin/_edit-ministry.html:55
 msgid "Hide reports tab by default"
-msgstr ""
+msgstr "Sembunyikan tab laporan secara default"
 
 #. Main Navigation Tabs - Home (News/Stories)
 #: services/settings/settings-service.js:93
 msgid "Home"
-msgstr ""
+msgstr "Beranda"
 
 #: controllers/map/map-ctrl.js:1536
 #: controllers/stories/stories-ctrl.js:138
 #: controllers/stories/stories-ctrl.js:242
 msgid "Image file was uploaded"
-msgstr ""
+msgstr "File gambar telah diunggah"
 
 #: stories/edit-story-dialog.html:48
 #: stories/new-story-dialog.html:51
 msgid "Image will be resized to"
-msgstr ""
+msgstr "Gambar akan diubah ukurannya menjadi"
 
 #: admin/_team-members.html:13
 msgid "Inherited admins"
-msgstr ""
+msgstr "Admin yang diwariskan"
 
 #: admin/_team-members.html:11
 msgid "Inherited leaders"
-msgstr ""
+msgstr "Pimpinan yang diwariskan"
 
 #: error/error.html:2
 msgid "Invalid Session"
-msgstr ""
+msgstr "Sesi tidak valid"
 
 #: admin/add-team-member.html:15
 #: map/edit-church.html:22
 #: map/new-church.html:28
 msgid "Invalid email format"
-msgstr ""
+msgstr "Format email tidak valid"
 
 #: stories/edit-story-dialog.html:49
 #: stories/new-story-dialog.html:52
 msgid "Invalid image file input."
-msgstr ""
+msgstr "Input file gambar tidak valid."
 
 #: map/edit-church.html:38
 #: map/new-church.html:44
 msgid "Jesus film activity"
-msgstr ""
+msgstr "Aktivitas Jesus film"
 
 #: map/map.html:87
 msgid "Jesus film contribution"
-msgstr ""
+msgstr "Kontribusi Jesus film"
 
 #. Modal Title
 #. Verb - Button
 #: join-ministry.html:28
 #: join-ministry.html:3
 msgid "Join Ministry/Team"
-msgstr ""
+msgstr "Gabung Pelayanan/Tim"
 
 #: application.html:21
 msgid "Join another location / ministry"
-msgstr ""
+msgstr "Gabung lokasi / pelayanan lain"
 
 #: map/map.html:22
 msgid "LEGEND"
-msgstr ""
+msgstr "LEGENDA"
 
 #: admin/edit-measurement-type.html:9
 msgid "Language"
-msgstr ""
+msgstr "Bahasa"
 
 #: admin/_team-members.html:62
 msgid "Last Name"
-msgstr ""
+msgstr "Nama Belakang"
 
 #: controllers/admin/admin-ctrl.js:277
 #: measurements/details.html:132
 msgid "Leader"
-msgstr ""
+msgstr "Pimpinan"
 
 #: controllers/admin/admin-ctrl.js:278
 msgid "Leader (inherited)"
-msgstr ""
+msgstr "Pimpinan (diwariskan)"
 
 #. MCC - Leader Led
 #: controllers/gma-ctrl.js:188
 msgid "Leader Led"
-msgstr ""
+msgstr "Leader Led"
 
 #: measurements/details.html:33
 msgid "Local"
-msgstr ""
+msgstr "Lokal"
 
 #: measurements/measurements.html:7
 msgid "Local Movement Indicators"
-msgstr ""
+msgstr "Indikator Gerakan Lokal"
 
 #: measurements/details.html:26
 msgid "Local Team"
-msgstr ""
+msgstr "Tim Lokal"
 
 #: admin/_measurement.html:27
 #: admin/edit-measurement-type.html:4
 msgid "Localize"
-msgstr ""
+msgstr "Melokalisir"
 
 #: admin/edit-measurement-type.html:40
 msgid "Localized description"
-msgstr ""
+msgstr "Deskripsi yang dilokalisir"
 
 #: admin/edit-measurement-type.html:29
 msgid "Localized name"
-msgstr ""
+msgstr "Nama yang dilokalisir"
 
 #: error/error.html:5
 msgid "Log In"
-msgstr ""
+msgstr "Masuk"
 
 #: application.html:70
 msgid "Logout"
-msgstr ""
+msgstr "Keluar"
 
 #: map/edit-training.html:37
 #: map/new-training.html:38
 msgid "MCC"
-msgstr ""
+msgstr "MCC"
 
 #: admin/_edit-ministry.html:34
 msgid "MCCs"
-msgstr ""
+msgstr "MCC"
 
 #: controllers/admin/admin-ctrl.js:101
 msgid "Manage Measurements"
-msgstr ""
+msgstr "Kelola Pengukuran"
 
 #. Main Navigation Tabs - Map
 #: services/settings/settings-service.js:49
 msgid "Map"
-msgstr ""
+msgstr "Peta"
 
 #: controllers/admin/admin-ctrl.js:191
 msgid "Measurement was created successfully"
-msgstr ""
+msgstr "Pengukuran berhasil dibuat"
 
 #: controllers/admin/admin-ctrl.js:262
 msgid "Measurement was updated"
-msgstr ""
+msgstr "Pengukuran telah diperbarui"
 
 #. Main Navigation Tabs - Measurements
 #: admin/_measurement.html:4
 #: services/settings/settings-service.js:60
 msgid "Measurements"
-msgstr ""
+msgstr "Pengukuran"
 
 #: controllers/measurements/measurements-ctrl.js:135
 msgid "Measurements saved successfully"
-msgstr ""
+msgstr "Pengukuran berhasil disimpan"
 
 #: controllers/measurements/measurements-ctrl.js:175
 msgid "Measurements updated successfully"
-msgstr ""
+msgstr "Pengukuran berhasil diperbarui"
 
 #: admin/confirm-update-role.html:8
 #: controllers/admin/admin-ctrl.js:279
 #: measurements/details.html:131
 msgid "Member"
-msgstr ""
+msgstr "Anggota"
 
 #: controllers/admin/admin-ctrl.js:595
 msgid "Member was moved to ministry successfully"
-msgstr ""
+msgstr "Anggota berhasil dipindahkan ke pelayanan"
 
 #: map/edit-church.html:82
 msgid "Ministry"
-msgstr ""
+msgstr "Pelayanan"
 
 #: admin/_edit-ministry.html:10
 #: admin/add-sub-ministry.html:9
 msgid "Ministry name"
-msgstr ""
+msgstr "Nama Pelayanan"
 
 #: admin/_edit-ministry.html:15
 #: admin/add-sub-ministry.html:14
 msgid "Ministry name is required."
-msgstr ""
+msgstr "Nama Pelayanan wajib diisi."
 
 #: controllers/admin/admin-ctrl.js:567
 msgid "Ministry was moved successfully"
-msgstr ""
+msgstr "Pelayanan berhasil dipindahkan"
 
 #: join-ministry.html:9
 msgid "Ministry/Team:"
-msgstr ""
+msgstr "Pelayanan/Tim:"
 
 #: application.html:98
 msgid "Mobile Apps"
-msgstr ""
+msgstr "Aplikasi Seluler"
 
 #: map/edit-church.html:32
 #: map/new-church.html:38
 msgid "Mobile number is invalid."
-msgstr ""
+msgstr "Nomor ponsel tidak valid."
 
 #: map/edit-church.html:121
 msgid "Move Church"
-msgstr ""
+msgstr "Pindahkan Gereja"
 
 #: map/edit-target-city.html:64
 msgid "Move Target city"
-msgstr ""
+msgstr "Pindahkan Kota Target"
 
 #: map/edit-training.html:106
 msgid "Move Training"
-msgstr ""
+msgstr "Pindahkan Pelatihan"
 
 #: admin/confirm-member-drop.html:4
 msgid "Move member to this team ?"
-msgstr ""
+msgstr "Pindahkan anggota ke tim ini?"
 
 #: admin/confirm-team-drop.html:4
 msgid "Move sub-team to this team ?"
-msgstr ""
+msgstr "Pindahkan sub-tim ke tim ini?"
 
 #: map/edit-church.html:58
 #: map/new-church.html:58
 msgid "Multiplying Church"
-msgstr ""
+msgstr "Memperbanyak Gereja"
 
 #: map/map.html:61
 msgid "Multiplying church or community of disciples"
-msgstr ""
+msgstr "Memperbanyak gereja atau komunitas para murid"
 
 #: application.html:68
 msgid "My Preferences"
-msgstr ""
+msgstr "Preferensi Saya"
 
 #: map/map.html:17
 msgid "My location on map"
-msgstr ""
+msgstr "Lokasi saya pada peta"
 
 #: preference/user-preference-modal.html:4
 msgid "My preferences"
-msgstr ""
+msgstr "Preferensi Saya"
 
 #: admin/_measurement.html:12
 #: admin/add-measurement-type.html:9
@@ -693,12 +700,12 @@ msgstr ""
 #: map/new-target-city.html:8
 #: map/new-training.html:8
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 #: admin/add-measurement-type.html:14
 #: admin/edit-measurement-type.html:34
 msgid "Name is required"
-msgstr ""
+msgstr "Nama wajib diisi"
 
 #: map/edit-target-city.html:12
 #: map/edit-training.html:15
@@ -706,33 +713,33 @@ msgstr ""
 #: map/new-target-city.html:12
 #: map/new-training.html:12
 msgid "Name is required."
-msgstr ""
+msgstr "Nama wajib diisi."
 
 #: admin/add-measurement-type.html:15
 #: admin/edit-measurement-type.html:35
 msgid "Name should not exceed 200 characters"
-msgstr ""
+msgstr "Nama tidak boleh melebihi 200 karakter"
 
 #: map/new-training.html:4
 msgid "New Church Training Activity"
-msgstr ""
+msgstr "Aktivitas Pelatihan Gereja Baru"
 
 #: admin/confirm-update-role.html:10
 msgid "New Role"
-msgstr ""
+msgstr "Peran Baru"
 
 #: map/new-target-city.html:4
 msgid "New Target city"
-msgstr ""
+msgstr "Kota Target Baru"
 
 #: controllers/admin/admin-ctrl.js:369
 msgid "New member was added successfully"
-msgstr ""
+msgstr "Anggota baru berhasil ditambahkan"
 
 #: stories/stories.html:45
 #: stories/stories.html:61
 msgid "Newer"
-msgstr ""
+msgstr "Lebih baru"
 
 #: admin/confirm-member-drop.html:15
 #: admin/confirm-team-drop.html:13
@@ -742,173 +749,173 @@ msgstr ""
 #: map/new-church.html:47
 #: preference/user-preference-modal.html:37
 msgid "No"
-msgstr ""
+msgstr "Tidak"
 
 #: admin/_edit-ministry.html:29
 msgid "No parent ministry"
-msgstr ""
+msgstr "Tidak ada pelayanan induk"
 
 #: stories/stories.html:40
 msgid "No story found"
-msgstr ""
+msgstr "Tidak ada cerita yang ditemukan"
 
 #: map/edit-target-city.html:47
 #: map/new-target-city.html:47
 msgid "None"
-msgstr ""
+msgstr "Tidak ada"
 
 #: admin/confirm-update-role.html:9
 msgid "Old Role"
-msgstr ""
+msgstr "Peran Lama"
 
 #: stories/stories.html:45
 #: stories/stories.html:61
 msgid "Older"
-msgstr ""
+msgstr "Lebih lama"
 
 #: map/edit-church.html:111
 #: map/edit-target-city.html:58
 #: map/edit-training.html:96
 msgid "Options"
-msgstr ""
+msgstr "Opsi"
 
 #: admin/add-measurement-type.html:50
 #: admin/add-measurement-type.html:62
 msgid "Other"
-msgstr ""
+msgstr "Lainnya"
 
 #: measurements/measurements.html:115
 msgid "Other Measurements"
-msgstr ""
+msgstr "Pengukuran Lainnya"
 
 #: admin/add-measurement-type.html:49
 #: measurements/measurements.html:47
 msgid "Outcome"
-msgstr ""
+msgstr "Hasil"
 
 #: map/map.html:95
 msgid "Parent lines"
-msgstr ""
+msgstr "Garis Induk"
 
 #: admin/_edit-ministry.html:21
 msgid "Parent ministry"
-msgstr ""
+msgstr "Pelayanan Induk"
 
 #: map/edit-training.html:47
 #: map/new-training.html:31
 msgid "Participants"
-msgstr ""
+msgstr "Peserta"
 
 #: admin/add-measurement-type.html:31
 msgid "Permalink"
-msgstr ""
+msgstr "Permalink"
 
 #: admin/add-measurement-type.html:37
 msgid "Permalink is invalid. Please match with required format"
-msgstr ""
+msgstr "Permalink tidak valid. Silahkan cocokkan dengan format yang diperlukan"
 
 #: admin/add-measurement-type.html:36
 msgid "Permalink is required"
-msgstr ""
+msgstr "Permalink wajib diisi"
 
 #: admin/add-measurement-type.html:38
 msgid "Permalink should not exceed 100 characters"
-msgstr ""
+msgstr "Permalink tidak boleh melebihi 100 karakter"
 
 #: join-ministry.html:5
 msgid "Please identify a ministry team that you work most closely with and request to join that team."
-msgstr ""
+msgstr "Silahkan identifikasikan tim pelayanan yang bekerja paling dekat dengan Anda dan minta untuk bergabung dengan tim tersebut."
 
 #: map/edit-church.html:43
 #: map/new-church.html:48
 msgid "Please make a choice"
-msgstr ""
+msgstr "Silahkan tentukan pilihan"
 
 #: preference/user-preference-modal.html:17
 msgid "Preferred MCC"
-msgstr ""
+msgstr "MCC pilihan"
 
 #: preference/user-preference-modal.html:45
 msgid "Preferred content language for"
-msgstr ""
+msgstr "Bahasa konten pilihan untuk"
 
 #: preference/user-preference-modal.html:8
 msgid "Preferred ministry"
-msgstr ""
+msgstr "Pelayanan pilihan"
 
 #: stories/edit-story-dialog.html:58
 #: stories/new-story-dialog.html:62
 msgid "Privacy"
-msgstr ""
+msgstr "Privasi"
 
 #: map/edit-church.html:72
 #: map/new-church.html:73
 msgid "Private"
-msgstr ""
+msgstr "Privat"
 
 #: map/edit-church.html:74
 #: map/new-church.html:75
 msgid "Public"
-msgstr ""
+msgstr "Publik"
 
 #: stories/edit-story-dialog.html:67
 #: stories/new-story-dialog.html:71
 msgid "Publish status"
-msgstr ""
+msgstr "Status Terbit"
 
 #: stories/edit-story-dialog.html:70
 #: stories/new-story-dialog.html:74
 msgid "Published"
-msgstr ""
+msgstr "Diterbitkan"
 
 #: stories/stories.html:52
 msgid "Refresh Feeds"
-msgstr ""
+msgstr "Segarkan Umpan"
 
 #: stories/stories.html:11
 msgid "Refresh List"
-msgstr ""
+msgstr "Segarkan Daftar"
 
 #: admin/_team-members.html:17
 msgid "Refresh members list"
-msgstr ""
+msgstr "Segarkan daftar anggota"
 
 #: map/edit-church.html:73
 #: map/new-church.html:74
 msgid "Registered Users"
-msgstr ""
+msgstr "Segarkan Pengguna"
 
 #: stories/new-story-dialog.html:66
 msgid "Registered users"
-msgstr ""
+msgstr "Pengguna Terdaftar"
 
 #: map/edit-church.html:129
 msgid "Remove Parent Church"
-msgstr ""
+msgstr "Hapus Gereja Induk"
 
 #: stories/new-story-dialog.html:57
 msgid "Remove image"
-msgstr ""
+msgstr "Hapus gambar"
 
 #: stories/edit-story-dialog.html:72
 msgid "Removed"
-msgstr ""
+msgstr "Dihapus"
 
 #. Main Navigation Tabs - Reports
 #: services/settings/settings-service.js:71
 msgid "Reports"
-msgstr ""
+msgstr "Laporan"
 
 #: admin/add-team-member.html:21
 msgid "Role"
-msgstr ""
+msgstr "Peran"
 
 #: admin/add-team-member.html:31
 #: admin/edit-measurement-type.html:56
 #: preference/user-preference-modal.html:58
 #: stories/new-story-dialog.html:103
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: map/edit-church.html:140
 #: map/edit-target-city.html:74
@@ -916,430 +923,430 @@ msgstr ""
 #: measurements/measurements.html:122
 #: measurements/measurements.html:21
 msgid "Save Changes"
-msgstr ""
+msgstr "Simpan Perubahan"
 
 #: measurements/details.html:146
 msgid "Save Measurements"
-msgstr ""
+msgstr "Simpan Pengukuran"
 
 #: admin/_measurement.html:33
 msgid "Save changes"
-msgstr ""
+msgstr "Simpan perubahan"
 
 #: map/map.html:136
 msgid "Search"
-msgstr ""
+msgstr "Cari"
 
 #: admin/_team-members.html:6
 msgid "Search Members"
-msgstr ""
+msgstr "Cari Anggota"
 
 #: admin/_measurement.html:14
 #: admin/add-measurement-type.html:55
 msgid "Section"
-msgstr ""
+msgstr "Seksi"
 
 #: map/edit-church.html:69
 #: map/new-church.html:70
 msgid "Security"
-msgstr ""
+msgstr "Keamanan"
 
 #: map/edit-church.html:77
 #: map/new-church.html:78
 msgid "Security is a required field"
-msgstr ""
+msgstr "Keamanan wajib diisi"
 
 #: controllers/admin/admin-ctrl.js:282
 msgid "Self Assigned"
-msgstr ""
+msgstr "Penugasan Otomatis"
 
 #: measurements/details.html:104
 msgid "Self Assigned Members (not yet approved)"
-msgstr ""
+msgstr "Anggota Penugasan Otamatis (belum disetujui)"
 
 #: admin/add-measurement-type.html:61
 #: measurements/measurements.html:98
 msgid "Send"
-msgstr ""
+msgstr "Kirim"
 
 #: map/map.html:129
 msgid "Set Ministry Default View for others"
-msgstr ""
+msgstr "Setel Tampilan Default Pelayanan untuk lainnya"
 
 #: map/edit-church.html:126
 msgid "Set Parent Church"
-msgstr ""
+msgstr "Setel Gereja Induk"
 
 #: map/map.html:128
 msgid "Set as my Ministry Default View"
-msgstr ""
+msgstr "Setel sebagai Tampilan Default Pelayanan saya"
 
 #: admin/_edit-ministry.html:59
 #: admin/_measurement.html:24
 msgid "Show"
-msgstr ""
+msgstr "Tampilkan"
 
 #: map/edit-church.html:63
 #: map/new-church.html:64
 msgid "Size"
-msgstr ""
+msgstr "Ukuran"
 
 #: admin/confirm-team-drop.html:8
 msgid "Source Name"
-msgstr ""
+msgstr "Nama Sumber"
 
 #: map/edit-target-city.html:33
 #: map/edit-training.html:45
 #: map/new-target-city.html:33
 msgid "Stage"
-msgstr ""
+msgstr "Tahap"
 
 #: join-ministry.html:16
 msgid "Start typing to search for ministry"
-msgstr ""
+msgstr "Mulai ketik untuk mencari pelayanan"
 
 #: stories/edit-story-dialog.html:26
 #: stories/new-story-dialog.html:28
 msgid "Story content field is required"
-msgstr ""
+msgstr "Konten cerita wajib diisi"
 
 #: stories/edit-story-dialog.html:26
 msgid "Story content should not exceed"
-msgstr ""
+msgstr "Konten cerita tidak boleh melebihi"
 
 #: stories/new-story-dialog.html:29
 msgid "Story content should not exceed {{storiesConfig.content_length}} characters"
-msgstr ""
+msgstr "Konten cerita tidak boleh melebihi {{storiesConfig.content_length}} characters"
 
 #: controllers/stories/stories-ctrl.js:133
 msgid "Story saved successfully"
-msgstr ""
+msgstr "Cerita berhasil disimpan"
 
 #: stories/edit-story-dialog.html:13
 #: stories/new-story-dialog.html:15
 msgid "Story title field is required"
-msgstr ""
+msgstr "Judul cerita wajib diisi"
 
 #: stories/edit-story-dialog.html:14
 #: stories/new-story-dialog.html:16
 msgid "Story title should not exceed 120 characters"
-msgstr ""
+msgstr "Judul cerita tidak boleh melebihi 120 karakter"
 
 #: controllers/stories/stories-ctrl.js:234
 msgid "Story was updated"
-msgstr ""
+msgstr "Cerita telah diperbarui"
 
 #. MCC - Student Led
 #: controllers/gma-ctrl.js:191
 msgid "Student Led"
-msgstr ""
+msgstr "Student Led"
 
 #: map/edit-target-city.html:44
 #: map/new-target-city.html:44
 msgid "Sub Stage"
-msgstr ""
+msgstr "Sub Pelayanan"
 
 #: controllers/admin/admin-ctrl.js:487
 msgid "Sub ministry was created successfully"
-msgstr ""
+msgstr "Sub pelayanan berhasil dibuat"
 
 #: measurements/details.html:86
 msgid "Sub-Ministries / Teams"
-msgstr ""
+msgstr "Sub-Pelayanan / Tim"
 
 #: admin/_edit-ministry.html:63
 msgid "Supported languages"
-msgstr ""
+msgstr "Bahasa yang didukung"
 
 #: join-ministry.html:20
 #: preference/user-preference-modal.html:34
 msgid "Supported staff"
-msgstr ""
+msgstr "Staf yang didukung"
 
 #: stories/new-story-dialog.html:90
 msgid "Tagged MCC"
-msgstr ""
+msgstr "MCC yang ditandai"
 
 #: stories/edit-story-dialog.html:87
 msgid "Tagged MCC :"
-msgstr ""
+msgstr "MCC yang ditandai :"
 
 #: stories/edit-story-dialog.html:79
 #: stories/new-story-dialog.html:82
 msgid "Tagged ministry"
-msgstr ""
+msgstr "Pelayanan yang ditandai"
 
 #: map/edit-church.html:55
 #: map/map.html:33
 #: map/new-church.html:55
 msgid "Target"
-msgstr ""
+msgstr "Target"
 
 #: admin/confirm-team-drop.html:9
 msgid "Target Team"
-msgstr ""
+msgstr "Tim Target"
 
 #: map/map.html:70
 msgid "Target city"
-msgstr ""
+msgstr "Kota Target"
 
 #: controllers/map/map-ctrl.js:964
 msgid "Target city position was updated"
-msgstr ""
+msgstr "Posisi kota target telah diperbarui"
 
 #: controllers/map/map-ctrl.js:474
 msgid "Target city was created successfully"
-msgstr ""
+msgstr "Kota target berhasil dibuat"
 
 #: controllers/map/map-ctrl.js:1332
 msgid "Target city was deleted successfully"
-msgstr ""
+msgstr "Kota target berhasil dihapus"
 
 #: controllers/map/map-ctrl.js:779
 msgid "Target city was updated"
-msgstr ""
+msgstr "Kota target telah diperbarui"
 
 #: admin/confirm-member-drop.html:10
 msgid "Target team"
-msgstr ""
+msgstr "Tim Target"
 
 #: measurements/lmi.html:100
 #: measurements/lmi.html:124
 #: measurements/lmi.html:148
 #: measurements/lmi.html:64
 msgid "Team"
-msgstr ""
+msgstr "Tim"
 
 #: controllers/admin/admin-ctrl.js:89
 msgid "Team & Members"
-msgstr ""
+msgstr "Tim & Anggota"
 
 #: measurements/details.html:60
 msgid "Team Members"
-msgstr ""
+msgstr "Anggota Tim"
 
 #: stories/edit-story-dialog.html:63
 #: stories/new-story-dialog.html:67
 msgid "Team only"
-msgstr ""
+msgstr "Tim saja"
 
 #: admin/add-team-member.html:9
 msgid "TheKey username"
-msgstr ""
+msgstr "Nama Pengguna TheKey"
 
 #: stories/edit-story-dialog.html:9
 #: stories/new-story-dialog.html:11
 #: stories/new-story-dialog.html:13
 msgid "Title"
-msgstr ""
+msgstr "Judul"
 
 #: measurements/details.html:17
 #: measurements/details.html:49
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #: map/edit-training.html:21
 #: map/new-training.html:17
 msgid "Training Type"
-msgstr ""
+msgstr "Jenis Pelatihan"
 
 #: map/map.html:79
 msgid "Training activity"
-msgstr ""
+msgstr "Aktivitas Pelatihan"
 
 #: controllers/map/map-ctrl.js:1356
 msgid "Training stage was deleted successfully"
-msgstr ""
+msgstr "Tahap pelatihan berhasil dihapus"
 
 #: controllers/map/map-ctrl.js:447
 msgid "Training was created"
-msgstr ""
+msgstr "Pelatihan telah dibuat"
 
 #: controllers/map/map-ctrl.js:1311
 msgid "Training was deleted successfully"
-msgstr ""
+msgstr "Pelatihan berhasil dihapus"
 
 #: controllers/map/map-ctrl.js:1290
 msgid "Training was saved successfully"
-msgstr ""
+msgstr "Pelatihan berhasil disimpan"
 
 #: controllers/map/map-ctrl.js:757
 #: controllers/map/map-ctrl.js:768
 msgid "Training was updated"
-msgstr ""
+msgstr "Pelatihan telah diperbarui"
 
 #: map/edit-church.html:52
 #: map/new-church.html:52
 msgid "Type"
-msgstr ""
+msgstr "Jenis"
 
 #: controllers/admin/admin-ctrl.js:378
 msgid "Unable to add new member"
-msgstr ""
+msgstr "Tidak dapat menambah anggota baru"
 
 #: controllers/admin/admin-ctrl.js:503
 msgid "Unable to add sub ministry"
-msgstr ""
+msgstr "Tidak dapat menambah sub pelayanan"
 
 #: controllers/map/map-ctrl.js:426
 msgid "Unable to create church"
-msgstr ""
+msgstr "Tidak dapat membuat gereja"
 
 #: controllers/admin/admin-ctrl.js:199
 msgid "Unable to create measurement"
-msgstr ""
+msgstr "Tidak dapat membuat pengukuran"
 
 #: controllers/map/map-ctrl.js:748
 msgid "Unable to delete church"
-msgstr ""
+msgstr "Tidak dapat menghapus gereja"
 
 #: controllers/map/map-ctrl.js:1337
 msgid "Unable to delete target city"
-msgstr ""
+msgstr "Tidak dapat menghapus kota target"
 
 #: controllers/map/map-ctrl.js:1315
 msgid "Unable to delete training"
-msgstr ""
+msgstr "Tidak dapat menghapus pelatihan"
 
 #: controllers/admin/admin-ctrl.js:241
 msgid "Unable to get measurement"
-msgstr ""
+msgstr "Tidak bisa mendapatkan pengukuran"
 
 #: controllers/gma-ctrl.js:293
 msgid "Unable to join to requested ministry"
-msgstr ""
+msgstr "Tidak dapat bergabung dengan pelayanan yang diminta"
 
 #: controllers/map/map-ctrl.js:587
 msgid "Unable to load countries list"
-msgstr ""
+msgstr "Tidak dapat memuat daftar negara"
 
 #: controllers/gma-ctrl.js:450
 msgid "Unable to load languages"
-msgstr ""
+msgstr "Tidak dapat memuat bahasa"
 
 #: controllers/measurements/measurements-ctrl.js:85
 msgid "Unable to load measurements"
-msgstr ""
+msgstr "Tidak dapat memuat pengukuran"
 
 #: controllers/reports/reports-ctrl.js:69
 msgid "Unable to load measurements for reporting"
-msgstr ""
+msgstr "Tidak dapat memuat pengukuran untuk laporan"
 
 #: controllers/stories/stories-ctrl.js:92
 msgid "Unable to load stories"
-msgstr ""
+msgstr "Tidak dapat memuat cerita"
 
 #: controllers/map/map-ctrl.js:316
 msgid "Unable to load target cities"
-msgstr ""
+msgstr "Tidak dapat memuat kota target"
 
 #: controllers/admin/admin-ctrl.js:316
 msgid "Unable to load team members"
-msgstr ""
+msgstr "Tidak dapat memuat anggota tim"
 
 #: controllers/map/map-ctrl.js:335
 msgid "Unable to load trainings"
-msgstr ""
+msgstr "Tidak dapat memuat pelatihan"
 
 #: controllers/admin/admin-ctrl.js:604
 msgid "Unable to move member"
-msgstr ""
+msgstr "Tidak dapat memindahkan anggota"
 
 #: controllers/admin/admin-ctrl.js:580
 msgid "Unable to move ministry"
-msgstr ""
+msgstr "Tidak dapat memindahkan pelayanan"
 
 #: controllers/admin/admin-ctrl.js:172
 msgid "Unable to save changes"
-msgstr ""
+msgstr "Tidak dapat menyimpan perubahan"
 
 #: controllers/map/map-ctrl.js:1385
 #: controllers/map/map-ctrl.js:1405
 msgid "Unable to save default map view"
-msgstr ""
+msgstr "Tidak dapat menyimpan tampilan peta default"
 
 #: controllers/measurements/measurements-ctrl.js:139
 msgid "Unable to save measurements"
-msgstr ""
+msgstr "Tidak dapat menyimpan pengukuran"
 
 #: controllers/preference/user-preference-ctrl.js:48
 msgid "Unable to save preferences"
-msgstr ""
+msgstr "Tidak dapat menyimpan preferensi"
 
 #: controllers/map/map-ctrl.js:729
 msgid "Unable to update church"
-msgstr ""
+msgstr "Tidak dapat memperbarui gereja"
 
 #: controllers/admin/admin-ctrl.js:264
 msgid "Unable to update measurement"
-msgstr ""
+msgstr "Tidak dapat memperbarui pengukuran"
 
 #: controllers/stories/stories-ctrl.js:251
 msgid "Unable to update story"
-msgstr ""
+msgstr "Tidak dapat memperbarui cerita"
 
 #: controllers/map/map-ctrl.js:781
 #: controllers/map/map-ctrl.js:966
 msgid "Unable to update target city"
-msgstr ""
+msgstr "Tidak dapat memperbarui kota target"
 
 #: controllers/map/map-ctrl.js:760
 msgid "Unable to update training"
-msgstr ""
+msgstr "Tidak dapat memperbarui pelatihan"
 
 #: controllers/admin/admin-ctrl.js:425
 #: controllers/admin/admin-ctrl.js:444
 msgid "Unable to update user role"
-msgstr ""
+msgstr "Tidak dapat memperbarui peran pengguna"
 
 #: controllers/map/map-ctrl.js:1542
 #: controllers/stories/stories-ctrl.js:269
 msgid "Unable to upload image file"
-msgstr ""
+msgstr "Tidak dapat memperbarui file gambar"
 
 #: stories/edit-story-dialog.html:101
 msgid "Update"
-msgstr ""
+msgstr "Perbarui"
 
 #: admin/_edit-ministry.html:89
 msgid "Update Ministry"
-msgstr ""
+msgstr "Perbarui Pelayanan"
 
 #: admin/confirm-update-role.html:4
 msgid "Update Team Member Role ?"
-msgstr ""
+msgstr "Perbarui Peran Anggota Tim?"
 
 #: stories/edit-story-dialog.html:31
 #: stories/new-story-dialog.html:34
 msgid "Upload an image"
-msgstr ""
+msgstr "Unggah gambar"
 
 #: controllers/map/map-ctrl.js:1540
 #: controllers/stories/stories-ctrl.js:267
 msgid "Upload failed, Invalid file input"
-msgstr ""
+msgstr "Unggah gagal, input file tidak valid"
 
 #: error/error.html:4
 msgid "Use the button below to log back in."
-msgstr ""
+msgstr "Gunakan tombol di bawah ini untuk masuk kembali."
 
 #: controllers/admin/admin-ctrl.js:420
 #: controllers/admin/admin-ctrl.js:438
 msgid "User role was updated"
-msgstr ""
+msgstr "Peran pengguna telah diperbarui"
 
 #: admin/add-team-member.html:14
 msgid "Username is required."
-msgstr ""
+msgstr "Nama Pengguna wajib diisi."
 
 #: stories/view-story-dialog.html:4
 msgid "View story"
-msgstr ""
+msgstr "Tampilkan cerita"
 
 #: admin/add-measurement-type.html:59
 #: measurements/measurements.html:57
 msgid "Win"
-msgstr ""
+msgstr "Menang"
 
 #: admin/confirm-member-drop.html:16
 #: admin/confirm-team-drop.html:14
@@ -1349,58 +1356,58 @@ msgstr ""
 #: map/new-church.html:46
 #: preference/user-preference-modal.html:36
 msgid "Yes"
-msgstr ""
+msgstr "Ya"
 
 #: controllers/gma-ctrl.js:291
 msgid "You are already assigned to requested ministry"
-msgstr ""
+msgstr "Anda telah ditugaskan ke pelayanan yang diminta"
 
 #: controllers/gma-ctrl.js:413
 msgid "You are not authorised for this"
-msgstr ""
+msgstr "Anda tidak diizinkan untuk ini"
 
 #: error/error.html:3
 msgid "You have been logged out or your session has expired due to inactivity."
-msgstr ""
+msgstr "Anda telah keluar atau sesi Anda telah berakhir karena tidak aktif."
 
 #: stories/new-story-dialog.html:25
 msgid "You have {{storiesConfig.content_length - story.content.length}} of {{storiesConfig.content_length}} characters remaining"
-msgstr ""
+msgstr "Anda memiliki {{storiesConfig.content_length - story.content.length}} dari {{storiesConfig.content_length}} sisa karakter"
 
 #: controllers/map/map-ctrl.js:1420
 msgid "Your browser does not support GeoLocation"
-msgstr ""
+msgstr "Browser Anda tidak mendukung GeoLocation"
 
 #: controllers/map/map-ctrl.js:1382
 msgid "Your default map view has been set"
-msgstr ""
+msgstr "Tampilan peta default Anda telah disetel"
 
 #: controllers/preference/user-preference-ctrl.js:39
 msgid "Your preferences were saved"
-msgstr ""
+msgstr "Preferensi Anda telah disimpan"
 
 #: stories/edit-story-dialog.html:26
 msgid "characters"
-msgstr ""
+msgstr "karakter"
 
 #: stories/edit-story-dialog.html:48
 msgid "existing image will be replaced"
-msgstr ""
+msgstr "gambar yang ada akan diganti"
 
 #: map/edit-church.html:5
 msgid "members"
-msgstr ""
+msgstr "anggota"
 
 #: map/new-church.html:26
 msgid "name@email.com"
-msgstr ""
+msgstr "nama@gmail.com"
 
 #: measurements/lmi.html:12
 #: measurements/lmi.html:28
 #: measurements/lmi.html:53
 #: measurements/lmi.html:89
 msgid "personal"
-msgstr ""
+msgstr "pribadi"
 
 #: measurements/lmi.html:106
 #: measurements/lmi.html:130
@@ -1408,12 +1415,13 @@ msgstr ""
 #: measurements/lmi.html:34
 #: measurements/lmi.html:70
 msgid "total"
-msgstr ""
+msgstr "total"
 
 #: map/map.html:121
 msgid "{{current.assignment.name}} + tree"
-msgstr ""
+msgstr "{{current.assignment.name}} + pohon"
 
 #: map/map.html:115
 msgid "{{current.assignment.name}} only"
-msgstr ""
+msgstr "{{current.assignment.name}} saja"
+
