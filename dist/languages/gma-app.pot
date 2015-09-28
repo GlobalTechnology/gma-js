@@ -4,6 +4,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: map/edit-church.html:30
+#: map/new-church.html:36
+msgid "+99 99999999"
+msgstr ""
+
 #: admin/_measurement.html:15
 #: admin/_team-members.html:62
 msgid "Actions"
@@ -57,7 +62,7 @@ msgid "Add new story"
 msgstr ""
 
 #: stories/new-story-dialog.html:5
-msgid "Add new story to"
+msgid "Add new story to - {{iconName}}"
 msgstr ""
 
 #: stories/stories.html:12
@@ -68,8 +73,15 @@ msgstr ""
 msgid "Add sub ministry"
 msgstr ""
 
+#. Main Navigation Tabs - Administrate
+#: controllers/admin/admin-ctrl.js:275
 #: measurements/details.html:130
+#: services/settings/settings-service.js:82
 msgid "Admin"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:276
+msgid "Admin (inherited)"
 msgstr ""
 
 #: preference/user-preference-modal.html:49
@@ -90,7 +102,7 @@ msgstr ""
 
 #: map/edit-target-city.html:17
 #: map/new-target-city.html:17
-msgid "Area:"
+msgid "Area"
 msgstr ""
 
 #: controllers/map/map-ctrl.js:480
@@ -106,6 +118,7 @@ msgstr ""
 msgid "CTRL + click to select multiple languages"
 msgstr ""
 
+#. Verb - Button
 #: join-ministry.html:29
 #: map/_confirmation-dialog.html:10
 #: map/new-church.html:88
@@ -138,6 +151,10 @@ msgstr ""
 
 #: controllers/map/map-ctrl.js:725
 msgid "Church was updated successfully"
+msgstr ""
+
+#: map/map.html:137
+msgid "Click to expand/collapse search"
 msgstr ""
 
 #: admin/add-measurement-type.html:3
@@ -173,17 +190,17 @@ msgstr ""
 
 #: map/edit-church.html:18
 #: map/new-church.html:23
-msgid "Contact Email:"
+msgid "Contact Email"
 msgstr ""
 
 #: map/edit-church.html:28
 #: map/new-church.html:33
-msgid "Contact Mobile:"
+msgid "Contact Mobile"
 msgstr ""
 
 #: map/edit-church.html:11
 #: map/new-church.html:17
-msgid "Contact Name:"
+msgid "Contact Name"
 msgstr ""
 
 #: stories/edit-story-dialog.html:19
@@ -197,7 +214,7 @@ msgstr ""
 
 #: map/edit-target-city.html:25
 #: map/new-target-city.html:25
-msgid "Country:"
+msgid "Country"
 msgstr ""
 
 #: admin/add-measurement-type.html:70
@@ -207,6 +224,18 @@ msgstr ""
 
 #: map/new-church.html:4
 msgid "Create New Church"
+msgstr ""
+
+#: map/map.html:13
+msgid "Create new target city"
+msgstr ""
+
+#: map/map.html:5
+msgid "Create new target point"
+msgstr ""
+
+#: map/map.html:9
+msgid "Create new training"
 msgstr ""
 
 #: stories/stories.html:7
@@ -221,13 +250,10 @@ msgstr ""
 msgid "Current role will be set to former-member"
 msgstr ""
 
-#: map/edit-training.html:46
-msgid "Date"
-msgstr ""
-
 #: map/edit-training.html:29
+#: map/edit-training.html:46
 #: map/new-training.html:24
-msgid "Date:"
+msgid "Date"
 msgstr ""
 
 #: admin/_edit-ministry.html:50
@@ -263,6 +289,7 @@ msgid "Delete Training"
 msgstr ""
 
 #: admin/_team-members.html:8
+#: controllers/admin/admin-ctrl.js:280
 msgid "Deleted"
 msgstr ""
 
@@ -280,9 +307,20 @@ msgstr ""
 msgid "Description should not exceed 200 characters"
 msgstr ""
 
+#. MCC - Digital Strategies
+#: controllers/gma-ctrl.js:182
+msgid "Digital Strategies"
+msgstr ""
+
 #: stories/edit-story-dialog.html:71
 #: stories/new-story-dialog.html:75
 msgid "Draft"
+msgstr ""
+
+#: controllers/map/map-ctrl.js:525
+#: controllers/map/map-ctrl.js:557
+#: controllers/map/map-ctrl.js:611
+msgid "Drag to Move"
 msgstr ""
 
 #: controllers/admin/admin-ctrl.js:632
@@ -300,6 +338,10 @@ msgstr ""
 
 #: stories/stories.html:35
 msgid "Edit"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:95
+msgid "Edit Ministry"
 msgstr ""
 
 #: map/edit-target-city.html:4
@@ -338,6 +380,10 @@ msgstr ""
 msgid "Everything"
 msgstr ""
 
+#: map/map.html:103
+msgid "FILTERS"
+msgstr ""
+
 #: controllers/map/map-ctrl.js:1416
 msgid "Failed to get your current location"
 msgstr ""
@@ -363,6 +409,10 @@ msgstr ""
 msgid "First Name"
 msgstr ""
 
+#: controllers/admin/admin-ctrl.js:281
+msgid "Former Member"
+msgstr ""
+
 #: admin/_team-members.html:9
 msgid "Former members"
 msgstr ""
@@ -370,6 +420,11 @@ msgstr ""
 #: admin/add-measurement-type.html:48
 #: measurements/measurements.html:41
 msgid "Fruit"
+msgstr ""
+
+#. MCC - Global Church Movements
+#: controllers/gma-ctrl.js:185
+msgid "Global Church Movements"
 msgstr ""
 
 #: map/edit-church.html:56
@@ -385,6 +440,11 @@ msgstr ""
 
 #: admin/_edit-ministry.html:55
 msgid "Hide reports tab by default"
+msgstr ""
+
+#. Main Navigation Tabs - Home (News/Stories)
+#: services/settings/settings-service.js:93
+msgid "Home"
 msgstr ""
 
 #: controllers/map/map-ctrl.js:1536
@@ -422,17 +482,16 @@ msgid "Invalid image file input."
 msgstr ""
 
 #: map/edit-church.html:38
-msgid "Jesus film activity"
-msgstr ""
-
 #: map/new-church.html:44
-msgid "Jesus film activity:"
+msgid "Jesus film activity"
 msgstr ""
 
 #: map/map.html:87
 msgid "Jesus film contribution"
 msgstr ""
 
+#. Modal Title
+#. Verb - Button
 #: join-ministry.html:28
 #: join-ministry.html:3
 msgid "Join Ministry/Team"
@@ -440,6 +499,10 @@ msgstr ""
 
 #: application.html:21
 msgid "Join another location / ministry"
+msgstr ""
+
+#: map/map.html:22
+msgid "LEGEND"
 msgstr ""
 
 #: admin/edit-measurement-type.html:9
@@ -450,8 +513,18 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
+#: controllers/admin/admin-ctrl.js:277
 #: measurements/details.html:132
 msgid "Leader"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:278
+msgid "Leader (inherited)"
+msgstr ""
+
+#. MCC - Leader Led
+#: controllers/gma-ctrl.js:188
+msgid "Leader Led"
 msgstr ""
 
 #: measurements/details.html:33
@@ -489,11 +562,20 @@ msgstr ""
 
 #: map/edit-training.html:37
 #: map/new-training.html:38
-msgid "MCC:"
+msgid "MCC"
 msgstr ""
 
 #: admin/_edit-ministry.html:34
 msgid "MCCs"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:101
+msgid "Manage Measurements"
+msgstr ""
+
+#. Main Navigation Tabs - Map
+#: services/settings/settings-service.js:49
+msgid "Map"
 msgstr ""
 
 #: controllers/admin/admin-ctrl.js:191
@@ -504,7 +586,9 @@ msgstr ""
 msgid "Measurement was updated"
 msgstr ""
 
+#. Main Navigation Tabs - Measurements
 #: admin/_measurement.html:4
+#: services/settings/settings-service.js:60
 msgid "Measurements"
 msgstr ""
 
@@ -517,12 +601,17 @@ msgid "Measurements updated successfully"
 msgstr ""
 
 #: admin/confirm-update-role.html:8
+#: controllers/admin/admin-ctrl.js:279
 #: measurements/details.html:131
 msgid "Member"
 msgstr ""
 
 #: controllers/admin/admin-ctrl.js:595
 msgid "Member was moved to ministry successfully"
+msgstr ""
+
+#: map/edit-church.html:82
+msgid "Ministry"
 msgstr ""
 
 #: admin/_edit-ministry.html:10
@@ -541,10 +630,6 @@ msgstr ""
 
 #: join-ministry.html:9
 msgid "Ministry/Team:"
-msgstr ""
-
-#: map/edit-church.html:82
-msgid "Ministry:"
 msgstr ""
 
 #: application.html:98
@@ -589,6 +674,10 @@ msgstr ""
 msgid "My Preferences"
 msgstr ""
 
+#: map/map.html:17
+msgid "My location on map"
+msgstr ""
+
 #: preference/user-preference-modal.html:4
 msgid "My preferences"
 msgstr ""
@@ -597,6 +686,12 @@ msgstr ""
 #: admin/add-measurement-type.html:9
 #: admin/confirm-member-drop.html:8
 #: map/edit-target-city.html:10
+#: map/edit-target-city.html:8
+#: map/edit-training.html:11
+#: map/edit-training.html:13
+#: map/new-church.html:8
+#: map/new-target-city.html:8
+#: map/new-training.html:8
 msgid "Name"
 msgstr ""
 
@@ -616,14 +711,6 @@ msgstr ""
 #: admin/add-measurement-type.html:15
 #: admin/edit-measurement-type.html:35
 msgid "Name should not exceed 200 characters"
-msgstr ""
-
-#: map/edit-target-city.html:8
-#: map/edit-training.html:11
-#: map/new-church.html:8
-#: map/new-target-city.html:8
-#: map/new-training.html:8
-msgid "Name:"
 msgstr ""
 
 #: map/new-training.html:4
@@ -708,11 +795,8 @@ msgid "Parent ministry"
 msgstr ""
 
 #: map/edit-training.html:47
-msgid "Participants"
-msgstr ""
-
 #: map/new-training.html:31
-msgid "Participants:"
+msgid "Participants"
 msgstr ""
 
 #: admin/add-measurement-type.html:31
@@ -810,6 +894,11 @@ msgstr ""
 msgid "Removed"
 msgstr ""
 
+#. Main Navigation Tabs - Reports
+#: services/settings/settings-service.js:71
+msgid "Reports"
+msgstr ""
+
 #: admin/add-team-member.html:21
 msgid "Role"
 msgstr ""
@@ -850,14 +939,18 @@ msgstr ""
 msgid "Section"
 msgstr ""
 
+#: map/edit-church.html:69
+#: map/new-church.html:70
+msgid "Security"
+msgstr ""
+
 #: map/edit-church.html:77
 #: map/new-church.html:78
 msgid "Security is a required field"
 msgstr ""
 
-#: map/edit-church.html:69
-#: map/new-church.html:70
-msgid "Security:"
+#: controllers/admin/admin-ctrl.js:282
+msgid "Self Assigned"
 msgstr ""
 
 #: measurements/details.html:104
@@ -888,20 +981,17 @@ msgstr ""
 
 #: map/edit-church.html:63
 #: map/new-church.html:64
-msgid "Size:"
+msgid "Size"
 msgstr ""
 
 #: admin/confirm-team-drop.html:8
 msgid "Source Name"
 msgstr ""
 
-#: map/edit-training.html:45
-msgid "Stage"
-msgstr ""
-
 #: map/edit-target-city.html:33
+#: map/edit-training.html:45
 #: map/new-target-city.html:33
-msgid "Stage:"
+msgid "Stage"
 msgstr ""
 
 #: join-ministry.html:16
@@ -914,8 +1004,11 @@ msgid "Story content field is required"
 msgstr ""
 
 #: stories/edit-story-dialog.html:26
-#: stories/new-story-dialog.html:29
 msgid "Story content should not exceed"
+msgstr ""
+
+#: stories/new-story-dialog.html:29
+msgid "Story content should not exceed {{storiesConfig.content_length}} characters"
 msgstr ""
 
 #: controllers/stories/stories-ctrl.js:133
@@ -936,9 +1029,14 @@ msgstr ""
 msgid "Story was updated"
 msgstr ""
 
+#. MCC - Student Led
+#: controllers/gma-ctrl.js:191
+msgid "Student Led"
+msgstr ""
+
 #: map/edit-target-city.html:44
 #: map/new-target-city.html:44
-msgid "Sub Stage:"
+msgid "Sub Stage"
 msgstr ""
 
 #: controllers/admin/admin-ctrl.js:487
@@ -972,6 +1070,7 @@ msgid "Tagged ministry"
 msgstr ""
 
 #: map/edit-church.html:55
+#: map/map.html:33
 #: map/new-church.html:55
 msgid "Target"
 msgstr ""
@@ -1000,10 +1099,6 @@ msgstr ""
 msgid "Target city was updated"
 msgstr ""
 
-#: map/map.html:33
-msgid "Target point"
-msgstr ""
-
 #: admin/confirm-member-drop.html:10
 msgid "Target team"
 msgstr ""
@@ -1013,6 +1108,10 @@ msgstr ""
 #: measurements/lmi.html:148
 #: measurements/lmi.html:64
 msgid "Team"
+msgstr ""
+
+#: controllers/admin/admin-ctrl.js:89
+msgid "Team & Members"
 msgstr ""
 
 #: measurements/details.html:60
@@ -1030,6 +1129,7 @@ msgstr ""
 
 #: stories/edit-story-dialog.html:9
 #: stories/new-story-dialog.html:11
+#: stories/new-story-dialog.html:13
 msgid "Title"
 msgstr ""
 
@@ -1040,7 +1140,7 @@ msgstr ""
 
 #: map/edit-training.html:21
 #: map/new-training.html:17
-msgid "Training Type:"
+msgid "Training Type"
 msgstr ""
 
 #: map/map.html:79
@@ -1070,7 +1170,7 @@ msgstr ""
 
 #: map/edit-church.html:52
 #: map/new-church.html:52
-msgid "Type:"
+msgid "Type"
 msgstr ""
 
 #: controllers/admin/admin-ctrl.js:378
@@ -1105,7 +1205,7 @@ msgstr ""
 msgid "Unable to get measurement"
 msgstr ""
 
-#: controllers/gma-ctrl.js:286
+#: controllers/gma-ctrl.js:293
 msgid "Unable to join to requested ministry"
 msgstr ""
 
@@ -1113,11 +1213,7 @@ msgstr ""
 msgid "Unable to load countries list"
 msgstr ""
 
-#: controllers/gma-ctrl.js:345
-msgid "Unable to load language data"
-msgstr ""
-
-#: controllers/gma-ctrl.js:426
+#: controllers/gma-ctrl.js:450
 msgid "Unable to load languages"
 msgstr ""
 
@@ -1205,6 +1301,10 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
+#: admin/_edit-ministry.html:89
+msgid "Update Ministry"
+msgstr ""
+
 #: admin/confirm-update-role.html:4
 msgid "Update Team Member Role ?"
 msgstr ""
@@ -1251,21 +1351,20 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: controllers/gma-ctrl.js:284
+#: controllers/gma-ctrl.js:291
 msgid "You are already assigned to requested ministry"
 msgstr ""
 
-#: controllers/gma-ctrl.js:389
+#: controllers/gma-ctrl.js:413
 msgid "You are not authorised for this"
-msgstr ""
-
-#: stories/edit-story-dialog.html:23
-#: stories/new-story-dialog.html:25
-msgid "You have"
 msgstr ""
 
 #: error/error.html:3
 msgid "You have been logged out or your session has expired due to inactivity."
+msgstr ""
+
+#: stories/new-story-dialog.html:25
+msgid "You have {{storiesConfig.content_length - story.content.length}} of {{storiesConfig.content_length}} characters remaining"
 msgstr ""
 
 #: controllers/map/map-ctrl.js:1420
@@ -1281,13 +1380,7 @@ msgid "Your preferences were saved"
 msgstr ""
 
 #: stories/edit-story-dialog.html:26
-#: stories/new-story-dialog.html:29
 msgid "characters"
-msgstr ""
-
-#: stories/edit-story-dialog.html:23
-#: stories/new-story-dialog.html:25
-msgid "characters remaining"
 msgstr ""
 
 #: stories/edit-story-dialog.html:48
@@ -1298,13 +1391,8 @@ msgstr ""
 msgid "members"
 msgstr ""
 
-#: stories/edit-story-dialog.html:23
-#: stories/new-story-dialog.html:25
-msgid "of"
-msgstr ""
-
-#: map/map.html:115
-msgid "only"
+#: map/new-church.html:26
+msgid "name@email.com"
 msgstr ""
 
 #: measurements/lmi.html:12
@@ -1323,5 +1411,9 @@ msgid "total"
 msgstr ""
 
 #: map/map.html:121
-msgid "tree"
+msgid "{{current.assignment.name}} + tree"
+msgstr ""
+
+#: map/map.html:115
+msgid "{{current.assignment.name}} only"
 msgstr ""

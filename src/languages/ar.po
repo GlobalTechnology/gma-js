@@ -1,0 +1,1427 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2015-09-28 17:37+0000\n"
+"PO-Revision-Date: 2015-09-28 17:37+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#: map/edit-church.html:30
+#: map/new-church.html:36
+msgid "+99 99999999"
+msgstr "+99 99999999"
+
+#: admin/_measurement.html:15
+#: admin/_team-members.html:62
+msgid "Actions"
+msgstr "أعمال"
+
+#: map/new-church.html:89
+msgid "Add Church"
+msgstr "إضافة كنيسة"
+
+#: admin/_measurement.html:5
+msgid "Add Measurement"
+msgstr "إضافة قياس"
+
+#: map/edit-training.html:86
+msgid "Add Stage"
+msgstr "إضافة مرحلة"
+
+#: map/edit-church.html:116
+#: map/edit-church.html:145
+#: map/edit-training.html:101
+#: map/edit-training.html:122
+msgid "Add Story"
+msgstr "إضافة قصة"
+
+#: map/new-target-city.html:56
+msgid "Add Target city"
+msgstr "إضافة المدينة المقصودة"
+
+#: map/new-training.html:46
+msgid "Add Training"
+msgstr "إضافة تدريب"
+
+#: admin/add-sub-ministry.html:4
+msgid "Add a new sub ministry to"
+msgstr "إضافة فرع جديد للكهنوت إلى"
+
+#: admin/_team-members.html:18
+msgid "Add member"
+msgstr "إضافة عضو"
+
+#: admin/add-measurement-type.html:4
+msgid "Add new measurement"
+msgstr "إضافة قياس جديد"
+
+#: admin/add-team-member.html:4
+msgid "Add new member to"
+msgstr "إضافة عضو جديد إلى"
+
+#: stories/new-story-dialog.html:4
+msgid "Add new story"
+msgstr "أإضافة  قصة جديدة"
+
+#: stories/new-story-dialog.html:5
+msgid "Add new story to - {{iconName}}"
+msgstr "أإضافة  قصة جديدة إلى - {{iconName}}"
+
+#: stories/stories.html:12
+msgid "Add story"
+msgstr "إضافة  قصة"
+
+#: admin/_team-members.html:19
+msgid "Add sub ministry"
+msgstr "أإضافة فرع جديد للكهنوت"
+
+#. Main Navigation Tabs - Administrate
+#: controllers/admin/admin-ctrl.js:275
+#: measurements/details.html:130
+#: services/settings/settings-service.js:82
+msgid "Admin"
+msgstr "الإدارة"
+
+#: controllers/admin/admin-ctrl.js:276
+msgid "Admin (inherited)"
+msgstr "الإدارة (بالوراثة)"
+
+#: preference/user-preference-modal.html:49
+msgid "Application language"
+msgstr "لغة التطبيق"
+
+#: measurements/details.html:125
+msgid "Approve"
+msgstr "مصادقة"
+
+#: measurements/details.html:124
+msgid "Approved"
+msgstr "تمت المصادقة"
+
+#: map/_confirmation-dialog.html:7
+msgid "Are you sure you want to delete ?"
+msgstr "هل أنت متأكد من أنك تريد الحذف؟"
+
+#: map/edit-target-city.html:17
+#: map/new-target-city.html:17
+msgid "Area"
+msgstr "منطقة"
+
+#: controllers/map/map-ctrl.js:480
+msgid "Bad Request: Unable to create target city"
+msgstr "طلب خاطئ: لا يمكن إنشاء المدينة المقصودة"
+
+#: admin/add-measurement-type.html:60
+#: measurements/measurements.html:80
+msgid "Build"
+msgstr "بناء"
+
+#: admin/_edit-ministry.html:69
+msgid "CTRL + click to select multiple languages"
+msgstr "إضغط على CTRL + لإختيار أكثر من لغة"
+
+#. Verb - Button
+#: join-ministry.html:29
+#: map/_confirmation-dialog.html:10
+#: map/new-church.html:88
+#: map/new-target-city.html:55
+#: map/new-training.html:45
+#: preference/user-preference-modal.html:57
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: controllers/admin/admin-ctrl.js:170
+msgid "Changes saved successfully"
+msgstr "تم حفظ التغييرات بنجاح"
+
+#: map/edit-church.html:57
+#: map/new-church.html:57
+msgid "Church"
+msgstr "كنيسة"
+
+#: map/map.html:51
+msgid "Church or community of disciples"
+msgstr "كنيسة أو مجموعة من المريدين"
+
+#: controllers/map/map-ctrl.js:423
+msgid "Church was created"
+msgstr "تم انشاء كنيسة"
+
+#: controllers/map/map-ctrl.js:745
+msgid "Church was deleted successfully"
+msgstr "تم حذف الكنيسة بنجاح"
+
+#: controllers/map/map-ctrl.js:725
+msgid "Church was updated successfully"
+msgstr "تم تحديث الكنيسة بنجاح"
+
+#: map/map.html:137
+msgid "Click to expand/collapse search"
+msgstr "إضغط لتوسيع/تقليص البحث"
+
+#: admin/add-measurement-type.html:3
+#: admin/add-measurement-type.html:69
+#: admin/add-sub-ministry.html:21
+#: admin/add-sub-ministry.html:3
+#: admin/add-team-member.html:30
+#: admin/confirm-member-drop.html:3
+#: admin/confirm-team-drop.html:3
+#: admin/confirm-update-role.html:3
+#: admin/edit-measurement-type.html:3
+#: admin/edit-measurement-type.html:55
+#: map/_confirmation-dialog.html:3
+#: measurements/details.html:145
+#: measurements/details.html:3
+#: preference/user-preference-modal.html:3
+#: stories/edit-story-dialog.html:3
+#: stories/new-story-dialog.html:102
+#: stories/new-story-dialog.html:3
+#: stories/view-story-dialog.html:27
+#: stories/view-story-dialog.html:3
+msgid "Close"
+msgstr "إغلاق"
+
+#: admin/_measurement.html:13
+#: admin/add-measurement-type.html:43
+msgid "Column"
+msgstr "عمود"
+
+#: map/_confirmation-dialog.html:4
+msgid "Confirm ?"
+msgstr "هل تريد التأكيد؟"
+
+#: map/edit-church.html:18
+#: map/new-church.html:23
+msgid "Contact Email"
+msgstr "إيميل التواصل"
+
+#: map/edit-church.html:28
+#: map/new-church.html:33
+msgid "Contact Mobile"
+msgstr "رقم الجوال للتواصل"
+
+#: map/edit-church.html:11
+#: map/new-church.html:17
+msgid "Contact Name"
+msgstr "الاسم للتواصل"
+
+#: stories/edit-story-dialog.html:19
+#: stories/new-story-dialog.html:21
+msgid "Content"
+msgstr "المحتوى"
+
+#: preference/user-preference-modal.html:41
+msgid "Content language"
+msgstr "لغة المحتوى"
+
+#: map/edit-target-city.html:25
+#: map/new-target-city.html:25
+msgid "Country"
+msgstr "البلد"
+
+#: admin/add-measurement-type.html:70
+#: admin/add-sub-ministry.html:22
+msgid "Create"
+msgstr "إنشاء"
+
+#: map/new-church.html:4
+msgid "Create New Church"
+msgstr "إنشاء كنيسة جديدة"
+
+#: map/map.html:13
+msgid "Create new target city"
+msgstr "إنشاء المدينة المقصودة"
+
+#: map/map.html:5
+msgid "Create new target point"
+msgstr "إنشاء النقطة المقصودة"
+
+#: map/map.html:9
+msgid "Create new training"
+msgstr "إنشاء تدريب جديد"
+
+#: stories/stories.html:7
+msgid "Created by me"
+msgstr "تم الإنشاء من طرفي"
+
+#: admin/confirm-member-drop.html:9
+msgid "Current role"
+msgstr "الدور الحالي"
+
+#: admin/confirm-member-drop.html:11
+msgid "Current role will be set to former-member"
+msgstr "الدور الحالي يتم إسناده إلى عضو سابق"
+
+#: map/edit-training.html:29
+#: map/edit-training.html:46
+#: map/new-training.html:24
+msgid "Date"
+msgstr "التاريخ"
+
+#: admin/_edit-ministry.html:50
+#: preference/user-preference-modal.html:12
+#: preference/user-preference-modal.html:21
+msgid "Default"
+msgstr "الافتراضي"
+
+#: admin/_edit-ministry.html:46
+msgid "Default MCC"
+msgstr "الاختيار الافتراضي MCC"
+
+#: controllers/map/map-ctrl.js:1403
+msgid "Default ministry map view has been set"
+msgstr "تم ضبط منظر خريطة الكهنوت الافتراضية"
+
+#: map/_confirmation-dialog.html:11
+#: map/edit-training.html:72
+#: measurements/details.html:134
+msgid "Delete"
+msgstr "حذف"
+
+#: map/edit-church.html:135
+msgid "Delete Church"
+msgstr "حذف كنيسة"
+
+#: map/edit-target-city.html:69
+msgid "Delete Target city"
+msgstr "حذف المدينة المقصودة"
+
+#: map/edit-training.html:112
+msgid "Delete Training"
+msgstr "حذف التدريب"
+
+#: admin/_team-members.html:8
+#: controllers/admin/admin-ctrl.js:280
+msgid "Deleted"
+msgstr "تم الحذف"
+
+#: admin/add-measurement-type.html:20
+msgid "Description"
+msgstr "وصف"
+
+#: admin/add-measurement-type.html:25
+#: admin/edit-measurement-type.html:45
+msgid "Description is required"
+msgstr "الوصف مطلوب"
+
+#: admin/add-measurement-type.html:26
+#: admin/edit-measurement-type.html:46
+msgid "Description should not exceed 200 characters"
+msgstr "لا يجب أن يتجاوز الوصف 200  رمز"
+
+#. MCC - Digital Strategies
+#: controllers/gma-ctrl.js:182
+msgid "Digital Strategies"
+msgstr "Digital Strategies"
+
+#: stories/edit-story-dialog.html:71
+#: stories/new-story-dialog.html:75
+msgid "Draft"
+msgstr "مسودة"
+
+#: controllers/map/map-ctrl.js:525
+#: controllers/map/map-ctrl.js:557
+#: controllers/map/map-ctrl.js:611
+msgid "Drag to Move"
+msgstr "اسحب للتحريك"
+
+#: controllers/admin/admin-ctrl.js:632
+#: controllers/admin/admin-ctrl.js:639
+msgid "Drop canceled, can't be dropped on child team"
+msgstr "تم الغاء الإسقاط، لا يمكن الاسقاط على فريق فرعي"
+
+#: controllers/admin/admin-ctrl.js:625
+msgid "Drop canceled, can't be dropped on parent team"
+msgstr "تم الغاء الإسقاط، لا يمكن الاسقاط على فريق رئيسي"
+
+#: controllers/admin/admin-ctrl.js:652
+msgid "Drop canceled, can't be dropped on selected team"
+msgstr "تم الغاء الإسقاط، لا يمكن الاسقاط على الفريق الذي تم تحديده"
+
+#: stories/stories.html:35
+msgid "Edit"
+msgstr "تعديل"
+
+#: controllers/admin/admin-ctrl.js:95
+msgid "Edit Ministry"
+msgstr "تعديل الكهنوت"
+
+#: map/edit-target-city.html:4
+msgid "Edit Target City"
+msgstr "تعديل المدينة المقصودة"
+
+#: admin/_edit-ministry.html:4
+msgid "Edit current ministry"
+msgstr "تعديل الكهنوت الحالي"
+
+#: stories/edit-story-dialog.html:4
+msgid "Edit story"
+msgstr "تعديل القصة"
+
+#: admin/_team-members.html:62
+msgid "Email"
+msgstr "الإميل"
+
+#: admin/edit-measurement-type.html:22
+msgid "English description"
+msgstr "وصف بالإنجليزية"
+
+#: admin/edit-measurement-type.html:16
+msgid "English name"
+msgstr "الاسم بالانجليزية"
+
+#: controllers/stories/stories-ctrl.js:63
+msgid "Error loading news feeds"
+msgstr "خطأ في إظهار التحديثات الجارية"
+
+#: controllers/map/map-ctrl.js:482
+msgid "Error: Unable to create target city"
+msgstr "خطأ: لا يمكن إنشاء المدينة المقصودة"
+
+#: map/map.html:109
+msgid "Everything"
+msgstr "كل شيء"
+
+#: map/map.html:103
+msgid "FILTERS"
+msgstr "فلترات"
+
+#: controllers/map/map-ctrl.js:1416
+msgid "Failed to get your current location"
+msgstr "تعذر الحصول على موقعك الحالي"
+
+#: controllers/map/map-ctrl.js:1548
+#: controllers/stories/stories-ctrl.js:160
+msgid "Failed to save story"
+msgstr "تعذر حفظ القصة"
+
+#: controllers/admin/admin-ctrl.js:376
+msgid "Failed, User not found"
+msgstr "تعذر العثور على المستخدم"
+
+#: admin/add-measurement-type.html:47
+msgid "Faith"
+msgstr "الإيمان"
+
+#: measurements/measurements.html:35
+msgid "Faith Actions"
+msgstr "أعمال الإيمان"
+
+#: admin/_team-members.html:62
+msgid "First Name"
+msgstr "الاسم الشخصي"
+
+#: controllers/admin/admin-ctrl.js:281
+msgid "Former Member"
+msgstr "عضو سابق"
+
+#: admin/_team-members.html:9
+msgid "Former members"
+msgstr "أعضاء سابقون"
+
+#: admin/add-measurement-type.html:48
+#: measurements/measurements.html:41
+msgid "Fruit"
+msgstr "الثواب/الجزاء"
+
+#. MCC - Global Church Movements
+#: controllers/gma-ctrl.js:185
+msgid "Global Church Movements"
+msgstr "Global Church Movements"
+
+#: map/edit-church.html:56
+#: map/map.html:42
+#: map/new-church.html:56
+msgid "Group"
+msgstr "مجموعة"
+
+#: admin/_edit-ministry.html:58
+#: admin/_measurement.html:25
+msgid "Hide"
+msgstr "إخفاء"
+
+#: admin/_edit-ministry.html:55
+msgid "Hide reports tab by default"
+msgstr "إخفاء تبويب التقارير افتراضيا"
+
+#. Main Navigation Tabs - Home (News/Stories)
+#: services/settings/settings-service.js:93
+msgid "Home"
+msgstr "الرئيسة"
+
+#: controllers/map/map-ctrl.js:1536
+#: controllers/stories/stories-ctrl.js:138
+#: controllers/stories/stories-ctrl.js:242
+msgid "Image file was uploaded"
+msgstr "تم رفع الصورة"
+
+#: stories/edit-story-dialog.html:48
+#: stories/new-story-dialog.html:51
+msgid "Image will be resized to"
+msgstr "سيتم تعديل أبعاد الصورة إلى"
+
+#: admin/_team-members.html:13
+msgid "Inherited admins"
+msgstr "المشرفون الورثة"
+
+#: admin/_team-members.html:11
+msgid "Inherited leaders"
+msgstr "القادة الورثة"
+
+#: error/error.html:2
+msgid "Invalid Session"
+msgstr "طلب مرفوض"
+
+#: admin/add-team-member.html:15
+#: map/edit-church.html:22
+#: map/new-church.html:28
+msgid "Invalid email format"
+msgstr "صيغة إيميل خاطئة"
+
+#: stories/edit-story-dialog.html:49
+#: stories/new-story-dialog.html:52
+msgid "Invalid image file input."
+msgstr "مُدخل ملف الصورة غير مقبول"
+
+#: map/edit-church.html:38
+#: map/new-church.html:44
+msgid "Jesus film activity"
+msgstr "Jesus film"
+
+#: map/map.html:87
+msgid "Jesus film contribution"
+msgstr "Jesus film"
+
+#. Modal Title
+#. Verb - Button
+#: join-ministry.html:28
+#: join-ministry.html:3
+msgid "Join Ministry/Team"
+msgstr "الانضمام إلى الكهنوت/الفريق"
+
+#: application.html:21
+msgid "Join another location / ministry"
+msgstr "الانضمام إلى موقع/ كهنوت آخر"
+
+#: map/map.html:22
+msgid "LEGEND"
+msgstr "مفتاح الخريطة"
+
+#: admin/edit-measurement-type.html:9
+msgid "Language"
+msgstr "اللغة"
+
+#: admin/_team-members.html:62
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+#: controllers/admin/admin-ctrl.js:277
+#: measurements/details.html:132
+msgid "Leader"
+msgstr "القائد"
+
+#: controllers/admin/admin-ctrl.js:278
+msgid "Leader (inherited)"
+msgstr "القائد (الوريث)"
+
+#. MCC - Leader Led
+#: controllers/gma-ctrl.js:188
+msgid "Leader Led"
+msgstr "Leader Led"
+
+#: measurements/details.html:33
+msgid "Local"
+msgstr "محلي"
+
+#: measurements/measurements.html:7
+msgid "Local Movement Indicators"
+msgstr "دلالات التفاعل على مستوى محلي"
+
+#: measurements/details.html:26
+msgid "Local Team"
+msgstr "الفريق المحلي"
+
+#: admin/_measurement.html:27
+#: admin/edit-measurement-type.html:4
+msgid "Localize"
+msgstr "تحديد الموقع"
+
+#: admin/edit-measurement-type.html:40
+msgid "Localized description"
+msgstr "تم تحديد الوصف"
+
+#: admin/edit-measurement-type.html:29
+msgid "Localized name"
+msgstr "تم تحديد الاسم"
+
+#: error/error.html:5
+msgid "Log In"
+msgstr "تسجيل الدخول"
+
+#: application.html:70
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: map/edit-training.html:37
+#: map/new-training.html:38
+msgid "MCC"
+msgstr "MCC"
+
+#: admin/_edit-ministry.html:34
+msgid "MCCs"
+msgstr "MCCs"
+
+#: controllers/admin/admin-ctrl.js:101
+msgid "Manage Measurements"
+msgstr "إدارة القياسات"
+
+#. Main Navigation Tabs - Map
+#: services/settings/settings-service.js:49
+msgid "Map"
+msgstr "خريطة"
+
+#: controllers/admin/admin-ctrl.js:191
+msgid "Measurement was created successfully"
+msgstr "تم انشاء القياسات بنجاح"
+
+#: controllers/admin/admin-ctrl.js:262
+msgid "Measurement was updated"
+msgstr "تم تحديث القياسات"
+
+#. Main Navigation Tabs - Measurements
+#: admin/_measurement.html:4
+#: services/settings/settings-service.js:60
+msgid "Measurements"
+msgstr "القياسات"
+
+#: controllers/measurements/measurements-ctrl.js:135
+msgid "Measurements saved successfully"
+msgstr "تم حفظ القياسات بنجاح"
+
+#: controllers/measurements/measurements-ctrl.js:175
+msgid "Measurements updated successfully"
+msgstr "تم تحديث القياسات بنجاح"
+
+#: admin/confirm-update-role.html:8
+#: controllers/admin/admin-ctrl.js:279
+#: measurements/details.html:131
+msgid "Member"
+msgstr "عضو"
+
+#: controllers/admin/admin-ctrl.js:595
+msgid "Member was moved to ministry successfully"
+msgstr "تم نقل العضو إلى الكهنوت بنجاح"
+
+#: map/edit-church.html:82
+msgid "Ministry"
+msgstr "كهنوت"
+
+#: admin/_edit-ministry.html:10
+#: admin/add-sub-ministry.html:9
+msgid "Ministry name"
+msgstr "اسم الكهنوت"
+
+#: admin/_edit-ministry.html:15
+#: admin/add-sub-ministry.html:14
+msgid "Ministry name is required."
+msgstr "اسم الكهنوت مطلوب."
+
+#: controllers/admin/admin-ctrl.js:567
+msgid "Ministry was moved successfully"
+msgstr "تم نقل الكهنوت بنجاح"
+
+#: join-ministry.html:9
+msgid "Ministry/Team:"
+msgstr "فريق الكهنوت"
+
+#: application.html:98
+msgid "Mobile Apps"
+msgstr "تطبيقات الجوال"
+
+#: map/edit-church.html:32
+#: map/new-church.html:38
+msgid "Mobile number is invalid."
+msgstr "رقم الجوال غير مقبول."
+
+#: map/edit-church.html:121
+msgid "Move Church"
+msgstr "نقل الكنيسة"
+
+#: map/edit-target-city.html:64
+msgid "Move Target city"
+msgstr "نقل المدينة المقصودة"
+
+#: map/edit-training.html:106
+msgid "Move Training"
+msgstr "نقل التدريب"
+
+#: admin/confirm-member-drop.html:4
+msgid "Move member to this team ?"
+msgstr "هل تريد نقل العضو إلى هذا الفريق؟"
+
+#: admin/confirm-team-drop.html:4
+msgid "Move sub-team to this team ?"
+msgstr "هل تريد نقل الفريق الفرعي إلى هذا الفريق؟"
+
+#: map/edit-church.html:58
+#: map/new-church.html:58
+msgid "Multiplying Church"
+msgstr "مضاعفة عدد الكنائس"
+
+#: map/map.html:61
+msgid "Multiplying church or community of disciples"
+msgstr "مضاعفة عدد الكنائس أو مجموعة المريدين"
+
+#: application.html:68
+msgid "My Preferences"
+msgstr "تفضيلاتي"
+
+#: map/map.html:17
+msgid "My location on map"
+msgstr "موقعي على الخريطة"
+
+#: preference/user-preference-modal.html:4
+msgid "My preferences"
+msgstr "تفضيلاتي"
+
+#: admin/_measurement.html:12
+#: admin/add-measurement-type.html:9
+#: admin/confirm-member-drop.html:8
+#: map/edit-target-city.html:10
+#: map/edit-target-city.html:8
+#: map/edit-training.html:11
+#: map/edit-training.html:13
+#: map/new-church.html:8
+#: map/new-target-city.html:8
+#: map/new-training.html:8
+msgid "Name"
+msgstr "الاسم"
+
+#: admin/add-measurement-type.html:14
+#: admin/edit-measurement-type.html:34
+msgid "Name is required"
+msgstr "الاسم مطلوب"
+
+#: map/edit-target-city.html:12
+#: map/edit-training.html:15
+#: map/new-church.html:12
+#: map/new-target-city.html:12
+#: map/new-training.html:12
+msgid "Name is required."
+msgstr "الاسم مطلوب."
+
+#: admin/add-measurement-type.html:15
+#: admin/edit-measurement-type.html:35
+msgid "Name should not exceed 200 characters"
+msgstr "يجب أن لا يتجاوز الاسم 200 رمز"
+
+#: map/new-training.html:4
+msgid "New Church Training Activity"
+msgstr "مجموعة جديدة من الدروس في الكنيسة"
+
+#: admin/confirm-update-role.html:10
+msgid "New Role"
+msgstr "دور جديد"
+
+#: map/new-target-city.html:4
+msgid "New Target city"
+msgstr "مدينة مقصودة جديدة"
+
+#: controllers/admin/admin-ctrl.js:369
+msgid "New member was added successfully"
+msgstr "تم إضافة عضو جديد بنجاح"
+
+#: stories/stories.html:45
+#: stories/stories.html:61
+msgid "Newer"
+msgstr "الأحدث"
+
+#: admin/confirm-member-drop.html:15
+#: admin/confirm-team-drop.html:13
+#: admin/confirm-update-role.html:14
+#: map/edit-church.html:42
+#: map/edit-church.html:47
+#: map/new-church.html:47
+#: preference/user-preference-modal.html:37
+msgid "No"
+msgstr "لا"
+
+#: admin/_edit-ministry.html:29
+msgid "No parent ministry"
+msgstr "لا يوجد كهنوت رئيسي"
+
+#: stories/stories.html:40
+msgid "No story found"
+msgstr "لا توجد قصة"
+
+#: map/edit-target-city.html:47
+#: map/new-target-city.html:47
+msgid "None"
+msgstr "لا شيء"
+
+#: admin/confirm-update-role.html:9
+msgid "Old Role"
+msgstr "دور قديم"
+
+#: stories/stories.html:45
+#: stories/stories.html:61
+msgid "Older"
+msgstr "أقدم"
+
+#: map/edit-church.html:111
+#: map/edit-target-city.html:58
+#: map/edit-training.html:96
+msgid "Options"
+msgstr "خيارات"
+
+#: admin/add-measurement-type.html:50
+#: admin/add-measurement-type.html:62
+msgid "Other"
+msgstr "غير ذلك"
+
+#: measurements/measurements.html:115
+msgid "Other Measurements"
+msgstr "قياسات أخرى"
+
+#: admin/add-measurement-type.html:49
+#: measurements/measurements.html:47
+msgid "Outcome"
+msgstr "النتيجة"
+
+#: map/map.html:95
+msgid "Parent lines"
+msgstr "الخطوط الرئيسية"
+
+#: admin/_edit-ministry.html:21
+msgid "Parent ministry"
+msgstr "كهنوت رئيسي"
+
+#: map/edit-training.html:47
+#: map/new-training.html:31
+msgid "Participants"
+msgstr "المشاركون"
+
+#: admin/add-measurement-type.html:31
+msgid "Permalink"
+msgstr "رابط دائم"
+
+#: admin/add-measurement-type.html:37
+msgid "Permalink is invalid. Please match with required format"
+msgstr "الرابط الدائم لا يعمل، الرجاء إعادة كتابته بطريقة صحيحة"
+
+#: admin/add-measurement-type.html:36
+msgid "Permalink is required"
+msgstr "الرابط الدائم مطلوب"
+
+#: admin/add-measurement-type.html:38
+msgid "Permalink should not exceed 100 characters"
+msgstr "الرابط الدائم لا يجب أن يتجاوز 100 رمز"
+
+#: join-ministry.html:5
+msgid "Please identify a ministry team that you work most closely with and request to join that team."
+msgstr "الرجاء تحديد فريق كهنوت تعمل معه و اطلب الإنضمام للفريق."
+
+#: map/edit-church.html:43
+#: map/new-church.html:48
+msgid "Please make a choice"
+msgstr "الرجاء الاختيار"
+
+#: preference/user-preference-modal.html:17
+msgid "Preferred MCC"
+msgstr "MCC المفضلة"
+
+#: preference/user-preference-modal.html:45
+msgid "Preferred content language for"
+msgstr "لغة المحتوى المفضلة لـ"
+
+#: preference/user-preference-modal.html:8
+msgid "Preferred ministry"
+msgstr "الكهنوت المفضل"
+
+#: stories/edit-story-dialog.html:58
+#: stories/new-story-dialog.html:62
+msgid "Privacy"
+msgstr "الخصوصية"
+
+#: map/edit-church.html:72
+#: map/new-church.html:73
+msgid "Private"
+msgstr "خاص"
+
+#: map/edit-church.html:74
+#: map/new-church.html:75
+msgid "Public"
+msgstr "عام"
+
+#: stories/edit-story-dialog.html:67
+#: stories/new-story-dialog.html:71
+msgid "Publish status"
+msgstr "انشر حالتك"
+
+#: stories/edit-story-dialog.html:70
+#: stories/new-story-dialog.html:74
+msgid "Published"
+msgstr "تم النشر"
+
+#: stories/stories.html:52
+msgid "Refresh Feeds"
+msgstr "إنعاش الأخبار"
+
+#: stories/stories.html:11
+msgid "Refresh List"
+msgstr "إنعاش القائمة"
+
+#: admin/_team-members.html:17
+msgid "Refresh members list"
+msgstr "إنعاش قائمة الأعضاء"
+
+#: map/edit-church.html:73
+#: map/new-church.html:74
+msgid "Registered Users"
+msgstr "المستخدمون المسجلون"
+
+#: stories/new-story-dialog.html:66
+msgid "Registered users"
+msgstr "المستخدمون المسجلون"
+
+#: map/edit-church.html:129
+msgid "Remove Parent Church"
+msgstr "حذف الكهنوت الرئيسي"
+
+#: stories/new-story-dialog.html:57
+msgid "Remove image"
+msgstr "حذف الصورة"
+
+#: stories/edit-story-dialog.html:72
+msgid "Removed"
+msgstr "تم الحذف"
+
+#. Main Navigation Tabs - Reports
+#: services/settings/settings-service.js:71
+msgid "Reports"
+msgstr "تقارير"
+
+#: admin/add-team-member.html:21
+msgid "Role"
+msgstr "دور"
+
+#: admin/add-team-member.html:31
+#: admin/edit-measurement-type.html:56
+#: preference/user-preference-modal.html:58
+#: stories/new-story-dialog.html:103
+msgid "Save"
+msgstr "حفظ"
+
+#: map/edit-church.html:140
+#: map/edit-target-city.html:74
+#: map/edit-training.html:117
+#: measurements/measurements.html:122
+#: measurements/measurements.html:21
+msgid "Save Changes"
+msgstr "حفظ التغييرات"
+
+#: measurements/details.html:146
+msgid "Save Measurements"
+msgstr "حفظ القياسات"
+
+#: admin/_measurement.html:33
+msgid "Save changes"
+msgstr "حفظ التغييرات"
+
+#: map/map.html:136
+msgid "Search"
+msgstr "بحث"
+
+#: admin/_team-members.html:6
+msgid "Search Members"
+msgstr "البحث عن إعضاء"
+
+#: admin/_measurement.html:14
+#: admin/add-measurement-type.html:55
+msgid "Section"
+msgstr "قسم"
+
+#: map/edit-church.html:69
+#: map/new-church.html:70
+msgid "Security"
+msgstr "الحماية"
+
+#: map/edit-church.html:77
+#: map/new-church.html:78
+msgid "Security is a required field"
+msgstr "الحماية حقل مطلوب"
+
+#: controllers/admin/admin-ctrl.js:282
+msgid "Self Assigned"
+msgstr "تعيين ذاتي"
+
+#: measurements/details.html:104
+msgid "Self Assigned Members (not yet approved)"
+msgstr "أعضاء بتعيين ذاتي (لم يتم قبولهم بعد)"
+
+#: admin/add-measurement-type.html:61
+#: measurements/measurements.html:98
+msgid "Send"
+msgstr "إرسال"
+
+#: map/map.html:129
+msgid "Set Ministry Default View for others"
+msgstr "ضبط منظر الكهنوت الافتراضي بالنسية للآخرين"
+
+#: map/edit-church.html:126
+msgid "Set Parent Church"
+msgstr "ضبط كنسية رئيسية"
+
+#: map/map.html:128
+msgid "Set as my Ministry Default View"
+msgstr "ضبط كمنظر لكهنوتي الافتراضي."
+
+#: admin/_edit-ministry.html:59
+#: admin/_measurement.html:24
+msgid "Show"
+msgstr "عرض"
+
+#: map/edit-church.html:63
+#: map/new-church.html:64
+msgid "Size"
+msgstr "الحجم"
+
+#: admin/confirm-team-drop.html:8
+msgid "Source Name"
+msgstr "اسم المصدر"
+
+#: map/edit-target-city.html:33
+#: map/edit-training.html:45
+#: map/new-target-city.html:33
+msgid "Stage"
+msgstr "الطابق"
+
+#: join-ministry.html:16
+msgid "Start typing to search for ministry"
+msgstr "ابدأ الكتابة للبحث عن كهنوت"
+
+#: stories/edit-story-dialog.html:26
+#: stories/new-story-dialog.html:28
+msgid "Story content field is required"
+msgstr "حقل محتوى القصة مطلوب"
+
+#: stories/edit-story-dialog.html:26
+msgid "Story content should not exceed"
+msgstr "محتوى القصة يجب ألا يتجاوز"
+
+#: stories/new-story-dialog.html:29
+msgid "Story content should not exceed {{storiesConfig.content_length}} characters"
+msgstr "محتوى القصة يجب ألا يتجاوز{{storiesConfig.content_length}} رمز"
+
+#: controllers/stories/stories-ctrl.js:133
+msgid "Story saved successfully"
+msgstr "تم حفظ القصة بنجاح"
+
+#: stories/edit-story-dialog.html:13
+#: stories/new-story-dialog.html:15
+msgid "Story title field is required"
+msgstr "الحقل الخاص بعنوان القصة مطلوب"
+
+#: stories/edit-story-dialog.html:14
+#: stories/new-story-dialog.html:16
+msgid "Story title should not exceed 120 characters"
+msgstr "عنوان القصة يجب ألا يتجاوز 120 رمز"
+
+#: controllers/stories/stories-ctrl.js:234
+msgid "Story was updated"
+msgstr "تم تحديث القصة"
+
+#. MCC - Student Led
+#: controllers/gma-ctrl.js:191
+msgid "Student Led"
+msgstr "Student Led"
+
+#: map/edit-target-city.html:44
+#: map/new-target-city.html:44
+msgid "Sub Stage"
+msgstr "الطابق السفلي"
+
+#: controllers/admin/admin-ctrl.js:487
+msgid "Sub ministry was created successfully"
+msgstr "تم إنشاء كهنوت فرعي بنجاح"
+
+#: measurements/details.html:86
+msgid "Sub-Ministries / Teams"
+msgstr "كهنوتات فرعية/فرق"
+
+#: admin/_edit-ministry.html:63
+msgid "Supported languages"
+msgstr "اللغات المتوفرة"
+
+#: join-ministry.html:20
+#: preference/user-preference-modal.html:34
+msgid "Supported staff"
+msgstr "فريق ادعم"
+
+#: stories/new-story-dialog.html:90
+msgid "Tagged MCC"
+msgstr "ملحقMCC"
+
+#: stories/edit-story-dialog.html:87
+msgid "Tagged MCC :"
+msgstr "ملحقMCC"
+
+#: stories/edit-story-dialog.html:79
+#: stories/new-story-dialog.html:82
+msgid "Tagged ministry"
+msgstr "ملحق كهنوت"
+
+#: map/edit-church.html:55
+#: map/map.html:33
+#: map/new-church.html:55
+msgid "Target"
+msgstr "هدف"
+
+#: admin/confirm-team-drop.html:9
+msgid "Target Team"
+msgstr "الفريق المقصود"
+
+#: map/map.html:70
+msgid "Target city"
+msgstr "المدينة المقصودة"
+
+#: controllers/map/map-ctrl.js:964
+msgid "Target city position was updated"
+msgstr "تم تحديث موقع المدينة المقصودة"
+
+#: controllers/map/map-ctrl.js:474
+msgid "Target city was created successfully"
+msgstr "تم إنشاء المدينة المقصودة بنجاح"
+
+#: controllers/map/map-ctrl.js:1332
+msgid "Target city was deleted successfully"
+msgstr "تم حذف المدينة المقصودة بنجاح"
+
+#: controllers/map/map-ctrl.js:779
+msgid "Target city was updated"
+msgstr "تم تحديث المدينة المقصودة"
+
+#: admin/confirm-member-drop.html:10
+msgid "Target team"
+msgstr "الفريق المقصود"
+
+#: measurements/lmi.html:100
+#: measurements/lmi.html:124
+#: measurements/lmi.html:148
+#: measurements/lmi.html:64
+msgid "Team"
+msgstr "فريق"
+
+#: controllers/admin/admin-ctrl.js:89
+msgid "Team & Members"
+msgstr "فريق و أعضاء"
+
+#: measurements/details.html:60
+msgid "Team Members"
+msgstr "أعضاء الفريق"
+
+#: stories/edit-story-dialog.html:63
+#: stories/new-story-dialog.html:67
+msgid "Team only"
+msgstr "الفريق فقط"
+
+#: admin/add-team-member.html:9
+msgid "TheKey username"
+msgstr "اسم المستخدم TheKey"
+
+#: stories/edit-story-dialog.html:9
+#: stories/new-story-dialog.html:11
+#: stories/new-story-dialog.html:13
+msgid "Title"
+msgstr "العنوان"
+
+#: measurements/details.html:17
+#: measurements/details.html:49
+msgid "Total"
+msgstr "المجموع"
+
+#: map/edit-training.html:21
+#: map/new-training.html:17
+msgid "Training Type"
+msgstr "نوع التدريب"
+
+#: map/map.html:79
+msgid "Training activity"
+msgstr "النشاط المدروس"
+
+#: controllers/map/map-ctrl.js:1356
+msgid "Training stage was deleted successfully"
+msgstr "تم حذف مرحلة التدريب بنجاح"
+
+#: controllers/map/map-ctrl.js:447
+msgid "Training was created"
+msgstr "تم إنشاء التدريب"
+
+#: controllers/map/map-ctrl.js:1311
+msgid "Training was deleted successfully"
+msgstr "تم حذف التدريب بنجاح"
+
+#: controllers/map/map-ctrl.js:1290
+msgid "Training was saved successfully"
+msgstr "تم حفظ التدريب بنجاح"
+
+#: controllers/map/map-ctrl.js:757
+#: controllers/map/map-ctrl.js:768
+msgid "Training was updated"
+msgstr "تم تحديث التدريب"
+
+#: map/edit-church.html:52
+#: map/new-church.html:52
+msgid "Type"
+msgstr "النوع"
+
+#: controllers/admin/admin-ctrl.js:378
+msgid "Unable to add new member"
+msgstr "لا يمكن إضافة عضو جديد"
+
+#: controllers/admin/admin-ctrl.js:503
+msgid "Unable to add sub ministry"
+msgstr "لا يمكن إضافة كهنوت فرعي"
+
+#: controllers/map/map-ctrl.js:426
+msgid "Unable to create church"
+msgstr "لا يمكن إنشاء كنيسة جديدة"
+
+#: controllers/admin/admin-ctrl.js:199
+msgid "Unable to create measurement"
+msgstr "لا يمكن إنشاء قياس"
+
+#: controllers/map/map-ctrl.js:748
+msgid "Unable to delete church"
+msgstr "لا يمكن حذف الكنيسة"
+
+#: controllers/map/map-ctrl.js:1337
+msgid "Unable to delete target city"
+msgstr "لا يمكن حذف المدينة المقصودة"
+
+#: controllers/map/map-ctrl.js:1315
+msgid "Unable to delete training"
+msgstr "لا يمكن حذف التدريب"
+
+#: controllers/admin/admin-ctrl.js:241
+msgid "Unable to get measurement"
+msgstr "لا يمكن الحصول على القياس"
+
+#: controllers/gma-ctrl.js:293
+msgid "Unable to join to requested ministry"
+msgstr "لا يمكن الانضمام إلى الكهنوت المطلوب"
+
+#: controllers/map/map-ctrl.js:587
+msgid "Unable to load countries list"
+msgstr "لا يمكن تحميل قائمة الدول"
+
+#: controllers/gma-ctrl.js:450
+msgid "Unable to load languages"
+msgstr "لا يمكن تحميل اللغات"
+
+#: controllers/measurements/measurements-ctrl.js:85
+msgid "Unable to load measurements"
+msgstr "لا يمكن تحميل القياسات"
+
+#: controllers/reports/reports-ctrl.js:69
+msgid "Unable to load measurements for reporting"
+msgstr "لا يمكن تحميل القياسات للتقرير"
+
+#: controllers/stories/stories-ctrl.js:92
+msgid "Unable to load stories"
+msgstr "لا يمكن تحميل القصص"
+
+#: controllers/map/map-ctrl.js:316
+msgid "Unable to load target cities"
+msgstr "لا يمكن تحميل المدن المقصودة"
+
+#: controllers/admin/admin-ctrl.js:316
+msgid "Unable to load team members"
+msgstr "لا يمكن تحميل أعضاء الفرق"
+
+#: controllers/map/map-ctrl.js:335
+msgid "Unable to load trainings"
+msgstr "لا يمكن تحميل التدريبات"
+
+#: controllers/admin/admin-ctrl.js:604
+msgid "Unable to move member"
+msgstr "لا يمكن نقل العضو"
+
+#: controllers/admin/admin-ctrl.js:580
+msgid "Unable to move ministry"
+msgstr "لا يمكن نقل الكهنوت"
+
+#: controllers/admin/admin-ctrl.js:172
+msgid "Unable to save changes"
+msgstr "لا يمكن حفظ التغييرات"
+
+#: controllers/map/map-ctrl.js:1385
+#: controllers/map/map-ctrl.js:1405
+msgid "Unable to save default map view"
+msgstr "لا يمكن حفظ منظر الخريطة الافتراضي"
+
+#: controllers/measurements/measurements-ctrl.js:139
+msgid "Unable to save measurements"
+msgstr "لا يمكن حفظ القياسات"
+
+#: controllers/preference/user-preference-ctrl.js:48
+msgid "Unable to save preferences"
+msgstr "لا يمكن حفظ التفضيلات"
+
+#: controllers/map/map-ctrl.js:729
+msgid "Unable to update church"
+msgstr "لا يمكن تحديث الكنيسة"
+
+#: controllers/admin/admin-ctrl.js:264
+msgid "Unable to update measurement"
+msgstr "لا يمكن تحديث القياس"
+
+#: controllers/stories/stories-ctrl.js:251
+msgid "Unable to update story"
+msgstr "لا يمكن تحديث القصة"
+
+#: controllers/map/map-ctrl.js:781
+#: controllers/map/map-ctrl.js:966
+msgid "Unable to update target city"
+msgstr "لا يمكن تحديث المدينة المقصودة"
+
+#: controllers/map/map-ctrl.js:760
+msgid "Unable to update training"
+msgstr "لا يمكن تحديث التدريب"
+
+#: controllers/admin/admin-ctrl.js:425
+#: controllers/admin/admin-ctrl.js:444
+msgid "Unable to update user role"
+msgstr "لا يمكن تحديث دور المستخدم"
+
+#: controllers/map/map-ctrl.js:1542
+#: controllers/stories/stories-ctrl.js:269
+msgid "Unable to upload image file"
+msgstr "لا يمكن رفع ملف الصورة"
+
+#: stories/edit-story-dialog.html:101
+msgid "Update"
+msgstr "تحديث"
+
+#: admin/_edit-ministry.html:89
+msgid "Update Ministry"
+msgstr "تحديث الكهنوت"
+
+#: admin/confirm-update-role.html:4
+msgid "Update Team Member Role ?"
+msgstr "هل تريد تحديث دور عضو الفريق؟"
+
+#: stories/edit-story-dialog.html:31
+#: stories/new-story-dialog.html:34
+msgid "Upload an image"
+msgstr "رفع صورة"
+
+#: controllers/map/map-ctrl.js:1540
+#: controllers/stories/stories-ctrl.js:267
+msgid "Upload failed, Invalid file input"
+msgstr "تعذر التحميل، الملف غير ملائم"
+
+#: error/error.html:4
+msgid "Use the button below to log back in."
+msgstr "استعمل الزر في الاسفل لتعيد تسجيل الدخول"
+
+#: controllers/admin/admin-ctrl.js:420
+#: controllers/admin/admin-ctrl.js:438
+msgid "User role was updated"
+msgstr "تم تحديث دور المستخدم"
+
+#: admin/add-team-member.html:14
+msgid "Username is required."
+msgstr "اسم المستخدم مطلوب."
+
+#: stories/view-story-dialog.html:4
+msgid "View story"
+msgstr "مشاهدة القصة"
+
+#: admin/add-measurement-type.html:59
+#: measurements/measurements.html:57
+msgid "Win"
+msgstr "اربح"
+
+#: admin/confirm-member-drop.html:16
+#: admin/confirm-team-drop.html:14
+#: admin/confirm-update-role.html:15
+#: map/edit-church.html:41
+#: map/edit-church.html:46
+#: map/new-church.html:46
+#: preference/user-preference-modal.html:36
+msgid "Yes"
+msgstr "نعم"
+
+#: controllers/gma-ctrl.js:291
+msgid "You are already assigned to requested ministry"
+msgstr "تم توجيهك للكهنوت الذي طلبته"
+
+#: controllers/gma-ctrl.js:413
+msgid "You are not authorised for this"
+msgstr "ليس مسموح لك بهذا"
+
+#: error/error.html:3
+msgid "You have been logged out or your session has expired due to inactivity."
+msgstr "لقد سجلت خروجك أو فترة دخولك انقضت لعدم النشاط فيها"
+
+#: stories/new-story-dialog.html:25
+msgid "You have {{storiesConfig.content_length - story.content.length}} of {{storiesConfig.content_length}} characters remaining"
+msgstr "لديك {{storiesConfig.content_length - story.content.length}}{{storiesConfig.content_length}} رمزمتبق"
+
+#: controllers/map/map-ctrl.js:1420
+msgid "Your browser does not support GeoLocation"
+msgstr "متصفحك لا يدعم جيولوكايشن"
+
+#: controllers/map/map-ctrl.js:1382
+msgid "Your default map view has been set"
+msgstr "تم ضبط منظرالخريطة الافتراضية الذي تريده"
+
+#: controllers/preference/user-preference-ctrl.js:39
+msgid "Your preferences were saved"
+msgstr "تم حفظ تفضيلاتك"
+
+#: stories/edit-story-dialog.html:26
+msgid "characters"
+msgstr "رموز"
+
+#: stories/edit-story-dialog.html:48
+msgid "existing image will be replaced"
+msgstr "سيتم استبدال الصورة الحالية"
+
+#: map/edit-church.html:5
+msgid "members"
+msgstr "أعضاء"
+
+#: map/new-church.html:26
+msgid "name@email.com"
+msgstr "name@email.com"
+
+#: measurements/lmi.html:12
+#: measurements/lmi.html:28
+#: measurements/lmi.html:53
+#: measurements/lmi.html:89
+msgid "personal"
+msgstr "شخصي"
+
+#: measurements/lmi.html:106
+#: measurements/lmi.html:130
+#: measurements/lmi.html:154
+#: measurements/lmi.html:34
+#: measurements/lmi.html:70
+msgid "total"
+msgstr "المجموع"
+
+#: map/map.html:121
+msgid "{{current.assignment.name}} + tree"
+msgstr "{{current.assignment.name}} + شجرة"
+
+#: map/map.html:115
+msgid "{{current.assignment.name}} only"
+msgstr "فقط {{current.assignment.name}}"
+

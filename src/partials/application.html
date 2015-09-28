@@ -30,7 +30,7 @@
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li ng-repeat="mcc in current.assignment.mccs | orderBy:mccSort">
-								<a href="javascript:void(0)" ng-click="current.mcc = mcc">{{mccLabels[mcc]}}</a>
+								<a href="javascript:void(0)" ng-click="current.mcc = mcc">{{mccLabels[mcc] | translate}}</a>
 							</li>
 						</ul>
 					</li>
@@ -81,7 +81,7 @@
 		<div>
 			<ul class="nav nav-tabs" role="tablist">
 				<li ng-repeat="tab in tabs | filter:tabFilter" ng-class="{active: $location.path() === tab.path}">
-					<a ng-href="#{{tab.path}}"><i class="glyphicon {{tab.icon}}"> </i> {{tab.name}}</a>
+					<a ng-href="#{{tab.path}}"><i class="glyphicon {{tab.icon}}"> </i> {{tab.name | translate}}</a>
 				</li>
 			</ul>
 			<div class="tab-content">
@@ -103,7 +103,7 @@
 		</div>
 
 		<footer>
-			<span>&copy; Campus Crusade for Christ - 2015</span>
+			<span>&copy; 2015 - Campus Crusade for Christ</span>
 			<span class="pull-right">{{appVersion}}</span>
 		</footer>
 	</div>

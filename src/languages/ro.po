@@ -1,0 +1,1427 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2015-09-28 17:37+0000\n"
+"PO-Revision-Date: 2015-09-28 17:37+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
+
+#: map/edit-church.html:30
+#: map/new-church.html:36
+msgid "+99 99999999"
+msgstr "'+99 99999999"
+
+#: admin/_measurement.html:15
+#: admin/_team-members.html:62
+msgid "Actions"
+msgstr "Acțiuni"
+
+#: map/new-church.html:89
+msgid "Add Church"
+msgstr "Adăugare biserică"
+
+#: admin/_measurement.html:5
+msgid "Add Measurement"
+msgstr "Adăugare măsurătoare"
+
+#: map/edit-training.html:86
+msgid "Add Stage"
+msgstr "Adăugare etapă"
+
+#: map/edit-church.html:116
+#: map/edit-church.html:145
+#: map/edit-training.html:101
+#: map/edit-training.html:122
+msgid "Add Story"
+msgstr "Adăugare istoric"
+
+#: map/new-target-city.html:56
+msgid "Add Target city"
+msgstr "Adăugare oraș țintă"
+
+#: map/new-training.html:46
+msgid "Add Training"
+msgstr "Adăugare instruire"
+
+#: admin/add-sub-ministry.html:4
+msgid "Add a new sub ministry to"
+msgstr "Adăugare sub misiune nouă la"
+
+#: admin/_team-members.html:18
+msgid "Add member"
+msgstr "Adăugare membru"
+
+#: admin/add-measurement-type.html:4
+msgid "Add new measurement"
+msgstr "Adăugare măsurătoare nouă"
+
+#: admin/add-team-member.html:4
+msgid "Add new member to"
+msgstr "Adăugare membru nou la"
+
+#: stories/new-story-dialog.html:4
+msgid "Add new story"
+msgstr "Adăugare istoric nou"
+
+#: stories/new-story-dialog.html:5
+msgid "Add new story to - {{iconName}}"
+msgstr "Adăugare istoric nou la - {{iconName}}"
+
+#: stories/stories.html:12
+msgid "Add story"
+msgstr "Adăugare istoric"
+
+#: admin/_team-members.html:19
+msgid "Add sub ministry"
+msgstr "Adăugare sub misiune"
+
+#. Main Navigation Tabs - Administrate
+#: controllers/admin/admin-ctrl.js:275
+#: measurements/details.html:130
+#: services/settings/settings-service.js:82
+msgid "Admin"
+msgstr "Admin"
+
+#: controllers/admin/admin-ctrl.js:276
+msgid "Admin (inherited)"
+msgstr "Admin (moștenit)"
+
+#: preference/user-preference-modal.html:49
+msgid "Application language"
+msgstr "Limbă aplicație"
+
+#: measurements/details.html:125
+msgid "Approve"
+msgstr "Aprobare"
+
+#: measurements/details.html:124
+msgid "Approved"
+msgstr "Aprobat"
+
+#: map/_confirmation-dialog.html:7
+msgid "Are you sure you want to delete ?"
+msgstr "Sigur doriţi să ștergeți?"
+
+#: map/edit-target-city.html:17
+#: map/new-target-city.html:17
+msgid "Area"
+msgstr "Zonă"
+
+#: controllers/map/map-ctrl.js:480
+msgid "Bad Request: Unable to create target city"
+msgstr "Solicitare greșită: Imposibil de creat orașul țintă"
+
+#: admin/add-measurement-type.html:60
+#: measurements/measurements.html:80
+msgid "Build"
+msgstr "Construcție"
+
+#: admin/_edit-ministry.html:69
+msgid "CTRL + click to select multiple languages"
+msgstr "CTRL + clic pentru a selecta mai multe limbi"
+
+#. Verb - Button
+#: join-ministry.html:29
+#: map/_confirmation-dialog.html:10
+#: map/new-church.html:88
+#: map/new-target-city.html:55
+#: map/new-training.html:45
+#: preference/user-preference-modal.html:57
+msgid "Cancel"
+msgstr "Anulare"
+
+#: controllers/admin/admin-ctrl.js:170
+msgid "Changes saved successfully"
+msgstr "Modificări salvate cu succes"
+
+#: map/edit-church.html:57
+#: map/new-church.html:57
+msgid "Church"
+msgstr "Biserică"
+
+#: map/map.html:51
+msgid "Church or community of disciples"
+msgstr "Biserică sau comunitate de discipoli"
+
+#: controllers/map/map-ctrl.js:423
+msgid "Church was created"
+msgstr "Biserica a fost creată"
+
+#: controllers/map/map-ctrl.js:745
+msgid "Church was deleted successfully"
+msgstr "Biserica a fost ștearsă cu succes"
+
+#: controllers/map/map-ctrl.js:725
+msgid "Church was updated successfully"
+msgstr "Biserica a fost actualizată cu succes"
+
+#: map/map.html:137
+msgid "Click to expand/collapse search"
+msgstr "Faceți clic pentru a extinde/reduce căutarea"
+
+#: admin/add-measurement-type.html:3
+#: admin/add-measurement-type.html:69
+#: admin/add-sub-ministry.html:21
+#: admin/add-sub-ministry.html:3
+#: admin/add-team-member.html:30
+#: admin/confirm-member-drop.html:3
+#: admin/confirm-team-drop.html:3
+#: admin/confirm-update-role.html:3
+#: admin/edit-measurement-type.html:3
+#: admin/edit-measurement-type.html:55
+#: map/_confirmation-dialog.html:3
+#: measurements/details.html:145
+#: measurements/details.html:3
+#: preference/user-preference-modal.html:3
+#: stories/edit-story-dialog.html:3
+#: stories/new-story-dialog.html:102
+#: stories/new-story-dialog.html:3
+#: stories/view-story-dialog.html:27
+#: stories/view-story-dialog.html:3
+msgid "Close"
+msgstr "Închidere"
+
+#: admin/_measurement.html:13
+#: admin/add-measurement-type.html:43
+msgid "Column"
+msgstr "Coloană"
+
+#: map/_confirmation-dialog.html:4
+msgid "Confirm ?"
+msgstr "Confirmați?"
+
+#: map/edit-church.html:18
+#: map/new-church.html:23
+msgid "Contact Email"
+msgstr "E-mail de contact"
+
+#: map/edit-church.html:28
+#: map/new-church.html:33
+msgid "Contact Mobile"
+msgstr "Număr de telefon mobil de contact"
+
+#: map/edit-church.html:11
+#: map/new-church.html:17
+msgid "Contact Name"
+msgstr "Număr persoană de contact"
+
+#: stories/edit-story-dialog.html:19
+#: stories/new-story-dialog.html:21
+msgid "Content"
+msgstr "Cuprins"
+
+#: preference/user-preference-modal.html:41
+msgid "Content language"
+msgstr "Limbă conținut"
+
+#: map/edit-target-city.html:25
+#: map/new-target-city.html:25
+msgid "Country"
+msgstr "Țară"
+
+#: admin/add-measurement-type.html:70
+#: admin/add-sub-ministry.html:22
+msgid "Create"
+msgstr "Creare"
+
+#: map/new-church.html:4
+msgid "Create New Church"
+msgstr "Creare biserică nouă"
+
+#: map/map.html:13
+msgid "Create new target city"
+msgstr "Creare oraș țintă nou"
+
+#: map/map.html:5
+msgid "Create new target point"
+msgstr "Creare punct țintă nou"
+
+#: map/map.html:9
+msgid "Create new training"
+msgstr "Creare sesiune de instruire nouă"
+
+#: stories/stories.html:7
+msgid "Created by me"
+msgstr "Creat de mine"
+
+#: admin/confirm-member-drop.html:9
+msgid "Current role"
+msgstr "Funcție curentă"
+
+#: admin/confirm-member-drop.html:11
+msgid "Current role will be set to former-member"
+msgstr "Funcția curentă va fi setată la fost membru"
+
+#: map/edit-training.html:29
+#: map/edit-training.html:46
+#: map/new-training.html:24
+msgid "Date"
+msgstr "Dată"
+
+#: admin/_edit-ministry.html:50
+#: preference/user-preference-modal.html:12
+#: preference/user-preference-modal.html:21
+msgid "Default"
+msgstr "Implicit"
+
+#: admin/_edit-ministry.html:46
+msgid "Default MCC"
+msgstr "MCC implicit"
+
+#: controllers/map/map-ctrl.js:1403
+msgid "Default ministry map view has been set"
+msgstr "Vizualizarea implicită pentru harta misiunii a fost setată"
+
+#: map/_confirmation-dialog.html:11
+#: map/edit-training.html:72
+#: measurements/details.html:134
+msgid "Delete"
+msgstr "Ștergere"
+
+#: map/edit-church.html:135
+msgid "Delete Church"
+msgstr "Ștergere biserică"
+
+#: map/edit-target-city.html:69
+msgid "Delete Target city"
+msgstr "Ștergere oraș țintă"
+
+#: map/edit-training.html:112
+msgid "Delete Training"
+msgstr "Ștergere instruire"
+
+#: admin/_team-members.html:8
+#: controllers/admin/admin-ctrl.js:280
+msgid "Deleted"
+msgstr "Șters"
+
+#: admin/add-measurement-type.html:20
+msgid "Description"
+msgstr "Descriere"
+
+#: admin/add-measurement-type.html:25
+#: admin/edit-measurement-type.html:45
+msgid "Description is required"
+msgstr "Descrierea este obligatorie"
+
+#: admin/add-measurement-type.html:26
+#: admin/edit-measurement-type.html:46
+msgid "Description should not exceed 200 characters"
+msgstr "Descrierea nu trebuie să depășească 200 de caractere"
+
+#. MCC - Digital Strategies
+#: controllers/gma-ctrl.js:182
+msgid "Digital Strategies"
+msgstr "Strategii digitale"
+
+#: stories/edit-story-dialog.html:71
+#: stories/new-story-dialog.html:75
+msgid "Draft"
+msgstr "Schiță"
+
+#: controllers/map/map-ctrl.js:525
+#: controllers/map/map-ctrl.js:557
+#: controllers/map/map-ctrl.js:611
+msgid "Drag to Move"
+msgstr "Glisare pentru deplasare"
+
+#: controllers/admin/admin-ctrl.js:632
+#: controllers/admin/admin-ctrl.js:639
+msgid "Drop canceled, can't be dropped on child team"
+msgstr "Plasare anulată, nu poate fi plasat în echipa de copii"
+
+#: controllers/admin/admin-ctrl.js:625
+msgid "Drop canceled, can't be dropped on parent team"
+msgstr "Plasare anulată, nu poate fi plasat în echipa de părinți"
+
+#: controllers/admin/admin-ctrl.js:652
+msgid "Drop canceled, can't be dropped on selected team"
+msgstr "Plasare anulată, nu poate fi plasat în echipa selectată"
+
+#: stories/stories.html:35
+msgid "Edit"
+msgstr "Editare"
+
+#: controllers/admin/admin-ctrl.js:95
+msgid "Edit Ministry"
+msgstr "Editare misiune"
+
+#: map/edit-target-city.html:4
+msgid "Edit Target City"
+msgstr "Editare oraș țintă"
+
+#: admin/_edit-ministry.html:4
+msgid "Edit current ministry"
+msgstr "Editare misiune actuală"
+
+#: stories/edit-story-dialog.html:4
+msgid "Edit story"
+msgstr "Editare istoric"
+
+#: admin/_team-members.html:62
+msgid "Email"
+msgstr "E-mail"
+
+#: admin/edit-measurement-type.html:22
+msgid "English description"
+msgstr "Descriere în engleză"
+
+#: admin/edit-measurement-type.html:16
+msgid "English name"
+msgstr "Denumire în engleză"
+
+#: controllers/stories/stories-ctrl.js:63
+msgid "Error loading news feeds"
+msgstr "Eroare încărcare fluxuri de noutăți"
+
+#: controllers/map/map-ctrl.js:482
+msgid "Error: Unable to create target city"
+msgstr "Eroare: Imposibil de creat orașul țintă"
+
+#: map/map.html:109
+msgid "Everything"
+msgstr "Totul"
+
+#: map/map.html:103
+msgid "FILTERS"
+msgstr "FILTRE"
+
+#: controllers/map/map-ctrl.js:1416
+msgid "Failed to get your current location"
+msgstr "Identificarea locației actuale a eșuat"
+
+#: controllers/map/map-ctrl.js:1548
+#: controllers/stories/stories-ctrl.js:160
+msgid "Failed to save story"
+msgstr "Salvarea istoricului a eșuat"
+
+#: controllers/admin/admin-ctrl.js:376
+msgid "Failed, User not found"
+msgstr "Operațiune eșuată, utilizator negăsit"
+
+#: admin/add-measurement-type.html:47
+msgid "Faith"
+msgstr "Credință"
+
+#: measurements/measurements.html:35
+msgid "Faith Actions"
+msgstr "Acțiuni de credință"
+
+#: admin/_team-members.html:62
+msgid "First Name"
+msgstr "Prenume"
+
+#: controllers/admin/admin-ctrl.js:281
+msgid "Former Member"
+msgstr "Fost membru"
+
+#: admin/_team-members.html:9
+msgid "Former members"
+msgstr "Foști membri"
+
+#: admin/add-measurement-type.html:48
+#: measurements/measurements.html:41
+msgid "Fruit"
+msgstr "Roade"
+
+#. MCC - Global Church Movements
+#: controllers/gma-ctrl.js:185
+msgid "Global Church Movements"
+msgstr "Global Church Movements"
+
+#: map/edit-church.html:56
+#: map/map.html:42
+#: map/new-church.html:56
+msgid "Group"
+msgstr "Grup"
+
+#: admin/_edit-ministry.html:58
+#: admin/_measurement.html:25
+msgid "Hide"
+msgstr "Ascundere"
+
+#: admin/_edit-ministry.html:55
+msgid "Hide reports tab by default"
+msgstr "Ascundere filă rapoarte în mod implicit"
+
+#. Main Navigation Tabs - Home (News/Stories)
+#: services/settings/settings-service.js:93
+msgid "Home"
+msgstr "Pagina principală"
+
+#: controllers/map/map-ctrl.js:1536
+#: controllers/stories/stories-ctrl.js:138
+#: controllers/stories/stories-ctrl.js:242
+msgid "Image file was uploaded"
+msgstr "Fișierul imagine a fost încărcat"
+
+#: stories/edit-story-dialog.html:48
+#: stories/new-story-dialog.html:51
+msgid "Image will be resized to"
+msgstr "Imaginea va fi redimensionată la"
+
+#: admin/_team-members.html:13
+msgid "Inherited admins"
+msgstr "Admin moștenit"
+
+#: admin/_team-members.html:11
+msgid "Inherited leaders"
+msgstr "Lideri moșteniți"
+
+#: error/error.html:2
+msgid "Invalid Session"
+msgstr "Sesiune nevalidă"
+
+#: admin/add-team-member.html:15
+#: map/edit-church.html:22
+#: map/new-church.html:28
+msgid "Invalid email format"
+msgstr "Format e-mail nevalid"
+
+#: stories/edit-story-dialog.html:49
+#: stories/new-story-dialog.html:52
+msgid "Invalid image file input."
+msgstr "Fișier imagine nevalid."
+
+#: map/edit-church.html:38
+#: map/new-church.html:44
+msgid "Jesus film activity"
+msgstr "Activitate Jesus film"
+
+#: map/map.html:87
+msgid "Jesus film contribution"
+msgstr "Contribuție Jesus film"
+
+#. Modal Title
+#. Verb - Button
+#: join-ministry.html:28
+#: join-ministry.html:3
+msgid "Join Ministry/Team"
+msgstr "Alăturare misiune/echipă"
+
+#: application.html:21
+msgid "Join another location / ministry"
+msgstr "Alăturare altă locație/misiune"
+
+#: map/map.html:22
+msgid "LEGEND"
+msgstr "LEGENDĂ"
+
+#: admin/edit-measurement-type.html:9
+msgid "Language"
+msgstr "Limbă"
+
+#: admin/_team-members.html:62
+msgid "Last Name"
+msgstr "Nume"
+
+#: controllers/admin/admin-ctrl.js:277
+#: measurements/details.html:132
+msgid "Leader"
+msgstr "Lider"
+
+#: controllers/admin/admin-ctrl.js:278
+msgid "Leader (inherited)"
+msgstr "Lider (moștenit)"
+
+#. MCC - Leader Led
+#: controllers/gma-ctrl.js:188
+msgid "Leader Led"
+msgstr "Leader Led"
+
+#: measurements/details.html:33
+msgid "Local"
+msgstr "Local"
+
+#: measurements/measurements.html:7
+msgid "Local Movement Indicators"
+msgstr "Indicatori mișcare locală"
+
+#: measurements/details.html:26
+msgid "Local Team"
+msgstr "Echipă locală"
+
+#: admin/_measurement.html:27
+#: admin/edit-measurement-type.html:4
+msgid "Localize"
+msgstr "Localizare"
+
+#: admin/edit-measurement-type.html:40
+msgid "Localized description"
+msgstr "Descriere localizată"
+
+#: admin/edit-measurement-type.html:29
+msgid "Localized name"
+msgstr "Nume localizat"
+
+#: error/error.html:5
+msgid "Log In"
+msgstr "Autentificare"
+
+#: application.html:70
+msgid "Logout"
+msgstr "Deconectare"
+
+#: map/edit-training.html:37
+#: map/new-training.html:38
+msgid "MCC"
+msgstr "MCC"
+
+#: admin/_edit-ministry.html:34
+msgid "MCCs"
+msgstr "MCC"
+
+#: controllers/admin/admin-ctrl.js:101
+msgid "Manage Measurements"
+msgstr "Gestionare măsurători"
+
+#. Main Navigation Tabs - Map
+#: services/settings/settings-service.js:49
+msgid "Map"
+msgstr "Hartă"
+
+#: controllers/admin/admin-ctrl.js:191
+msgid "Measurement was created successfully"
+msgstr "Măsurătoare creată cu succes"
+
+#: controllers/admin/admin-ctrl.js:262
+msgid "Measurement was updated"
+msgstr "Măsurătoare actualizată"
+
+#. Main Navigation Tabs - Measurements
+#: admin/_measurement.html:4
+#: services/settings/settings-service.js:60
+msgid "Measurements"
+msgstr "Măsurători"
+
+#: controllers/measurements/measurements-ctrl.js:135
+msgid "Measurements saved successfully"
+msgstr "Măsurători salvate cu succes"
+
+#: controllers/measurements/measurements-ctrl.js:175
+msgid "Measurements updated successfully"
+msgstr "Măsurători actualizate cu succes"
+
+#: admin/confirm-update-role.html:8
+#: controllers/admin/admin-ctrl.js:279
+#: measurements/details.html:131
+msgid "Member"
+msgstr "Membru"
+
+#: controllers/admin/admin-ctrl.js:595
+msgid "Member was moved to ministry successfully"
+msgstr "Membru mutat în misiune cu succes"
+
+#: map/edit-church.html:82
+msgid "Ministry"
+msgstr "Misiune"
+
+#: admin/_edit-ministry.html:10
+#: admin/add-sub-ministry.html:9
+msgid "Ministry name"
+msgstr "Nume misiune"
+
+#: admin/_edit-ministry.html:15
+#: admin/add-sub-ministry.html:14
+msgid "Ministry name is required."
+msgstr "Este necesar numele misiunii."
+
+#: controllers/admin/admin-ctrl.js:567
+msgid "Ministry was moved successfully"
+msgstr "Misiunea a fost mutată cu succes"
+
+#: join-ministry.html:9
+msgid "Ministry/Team:"
+msgstr "Misiune/echipă:"
+
+#: application.html:98
+msgid "Mobile Apps"
+msgstr "Aplicații mobile"
+
+#: map/edit-church.html:32
+#: map/new-church.html:38
+msgid "Mobile number is invalid."
+msgstr "Numărul de telefon mobil este nevalid."
+
+#: map/edit-church.html:121
+msgid "Move Church"
+msgstr "Mutare biserică"
+
+#: map/edit-target-city.html:64
+msgid "Move Target city"
+msgstr "Mutare oraș țintă"
+
+#: map/edit-training.html:106
+msgid "Move Training"
+msgstr "Mutare instruire"
+
+#: admin/confirm-member-drop.html:4
+msgid "Move member to this team ?"
+msgstr "Mutați membrul în această echipă?"
+
+#: admin/confirm-team-drop.html:4
+msgid "Move sub-team to this team ?"
+msgstr "Mutați sub-echipa în această echipă?"
+
+#: map/edit-church.html:58
+#: map/new-church.html:58
+msgid "Multiplying Church"
+msgstr "Multiplicare biserică"
+
+#: map/map.html:61
+msgid "Multiplying church or community of disciples"
+msgstr "Multiplicare biserică sau comunitate de discipoli"
+
+#: application.html:68
+msgid "My Preferences"
+msgstr "Preferinţele mele"
+
+#: map/map.html:17
+msgid "My location on map"
+msgstr "Locația mea pe hartă"
+
+#: preference/user-preference-modal.html:4
+msgid "My preferences"
+msgstr "Preferinţele mele"
+
+#: admin/_measurement.html:12
+#: admin/add-measurement-type.html:9
+#: admin/confirm-member-drop.html:8
+#: map/edit-target-city.html:10
+#: map/edit-target-city.html:8
+#: map/edit-training.html:11
+#: map/edit-training.html:13
+#: map/new-church.html:8
+#: map/new-target-city.html:8
+#: map/new-training.html:8
+msgid "Name"
+msgstr "Nume"
+
+#: admin/add-measurement-type.html:14
+#: admin/edit-measurement-type.html:34
+msgid "Name is required"
+msgstr "Numele este necesar"
+
+#: map/edit-target-city.html:12
+#: map/edit-training.html:15
+#: map/new-church.html:12
+#: map/new-target-city.html:12
+#: map/new-training.html:12
+msgid "Name is required."
+msgstr "Numele este necesar."
+
+#: admin/add-measurement-type.html:15
+#: admin/edit-measurement-type.html:35
+msgid "Name should not exceed 200 characters"
+msgstr "Numele nu trebuie să depășească 200 de caractere"
+
+#: map/new-training.html:4
+msgid "New Church Training Activity"
+msgstr "Activitate nouă de instruire la biserică"
+
+#: admin/confirm-update-role.html:10
+msgid "New Role"
+msgstr "Funcție nouă"
+
+#: map/new-target-city.html:4
+msgid "New Target city"
+msgstr "Oraș țintă nou"
+
+#: controllers/admin/admin-ctrl.js:369
+msgid "New member was added successfully"
+msgstr "Membru nou adăugat cu succes"
+
+#: stories/stories.html:45
+#: stories/stories.html:61
+msgid "Newer"
+msgstr "Mai nou"
+
+#: admin/confirm-member-drop.html:15
+#: admin/confirm-team-drop.html:13
+#: admin/confirm-update-role.html:14
+#: map/edit-church.html:42
+#: map/edit-church.html:47
+#: map/new-church.html:47
+#: preference/user-preference-modal.html:37
+msgid "No"
+msgstr "Nu"
+
+#: admin/_edit-ministry.html:29
+msgid "No parent ministry"
+msgstr "Nicio misiune principală"
+
+#: stories/stories.html:40
+msgid "No story found"
+msgstr "Niciun istoric găsit"
+
+#: map/edit-target-city.html:47
+#: map/new-target-city.html:47
+msgid "None"
+msgstr "Niciunul"
+
+#: admin/confirm-update-role.html:9
+msgid "Old Role"
+msgstr "Funcţie veche"
+
+#: stories/stories.html:45
+#: stories/stories.html:61
+msgid "Older"
+msgstr "Mai vechi"
+
+#: map/edit-church.html:111
+#: map/edit-target-city.html:58
+#: map/edit-training.html:96
+msgid "Options"
+msgstr "Opţiuni"
+
+#: admin/add-measurement-type.html:50
+#: admin/add-measurement-type.html:62
+msgid "Other"
+msgstr "Altul"
+
+#: measurements/measurements.html:115
+msgid "Other Measurements"
+msgstr "Alte măsurători"
+
+#: admin/add-measurement-type.html:49
+#: measurements/measurements.html:47
+msgid "Outcome"
+msgstr "Rezultat"
+
+#: map/map.html:95
+msgid "Parent lines"
+msgstr "Linii principale"
+
+#: admin/_edit-ministry.html:21
+msgid "Parent ministry"
+msgstr "Misiune principală"
+
+#: map/edit-training.html:47
+#: map/new-training.html:31
+msgid "Participants"
+msgstr "Participanţi"
+
+#: admin/add-measurement-type.html:31
+msgid "Permalink"
+msgstr "Permalink"
+
+#: admin/add-measurement-type.html:37
+msgid "Permalink is invalid. Please match with required format"
+msgstr "Permalink nevalid. Potriviţi cu formatul solicitat"
+
+#: admin/add-measurement-type.html:36
+msgid "Permalink is required"
+msgstr "Permalink este obligatoriu"
+
+#: admin/add-measurement-type.html:38
+msgid "Permalink should not exceed 100 characters"
+msgstr "Permalink nu trebuie să depășească 100 de caractere"
+
+#: join-ministry.html:5
+msgid "Please identify a ministry team that you work most closely with and request to join that team."
+msgstr "Identificaţi o echipă de misiune cu care lucraţi cel mai mult şi solicitaţi să vă alăturaţi acesteia."
+
+#: map/edit-church.html:43
+#: map/new-church.html:48
+msgid "Please make a choice"
+msgstr "Alegeţi"
+
+#: preference/user-preference-modal.html:17
+msgid "Preferred MCC"
+msgstr "MCC preferat"
+
+#: preference/user-preference-modal.html:45
+msgid "Preferred content language for"
+msgstr "Limbă preferată conţinut pentru"
+
+#: preference/user-preference-modal.html:8
+msgid "Preferred ministry"
+msgstr "Misiune preferată"
+
+#: stories/edit-story-dialog.html:58
+#: stories/new-story-dialog.html:62
+msgid "Privacy"
+msgstr "Confidenţialitatea"
+
+#: map/edit-church.html:72
+#: map/new-church.html:73
+msgid "Private"
+msgstr "Privat"
+
+#: map/edit-church.html:74
+#: map/new-church.html:75
+msgid "Public"
+msgstr "Public"
+
+#: stories/edit-story-dialog.html:67
+#: stories/new-story-dialog.html:71
+msgid "Publish status"
+msgstr "Publicare stare"
+
+#: stories/edit-story-dialog.html:70
+#: stories/new-story-dialog.html:74
+msgid "Published"
+msgstr "Publicat"
+
+#: stories/stories.html:52
+msgid "Refresh Feeds"
+msgstr "Reîmprospătare fluxuri"
+
+#: stories/stories.html:11
+msgid "Refresh List"
+msgstr "Reîmprospătare listă"
+
+#: admin/_team-members.html:17
+msgid "Refresh members list"
+msgstr "Reîmprospătare listă membri"
+
+#: map/edit-church.html:73
+#: map/new-church.html:74
+msgid "Registered Users"
+msgstr "Utilizatori înregistrați"
+
+#: stories/new-story-dialog.html:66
+msgid "Registered users"
+msgstr "Utilizatori înregistrați"
+
+#: map/edit-church.html:129
+msgid "Remove Parent Church"
+msgstr "Eliminare biserică principală"
+
+#: stories/new-story-dialog.html:57
+msgid "Remove image"
+msgstr "Eliminare imagine"
+
+#: stories/edit-story-dialog.html:72
+msgid "Removed"
+msgstr "Eliminat"
+
+#. Main Navigation Tabs - Reports
+#: services/settings/settings-service.js:71
+msgid "Reports"
+msgstr "Repoarte"
+
+#: admin/add-team-member.html:21
+msgid "Role"
+msgstr "Funcție"
+
+#: admin/add-team-member.html:31
+#: admin/edit-measurement-type.html:56
+#: preference/user-preference-modal.html:58
+#: stories/new-story-dialog.html:103
+msgid "Save"
+msgstr "Salvare"
+
+#: map/edit-church.html:140
+#: map/edit-target-city.html:74
+#: map/edit-training.html:117
+#: measurements/measurements.html:122
+#: measurements/measurements.html:21
+msgid "Save Changes"
+msgstr "Salvare modificări"
+
+#: measurements/details.html:146
+msgid "Save Measurements"
+msgstr "Salvare măsurători"
+
+#: admin/_measurement.html:33
+msgid "Save changes"
+msgstr "Salvare modificări"
+
+#: map/map.html:136
+msgid "Search"
+msgstr "Căutare"
+
+#: admin/_team-members.html:6
+msgid "Search Members"
+msgstr "Căutare membri"
+
+#: admin/_measurement.html:14
+#: admin/add-measurement-type.html:55
+msgid "Section"
+msgstr "Secțiune"
+
+#: map/edit-church.html:69
+#: map/new-church.html:70
+msgid "Security"
+msgstr "Securitatea"
+
+#: map/edit-church.html:77
+#: map/new-church.html:78
+msgid "Security is a required field"
+msgstr "Siguranța este un câmp obligatoriu"
+
+#: controllers/admin/admin-ctrl.js:282
+msgid "Self Assigned"
+msgstr "Autoalocat"
+
+#: measurements/details.html:104
+msgid "Self Assigned Members (not yet approved)"
+msgstr "Membri autoalocați (nu s-a aprobat încă)"
+
+#: admin/add-measurement-type.html:61
+#: measurements/measurements.html:98
+msgid "Send"
+msgstr "Trimitere"
+
+#: map/map.html:129
+msgid "Set Ministry Default View for others"
+msgstr "Setare vizualizare implicită misiune pentru ceilalți"
+
+#: map/edit-church.html:126
+msgid "Set Parent Church"
+msgstr "Setare biserică principală"
+
+#: map/map.html:128
+msgid "Set as my Ministry Default View"
+msgstr "Setare ca vizualizarea mea implicită misiune"
+
+#: admin/_edit-ministry.html:59
+#: admin/_measurement.html:24
+msgid "Show"
+msgstr "Afișare"
+
+#: map/edit-church.html:63
+#: map/new-church.html:64
+msgid "Size"
+msgstr "Dimensiune"
+
+#: admin/confirm-team-drop.html:8
+msgid "Source Name"
+msgstr "Nume sursă"
+
+#: map/edit-target-city.html:33
+#: map/edit-training.html:45
+#: map/new-target-city.html:33
+msgid "Stage"
+msgstr "Etapă"
+
+#: join-ministry.html:16
+msgid "Start typing to search for ministry"
+msgstr "Tastați pentru a căuta misiunea"
+
+#: stories/edit-story-dialog.html:26
+#: stories/new-story-dialog.html:28
+msgid "Story content field is required"
+msgstr "Câmpul cu conținut istoric este obligatoriu"
+
+#: stories/edit-story-dialog.html:26
+msgid "Story content should not exceed"
+msgstr "Conținutul istoric nu trebuie să depășească"
+
+#: stories/new-story-dialog.html:29
+msgid "Story content should not exceed {{storiesConfig.content_length}} characters"
+msgstr "Conținutul istoric nu trebuie să depășească {{storiesConfig.content_length}} caractere"
+
+#: controllers/stories/stories-ctrl.js:133
+msgid "Story saved successfully"
+msgstr "Istoric salvat cu succes"
+
+#: stories/edit-story-dialog.html:13
+#: stories/new-story-dialog.html:15
+msgid "Story title field is required"
+msgstr "Câmpul titlu istoric este obligatoriu"
+
+#: stories/edit-story-dialog.html:14
+#: stories/new-story-dialog.html:16
+msgid "Story title should not exceed 120 characters"
+msgstr "Titlul istoric nu trebuie să depășească 120 de caractere"
+
+#: controllers/stories/stories-ctrl.js:234
+msgid "Story was updated"
+msgstr "Istoric actualizat"
+
+#. MCC - Student Led
+#: controllers/gma-ctrl.js:191
+msgid "Student Led"
+msgstr "Student Led"
+
+#: map/edit-target-city.html:44
+#: map/new-target-city.html:44
+msgid "Sub Stage"
+msgstr "Sub etapă"
+
+#: controllers/admin/admin-ctrl.js:487
+msgid "Sub ministry was created successfully"
+msgstr "Sub-misiune creată cu succes"
+
+#: measurements/details.html:86
+msgid "Sub-Ministries / Teams"
+msgstr "Sub-misiuni/echipe"
+
+#: admin/_edit-ministry.html:63
+msgid "Supported languages"
+msgstr "Limbi acceptate"
+
+#: join-ministry.html:20
+#: preference/user-preference-modal.html:34
+msgid "Supported staff"
+msgstr "Personal acceptat"
+
+#: stories/new-story-dialog.html:90
+msgid "Tagged MCC"
+msgstr "MCC etichetat"
+
+#: stories/edit-story-dialog.html:87
+msgid "Tagged MCC :"
+msgstr "MCC etichetat:"
+
+#: stories/edit-story-dialog.html:79
+#: stories/new-story-dialog.html:82
+msgid "Tagged ministry"
+msgstr "Misiune etichetată"
+
+#: map/edit-church.html:55
+#: map/map.html:33
+#: map/new-church.html:55
+msgid "Target"
+msgstr "Țintă"
+
+#: admin/confirm-team-drop.html:9
+msgid "Target Team"
+msgstr "Echipă țintă"
+
+#: map/map.html:70
+msgid "Target city"
+msgstr "Oraș țintă"
+
+#: controllers/map/map-ctrl.js:964
+msgid "Target city position was updated"
+msgstr "Poziția orașului țintă a fost actualizată"
+
+#: controllers/map/map-ctrl.js:474
+msgid "Target city was created successfully"
+msgstr "Orașul țintă a fost creat cu succes"
+
+#: controllers/map/map-ctrl.js:1332
+msgid "Target city was deleted successfully"
+msgstr "Orașul țintă a fost șters cu succes"
+
+#: controllers/map/map-ctrl.js:779
+msgid "Target city was updated"
+msgstr "Orașul țintă a fost actualizat"
+
+#: admin/confirm-member-drop.html:10
+msgid "Target team"
+msgstr "Echipă țintă"
+
+#: measurements/lmi.html:100
+#: measurements/lmi.html:124
+#: measurements/lmi.html:148
+#: measurements/lmi.html:64
+msgid "Team"
+msgstr "Echipă"
+
+#: controllers/admin/admin-ctrl.js:89
+msgid "Team & Members"
+msgstr "Echipă și membri"
+
+#: measurements/details.html:60
+msgid "Team Members"
+msgstr "Membri echipă"
+
+#: stories/edit-story-dialog.html:63
+#: stories/new-story-dialog.html:67
+msgid "Team only"
+msgstr "Doar echipă"
+
+#: admin/add-team-member.html:9
+msgid "TheKey username"
+msgstr "Nume utilizator TheKey"
+
+#: stories/edit-story-dialog.html:9
+#: stories/new-story-dialog.html:11
+#: stories/new-story-dialog.html:13
+msgid "Title"
+msgstr "Titlu"
+
+#: measurements/details.html:17
+#: measurements/details.html:49
+msgid "Total"
+msgstr "Total"
+
+#: map/edit-training.html:21
+#: map/new-training.html:17
+msgid "Training Type"
+msgstr "Tip instruire"
+
+#: map/map.html:79
+msgid "Training activity"
+msgstr "Activitate de instruire"
+
+#: controllers/map/map-ctrl.js:1356
+msgid "Training stage was deleted successfully"
+msgstr "Etapa de instruire a fost ștearsă cu succes"
+
+#: controllers/map/map-ctrl.js:447
+msgid "Training was created"
+msgstr "Sesiunea de instruire a fost creată"
+
+#: controllers/map/map-ctrl.js:1311
+msgid "Training was deleted successfully"
+msgstr "Sesiunea de instruire a fost ștearsă cu succes"
+
+#: controllers/map/map-ctrl.js:1290
+msgid "Training was saved successfully"
+msgstr "Sesiunea de instruire a fost salvată cu succes"
+
+#: controllers/map/map-ctrl.js:757
+#: controllers/map/map-ctrl.js:768
+msgid "Training was updated"
+msgstr "Sesiunea de instruire a fost actualizată cu succes"
+
+#: map/edit-church.html:52
+#: map/new-church.html:52
+msgid "Type"
+msgstr "Tip"
+
+#: controllers/admin/admin-ctrl.js:378
+msgid "Unable to add new member"
+msgstr "Imposibil de adăugat membrul nou"
+
+#: controllers/admin/admin-ctrl.js:503
+msgid "Unable to add sub ministry"
+msgstr "Imposibil de adăugat sub-misiunea"
+
+#: controllers/map/map-ctrl.js:426
+msgid "Unable to create church"
+msgstr "Imposibil de creat biserica"
+
+#: controllers/admin/admin-ctrl.js:199
+msgid "Unable to create measurement"
+msgstr "Imposibil de creat măsurătoarea"
+
+#: controllers/map/map-ctrl.js:748
+msgid "Unable to delete church"
+msgstr "Imposibil de șters biserica"
+
+#: controllers/map/map-ctrl.js:1337
+msgid "Unable to delete target city"
+msgstr "Imposibil de șters orașul țintă"
+
+#: controllers/map/map-ctrl.js:1315
+msgid "Unable to delete training"
+msgstr "Imposibil de șters sesiunea de instruire"
+
+#: controllers/admin/admin-ctrl.js:241
+msgid "Unable to get measurement"
+msgstr "Imposibil de obținut măsurătoarea"
+
+#: controllers/gma-ctrl.js:293
+msgid "Unable to join to requested ministry"
+msgstr "Imposibil de alăturat la misiunea solicitată"
+
+#: controllers/map/map-ctrl.js:587
+msgid "Unable to load countries list"
+msgstr "Imposibil de încărcat lista de țări"
+
+#: controllers/gma-ctrl.js:450
+msgid "Unable to load languages"
+msgstr "Imposibil de încărcat limbi"
+
+#: controllers/measurements/measurements-ctrl.js:85
+msgid "Unable to load measurements"
+msgstr "Imposibil de încărcat măsurători"
+
+#: controllers/reports/reports-ctrl.js:69
+msgid "Unable to load measurements for reporting"
+msgstr "Imposibil de încărcat măsurători din rapoarte"
+
+#: controllers/stories/stories-ctrl.js:92
+msgid "Unable to load stories"
+msgstr "Imposibil de încărcat istorice"
+
+#: controllers/map/map-ctrl.js:316
+msgid "Unable to load target cities"
+msgstr "Imposibil de încărcat orașe țintă"
+
+#: controllers/admin/admin-ctrl.js:316
+msgid "Unable to load team members"
+msgstr "Imposibil de încărcat membri de echipă"
+
+#: controllers/map/map-ctrl.js:335
+msgid "Unable to load trainings"
+msgstr "Imposibil de încărcat sesiuni de instruire"
+
+#: controllers/admin/admin-ctrl.js:604
+msgid "Unable to move member"
+msgstr "Imposibil de mutat membru"
+
+#: controllers/admin/admin-ctrl.js:580
+msgid "Unable to move ministry"
+msgstr "Imposibil de mutat misiune"
+
+#: controllers/admin/admin-ctrl.js:172
+msgid "Unable to save changes"
+msgstr "Imposibil de salvat modificări"
+
+#: controllers/map/map-ctrl.js:1385
+#: controllers/map/map-ctrl.js:1405
+msgid "Unable to save default map view"
+msgstr "Imposibil de salvat vizualizare implicită hartă"
+
+#: controllers/measurements/measurements-ctrl.js:139
+msgid "Unable to save measurements"
+msgstr "Imposibil de salvat măsurători"
+
+#: controllers/preference/user-preference-ctrl.js:48
+msgid "Unable to save preferences"
+msgstr "Imposibil de salvat preferințe"
+
+#: controllers/map/map-ctrl.js:729
+msgid "Unable to update church"
+msgstr "Imposibil de actualizat biserica"
+
+#: controllers/admin/admin-ctrl.js:264
+msgid "Unable to update measurement"
+msgstr "Imposibil de actualizat măsurătoarea"
+
+#: controllers/stories/stories-ctrl.js:251
+msgid "Unable to update story"
+msgstr "Imposibil de actualizat istoricul"
+
+#: controllers/map/map-ctrl.js:781
+#: controllers/map/map-ctrl.js:966
+msgid "Unable to update target city"
+msgstr "Imposibil de actualizat orașul țintă"
+
+#: controllers/map/map-ctrl.js:760
+msgid "Unable to update training"
+msgstr "Imposibil de actualizat sesiunea de instruire"
+
+#: controllers/admin/admin-ctrl.js:425
+#: controllers/admin/admin-ctrl.js:444
+msgid "Unable to update user role"
+msgstr "Imposibil de actualizat funcția utilizatorului"
+
+#: controllers/map/map-ctrl.js:1542
+#: controllers/stories/stories-ctrl.js:269
+msgid "Unable to upload image file"
+msgstr "Imposibil de încărcat fișierul imagine"
+
+#: stories/edit-story-dialog.html:101
+msgid "Update"
+msgstr "Actualizare"
+
+#: admin/_edit-ministry.html:89
+msgid "Update Ministry"
+msgstr "Actualizare misiune"
+
+#: admin/confirm-update-role.html:4
+msgid "Update Team Member Role ?"
+msgstr "Actualizați funcția membrului de echipă?"
+
+#: stories/edit-story-dialog.html:31
+#: stories/new-story-dialog.html:34
+msgid "Upload an image"
+msgstr "Încărcare imagine"
+
+#: controllers/map/map-ctrl.js:1540
+#: controllers/stories/stories-ctrl.js:267
+msgid "Upload failed, Invalid file input"
+msgstr "Încărcarea a eșuat, fișier nevalid"
+
+#: error/error.html:4
+msgid "Use the button below to log back in."
+msgstr "Folosiți butonul de mai jos pentru a vă conecta din nou."
+
+#: controllers/admin/admin-ctrl.js:420
+#: controllers/admin/admin-ctrl.js:438
+msgid "User role was updated"
+msgstr "Funcția utilizatorului a fost actualizată"
+
+#: admin/add-team-member.html:14
+msgid "Username is required."
+msgstr "Numele de utilizator este necesar."
+
+#: stories/view-story-dialog.html:4
+msgid "View story"
+msgstr "Vizualizare istoric"
+
+#: admin/add-measurement-type.html:59
+#: measurements/measurements.html:57
+msgid "Win"
+msgstr "Câștigă"
+
+#: admin/confirm-member-drop.html:16
+#: admin/confirm-team-drop.html:14
+#: admin/confirm-update-role.html:15
+#: map/edit-church.html:41
+#: map/edit-church.html:46
+#: map/new-church.html:46
+#: preference/user-preference-modal.html:36
+msgid "Yes"
+msgstr "Da"
+
+#: controllers/gma-ctrl.js:291
+msgid "You are already assigned to requested ministry"
+msgstr "Sunteți deja alocat la misiunea solicitată"
+
+#: controllers/gma-ctrl.js:413
+msgid "You are not authorised for this"
+msgstr "Nu aveți autorizația să faceți acest lucru"
+
+#: error/error.html:3
+msgid "You have been logged out or your session has expired due to inactivity."
+msgstr "Ați fost deconectat(ă) sau sesiunea a expirat din cauza inactivității."
+
+#: stories/new-story-dialog.html:25
+msgid "You have {{storiesConfig.content_length - story.content.length}} of {{storiesConfig.content_length}} characters remaining"
+msgstr "Aveți {{storiesConfig.content_length - story.content.length}} din {{storiesConfig.content_length}} caractere rămase"
+
+#: controllers/map/map-ctrl.js:1420
+msgid "Your browser does not support GeoLocation"
+msgstr "Browser-ul dvs. nu acceptă GeoLocation"
+
+#: controllers/map/map-ctrl.js:1382
+msgid "Your default map view has been set"
+msgstr "Vizualizarea implicită hartă a fost setată"
+
+#: controllers/preference/user-preference-ctrl.js:39
+msgid "Your preferences were saved"
+msgstr "Preferințele dvs. au fost salvate"
+
+#: stories/edit-story-dialog.html:26
+msgid "characters"
+msgstr "caractere"
+
+#: stories/edit-story-dialog.html:48
+msgid "existing image will be replaced"
+msgstr "imaginea existentă va fi înlocuită"
+
+#: map/edit-church.html:5
+msgid "members"
+msgstr "membri"
+
+#: map/new-church.html:26
+msgid "name@email.com"
+msgstr "name@email.com"
+
+#: measurements/lmi.html:12
+#: measurements/lmi.html:28
+#: measurements/lmi.html:53
+#: measurements/lmi.html:89
+msgid "personal"
+msgstr "personalului"
+
+#: measurements/lmi.html:106
+#: measurements/lmi.html:130
+#: measurements/lmi.html:154
+#: measurements/lmi.html:34
+#: measurements/lmi.html:70
+msgid "total"
+msgstr "total"
+
+#: map/map.html:121
+msgid "{{current.assignment.name}} + tree"
+msgstr "{{current.assignment.name}} + arbore"
+
+#: map/map.html:115
+msgid "{{current.assignment.name}} only"
+msgstr "Doar {{current.assignment.name}}"
+

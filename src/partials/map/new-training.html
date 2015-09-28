@@ -1,11 +1,11 @@
 ﻿<div id="new_church_window">
 	<div class="clearfix"></div>
 	<div class='church-window'>
-		<h4 translate>New Church Training Activity </h4>
+		<h4 translate>New Church Training Activity</h4>
         <form name="form" novalidate>
 		<table class="table table-condensed">
 			<tr>
-				<td><b translate>Name:</b></td>
+				<td><b translate>Name</b></td>
 				<td>
 					<input id="tbName" name="name" type="text" class="form-control input-sm" placeholder="Name" ng-model="new_training.name" ng-required="true"/>
                     <small class="help-text" ng-show="form.name.$dirty && form.name.$invalid">
@@ -14,28 +14,28 @@
 				</td>
 			</tr>
 			<tr>
-				<td><b translate>Training Type: </b></td>
+				<td><b translate>Training Type</b></td>
 				<td>
 					<select id="ddlTrainingType" class="form-control input-sm" ng-model="new_training.type" ng-options="s.value as s.text for s in training_types" ng-required="true"></select>
 				</td>
 			</tr>
 
 			<tr>
-				<td><b translate>Date:</b></td>
+				<td><b translate>Date</b></td>
 				<td>
 					<input id="tbDate" type="date" class="form-control input-sm" placeholder="yyyy-mm-dd" ng-model="new_training.date" ng-required="true"/>
 				</td>
 			</tr>
 
 			<tr>
-				<td><b translate>Participants:</b></td>
+				<td><b translate>Participants</b></td>
 				<td>
 					<input id="tbParticipants" type="number" class="form-control input-sm" placeholder="(Optional)" ng-model="new_training.participants" min="0" />
 
 				</td>
 			</tr>
 			<tr>
-				<td><b translate>MCC:</b></td>
+				<td><b translate>MCC</b></td>
 				<td class="text-uppercase">{{current.mcc}}</td>
 			</tr>
 		</table>

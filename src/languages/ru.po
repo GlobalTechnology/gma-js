@@ -1,0 +1,1427 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2015-09-28 17:37+0000\n"
+"PO-Revision-Date: 2015-09-28 17:37+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: map/edit-church.html:30
+#: map/new-church.html:36
+msgid "+99 99999999"
+msgstr "'+99 99999999"
+
+#: admin/_measurement.html:15
+#: admin/_team-members.html:62
+msgid "Actions"
+msgstr "Действия"
+
+#: map/new-church.html:89
+msgid "Add Church"
+msgstr "Добавить церковь"
+
+#: admin/_measurement.html:5
+msgid "Add Measurement"
+msgstr "Добавить показатель"
+
+#: map/edit-training.html:86
+msgid "Add Stage"
+msgstr "Добавить уровень"
+
+#: map/edit-church.html:116
+#: map/edit-church.html:145
+#: map/edit-training.html:101
+#: map/edit-training.html:122
+msgid "Add Story"
+msgstr "Добавить историю"
+
+#: map/new-target-city.html:56
+msgid "Add Target city"
+msgstr "Добавить целевой город"
+
+#: map/new-training.html:46
+msgid "Add Training"
+msgstr "Добавить обучение"
+
+#: admin/add-sub-ministry.html:4
+msgid "Add a new sub ministry to"
+msgstr "Добавить миссию второго уровня в"
+
+#: admin/_team-members.html:18
+msgid "Add member"
+msgstr "Добавить участника"
+
+#: admin/add-measurement-type.html:4
+msgid "Add new measurement"
+msgstr "Добавить новый показатель"
+
+#: admin/add-team-member.html:4
+msgid "Add new member to"
+msgstr "Добавить нового участника в"
+
+#: stories/new-story-dialog.html:4
+msgid "Add new story"
+msgstr "Добавить новую историю"
+
+#: stories/new-story-dialog.html:5
+msgid "Add new story to - {{iconName}}"
+msgstr "Добавить историю в {{iconName}}"
+
+#: stories/stories.html:12
+msgid "Add story"
+msgstr "Добавить историю"
+
+#: admin/_team-members.html:19
+msgid "Add sub ministry"
+msgstr "Добавить миссию второго уровня"
+
+#. Main Navigation Tabs - Administrate
+#: controllers/admin/admin-ctrl.js:275
+#: measurements/details.html:130
+#: services/settings/settings-service.js:82
+msgid "Admin"
+msgstr "Админ."
+
+#: controllers/admin/admin-ctrl.js:276
+msgid "Admin (inherited)"
+msgstr "Администратор (унаследованный)"
+
+#: preference/user-preference-modal.html:49
+msgid "Application language"
+msgstr "Язык приложения"
+
+#: measurements/details.html:125
+msgid "Approve"
+msgstr "Утвердить"
+
+#: measurements/details.html:124
+msgid "Approved"
+msgstr "Утверждено"
+
+#: map/_confirmation-dialog.html:7
+msgid "Are you sure you want to delete ?"
+msgstr "Вы действительно хотите удалить?"
+
+#: map/edit-target-city.html:17
+#: map/new-target-city.html:17
+msgid "Area"
+msgstr "Регион"
+
+#: controllers/map/map-ctrl.js:480
+msgid "Bad Request: Unable to create target city"
+msgstr "Неправильный запрос: невозможно создать целевой город"
+
+#: admin/add-measurement-type.html:60
+#: measurements/measurements.html:80
+msgid "Build"
+msgstr "Построить"
+
+#: admin/_edit-ministry.html:69
+msgid "CTRL + click to select multiple languages"
+msgstr "CTRL + щелчок для выбора нескольких языков"
+
+#. Verb - Button
+#: join-ministry.html:29
+#: map/_confirmation-dialog.html:10
+#: map/new-church.html:88
+#: map/new-target-city.html:55
+#: map/new-training.html:45
+#: preference/user-preference-modal.html:57
+msgid "Cancel"
+msgstr "Отмена"
+
+#: controllers/admin/admin-ctrl.js:170
+msgid "Changes saved successfully"
+msgstr "Изменения успешно сохранены"
+
+#: map/edit-church.html:57
+#: map/new-church.html:57
+msgid "Church"
+msgstr "Церковь"
+
+#: map/map.html:51
+msgid "Church or community of disciples"
+msgstr "Церковь или община последователей"
+
+#: controllers/map/map-ctrl.js:423
+msgid "Church was created"
+msgstr "Церковь создана"
+
+#: controllers/map/map-ctrl.js:745
+msgid "Church was deleted successfully"
+msgstr "Церковь успешно удалена"
+
+#: controllers/map/map-ctrl.js:725
+msgid "Church was updated successfully"
+msgstr "Церковь успешно обновлена"
+
+#: map/map.html:137
+msgid "Click to expand/collapse search"
+msgstr "Щелкните, чтобы расширить или сузить параметры поиска"
+
+#: admin/add-measurement-type.html:3
+#: admin/add-measurement-type.html:69
+#: admin/add-sub-ministry.html:21
+#: admin/add-sub-ministry.html:3
+#: admin/add-team-member.html:30
+#: admin/confirm-member-drop.html:3
+#: admin/confirm-team-drop.html:3
+#: admin/confirm-update-role.html:3
+#: admin/edit-measurement-type.html:3
+#: admin/edit-measurement-type.html:55
+#: map/_confirmation-dialog.html:3
+#: measurements/details.html:145
+#: measurements/details.html:3
+#: preference/user-preference-modal.html:3
+#: stories/edit-story-dialog.html:3
+#: stories/new-story-dialog.html:102
+#: stories/new-story-dialog.html:3
+#: stories/view-story-dialog.html:27
+#: stories/view-story-dialog.html:3
+msgid "Close"
+msgstr "Закрыть"
+
+#: admin/_measurement.html:13
+#: admin/add-measurement-type.html:43
+msgid "Column"
+msgstr "Столбец"
+
+#: map/_confirmation-dialog.html:4
+msgid "Confirm ?"
+msgstr "Подтвердить?"
+
+#: map/edit-church.html:18
+#: map/new-church.html:23
+msgid "Contact Email"
+msgstr "Эл. почта"
+
+#: map/edit-church.html:28
+#: map/new-church.html:33
+msgid "Contact Mobile"
+msgstr "Мобильный телефон"
+
+#: map/edit-church.html:11
+#: map/new-church.html:17
+msgid "Contact Name"
+msgstr "Контактное лицо"
+
+#: stories/edit-story-dialog.html:19
+#: stories/new-story-dialog.html:21
+msgid "Content"
+msgstr "Содержание"
+
+#: preference/user-preference-modal.html:41
+msgid "Content language"
+msgstr "Язык содержания"
+
+#: map/edit-target-city.html:25
+#: map/new-target-city.html:25
+msgid "Country"
+msgstr "Страна"
+
+#: admin/add-measurement-type.html:70
+#: admin/add-sub-ministry.html:22
+msgid "Create"
+msgstr "Создать"
+
+#: map/new-church.html:4
+msgid "Create New Church"
+msgstr "Создать новую церковь"
+
+#: map/map.html:13
+msgid "Create new target city"
+msgstr "Создать новый целевой город"
+
+#: map/map.html:5
+msgid "Create new target point"
+msgstr "Создать новое целевое место"
+
+#: map/map.html:9
+msgid "Create new training"
+msgstr "Создать новое обучение"
+
+#: stories/stories.html:7
+msgid "Created by me"
+msgstr "Создано мной"
+
+#: admin/confirm-member-drop.html:9
+msgid "Current role"
+msgstr "Текущая роль"
+
+#: admin/confirm-member-drop.html:11
+msgid "Current role will be set to former-member"
+msgstr "Текущая роль будет установлена бывшему участнику"
+
+#: map/edit-training.html:29
+#: map/edit-training.html:46
+#: map/new-training.html:24
+msgid "Date"
+msgstr "Дата"
+
+#: admin/_edit-ministry.html:50
+#: preference/user-preference-modal.html:12
+#: preference/user-preference-modal.html:21
+msgid "Default"
+msgstr "По умолчанию"
+
+#: admin/_edit-ministry.html:46
+msgid "Default MCC"
+msgstr "MCC по умолчанию"
+
+#: controllers/map/map-ctrl.js:1403
+msgid "Default ministry map view has been set"
+msgstr "Установлено отображение миссии на карте по умолчанию"
+
+#: map/_confirmation-dialog.html:11
+#: map/edit-training.html:72
+#: measurements/details.html:134
+msgid "Delete"
+msgstr "Удалить"
+
+#: map/edit-church.html:135
+msgid "Delete Church"
+msgstr "Удалить церковь"
+
+#: map/edit-target-city.html:69
+msgid "Delete Target city"
+msgstr "Удалить целевой город"
+
+#: map/edit-training.html:112
+msgid "Delete Training"
+msgstr "Удалить обучение"
+
+#: admin/_team-members.html:8
+#: controllers/admin/admin-ctrl.js:280
+msgid "Deleted"
+msgstr "Удалено"
+
+#: admin/add-measurement-type.html:20
+msgid "Description"
+msgstr "Описание"
+
+#: admin/add-measurement-type.html:25
+#: admin/edit-measurement-type.html:45
+msgid "Description is required"
+msgstr "Необходимо ввести описание"
+
+#: admin/add-measurement-type.html:26
+#: admin/edit-measurement-type.html:46
+msgid "Description should not exceed 200 characters"
+msgstr "Описание должно содержать не более 200 символов"
+
+#. MCC - Digital Strategies
+#: controllers/gma-ctrl.js:182
+msgid "Digital Strategies"
+msgstr "Digital Strategies"
+
+#: stories/edit-story-dialog.html:71
+#: stories/new-story-dialog.html:75
+msgid "Draft"
+msgstr "Черновик"
+
+#: controllers/map/map-ctrl.js:525
+#: controllers/map/map-ctrl.js:557
+#: controllers/map/map-ctrl.js:611
+msgid "Drag to Move"
+msgstr "Перетащите, чтобы переместить"
+
+#: controllers/admin/admin-ctrl.js:632
+#: controllers/admin/admin-ctrl.js:639
+msgid "Drop canceled, can't be dropped on child team"
+msgstr "Перемещение отменено. Невозможно переместить в команду низшего уровня"
+
+#: controllers/admin/admin-ctrl.js:625
+msgid "Drop canceled, can't be dropped on parent team"
+msgstr "Перемещение отменено. Невозможно переместить в команду высшего уровня"
+
+#: controllers/admin/admin-ctrl.js:652
+msgid "Drop canceled, can't be dropped on selected team"
+msgstr "Перемещение отменено. Невозможно переместить в выбранную команду"
+
+#: stories/stories.html:35
+msgid "Edit"
+msgstr "Редактировать"
+
+#: controllers/admin/admin-ctrl.js:95
+msgid "Edit Ministry"
+msgstr "Редактировать миссию"
+
+#: map/edit-target-city.html:4
+msgid "Edit Target City"
+msgstr "Редактировать целевой город"
+
+#: admin/_edit-ministry.html:4
+msgid "Edit current ministry"
+msgstr "Редактировать текущую миссию"
+
+#: stories/edit-story-dialog.html:4
+msgid "Edit story"
+msgstr "Редактировать историю"
+
+#: admin/_team-members.html:62
+msgid "Email"
+msgstr "Эл. почта"
+
+#: admin/edit-measurement-type.html:22
+msgid "English description"
+msgstr "Описание по-английски"
+
+#: admin/edit-measurement-type.html:16
+msgid "English name"
+msgstr "Имя по-английски"
+
+#: controllers/stories/stories-ctrl.js:63
+msgid "Error loading news feeds"
+msgstr "Ошибка загрузки новостной ленты"
+
+#: controllers/map/map-ctrl.js:482
+msgid "Error: Unable to create target city"
+msgstr "Ошибка: невозможно создать целевой город"
+
+#: map/map.html:109
+msgid "Everything"
+msgstr "Все"
+
+#: map/map.html:103
+msgid "FILTERS"
+msgstr "ФИЛЬТРЫ"
+
+#: controllers/map/map-ctrl.js:1416
+msgid "Failed to get your current location"
+msgstr "Не удалось установить ваше текущее местоположение"
+
+#: controllers/map/map-ctrl.js:1548
+#: controllers/stories/stories-ctrl.js:160
+msgid "Failed to save story"
+msgstr "Не удалось сохранить историю"
+
+#: controllers/admin/admin-ctrl.js:376
+msgid "Failed, User not found"
+msgstr "Ошибка: пользователь не найден"
+
+#: admin/add-measurement-type.html:47
+msgid "Faith"
+msgstr "Вера"
+
+#: measurements/measurements.html:35
+msgid "Faith Actions"
+msgstr "Обряды веры"
+
+#: admin/_team-members.html:62
+msgid "First Name"
+msgstr "Имя"
+
+#: controllers/admin/admin-ctrl.js:281
+msgid "Former Member"
+msgstr "Бывший участник"
+
+#: admin/_team-members.html:9
+msgid "Former members"
+msgstr "Бывшие участники"
+
+#: admin/add-measurement-type.html:48
+#: measurements/measurements.html:41
+msgid "Fruit"
+msgstr "Результат"
+
+#. MCC - Global Church Movements
+#: controllers/gma-ctrl.js:185
+msgid "Global Church Movements"
+msgstr "Global Church Movements"
+
+#: map/edit-church.html:56
+#: map/map.html:42
+#: map/new-church.html:56
+msgid "Group"
+msgstr "Группа"
+
+#: admin/_edit-ministry.html:58
+#: admin/_measurement.html:25
+msgid "Hide"
+msgstr "Скрыть"
+
+#: admin/_edit-ministry.html:55
+msgid "Hide reports tab by default"
+msgstr "Скрывать вкладку отчетов по умолчанию"
+
+#. Main Navigation Tabs - Home (News/Stories)
+#: services/settings/settings-service.js:93
+msgid "Home"
+msgstr "Домой"
+
+#: controllers/map/map-ctrl.js:1536
+#: controllers/stories/stories-ctrl.js:138
+#: controllers/stories/stories-ctrl.js:242
+msgid "Image file was uploaded"
+msgstr "Изображение отправлено"
+
+#: stories/edit-story-dialog.html:48
+#: stories/new-story-dialog.html:51
+msgid "Image will be resized to"
+msgstr "Размер изображения будет изменен до"
+
+#: admin/_team-members.html:13
+msgid "Inherited admins"
+msgstr "Унаследованные администраторы"
+
+#: admin/_team-members.html:11
+msgid "Inherited leaders"
+msgstr "Унаследованные лидеры"
+
+#: error/error.html:2
+msgid "Invalid Session"
+msgstr "Ошибка сеанса"
+
+#: admin/add-team-member.html:15
+#: map/edit-church.html:22
+#: map/new-church.html:28
+msgid "Invalid email format"
+msgstr "Неверный формат эл. почты"
+
+#: stories/edit-story-dialog.html:49
+#: stories/new-story-dialog.html:52
+msgid "Invalid image file input."
+msgstr "Выбран неверный файл изображения"
+
+#: map/edit-church.html:38
+#: map/new-church.html:44
+msgid "Jesus film activity"
+msgstr "Работа с Jesus film"
+
+#: map/map.html:87
+msgid "Jesus film contribution"
+msgstr "Вклад Jesus film"
+
+#. Modal Title
+#. Verb - Button
+#: join-ministry.html:28
+#: join-ministry.html:3
+msgid "Join Ministry/Team"
+msgstr "Присоединиться к миссии или команде"
+
+#: application.html:21
+msgid "Join another location / ministry"
+msgstr "Присоединиться к другому месту или миссии"
+
+#: map/map.html:22
+msgid "LEGEND"
+msgstr "ЛЕГЕНДА"
+
+#: admin/edit-measurement-type.html:9
+msgid "Language"
+msgstr "Язык"
+
+#: admin/_team-members.html:62
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: controllers/admin/admin-ctrl.js:277
+#: measurements/details.html:132
+msgid "Leader"
+msgstr "Лидер"
+
+#: controllers/admin/admin-ctrl.js:278
+msgid "Leader (inherited)"
+msgstr "Лидер (унаследованный)"
+
+#. MCC - Leader Led
+#: controllers/gma-ctrl.js:188
+msgid "Leader Led"
+msgstr "Leader Led"
+
+#: measurements/details.html:33
+msgid "Local"
+msgstr "Местный"
+
+#: measurements/measurements.html:7
+msgid "Local Movement Indicators"
+msgstr "Показатели местного движения"
+
+#: measurements/details.html:26
+msgid "Local Team"
+msgstr "Местная команда"
+
+#: admin/_measurement.html:27
+#: admin/edit-measurement-type.html:4
+msgid "Localize"
+msgstr "Локализовать"
+
+#: admin/edit-measurement-type.html:40
+msgid "Localized description"
+msgstr "Локализованное описание"
+
+#: admin/edit-measurement-type.html:29
+msgid "Localized name"
+msgstr "Локализованное имя"
+
+#: error/error.html:5
+msgid "Log In"
+msgstr "Войти"
+
+#: application.html:70
+msgid "Logout"
+msgstr "Выйти"
+
+#: map/edit-training.html:37
+#: map/new-training.html:38
+msgid "MCC"
+msgstr "MCC"
+
+#: admin/_edit-ministry.html:34
+msgid "MCCs"
+msgstr "MCCs"
+
+#: controllers/admin/admin-ctrl.js:101
+msgid "Manage Measurements"
+msgstr "Управление показателями"
+
+#. Main Navigation Tabs - Map
+#: services/settings/settings-service.js:49
+msgid "Map"
+msgstr "Карта"
+
+#: controllers/admin/admin-ctrl.js:191
+msgid "Measurement was created successfully"
+msgstr "Показатель успешно создан"
+
+#: controllers/admin/admin-ctrl.js:262
+msgid "Measurement was updated"
+msgstr "Показатель обновлен"
+
+#. Main Navigation Tabs - Measurements
+#: admin/_measurement.html:4
+#: services/settings/settings-service.js:60
+msgid "Measurements"
+msgstr "Показатели"
+
+#: controllers/measurements/measurements-ctrl.js:135
+msgid "Measurements saved successfully"
+msgstr "Показатели успешно сохранены"
+
+#: controllers/measurements/measurements-ctrl.js:175
+msgid "Measurements updated successfully"
+msgstr "Показатели успешно обновлены"
+
+#: admin/confirm-update-role.html:8
+#: controllers/admin/admin-ctrl.js:279
+#: measurements/details.html:131
+msgid "Member"
+msgstr "Участник"
+
+#: controllers/admin/admin-ctrl.js:595
+msgid "Member was moved to ministry successfully"
+msgstr "Участник успешно перемещен в миссию"
+
+#: map/edit-church.html:82
+msgid "Ministry"
+msgstr "Миссия"
+
+#: admin/_edit-ministry.html:10
+#: admin/add-sub-ministry.html:9
+msgid "Ministry name"
+msgstr "Название миссии"
+
+#: admin/_edit-ministry.html:15
+#: admin/add-sub-ministry.html:14
+msgid "Ministry name is required."
+msgstr "Необходимо ввести название миссии"
+
+#: controllers/admin/admin-ctrl.js:567
+msgid "Ministry was moved successfully"
+msgstr "Миссия успешно перемещена"
+
+#: join-ministry.html:9
+msgid "Ministry/Team:"
+msgstr "Миссия/Команда:"
+
+#: application.html:98
+msgid "Mobile Apps"
+msgstr "Мобильные приложения"
+
+#: map/edit-church.html:32
+#: map/new-church.html:38
+msgid "Mobile number is invalid."
+msgstr "Неверный номер мобильного телефона"
+
+#: map/edit-church.html:121
+msgid "Move Church"
+msgstr "Переместить церковь"
+
+#: map/edit-target-city.html:64
+msgid "Move Target city"
+msgstr "Переместить целевой город"
+
+#: map/edit-training.html:106
+msgid "Move Training"
+msgstr "Переместить обучение"
+
+#: admin/confirm-member-drop.html:4
+msgid "Move member to this team ?"
+msgstr "Переместить участника в эту команду?"
+
+#: admin/confirm-team-drop.html:4
+msgid "Move sub-team to this team ?"
+msgstr "Переместить подгруппу в эту команду?"
+
+#: map/edit-church.html:58
+#: map/new-church.html:58
+msgid "Multiplying Church"
+msgstr "Расширяющаяся церковь"
+
+#: map/map.html:61
+msgid "Multiplying church or community of disciples"
+msgstr "Расширяющаяся церковь или община последователей"
+
+#: application.html:68
+msgid "My Preferences"
+msgstr "Мои настройки"
+
+#: map/map.html:17
+msgid "My location on map"
+msgstr "Мое местоположение на карте"
+
+#: preference/user-preference-modal.html:4
+msgid "My preferences"
+msgstr "Мои настройки"
+
+#: admin/_measurement.html:12
+#: admin/add-measurement-type.html:9
+#: admin/confirm-member-drop.html:8
+#: map/edit-target-city.html:10
+#: map/edit-target-city.html:8
+#: map/edit-training.html:11
+#: map/edit-training.html:13
+#: map/new-church.html:8
+#: map/new-target-city.html:8
+#: map/new-training.html:8
+msgid "Name"
+msgstr "Имя"
+
+#: admin/add-measurement-type.html:14
+#: admin/edit-measurement-type.html:34
+msgid "Name is required"
+msgstr "Необходимо ввести имя"
+
+#: map/edit-target-city.html:12
+#: map/edit-training.html:15
+#: map/new-church.html:12
+#: map/new-target-city.html:12
+#: map/new-training.html:12
+msgid "Name is required."
+msgstr "Необходимо ввести имя."
+
+#: admin/add-measurement-type.html:15
+#: admin/edit-measurement-type.html:35
+msgid "Name should not exceed 200 characters"
+msgstr "Имя не должно превышать 200 символов"
+
+#: map/new-training.html:4
+msgid "New Church Training Activity"
+msgstr "Создание прицерковного обучения"
+
+#: admin/confirm-update-role.html:10
+msgid "New Role"
+msgstr "Новая роль"
+
+#: map/new-target-city.html:4
+msgid "New Target city"
+msgstr "Новый целевой город"
+
+#: controllers/admin/admin-ctrl.js:369
+msgid "New member was added successfully"
+msgstr "Новый участник успешно добавлен"
+
+#: stories/stories.html:45
+#: stories/stories.html:61
+msgid "Newer"
+msgstr "Более новые"
+
+#: admin/confirm-member-drop.html:15
+#: admin/confirm-team-drop.html:13
+#: admin/confirm-update-role.html:14
+#: map/edit-church.html:42
+#: map/edit-church.html:47
+#: map/new-church.html:47
+#: preference/user-preference-modal.html:37
+msgid "No"
+msgstr "Нет"
+
+#: admin/_edit-ministry.html:29
+msgid "No parent ministry"
+msgstr "Нет миссии высшего уровня"
+
+#: stories/stories.html:40
+msgid "No story found"
+msgstr "Истории не найдены"
+
+#: map/edit-target-city.html:47
+#: map/new-target-city.html:47
+msgid "None"
+msgstr "Нет"
+
+#: admin/confirm-update-role.html:9
+msgid "Old Role"
+msgstr "Старая роль"
+
+#: stories/stories.html:45
+#: stories/stories.html:61
+msgid "Older"
+msgstr "Более старые"
+
+#: map/edit-church.html:111
+#: map/edit-target-city.html:58
+#: map/edit-training.html:96
+msgid "Options"
+msgstr "Опции"
+
+#: admin/add-measurement-type.html:50
+#: admin/add-measurement-type.html:62
+msgid "Other"
+msgstr "Другие"
+
+#: measurements/measurements.html:115
+msgid "Other Measurements"
+msgstr "Другие показатели"
+
+#: admin/add-measurement-type.html:49
+#: measurements/measurements.html:47
+msgid "Outcome"
+msgstr "Итог"
+
+#: map/map.html:95
+msgid "Parent lines"
+msgstr "Линии высшего уровня"
+
+#: admin/_edit-ministry.html:21
+msgid "Parent ministry"
+msgstr "Миссия высшего уровня"
+
+#: map/edit-training.html:47
+#: map/new-training.html:31
+msgid "Participants"
+msgstr "Участники"
+
+#: admin/add-measurement-type.html:31
+msgid "Permalink"
+msgstr "Постоянная ссылка"
+
+#: admin/add-measurement-type.html:37
+msgid "Permalink is invalid. Please match with required format"
+msgstr "Неверная постоянная ссылка. Исправьте формат."
+
+#: admin/add-measurement-type.html:36
+msgid "Permalink is required"
+msgstr "Необходима постоянная ссылка"
+
+#: admin/add-measurement-type.html:38
+msgid "Permalink should not exceed 100 characters"
+msgstr "Постоянная ссылка должна содержать не более 100 символов"
+
+#: join-ministry.html:5
+msgid "Please identify a ministry team that you work most closely with and request to join that team."
+msgstr "Определите, с какой из команд мисси вы наиболее плотно работаете и отправьте запрос на вступление в эту команду."
+
+#: map/edit-church.html:43
+#: map/new-church.html:48
+msgid "Please make a choice"
+msgstr "Выберите"
+
+#: preference/user-preference-modal.html:17
+msgid "Preferred MCC"
+msgstr "Предпочтительный MCC"
+
+#: preference/user-preference-modal.html:45
+msgid "Preferred content language for"
+msgstr "Предпочтительный язык содержания для"
+
+#: preference/user-preference-modal.html:8
+msgid "Preferred ministry"
+msgstr "Предпочтительная миссия"
+
+#: stories/edit-story-dialog.html:58
+#: stories/new-story-dialog.html:62
+msgid "Privacy"
+msgstr "Конфиденциальность"
+
+#: map/edit-church.html:72
+#: map/new-church.html:73
+msgid "Private"
+msgstr "Частный"
+
+#: map/edit-church.html:74
+#: map/new-church.html:75
+msgid "Public"
+msgstr "Публичный"
+
+#: stories/edit-story-dialog.html:67
+#: stories/new-story-dialog.html:71
+msgid "Publish status"
+msgstr "Статус публикации"
+
+#: stories/edit-story-dialog.html:70
+#: stories/new-story-dialog.html:74
+msgid "Published"
+msgstr "Опубликовано"
+
+#: stories/stories.html:52
+msgid "Refresh Feeds"
+msgstr "Обновить ленту"
+
+#: stories/stories.html:11
+msgid "Refresh List"
+msgstr "Обновить список"
+
+#: admin/_team-members.html:17
+msgid "Refresh members list"
+msgstr "Обновить список участников"
+
+#: map/edit-church.html:73
+#: map/new-church.html:74
+msgid "Registered Users"
+msgstr "Зарегистрированные пользователи"
+
+#: stories/new-story-dialog.html:66
+msgid "Registered users"
+msgstr "Зарегистрированные пользователи"
+
+#: map/edit-church.html:129
+msgid "Remove Parent Church"
+msgstr "Удалить церковь высшего уровня"
+
+#: stories/new-story-dialog.html:57
+msgid "Remove image"
+msgstr "Удалить изображение"
+
+#: stories/edit-story-dialog.html:72
+msgid "Removed"
+msgstr "Удалено"
+
+#. Main Navigation Tabs - Reports
+#: services/settings/settings-service.js:71
+msgid "Reports"
+msgstr "Отчеты"
+
+#: admin/add-team-member.html:21
+msgid "Role"
+msgstr "Роль"
+
+#: admin/add-team-member.html:31
+#: admin/edit-measurement-type.html:56
+#: preference/user-preference-modal.html:58
+#: stories/new-story-dialog.html:103
+msgid "Save"
+msgstr "Сохранить"
+
+#: map/edit-church.html:140
+#: map/edit-target-city.html:74
+#: map/edit-training.html:117
+#: measurements/measurements.html:122
+#: measurements/measurements.html:21
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: measurements/details.html:146
+msgid "Save Measurements"
+msgstr "Сохранить показатели"
+
+#: admin/_measurement.html:33
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+#: map/map.html:136
+msgid "Search"
+msgstr "Поиск"
+
+#: admin/_team-members.html:6
+msgid "Search Members"
+msgstr "Поиск участников"
+
+#: admin/_measurement.html:14
+#: admin/add-measurement-type.html:55
+msgid "Section"
+msgstr "Раздел"
+
+#: map/edit-church.html:69
+#: map/new-church.html:70
+msgid "Security"
+msgstr "Безопасность"
+
+#: map/edit-church.html:77
+#: map/new-church.html:78
+msgid "Security is a required field"
+msgstr "Необходимо заполнить поле безопасности"
+
+#: controllers/admin/admin-ctrl.js:282
+msgid "Self Assigned"
+msgstr "Самоназначенный"
+
+#: measurements/details.html:104
+msgid "Self Assigned Members (not yet approved)"
+msgstr "Самоназначенные участники (еще не утвержденные)"
+
+#: admin/add-measurement-type.html:61
+#: measurements/measurements.html:98
+msgid "Send"
+msgstr "Отправить"
+
+#: map/map.html:129
+msgid "Set Ministry Default View for others"
+msgstr "Установить отображение миссии по умолчанию  для других"
+
+#: map/edit-church.html:126
+msgid "Set Parent Church"
+msgstr "Установить церковь высшего уровня"
+
+#: map/map.html:128
+msgid "Set as my Ministry Default View"
+msgstr "Установить как отображение миссии по умолчанию для меня"
+
+#: admin/_edit-ministry.html:59
+#: admin/_measurement.html:24
+msgid "Show"
+msgstr "Показать"
+
+#: map/edit-church.html:63
+#: map/new-church.html:64
+msgid "Size"
+msgstr "Размер"
+
+#: admin/confirm-team-drop.html:8
+msgid "Source Name"
+msgstr "Имя источника"
+
+#: map/edit-target-city.html:33
+#: map/edit-training.html:45
+#: map/new-target-city.html:33
+msgid "Stage"
+msgstr "Уровень"
+
+#: join-ministry.html:16
+msgid "Start typing to search for ministry"
+msgstr "Начните вводить запрос для поиска миссии"
+
+#: stories/edit-story-dialog.html:26
+#: stories/new-story-dialog.html:28
+msgid "Story content field is required"
+msgstr "Необходимо заполнить поле содержания истории"
+
+#: stories/edit-story-dialog.html:26
+msgid "Story content should not exceed"
+msgstr "Содержание истории не должно превышать"
+
+#: stories/new-story-dialog.html:29
+msgid "Story content should not exceed {{storiesConfig.content_length}} characters"
+msgstr "Содержание истории не должно превышать {{storiesConfig.content_length}} символов"
+
+#: controllers/stories/stories-ctrl.js:133
+msgid "Story saved successfully"
+msgstr "История успешно сохранена"
+
+#: stories/edit-story-dialog.html:13
+#: stories/new-story-dialog.html:15
+msgid "Story title field is required"
+msgstr "Необходимо заполнить поле заголовка истории"
+
+#: stories/edit-story-dialog.html:14
+#: stories/new-story-dialog.html:16
+msgid "Story title should not exceed 120 characters"
+msgstr "Заголовок истории не должен превышать 120 символов"
+
+#: controllers/stories/stories-ctrl.js:234
+msgid "Story was updated"
+msgstr "История обновлена"
+
+#. MCC - Student Led
+#: controllers/gma-ctrl.js:191
+msgid "Student Led"
+msgstr "Student Led"
+
+#: map/edit-target-city.html:44
+#: map/new-target-city.html:44
+msgid "Sub Stage"
+msgstr "Подуровень"
+
+#: controllers/admin/admin-ctrl.js:487
+msgid "Sub ministry was created successfully"
+msgstr "Миссия второго уровня успешно создана"
+
+#: measurements/details.html:86
+msgid "Sub-Ministries / Teams"
+msgstr "Миссии второго уровня / Команды"
+
+#: admin/_edit-ministry.html:63
+msgid "Supported languages"
+msgstr "Поддерживаемые языки"
+
+#: join-ministry.html:20
+#: preference/user-preference-modal.html:34
+msgid "Supported staff"
+msgstr "Поддерживаемый штат"
+
+#: stories/new-story-dialog.html:90
+msgid "Tagged MCC"
+msgstr "Отмеченный MCC"
+
+#: stories/edit-story-dialog.html:87
+msgid "Tagged MCC :"
+msgstr "Отмеченный MCC:"
+
+#: stories/edit-story-dialog.html:79
+#: stories/new-story-dialog.html:82
+msgid "Tagged ministry"
+msgstr "Отмеченная миссия"
+
+#: map/edit-church.html:55
+#: map/map.html:33
+#: map/new-church.html:55
+msgid "Target"
+msgstr "Цель"
+
+#: admin/confirm-team-drop.html:9
+msgid "Target Team"
+msgstr "Целевая команда"
+
+#: map/map.html:70
+msgid "Target city"
+msgstr "Целевой город"
+
+#: controllers/map/map-ctrl.js:964
+msgid "Target city position was updated"
+msgstr "Положение целевого города обновлено"
+
+#: controllers/map/map-ctrl.js:474
+msgid "Target city was created successfully"
+msgstr "Целевой город успешно создан"
+
+#: controllers/map/map-ctrl.js:1332
+msgid "Target city was deleted successfully"
+msgstr "Целевой город успешно удален"
+
+#: controllers/map/map-ctrl.js:779
+msgid "Target city was updated"
+msgstr "Целевой город обновлен"
+
+#: admin/confirm-member-drop.html:10
+msgid "Target team"
+msgstr "Целевая команда"
+
+#: measurements/lmi.html:100
+#: measurements/lmi.html:124
+#: measurements/lmi.html:148
+#: measurements/lmi.html:64
+msgid "Team"
+msgstr "Команда"
+
+#: controllers/admin/admin-ctrl.js:89
+msgid "Team & Members"
+msgstr "Команда и участники"
+
+#: measurements/details.html:60
+msgid "Team Members"
+msgstr "Участники команды"
+
+#: stories/edit-story-dialog.html:63
+#: stories/new-story-dialog.html:67
+msgid "Team only"
+msgstr "Только команда"
+
+#: admin/add-team-member.html:9
+msgid "TheKey username"
+msgstr "Имя пользователя TheKey"
+
+#: stories/edit-story-dialog.html:9
+#: stories/new-story-dialog.html:11
+#: stories/new-story-dialog.html:13
+msgid "Title"
+msgstr "Заголовок"
+
+#: measurements/details.html:17
+#: measurements/details.html:49
+msgid "Total"
+msgstr "Итого"
+
+#: map/edit-training.html:21
+#: map/new-training.html:17
+msgid "Training Type"
+msgstr "Тип обучения"
+
+#: map/map.html:79
+msgid "Training activity"
+msgstr "Образовательная деятельность"
+
+#: controllers/map/map-ctrl.js:1356
+msgid "Training stage was deleted successfully"
+msgstr "Уровень обучения успешно удален"
+
+#: controllers/map/map-ctrl.js:447
+msgid "Training was created"
+msgstr "Обучение создано"
+
+#: controllers/map/map-ctrl.js:1311
+msgid "Training was deleted successfully"
+msgstr "Обучение успешно удалено"
+
+#: controllers/map/map-ctrl.js:1290
+msgid "Training was saved successfully"
+msgstr "Обучение успешно сохранено"
+
+#: controllers/map/map-ctrl.js:757
+#: controllers/map/map-ctrl.js:768
+msgid "Training was updated"
+msgstr "Обучение обновлено"
+
+#: map/edit-church.html:52
+#: map/new-church.html:52
+msgid "Type"
+msgstr "Тип"
+
+#: controllers/admin/admin-ctrl.js:378
+msgid "Unable to add new member"
+msgstr "Невозможно добавить участника"
+
+#: controllers/admin/admin-ctrl.js:503
+msgid "Unable to add sub ministry"
+msgstr "Невозможно добавить миссию второго уровня"
+
+#: controllers/map/map-ctrl.js:426
+msgid "Unable to create church"
+msgstr "Невозможно создать церковь"
+
+#: controllers/admin/admin-ctrl.js:199
+msgid "Unable to create measurement"
+msgstr "Невозможно создать показатель"
+
+#: controllers/map/map-ctrl.js:748
+msgid "Unable to delete church"
+msgstr "Невозможно удалить церковь"
+
+#: controllers/map/map-ctrl.js:1337
+msgid "Unable to delete target city"
+msgstr "Невозможно удалить целевой город"
+
+#: controllers/map/map-ctrl.js:1315
+msgid "Unable to delete training"
+msgstr "Невозможно удалить обучение"
+
+#: controllers/admin/admin-ctrl.js:241
+msgid "Unable to get measurement"
+msgstr "Невозможно получить показатель"
+
+#: controllers/gma-ctrl.js:293
+msgid "Unable to join to requested ministry"
+msgstr "Невозможно присоединиться к запрошенной миссии"
+
+#: controllers/map/map-ctrl.js:587
+msgid "Unable to load countries list"
+msgstr "Невозможно загрузить список стран"
+
+#: controllers/gma-ctrl.js:450
+msgid "Unable to load languages"
+msgstr "Невозможно загрузить языки"
+
+#: controllers/measurements/measurements-ctrl.js:85
+msgid "Unable to load measurements"
+msgstr "Невозможно загрузить показатели"
+
+#: controllers/reports/reports-ctrl.js:69
+msgid "Unable to load measurements for reporting"
+msgstr "Невозможно загрузить показатели для отчета"
+
+#: controllers/stories/stories-ctrl.js:92
+msgid "Unable to load stories"
+msgstr "Невозможно загрузить истории"
+
+#: controllers/map/map-ctrl.js:316
+msgid "Unable to load target cities"
+msgstr "Невозможно загрузить целевые города"
+
+#: controllers/admin/admin-ctrl.js:316
+msgid "Unable to load team members"
+msgstr "Невозможно загрузить участников команды"
+
+#: controllers/map/map-ctrl.js:335
+msgid "Unable to load trainings"
+msgstr "Невозможно загрузить обучение"
+
+#: controllers/admin/admin-ctrl.js:604
+msgid "Unable to move member"
+msgstr "Невозможно переместить участников"
+
+#: controllers/admin/admin-ctrl.js:580
+msgid "Unable to move ministry"
+msgstr "Невозможно переместить миссию"
+
+#: controllers/admin/admin-ctrl.js:172
+msgid "Unable to save changes"
+msgstr "Невозможно сохранить изменения"
+
+#: controllers/map/map-ctrl.js:1385
+#: controllers/map/map-ctrl.js:1405
+msgid "Unable to save default map view"
+msgstr "Невозможно сохранить отображение на карте по умолчанию"
+
+#: controllers/measurements/measurements-ctrl.js:139
+msgid "Unable to save measurements"
+msgstr "Невозможно сохранить показатели"
+
+#: controllers/preference/user-preference-ctrl.js:48
+msgid "Unable to save preferences"
+msgstr "Невозможно сохранить настройки"
+
+#: controllers/map/map-ctrl.js:729
+msgid "Unable to update church"
+msgstr "Невозможно обновить церковь"
+
+#: controllers/admin/admin-ctrl.js:264
+msgid "Unable to update measurement"
+msgstr "Невозможно обновить показатель"
+
+#: controllers/stories/stories-ctrl.js:251
+msgid "Unable to update story"
+msgstr "Невозможно обновить историю"
+
+#: controllers/map/map-ctrl.js:781
+#: controllers/map/map-ctrl.js:966
+msgid "Unable to update target city"
+msgstr "Невозможно обновить целевой город"
+
+#: controllers/map/map-ctrl.js:760
+msgid "Unable to update training"
+msgstr "Невозможно обновить обучение"
+
+#: controllers/admin/admin-ctrl.js:425
+#: controllers/admin/admin-ctrl.js:444
+msgid "Unable to update user role"
+msgstr "Невозможно обновить роль пользователя"
+
+#: controllers/map/map-ctrl.js:1542
+#: controllers/stories/stories-ctrl.js:269
+msgid "Unable to upload image file"
+msgstr "Невозможно отправить файл изображения"
+
+#: stories/edit-story-dialog.html:101
+msgid "Update"
+msgstr "Обновить"
+
+#: admin/_edit-ministry.html:89
+msgid "Update Ministry"
+msgstr "Обновить миссию"
+
+#: admin/confirm-update-role.html:4
+msgid "Update Team Member Role ?"
+msgstr "Обновить роль участника команды?"
+
+#: stories/edit-story-dialog.html:31
+#: stories/new-story-dialog.html:34
+msgid "Upload an image"
+msgstr "Отправить изображение"
+
+#: controllers/map/map-ctrl.js:1540
+#: controllers/stories/stories-ctrl.js:267
+msgid "Upload failed, Invalid file input"
+msgstr "Не удалось отправить, выбран неверный файл"
+
+#: error/error.html:4
+msgid "Use the button below to log back in."
+msgstr "Нажмите кнопку ниже, чтобы войти заново."
+
+#: controllers/admin/admin-ctrl.js:420
+#: controllers/admin/admin-ctrl.js:438
+msgid "User role was updated"
+msgstr "Роль пользователя обновлена"
+
+#: admin/add-team-member.html:14
+msgid "Username is required."
+msgstr "Необходимо ввести имя пользователя"
+
+#: stories/view-story-dialog.html:4
+msgid "View story"
+msgstr "Посмотреть историю"
+
+#: admin/add-measurement-type.html:59
+#: measurements/measurements.html:57
+msgid "Win"
+msgstr "Победа"
+
+#: admin/confirm-member-drop.html:16
+#: admin/confirm-team-drop.html:14
+#: admin/confirm-update-role.html:15
+#: map/edit-church.html:41
+#: map/edit-church.html:46
+#: map/new-church.html:46
+#: preference/user-preference-modal.html:36
+msgid "Yes"
+msgstr "Да"
+
+#: controllers/gma-ctrl.js:291
+msgid "You are already assigned to requested ministry"
+msgstr "Вы уже приписаны к требуемой миссии"
+
+#: controllers/gma-ctrl.js:413
+msgid "You are not authorised for this"
+msgstr "У вас нет прав для этого"
+
+#: error/error.html:3
+msgid "You have been logged out or your session has expired due to inactivity."
+msgstr "Вы вышли из системы, либо сеанс был завершен из-за отсутствия каких-либо действий."
+
+#: stories/new-story-dialog.html:25
+msgid "You have {{storiesConfig.content_length - story.content.length}} of {{storiesConfig.content_length}} characters remaining"
+msgstr "Осталось символов: {{storiesConfig.content_length - story.content.length}}  из {{storiesConfig.content_length}}"
+
+#: controllers/map/map-ctrl.js:1420
+msgid "Your browser does not support GeoLocation"
+msgstr "Ваш браузер не поддерживает геолокацию"
+
+#: controllers/map/map-ctrl.js:1382
+msgid "Your default map view has been set"
+msgstr "Для вас установлено отображение на карте по умолчанию"
+
+#: controllers/preference/user-preference-ctrl.js:39
+msgid "Your preferences were saved"
+msgstr "Ваши настройки сохранены"
+
+#: stories/edit-story-dialog.html:26
+msgid "characters"
+msgstr "символов"
+
+#: stories/edit-story-dialog.html:48
+msgid "existing image will be replaced"
+msgstr "текущее изображение будет заменено"
+
+#: map/edit-church.html:5
+msgid "members"
+msgstr "участников"
+
+#: map/new-church.html:26
+msgid "name@email.com"
+msgstr "name@email.com"
+
+#: measurements/lmi.html:12
+#: measurements/lmi.html:28
+#: measurements/lmi.html:53
+#: measurements/lmi.html:89
+msgid "personal"
+msgstr "персональный"
+
+#: measurements/lmi.html:106
+#: measurements/lmi.html:130
+#: measurements/lmi.html:154
+#: measurements/lmi.html:34
+#: measurements/lmi.html:70
+msgid "total"
+msgstr "итого"
+
+#: map/map.html:121
+msgid "{{current.assignment.name}} + tree"
+msgstr "{{current.assignment.name}} + дерево"
+
+#: map/map.html:115
+msgid "{{current.assignment.name}} only"
+msgstr "Только {{current.assignment.name}}"
+

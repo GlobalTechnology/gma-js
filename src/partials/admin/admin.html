@@ -1,6 +1,6 @@
 ﻿<div ng-if="current.isLoaded">
 	<ul class="nav nav-pills" ng-init="initSubTabs()">
-		<li ng-repeat="tab in adminTabTemplates" ng-if="current.hasRole(tab.requiredRoles)" ng-click="selectTab(tab.name)" role="presentation" ng-class="{active: activePill === tab.name}"><a style="padding: 8px 10px" href="javascript:void(0)">{{tab.label}}</a></li>
+		<li ng-repeat="tab in adminTabTemplates" ng-if="current.hasRole(tab.requiredRoles)" ng-click="selectTab(tab.name)" role="presentation" ng-class="{active: activePill === tab.name}"><a style="padding: 8px 10px" href="javascript:void(0)">{{tab.label|translate}}</a></li>
 	</ul>
 	<div ng-include="currentAdminTab.url"></div>
 </div>

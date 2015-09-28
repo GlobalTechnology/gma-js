@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference, gettextCatalog) {
+    function AdminCtrl($scope, $filter, $modal, Assignments, MeasurementTypes, GoogleAnalytics, Ministries, growl, UserPreference, gettextCatalog, gettext) {
         $scope.current.isLoaded = false;
 
         var sendAnalytics = _.throttle(function () {
@@ -86,19 +86,19 @@
                 {
                     url: 'partials/admin/_team-members.html',
                     name: 'team-members',
-                    label: 'Team & Members',
+                    label: gettext('Team & Members'),
                     requiredRoles: ['admin', 'inherited_admin', 'leader', 'inherited_leader']
                 },
                 {
                     url: 'partials/admin/_edit-ministry.html',
                     name: 'edit-ministry',
-                    label: 'Edit Ministry',
+                    label: gettext('Edit Ministry'),
                     requiredRoles: ['admin', 'inherited_admin']
                 },
                 {
                     url: 'partials/admin/_measurement.html',
                     name: 'measurement',
-                    label: 'Manage Measurements',
+                    label: gettext('Manage Measurements'),
                     requiredRoles: ['admin', 'inherited_admin']
                 }
             ];
@@ -272,14 +272,14 @@
         /** functions for team-members tab **/
 
         $scope.roles = [
-            {value: "admin", text: 'Admin'},
-            {value: "inherited_admin", text: 'Admin (inherited)'},
-            {value: "leader", text: 'Leader'},
-            {value: "inherited_leader", text: "Leader (inherited)"},
-            {value: "member", text: 'Member'},
-            {value: "blocked", text: 'Deleted'},
-            {value: "former_member", text: 'Former Member'},
-            {value: "self_assigned", text: 'Self Assigned'}
+            {value: "admin", text: gettext('Admin')},
+            {value: "inherited_admin", text: gettext('Admin (inherited)')},
+            {value: "leader", text: gettext('Leader')},
+            {value: "inherited_leader", text: gettext("Leader (inherited)")},
+            {value: "member", text: gettext('Member')},
+            {value: "blocked", text: gettext('Deleted')},
+            {value: "former_member", text: gettext('Former Member')},
+            {value: "self_assigned", text: gettext('Self Assigned')}
         ];
 
         $scope.initTeamAndMembers = function () {

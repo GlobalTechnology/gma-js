@@ -1,0 +1,1427 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2015-09-28 17:37+0000\n"
+"PO-Revision-Date: 2015-09-28 17:37+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: am\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: map/edit-church.html:30
+#: map/new-church.html:36
+msgid "+99 99999999"
+msgstr "+99 99999999"
+
+#: admin/_measurement.html:15
+#: admin/_team-members.html:62
+msgid "Actions"
+msgstr "ድርጊቶች"
+
+#: map/new-church.html:89
+msgid "Add Church"
+msgstr "ቤተ ክርስቲያን ይጨምሩ"
+
+#: admin/_measurement.html:5
+msgid "Add Measurement"
+msgstr "ልኬት ይጨምሩ"
+
+#: map/edit-training.html:86
+msgid "Add Stage"
+msgstr "ደረጃ ይጨምሩ"
+
+#: map/edit-church.html:116
+#: map/edit-church.html:145
+#: map/edit-training.html:101
+#: map/edit-training.html:122
+msgid "Add Story"
+msgstr "ወሬ ይጨምሩ"
+
+#: map/new-target-city.html:56
+msgid "Add Target city"
+msgstr "የታለመውን ከተማ ይጨምሩ"
+
+#: map/new-training.html:46
+msgid "Add Training"
+msgstr "ስልጠና ይጨምሩ"
+
+#: admin/add-sub-ministry.html:4
+msgid "Add a new sub ministry to"
+msgstr "አዲስ ንዑስ ሚኒስትሪ ይጨምሩ ለ"
+
+#: admin/_team-members.html:18
+msgid "Add member"
+msgstr "አባል ይጨምሩ"
+
+#: admin/add-measurement-type.html:4
+msgid "Add new measurement"
+msgstr "አዲስ ልኬት ይጨምሩ"
+
+#: admin/add-team-member.html:4
+msgid "Add new member to"
+msgstr "አዲስ አባል ይጨምሩ ለ"
+
+#: stories/new-story-dialog.html:4
+msgid "Add new story"
+msgstr "አዲስ ወሬ ይጨምሩ"
+
+#: stories/new-story-dialog.html:5
+msgid "Add new story to - {{iconName}}"
+msgstr "አዲስ ወሬ ይጨምሩ ለ - {{iconName}}"
+
+#: stories/stories.html:12
+msgid "Add story"
+msgstr "ወሬ ይጨምሩ"
+
+#: admin/_team-members.html:19
+msgid "Add sub ministry"
+msgstr "ንዑስ ሚኒስትሪ ይጨምሩ"
+
+#. Main Navigation Tabs - Administrate
+#: controllers/admin/admin-ctrl.js:275
+#: measurements/details.html:130
+#: services/settings/settings-service.js:82
+msgid "Admin"
+msgstr "አስተዳደር"
+
+#: controllers/admin/admin-ctrl.js:276
+msgid "Admin (inherited)"
+msgstr "አሰተዳደር (የተወረሰ)"
+
+#: preference/user-preference-modal.html:49
+msgid "Application language"
+msgstr "የማመልከቻ ቋንቋ"
+
+#: measurements/details.html:125
+msgid "Approve"
+msgstr "መጽደቅ"
+
+#: measurements/details.html:124
+msgid "Approved"
+msgstr "ጸድቋል"
+
+#: map/_confirmation-dialog.html:7
+msgid "Are you sure you want to delete ?"
+msgstr "እርግጠኛ ነዎት ማጥፋት ይፈልጋሉ?"
+
+#: map/edit-target-city.html:17
+#: map/new-target-city.html:17
+msgid "Area"
+msgstr "ስፋት"
+
+#: controllers/map/map-ctrl.js:480
+msgid "Bad Request: Unable to create target city"
+msgstr "መጥፎ ጥያቄ፦ የታለመውን ከተማ መፍጠር አልተቻለም"
+
+#: admin/add-measurement-type.html:60
+#: measurements/measurements.html:80
+msgid "Build"
+msgstr "መገንባት"
+
+#: admin/_edit-ministry.html:69
+msgid "CTRL + click to select multiple languages"
+msgstr "የተለያዩ ቋንቋዎችን ለመምረጥ CTRL + መጫን"
+
+#. Verb - Button
+#: join-ministry.html:29
+#: map/_confirmation-dialog.html:10
+#: map/new-church.html:88
+#: map/new-target-city.html:55
+#: map/new-training.html:45
+#: preference/user-preference-modal.html:57
+msgid "Cancel"
+msgstr "መሰረዝ"
+
+#: controllers/admin/admin-ctrl.js:170
+msgid "Changes saved successfully"
+msgstr "ለውጦች በስኬታማነት ተይዘዋል"
+
+#: map/edit-church.html:57
+#: map/new-church.html:57
+msgid "Church"
+msgstr "ቤተ ክርስቲያን"
+
+#: map/map.html:51
+msgid "Church or community of disciples"
+msgstr "ቤተክርስቲያን ወይም የአገልጋዮች ማህበረሰብ"
+
+#: controllers/map/map-ctrl.js:423
+msgid "Church was created"
+msgstr "ቤተ ክርስቲያን ተፈጥሮ ነበር"
+
+#: controllers/map/map-ctrl.js:745
+msgid "Church was deleted successfully"
+msgstr "ቤተ ክርስቲያን በስኬታማነት ጠፍቶ ነበር"
+
+#: controllers/map/map-ctrl.js:725
+msgid "Church was updated successfully"
+msgstr "ቤተ ክርስቲያን በስኬታማነት ተሻሽሎ ነበር"
+
+#: map/map.html:137
+msgid "Click to expand/collapse search"
+msgstr "ፍለጋን ለማስፋት/ለማቆም ይጫኑ "
+
+#: admin/add-measurement-type.html:3
+#: admin/add-measurement-type.html:69
+#: admin/add-sub-ministry.html:21
+#: admin/add-sub-ministry.html:3
+#: admin/add-team-member.html:30
+#: admin/confirm-member-drop.html:3
+#: admin/confirm-team-drop.html:3
+#: admin/confirm-update-role.html:3
+#: admin/edit-measurement-type.html:3
+#: admin/edit-measurement-type.html:55
+#: map/_confirmation-dialog.html:3
+#: measurements/details.html:145
+#: measurements/details.html:3
+#: preference/user-preference-modal.html:3
+#: stories/edit-story-dialog.html:3
+#: stories/new-story-dialog.html:102
+#: stories/new-story-dialog.html:3
+#: stories/view-story-dialog.html:27
+#: stories/view-story-dialog.html:3
+msgid "Close"
+msgstr "መዝጋት"
+
+#: admin/_measurement.html:13
+#: admin/add-measurement-type.html:43
+msgid "Column"
+msgstr "አምድ"
+
+#: map/_confirmation-dialog.html:4
+msgid "Confirm ?"
+msgstr "ተረጋግጧል?"
+
+#: map/edit-church.html:18
+#: map/new-church.html:23
+msgid "Contact Email"
+msgstr "መገኛ ኢሜል"
+
+#: map/edit-church.html:28
+#: map/new-church.html:33
+msgid "Contact Mobile"
+msgstr "መገኛ ተንቀሳቃሽ ስልክ"
+
+#: map/edit-church.html:11
+#: map/new-church.html:17
+msgid "Contact Name"
+msgstr "መገኛ ስም"
+
+#: stories/edit-story-dialog.html:19
+#: stories/new-story-dialog.html:21
+msgid "Content"
+msgstr "ይዘት"
+
+#: preference/user-preference-modal.html:41
+msgid "Content language"
+msgstr "የይዘት ቋንቋ"
+
+#: map/edit-target-city.html:25
+#: map/new-target-city.html:25
+msgid "Country"
+msgstr "ሀገር"
+
+#: admin/add-measurement-type.html:70
+#: admin/add-sub-ministry.html:22
+msgid "Create"
+msgstr "መፍጠር"
+
+#: map/new-church.html:4
+msgid "Create New Church"
+msgstr "አዲስ ቤተ ክርስቲያን መፍጠር"
+
+#: map/map.html:13
+msgid "Create new target city"
+msgstr "አዲስ የታለመ ከተማ መፍጠር"
+
+#: map/map.html:5
+msgid "Create new target point"
+msgstr "አዲስ የታለመ ነጥብ መፍጠር"
+
+#: map/map.html:9
+msgid "Create new training"
+msgstr "አዲስ ስልጠና መፍጠር"
+
+#: stories/stories.html:7
+msgid "Created by me"
+msgstr "በኔ የተፈጠረ"
+
+#: admin/confirm-member-drop.html:9
+msgid "Current role"
+msgstr "ወቅታዊ ሚና"
+
+#: admin/confirm-member-drop.html:11
+msgid "Current role will be set to former-member"
+msgstr "ወቅታዊ ሚና ለቀድሞ- አባል ይሰጣል"
+
+#: map/edit-training.html:29
+#: map/edit-training.html:46
+#: map/new-training.html:24
+msgid "Date"
+msgstr "ቀን"
+
+#: admin/_edit-ministry.html:50
+#: preference/user-preference-modal.html:12
+#: preference/user-preference-modal.html:21
+msgid "Default"
+msgstr "የሁል ጊዜ"
+
+#: admin/_edit-ministry.html:46
+msgid "Default MCC"
+msgstr "የሁል ጊዜ  MCC"
+
+#: controllers/map/map-ctrl.js:1403
+msgid "Default ministry map view has been set"
+msgstr "የሁል ጊዜ የሚኒስትሪ ካርታ እይታ ተዘጋጅቷል"
+
+#: map/_confirmation-dialog.html:11
+#: map/edit-training.html:72
+#: measurements/details.html:134
+msgid "Delete"
+msgstr "ማጥፋት"
+
+#: map/edit-church.html:135
+msgid "Delete Church"
+msgstr "በቤተ ክርስቲያን ማጥፋት"
+
+#: map/edit-target-city.html:69
+msgid "Delete Target city"
+msgstr "የታለመውን ከተማ ማጥፋት"
+
+#: map/edit-training.html:112
+msgid "Delete Training"
+msgstr "ስልጠና ማጥፋት"
+
+#: admin/_team-members.html:8
+#: controllers/admin/admin-ctrl.js:280
+msgid "Deleted"
+msgstr "ጠፍቷል"
+
+#: admin/add-measurement-type.html:20
+msgid "Description"
+msgstr "ገለጻ"
+
+#: admin/add-measurement-type.html:25
+#: admin/edit-measurement-type.html:45
+msgid "Description is required"
+msgstr "ገለጻ ያስፈልጋል"
+
+#: admin/add-measurement-type.html:26
+#: admin/edit-measurement-type.html:46
+msgid "Description should not exceed 200 characters"
+msgstr "ገለጻ ከ200 ፊደላት መብለጥ የለበትም"
+
+#. MCC - Digital Strategies
+#: controllers/gma-ctrl.js:182
+msgid "Digital Strategies"
+msgstr "የቁጥር ዘዴዎች"
+
+#: stories/edit-story-dialog.html:71
+#: stories/new-story-dialog.html:75
+msgid "Draft"
+msgstr "ረቂቅ"
+
+#: controllers/map/map-ctrl.js:525
+#: controllers/map/map-ctrl.js:557
+#: controllers/map/map-ctrl.js:611
+msgid "Drag to Move"
+msgstr "ለመንቀሳቀስ መጎተት"
+
+#: controllers/admin/admin-ctrl.js:632
+#: controllers/admin/admin-ctrl.js:639
+msgid "Drop canceled, can't be dropped on child team"
+msgstr "መተው ተሰርዟል፣በልጅ ቡድን ላይ ሊተው አይችልም"
+
+#: controllers/admin/admin-ctrl.js:625
+msgid "Drop canceled, can't be dropped on parent team"
+msgstr "መተው ተሰርዟል፣በወላጅ ቡድን ላይ ሊተው አይችልም"
+
+#: controllers/admin/admin-ctrl.js:652
+msgid "Drop canceled, can't be dropped on selected team"
+msgstr "መተው ተሰርዟል፣በተመረጠ ቡድን ላይ ሊተው አይችልም"
+
+#: stories/stories.html:35
+msgid "Edit"
+msgstr "መስተካከል"
+
+#: controllers/admin/admin-ctrl.js:95
+msgid "Edit Ministry"
+msgstr "ሚኒስትሪን ማስተካከል"
+
+#: map/edit-target-city.html:4
+msgid "Edit Target City"
+msgstr "የታለመውን ከተማ ማስተካከል"
+
+#: admin/_edit-ministry.html:4
+msgid "Edit current ministry"
+msgstr "ወቅታዊውን ሚኒስትሪ ማስተካከል"
+
+#: stories/edit-story-dialog.html:4
+msgid "Edit story"
+msgstr "ወሬ ማስተካከል"
+
+#: admin/_team-members.html:62
+msgid "Email"
+msgstr "ኢሜል"
+
+#: admin/edit-measurement-type.html:22
+msgid "English description"
+msgstr "የእንግሊዝኛ ገለጻ"
+
+#: admin/edit-measurement-type.html:16
+msgid "English name"
+msgstr "የእንግሊዝኛ ስም"
+
+#: controllers/stories/stories-ctrl.js:63
+msgid "Error loading news feeds"
+msgstr "ዜና መጋቢዎችን የመጫን ስህተት"
+
+#: controllers/map/map-ctrl.js:482
+msgid "Error: Unable to create target city"
+msgstr "ስህተት፦  የታለመውን ከተማ መፍጠር አለመቻል"
+
+#: map/map.html:109
+msgid "Everything"
+msgstr "ሁሉም ነገር"
+
+#: map/map.html:103
+msgid "FILTERS"
+msgstr "ማጣሪያዎች"
+
+#: controllers/map/map-ctrl.js:1416
+msgid "Failed to get your current location"
+msgstr "ወቅታዊውን መገኛዎን ማግኘት አልተቻለም"
+
+#: controllers/map/map-ctrl.js:1548
+#: controllers/stories/stories-ctrl.js:160
+msgid "Failed to save story"
+msgstr "ወሬ ለመያዝ አልተቻለም"
+
+#: controllers/admin/admin-ctrl.js:376
+msgid "Failed, User not found"
+msgstr "አልተቻለም፣ ተጠቃሚ አልተገኘም"
+
+#: admin/add-measurement-type.html:47
+msgid "Faith"
+msgstr "እምነት"
+
+#: measurements/measurements.html:35
+msgid "Faith Actions"
+msgstr "የእምነት ድርጊቶች"
+
+#: admin/_team-members.html:62
+msgid "First Name"
+msgstr "የመጀመሪያ ስም"
+
+#: controllers/admin/admin-ctrl.js:281
+msgid "Former Member"
+msgstr "የቀድሞ አባል"
+
+#: admin/_team-members.html:9
+msgid "Former members"
+msgstr "የቀድሞ አባላት"
+
+#: admin/add-measurement-type.html:48
+#: measurements/measurements.html:41
+msgid "Fruit"
+msgstr "ፍሬ"
+
+#. MCC - Global Church Movements
+#: controllers/gma-ctrl.js:185
+msgid "Global Church Movements"
+msgstr "አለማቀፋዊ የቤተ ክርስትያን እንቅስቃሴዎች"
+
+#: map/edit-church.html:56
+#: map/map.html:42
+#: map/new-church.html:56
+msgid "Group"
+msgstr "ምድብ"
+
+#: admin/_edit-ministry.html:58
+#: admin/_measurement.html:25
+msgid "Hide"
+msgstr "መደበቅ"
+
+#: admin/_edit-ministry.html:55
+msgid "Hide reports tab by default"
+msgstr "የዘገባዎችን ቁልፍ ሁል ጊዜ ደብቅ"
+
+#. Main Navigation Tabs - Home (News/Stories)
+#: services/settings/settings-service.js:93
+msgid "Home"
+msgstr "የግል"
+
+#: controllers/map/map-ctrl.js:1536
+#: controllers/stories/stories-ctrl.js:138
+#: controllers/stories/stories-ctrl.js:242
+msgid "Image file was uploaded"
+msgstr "የምስል ሰነድ ተጭኗል"
+
+#: stories/edit-story-dialog.html:48
+#: stories/new-story-dialog.html:51
+msgid "Image will be resized to"
+msgstr "ምስል በድጋሚ መጠኑ ይስተካከላል ለ"
+
+#: admin/_team-members.html:13
+msgid "Inherited admins"
+msgstr "የተወረሱ አስተዳደሮች"
+
+#: admin/_team-members.html:11
+msgid "Inherited leaders"
+msgstr "የተወረሱ መሪዎች"
+
+#: error/error.html:2
+msgid "Invalid Session"
+msgstr "ዋጋ የሌለው ወቅት "
+
+#: admin/add-team-member.html:15
+#: map/edit-church.html:22
+#: map/new-church.html:28
+msgid "Invalid email format"
+msgstr "ዋጋ የሌለው የኢሜል አቀራረብ "
+
+#: stories/edit-story-dialog.html:49
+#: stories/new-story-dialog.html:52
+msgid "Invalid image file input."
+msgstr "ዋጋ የሌለው የምስል ሰነድ አገባብ። "
+
+#: map/edit-church.html:38
+#: map/new-church.html:44
+msgid "Jesus film activity"
+msgstr "የኢየሱስ ፊልም እንቅስቃሴ"
+
+#: map/map.html:87
+msgid "Jesus film contribution"
+msgstr "የኢየሱስ ፊልም መዋጮ"
+
+#. Modal Title
+#. Verb - Button
+#: join-ministry.html:28
+#: join-ministry.html:3
+msgid "Join Ministry/Team"
+msgstr "ሚኒስትሪውን ይቀላቀሉ/ቡድን"
+
+#: application.html:21
+msgid "Join another location / ministry"
+msgstr "ለሌላ ቦታ ይቀላቀሉ/ሚኒስትሪ"
+
+#: map/map.html:22
+msgid "LEGEND"
+msgstr "አፈ ታሪክ"
+
+#: admin/edit-measurement-type.html:9
+msgid "Language"
+msgstr "ቋንቋ"
+
+#: admin/_team-members.html:62
+msgid "Last Name"
+msgstr "የመጨረሻ ስም"
+
+#: controllers/admin/admin-ctrl.js:277
+#: measurements/details.html:132
+msgid "Leader"
+msgstr "መሪ"
+
+#: controllers/admin/admin-ctrl.js:278
+msgid "Leader (inherited)"
+msgstr "መሪ (የተወረሰ)"
+
+#. MCC - Leader Led
+#: controllers/gma-ctrl.js:188
+msgid "Leader Led"
+msgstr "በመሪ የተመራ"
+
+#: measurements/details.html:33
+msgid "Local"
+msgstr "አካባቢያዊ"
+
+#: measurements/measurements.html:7
+msgid "Local Movement Indicators"
+msgstr "አካባቢያዊ እንቅስቃሴ ጠቋሚዎች"
+
+#: measurements/details.html:26
+msgid "Local Team"
+msgstr "አካባቢያዊ ቡድን"
+
+#: admin/_measurement.html:27
+#: admin/edit-measurement-type.html:4
+msgid "Localize"
+msgstr "በአንድ ቦታ መወሰን"
+
+#: admin/edit-measurement-type.html:40
+msgid "Localized description"
+msgstr "በአንድ ቦታ የተወሰነ ገለጻ"
+
+#: admin/edit-measurement-type.html:29
+msgid "Localized name"
+msgstr "በአንድ ቦታ የተወሰነ ስም"
+
+#: error/error.html:5
+msgid "Log In"
+msgstr "መግባት"
+
+#: application.html:70
+msgid "Logout"
+msgstr "መውጣት"
+
+#: map/edit-training.html:37
+#: map/new-training.html:38
+msgid "MCC"
+msgstr "MCC"
+
+#: admin/_edit-ministry.html:34
+msgid "MCCs"
+msgstr "MCCዎች"
+
+#: controllers/admin/admin-ctrl.js:101
+msgid "Manage Measurements"
+msgstr "ልኬቶችን መቆጣጠር"
+
+#. Main Navigation Tabs - Map
+#: services/settings/settings-service.js:49
+msgid "Map"
+msgstr "ካርታ"
+
+#: controllers/admin/admin-ctrl.js:191
+msgid "Measurement was created successfully"
+msgstr "ልኬት በስኬታማነት ተፈጥሮ ነበር"
+
+#: controllers/admin/admin-ctrl.js:262
+msgid "Measurement was updated"
+msgstr "ልኬት ተሻሽሎ ነበር"
+
+#. Main Navigation Tabs - Measurements
+#: admin/_measurement.html:4
+#: services/settings/settings-service.js:60
+msgid "Measurements"
+msgstr "ልኬቶች"
+
+#: controllers/measurements/measurements-ctrl.js:135
+msgid "Measurements saved successfully"
+msgstr "ልኬቶች በስኬታማነት ተይዘዋል"
+
+#: controllers/measurements/measurements-ctrl.js:175
+msgid "Measurements updated successfully"
+msgstr "ልኬቶች በስኬታማነት ተሻሽለዋል"
+
+#: admin/confirm-update-role.html:8
+#: controllers/admin/admin-ctrl.js:279
+#: measurements/details.html:131
+msgid "Member"
+msgstr "አባል"
+
+#: controllers/admin/admin-ctrl.js:595
+msgid "Member was moved to ministry successfully"
+msgstr "አባል ወደ ሚኒስትሪ በስኬታማነት ተዛውሯል"
+
+#: map/edit-church.html:82
+msgid "Ministry"
+msgstr "ሚኒስትሪ"
+
+#: admin/_edit-ministry.html:10
+#: admin/add-sub-ministry.html:9
+msgid "Ministry name"
+msgstr "የሚኒስትሪ ስም "
+
+#: admin/_edit-ministry.html:15
+#: admin/add-sub-ministry.html:14
+msgid "Ministry name is required."
+msgstr "የሚኒስትሪ ስም ያስፈልጋል"
+
+#: controllers/admin/admin-ctrl.js:567
+msgid "Ministry was moved successfully"
+msgstr "ሚኒስትሪ በስኬታማነት ተዛውሯል"
+
+#: join-ministry.html:9
+msgid "Ministry/Team:"
+msgstr "ሚኒስትሪ/ቡድን፦"
+
+#: application.html:98
+msgid "Mobile Apps"
+msgstr "ተንቀሳቃሽ አፖች"
+
+#: map/edit-church.html:32
+#: map/new-church.html:38
+msgid "Mobile number is invalid."
+msgstr "የተንቀሳቃሽ ስልክ ቁጥር ዋጋ የለውም"
+
+#: map/edit-church.html:121
+msgid "Move Church"
+msgstr "ቤተ ክርስቲያንን ማዛወር"
+
+#: map/edit-target-city.html:64
+msgid "Move Target city"
+msgstr "የታለመውን ከተማ ማዛወር"
+
+#: map/edit-training.html:106
+msgid "Move Training"
+msgstr "ስልጠናውን ማዛወር "
+
+#: admin/confirm-member-drop.html:4
+msgid "Move member to this team ?"
+msgstr "አባልን ወደዚህ ቡድን ማዛወር?"
+
+#: admin/confirm-team-drop.html:4
+msgid "Move sub-team to this team ?"
+msgstr "ንዑስ-ቡድንን ወደዚህ ቡድን ማዛወር?"
+
+#: map/edit-church.html:58
+#: map/new-church.html:58
+msgid "Multiplying Church"
+msgstr "የሚበዛ ቤተ ክርስቲያን"
+
+#: map/map.html:61
+msgid "Multiplying church or community of disciples"
+msgstr "የሚበዛ ቤተ ክርስቲያን ወይም የአገልጋዮች ማህበረሰብ"
+
+#: application.html:68
+msgid "My Preferences"
+msgstr "የኔ ምርጫዎች"
+
+#: map/map.html:17
+msgid "My location on map"
+msgstr "ካርታ ላይ መገኛዬ"
+
+#: preference/user-preference-modal.html:4
+msgid "My preferences"
+msgstr "የኔ ምርጫዎች"
+
+#: admin/_measurement.html:12
+#: admin/add-measurement-type.html:9
+#: admin/confirm-member-drop.html:8
+#: map/edit-target-city.html:10
+#: map/edit-target-city.html:8
+#: map/edit-training.html:11
+#: map/edit-training.html:13
+#: map/new-church.html:8
+#: map/new-target-city.html:8
+#: map/new-training.html:8
+msgid "Name"
+msgstr "ስም"
+
+#: admin/add-measurement-type.html:14
+#: admin/edit-measurement-type.html:34
+msgid "Name is required"
+msgstr "ስም ያስፈልጋል"
+
+#: map/edit-target-city.html:12
+#: map/edit-training.html:15
+#: map/new-church.html:12
+#: map/new-target-city.html:12
+#: map/new-training.html:12
+msgid "Name is required."
+msgstr "ስም ያስፈልጋል"
+
+#: admin/add-measurement-type.html:15
+#: admin/edit-measurement-type.html:35
+msgid "Name should not exceed 200 characters"
+msgstr "ስም ከ200 ፊደላት መብለጥ የለበትም"
+
+#: map/new-training.html:4
+msgid "New Church Training Activity"
+msgstr "የአዲስ ቤተ ክርስቲያን ስልጠና እንቅስቃሴ"
+
+#: admin/confirm-update-role.html:10
+msgid "New Role"
+msgstr "አዲስ ሚና"
+
+#: map/new-target-city.html:4
+msgid "New Target city"
+msgstr "አዲስ የታለመ ከተማ"
+
+#: controllers/admin/admin-ctrl.js:369
+msgid "New member was added successfully"
+msgstr "አዲስ አባል በስኬታማነት ተጨምሯል"
+
+#: stories/stories.html:45
+#: stories/stories.html:61
+msgid "Newer"
+msgstr "በጣም አዲስ"
+
+#: admin/confirm-member-drop.html:15
+#: admin/confirm-team-drop.html:13
+#: admin/confirm-update-role.html:14
+#: map/edit-church.html:42
+#: map/edit-church.html:47
+#: map/new-church.html:47
+#: preference/user-preference-modal.html:37
+msgid "No"
+msgstr "አይደለም"
+
+#: admin/_edit-ministry.html:29
+msgid "No parent ministry"
+msgstr "ወላጅ የሌለበት ሚኒስትሪ"
+
+#: stories/stories.html:40
+msgid "No story found"
+msgstr "ወሬ አልተገኘም"
+
+#: map/edit-target-city.html:47
+#: map/new-target-city.html:47
+msgid "None"
+msgstr "የለም"
+
+#: admin/confirm-update-role.html:9
+msgid "Old Role"
+msgstr "የድሮ ሚና"
+
+#: stories/stories.html:45
+#: stories/stories.html:61
+msgid "Older"
+msgstr "በጣም ድሮ"
+
+#: map/edit-church.html:111
+#: map/edit-target-city.html:58
+#: map/edit-training.html:96
+msgid "Options"
+msgstr "አማራጮች"
+
+#: admin/add-measurement-type.html:50
+#: admin/add-measurement-type.html:62
+msgid "Other"
+msgstr "ሌላ"
+
+#: measurements/measurements.html:115
+msgid "Other Measurements"
+msgstr "ሌላ ልኬቶች"
+
+#: admin/add-measurement-type.html:49
+#: measurements/measurements.html:47
+msgid "Outcome"
+msgstr "ውጤት"
+
+#: map/map.html:95
+msgid "Parent lines"
+msgstr "የወላጅ መስመሮች"
+
+#: admin/_edit-ministry.html:21
+msgid "Parent ministry"
+msgstr "የወላጅ ሚኒስትሪ"
+
+#: map/edit-training.html:47
+#: map/new-training.html:31
+msgid "Participants"
+msgstr "ተሳታፊዎች"
+
+#: admin/add-measurement-type.html:31
+msgid "Permalink"
+msgstr "ፐርማሊንክ"
+
+#: admin/add-measurement-type.html:37
+msgid "Permalink is invalid. Please match with required format"
+msgstr "ፐርማሊንክ ዋጋ የለውም። እባክዎን ከተጠየቀው አቀራረብ ጋር ያመሳስሉ"
+
+#: admin/add-measurement-type.html:36
+msgid "Permalink is required"
+msgstr "ፐርማሊንክ ያስፈልጋል"
+
+#: admin/add-measurement-type.html:38
+msgid "Permalink should not exceed 100 characters"
+msgstr "ፐርማሊንክ ከ100 ፊደላት መብለጥ የለበትም"
+
+#: join-ministry.html:5
+msgid "Please identify a ministry team that you work most closely with and request to join that team."
+msgstr "በጣም በቅርበት አብረው የሰሩትና ቡድኑን ለመቀላቀል የጠየቁትን የሚኒስትሪ ቡድን እባክዎን ያሳውቁ።"
+
+#: map/edit-church.html:43
+#: map/new-church.html:48
+msgid "Please make a choice"
+msgstr "እባክዎን ይምረጡ"
+
+#: preference/user-preference-modal.html:17
+msgid "Preferred MCC"
+msgstr "ተመራጭ MCC"
+
+#: preference/user-preference-modal.html:45
+msgid "Preferred content language for"
+msgstr "ተመራጭ የይዘት ቋንቋ ለ"
+
+#: preference/user-preference-modal.html:8
+msgid "Preferred ministry"
+msgstr "ተመራጭ ሚኒስትሪ"
+
+#: stories/edit-story-dialog.html:58
+#: stories/new-story-dialog.html:62
+msgid "Privacy"
+msgstr "ምስጢር"
+
+#: map/edit-church.html:72
+#: map/new-church.html:73
+msgid "Private"
+msgstr "የግል"
+
+#: map/edit-church.html:74
+#: map/new-church.html:75
+msgid "Public"
+msgstr "የህዝብ"
+
+#: stories/edit-story-dialog.html:67
+#: stories/new-story-dialog.html:71
+msgid "Publish status"
+msgstr "የህትመት ሁኔታ"
+
+#: stories/edit-story-dialog.html:70
+#: stories/new-story-dialog.html:74
+msgid "Published"
+msgstr "የታተመ"
+
+#: stories/stories.html:52
+msgid "Refresh Feeds"
+msgstr "መጋቢዎችን ማደስ"
+
+#: stories/stories.html:11
+msgid "Refresh List"
+msgstr "ዝርዝር ማደስ"
+
+#: admin/_team-members.html:17
+msgid "Refresh members list"
+msgstr "የአባሎችን ዝርዝር ማደስ"
+
+#: map/edit-church.html:73
+#: map/new-church.html:74
+msgid "Registered Users"
+msgstr "ተመዘገቡ ተጠቃሚዎች"
+
+#: stories/new-story-dialog.html:66
+msgid "Registered users"
+msgstr "ተመዘገቡ ተጠቃሚዎች"
+
+#: map/edit-church.html:129
+msgid "Remove Parent Church"
+msgstr "የወላጅ ቤተ ክርስቲያንን ማስወገድ "
+
+#: stories/new-story-dialog.html:57
+msgid "Remove image"
+msgstr "ምስል ማስወገድ"
+
+#: stories/edit-story-dialog.html:72
+msgid "Removed"
+msgstr "ተወግዷል"
+
+#. Main Navigation Tabs - Reports
+#: services/settings/settings-service.js:71
+msgid "Reports"
+msgstr "ዘገባዎች"
+
+#: admin/add-team-member.html:21
+msgid "Role"
+msgstr "ሚና"
+
+#: admin/add-team-member.html:31
+#: admin/edit-measurement-type.html:56
+#: preference/user-preference-modal.html:58
+#: stories/new-story-dialog.html:103
+msgid "Save"
+msgstr "ያዝ"
+
+#: map/edit-church.html:140
+#: map/edit-target-city.html:74
+#: map/edit-training.html:117
+#: measurements/measurements.html:122
+#: measurements/measurements.html:21
+msgid "Save Changes"
+msgstr "ለውጦችን ያዝ"
+
+#: measurements/details.html:146
+msgid "Save Measurements"
+msgstr "ልኬቶችን ያዝ"
+
+#: admin/_measurement.html:33
+msgid "Save changes"
+msgstr "ለውጦችን ያዝ"
+
+#: map/map.html:136
+msgid "Search"
+msgstr "ፈልግ"
+
+#: admin/_team-members.html:6
+msgid "Search Members"
+msgstr "አባላትን ፈልግ"
+
+#: admin/_measurement.html:14
+#: admin/add-measurement-type.html:55
+msgid "Section"
+msgstr "ክፍል"
+
+#: map/edit-church.html:69
+#: map/new-church.html:70
+msgid "Security"
+msgstr "ደህንነት"
+
+#: map/edit-church.html:77
+#: map/new-church.html:78
+msgid "Security is a required field"
+msgstr "ደህንነት አስፈላጊ ገጽታ ነው"
+
+#: controllers/admin/admin-ctrl.js:282
+msgid "Self Assigned"
+msgstr "በራስ የተመደበ"
+
+#: measurements/details.html:104
+msgid "Self Assigned Members (not yet approved)"
+msgstr "በራሳቸው የተመደቡ አባላት (እስካሁን አልጸደቀም)"
+
+#: admin/add-measurement-type.html:61
+#: measurements/measurements.html:98
+msgid "Send"
+msgstr "ላክ"
+
+#: map/map.html:129
+msgid "Set Ministry Default View for others"
+msgstr "የሚኒስትሪው የሁል ግዜ እይታ ለሌሎች ያዘጋጁ "
+
+#: map/edit-church.html:126
+msgid "Set Parent Church"
+msgstr "የወላጅ ቤተ ክርስቲያን ያዘጋጁ"
+
+#: map/map.html:128
+msgid "Set as my Ministry Default View"
+msgstr "እንደ የሚኒስትሪዬ የሁልጊዜ እይታ ያዘጋጁ "
+
+#: admin/_edit-ministry.html:59
+#: admin/_measurement.html:24
+msgid "Show"
+msgstr "አሳይ"
+
+#: map/edit-church.html:63
+#: map/new-church.html:64
+msgid "Size"
+msgstr "መጠን"
+
+#: admin/confirm-team-drop.html:8
+msgid "Source Name"
+msgstr "የምንጭ ስም"
+
+#: map/edit-target-city.html:33
+#: map/edit-training.html:45
+#: map/new-target-city.html:33
+msgid "Stage"
+msgstr "ደረጃ"
+
+#: join-ministry.html:16
+msgid "Start typing to search for ministry"
+msgstr "ሚኒስትሪ ለመፈለግ መጻፍ ይጀምሩ"
+
+#: stories/edit-story-dialog.html:26
+#: stories/new-story-dialog.html:28
+msgid "Story content field is required"
+msgstr "የወሬ ይዘት ገጽታ ያስፈልጋል "
+
+#: stories/edit-story-dialog.html:26
+msgid "Story content should not exceed"
+msgstr "የወሬ ይዘት መብለጥ የለበትም"
+
+#: stories/new-story-dialog.html:29
+msgid "Story content should not exceed {{storiesConfig.content_length}} characters"
+msgstr "የወሬ ይዘት ከ{{storiesConfig.content_length}} ፊደላት መብለጥ የለበትም"
+
+#: controllers/stories/stories-ctrl.js:133
+msgid "Story saved successfully"
+msgstr "ወረ በስኬታማነት ተይዟል"
+
+#: stories/edit-story-dialog.html:13
+#: stories/new-story-dialog.html:15
+msgid "Story title field is required"
+msgstr "የወሬ ርዕስ ገጽታ ያስፈልጋል"
+
+#: stories/edit-story-dialog.html:14
+#: stories/new-story-dialog.html:16
+msgid "Story title should not exceed 120 characters"
+msgstr "የወሬ ርዕስ ከ120 ፊደላት መብለጥ የለበትም "
+
+#: controllers/stories/stories-ctrl.js:234
+msgid "Story was updated"
+msgstr "ወሬው ተሻሽሎ ነበር "
+
+#. MCC - Student Led
+#: controllers/gma-ctrl.js:191
+msgid "Student Led"
+msgstr "በተማሪ የተመራ"
+
+#: map/edit-target-city.html:44
+#: map/new-target-city.html:44
+msgid "Sub Stage"
+msgstr "ንዑስ ደረጃ"
+
+#: controllers/admin/admin-ctrl.js:487
+msgid "Sub ministry was created successfully"
+msgstr "ንዑስ ሚኒስትሪ በስኬታማነት ተፈጥሯል"
+
+#: measurements/details.html:86
+msgid "Sub-Ministries / Teams"
+msgstr "ንዑስ-ሚኒስትሪዎች/ቡድኖች"
+
+#: admin/_edit-ministry.html:63
+msgid "Supported languages"
+msgstr "የሚረዱ ቋንቋዎች"
+
+#: join-ministry.html:20
+#: preference/user-preference-modal.html:34
+msgid "Supported staff"
+msgstr "የሚረዱ ሰራኞች"
+
+#: stories/new-story-dialog.html:90
+msgid "Tagged MCC"
+msgstr "የተለጠፈ MCC"
+
+#: stories/edit-story-dialog.html:87
+msgid "Tagged MCC :"
+msgstr "የተለጠፈ MCC፦"
+
+#: stories/edit-story-dialog.html:79
+#: stories/new-story-dialog.html:82
+msgid "Tagged ministry"
+msgstr "የተለጠፈ ሚኒስትሪ"
+
+#: map/edit-church.html:55
+#: map/map.html:33
+#: map/new-church.html:55
+msgid "Target"
+msgstr "የታለመ"
+
+#: admin/confirm-team-drop.html:9
+msgid "Target Team"
+msgstr "የታለመ ቡድን"
+
+#: map/map.html:70
+msgid "Target city"
+msgstr "የታለመ ከተማ"
+
+#: controllers/map/map-ctrl.js:964
+msgid "Target city position was updated"
+msgstr "የታለመ የከተማ አቀማመጥ ተሻሽሏል"
+
+#: controllers/map/map-ctrl.js:474
+msgid "Target city was created successfully"
+msgstr "የታለመ ከተማ በስኬታማነት ተፈጥሯል "
+
+#: controllers/map/map-ctrl.js:1332
+msgid "Target city was deleted successfully"
+msgstr "የታለመ ከተማ በስኬታማነት ጠፍቷል"
+
+#: controllers/map/map-ctrl.js:779
+msgid "Target city was updated"
+msgstr "የታለመ ከተማ ተሻሽሏል"
+
+#: admin/confirm-member-drop.html:10
+msgid "Target team"
+msgstr "የታለመ ቡድን"
+
+#: measurements/lmi.html:100
+#: measurements/lmi.html:124
+#: measurements/lmi.html:148
+#: measurements/lmi.html:64
+msgid "Team"
+msgstr "ቡድን"
+
+#: controllers/admin/admin-ctrl.js:89
+msgid "Team & Members"
+msgstr "ቡድን & አባላት"
+
+#: measurements/details.html:60
+msgid "Team Members"
+msgstr "የቡድን አባላት"
+
+#: stories/edit-story-dialog.html:63
+#: stories/new-story-dialog.html:67
+msgid "Team only"
+msgstr "ቡድን ብቻ"
+
+#: admin/add-team-member.html:9
+msgid "TheKey username"
+msgstr "ቁልፍ የተጠቃሚ ስም"
+
+#: stories/edit-story-dialog.html:9
+#: stories/new-story-dialog.html:11
+#: stories/new-story-dialog.html:13
+msgid "Title"
+msgstr "ርዕስ"
+
+#: measurements/details.html:17
+#: measurements/details.html:49
+msgid "Total"
+msgstr "አጠቃላይ"
+
+#: map/edit-training.html:21
+#: map/new-training.html:17
+msgid "Training Type"
+msgstr "የስልጠና አይነት"
+
+#: map/map.html:79
+msgid "Training activity"
+msgstr "የስልጠና እንቅስቃሴ"
+
+#: controllers/map/map-ctrl.js:1356
+msgid "Training stage was deleted successfully"
+msgstr "የስልጠና ደረጃ በስኬታማነት ጠፍቷል"
+
+#: controllers/map/map-ctrl.js:447
+msgid "Training was created"
+msgstr "ስልጠና ተፈጥሯል"
+
+#: controllers/map/map-ctrl.js:1311
+msgid "Training was deleted successfully"
+msgstr "ስልጠና በስኬታማነት ጠፍቷል"
+
+#: controllers/map/map-ctrl.js:1290
+msgid "Training was saved successfully"
+msgstr "ስልጠና በስኬታማነት ተይዟል"
+
+#: controllers/map/map-ctrl.js:757
+#: controllers/map/map-ctrl.js:768
+msgid "Training was updated"
+msgstr "ስልጠና ተሻሽሏል"
+
+#: map/edit-church.html:52
+#: map/new-church.html:52
+msgid "Type"
+msgstr "አይነት"
+
+#: controllers/admin/admin-ctrl.js:378
+msgid "Unable to add new member"
+msgstr "አዲስ አባል ለመጨመር አልተቻለም"
+
+#: controllers/admin/admin-ctrl.js:503
+msgid "Unable to add sub ministry"
+msgstr "ንዑስ ሚኒስትሪ ለመጨመር አልተቻለም"
+
+#: controllers/map/map-ctrl.js:426
+msgid "Unable to create church"
+msgstr "ቤተ ክርስተያን ለመፍጠር አልተቻለም"
+
+#: controllers/admin/admin-ctrl.js:199
+msgid "Unable to create measurement"
+msgstr "ልኬት ለመፍጠር አልተቻለም"
+
+#: controllers/map/map-ctrl.js:748
+msgid "Unable to delete church"
+msgstr "ቤተ ክርስተያን ለማጥፋት አልተቻለም"
+
+#: controllers/map/map-ctrl.js:1337
+msgid "Unable to delete target city"
+msgstr "የታለመ ከተማ ለማጥፋት አልተቻለም"
+
+#: controllers/map/map-ctrl.js:1315
+msgid "Unable to delete training"
+msgstr "ስልጠና ለማጥፋት አልተቻለም"
+
+#: controllers/admin/admin-ctrl.js:241
+msgid "Unable to get measurement"
+msgstr "ልኬት ለመማግኘት አልተቻለም"
+
+#: controllers/gma-ctrl.js:293
+msgid "Unable to join to requested ministry"
+msgstr "ወደ ተጠየቀው ሚኒስትሪ ለመቀላቀል አለመቻል"
+
+#: controllers/map/map-ctrl.js:587
+msgid "Unable to load countries list"
+msgstr "የሀገሮችን ዝርዝር ለመጫን አለመቻል"
+
+#: controllers/gma-ctrl.js:450
+msgid "Unable to load languages"
+msgstr "ቋንቋዎች ለመጫን አለመቻል"
+
+#: controllers/measurements/measurements-ctrl.js:85
+msgid "Unable to load measurements"
+msgstr "ልኬቶችን ለመጫን አለመቻል"
+
+#: controllers/reports/reports-ctrl.js:69
+msgid "Unable to load measurements for reporting"
+msgstr "ለዘገባ ልኬቶችን መጫን አለመቻል"
+
+#: controllers/stories/stories-ctrl.js:92
+msgid "Unable to load stories"
+msgstr "ወሬዎችን መጫን አለመቻል"
+
+#: controllers/map/map-ctrl.js:316
+msgid "Unable to load target cities"
+msgstr "የታለሙ ከተማዎችን መጫን አለመቻል"
+
+#: controllers/admin/admin-ctrl.js:316
+msgid "Unable to load team members"
+msgstr "የቡድን አባላትን መጫን አለመቻል"
+
+#: controllers/map/map-ctrl.js:335
+msgid "Unable to load trainings"
+msgstr "ስልጠናዎችን መጫን አለመቻል"
+
+#: controllers/admin/admin-ctrl.js:604
+msgid "Unable to move member"
+msgstr "አባልን ማዛወር አለመቻል"
+
+#: controllers/admin/admin-ctrl.js:580
+msgid "Unable to move ministry"
+msgstr "ሚኒስትሪን ማዛወር አለመቻል"
+
+#: controllers/admin/admin-ctrl.js:172
+msgid "Unable to save changes"
+msgstr "ለውጦችን መያዝ አለመቻል"
+
+#: controllers/map/map-ctrl.js:1385
+#: controllers/map/map-ctrl.js:1405
+msgid "Unable to save default map view"
+msgstr "የሁል ጊዜ ካርታ እይታ መያዝ አለመቻል"
+
+#: controllers/measurements/measurements-ctrl.js:139
+msgid "Unable to save measurements"
+msgstr "ልኬቶችን መያዝ አለመቻል"
+
+#: controllers/preference/user-preference-ctrl.js:48
+msgid "Unable to save preferences"
+msgstr "ምርጫዎችን መያዝ አለመቻል"
+
+#: controllers/map/map-ctrl.js:729
+msgid "Unable to update church"
+msgstr "ቤተ ክርስትያንን ማሻሻል አለመቻል"
+
+#: controllers/admin/admin-ctrl.js:264
+msgid "Unable to update measurement"
+msgstr "ልኬትን ማሻሻል አለመቻል"
+
+#: controllers/stories/stories-ctrl.js:251
+msgid "Unable to update story"
+msgstr "ወሬን ማሻሻል አለመቻል"
+
+#: controllers/map/map-ctrl.js:781
+#: controllers/map/map-ctrl.js:966
+msgid "Unable to update target city"
+msgstr "የታለመ ከተማን ማሻሻል አለመቻል"
+
+#: controllers/map/map-ctrl.js:760
+msgid "Unable to update training"
+msgstr "ስልጠናን ማሻሻል አለመቻል"
+
+#: controllers/admin/admin-ctrl.js:425
+#: controllers/admin/admin-ctrl.js:444
+msgid "Unable to update user role"
+msgstr "የተጠቃሚ ሚናን ማሻሻል አለመቻል"
+
+#: controllers/map/map-ctrl.js:1542
+#: controllers/stories/stories-ctrl.js:269
+msgid "Unable to upload image file"
+msgstr "የምስል ሰነድ መጫን አለመቻል"
+
+#: stories/edit-story-dialog.html:101
+msgid "Update"
+msgstr "ማሻሻል"
+
+#: admin/_edit-ministry.html:89
+msgid "Update Ministry"
+msgstr "ሚኒስትሪ ማሻሻል"
+
+#: admin/confirm-update-role.html:4
+msgid "Update Team Member Role ?"
+msgstr "የቡድን አባል ሚናን ማሻሻል"
+
+#: stories/edit-story-dialog.html:31
+#: stories/new-story-dialog.html:34
+msgid "Upload an image"
+msgstr "ምስል መጫን"
+
+#: controllers/map/map-ctrl.js:1540
+#: controllers/stories/stories-ctrl.js:267
+msgid "Upload failed, Invalid file input"
+msgstr "መጫን አልተሳካም፣ ዋጋ የሌለው አገባብ"
+
+#: error/error.html:4
+msgid "Use the button below to log back in."
+msgstr "በድጋሚ ለመግባት ከስር የሚገኘውን ቁልፍ ይጠቀሙ"
+
+#: controllers/admin/admin-ctrl.js:420
+#: controllers/admin/admin-ctrl.js:438
+msgid "User role was updated"
+msgstr "የተጠቃሚ ሚና ተሻሽሏል"
+
+#: admin/add-team-member.html:14
+msgid "Username is required."
+msgstr "የተጠቃሚ ስም ያስፈልጋል"
+
+#: stories/view-story-dialog.html:4
+msgid "View story"
+msgstr "ወሬ አሳይ"
+
+#: admin/add-measurement-type.html:59
+#: measurements/measurements.html:57
+msgid "Win"
+msgstr "አሸነፈ"
+
+#: admin/confirm-member-drop.html:16
+#: admin/confirm-team-drop.html:14
+#: admin/confirm-update-role.html:15
+#: map/edit-church.html:41
+#: map/edit-church.html:46
+#: map/new-church.html:46
+#: preference/user-preference-modal.html:36
+msgid "Yes"
+msgstr "አዎ"
+
+#: controllers/gma-ctrl.js:291
+msgid "You are already assigned to requested ministry"
+msgstr "ለተጠየቀው ሚኒስትሪ አስቀድመው ተመድበዋል"
+
+#: controllers/gma-ctrl.js:413
+msgid "You are not authorised for this"
+msgstr "ለዚህ መብት የለዎትም"
+
+#: error/error.html:3
+msgid "You have been logged out or your session has expired due to inactivity."
+msgstr "እንዲወጡ ተደርገዋል ወይም እንቅስቃሴ ባለመኖሩ ወቅትዎ አብቅቷል "
+
+#: stories/new-story-dialog.html:25
+msgid "You have {{storiesConfig.content_length - story.content.length}} of {{storiesConfig.content_length}} characters remaining"
+msgstr "{{storiesConfig.content_length - story.content.length}} የ {{storiesConfig.content_length}} ቀሪ ፊደላት አለዎት"
+
+#: controllers/map/map-ctrl.js:1420
+msgid "Your browser does not support GeoLocation"
+msgstr "ፍለጋዎ በቦታ ጠቋሚ ተደገፈ አይደለም"
+
+#: controllers/map/map-ctrl.js:1382
+msgid "Your default map view has been set"
+msgstr "የእርስዎ የተለመደው የካርታ እይታ ተዘጋጅቷል "
+
+#: controllers/preference/user-preference-ctrl.js:39
+msgid "Your preferences were saved"
+msgstr "ምርጫዎችዎ ተይዘዋል"
+
+#: stories/edit-story-dialog.html:26
+msgid "characters"
+msgstr "ፊደላት"
+
+#: stories/edit-story-dialog.html:48
+msgid "existing image will be replaced"
+msgstr "አስቀድሞ የነበረው ምስል ይቀየራል"
+
+#: map/edit-church.html:5
+msgid "members"
+msgstr "አባላት"
+
+#: map/new-church.html:26
+msgid "name@email.com"
+msgstr "name@email.com"
+
+#: measurements/lmi.html:12
+#: measurements/lmi.html:28
+#: measurements/lmi.html:53
+#: measurements/lmi.html:89
+msgid "personal"
+msgstr "የግል"
+
+#: measurements/lmi.html:106
+#: measurements/lmi.html:130
+#: measurements/lmi.html:154
+#: measurements/lmi.html:34
+#: measurements/lmi.html:70
+msgid "total"
+msgstr "አጠቃላይ"
+
+#: map/map.html:121
+msgid "{{current.assignment.name}} + tree"
+msgstr "{{current.assignment.name}} + ዛፍ"
+
+#: map/map.html:115
+msgid "{{current.assignment.name}} only"
+msgstr "{{current.assignment.name}} ብቻ"
+
