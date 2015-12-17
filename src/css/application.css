@@ -236,7 +236,7 @@
 	background-color: #419641;
 }
 
-.gmaApplication.stage .navbar {
+.gmaApplication.staging .navbar {
 	background-image: -webkit-linear-gradient(top, #337ab7 0%, #265a88 100%);
 	background-image: -o-linear-gradient(top, #337ab7 0%, #265a88 100%);
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#337ab7), to(#265a88));
@@ -247,22 +247,22 @@
 	border-color: #245580;
 }
 
-.gmaApplication.stage .navbar .navbar-nav > .open > a {
+.gmaApplication.staging .navbar .navbar-nav > .open > a {
 	background-image: none;
 	background-color: #265a88;
 }
 
 .gmaApplication.development .navbar-brand,
 .gmaApplication.development .navbar-nav > li > a,
-.gmaApplication.stage .navbar-brand,
-.gmaApplication.stage .navbar-nav > li > a {
+.gmaApplication.staging .navbar-brand,
+.gmaApplication.staging .navbar-nav > li > a {
 	color: #ddd;
 }
 
 .gmaApplication.development .navbar-brand:hover,
 .gmaApplication.development .navbar-nav > li > a:hover,
-.gmaApplication.stage .navbar-brand:hover,
-.gmaApplication.stage .navbar-nav > li > a:hover {
+.gmaApplication.staging .navbar-brand:hover,
+.gmaApplication.staging .navbar-nav > li > a:hover {
 	color: white;
 }
 
