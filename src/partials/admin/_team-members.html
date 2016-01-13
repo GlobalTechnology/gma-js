@@ -24,7 +24,7 @@
 	 <section class="row" id="team-member-pane">
 		 <aside class="col-md-3 pull-left teams-list">
 			 <script type="text/ng-template" id="teams-tree.html">
-					 <li ng-repeat="team in teams" role="treeitem" ng-hide="team.hide_after_drop===true">
+					 <li ng-repeat="team in teams | orderBy:'name'" role="treeitem" ng-hide="team.hide_after_drop===true">
 						 <span 	 class="outer"
 								 ng-init="teamCollapsed = true"
 								 ng-class="{'active' : (activeTeam.ministry_id === team.ministry_id)}"
