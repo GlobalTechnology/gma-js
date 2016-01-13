@@ -147,7 +147,7 @@
                 mccs: $scope.ministry.mccs,
                 content_locales: $scope.ministry.content_locales,
                 private: $scope.ministry.private,
-                hide_reports_tab: $scope.ministry.hide_reports_tab,
+                hide_reports_tab: $scope.ministry.hide_reports_tab || true,
                 default_mcc: $scope.ministry.default_mcc,
                 lmi_hide: _.pluck(_.where($scope.measurementTypes, {
                     is_custom: false,
