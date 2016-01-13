@@ -2,19 +2,22 @@
 
 <div id="side" class="map_side" ng-show="current.isLoaded">
 
-	<button title="{{'Create new target point' | translate}}" type="button" class="btn btn-default btn-sm" ng-click="onAddIcon()" ng-if="current.mcc == 'gcm'">
-		<i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/target.png')}}" height="25" alt="" />
+	<button title="{{'Create a new map point' | translate}}" type="button" class="btn btn-default btn-xs" ng-click="onAddIcon()" ng-if="current.mcc == 'gcm'">
+		<img ng-src="{{versionUrl('img/icon/target.png')}}" height="25" alt="" />
+        <img ng-src="{{versionUrl('img/icon/group.png')}}" height="25" alt="" />
+        <img ng-src="{{versionUrl('img/icon/church.png')}}" height="25" alt="" />
+        <img ng-src="{{versionUrl('img/icon/multiplying.png')}}" height="25" alt="" />
 	</button>
 
-	<button title="{{'Create new training' | translate}}" type="button" class="btn btn-default btn-sm" ng-click="onAddTraining()" ng-if="current.assignment.mccs.length">
-        <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/training.png')}}" height="25" alt="" />
+	<button title="{{'Create new training' | translate}}" type="button" class="btn btn-default btn-xs" ng-click="onAddTraining()" ng-if="current.assignment.mccs.length">
+         <img ng-src="{{versionUrl('img/icon/training.png')}}" height="25" alt="" />
 	</button>
 
-    <button title="{{'Create new target city' | translate}}" type="button" class="btn btn-default btn-sm" ng-click="onAddTargetCity()" ng-if="isTargetCitiesVisible===true">
-        <i class="glyphicon glyphicon-plus"></i> <img ng-src="{{versionUrl('img/icon/target-city.png')}}" height="25" alt="" />
+    <button title="{{'Create new target city' | translate}}" type="button" class="btn btn-default btn-xs" ng-click="onAddTargetCity()" ng-if="isTargetCitiesVisible===true">
+        <img ng-src="{{versionUrl('img/icon/target-city.png')}}" height="25" alt="" />
     </button>
 
-	<button title="{{'My location on map' | translate}}" type="button" class="btn btn-default btn-my-location btn-sm" ng-click="myLocation()" ng-if="supportsGeoLocation">
+	<button title="{{'My location on map' | translate}}" type="button" class="btn btn-default btn-my-location btn-xs" ng-click="myLocation()" ng-if="supportsGeoLocation">
 		<span class="glyphicon glyphicon-screenshot"></span>
 	</button>
 
