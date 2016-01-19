@@ -98,7 +98,7 @@
 								return (mcc === $scope.current.user_preferences.preferred_mcc);
 							} );
 
-							if ( typeof user_mcc !== 'undefined' && typeof user_mcc !== '' ) {
+							if ( typeof user_mcc !== 'undefined' && user_mcc !== '' ) {
 								$scope.current.mcc = user_mcc;
 
 							} else {
@@ -342,32 +342,31 @@
 
 			var intLocale = locale.replace( '-', '_' );
 
-			var loadLanguage = function ( locale, i ) {
-				var fallback = i != -1 ? locale.substring( 0, i ) : locale;
-				gettextCatalog.loadRemote( 'languages/' + fallback + '.json' )
-					.success( function ( response ) {
-						gettextCatalog.setStrings( intLocale, response[fallback.replace( '-', '_' )] );
+            var loadLanguage = function (locale, i) {
+                var fallback = i != -1 ? locale.substring(0, i) : locale;
+                gettextCatalog.loadRemote('languages/' + fallback + '.json')
+                    .then(function (response) {
+                        gettextCatalog.setStrings(intLocale, response.data[fallback.replace('-', '_')]);
 
-						if ( i != -1 ) {
-							loadLanguage( locale, locale.indexOf( '-', i + 1 ) );
-						} else {
-							//set css class to show language flag on top
-							$scope.langFlagClass = 'flag-' + locale.split( '-' )[1].toLowerCase();
-							//set current language, match with json file object name
-							gettextCatalog.setCurrentLanguage( intLocale );
-						}
-					} )
-					.error( function ( e ) {
-						if ( i != -1 ) {
-							loadLanguage( locale, locale.indexOf( '-', i + 1 ) );
-						} else {
-							//set css class to show language flag on top
-							$scope.langFlagClass = 'flag-' + locale.split( '-' )[1].toLowerCase();
-							//set current language, match with json file object name
-							gettextCatalog.setCurrentLanguage( intLocale );
-						}
-					} );
-			};
+                        if (i != -1) {
+                            loadLanguage(locale, locale.indexOf('-', i + 1));
+                        } else {
+                            //set css class to show language flag on top
+                            $scope.langFlagClass = 'flag-' + locale.split('-')[1].toLowerCase();
+                            //set current language, match with json file object name
+                            gettextCatalog.setCurrentLanguage(intLocale);
+                        }
+                    }, function (e) {
+                        if (i != -1) {
+                            loadLanguage(locale, locale.indexOf('-', i + 1));
+                        } else {
+                            //set css class to show language flag on top
+                            $scope.langFlagClass = 'flag-' + locale.split('-')[1].toLowerCase();
+                            //set current language, match with json file object name
+                            gettextCatalog.setCurrentLanguage(intLocale);
+                        }
+                    });
+            };
 			loadLanguage( locale, locale.indexOf( '-' ) );
 		} );
 
