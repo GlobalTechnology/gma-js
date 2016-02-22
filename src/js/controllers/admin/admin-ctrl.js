@@ -32,7 +32,10 @@
                         //refresh the manage measurement view
                         $scope.measurementTypes = [];
                         $scope.current.loadLanguages();
-                        MeasurementTypes.getMeasurementTypes({ministry_id: ministry_id}).$promise.then(function (data) {
+                        MeasurementTypes.getMeasurementTypes({
+                            ministry_id: ministry_id,
+                            locale : getUserPreferredLangID() || 'en-US'
+                        }).$promise.then(function (data) {
                             angular.forEach(data, function (type) {
                                 if (type.is_custom && _.contains($scope.ministry.lmi_show, type.perm_link_stub)) {
                                     type.visible = true;
@@ -50,6 +53,18 @@
                 $scope.current.redirectToHomeTab();
             }
         });
+
+        function getUserPreferredLangID() {
+            if ($scope.current.user_preferences.content_locales) {
+                return $scope.current.user_preferences.content_locales[$scope.current.assignment.ministry_id] || 'en-US'
+            } else {
+                return undefined;
+            }
+        }
+
+        $scope.localizeCol = function (str) {
+            return gettextCatalog.getString(str.charAt(0).toUpperCase() + str.slice(1));
+        };
 
         //function initializes sub-tabs of admin section
         $scope.initSubTabs = function () {
@@ -211,7 +226,7 @@
                     $scope.isLocaleLoaded = true;
                     $scope.contentLocales = modalData.contentLocales;
                     $scope.original = modalData.measurement;
-                    $scope.measurement.locale = modalData.supportedLanguages[0];
+                    $scope.measurement.locale = getUserPreferredLangID() || modalData.supportedLanguages[0];
 
                     $scope.close = function () {
                         $modalInstance.dismiss('cancel');
