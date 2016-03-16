@@ -6,16 +6,25 @@
 			<div class="clearfix"></div>
 		</div>
 		<div class="panel-body">
-			<table class="table table-striped table-hover table-condensed">
+			<table class="table table-striped table-hover table-condensed" ng-init="sort={};sort.type='localized_name';sort.rev=false">
 					<thead>
 					<tr class="active">
-						<th translate>Name</th>
-                        <th translate>Column</th>
-                        <th translate>Section</th>
+						<th class="sortable" ng-click="sort.type='localized_name'; sort.rev=!sort.rev">
+                            <span translate>Name</span>
+                            <span ng-show="sort.type == 'localized_name'" class="glyphicon" ng-class="{'glyphicon-chevron-down':!sort.rev,'glyphicon-chevron-up':sort.rev}"></span>
+                        </th>
+                        <th class="sortable" ng-click="sort.type='column'; sort.rev=!sort.rev">
+                            <span translate>Column</span>
+                            <span ng-show="sort.type == 'column'" class="glyphicon" ng-class="{'glyphicon-chevron-down':!sort.rev,'glyphicon-chevron-up':sort.rev}"></span>
+                        </th>
+                        <th class="sortable" ng-click="sort.type='section'; sort.rev=!sort.rev">
+                            <span translate>Section</span>
+                            <span ng-show="sort.type == 'section'" class="glyphicon" ng-class="{'glyphicon-chevron-down':!sort.rev,'glyphicon-chevron-up':sort.rev}"></span>
+                        </th>
 						<th class="text-center" style="width: 25%" translate>Actions</th>
 					</tr>
 					</thead>
-					<tr ng-repeat="type in measurementTypes">
+					<tr ng-repeat="type in measurementTypes | orderBy:sort.type:sort.rev">
 					<td class="no-overflow">{{type.localize_name||type.localized_name}}</td>
 					<td class="text-capitalize">{{localizeCol(type.column)}}</td>
 					<td class="text-capitalize">{{localizeCol(type.section)}}</td>
