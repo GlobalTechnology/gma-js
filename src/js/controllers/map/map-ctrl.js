@@ -372,6 +372,9 @@
             Churches.getChurches(params).$promise.then($scope.onGetChurches);
         }, 500);
 
+        $scope.$watch('current.period', function () {
+            $scope.loadChurches();
+        });
 
         $scope.$watch('iconFilters.parent_lines', function () {
             if (typeof $scope.map !== 'undefined') {
