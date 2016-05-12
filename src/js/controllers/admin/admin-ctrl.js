@@ -502,7 +502,7 @@
                         growl.success(gettextCatalog.getString('Sub ministry was created successfully'));
 
                         var got_ministry = {
-                            ministry_id: response.id,
+                            ministry_id: response.ministry_id,
                             name: response.name,
                             min_code: response.min_code,
                             parent_id: response.parent_id
