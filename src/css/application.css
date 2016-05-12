@@ -556,3 +556,8 @@ td.no-overflow:hover{
     margin-right: 4px;
 
 }
+
+/** **/
+th.sortable {
+    cursor: pointer;
+}

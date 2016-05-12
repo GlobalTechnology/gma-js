@@ -24,7 +24,7 @@
 	 <section class="row" id="team-member-pane">
 		 <aside class="col-md-3 pull-left teams-list">
 			 <script type="text/ng-template" id="teams-tree.html">
-					 <li ng-repeat="team in teams" role="treeitem" ng-hide="team.hide_after_drop===true">
+					 <li ng-repeat="team in teams | orderBy:'name'" role="treeitem" ng-hide="team.hide_after_drop===true">
 						 <span 	 class="outer"
 								 ng-init="teamCollapsed = true"
 								 ng-class="{'active' : (activeTeam.ministry_id === team.ministry_id)}"
@@ -57,18 +57,32 @@
 
 			 <div ng-include="'partials/spinner.html'" ng-hide="membersLoaded"></div>
 
-			 <table class="table table-striped table-hover members-table" ng-hide="!membersLoaded">
+			 <table class="table table-striped table-hover members-table" ng-hide="!membersLoaded" ng-init="sort={};sort.type='first_name';sort.rev=false">
 				 <thead>
-				 <tr><th translate>First Name</th><th translate>Last Name</th><th translate>Email</th><th translate>Actions</th></tr>
+                    <tr>
+                     <th class="sortable" ng-click="sort.type='first_name'; sort.rev=!sort.rev">
+                         <span translate>First Name</span>
+                        <span ng-show="sort.type == 'first_name'" class="glyphicon" ng-class="{'glyphicon-chevron-down':!sort.rev,'glyphicon-chevron-up':sort.rev}"></span>
+                     </th>
+                     <th class="sortable" ng-click="sort.type='last_name'; sort.rev=!sort.rev">
+                         <span translate>Last Name</span>
+                         <span ng-show="sort.type == 'last_name'" class="glyphicon" ng-class="{'glyphicon-chevron-down':!sort.rev,'glyphicon-chevron-up':sort.rev}"></span>
+                     </th>
+                     <th class="sortable" ng-click="sort.type='key_username'; sort.rev=!sort.rev">
+                         <span translate>Email</span>
+                         <span ng-show="sort.type == 'key_username'" class="glyphicon" ng-class="{'glyphicon-chevron-down':!sort.rev,'glyphicon-chevron-up':sort.rev}"></span>
+                     </th>
+                     <th translate>Actions</th>
+                    </tr>
 				 </thead>
 				 <tbody>
                  <tr class="active">
                      <td>{{current.user.first_name}}</td>
                      <td>{{current.user.last_name}}</td>
-                     <td>{{current.user.cas_username}}</td>
+                     <td>{{current.user.cas_username}} (You)</td>
                      <td>{{getCurrentUserRole(activeTeam.team_role)}}</td>
                  </tr>
-				 <tr ng-repeat="member in activeTeamMembers | orderBy:['first_name', 'last_name'] | filter:filter.checkAdmin | filter : filter.checkLeader | filter:filter.checkDeleted |filter:filter.checkFormer | filter : filter.memberSearch"
+				 <tr ng-repeat="member in activeTeamMembers | orderBy:sort.type:sort.rev | filter:filter.checkAdmin | filter : filter.checkLeader | filter:filter.checkDeleted |filter:filter.checkFormer | filter : filter.memberSearch"
 					 ng-if="current.user.person_id !== member.person_id"
 					 ng-class="{'danger':(member.team_role==='blocked')}"
 

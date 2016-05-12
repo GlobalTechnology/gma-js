@@ -1,5 +1,5 @@
 <!-- Ministry/Team Dropdown elements -->
 <a href="javascript:void(0)" ng-click="current.assignment = a" class="dropdown-toggle" data-toggle="dropdown">{{a.name}}</a>
 <ul class="dropdown-menu" ng-if="a.sub_ministries.length">
-	<li ng-repeat="a in a.sub_ministries" ng-include="'partials/ministry-item.html'" ng-class="{'dropdown-submenu' : (a.sub_ministries.length)}"></li>
+	<li ng-repeat="a in a.sub_ministries | orderBy:'name'" ng-include="'partials/ministry-item.html'" ng-class="{'dropdown-submenu' : (a.sub_ministries.length)}"></li>
 </ul>
