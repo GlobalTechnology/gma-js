@@ -47,7 +47,7 @@
 
             //global configs for angular-growl
             growlProvider.globalPosition('top-right');
-            growlProvider.globalTimeToLive({success: 5000, error: 10000, warning: 10000, info: 5000});
+            growlProvider.globalTimeToLive({success: 15000, error: 15000, warning: 15000, info: 15000});
             growlProvider.globalDisableCountDown(true);
 
             // Setup application routes
