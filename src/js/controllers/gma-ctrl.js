@@ -1,7 +1,7 @@
 ﻿(function ( angular ) {
 	'use strict';
 
-	function GMACtrl( $scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics, UserPreference, growl, Languages, gettextCatalog, gettext ) {
+	function GMACtrl( $scope, $filter, $location, $modal, Session, Ministries, Assignments, Settings, $log, GoogleAnalytics, UserPreference, growl, Languages, gettextCatalog, gettext, SessionStorage ) {
 		// Attach $location provider to scope, this is used to set active tabs
 		$scope.$location = $location;
 		$scope.mobileApps = Settings.mobileApps;
@@ -133,6 +133,8 @@
 					delete $scope.current.mcc;
 				}
 			}
+			//clear session storage
+			SessionStorage.remove('map');
 		} );
 
 		/**
@@ -224,6 +226,7 @@
 
 		$scope.logout = function () {
 			Session.logout().then( function () {
+				SessionStorage.clearAll();
 				window.location = Settings.api.logout;
 			} );
 		};

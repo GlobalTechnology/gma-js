@@ -1,7 +1,7 @@
 ﻿(function ($) {
     'use strict';
 
-    function MapCtrl($scope, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics, UserPreference, $modal, growl, ISOCountries, TargetCity, Stories, gettextCatalog) {
+    function MapCtrl($scope, $compile, Trainings, Churches, Ministries, Settings, GoogleAnalytics, UserPreference, $modal, growl, ISOCountries, TargetCity, Stories, gettextCatalog, SessionStorage) {
         $scope.current.isLoaded = false;
         $scope.versionUrl = Settings.versionUrl;
         $scope.area_codes = _.sortBy(Settings.area_codes, 'name');
@@ -102,6 +102,17 @@
                 else {
                     $scope.loadChurches();
                 }
+                //save map center to session storage
+                var location = $scope.map.getCenter();
+                //dont store initial cords
+                if (location.lat() != 0 && location.lng() != 0) {
+                    SessionStorage.set('map', {
+                        lat: location.lat(),
+                        lng: location.lng(),
+                        zoom: $scope.map.getZoom()
+                    })
+                }
+
             });
             $scope.map.markers = [];
             $scope.church = {name: ""};
@@ -251,7 +262,13 @@
                         }
 
                     }
-
+                    //check if session storage
+                    var storage = SessionStorage.get('map');
+                    if (typeof storage === 'object' && storage != null) {
+                        longitude = parseFloat(storage.lng);
+                        latitude = parseFloat(storage.lat);
+                        zoom = parseInt(storage.zoom);
+                    }
                     //lastly set map view
                     if (typeof latitude !== 'undefined' && typeof longitude !== 'undefined' && typeof zoom !== 'undefined') {
                         $scope.map.setCenter(new google.maps.LatLng(latitude, longitude));
