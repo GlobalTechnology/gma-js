@@ -131,7 +131,7 @@
             });
 
             if (measurements.length > 0) {
-                Measurements.saveMeasurement({}, measurements, function (response) {
+                $scope.saveMeasurementsResource = Measurements.saveMeasurement({}, measurements, function (response) {
                     growl.success(gettextCatalog.getString('Measurements saved successfully'));
                     getMeasurements();
                     $scope.lmiForm.$setPristine();

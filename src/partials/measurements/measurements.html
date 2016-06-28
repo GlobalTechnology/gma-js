@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-sm-3 pull-right">
                             <button type="button" class="btn btn-primary pull-right btn-sm"
-                                    ng-disabled="!(lmiForm.$valid && lmiForm.$dirty)" ng-click="saveMeasurements()">
+                                    ng-disabled="!(lmiForm.$valid && lmiForm.$dirty) || (saveMeasurementsResource && !saveMeasurementsResource.$resolved)" ng-click="saveMeasurements()">
                                 <i class="glyphicon glyphicon-floppy-disk"></i> <span translate>Save Changes</span>
                             </button>
                         </div>
