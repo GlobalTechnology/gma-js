@@ -5,7 +5,7 @@
 	white-space: nowrap;
 }
 
-.vertical-text {
+.vertical {
 	transform: rotate(-90deg);
 	padding: 5px;
 	text-align: center;
@@ -49,6 +49,7 @@ div.lmi-input-value {
 	/*border-collapse: separate;*/
 	/*border-spacing: 10px;*/
 	margin-top: -40px;
+	width: 100%;
 }
 
 /*
@@ -85,28 +86,27 @@ div.lmi-input-value {
 	padding: 5px;
 }
 
-.lmi_table tr td {
-	padding: 15px 2px;
-}
-
-.lmi_table td span.glyphicon-chevron-right {
-	margin: 0 15px;
-}
-
 .lmi-item {
 	width: 100%;
 	margin-bottom: 8px;
 	color: #555;
 	border-spacing: 0;
 	display: table;
+	word-wrap: break-word;
+	word-break: break-all;
+
 }
 
 .lmi-item-name {
+	width: 100%;
 	padding: 3px 10px;
 	background-color: #777;
 	color: #eee;
 	font-size: 1.1em;
 	text-shadow: 0px -1px 0px #303030;
+	word-wrap: break-word;
+	word-break: break-all;
+
 }
 
 .self_assigned .lmi-item-name {
@@ -122,10 +122,7 @@ div.lmi-input-value {
 .leader .lmi-item-name,
 .inherited_leader .lmi-item-name {
 	background-color: #777;
-	border-radius: 4px 4px 0 4px;
-
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	border-radius: 4px 4px 0 0;
 	overflow: hidden;
 }
 
@@ -198,9 +195,19 @@ div.lmi-input-value {
 }
 
 .lmi-item-section {
-	padding-right: 0;
+	padding-right: 5px;
+	padding-left: 5px;
 }
 
-.lmi-item-section:first-of-type {
-	padding-left: 20px;
+/*.lmi-item-section:first-of-type {*/
+	/*padding-left: 20px;*/
+/*}*/
+
+.vertical-center {
+	display: flex;
+	align-items: center;
+}
+
+.font-2x {
+	font-size: 2em;
 }
