@@ -206,9 +206,11 @@
             $scope.map.search = document.getElementById('map_controls');
             $scope.map.search.index = 3;
             $scope.map.search.style.display = 'block';
+            $scope.map.latitudeInput =document.getElementById('coordinate_control');
 
             $scope.map.controls[google.maps.ControlPosition.TOP_RIGHT].push($scope.map.side);
             $scope.map.controls[google.maps.ControlPosition.TOP_LEFT].push($scope.map.search);
+            $scope.map.controls[google.maps.ControlPosition.TOP_LEFT].push($scope.map.latitudeInput);
             //search box control
             $scope.autocomplete = new google.maps.places.Autocomplete(document.getElementById('searchBox'));
             $scope.autocomplete.bindTo('bounds', $scope.map);
@@ -1591,6 +1593,32 @@
                 return false;
             }
             return $scope.current.hasRole(['admin', 'inherited_admin', 'leader', 'inherited_leader', 'member']);
+        }
+
+        $scope.location;
+
+        /**
+         * function to set mat to GPS coordinates
+         */
+        $scope.setMapLocation = function(){
+            var position=$scope.location.split(',');
+            var lat=parseFloat(position[0]);
+            var lng=parseFloat(position[1]);
+            //handle case where form submitted with data from google map auto complete
+            if(isNaN(lat)||isNaN(lng)){
+                return;
+            }
+            if(-90 < lat && lat<90){
+                if(-180 < lng && lng < 180){
+                    var position=new google.maps.LatLng(lat,lng);
+                    $scope.map.setCenter(position);
+                    $scope.map.setZoom(8);
+                    return ;
+                }
+
+            }
+            growl.error(gettextCatalog.getString('Invalid Latitude and Longitude'))
+
         }
     }
 

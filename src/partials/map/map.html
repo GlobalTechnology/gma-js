@@ -136,8 +136,12 @@
 <div id="map_controls" class="map-controls" ng-show="current.isLoaded" ng-init="mapExpended=false" ng-class="(mapExpended==true)?'map-search-expand':'map-search-collapse'">
 	<div class="pull-left map-search">
 		<div class="input-group">
-			<input id="searchBox" type="text" class="form-control" placeholder="{{'Search'|translate}}..." ng-blur="mapExpended=!mapExpended">
+			<form ng-submit="setMapLocation()">
+			<input id="searchBox" type="text" class="form-control" placeholder="{{'Search'|translate}}..." ng-blur="mapExpended=!mapExpended" autocomplete="off" ng-model="location">
+			</form>
 			<span title="{{'Click to expand/collapse search' | translate}}" ng-click="mapExpended=!mapExpended" class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+			</form>
+
 		</div>
 	</div>
 </div>

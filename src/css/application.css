@@ -274,7 +274,7 @@
 .map-search-collapse div.map-search{
 	width: 0;
 }
-.map-search-collapse input[type='text']{
+.map-search-collapse form input[type='text']{
 	width: 0!important;
 	border: none;
 	padding: 0;
